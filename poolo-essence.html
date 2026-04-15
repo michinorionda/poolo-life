@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>POOLO LIFE — 核の1枚</title>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#1a1a1a; --sub:#4a4a4a; --mute:#7a7a7a; --hint:#a8a8a8;
+  --bg:#faf9f6; --bg-deep:#f3f1ea; --line:#e0ddd3;
+  --green:#2D6A4F; --green-lt:#F4FAF6; --green-bg:#E9F5EE;
+  --warm:#C08457; --warm-bg:#F7EDE2;
+  --deep:#1F3A3D; --deep-bg:#DCE6E7;
+  --star:#B8860B; --star-bg:#F9F0D9;
+  --serif:'Shippori Mincho',serif; --sans:'Noto Sans JP',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--bg);color:var(--ink);line-height:2;font-weight:300;-webkit-font-smoothing:antialiased}
+.wrap{max-width:880px;margin:0 auto;padding:0 1.5rem}
+.wrap-narrow{max-width:680px;margin:0 auto;padding:0 1.5rem}
+
+/* Header */
+.header{padding:6rem 0 4.5rem;background:linear-gradient(135deg,var(--bg-deep) 0%,var(--bg) 60%);border-bottom:1px solid var(--line);text-align:center}
+.mark{display:inline-block;font-size:0.6rem;letter-spacing:0.4em;color:var(--green);margin-bottom:2rem;font-weight:500;padding:0.35rem 1.1rem;border:1px solid var(--green);background:#fff}
+.core-copy{font-family:var(--serif);font-size:2rem;font-weight:500;letter-spacing:0.08em;line-height:1.75;margin-bottom:2rem;color:var(--ink)}
+.core-copy b{font-weight:600}
+.sub-copy{font-family:var(--serif);font-size:0.95rem;color:var(--sub);letter-spacing:0.1em}
+
+/* 4行の本文 */
+.essence{padding:6rem 0 5rem;background:#fff}
+.essence-block{max-width:680px;margin:0 auto;padding:0 2rem}
+.line{position:relative;padding:2rem 0;border-bottom:1px solid var(--line);display:flex;gap:2rem;align-items:baseline}
+.line:last-child{border-bottom:none}
+.line-num{font-family:var(--serif);font-size:1.3rem;color:var(--green);font-weight:500;min-width:2.5rem;letter-spacing:0.1em}
+.line-text{font-family:var(--serif);font-size:1.2rem;font-weight:400;line-height:2.1;color:var(--ink);letter-spacing:0.05em}
+.line-text b{font-weight:600;color:var(--green)}
+.line-text .warm-b{color:var(--warm);font-weight:600}
+.line-text .deep-b{color:var(--deep);font-weight:600}
+
+/* Section common */
+section{padding:5.5rem 0}
+.sec-label{font-size:0.6rem;letter-spacing:0.4em;margin-bottom:1rem;font-weight:500;text-align:center}
+.sec-head{font-family:var(--serif);font-size:1.4rem;font-weight:500;letter-spacing:0.08em;margin-bottom:3rem;text-align:center;line-height:1.7}
+.sec-head b{font-weight:600}
+
+/* Part 1 : 動き始める */
+.part-start{background:var(--bg-deep)}
+.part-start .sec-label{color:var(--green)}
+.start-diagram{max-width:520px;margin:0 auto;text-align:center}
+.start-step{padding:1.3rem 1.5rem;background:#fff;border:1px solid var(--line);margin-bottom:0.8rem;font-family:var(--serif);font-size:1rem;letter-spacing:0.04em}
+.start-step b{color:var(--green);font-weight:600}
+.start-arrow{color:var(--green);font-size:1.2rem;margin:0.3rem 0}
+
+/* Part 2 : ループ図 */
+.part-loop{background:#fff}
+.part-loop .sec-label{color:var(--warm)}
+.loop-canvas{max-width:560px;margin:2rem auto 0;position:relative}
+.loop-center{text-align:center;padding:2rem 2rem;background:var(--warm-bg);border:1px dashed var(--warm);border-radius:3px;margin:0 auto 0;max-width:320px}
+.loop-center .label{font-size:0.6rem;letter-spacing:0.3em;color:var(--warm);margin-bottom:0.5rem;font-weight:500}
+.loop-center .name{font-family:var(--serif);font-size:1.1rem;color:var(--ink);font-weight:600;letter-spacing:0.05em;margin-bottom:0.4rem}
+.loop-center .desc{font-size:0.82rem;color:var(--sub)}
+.loop-updown{text-align:center;margin:0.6rem auto;color:var(--warm);font-size:1.4rem;letter-spacing:0.1em}
+.loop-practice{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0.8rem;max-width:560px;margin:0 auto}
+.practice-item{background:var(--green-bg);border:1px solid var(--green);padding:1rem 0.9rem;text-align:center;border-radius:3px}
+.practice-item .p-label{font-size:0.6rem;letter-spacing:0.25em;color:var(--green);margin-bottom:0.4rem;font-weight:500}
+.practice-item .p-name{font-family:var(--serif);font-size:1rem;color:var(--ink);font-weight:600;margin-bottom:0.3rem}
+.practice-item .p-desc{font-size:0.76rem;color:var(--sub);line-height:1.6}
+.loop-caption{text-align:center;margin-top:2.2rem;font-size:0.88rem;color:var(--sub);font-family:var(--serif);line-height:2}
+.loop-caption b{color:var(--warm);font-weight:600}
+
+/* Part 3 : 螺旋 */
+.part-spiral{background:var(--deep-bg)}
+.part-spiral .sec-label{color:var(--deep)}
+.spiral-wrap{display:flex;align-items:center;gap:3rem;max-width:780px;margin:0 auto;flex-wrap:wrap;justify-content:center}
+.spiral-svg{flex:0 0 260px}
+.spiral-text{flex:1;min-width:260px}
+.spiral-text p{font-family:var(--serif);font-size:1rem;line-height:2;color:var(--ink);letter-spacing:0.04em;margin-bottom:1.2rem}
+.spiral-text b{color:var(--deep);font-weight:600}
+.spiral-scale{margin-top:1.5rem;padding-top:1.2rem;border-top:1px dashed var(--line);font-size:0.82rem;color:var(--sub);letter-spacing:0.04em}
+
+/* Part 4 : 到達点 */
+.part-arrive{background:var(--bg)}
+.part-arrive .sec-label{color:var(--star)}
+.arrive-box{max-width:580px;margin:0 auto;text-align:center;padding:3rem 2rem;background:var(--star-bg);border-top:2px solid var(--star);border-bottom:2px solid var(--star)}
+.arrive-box p{font-family:var(--serif);font-size:1.15rem;line-height:2.1;color:var(--ink);letter-spacing:0.06em}
+.arrive-box b{color:var(--star);font-weight:600}
+.gh-boxes{display:grid;grid-template-columns:1fr 1fr;gap:1rem;max-width:580px;margin:1.8rem auto 0}
+.gh{padding:1.4rem 1.3rem;background:#fff;border:1px solid var(--line);border-radius:3px;text-align:center}
+.gh .gh-label{font-size:0.6rem;letter-spacing:0.3em;margin-bottom:0.6rem;font-weight:500}
+.gh.g .gh-label{color:var(--green)}
+.gh.h .gh-label{color:var(--warm)}
+.gh .gh-name{font-family:var(--serif);font-size:0.98rem;color:var(--ink);font-weight:600;margin-bottom:0.3rem;letter-spacing:0.04em}
+.gh .gh-desc{font-size:0.8rem;color:var(--sub);line-height:1.7}
+
+/* Theory appendix */
+.theory{background:var(--bg-deep);padding:4rem 0 5rem}
+.theory .sec-head{font-size:1.15rem;margin-bottom:0.8rem}
+.theory-lead{text-align:center;font-size:0.85rem;color:var(--mute);margin-bottom:2.5rem;font-family:var(--serif)}
+.theory-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:0.9rem;max-width:780px;margin:0 auto}
+.theory-card{background:#fff;border:1px solid var(--line);padding:1.2rem 1.2rem;border-radius:3px}
+.theory-card .t-layer{font-size:0.6rem;letter-spacing:0.3em;color:var(--star);margin-bottom:0.5rem;font-weight:500}
+.theory-card .t-name{font-family:var(--serif);font-size:0.92rem;color:var(--ink);font-weight:600;margin-bottom:0.4rem;letter-spacing:0.04em}
+.theory-card .t-desc{font-size:0.78rem;color:var(--sub);line-height:1.75}
+
+/* Footer */
+.footer{background:var(--deep);padding:3.5rem 0;text-align:center;color:#fff}
+.footer-title{font-family:var(--serif);font-size:1.1rem;font-weight:500;letter-spacing:0.1em;margin-bottom:0.8rem}
+.footer-sub{font-size:0.78rem;color:rgba(255,255,255,0.65);letter-spacing:0.08em;margin-bottom:1.5rem}
+.footer a{color:rgba(255,255,255,0.85);text-decoration:none;font-size:0.78rem;letter-spacing:0.1em;border-bottom:1px solid rgba(255,255,255,0.3);padding-bottom:2px}
+.footer a:hover{color:#fff;border-bottom-color:#fff}
+
+@media(max-width:640px){
+  .core-copy{font-size:1.35rem}
+  .line{flex-direction:column;gap:0.5rem}
+  .line-text{font-size:1.02rem}
+  .sec-head{font-size:1.1rem}
+  .loop-practice{grid-template-columns:1fr}
+  .gh-boxes{grid-template-columns:1fr}
+  .spiral-wrap{gap:1.5rem}
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="wrap">
+    <span class="mark">POOLO LIFE — ESSENCE</span>
+    <div class="core-copy">旅と、問いと、共創で、<br><b>想像もしなかった世界と自分に、出会いにいく。</b></div>
+    <div class="sub-copy">2026.04 / 核の1枚</div>
+  </div>
+</header>
+
+<!-- 4行の本文 -->
+<section class="essence">
+  <div class="essence-block">
+    <div class="line">
+      <span class="line-num">01</span>
+      <span class="line-text">POOLOは、<b>自分の中で何かが動き始める場</b>です。</span>
+    </div>
+    <div class="line">
+      <span class="line-num">02</span>
+      <span class="line-text">ぼんやりした<span class="warm-b">「追いかけたいもの（探究テーマ）」</span>が、実践（旅・問い・作る）を通じて育っていく。</span>
+    </div>
+    <div class="line">
+      <span class="line-num">03</span>
+      <span class="line-text">仲間と8ヶ月、何度も回すうちに、<span class="deep-b">一人でも動き続けられる自分</span>になる。</span>
+    </div>
+    <div class="line">
+      <span class="line-num">04</span>
+      <span class="line-text">その結果、<b>想像もしなかった世界と自分に出会い続けていく</b>。</span>
+    </div>
+  </div>
+</section>
+
+<!-- PART 1 : 動き始める -->
+<section class="part-start">
+  <div class="wrap">
+    <div class="sec-label">01 — WHY MOVE</div>
+    <h2 class="sec-head">なぜ「動き始める」のか</h2>
+    <p style="text-align:center;font-size:0.9rem;color:var(--sub);margin-bottom:2.5rem;font-family:var(--serif);line-height:2">人は、理屈や努力では変われない。<br><b style="color:var(--green)">世界に揺さぶられて、身体が先に動き始める</b>ことでしか変われない。</p>
+    <div class="start-diagram">
+      <div class="start-step"><b>旅</b>に出る — 知らない場所に身体で飛び込む</div>
+      <div class="start-arrow">↓</div>
+      <div class="start-step">「はたらく自分」のフィルターが外れる</div>
+      <div class="start-arrow">↓</div>
+      <div class="start-step">自分の中で<b>何か</b>が動き始める</div>
+    </div>
+  </div>
+</section>
+
+<!-- PART 2 : ループ図 -->
+<section class="part-loop">
+  <div class="wrap">
+    <div class="sec-label">02 — THE LOOP</div>
+    <h2 class="sec-head">源泉と実践は、<b>お互いを育て合う</b></h2>
+
+    <div class="loop-canvas">
+      <div class="loop-center">
+        <div class="label">源泉 / INSPIRE</div>
+        <div class="name">追いかけたいもの</div>
+        <div class="desc">自分を内側から突き動かす、問いのようなもの</div>
+      </div>
+      <div class="loop-updown">↓ 押される / 更新される ↑</div>
+      <div class="loop-practice">
+        <div class="practice-item">
+          <div class="p-label">PRACTICE 1</div>
+          <div class="p-name">旅</div>
+          <div class="p-desc">身体で飛び込む</div>
+        </div>
+        <div class="practice-item">
+          <div class="p-label">PRACTICE 2</div>
+          <div class="p-name">問い</div>
+          <div class="p-desc">自分の言葉にする</div>
+        </div>
+        <div class="practice-item">
+          <div class="p-label">PRACTICE 3</div>
+          <div class="p-name">作る</div>
+          <div class="p-desc">差し出してみる</div>
+        </div>
+      </div>
+      <div class="loop-caption">
+        最初の源泉は、ぼんやりでいい。<br>
+        実践を回すうちに、源泉が<b>立ち上がり、育ち、変わっていく</b>。<br>
+        実践は手段ではなく、<b>源泉そのものを更新する営み</b>。
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PART 3 : 螺旋 -->
+<section class="part-spiral">
+  <div class="wrap">
+    <div class="sec-label">03 — THE SPIRAL</div>
+    <h2 class="sec-head">8ヶ月、仲間と<b>何度も回す</b></h2>
+    <div class="spiral-wrap">
+      <div class="spiral-svg">
+        <svg viewBox="0 0 260 260" width="100%" height="auto">
+          <defs>
+            <radialGradient id="spiralGrad" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#1F3A3D" stop-opacity="0.85"/>
+              <stop offset="60%" stop-color="#2D6A4F" stop-opacity="0.7"/>
+              <stop offset="100%" stop-color="#C08457" stop-opacity="0.55"/>
+            </radialGradient>
+          </defs>
+          <circle cx="130" cy="130" r="125" fill="none" stroke="#e0ddd3" stroke-width="1"/>
+          <!-- Spiral path -->
+          <path d="M 130 130
+                   Q 140 125, 145 135
+                   Q 155 155, 135 165
+                   Q 110 170, 105 140
+                   Q 100 100, 140 95
+                   Q 185 95, 185 145
+                   Q 180 195, 125 200
+                   Q 65 195, 65 130
+                   Q 65 60, 140 55
+                   Q 220 55, 225 135
+                   Q 220 220, 130 225
+                   Q 35 220, 35 130"
+                fill="none" stroke="url(#spiralGrad)" stroke-width="2.5" stroke-linecap="round"/>
+          <!-- Center dot (source) -->
+          <circle cx="130" cy="130" r="5" fill="#C08457"/>
+          <text x="130" y="108" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="9" fill="#7a7a7a" letter-spacing="2">START</text>
+          <!-- Outer markers -->
+          <circle cx="35" cy="130" r="4" fill="#2D6A4F"/>
+          <text x="10" y="134" text-anchor="start" font-family="'Shippori Mincho',serif" font-size="8" fill="#4a4a4a">8ヶ月後</text>
+        </svg>
+      </div>
+      <div class="spiral-text">
+        <p>3行為は、バラバラの3点ではなく、<b>螺旋の1周を構成する3局面</b>。</p>
+        <p>1周目の自分が見える景色と、3周目の自分が見える景色は違う。</p>
+        <p><b>3周目の自分は、1周目の自分には想像もできない自分</b>。</p>
+        <div class="spiral-scale">
+          50人 × 8ヶ月 × 多職種の並走。<br>
+          仲間は鏡。一人では届かない自分に、届く。
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PART 4 : 到達点 -->
+<section class="part-arrive">
+  <div class="wrap">
+    <div class="sec-label">04 — ARRIVAL</div>
+    <h2 class="sec-head">たどり着く先は、<b>運動の中</b></h2>
+    <div class="arrive-box">
+      <p>
+        <b>一人でも動き続けられる自分</b>になる。<br><br>
+        その結果、<br>
+        <b>想像もしなかった世界と自分に、出会い続けていく。</b>
+      </p>
+    </div>
+    <div class="gh-boxes">
+      <div class="gh g">
+        <div class="gh-label">G — 内的充足</div>
+        <div class="gh-name">想像もしなかった自分に出会う</div>
+        <div class="gh-desc">自分の中で何かが動き始めている状態</div>
+      </div>
+      <div class="gh h">
+        <div class="gh-label">H — つながり</div>
+        <div class="gh-name">想像もしなかった世界に出会う</div>
+        <div class="gh-desc">他者の切実さと響き合う運動</div>
+      </div>
+    </div>
+    <p style="text-align:center;margin-top:2rem;font-size:0.9rem;color:var(--sub);font-family:var(--serif);line-height:2">
+      <b style="color:var(--star)">F = G × H</b> の掛け算が、止まらない状態。<br>
+      自分を満たしながら、社会とつながり、社会を満たしていく。
+    </p>
+  </div>
+</section>
+
+<!-- THEORY APPENDIX -->
+<section class="theory">
+  <div class="wrap">
+    <div class="sec-label" style="color:var(--star)">APPENDIX — THEORETICAL SPINE</div>
+    <h2 class="sec-head">裏側にある5つの古典理論</h2>
+    <p class="theory-lead">POOLOは、5つの古典理論が交差する場所に立っている</p>
+    <div class="theory-grid">
+      <div class="theory-card">
+        <div class="t-layer">動機層</div>
+        <div class="t-name">Self-Determination Theory</div>
+        <div class="t-desc">Deci & Ryan。自律・有能・関係性の3欲求が満たされると人は内発的に動く</div>
+      </div>
+      <div class="theory-card">
+        <div class="t-layer">認識層</div>
+        <div class="t-name">暗黙知</div>
+        <div class="t-desc">Polanyi。人は語れる以上のことを身体で知っている。変化は言語化の前に身体で起きる</div>
+      </div>
+      <div class="theory-card">
+        <div class="t-layer">運動層</div>
+        <div class="t-name">共鳴理論</div>
+        <div class="t-desc">Rosa。世界に呼びかけられ応答し相互に変容する関係。予測不能性が核</div>
+      </div>
+      <div class="theory-card">
+        <div class="t-layer">共同体層</div>
+        <div class="t-name">Communities of Practice</div>
+        <div class="t-desc">Wenger。テーマ × 仲間 × 実践の三位一体で、熟達とアイデンティティが深化する</div>
+      </div>
+      <div class="theory-card">
+        <div class="t-layer">循環層</div>
+        <div class="t-name">贈与論</div>
+        <div class="t-desc">Mauss。贈与の連鎖が社会関係を立ち上げる。影響の循環の理論的裏づけ</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-title">POOLO LIFE</div>
+    <div class="footer-sub">旅と、問いと、共創で、想像もしなかった世界と自分に、出会いにいく。</div>
+    <a href="index-share.html">← マーケター共有ハブに戻る</a>
+  </div>
+</footer>
+
+</body>
+</html>
