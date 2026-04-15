@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>POOLO LIFE｜マーケター共有ハブ</title>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#1a1a1a; --sub:#4a4a4a; --mute:#7a7a7a;
+  --bg:#faf9f6; --bg-deep:#f3f1ea; --line:#e0ddd3;
+  --green:#2D6A4F; --green-bg:#E9F5EE;
+  --warm:#C08457; --warm-bg:#F7EDE2;
+  --deep:#1F3A3D; --deep-bg:#DCE6E7;
+  --star:#B8860B;
+  --serif:'Shippori Mincho',serif; --sans:'Noto Sans JP',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:var(--sans);background:var(--bg);color:var(--ink);line-height:1.95;font-weight:300;-webkit-font-smoothing:antialiased}
+.wrap{max-width:900px;margin:0 auto;padding:0 1.5rem}
+.header{padding:5.5rem 0 3rem;background:linear-gradient(135deg,var(--bg-deep) 0%,var(--bg) 60%);border-bottom:1px solid var(--line)}
+.mark{display:inline-block;font-size:0.62rem;letter-spacing:0.35em;color:var(--green);margin-bottom:1.3rem;font-weight:500;padding:0.3rem 0.9rem;border:1px solid var(--green);background:#fff}
+.title{font-family:var(--serif);font-size:2rem;font-weight:600;letter-spacing:0.08em;line-height:1.65;margin-bottom:0.9rem}
+.sub{font-family:var(--serif);font-size:0.98rem;color:var(--sub);letter-spacing:0.06em;line-height:1.9}
+.intro{padding:3.5rem 0 2rem}
+.intro p{font-size:0.96rem;color:var(--sub);margin-bottom:1rem}
+.intro p.lead{font-family:var(--serif);font-size:1.05rem;color:var(--ink)}
+.cards{padding:2rem 0 5rem;display:grid;grid-template-columns:1fr;gap:1.2rem}
+.card{display:block;text-decoration:none;color:inherit;background:#fff;border:1px solid var(--line);padding:2rem 2rem;border-radius:3px;transition:all 0.22s;position:relative}
+.card:hover{border-color:var(--green);transform:translateY(-2px);box-shadow:0 6px 24px rgba(45,106,79,0.08)}
+.card-label{font-size:0.6rem;letter-spacing:0.3em;font-weight:500;margin-bottom:0.8rem;display:inline-block;padding:0.25rem 0.65rem;border-radius:2px}
+.card.vision .card-label{color:var(--green);background:var(--green-bg)}
+.card.public .card-label{color:var(--warm);background:var(--warm-bg)}
+.card.curriculum .card-label{color:var(--deep);background:var(--deep-bg)}
+.card-title{font-family:var(--serif);font-size:1.25rem;font-weight:600;letter-spacing:0.06em;margin-bottom:0.7rem;color:var(--ink)}
+.card-desc{font-size:0.88rem;color:var(--sub);line-height:1.85;margin-bottom:1rem}
+.card-meta{font-size:0.72rem;color:var(--mute);letter-spacing:0.08em;padding-top:0.9rem;border-top:1px dashed var(--line)}
+.card-arrow{position:absolute;top:2rem;right:2rem;font-family:var(--serif);font-size:1.4rem;color:var(--mute);transition:all 0.22s}
+.card:hover .card-arrow{color:var(--green);transform:translateX(3px)}
+.note{background:var(--bg-deep);padding:1.3rem 1.5rem;border-left:3px solid var(--star);margin:1.5rem 0;font-size:0.88rem;color:var(--sub);border-radius:3px}
+.note b{color:var(--star)}
+.footer{background:var(--bg-deep);padding:2.5rem 0;border-top:1px solid var(--line);text-align:center;font-size:0.76rem;color:var(--mute);letter-spacing:0.08em}
+.sec-head{font-family:var(--serif);font-size:1.3rem;font-weight:600;letter-spacing:0.06em;margin-bottom:1.5rem;border-left:3px solid var(--green);padding-left:0.9rem}
+@media(max-width:680px){.title{font-size:1.5rem}.card{padding:1.5rem}.card-arrow{display:none}}
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="wrap">
+    <span class="mark">MARKETER SHARE HUB</span>
+    <h1 class="title">POOLO LIFE<br>未来デザイン × カリキュラム</h1>
+    <p class="sub">マーケティングチーム向け共有用ドキュメント集。<br>2026年4月時点の最新版。</p>
+  </div>
+</header>
+
+<section class="intro">
+  <div class="wrap">
+    <p class="lead">このページは、POOLOの世界観・思想・カリキュラム骨格をマーケターと共有するためのハブです。</p>
+    <p>発信の共通源泉（対外版）と、その背景にある内部設計（v5）、そして実際に回す8ヶ月カリキュラムの3点を並べています。LP・広告・SNS・説明会資料の立て付けを考える際の「原器」として参照ください。</p>
+    <div class="note"><b>読む順番の目安：</b>まず「対外版」で伝える言葉を掴み、背景の厚みを「内部設計 v5」で補強、実際の体験設計は「カリキュラム・ダッシュボード」を参照。</div>
+  </div>
+</section>
+
+<section class="wrap">
+  <h2 class="sec-head">共有ドキュメント</h2>
+</section>
+
+<section class="cards wrap">
+  <a href="future-design-public.html" class="card public">
+    <span class="card-label">PUBLIC PHILOSOPHY</span>
+    <h3 class="card-title">わたしたちが信じていること（対外版）</h3>
+    <p class="card-desc">LP・広告・説明会資料すべての共通源泉となる対外発信の原稿ドラフト。オープニング3案、ターゲット、8ヶ月の流れ、4つの姿勢、FAQまで。マーケター向けの一次リソース。</p>
+    <div class="card-meta">作成：copywriter / 2026-04-14</div>
+    <span class="card-arrow">→</span>
+  </a>
+
+  <a href="future-design-internal.html" class="card vision">
+    <span class="card-label">INTERNAL DESIGN v5</span>
+    <h3 class="card-title">POOLOの未来デザイン v5（内部設計書）</h3>
+    <p class="card-desc">コアブランド、ビジョン2層構造、Being×Doing、豊かさの定義（F=G×H）、ターゲット4状態、変容のエンジン、5つの役割、8ヶ月4ステップ、社会運動としてのPOOLO——発信の背景にある思想体系の全貌。</p>
+    <div class="card-meta">2026-04 構成再整理版｜全5部・16セクション</div>
+    <span class="card-arrow">→</span>
+  </a>
+
+  <a href="index.html" class="card curriculum">
+    <span class="card-label">CURRICULUM</span>
+    <h3 class="card-title">POOLO LIFE 8ヶ月カリキュラム・マスターダッシュボード</h3>
+    <p class="card-desc">8ヶ月骨格の最新版。各月テーマ・ワーク粒度・ゲスト候補・FB型・ファシリ手引きまで。M4〜M7の最深部の詳細は別ページで掘り下げ。</p>
+    <div class="card-meta">関連：<a href="m4-m7.html" style="color:var(--deep)">M4-M7詳細</a>／<a href="discussion.html" style="color:var(--deep)">チーム論点（検討中）</a></div>
+    <span class="card-arrow">→</span>
+  </a>
+</section>
+
+<footer class="footer">
+  <div class="wrap">
+    <p>POOLO LIFE｜Marketer Share Hub — 2026.04.15</p>
+  </div>
+</footer>
+
+</body>
+</html>

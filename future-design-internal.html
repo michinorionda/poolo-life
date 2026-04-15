@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>POOLOの未来デザイン v5｜内部共有版</title>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#1a1a1a; --sub:#4a4a4a; --mute:#7a7a7a; --hint:#a8a8a8;
+  --bg:#faf9f6; --bg-deep:#f3f1ea; --line:#e0ddd3;
+  --green:#2D6A4F; --green-lt:#F4FAF6; --green-bg:#E9F5EE;
+  --warm:#C08457; --warm-bg:#F7EDE2;
+  --deep:#1F3A3D; --deep-bg:#DCE6E7;
+  --star:#B8860B;
+  --serif:'Shippori Mincho',serif; --sans:'Noto Sans JP',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--bg);color:var(--ink);line-height:1.95;-webkit-font-smoothing:antialiased;font-weight:300}
+.wrap{max-width:980px;margin:0 auto;padding:0 1.5rem}
+section{padding:4rem 0}
+.sec-label{font-size:0.62rem;letter-spacing:0.35em;color:var(--green);margin-bottom:1rem;font-weight:500}
+.sec-head{font-family:var(--serif);font-size:1.55rem;font-weight:600;letter-spacing:0.06em;margin-bottom:2.2rem;color:var(--ink);border-left:3px solid var(--green);padding-left:0.9rem}
+.sub-head{font-family:var(--serif);font-size:1.15rem;font-weight:600;letter-spacing:0.06em;margin:2rem 0 0.9rem;color:var(--deep)}
+p{font-size:0.95rem;color:var(--sub);margin-bottom:1rem}
+p.lead{font-size:1.02rem;color:var(--ink)}
+.header{background:linear-gradient(135deg,var(--bg-deep) 0%,var(--bg) 100%);padding:5rem 0 3.5rem;border-bottom:1px solid var(--line)}
+.header-mark{display:inline-block;font-size:0.62rem;letter-spacing:0.35em;color:var(--green);margin-bottom:1.5rem;font-weight:500;padding:0.3rem 0.9rem;border:1px solid var(--green);background:#fff}
+.header-title{font-family:var(--serif);font-size:2.1rem;font-weight:600;letter-spacing:0.08em;line-height:1.6;color:var(--ink);margin-bottom:0.8rem}
+.header-sub{font-family:var(--serif);font-size:0.95rem;color:var(--sub);letter-spacing:0.06em}
+.back{display:inline-block;margin-top:1.8rem;font-size:0.78rem;color:var(--green);text-decoration:none;letter-spacing:0.1em;border-bottom:1px solid var(--green);padding-bottom:2px}
+.quote{font-family:var(--serif);font-size:1.25rem;line-height:1.9;color:var(--ink);padding:1.4rem 1.6rem;background:var(--green-bg);border-left:3px solid var(--green);margin:1.5rem 0;letter-spacing:0.04em}
+.callout{background:var(--warm-bg);border-left:3px solid var(--warm);padding:1.1rem 1.3rem;margin:1.2rem 0;font-size:0.92rem}
+.callout b{color:var(--warm);font-weight:600}
+.principle{background:var(--deep-bg);padding:1rem 1.3rem;border-radius:3px;margin:1.2rem 0;font-size:0.92rem;color:var(--deep);font-weight:500}
+ul.list{list-style:none;padding:0;margin:1rem 0}
+ul.list li{padding:0.4rem 0 0.4rem 1.3rem;position:relative;font-size:0.93rem;color:var(--sub)}
+ul.list li::before{content:'—';position:absolute;left:0;color:var(--green)}
+table{width:100%;border-collapse:collapse;margin:1.2rem 0;font-size:0.88rem;background:#fff;border:1px solid var(--line)}
+table th{background:var(--green-lt);color:var(--green);font-weight:600;text-align:left;padding:0.7rem 0.9rem;border-bottom:1px solid var(--line);letter-spacing:0.04em;font-size:0.82rem}
+table td{padding:0.7rem 0.9rem;border-bottom:1px solid var(--line);color:var(--sub);vertical-align:top}
+table td b{color:var(--ink);font-weight:500}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin:1.2rem 0}
+.card{background:#fff;border:1px solid var(--line);padding:1.3rem;border-radius:3px}
+.card h4{font-family:var(--serif);font-size:1rem;color:var(--deep);margin-bottom:0.6rem;letter-spacing:0.04em}
+.card p{font-size:0.88rem;margin-bottom:0}
+.footer{background:var(--bg-deep);padding:3rem 0;border-top:1px solid var(--line);text-align:center;font-size:0.78rem;color:var(--mute);letter-spacing:0.08em}
+.step{display:flex;gap:1rem;margin:0.8rem 0;padding:0.9rem 1rem;background:#fff;border:1px solid var(--line)}
+.step-num{font-family:var(--serif);font-size:1.4rem;color:var(--green);font-weight:600;min-width:2rem}
+.step-body h5{font-family:var(--serif);font-size:0.98rem;color:var(--ink);margin-bottom:0.3rem}
+.step-body p{font-size:0.86rem;margin:0}
+@media(max-width:720px){.two-col{grid-template-columns:1fr}.header-title{font-size:1.55rem}}
+</style>
+</head>
+<body>
+<header class="header">
+  <div class="wrap">
+    <span class="header-mark">INTERNAL DESIGN DOCUMENT v5</span>
+    <h1 class="header-title">POOLOの未来デザイン v5</h1>
+    <p class="header-sub">旅と、問いと、共創で、想像もしなかった世界と自分に、出会いにいく。</p>
+    <a href="index-share.html" class="back">← 共有ハブに戻る</a>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <div class="sec-label">CORE BRAND</div>
+    <h2 class="sec-head">コアブランド定義</h2>
+    <div class="quote">旅と、問いと、共創で、想像もしなかった世界と自分に、出会いにいく。</div>
+    <ul class="list">
+      <li>POOLOは「自分探し」ではなく<b>「自分試し」</b></li>
+      <li>答えは自分の中ではなく、<b>自分と相手の「間」</b>にある</li>
+    </ul>
+    <p>構成：世界観 → 誰に → 設計 → 到達点 → その先 の5部構成</p>
+  </div>
+</section>
+
+<section style="background:var(--bg-deep)">
+  <div class="wrap">
+    <div class="sec-label">PART 1 — WORLDVIEW</div>
+    <h2 class="sec-head">第1部：世界観（何を信じているか）</h2>
+
+    <h3 class="sub-head">§01 ビジョン — 2層構造</h3>
+    <div class="two-col">
+      <div class="card">
+        <h4>Big Vision（掲げる旗）</h4>
+        <p>旅で人生を豊かにする人を増やし、未来を共に創る。POOLOを通った一人ひとりが「影響を与える人材」になる。重要なのは<b>影響の循環が続くこと</b>。</p>
+      </div>
+      <div class="card">
+        <h4>Inspire Vision（動かすエネルギー）</h4>
+        <p>世の中を面白がりながら、地に足をつけて、誰かの役に立っている人を増やしたい。</p>
+      </div>
+    </div>
+    <div class="principle">原則：Inspire が先、Big が後。逆にするとエネルギーが枯れる。ビジョンは掲げるものではなく、振り返ったときに見えるもの。</div>
+
+    <h3 class="sub-head">§02 バリュー — Being × Doing</h3>
+    <p><b>Being（根底の態度）= 共にある</b>：何かを一緒にやっていなくても、卒業後も、すべての土台。</p>
+    <table>
+      <tr><th>#</th><th>名称</th><th>重心</th><th>内容</th></tr>
+      <tr><td>01</td><td><b>共に旅する</b></td><td>序盤</td><td>身体で体験し、仲間と世界へ飛び込む</td></tr>
+      <tr><td>02</td><td><b>共に問う</b></td><td>中盤</td><td>対話と内省、答えの見えない問いを深める</td></tr>
+      <tr><td>03</td><td><b>共に創る</b></td><td>終盤</td><td>知らない誰かに自分の価値を差し出す（WS・イベント）</td></tr>
+    </table>
+    <p style="font-size:0.85rem;color:var(--mute)">※「創る」は序盤から中心行為。重心が移るだけ。</p>
+
+    <h3 class="sub-head">§03 豊かさの定義 — F = G × H</h3>
+    <ul class="list">
+      <li><b>G（内的充足）</b>= 自分が好き・得意と感じることがある</li>
+      <li><b>H（つながり）</b>= それが誰かに届き、反応が返ってくる</li>
+      <li>Gだけ → 自分の世界に閉じる／Hだけ → 自己犠牲／<b>G×H → 持続的豊かさ</b></li>
+    </ul>
+    <div class="callout">Fは固定された到達点ではない。新しい世界＝G更新、新しい人＝H更新。「持続的」とはFを更新し続ける力が内在化すること。</div>
+
+    <h3 class="sub-head">§04 四象限 — 豊かさの地図</h3>
+    <table>
+      <tr><th></th><th>外的期待すり合わせ低</th><th>外的期待すり合わせ高</th></tr>
+      <tr><td><b>内的充足 高</b></td><td>自分の世界（旅好きの多く／ターゲット）</td><td><b>F = G × H ← POOLOの目的地</b></td></tr>
+      <tr><td><b>内的充足 低</b></td><td>停滞</td><td>自己犠牲（外を先にすると落ちる）</td></tr>
+    </table>
+    <div class="principle">原則：内が先、外が後。</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-label">PART 2 — FOR WHOM</div>
+    <h2 class="sec-head">第2部：誰のためか</h2>
+    <h3 class="sub-head">§05 ターゲットの4状態</h3>
+    <div class="quote" style="font-size:1.1rem">エネルギーはある。でも、行き場がない。</div>
+    <table>
+      <tr><th>状態</th><th>声</th><th>本質</th></tr>
+      <tr><td><b>出し切れていない</b></td><td>自分はこんなもんじゃない。全部を出し切って、何者かになりたい。</td><td>未消化のエネルギー</td></tr>
+      <tr><td><b>こなしてしまっている</b></td><td>いつの間にか全部こなせるようになっていた。でも、それが怖い。</td><td>消化しすぎて感覚が鈍った</td></tr>
+      <tr><td><b>追い込まれている</b></td><td>働くに、生きるが追いやられている。わたしは、どう生きたいのか？</td><td>余白を失い立ち止まれない</td></tr>
+      <tr><td><b>成長を追い求めてきた</b></td><td>社会的正解を選び続けてきた。なのに、なぜ満ちないのか？</td><td>達成した先に答えがなかった</td></tr>
+    </table>
+    <div class="callout">4状態は<b>年代で分かれない</b>。25歳でも「成長追求型」、35歳でも「出し切れていない」はある。状態は動的。POOLOはこの4つすべてに応える。</div>
+  </div>
+</section>
+
+<section style="background:var(--bg-deep)">
+  <div class="wrap">
+    <div class="sec-label">PART 3 — HOW</div>
+    <h2 class="sec-head">第3部：どうやって実現するか（POOLOモデル）</h2>
+
+    <h3 class="sub-head">§06 旅が開き、POOLOが変える</h3>
+    <div class="two-col">
+      <div class="card"><h4>旅の役割 ＝ フィルターを外す</h4><p>「はたらく自分」のフィルターが外れ、心が動くことに気づく → <b>Gの種</b>が見える。ただし旅だけでは「楽しかった」で終わる。</p></div>
+      <div class="card"><h4>POOLOの役割 ＝ 引き出し、差し出す実験</h4><p>4動作：さらに引き出す → 言語化する → 差し出す → 反応を受け取る。担当：WHAT × WHO／自然発生：WHY／担当外：HOW。</p></div>
+    </div>
+
+    <h3 class="sub-head">§07 関心探究型 vs 目標逆算型</h3>
+    <table>
+      <tr><th>軸</th><th>目標逆算型</th><th>関心探究型（POOLO）</th></tr>
+      <tr><td>起点</td><td>3年後にどうなりたい？</td><td>今、何に心が動く？</td></tr>
+      <tr><td>プロセス</td><td>ゴール → 逆算 → 計画</td><td>試す → 反応 → また試す</td></tr>
+      <tr><td>到達先</td><td>想定内の自分</td><td><b>想像もしなかった自分</b></td></tr>
+    </table>
+    <div class="principle">POOLOは目標を設定しない。「ありたい姿」は中盤以降に自然発生するもの。</div>
+
+    <h3 class="sub-head">§08 変容のエンジン — 身体と知的冒険の往復</h3>
+    <ul class="list">
+      <li><b>体験する（身体）</b>：旅・越境インタビュー・差し出す実験</li>
+      <li><b>言語化する（知的冒険）</b>：1on1・振り返り。「学習」ではなく手探りの「冒険」</li>
+      <li><b>差し出す（身体）</b>：仮説を知らない人にぶつける → 反応が返る → 1へ戻る</li>
+    </ul>
+    <div class="callout">8ヶ月で何度も回す螺旋。<b>3周目に見える自分は、1周目の自分が想像すらできない自分</b>。原則：身体が先、言葉が後。</div>
+
+    <h3 class="sub-head">§09 5つの役割 — エンジンを回す装置</h3>
+    <table>
+      <tr><th>役割</th><th>エンジン位置</th><th>具体</th></tr>
+      <tr><td><b>鏡</b></td><td>反射（身体）</td><td>あなたはこう見える（仲間・運営のFB）</td></tr>
+      <tr><td><b>反応</b></td><td>反射（身体）</td><td>生の声が返る（ミニ実験・WS）</td></tr>
+      <tr><td><b>問い</b></td><td>言語化（知的冒険）</td><td>何が起きた？（1on1・振り返り）</td></tr>
+      <tr><td><b>出会い</b></td><td>接続（身体）</td><td>予測不能な他者（越境インタビュー）</td></tr>
+      <tr><td><b>伴走</b></td><td>接続（身体）</td><td>8ヶ月の継続（同期30名・1on1）</td></tr>
+    </table>
+    <div class="callout"><b>意図的に不在 = 「導き」</b>（コーチング的な認知介入）。「導き」がないから、体験が主語になる。認知を変えてあげるのではなく、変わる条件を整える。</div>
+
+    <h3 class="sub-head">§10 「想像もしなかった世界と自分」が生まれる2つの場</h3>
+    <div class="two-col">
+      <div class="card"><h4>POOLO内（50人）</h4><p>想像もしなかった<b>「自分」</b>に出会う。IT・看護・営業・教育・デザイン・公務員…多様な50人が鏡になる。</p></div>
+      <div class="card"><h4>POOLOの外（越境）</h4><p>想像もしなかった<b>「世界」</b>に出会う。越境インタビュー・差し出す実験・旅。</p></div>
+    </div>
+    <div class="principle">構造：内で見つけて、外で試す。</div>
+
+    <h3 class="sub-head">§11 8ヶ月の道のり — 4ステップと螺旋</h3>
+    <div class="step"><div class="step-num">1</div><div class="step-body"><h5>見つける（1〜3ヶ月）</h5><p>旅の散布・越境インタビュー・「ついつい」から小さなラベル・3ヶ月目で初回の実験</p></div></div>
+    <div class="step"><div class="step-num">2</div><div class="step-body"><h5>名乗る（3〜4ヶ月）</h5><p>「こう差し出したい」と仮決め。合宿（4ヶ月目頭）で対面。完璧じゃなくていい</p></div></div>
+    <div class="step"><div class="step-num">3</div><div class="step-body"><h5>小さく届ける（4〜6ヶ月）</h5><p>仲間に差し出すミニ実験。安全な場で失敗する。形を変えて繰り返す</p></div></div>
+    <div class="step"><div class="step-num">4</div><div class="step-body"><h5>知らない人に届ける（7〜8ヶ月）</h5><p>WS・イベントで社会と接続。反応 → WHAT確定。G→WHAT + H創出</p></div></div>
+    <p style="font-size:0.87rem;color:var(--mute);margin-top:0.8rem">4ステップはリニアに見えるが、中身は螺旋。各ステップの中で反射→言語化→接続の小さな螺旋が回る。</p>
+
+    <h3 class="sub-head">§12 差し出しの2軸分解 — 形 × 深さ</h3>
+    <p><b>形 3種</b>：コンテンツ型／体験型／対話型</p>
+    <table>
+      <tr><th>Lv</th><th>対象</th><th>具体</th></tr>
+      <tr><td>Lv.1</td><td>自分に向けて</td><td>日記・一人時間の習慣・自己対話</td></tr>
+      <tr><td>Lv.2</td><td>仲間に向けて</td><td>noteで見せる・一緒に作る・聞いてもらう</td></tr>
+      <tr><td>Lv.3</td><td><b>知らない人に届ける ← 全員の必須ライン</b></td><td>ZINE／写真展・一日店／企画・対話の場開き</td></tr>
+      <tr><td>Lv.4</td><td>関係を紡ぐ</td><td>連載・定期の場・顔の見える関係</td></tr>
+    </table>
+    <div class="callout"><b>Lv.3が全員の必修ライン</b>。自己分析では絶対に届かない場所に、初めて手が届く。</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-label">PART 4 — DESTINATION</div>
+    <h2 class="sec-head">第4部：どうなるか（到達点）</h2>
+
+    <h3 class="sub-head">§13 After — 全員に共通する到達点</h3>
+    <div class="quote">受け取る人から、創る人になっていく。</div>
+    <ul class="list">
+      <li>8ヶ月前：「面白いのはどこかにある」と思って探していた</li>
+      <li>今：「面白いのは自分で創っていく」仲間と一緒に、知らない誰かに届ける</li>
+      <li>予想しなかった反応 → 予想しなかった自分が動き始める</li>
+      <li><b>消費する側から、創造する側へ。</b>立ち位置が変わる。POOLO終了後も不可逆</li>
+    </ul>
+
+    <h3 class="sub-head">§14 影響の循環 — AfterがVisionを実現する</h3>
+    <p class="lead">After到達者 → 次の誰かに影響 → その人がまた誰かを動かす</p>
+    <ul class="list">
+      <li>イベントを開く人 → 来場者200人が影響</li>
+      <li>ZINEを作る人 → 読者が自分も書き始める</li>
+      <li>スナックを開く人 → 常連が自分の場を作る</li>
+      <li>地域案件を始める人 → 参加者が地域のファンに</li>
+    </ul>
+    <div class="callout">一人ひとりが完結しない。<b>影響が循環することが「未来を共に創る」の正体。</b></div>
+  </div>
+</section>
+
+<section style="background:var(--bg-deep)">
+  <div class="wrap">
+    <div class="sec-label">PART 5 — BEYOND</div>
+    <h2 class="sec-head">第5部：この先の景色</h2>
+
+    <h3 class="sub-head">§15 社会運動としてのPOOLO — 旅を消費から文化に戻す</h3>
+    <p><b>問題意識：</b>旅は「消費」になってしまった（手軽な代替地・観光地・SNS映え・リゾートバイト）。誰かが作った体験を受け取る → 楽しい → 日常に戻る → 何も残らない → 次の旅を予約。</p>
+    <div class="callout"><b>本来の旅 ＝ 文化</b>：知らない場所に身体で飛び込む → 人と会い → 何かを持ち帰る → 言葉にする → 誰かに差し出す → 自分の中で発酵 → また次の旅へ。旅は受け取るのではなく、自分から何かを差し出す行為だった。</div>
+    <div class="quote" style="font-size:1.1rem">POOLOがやろうとしていること ＝ 旅を消費から文化に戻す</div>
+    <p style="margin-top:1rem">POOLOが育てる文化：<b>個性が集まり、関係の中で価値が巡る。</b></p>
+    <ul class="list">
+      <li>「みんなちがってみんないい」ではなく、<b>一人ひとりが自分の個性を差し出し、結果が偶発的に立ち上がる運動体</b></li>
+      <li>誰かひとりが設計したわけではなく、<b>POOLOそのものという文化が根付く</b></li>
+      <li>文化が根付く場では、関係性の中で価値が巡る（お金だけでなく、スキル・信頼・機会・出会い）</li>
+      <li>これが経済の原点 → <b>文化51% 経済49%</b>（群言堂の考え方）</li>
+    </ul>
+    <div class="principle">この場に必要なのは「差し出す覚悟」。ゆるい場でもなく、厳しい場でもない。<b>全力を出しても安全な場</b>。</div>
+
+    <h3 class="sub-head">§16 想像もしなかった世界に出会いにいく</h3>
+    <div class="two-col">
+      <div class="card"><h4>第1層：旅と自分の延長線上</h4><p>旅そのもののひらき（ふるさと・観光・地域）／生き方（人生・キャリア・仕事）／つながり（コミュニティ・幸せ・グローバル）</p></div>
+      <div class="card"><h4>第2層：想像もしなかった世界への越境</h4><p>社会の仕組み（教育・探究）／経済と表現（マーケ・お金・エンタメ）／つくり・表し（アート・写真・ものづくり）／暮らし（食・農・環境）／社会に届ける（ソーシャル・まちづくり）</p></div>
+    </div>
+    <div class="callout">一人では絶対に出会わなかったテーマに、50人の仲間を通じて出会う。<b>旅がレンズになり、どんなテーマも「自分ごと」になる。</b></div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-label">CONCLUSION</div>
+    <h2 class="sec-head">結語：POOLOの未来デザインが目指すもの</h2>
+    <div class="quote">旅と、問いと、共創で、想像もしなかった世界と自分に、出会いにいく。</div>
+    <ul class="list">
+      <li><b>共にある</b>の態度の上に、共に旅し、共に問い、共に創る</li>
+      <li>一人ひとりが自分の個性を差し出し、その差し出しが関係の中で巡る文化になっていく</li>
+      <li>旅を消費から文化に戻し、世の中を面白がる人を増やす</li>
+      <li><b>飛び込んで、面白がり、共に創る</b>ような人を世の中に増やしていく</li>
+    </ul>
+    <div class="principle" style="text-align:center;font-size:1rem">→ これが「あたらしい旅の学校」の意味の核</div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="wrap">
+    <p>POOLO LIFE｜INTERNAL DESIGN DOCUMENT v5 — 2026.04</p>
+    <p style="margin-top:0.5rem"><a href="index-share.html" style="color:var(--green);text-decoration:none">← マーケター共有ハブに戻る</a></p>
+  </div>
+</footer>
+</body>
+</html>
