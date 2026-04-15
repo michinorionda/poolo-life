@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>POOLO — 引力の干渉（手書きラフ）</title>
+<link href="https://fonts.googleapis.com/css2?family=Yomogi&family=Kaisei+HarunoUmi:wght@400;500;700&family=Zen+Kurenaido&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#f5eedc;
+  --paper-deep:#ecdfbf;
+  --paper-shadow:#d9c89a;
+  --ink:#2a2824;
+  --ink-soft:#4d4740;
+  --pencil:#6d645a;
+  --red:#b34a3d;
+  --blue:#3d587a;
+  --green:#4a6a3a;
+  --amber:#a87628;
+  --serif:'Kaisei HarunoUmi',serif;
+  --hand:'Yomogi',cursive;
+  --memo:'Zen Kurenaido',cursive;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  font-family:var(--hand);
+  background:#e8dcc0;
+  background-image:
+    radial-gradient(ellipse at 20% 10%, rgba(0,0,0,0.06) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 90%, rgba(0,0,0,0.06) 0%, transparent 50%);
+  color:var(--ink);
+  line-height:1.8;
+  min-height:100vh;
+  padding:2.5rem 1rem;
+  -webkit-font-smoothing:antialiased;
+}
+
+.sketchbook{
+  max-width:860px;
+  margin:0 auto;
+  background:var(--paper);
+  background-image:
+    /* paper fibers */
+    radial-gradient(circle at 15% 25%, rgba(109,100,90,0.04) 0%, transparent 1%),
+    radial-gradient(circle at 75% 60%, rgba(109,100,90,0.05) 0%, transparent 1.5%),
+    radial-gradient(circle at 45% 80%, rgba(109,100,90,0.03) 0%, transparent 1%),
+    radial-gradient(circle at 90% 15%, rgba(109,100,90,0.04) 0%, transparent 1.2%),
+    radial-gradient(circle at 25% 70%, rgba(109,100,90,0.04) 0%, transparent 1.3%),
+    /* slight grain */
+    repeating-linear-gradient(23deg, transparent, transparent 3px, rgba(109,100,90,0.015) 3px, rgba(109,100,90,0.015) 4px),
+    /* edge gradient */
+    linear-gradient(135deg, var(--paper) 0%, var(--paper-deep) 100%);
+  padding:3rem 2.2rem 3.5rem;
+  box-shadow:
+    0 2px 3px rgba(0,0,0,0.08),
+    0 12px 30px rgba(0,0,0,0.12),
+    inset 0 0 40px rgba(109,100,90,0.06);
+  border-radius:3px;
+  position:relative;
+}
+.sketchbook::before{
+  /* left margin line like notebook */
+  content:'';
+  position:absolute;
+  top:0;bottom:0;
+  left:3.2rem;
+  width:1px;
+  background:rgba(179,74,61,0.18);
+}
+.sketchbook::after{
+  /* bottom horizontal lines to suggest notebook */
+  content:'';
+  position:absolute;
+  left:0;right:0;
+  bottom:0;
+  height:2px;
+  background:linear-gradient(to right, transparent, rgba(109,100,90,0.15), transparent);
+}
+
+/* Header */
+.sketch-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-end;
+  margin-bottom:1.5rem;
+  padding-bottom:1rem;
+  border-bottom:1px dashed rgba(109,100,90,0.35);
+  padding-left:1.8rem;
+}
+.sketch-mark{
+  font-family:var(--memo);
+  font-size:0.82rem;
+  color:var(--red);
+  letter-spacing:0.1em;
+  transform:rotate(-1.5deg);
+  display:inline-block;
+  border:1.5px solid var(--red);
+  padding:0.2rem 0.7rem;
+  background:rgba(255,255,255,0.3);
+}
+.sketch-meta{
+  font-family:var(--memo);
+  font-size:0.8rem;
+  color:var(--pencil);
+  text-align:right;
+  transform:rotate(0.5deg);
+}
+.sketch-meta b{color:var(--ink);font-weight:500}
+
+/* Title */
+.sketch-title{
+  padding-left:1.8rem;
+  margin-bottom:2.5rem;
+}
+.sketch-title h1{
+  font-family:var(--serif);
+  font-size:1.75rem;
+  font-weight:500;
+  color:var(--ink);
+  letter-spacing:0.05em;
+  line-height:1.6;
+  display:inline-block;
+  position:relative;
+  transform:rotate(-0.3deg);
+}
+.sketch-title h1::after{
+  content:'';
+  position:absolute;
+  left:-3px;right:-6px;
+  bottom:-4px;
+  height:5px;
+  background:rgba(168,118,40,0.25);
+  border-radius:50%;
+  transform:rotate(-0.8deg);
+  z-index:-1;
+}
+.sketch-title .subtitle{
+  font-family:var(--hand);
+  font-size:0.95rem;
+  color:var(--pencil);
+  margin-top:0.6rem;
+  letter-spacing:0.03em;
+  transform:rotate(-0.2deg);
+  display:inline-block;
+}
+
+/* SVG canvas */
+.sketch-canvas{
+  position:relative;
+  margin:1rem 0 2rem;
+  padding-left:1.8rem;
+}
+.sketch-canvas svg{
+  width:100%;
+  height:auto;
+  display:block;
+  filter:drop-shadow(0 1px 0 rgba(109,100,90,0.15));
+}
+
+/* Marginalia notes */
+.margin-notes{
+  padding-left:1.8rem;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:1.5rem 2rem;
+  margin:2rem 0 1.5rem;
+}
+.note{
+  font-family:var(--hand);
+  font-size:0.95rem;
+  color:var(--ink-soft);
+  padding:0.8rem 1rem 0.8rem 1.5rem;
+  position:relative;
+  line-height:2;
+  letter-spacing:0.02em;
+}
+.note::before{
+  content:'';
+  position:absolute;
+  left:0;top:0.7rem;bottom:0.7rem;
+  width:2px;
+  background:var(--pencil);
+  opacity:0.35;
+}
+.note .label{
+  display:inline-block;
+  font-family:var(--memo);
+  font-size:0.72rem;
+  color:var(--red);
+  letter-spacing:0.15em;
+  margin-bottom:0.3rem;
+  transform:rotate(-1deg);
+  border-bottom:1px dashed var(--red);
+  padding:0 0.2rem 2px;
+}
+.note b{
+  color:var(--ink);
+  font-weight:500;
+  background:rgba(168,118,40,0.18);
+  padding:0 0.2rem;
+  border-radius:2px;
+}
+.note .strike{
+  text-decoration:line-through;
+  text-decoration-color:var(--red);
+  text-decoration-thickness:1.5px;
+  color:var(--pencil);
+  opacity:0.75;
+}
+.note .add{
+  color:var(--red);
+  font-weight:500;
+}
+
+/* Bottom tagline */
+.tagline{
+  margin-top:2rem;
+  padding:1.5rem 1.5rem 1.5rem 3rem;
+  border-top:2px double rgba(109,100,90,0.3);
+  border-bottom:1px dashed rgba(109,100,90,0.25);
+  font-family:var(--serif);
+  font-size:1.05rem;
+  color:var(--ink);
+  line-height:2.1;
+  letter-spacing:0.04em;
+  position:relative;
+  transform:rotate(-0.2deg);
+}
+.tagline b{color:var(--amber);font-weight:700}
+.tagline::before{
+  content:'※';
+  position:absolute;
+  left:1rem;top:1.5rem;
+  font-size:1rem;
+  color:var(--red);
+}
+
+/* Doodle mark */
+.doodle{
+  position:absolute;
+  font-family:var(--memo);
+  font-size:0.72rem;
+  color:var(--pencil);
+  letter-spacing:0.05em;
+}
+.doodle.tr{top:2.2rem;right:2.5rem;transform:rotate(4deg);color:var(--blue);opacity:0.75}
+
+/* Footer */
+.footer{
+  max-width:860px;
+  margin:2rem auto 0;
+  text-align:center;
+  font-family:var(--memo);
+  font-size:0.85rem;
+  color:var(--pencil);
+}
+.footer a{
+  color:var(--green);
+  text-decoration:none;
+  border-bottom:1px dashed var(--green);
+  padding-bottom:2px;
+}
+
+@media(max-width:640px){
+  .sketchbook{padding:2rem 1.2rem 2.5rem}
+  .sketchbook::before{left:2rem}
+  .sketch-header,.sketch-title,.sketch-canvas,.margin-notes,.tagline{padding-left:1rem}
+  .margin-notes{grid-template-columns:1fr}
+  .sketch-title h1{font-size:1.35rem}
+}
+</style>
+</head>
+<body>
+
+<div class="sketchbook">
+
+  <!-- doodle marginalia -->
+  <div class="doodle tr">#2 hand-drawn ver.</div>
+
+  <!-- Header -->
+  <div class="sketch-header">
+    <span class="sketch-mark">SKETCH — ROUGH NOTE</span>
+    <div class="sketch-meta">
+      2026.04.15 / <b>壁打ちメモ</b><br>
+      by 参謀長
+    </div>
+  </div>
+
+  <!-- Title -->
+  <div class="sketch-title">
+    <h1>引力の干渉 ── なぜ遠くへ行けるのか</h1>
+    <div class="subtitle">関心探究型 × 50人 → 想像もしなかった場所へ</div>
+  </div>
+
+  <!-- SVG with hand-drawn roughen filter -->
+  <div class="sketch-canvas">
+    <svg viewBox="0 0 740 500" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <!-- rough filter for hand-drawn look -->
+        <filter id="rough" x="-5%" y="-5%" width="110%" height="110%">
+          <feTurbulence type="fractalNoise" baseFrequency="0.028" numOctaves="2" seed="4" result="t"/>
+          <feDisplacementMap in="SourceGraphic" in2="t" scale="1.6"/>
+        </filter>
+        <filter id="rough2" x="-5%" y="-5%" width="110%" height="110%">
+          <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="2" seed="7"/>
+          <feDisplacementMap in="SourceGraphic" scale="2.2"/>
+        </filter>
+        <!-- pencil ink color definitions for reuse -->
+        <marker id="penArrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+          <path d="M0,0 L10,6 L0,12 L3,6 z" fill="#2a2824"/>
+        </marker>
+        <marker id="redArrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+          <path d="M0,0 L8,5 L0,10 L2,5 z" fill="#b34a3d"/>
+        </marker>
+      </defs>
+
+      <!-- paper faint grid (noise barely visible) omitted for cleanliness -->
+
+      <!-- 仲間の引力場（ラフな円、重ね描き） -->
+      <g filter="url(#rough)" opacity="0.8">
+        <circle cx="195" cy="355" r="85" fill="none" stroke="#4a6a3a" stroke-width="1.3" stroke-dasharray="3 4" opacity="0.55"/>
+        <circle cx="195" cy="355" r="60" fill="none" stroke="#4a6a3a" stroke-width="1" opacity="0.35"/>
+
+        <circle cx="310" cy="180" r="85" fill="none" stroke="#a87628" stroke-width="1.3" stroke-dasharray="3 4" opacity="0.55"/>
+        <circle cx="310" cy="180" r="58" fill="none" stroke="#a87628" stroke-width="1" opacity="0.35"/>
+
+        <circle cx="450" cy="310" r="78" fill="none" stroke="#3d587a" stroke-width="1.3" stroke-dasharray="3 4" opacity="0.55"/>
+        <circle cx="450" cy="310" r="52" fill="none" stroke="#3d587a" stroke-width="1" opacity="0.35"/>
+
+        <circle cx="555" cy="150" r="65" fill="none" stroke="#b34a3d" stroke-width="1.3" stroke-dasharray="3 4" opacity="0.55"/>
+        <circle cx="555" cy="150" r="42" fill="none" stroke="#b34a3d" stroke-width="1" opacity="0.35"/>
+
+        <circle cx="145" cy="170" r="55" fill="none" stroke="#a87628" stroke-width="1.2" stroke-dasharray="2 4" opacity="0.45"/>
+
+        <circle cx="395" cy="430" r="55" fill="none" stroke="#4a6a3a" stroke-width="1.2" stroke-dasharray="2 4" opacity="0.45"/>
+      </g>
+
+      <!-- 軌道（手書きラフ・二度描き） -->
+      <g filter="url(#rough)">
+        <!-- main trajectory, doubled for ink-sketch feel -->
+        <path d="M 75 440 Q 140 410, 195 355 Q 225 290, 180 215 Q 155 140, 245 115 Q 330 105, 330 185 Q 335 265, 420 275 Q 495 275, 465 215 Q 445 155, 535 135 Q 615 120, 665 65"
+              fill="none" stroke="#2a2824" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/>
+        <path d="M 77 443 Q 142 412, 198 357 Q 227 293, 183 217 Q 157 142, 247 117 Q 332 107, 332 187 Q 337 267, 422 277 Q 497 277, 467 217 Q 447 157, 537 137 Q 617 122, 666 66"
+              fill="none" stroke="#2a2824" stroke-width="1" stroke-linecap="round" opacity="0.45"/>
+      </g>
+
+      <!-- 破線の直線（一人で届く範囲） -->
+      <g filter="url(#rough2)">
+        <line x1="80" y1="438" x2="295" y2="260" stroke="#6d645a" stroke-width="1.3" stroke-dasharray="6 5" opacity="0.5"/>
+      </g>
+
+      <!-- 仲間の点 -->
+      <g filter="url(#rough2)">
+        <circle cx="195" cy="355" r="6" fill="#4a6a3a"/>
+        <circle cx="310" cy="180" r="6" fill="#a87628"/>
+        <circle cx="450" cy="310" r="6" fill="#3d587a"/>
+        <circle cx="555" cy="150" r="5" fill="#b34a3d"/>
+        <circle cx="145" cy="170" r="5" fill="#a87628"/>
+        <circle cx="395" cy="430" r="5" fill="#4a6a3a"/>
+      </g>
+
+      <!-- 出発点（自分） -->
+      <g filter="url(#rough2)">
+        <circle cx="75" cy="440" r="8" fill="#2a2824"/>
+        <circle cx="75" cy="440" r="16" fill="none" stroke="#2a2824" stroke-width="1.2" stroke-dasharray="2 3"/>
+      </g>
+
+      <!-- 到達点（星） -->
+      <g filter="url(#rough)">
+        <circle cx="665" cy="65" r="10" fill="none" stroke="#a87628" stroke-width="2"/>
+        <circle cx="665" cy="65" r="20" fill="none" stroke="#a87628" stroke-width="1.2" stroke-dasharray="2 3"/>
+        <!-- star rays -->
+        <line x1="665" y1="45" x2="665" y2="35" stroke="#a87628" stroke-width="1.5"/>
+        <line x1="665" y1="85" x2="665" y2="95" stroke="#a87628" stroke-width="1.5"/>
+        <line x1="645" y1="65" x2="635" y2="65" stroke="#a87628" stroke-width="1.5"/>
+        <line x1="685" y1="65" x2="695" y2="65" stroke="#a87628" stroke-width="1.5"/>
+        <line x1="650" y1="50" x2="643" y2="43" stroke="#a87628" stroke-width="1.2"/>
+        <line x1="680" y1="80" x2="687" y2="87" stroke="#a87628" stroke-width="1.2"/>
+        <line x1="680" y1="50" x2="687" y2="43" stroke="#a87628" stroke-width="1.2"/>
+        <line x1="650" y1="80" x2="643" y2="87" stroke="#a87628" stroke-width="1.2"/>
+      </g>
+
+      <!-- Handwritten labels -->
+      <g font-family="'Yomogi', cursive" fill="#2a2824">
+        <!-- 自分 label -->
+        <text x="25" y="475" font-size="16" fill="#2a2824" font-weight="bold">自分</text>
+        <text x="22" y="490" font-size="11" fill="#6d645a">(スタート)</text>
+
+        <!-- 到達点 label -->
+        <text x="525" y="35" font-size="16" fill="#a87628" font-weight="bold">想像もしなかった</text>
+        <text x="540" y="52" font-size="14" fill="#a87628">世界と自分</text>
+
+        <!-- 仲間 labels -->
+        <text x="165" y="385" font-size="12" fill="#4a6a3a">仲間 A</text>
+        <text x="282" y="210" font-size="12" fill="#a87628">仲間 B</text>
+        <text x="425" y="340" font-size="12" fill="#3d587a">仲間 C</text>
+        <text x="528" y="178" font-size="11" fill="#b34a3d">仲間 D</text>
+        <text x="113" y="195" font-size="11" fill="#a87628">仲間 E</text>
+        <text x="365" y="455" font-size="11" fill="#4a6a3a">仲間 F</text>
+
+        <!-- 一人の範囲 -->
+        <text x="130" y="325" font-size="11" fill="#6d645a" transform="rotate(-38 130 325)">一人で届く範囲…</text>
+
+        <!-- arrow annotation -->
+        <text x="240" y="298" font-size="11" fill="#b34a3d" transform="rotate(-12 240 298)">↑ ここで曲げられる</text>
+      </g>
+
+      <!-- Red-pen annotations (訂正・追記) -->
+      <g filter="url(#rough2)">
+        <path d="M 370 265 Q 355 240, 335 230" fill="none" stroke="#b34a3d" stroke-width="1.3" marker-end="url(#redArrow)"/>
+      </g>
+      <g font-family="'Zen Kurenaido', cursive" fill="#b34a3d">
+        <text x="370" y="260" font-size="12">引力場が</text>
+        <text x="370" y="275" font-size="12">干渉する</text>
+      </g>
+
+      <!-- scribble at bottom-right -->
+      <g font-family="'Zen Kurenaido', cursive" fill="#6d645a" opacity="0.8">
+        <text x="620" y="460" font-size="10" transform="rotate(-3 620 460)">= gravity assist</text>
+        <text x="620" y="475" font-size="10" transform="rotate(-3 620 475)">  (スイングバイ)</text>
+      </g>
+    </svg>
+  </div>
+
+  <!-- Marginalia notes -->
+  <div class="margin-notes">
+    <div class="note">
+      <span class="label">MEMO 01</span>
+      <br>
+      一人のエンジンだけでは、<b>想像した範囲</b>までしか行けない。<br>
+      でも、<b>関心探究型</b>の50人が集まると、<br>
+      各人の「追いかけたいもの」に<b>引力</b>が生まれて、<br>
+      自分の軌道が曲げられる。<br>
+      <span style="color:var(--red);font-size:0.85rem">→ 気づいたら、予定にない場所に来ている</span>
+    </div>
+
+    <div class="note">
+      <span class="label">MEMO 02 / 訂正</span>
+      <br>
+      「仲間がいる」じゃ弱い。<br>
+      <span class="strike">ただの仲間</span><span class="add"> 関心探究型の仲間</span> が集まることで、<br>
+      <b>引力場が発生</b>する。<br>
+      目標逆算型の集まりには、これは起きない。<br>
+      <span style="color:var(--pencil);font-size:0.85rem">※ ここがポイント</span>
+    </div>
+
+    <div class="note">
+      <span class="label">MEMO 03 / 物理</span>
+      <br>
+      これ、<b>n体問題</b>と同じ構造。<br>
+      2体（自分＋コーチ）なら軌道は予測可能。<br>
+      <b>3体以上になった瞬間、予測不能</b>になる。<br>
+      <span style="color:var(--red);font-size:0.85rem">→ 50体なら、想像もつかない軌道が生まれる</span>
+    </div>
+
+    <div class="note">
+      <span class="label">MEMO 04 / 出典</span>
+      <br>
+      宇宙探査の<b>スイングバイ</b>（重力アシスト）と同じ。<br>
+      ボイジャーは自力では太陽系を出られない。<br>
+      木星と土星の重力を借りて、<b>外宇宙へ</b>。<br>
+      <span style="color:var(--pencil);font-size:0.85rem">※ POOLOの8ヶ月 = 木星の重力圏を通る旅</span>
+    </div>
+  </div>
+
+  <!-- Bottom tagline -->
+  <div class="tagline">
+    一人のエンジンでは届かない場所まで、<br>
+    <b>仲間の引力を借りて</b>、運ばれていく。<br>
+    これが、POOLOが <b>どこまでも遠くへ</b> 行ける物理。
+  </div>
+
+</div>
+
+<footer class="footer">
+  <a href="gravity-sketch.html">← 前のスケッチ(cosmic ver.)</a> ／ <a href="index-share.html">共有ハブ</a>
+</footer>
+
+</body>
+</html>
