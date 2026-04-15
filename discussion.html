@@ -1,0 +1,1041 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>POOLO LIFE チーム論点（議論用／検討中）</title>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #1a1a1a;
+  --sub: #4a4a4a;
+  --mute: #7a7a7a;
+  --hint: #a8a8a8;
+  --bg: #faf9f6;
+  --bg-deep: #f3f1ea;
+  --paper: #f7f0e4;
+  --paper-deep: #efe4d0;
+  --line: #e0ddd3;
+  --green: #2D6A4F;
+  --green-lt: #F4FAF6;
+  --green-bg: #E9F5EE;
+  --green-line: #95C5A8;
+  --warm: #C08457;
+  --warm-bg: #F7EDE2;
+  --deep: #1F3A3D;
+  --deep-bg: #DCE6E7;
+  --star: #B8860B;
+  --caution: #d9a441;
+  --caution-bg: #fcf3dc;
+  --caution-line: #e9c870;
+  --serif: 'Shippori Mincho', serif;
+  --sans: 'Noto Sans JP', sans-serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--sans);
+  background: var(--bg);
+  color: var(--ink);
+  line-height: 1.9;
+  -webkit-font-smoothing: antialiased;
+  font-weight: 300;
+}
+
+.wrap { max-width: 960px; margin: 0 auto; padding: 0 1.5rem; }
+
+/* ========== Header (議論用アクセント) ========== */
+.header {
+  background: linear-gradient(135deg, var(--paper) 0%, var(--paper-deep) 100%);
+  padding: 3.5rem 0 2.5rem;
+  border-bottom: 2px dashed var(--caution-line);
+  position: relative;
+}
+.header::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 6px;
+  background: repeating-linear-gradient(
+    45deg,
+    var(--caution) 0,
+    var(--caution) 10px,
+    var(--paper-deep) 10px,
+    var(--paper-deep) 20px
+  );
+  opacity: 0.55;
+}
+.header-mark {
+  display: inline-block;
+  font-size: 0.62rem;
+  letter-spacing: 0.35em;
+  color: var(--caution);
+  margin-bottom: 1.2rem;
+  font-weight: 600;
+  padding: 0.3rem 0.7rem;
+  border: 1px dashed var(--caution);
+  background: rgba(255,255,255,0.6);
+}
+.header-title {
+  font-family: var(--serif);
+  font-size: 1.85rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  line-height: 1.7;
+  color: var(--ink);
+  margin-bottom: 0.8rem;
+}
+.header-sub {
+  font-family: var(--serif);
+  font-size: 1rem;
+  color: var(--sub);
+  letter-spacing: 0.06em;
+  margin-bottom: 2rem;
+}
+.header-meta {
+  display: flex;
+  gap: 1.8rem;
+  flex-wrap: wrap;
+  font-size: 0.78rem;
+  color: var(--mute);
+  letter-spacing: 0.06em;
+  padding-top: 1.2rem;
+  border-top: 1px dashed var(--line);
+}
+.header-meta b { color: var(--warm); font-weight: 600; }
+.master-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  color: var(--green);
+  text-decoration: none;
+  padding: 0.55rem 1rem;
+  background: #fff;
+  border: 1px solid var(--green);
+  border-radius: 3px;
+  transition: all 0.2s;
+  font-weight: 500;
+}
+.master-link:hover { background: var(--green-bg); }
+.master-link .arrow { font-family: var(--serif); font-size: 1rem; }
+
+/* ========== Status Summary ========== */
+.summary {
+  padding: 2.5rem 0 0.5rem;
+}
+.summary-box {
+  background: #fff;
+  border: 1px solid var(--paper-deep);
+  border-radius: 4px;
+  padding: 1.6rem 1.8rem;
+  position: relative;
+}
+.summary-label {
+  font-size: 0.62rem;
+  letter-spacing: 0.35em;
+  color: var(--warm);
+  margin-bottom: 0.8rem;
+  font-weight: 600;
+}
+.summary-title {
+  font-family: var(--serif);
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: var(--ink);
+  margin-bottom: 1rem;
+}
+.summary-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--serif);
+  font-size: 0.92rem;
+}
+.summary-table th, .summary-table td {
+  padding: 0.7rem 0.8rem;
+  text-align: left;
+  border-bottom: 1px dotted var(--line);
+}
+.summary-table th {
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  color: var(--warm);
+  font-weight: 600;
+  border-bottom: 1px solid var(--paper-deep);
+}
+.summary-table tr:last-child td { border-bottom: none; }
+.summary-table .num {
+  font-weight: 600;
+  color: var(--warm);
+  letter-spacing: 0.1em;
+  width: 3.4rem;
+}
+.summary-table .topic { color: var(--sub); }
+.summary-table .stat { width: 8.5rem; text-align: right; }
+.stat-pill {
+  display: inline-block;
+  font-family: var(--sans);
+  font-size: 0.65rem;
+  letter-spacing: 0.18em;
+  padding: 0.22rem 0.6rem;
+  border-radius: 2px;
+  font-weight: 600;
+  border: 1px solid var(--caution-line);
+  background: var(--caution-bg);
+  color: var(--caution);
+}
+.stat-pill.fixed {
+  background: var(--green-bg);
+  color: var(--green);
+  border-color: var(--green-line);
+}
+
+/* ========== Intro ========== */
+.intro {
+  padding: 2rem 0 1rem;
+}
+.intro-box {
+  background: #fff;
+  border: 1px dashed var(--caution-line);
+  border-radius: 4px;
+  padding: 1.8rem 2rem;
+  position: relative;
+}
+.intro-box::before {
+  content: '？';
+  position: absolute;
+  top: -1.1rem; left: 1.5rem;
+  font-family: var(--serif);
+  font-size: 1.6rem;
+  color: var(--caution);
+  background: var(--bg);
+  padding: 0 0.6rem;
+  font-weight: 600;
+}
+.intro-box p {
+  font-family: var(--serif);
+  font-size: 1rem;
+  line-height: 2;
+  color: var(--sub);
+  letter-spacing: 0.04em;
+}
+.intro-box p + p { margin-top: 0.8rem; }
+.intro-box em {
+  font-style: normal;
+  color: var(--warm);
+  font-weight: 600;
+}
+
+/* ========== Discussion Section ========== */
+.section { padding: 2.5rem 0 3rem; }
+.sec-label {
+  font-size: 0.62rem;
+  letter-spacing: 0.35em;
+  color: var(--warm);
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+.sec-head {
+  font-family: var(--serif);
+  font-size: 1.4rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  margin-bottom: 2rem;
+  color: var(--ink);
+  border-left: 3px dashed var(--warm);
+  padding-left: 1rem;
+}
+.sec-sub-label {
+  font-size: 0.62rem;
+  letter-spacing: 0.3em;
+  color: var(--mute);
+  font-weight: 600;
+  margin: 2.2rem 0 0.8rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px dotted var(--line);
+}
+
+/* ========== Card ========== */
+.card {
+  background: #fff;
+  border: 1px dashed var(--line);
+  border-radius: 4px;
+  padding: 2rem 2.2rem;
+  margin-bottom: 1.5rem;
+  position: relative;
+  transition: border-color 0.2s;
+}
+.card:hover { border-color: var(--warm); }
+.card::before {
+  content: '？';
+  position: absolute;
+  top: 1.4rem; right: 1.6rem;
+  font-family: var(--serif);
+  font-size: 2.4rem;
+  color: var(--caution-line);
+  font-weight: 500;
+  line-height: 1;
+  opacity: 0.7;
+}
+.card-head {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.3rem;
+}
+.card-num {
+  font-family: var(--serif);
+  font-size: 0.95rem;
+  color: var(--warm);
+  letter-spacing: 0.15em;
+  font-weight: 600;
+}
+.badge {
+  display: inline-block;
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  padding: 0.25rem 0.7rem;
+  background: var(--caution-bg);
+  color: var(--caution);
+  border: 1px solid var(--caution-line);
+  border-radius: 2px;
+  font-weight: 600;
+}
+.badge.check { background: var(--warm-bg); color: var(--warm); border-color: var(--warm); }
+.badge.fixed-large {
+  background: var(--green-bg);
+  color: var(--green);
+  border: 1px solid var(--green);
+  font-size: 0.8rem;
+  padding: 0.4rem 1rem;
+  letter-spacing: 0.18em;
+  font-weight: 700;
+}
+.card-title {
+  font-family: var(--serif);
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  line-height: 1.6;
+  color: var(--ink);
+  margin: 0.5rem 0 1.4rem;
+  padding-right: 3rem;
+}
+
+/* ========== Confirmed Card (Q5専用) ========== */
+.card.confirmed {
+  background: linear-gradient(135deg, #fff 0%, var(--green-lt) 100%);
+  border: 1px solid var(--green);
+  border-left: 4px solid var(--green);
+}
+.card.confirmed::before {
+  content: '✓';
+  color: var(--green);
+  font-family: var(--sans);
+  font-size: 2.2rem;
+  font-weight: 700;
+  opacity: 0.85;
+  top: 1.1rem;
+}
+.card.confirmed:hover { border-color: var(--green); }
+.card.confirmed .card-num { color: var(--green); }
+.confirmed-summary {
+  background: #fff;
+  border: 1px dotted var(--green-line);
+  border-radius: 3px;
+  padding: 1.2rem 1.4rem;
+  margin-bottom: 1rem;
+}
+.confirmed-summary h4 {
+  font-family: var(--serif);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--green);
+  margin-bottom: 0.7rem;
+  letter-spacing: 0.05em;
+}
+.confirmed-summary ul {
+  list-style: none;
+  padding: 0;
+}
+.confirmed-summary ul li {
+  position: relative;
+  padding-left: 1.4rem;
+  margin-bottom: 0.5rem;
+  font-family: var(--serif);
+  font-size: 0.94rem;
+  line-height: 1.85;
+  color: var(--sub);
+  letter-spacing: 0.03em;
+}
+.confirmed-summary ul li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--green);
+  font-weight: 700;
+}
+.confirmed-summary ul li strong { color: var(--ink); font-weight: 600; }
+.confirmed-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  color: var(--green);
+  text-decoration: none;
+  padding: 0.5rem 0.9rem;
+  background: #fff;
+  border: 1px solid var(--green-line);
+  border-radius: 3px;
+  font-family: var(--sans);
+  font-weight: 500;
+  transition: background 0.2s;
+}
+.confirmed-link:hover { background: var(--green-bg); }
+
+.block {
+  margin-bottom: 1.2rem;
+  padding-left: 1.2rem;
+  border-left: 2px dotted var(--line);
+}
+.block-label {
+  font-size: 0.68rem;
+  letter-spacing: 0.2em;
+  color: var(--warm);
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+.block-body {
+  font-family: var(--serif);
+  font-size: 0.98rem;
+  line-height: 1.95;
+  color: var(--sub);
+  letter-spacing: 0.03em;
+}
+.block-body strong { color: var(--ink); font-weight: 600; }
+.block-body ul { list-style: none; padding: 0; }
+.block-body ul li {
+  position: relative;
+  padding-left: 1.4rem;
+  margin-bottom: 0.4rem;
+}
+.block-body ul li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: var(--warm);
+  font-family: var(--serif);
+  font-weight: 600;
+}
+.block.question {
+  border-left: 2px dashed var(--caution);
+  background: var(--caution-bg);
+  padding: 1rem 1.2rem;
+  border-radius: 2px;
+}
+.block.question .block-label { color: var(--caution); }
+.block.question .block-body {
+  color: var(--ink);
+  font-weight: 500;
+}
+.block.decide {
+  border-left: 2px solid var(--green);
+  background: var(--green-lt);
+  padding: 1rem 1.2rem;
+  border-radius: 2px;
+}
+.block.decide .block-label { color: var(--green); }
+
+.options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.8rem;
+  margin-top: 0.6rem;
+}
+.opt {
+  border: 1px dashed var(--line);
+  padding: 1rem 1.1rem;
+  border-radius: 3px;
+  background: var(--bg);
+}
+.opt .opt-name {
+  font-family: var(--serif);
+  font-weight: 600;
+  color: var(--warm);
+  font-size: 0.92rem;
+  margin-bottom: 0.4rem;
+  letter-spacing: 0.06em;
+}
+.opt .opt-body {
+  font-family: var(--serif);
+  font-size: 0.88rem;
+  color: var(--sub);
+  line-height: 1.8;
+}
+
+.keyword-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 0.5rem;
+  margin-top: 0.6rem;
+}
+.kw {
+  padding: 0.7rem 0.8rem;
+  background: var(--bg);
+  border: 1px dashed var(--line);
+  border-radius: 3px;
+  font-family: var(--serif);
+  font-size: 0.88rem;
+}
+.kw b {
+  display: block;
+  color: var(--warm);
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  margin-bottom: 0.2rem;
+  font-weight: 600;
+}
+
+/* ========== Footer ========== */
+.footer {
+  padding: 3rem 0 4rem;
+  border-top: 1px dashed var(--line);
+  margin-top: 2rem;
+}
+.footer-box {
+  background: var(--paper);
+  border: 1px dashed var(--caution-line);
+  border-radius: 4px;
+  padding: 1.8rem 2rem;
+}
+.footer-box h3 {
+  font-family: var(--serif);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 1rem;
+  letter-spacing: 0.06em;
+}
+.footer-box ol {
+  list-style: none;
+  padding: 0;
+  counter-reset: step;
+}
+.footer-box ol li {
+  counter-increment: step;
+  position: relative;
+  padding-left: 2.2rem;
+  margin-bottom: 0.6rem;
+  font-family: var(--serif);
+  font-size: 0.95rem;
+  line-height: 1.9;
+  color: var(--sub);
+}
+.footer-box ol li::before {
+  content: counter(step);
+  position: absolute;
+  left: 0; top: 0.1rem;
+  width: 1.6rem; height: 1.6rem;
+  background: var(--warm);
+  color: #fff;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 1.6rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+.footer-note {
+  margin-top: 1.2rem;
+  font-size: 0.78rem;
+  color: var(--mute);
+  letter-spacing: 0.04em;
+  text-align: center;
+  font-family: var(--serif);
+}
+
+@media (max-width: 640px) {
+  .header-title { font-size: 1.4rem; }
+  .card { padding: 1.5rem 1.3rem; }
+  .card-title { font-size: 1.1rem; padding-right: 2rem; }
+  .options { grid-template-columns: 1fr; }
+  .card::before { font-size: 1.8rem; top: 1rem; right: 1.2rem; }
+  .summary-table th, .summary-table td { padding: 0.55rem 0.4rem; font-size: 0.82rem; }
+  .summary-table .stat { width: auto; }
+}
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="wrap">
+    <span class="header-mark">議論用 ／ 検討中</span>
+    <h1 class="header-title">POOLO LIFE　チーム論点</h1>
+    <p class="header-sub">次回チームMTGで、共に輪郭を描き直したい問いのセット。</p>
+    <div class="header-meta">
+      <span>最終更新 <b>2026-04-15</b></span>
+      <span>所要 <b>約90-120分想定</b></span>
+      <span>論点 <b>確定1 ／ 未決8</b></span>
+    </div>
+    <div style="margin-top: 1.5rem;">
+      <a class="master-link" href="https://golden-narwhal-0c1864.netlify.app" target="_blank" rel="noopener">
+        <span class="arrow">←</span> 確定版はこちら：マスターダッシュボード
+      </a>
+    </div>
+  </div>
+</header>
+
+<section class="summary">
+  <div class="wrap">
+    <div class="summary-box">
+      <div class="summary-label">STATUS SUMMARY</div>
+      <div class="summary-title">論点の状態（一覧）</div>
+      <table class="summary-table">
+        <thead>
+          <tr>
+            <th>No.</th>
+            <th>論点</th>
+            <th class="stat">状態</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="num">Q1</td>
+            <td class="topic">3 PHASES のワーディング</td>
+            <td class="stat"><span class="stat-pill">未決</span></td>
+          </tr>
+          <tr>
+            <td class="num">Q2</td>
+            <td class="topic">8ヶ月の月キーワード（M1-M8）</td>
+            <td class="stat"><span class="stat-pill">未決</span></td>
+          </tr>
+          <tr>
+            <td class="num">Q3</td>
+            <td class="topic">M3ゲスト（卒業生 / たかちんさん）</td>
+            <td class="stat"><span class="stat-pill">未決・打診直結</span></td>
+          </tr>
+          <tr>
+            <td class="num">Q4</td>
+            <td class="topic">M7ゲスト再検討</td>
+            <td class="stat"><span class="stat-pill">未決</span></td>
+          </tr>
+          <tr>
+            <td class="num">Q5</td>
+            <td class="topic">チーム設計（共有型 / T1-T2-T3 ほか）</td>
+            <td class="stat"><span class="stat-pill fixed">✓ 確定</span></td>
+          </tr>
+          <tr>
+            <td class="num">Q6</td>
+            <td class="topic">M7本番の名称（あなたへ、旅を / 贈り旅）</td>
+            <td class="stat"><span class="stat-pill">未決</span></td>
+          </tr>
+          <tr>
+            <td class="num">Q7</td>
+            <td class="topic">T2解散式（M7 W4）の形式</td>
+            <td class="stat"><span class="stat-pill">未決</span></td>
+          </tr>
+          <tr>
+            <td class="num">Q8</td>
+            <td class="topic">M6越境×M7贈与の兼業 提示タイミング</td>
+            <td class="stat"><span class="stat-pill">未決</span></td>
+          </tr>
+          <tr>
+            <td class="num">Q9</td>
+            <td class="topic">共有チャンネル（運営ツール選定）</td>
+            <td class="stat"><span class="stat-pill">未決</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="intro">
+  <div class="wrap">
+    <div class="intro-box">
+      <p>このページは、<em>議論の出発点</em>です。ここに書かれているのは結論ではなく、チームで一緒に考えたい問いのセット。</p>
+      <p>確定事項・体系全体の地図は<em>マスターダッシュボード</em>を参照してください。ここでは、まだ揺れているもの、まだ言葉になりきっていないものを、敢えてそのまま置いています。</p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="sec-label">DISCUSSION POINTS</div>
+    <h2 class="sec-head">論点カード（既存5＋派生4）</h2>
+
+    <div class="sec-sub-label">PART A ／ 既存の5論点</div>
+
+    <!-- Q1 -->
+    <article class="card" id="q1">
+      <div class="card-head">
+        <span class="card-num">Q1</span>
+        <span class="badge">未決</span>
+      </div>
+      <h3 class="card-title">3 PHASES のワーディングは、いまの形でよいか</h3>
+
+      <div class="block">
+        <div class="block-label">いまの置き方</div>
+        <div class="block-body">
+          Phase1 <strong>自分と繋がる</strong> ／ Phase2 <strong>POOLOと繋がる</strong> ／ Phase3 <strong>社会と繋がる</strong>。<br>
+          コンセプト「旅と、問いと、共創で／想像もしなかった世界と自分に、出会いにいく」との接続を前提にしている。
+        </div>
+      </div>
+
+      <div class="block question">
+        <div class="block-label">PROBLEM</div>
+        <div class="block-body">
+          この3フェーズの言葉は、受講生にも運営にも同じ解像度で届いているだろうか。<br>
+          「繋がる」という動詞が3回続くことに違和感はないか。コンセプトとの強度は十分か、それとももう一段別の語に置き換えた方が届くか。
+        </div>
+      </div>
+
+      <div class="block decide">
+        <div class="block-label">このMTGで決めたいこと</div>
+        <div class="block-body">現行のまま走らせるか／別候補を出す方針にするか。出すなら、各自1-2案を次回までに持ち寄る前提で合意する。</div>
+      </div>
+    </article>
+
+    <!-- Q2 -->
+    <article class="card" id="q2">
+      <div class="card-head">
+        <span class="card-num">Q2</span>
+        <span class="badge check">要確認</span>
+      </div>
+      <h3 class="card-title">8ヶ月の月キーワードは、チームの共通言語として機能するか</h3>
+
+      <div class="block">
+        <div class="block-label">いまの置き方（案α確定済）</div>
+        <div class="block-body">
+          <div class="keyword-grid">
+            <div class="kw"><b>M1</b>旅と揺さぶり</div>
+            <div class="kw"><b>M2</b>対話と受容</div>
+            <div class="kw"><b>M3</b>言語化と仮置き</div>
+            <div class="kw"><b>M4</b>揺り戻しと名乗り</div>
+            <div class="kw"><b>M5</b>宣言と手渡し</div>
+            <div class="kw"><b>M6</b>越境と反応</div>
+            <div class="kw"><b>M7</b>差し出しと受取</div>
+            <div class="kw"><b>M8</b>循環と持ち帰り</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="block question">
+        <div class="block-label">PROBLEM</div>
+        <div class="block-body">
+          このキーワードセットは、まず受講生に見せる前の段階で、<strong>運営チームの共通言語</strong>として腹落ちするか。<br>
+          語感に違和感はないか。現場で受講生に説明するときに、言い換えが必要になるものはあるか。
+        </div>
+      </div>
+
+      <div class="block decide">
+        <div class="block-label">このMTGで決めたいこと</div>
+        <div class="block-body">チーム内用語として採用するか／運用時の言い換え辞書を作るか／特定の月だけ置き換えるか。</div>
+      </div>
+    </article>
+
+    <!-- Q3 -->
+    <article class="card" id="q3">
+      <div class="card-head">
+        <span class="card-num">Q3</span>
+        <span class="badge">未決・打診直結</span>
+      </div>
+      <h3 class="card-title">M3「言語化と仮置き」のゲストは、卒業生か、外部専門家か</h3>
+
+      <div class="block">
+        <div class="block-label">背景</div>
+        <div class="block-body">M3は、受講生が探究テーマを<strong>仮置きして発表する直前</strong>の月。ここでどの声を届けるかで、発表の背中の押し方が変わる。</div>
+      </div>
+
+      <div class="block">
+        <div class="block-label">選択肢</div>
+        <div class="block-body">
+          <div class="options">
+            <div class="opt">
+              <div class="opt-name">案a ／ 卒業生</div>
+              <div class="opt-body">現方針。探究テーマの変遷・迷走の過程を、同じ道を通った人として語る。自己同一化しやすい反面、近すぎるリスクもある。</div>
+            </div>
+            <div class="opt">
+              <div class="opt-name">案b ／ たかちんさん</div>
+              <div class="opt-body">才能の言語化の専門家。立ち上がり直前の受講生に、別角度から効かせる距離感。外部の目が入るメリットと、体験共有ではない距離感のトレードオフ。</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="block question">
+        <div class="block-label">PROBLEM</div>
+        <div class="block-body">
+          「言語化と仮置き」の背中を押すのは、<strong>体験の近さ</strong>か、<strong>技術の専門性</strong>か。<br>
+          受講生の心理状態（発表直前の揺れ）を踏まえると、どちらの声の方が効くと見るか。
+        </div>
+      </div>
+
+      <div class="block decide">
+        <div class="block-label">このMTGで決めたいこと</div>
+        <div class="block-body">a か b のどちらで打診を進めるか。（両方起用の設計余地も含めて軽く触れる）</div>
+      </div>
+    </article>
+
+    <!-- Q4 -->
+    <article class="card" id="q4">
+      <div class="card-head">
+        <span class="card-num">Q4</span>
+        <span class="badge">未決</span>
+      </div>
+      <h3 class="card-title">M7のゲストは、本当に講義型でよいのか</h3>
+
+      <div class="block">
+        <div class="block-label">いまの置き方</div>
+        <div class="block-body">案a（<strong>講義型</strong>／テーマ=キャリア・働き方・生き方／候補: 阿部裕志・若新雄純・仲山進也）。ただしM7は<strong>分散型・贈与の本番月</strong>と重なる。</div>
+      </div>
+
+      <div class="block question">
+        <div class="block-label">PROBLEM</div>
+        <div class="block-body">
+          分散型贈与の本番が走る月に、講義型のインプットを置くことに違和感はないか。<br>
+          別の切り口（対話型／現場型／贈与体験との接続）にした方が、M7の「差し出しと受取」というテーマに効かないか。<br>
+          そもそも<strong>贈与本番との接続</strong>をどう設計するかが先ではないか。
+        </div>
+      </div>
+
+      <div class="block decide">
+        <div class="block-label">このMTGで決めたいこと</div>
+        <div class="block-body">現行3候補で進めるか／ゲスト像を再設計するか／本番接続の設計議論を先に置くか、の方針判断。</div>
+      </div>
+    </article>
+
+    <!-- Q5 ／ 確定カード -->
+    <article class="card confirmed" id="q5">
+      <div class="card-head">
+        <span class="card-num">Q5</span>
+        <span class="badge fixed-large">✓ 確定</span>
+      </div>
+      <h3 class="card-title">チーム設計 ──「共有型」を主線に置く</h3>
+
+      <div class="confirmed-summary">
+        <h4>Q5深掘りで確定したこと</h4>
+        <ul>
+          <li><strong>共創 → 共有</strong> に言い換え。作らない／時間・記憶・問いを共有する。自発的創発は歓迎（伴走するが強制しない）</li>
+          <li><strong>3チーム構成（T1 / T2 / T3）</strong>。T1=M1-M3（3ヶ月・最初の弱さ）／T2=M4-M7（4ヶ月・最深）／T3=M8（1ヶ月・別の鏡）</li>
+          <li><strong>T2の型月割り</strong>: M4コンテンツ → M5体験 → M6対話 → M7統合。お題は「旅を素材に、自分の探究を型で表現する」</li>
+          <li><strong>M7本番は分散型・自主企画</strong>。全国各地で各自が場所を決め、2週間ウィンドウ内で実施（再集合なし）</li>
+          <li><strong>運営4原則</strong>: 伴走する／強制しない／評価しない／深さを守る</li>
+        </ul>
+      </div>
+
+      <div style="margin-top: 1.2rem;">
+        <a class="confirmed-link" href="14_M4_to_M7_final.md" target="_blank" rel="noopener">
+          詳細: M4-M7プログラム内容まとめ →
+        </a>
+      </div>
+    </article>
+
+    <div class="sec-sub-label">PART C ／ Q5深掘りから派生した4論点</div>
+
+    <!-- Q6 -->
+    <article class="card" id="q6">
+      <div class="card-head">
+        <span class="card-num">Q6</span>
+        <span class="badge">未決</span>
+      </div>
+      <h3 class="card-title">M7本番の名称は、どちらで進めるか</h3>
+
+      <div class="block">
+        <div class="block-label">いまの置き方</div>
+        <div class="block-body">M7統合月の本番企画（分散型・自主企画・知らない人へ手渡す月）の名称。コンセプトコピー／SNS拡散／受講生が口にしやすいかを基準に2択まで絞られている。</div>
+      </div>
+
+      <div class="block">
+        <div class="block-label">選択肢</div>
+        <div class="block-body">
+          <div class="options">
+            <div class="opt">
+              <div class="opt-name">案a ／ あなたへ、旅を</div>
+              <div class="opt-body">宛先（あなた）が立つ。コンセプトコピー「想像もしなかった世界と自分に、出会いにいく」と呼応。SNSで一行ハッシュタグとして強い。</div>
+            </div>
+            <div class="opt">
+              <div class="opt-name">案b ／ 贈り旅（おくりたび）</div>
+              <div class="opt-body">造語・新語彙。シンプルで強い、語呂で記憶に残りやすい。一方で初見の理解コストはやや高い。</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="block question">
+        <div class="block-label">PROBLEM</div>
+        <div class="block-body">
+          受講生が4ヶ月後に<strong>自然と口にできる名前</strong>はどちらか。<br>
+          外（SNS・LP）に出したときに、宛先が立つ案aと、語彙そのものが残る案bでは、どちらが拡散・記憶に効くか。
+        </div>
+      </div>
+
+      <div class="block decide">
+        <div class="block-label">このMTGで決めたいこと</div>
+        <div class="block-body">a か b のどちらで本番月の名称を確定するか。（決まればLP・案内・共有チャンネル名にも反映）</div>
+      </div>
+    </article>
+
+    <!-- Q7 -->
+    <article class="card" id="q7">
+      <div class="card-head">
+        <span class="card-num">Q7</span>
+        <span class="badge">未決</span>
+      </div>
+      <h3 class="card-title">T2解散式（M7 W4）は、対面で集まるか、オンライン半日にするか</h3>
+
+      <div class="block">
+        <div class="block-label">いまの置き方</div>
+        <div class="block-body">T2は4ヶ月という<strong>POOLO LIFE最深のチーム期間</strong>。その締めくくりとして、M7 W4に解散式を置く。記憶を残す儀式性をどこに置くか。</div>
+      </div>
+
+      <div class="block">
+        <div class="block-label">選択肢</div>
+        <div class="block-body">
+          <div class="options">
+            <div class="opt">
+              <div class="opt-name">案a ／ 対面集合</div>
+              <div class="opt-body">儀式性が強く、記憶の輪郭が立つ。一方で再集合の負荷（移動・日程・コスト）。M7本番が分散型である点との整合をどう取るか。</div>
+            </div>
+            <div class="opt">
+              <div class="opt-name">案b ／ オンライン半日</div>
+              <div class="opt-body">分散型M7本番の余韻のまま、各地から接続できる。手触りが薄くなる懸念。儀式性をオンラインでどう設計するかが問われる。</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="block question">
+        <div class="block-label">PROBLEM</div>
+        <div class="block-body">
+          M7本番が分散型である以上、<strong>解散式まで分散の流れに乗せる</strong>のか、それとも<strong>儀式の場として一度集める</strong>のか。<br>
+          予算・スケジュール・受講生の負荷バランスをどう見るか。
+        </div>
+      </div>
+
+      <div class="block decide">
+        <div class="block-label">このMTGで決めたいこと</div>
+        <div class="block-body">対面 or オンラインの方針判断（決まれば予算・会場手配・告知タイミングが動かせる）。</div>
+      </div>
+    </article>
+
+    <!-- Q8 -->
+    <article class="card" id="q8">
+      <div class="card-head">
+        <span class="card-num">Q8</span>
+        <span class="badge">未決</span>
+      </div>
+      <h3 class="card-title">M6越境×M7贈与の「兼業」オプションは、いつ提示するか</h3>
+
+      <div class="block">
+        <div class="block-label">いまの置き方</div>
+        <div class="block-body">M7本番の救済策として、<strong>M6の越境先で旅と贈与を兼ねる選択肢</strong>を残している。提示タイミングによって、受講生の越境設計と贈与企画の重ね方が変わる。</div>
+      </div>
+
+      <div class="block">
+        <div class="block-label">選択肢</div>
+        <div class="block-body">
+          <div class="options">
+            <div class="opt">
+              <div class="opt-name">案a ／ M6冒頭で提示</div>
+              <div class="opt-body">越境計画の段階から兼業前提で設計できる。負荷分散・統合的な体験設計に向く。一方でM6が「贈与の前段」になりすぎる懸念。</div>
+            </div>
+            <div class="opt">
+              <div class="opt-name">案b ／ M7冒頭で提示</div>
+              <div class="opt-body">M6は越境本来の目的に専念。贈与企画で困った人だけが救済策として選ぶ。M6の純度は守れるが、設計の練り直し負荷あり。</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="block question">
+        <div class="block-label">PROBLEM</div>
+        <div class="block-body">
+          M6越境を<strong>独立した体験</strong>として守るか、<strong>M7への助走</strong>として接続するか。<br>
+          受講生が各月の意図を取り違えないための、最も親切な提示タイミングはどこか。
+        </div>
+      </div>
+
+      <div class="block decide">
+        <div class="block-label">このMTGで決めたいこと</div>
+        <div class="block-body">提示タイミングをM6冒頭／M7冒頭のどちらにするか。（カリキュラム案内文・T2定例の議題に直結）</div>
+      </div>
+    </article>
+
+    <!-- Q9 -->
+    <article class="card" id="q9">
+      <div class="card-head">
+        <span class="card-num">Q9</span>
+        <span class="badge">未決</span>
+      </div>
+      <h3 class="card-title">共有チャンネルは、どのツールで運営するか</h3>
+
+      <div class="block">
+        <div class="block-label">いまの置き方</div>
+        <div class="block-body">M7本番期間中の<strong>実況・写真共有・反応持ち寄り</strong>に使う場を選定する必要がある。既存のPOOLOコミュニティツールとの関係も考慮。</div>
+      </div>
+
+      <div class="block">
+        <div class="block-label">選択肢（候補）</div>
+        <div class="block-body">
+          <div class="options">
+            <div class="opt">
+              <div class="opt-name">案a ／ Slack</div>
+              <div class="opt-body">運営の業務導線と統一しやすい。チャンネル分割で整理可。受講生にとっての日常性は中程度。</div>
+            </div>
+            <div class="opt">
+              <div class="opt-name">案b ／ Notion</div>
+              <div class="opt-body">記録性が高い。後から振り返りやすい。一方でリアルタイム実況には向きにくい。</div>
+            </div>
+            <div class="opt">
+              <div class="opt-name">案c ／ Discord</div>
+              <div class="opt-body">受講生世代の日常性が高い。音声・チャット・スレッドの自由度が高い。POOLO既存導線とのブリッジ設計が要る。</div>
+            </div>
+            <div class="opt">
+              <div class="opt-name">案d ／ その他</div>
+              <div class="opt-body">既存POOLOコミュニティチャンネル内に専用スペースを設ける案も含めて検討。</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="block question">
+        <div class="block-label">PROBLEM</div>
+        <div class="block-body">
+          M7の<strong>分散・実況・記憶残し</strong>という3要素に、最も合うツールはどれか。<br>
+          受講生の日常導線と、運営の運用負荷のバランスをどこに置くか。
+        </div>
+      </div>
+
+      <div class="block decide">
+        <div class="block-label">このMTGで決めたいこと</div>
+        <div class="block-body">第一候補の方針合意（詳細仕様・チャンネル設計は別セッションで可）。</div>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<section class="footer">
+  <div class="wrap">
+    <div class="footer-box">
+      <h3>議論の進め方メモ（推奨順）</h3>
+      <ol>
+        <li><strong>Q3（M3ゲスト）</strong>から入る。打診スケジュールに直結し、選択肢が明確なので10分で決まる。</li>
+        <li>次に<strong>Q6（M7本番の名称）</strong>。2択なので早く決まる。決まればLP・案内・共有チャンネル名に波及。</li>
+        <li>その勢いで<strong>Q7（T2解散式の形式）</strong>。予算・会場手配・スケジュールに直結。</li>
+        <li><strong>Q4（M7ゲスト）</strong>。Q6・Q7でM7の輪郭が立った後だと、ゲスト像の議論が筋良く進む。</li>
+        <li><strong>Q1・Q2（言葉磨き）</strong>。言葉の議論は時間を食いやすいので後半に置き、次回までの宿題化も可。</li>
+        <li>最後に<strong>Q8・Q9（運用詳細）</strong>。兼業提示タイミングと共有チャンネル選定。時間切れなら別セッションへ。</li>
+      </ol>
+      <p class="footer-note">※ 決定した項目は、このページではなく<strong>マスターダッシュボード</strong>側に反映します。</p>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>

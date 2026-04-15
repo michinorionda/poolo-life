@@ -1,0 +1,1515 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>POOLO LIFE 8ヶ月カリキュラム・マスターダッシュボード</title>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #1a1a1a;
+  --sub: #4a4a4a;
+  --mute: #7a7a7a;
+  --hint: #a8a8a8;
+  --bg: #faf9f6;
+  --bg-deep: #f3f1ea;
+  --line: #e0ddd3;
+  --green: #2D6A4F;
+  --green-lt: #F4FAF6;
+  --green-bg: #E9F5EE;
+  --warm: #C08457;
+  --warm-bg: #F7EDE2;
+  --deep: #1F3A3D;
+  --deep-bg: #DCE6E7;
+  --star: #B8860B;
+  --serif: 'Shippori Mincho', serif;
+  --sans: 'Noto Sans JP', sans-serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--sans);
+  background: var(--bg);
+  color: var(--ink);
+  line-height: 1.9;
+  -webkit-font-smoothing: antialiased;
+  font-weight: 300;
+}
+
+/* ========== Layout ========== */
+.wrap { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
+section { padding: 4.5rem 0; }
+.sec-label { font-size: 0.62rem; letter-spacing: 0.35em; color: var(--green); margin-bottom: 1rem; font-weight: 500; }
+.sec-head {
+  font-family: var(--serif);
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  margin-bottom: 2.5rem;
+  color: var(--ink);
+  border-left: 3px solid var(--green);
+  padding-left: 1rem;
+}
+
+/* ========== Header ========== */
+.header {
+  background: linear-gradient(to bottom, var(--bg-deep) 0%, var(--bg) 100%);
+  padding: 4rem 0 3rem;
+  border-bottom: 1px solid var(--line);
+}
+.header-mark { font-size: 0.65rem; letter-spacing: 0.4em; color: var(--green); margin-bottom: 1.5rem; font-weight: 500; }
+.header-title {
+  font-family: var(--serif);
+  font-size: 2rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  line-height: 1.7;
+  color: var(--ink);
+  margin-bottom: 1.2rem;
+}
+.header-concept {
+  font-family: var(--serif);
+  font-size: 1.35rem;
+  font-weight: 500;
+  color: var(--green);
+  letter-spacing: 0.12em;
+  line-height: 2;
+  margin: 1.5rem 0 2rem;
+  padding: 1.5rem 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+.header-concept span {
+  font-size: 1.1rem;
+  color: var(--ink);
+  letter-spacing: 0.08em;
+}
+.header-sub {
+  font-family: var(--serif);
+  font-size: 1rem;
+  color: var(--sub);
+  letter-spacing: 0.04em;
+  margin-bottom: 2rem;
+}
+.header-meta {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  font-size: 0.78rem;
+  color: var(--mute);
+  letter-spacing: 0.06em;
+}
+.header-meta span { display: inline-flex; align-items: center; gap: 0.4rem; }
+.header-meta b { color: var(--green); font-weight: 600; }
+
+/* ========== Nav ========== */
+.nav-strip {
+  background: #fff;
+  border-bottom: 1px solid var(--line);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  overflow-x: auto;
+}
+.nav-strip .wrap {
+  display: flex;
+  gap: 1.6rem;
+  padding-top: 0.9rem;
+  padding-bottom: 0.9rem;
+  white-space: nowrap;
+}
+.nav-strip a {
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  color: var(--sub);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.nav-strip a:hover { color: var(--green); }
+
+/* ========== Overview Cards ========== */
+.overview-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+.ov-card {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 1.4rem 1.2rem;
+}
+.ov-card .label {
+  font-size: 0.62rem;
+  letter-spacing: 0.2em;
+  color: var(--green);
+  margin-bottom: 0.6rem;
+  font-weight: 500;
+}
+.ov-card .value {
+  font-family: var(--serif);
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1.5;
+}
+.ov-card .value small {
+  display: block;
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  font-weight: 400;
+  color: var(--mute);
+  margin-top: 0.4rem;
+  letter-spacing: 0.02em;
+}
+
+.chip-row { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.6rem; }
+.chip {
+  display: inline-block;
+  padding: 0.3rem 0.75rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  border-radius: 999px;
+  background: var(--green-bg);
+  color: var(--green);
+  font-weight: 500;
+}
+.chip.warm { background: var(--warm-bg); color: var(--warm); }
+.chip.deep { background: var(--deep-bg); color: var(--deep); }
+.chip.neutral { background: var(--bg-deep); color: var(--sub); }
+
+/* Phase strip */
+.phase-strip {
+  display: grid;
+  grid-template-columns: 3fr 3fr 2fr;
+  gap: 0.4rem;
+  margin: 1.5rem 0 0.5rem;
+}
+.phase-cell {
+  padding: 1rem 1.1rem;
+  border-radius: 4px;
+}
+.phase-cell.p1 { background: var(--warm-bg); color: var(--warm); border-left: 4px solid var(--warm); }
+.phase-cell.p2 { background: var(--green-bg); color: var(--green); border-left: 4px solid var(--green); }
+.phase-cell.p3 { background: var(--deep-bg); color: var(--deep); border-left: 4px solid var(--deep); }
+.phase-cell .pname {
+  font-family: var(--serif);
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-bottom: 0.2rem;
+}
+.phase-cell .prange { font-size: 0.7rem; letter-spacing: 0.1em; margin-bottom: 0.35rem; opacity: 0.85; }
+.phase-cell .pdesc { font-size: 0.78rem; line-height: 1.7; color: var(--sub); }
+
+/* STEP flow */
+.step-flow {
+  display: flex;
+  align-items: stretch;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 1.2rem 0;
+}
+.step-node {
+  flex: 1;
+  min-width: 150px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 0.8rem 1rem;
+  position: relative;
+}
+.step-node .sn { font-size: 0.62rem; letter-spacing: 0.2em; color: var(--green); font-weight: 600; margin-bottom: 0.25rem; }
+.step-node .sname { font-family: var(--serif); font-size: 0.95rem; font-weight: 600; margin-bottom: 0.15rem; }
+.step-node .srange { font-size: 0.7rem; color: var(--mute); letter-spacing: 0.08em; }
+
+/* ========== Timeline ========== */
+.timeline {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 0.3rem;
+  margin-top: 1rem;
+}
+.tl-col {
+  border-top: 3px solid var(--line);
+  padding: 0.9rem 0.5rem;
+  min-width: 0;
+}
+.tl-col.p1 { border-top-color: var(--warm); }
+.tl-col.p2 { border-top-color: var(--green); }
+.tl-col.p3 { border-top-color: var(--deep); }
+.tl-m {
+  font-family: var(--serif);
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+}
+.tl-key {
+  font-family: var(--serif);
+  font-size: 0.78rem;
+  color: var(--sub);
+  line-height: 1.5;
+  margin-bottom: 0.6rem;
+  min-height: 2.4em;
+}
+.tl-sym { font-size: 0.85rem; letter-spacing: 0.1em; margin-bottom: 0.4rem; }
+.tl-sym .dot { color: var(--green); }
+.tl-sym .ring { color: var(--warm); }
+.tl-sym .star { color: var(--star); }
+.tl-count { font-size: 0.68rem; color: var(--mute); letter-spacing: 0.04em; line-height: 1.6; }
+.tl-ev {
+  margin-top: 0.5rem;
+  padding: 0.25rem 0.4rem;
+  background: #fffbe8;
+  border-left: 2px solid var(--star);
+  font-size: 0.66rem;
+  color: var(--sub);
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+}
+
+/* ========== Month Cards ========== */
+.month-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+  gap: 1.3rem;
+}
+.m-card {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.m-head {
+  padding: 1.2rem 1.4rem 1rem;
+  border-bottom: 1px solid var(--line);
+}
+.m-card.p1 .m-head { background: linear-gradient(180deg, var(--warm-bg) 0%, #fff 100%); }
+.m-card.p2 .m-head { background: linear-gradient(180deg, var(--green-bg) 0%, #fff 100%); }
+.m-card.p3 .m-head { background: linear-gradient(180deg, var(--deep-bg) 0%, #fff 100%); }
+.m-row { display: flex; align-items: baseline; gap: 0.8rem; margin-bottom: 0.4rem; flex-wrap: wrap; }
+.m-num {
+  font-family: var(--serif);
+  font-size: 1.6rem;
+  font-weight: 700;
+  line-height: 1;
+}
+.m-card.p1 .m-num { color: var(--warm); }
+.m-card.p2 .m-num { color: var(--green); }
+.m-card.p3 .m-num { color: var(--deep); }
+.m-key {
+  font-family: var(--serif);
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+.m-phase-badge {
+  font-size: 0.62rem;
+  letter-spacing: 0.2em;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  font-weight: 600;
+}
+.m-card.p1 .m-phase-badge { background: var(--warm-bg); color: var(--warm); }
+.m-card.p2 .m-phase-badge { background: var(--green-bg); color: var(--green); }
+.m-card.p3 .m-phase-badge { background: var(--deep-bg); color: var(--deep); }
+.m-purpose {
+  font-size: 0.82rem;
+  line-height: 1.9;
+  color: var(--sub);
+  margin-top: 0.6rem;
+}
+.m-body { padding: 1.2rem 1.4rem; display: flex; flex-direction: column; gap: 1.1rem; flex: 1; }
+.m-section-label {
+  font-size: 0.62rem;
+  letter-spacing: 0.22em;
+  color: var(--green);
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+}
+.ws-block {
+  padding: 0.8rem 0.95rem;
+  background: var(--bg);
+  border-left: 3px solid var(--green);
+  border-radius: 2px;
+}
+.ws-title {
+  font-family: var(--serif);
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+  color: var(--ink);
+}
+.ws-title small { display: block; font-family: var(--sans); font-weight: 400; font-size: 0.7rem; color: var(--mute); margin-top: 0.15rem; letter-spacing: 0.04em; }
+.ws-q {
+  font-size: 0.78rem;
+  color: var(--green);
+  font-weight: 500;
+  margin-bottom: 0.4rem;
+  line-height: 1.7;
+}
+.ws-q::before { content: "問い  "; font-size: 0.62rem; letter-spacing: 0.2em; color: var(--mute); font-weight: 600; }
+.ws-img {
+  font-size: 0.76rem;
+  color: var(--sub);
+  line-height: 1.75;
+  margin-bottom: 0.4rem;
+}
+.ws-meta { font-size: 0.68rem; color: var(--mute); letter-spacing: 0.04em; }
+
+.guest-block {
+  padding: 0.9rem 1rem;
+  background: var(--warm-bg);
+  border-radius: 2px;
+  border-left: 3px solid var(--warm);
+}
+.guest-theme {
+  font-family: var(--serif);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--warm);
+  margin-bottom: 0.5rem;
+  line-height: 1.6;
+}
+.guest-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.74rem;
+}
+.guest-table th, .guest-table td {
+  text-align: left;
+  padding: 0.35rem 0.4rem;
+  border-bottom: 1px solid #e6d6c3;
+  vertical-align: top;
+  line-height: 1.6;
+}
+.guest-table th { font-weight: 600; color: var(--warm); font-size: 0.66rem; letter-spacing: 0.08em; }
+.guest-table td.name { font-weight: 600; color: var(--ink); white-space: nowrap; }
+.guest-table td.rank { color: var(--star); white-space: nowrap; font-size: 0.7rem; }
+.guest-table td.desc { color: var(--sub); }
+
+.event-block {
+  padding: 0.7rem 0.95rem;
+  background: #fffbe8;
+  border-left: 3px solid var(--star);
+  border-radius: 2px;
+  font-size: 0.78rem;
+  color: var(--sub);
+  line-height: 1.7;
+}
+.event-block b { color: var(--star); font-weight: 600; margin-right: 0.4rem; }
+
+/* ========== Balance Viz ========== */
+.balance {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 1.5rem 1.8rem;
+}
+.bal-row {
+  display: grid;
+  grid-template-columns: 60px 1fr 160px 180px;
+  gap: 0.8rem;
+  align-items: center;
+  padding: 0.55rem 0;
+  border-bottom: 1px solid var(--line);
+  font-size: 0.8rem;
+}
+.bal-row:last-child { border-bottom: none; }
+.bal-row.header {
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  color: var(--mute);
+  font-weight: 600;
+  border-bottom: 1.5px solid var(--ink);
+  padding-bottom: 0.7rem;
+}
+.bal-m { font-family: var(--serif); font-weight: 600; }
+.bal-m.p1 { color: var(--warm); }
+.bal-m.p2 { color: var(--green); }
+.bal-m.p3 { color: var(--deep); }
+.bal-key { color: var(--sub); font-size: 0.78rem; }
+.bal-sym { font-family: var(--serif); letter-spacing: 0.15em; font-size: 0.95rem; }
+.bal-sym .dot { color: var(--green); }
+.bal-sym .ring { color: var(--warm); }
+.bal-sym .star { color: var(--star); }
+.bal-bar {
+  display: flex;
+  gap: 2px;
+  height: 14px;
+  align-items: center;
+}
+.bal-bar .seg {
+  flex: 1;
+  height: 100%;
+  background: var(--bg-deep);
+}
+.bal-bar .seg.filled { background: var(--green); }
+.bal-bar .pct { margin-left: 0.5rem; font-size: 0.7rem; color: var(--mute); white-space: nowrap; }
+
+.legend {
+  background: var(--bg-deep);
+  padding: 1.2rem 1.5rem;
+  border-radius: 4px;
+  margin-top: 1.2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  font-size: 0.78rem;
+  color: var(--sub);
+}
+.legend-item b { font-family: var(--serif); color: var(--ink); margin-right: 0.4rem; }
+.legend-item .dot { color: var(--green); }
+.legend-item .ring { color: var(--warm); }
+.legend-item .star { color: var(--star); }
+
+/* ========== Principles ========== */
+.prin-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 1.2rem;
+}
+.prin-card {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 1.5rem 1.7rem;
+}
+.prin-card h3 {
+  font-family: var(--serif);
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: var(--green);
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 0.6rem;
+}
+.prin-list { list-style: none; }
+.prin-list li {
+  padding: 0.55rem 0 0.55rem 2.2rem;
+  position: relative;
+  font-size: 0.82rem;
+  line-height: 1.8;
+  color: var(--sub);
+  border-bottom: 1px dotted var(--line);
+}
+.prin-list li:last-child { border-bottom: none; }
+.prin-list li::before {
+  content: attr(data-n);
+  position: absolute;
+  left: 0;
+  top: 0.6rem;
+  width: 1.6rem;
+  height: 1.6rem;
+  background: var(--green);
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  font-weight: 600;
+  font-family: var(--serif);
+}
+.prin-list li b { color: var(--ink); font-weight: 600; }
+
+.role-table { width: 100%; border-collapse: collapse; font-size: 0.8rem; }
+.role-table th, .role-table td {
+  text-align: left;
+  padding: 0.65rem 0.5rem;
+  border-bottom: 1px solid var(--line);
+  vertical-align: top;
+  line-height: 1.7;
+}
+.role-table th { color: var(--green); font-size: 0.68rem; letter-spacing: 0.15em; font-weight: 600; }
+.role-table td:first-child { font-family: var(--serif); font-weight: 600; color: var(--ink); white-space: nowrap; }
+.role-table .ng { color: #a04040; }
+
+/* ========== 打診順序 Gantt ========== */
+.approach {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 1.5rem 1.8rem;
+}
+.approach-note { font-size: 0.78rem; color: var(--mute); margin-bottom: 1.2rem; line-height: 1.8; }
+.gantt {
+  display: grid;
+  grid-template-columns: 90px repeat(7, 1fr);
+  gap: 2px;
+  font-size: 0.72rem;
+  margin-top: 1rem;
+}
+.gantt .gcell {
+  padding: 0.5rem 0.3rem;
+  background: var(--bg-deep);
+  text-align: center;
+  letter-spacing: 0.06em;
+  border-radius: 2px;
+  color: var(--mute);
+  font-size: 0.68rem;
+}
+.gantt .gcell.label {
+  background: transparent;
+  text-align: left;
+  padding-left: 0;
+  font-family: var(--serif);
+  color: var(--ink);
+  font-weight: 600;
+  font-size: 0.8rem;
+}
+.gantt .gcell.active {
+  background: var(--green);
+  color: #fff;
+  font-weight: 600;
+}
+.gantt .gcell.step {
+  background: var(--green-bg);
+  color: var(--green);
+  font-weight: 600;
+}
+
+.order-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+.order-badges .ob {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.5rem 0.9rem;
+  background: var(--green-bg);
+  color: var(--green);
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+.order-badges .ob .n {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.4rem;
+  height: 1.4rem;
+  background: var(--green);
+  color: #fff;
+  border-radius: 50%;
+  font-size: 0.7rem;
+  font-family: var(--serif);
+}
+.order-badges .arrow { color: var(--hint); font-size: 0.85rem; }
+
+/* ========== Footer ========== */
+.foot {
+  background: var(--bg-deep);
+  padding: 2.5rem 0;
+  margin-top: 3rem;
+  text-align: center;
+  font-size: 0.72rem;
+  color: var(--mute);
+  letter-spacing: 0.1em;
+  line-height: 2;
+}
+.foot b { color: var(--green); font-weight: 600; }
+
+/* ========== Responsive ========== */
+/* ========== Team Section ========== */
+.team-table { width: 100%; border-collapse: collapse; font-size: 0.82rem; background: #fff; border: 1px solid var(--line); border-radius: 6px; overflow: hidden; }
+.team-table th, .team-table td { padding: 0.85rem 1rem; text-align: left; border-bottom: 1px solid var(--line); vertical-align: top; line-height: 1.7; }
+.team-table th { background: var(--bg-deep); font-size: 0.68rem; letter-spacing: 0.18em; color: var(--sub); font-weight: 600; }
+.team-table tr:last-child td { border-bottom: none; }
+.team-table td.tname { font-family: var(--serif); font-weight: 700; font-size: 1rem; white-space: nowrap; }
+.team-table tr.t1 td.tname { color: var(--warm); }
+.team-table tr.t2 td.tname { color: var(--green); }
+.team-table tr.t3 td.tname { color: var(--deep); }
+.team-table tr.t2 { background: var(--green-lt); }
+.team-table tr.t2 td { font-weight: 500; }
+
+.policy-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1.5rem; }
+.policy-card { background: #fff; border: 1px solid var(--line); border-radius: 6px; padding: 1.3rem 1.5rem; }
+.policy-card .pol-label { font-size: 0.62rem; letter-spacing: 0.22em; color: var(--green); font-weight: 600; margin-bottom: 0.5rem; }
+.policy-card .pol-main { font-family: var(--serif); font-size: 1rem; font-weight: 600; color: var(--ink); margin-bottom: 0.5rem; line-height: 1.7; }
+.policy-card .pol-sub { font-size: 0.78rem; color: var(--sub); line-height: 1.85; }
+.policy-card.main-line { border-left: 4px solid var(--green); }
+.policy-card.sub-line { border-left: 4px solid var(--warm); }
+
+.type-flow { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.5rem; margin-top: 1.5rem; }
+.type-cell { background: var(--green-lt); border: 1px solid var(--green-bg); border-radius: 4px; padding: 1rem 0.9rem; position: relative; }
+.type-cell .tc-m { font-family: var(--serif); font-size: 0.95rem; font-weight: 700; color: var(--green); margin-bottom: 0.3rem; letter-spacing: 0.06em; }
+.type-cell .tc-type { font-family: var(--serif); font-size: 0.88rem; font-weight: 600; color: var(--ink); margin-bottom: 0.4rem; }
+.type-cell .tc-desc { font-size: 0.72rem; color: var(--sub); line-height: 1.7; }
+.type-cell .tc-range { font-size: 0.66rem; color: var(--mute); margin-top: 0.5rem; letter-spacing: 0.04em; padding-top: 0.4rem; border-top: 1px dotted var(--line); }
+
+.lane-table { width: 100%; border-collapse: collapse; background: #fff; border: 1px solid var(--line); border-radius: 6px; overflow: hidden; font-size: 0.76rem; margin-top: 1.5rem; }
+.lane-table th, .lane-table td { padding: 0.7rem 0.6rem; border-bottom: 1px solid var(--line); border-right: 1px solid var(--line); vertical-align: top; line-height: 1.7; }
+.lane-table th:last-child, .lane-table td:last-child { border-right: none; }
+.lane-table tr:last-child td { border-bottom: none; }
+.lane-table thead th { background: var(--bg-deep); font-size: 0.66rem; letter-spacing: 0.15em; color: var(--sub); font-weight: 600; text-align: center; }
+.lane-table .month-head { font-family: var(--serif); font-weight: 700; font-size: 0.82rem; color: var(--green); white-space: nowrap; background: var(--green-lt); }
+.lane-table .week { font-size: 0.65rem; color: var(--mute); letter-spacing: 0.06em; white-space: nowrap; font-weight: 600; }
+.lane-table .lane-ops { color: var(--warm); font-weight: 500; }
+.lane-table .lane-t2 { color: var(--green); font-weight: 500; background: var(--green-lt); }
+.lane-table .lane-self { color: var(--sub); }
+.lane-table .marker { display: inline-block; padding: 0.1rem 0.45rem; font-size: 0.6rem; letter-spacing: 0.08em; border-radius: 999px; margin-right: 0.3rem; font-weight: 600; }
+.lane-table .marker.guest { background: var(--warm-bg); color: var(--warm); }
+.lane-table .marker.ws { background: var(--green-bg); color: var(--green); }
+.lane-table .marker.event { background: #fffbe8; color: var(--star); }
+.lane-table .empty { color: var(--hint); font-size: 0.7rem; }
+
+.team-stance { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.7rem; margin-top: 1.5rem; }
+.stance-card { background: #fff; border: 1px solid var(--line); border-top: 3px solid var(--green); border-radius: 4px; padding: 1rem 1.1rem; }
+.stance-card .st-n { font-family: var(--serif); font-size: 0.7rem; color: var(--green); font-weight: 600; letter-spacing: 0.15em; margin-bottom: 0.3rem; }
+.stance-card .st-name { font-family: var(--serif); font-size: 1rem; font-weight: 700; color: var(--ink); margin-bottom: 0.4rem; }
+.stance-card .st-desc { font-size: 0.74rem; color: var(--sub); line-height: 1.7; }
+
+.subhead { font-family: var(--serif); font-size: 1.05rem; font-weight: 600; color: var(--ink); margin-top: 2.5rem; margin-bottom: 0.5rem; padding-left: 0.7rem; border-left: 3px solid var(--green); letter-spacing: 0.04em; }
+.subhead-note { font-size: 0.76rem; color: var(--mute); margin-bottom: 0.8rem; line-height: 1.8; padding-left: 0.85rem; }
+
+@media (max-width: 900px) {
+  .policy-grid { grid-template-columns: 1fr; }
+  .type-flow { grid-template-columns: repeat(2, 1fr); }
+  .team-stance { grid-template-columns: repeat(2, 1fr); }
+  .lane-table { font-size: 0.66rem; }
+}
+@media (max-width: 900px) {
+  .timeline { grid-template-columns: repeat(4, 1fr); }
+  .phase-strip { grid-template-columns: 1fr; }
+  .bal-row { grid-template-columns: 50px 1fr; gap: 0.4rem; }
+  .bal-row .bal-sym, .bal-row .bal-bar { grid-column: 1 / -1; }
+  .bal-row.header .bal-sym, .bal-row.header .bal-bar { display: none; }
+  .gantt { grid-template-columns: 70px repeat(7, 1fr); font-size: 0.62rem; }
+  .header-title { font-size: 1.45rem; }
+}
+@media (max-width: 600px) {
+  .timeline { grid-template-columns: repeat(2, 1fr); }
+  .month-grid { grid-template-columns: 1fr; }
+  section { padding: 3rem 0; }
+  .header-title { font-size: 1.25rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- ========== HEADER ========== -->
+<header class="header">
+  <div class="wrap">
+    <div class="header-mark">POOLO LIFE / MASTER DASHBOARD</div>
+    <h1 class="header-title">POOLO LIFE 8ヶ月カリキュラム<br>マスターダッシュボード</h1>
+    <p class="header-concept">旅と、問いと、共創で<br><span>想像もしなかった世界と自分に、出会いにいく</span></p>
+    <p class="header-sub">螺旋を速く・深く回すための、現場共有用1画面</p>
+    <div class="header-meta">
+      <span><b>最終更新</b> 2026-04-13</span>
+    </div>
+  </div>
+</header>
+
+<!-- ========== NAV ========== -->
+<nav class="nav-strip">
+  <div class="wrap">
+    <a href="#overview">全体俯瞰</a>
+    <a href="#timeline">タイムライン</a>
+    <a href="#months">月別カード</a>
+    <a href="#team">T2チーム & M4-M7</a>
+    <a href="#balance">バランス図</a>
+    <a href="#principles">原則</a>
+    <a href="#legend">凡例</a>
+  </div>
+</nav>
+
+<!-- ========== OVERVIEW ========== -->
+<section id="overview">
+  <div class="wrap">
+    <div class="sec-label">01  OVERVIEW</div>
+    <h2 class="sec-head">全体俯瞰</h2>
+
+    <div class="overview-grid">
+      <div class="ov-card">
+        <div class="label">PERIOD</div>
+        <div class="value">8ヶ月<small>M1〜M8</small></div>
+      </div>
+      <div class="ov-card">
+        <div class="label">CAPACITY</div>
+        <div class="value">50〜70名<small>「場1」を構成する未知の仲間</small></div>
+      </div>
+      <div class="ov-card">
+        <div class="label">FORMAT</div>
+        <div class="value">オンライン中心<small>対面: Open / 合宿 / 越境 / 旅市 / 最終発表・卒業式</small></div>
+      </div>
+      <div class="ov-card">
+        <div class="label">VOLUME</div>
+        <div class="value">WS10 / ゲスト7<small>特別イベント7（Open/合宿/M3発表/越境/旅市/最終発表/卒業式）</small></div>
+      </div>
+    </div>
+
+    <div class="sec-label" style="margin-top: 2rem;">3 PHASES</div>
+    <div class="phase-strip">
+      <div class="phase-cell p1">
+        <div class="pname">自分と繋がる</div>
+        <div class="prange">M1 – M3</div>
+        <div class="pdesc">身体の解放／「ついつい」を見つける</div>
+      </div>
+      <div class="phase-cell p2">
+        <div class="pname">POOLOと繋がる</div>
+        <div class="prange">M4 – M6</div>
+        <div class="pdesc">仲間を鏡に名乗る／小さく届ける</div>
+      </div>
+      <div class="phase-cell p3">
+        <div class="pname">社会と繋がる</div>
+        <div class="prange">M7 – M8</div>
+        <div class="pdesc">知らない人に差し出す／影響の循環</div>
+      </div>
+    </div>
+
+    <div class="sec-label" style="margin-top: 2rem;">STEP — 螺旋の進行</div>
+    <div class="step-flow">
+      <div class="step-node"><div class="sn">STEP 1</div><div class="sname">見つける</div><div class="srange">M1 – M3</div></div>
+      <div class="step-node"><div class="sn">STEP 2</div><div class="sname">名乗る</div><div class="srange">M4</div></div>
+      <div class="step-node"><div class="sn">STEP 3</div><div class="sname">小さく届ける</div><div class="srange">M5 – M6</div></div>
+      <div class="step-node"><div class="sn">STEP 4</div><div class="sname">知らない人に届ける</div><div class="srange">M7 – M8</div></div>
+    </div>
+
+    <div class="sec-label" style="margin-top: 2rem;">5 つの型</div>
+    <div class="chip-row">
+      <span class="chip">コンテンツ型 — 言葉・概念を入れる</span>
+      <span class="chip warm">体験型 — 身体で飛び込む</span>
+      <span class="chip">対話型 — 他者と言葉を交わす</span>
+      <span class="chip neutral">非言語型 — 身体／焚き火／沈黙</span>
+      <span class="chip deep">越境型 — 未知の他者の現場へ</span>
+    </div>
+    <p style="margin-top: 0.8rem; font-size: 0.76rem; color: var(--mute); line-height: 1.8;">単発の「コンテンツ型」で完結させない。必ず対話型／体験型／越境型とセットで。</p>
+  </div>
+</section>
+
+<!-- ========== TIMELINE ========== -->
+<section id="timeline" style="background: var(--bg-deep);">
+  <div class="wrap">
+    <div class="sec-label">02  TIMELINE</div>
+    <h2 class="sec-head">8ヶ月タイムライン</h2>
+    <div class="timeline">
+      <div class="tl-col p1">
+        <div class="tl-m">M1</div>
+        <div class="tl-key">旅と揺さぶり</div>
+        <div class="tl-sym"><span class="dot">● ●</span> <span class="ring">○</span> <span class="star">★</span></div>
+        <div class="tl-count">WS 2 ／ G 1</div>
+        <div class="tl-ev">オープニングDay</div>
+      </div>
+      <div class="tl-col p1">
+        <div class="tl-m">M2</div>
+        <div class="tl-key">対話と受容</div>
+        <div class="tl-sym"><span class="dot">● ●</span> <span class="ring">○</span></div>
+        <div class="tl-count">WS 2 ／ G 1</div>
+      </div>
+      <div class="tl-col p1">
+        <div class="tl-m">M3</div>
+        <div class="tl-key">言語化と仮置き</div>
+        <div class="tl-sym"><span class="dot">●</span> <span class="ring">○</span> <span class="star">★</span></div>
+        <div class="tl-count">WS 1(発表) ／ G 1</div>
+        <div class="tl-ev">探究テーマ発表</div>
+      </div>
+      <div class="tl-col p2">
+        <div class="tl-m">M4</div>
+        <div class="tl-key">揺り戻しと名乗り</div>
+        <div class="tl-sym"><span class="dot">●</span> <span class="ring">○</span> <span class="star">★</span></div>
+        <div class="tl-count">WS 1(合宿) ／ G 1</div>
+        <div class="tl-ev">合宿 1泊2日</div>
+      </div>
+      <div class="tl-col p2">
+        <div class="tl-m">M5</div>
+        <div class="tl-key">宣言と手渡し</div>
+        <div class="tl-sym"><span class="dot">●</span> <span class="ring">○</span></div>
+        <div class="tl-count">WS 1 ／ G 1</div>
+      </div>
+      <div class="tl-col p2">
+        <div class="tl-m">M6</div>
+        <div class="tl-key">越境と反応</div>
+        <div class="tl-sym"><span class="dot">●</span> <span class="ring">○</span> <span class="star">★</span></div>
+        <div class="tl-count">WS 1 ／ G 1</div>
+        <div class="tl-ev">POOLO外越境</div>
+      </div>
+      <div class="tl-col p3">
+        <div class="tl-m">M7</div>
+        <div class="tl-key">差し出しと受取</div>
+        <div class="tl-sym"><span class="dot">●</span> <span class="ring">○</span> <span class="star">★</span></div>
+        <div class="tl-count">WS 1 ／ G 1</div>
+        <div class="tl-ev">あなたへ、旅を／贈り旅</div>
+      </div>
+      <div class="tl-col p3">
+        <div class="tl-m">M8</div>
+        <div class="tl-key">循環と持ち帰り</div>
+        <div class="tl-sym"><span class="dot">●</span> <span class="star">★ ★</span></div>
+        <div class="tl-count">WS 1(準備) ／ G 0</div>
+        <div class="tl-ev">最終発表／卒業式</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== MONTHLY CARDS ========== -->
+<section id="months">
+  <div class="wrap">
+    <div class="sec-label">03  MONTHLY</div>
+    <h2 class="sec-head">月別カード（M1 – M8）</h2>
+
+    <div class="month-grid">
+
+      <!-- ========== M1 ========== -->
+      <article class="m-card p1">
+        <header class="m-head">
+          <div class="m-row">
+            <span class="m-num">M1</span>
+            <span class="m-key">旅と揺さぶり</span>
+            <span class="m-phase-badge">自分と繋がる</span>
+          </div>
+          <p class="m-purpose">身体が先に動くことに許可を出す。「変わらなきゃ」ではなく「変わってしまった」「揺らいだまま進めていい」を体感する。同期という未知の50人と最初の身体接触を持ち、フィルターが外れた状態のまま場に浸る。</p>
+        </header>
+        <div class="m-body">
+          <div>
+            <div class="m-section-label">● WS</div>
+            <div class="ws-block">
+              <div class="ws-title">WS1-1 浸ると、揺らぐ — 最初の一日<small>体験型＋非言語型 ／ オンライン3時間</small></div>
+              <div class="ws-q">最近、身体が先に動いた一瞬はいつでしたか</div>
+              <div class="ws-img">自己紹介から始めない。冒頭は画面越しの身体ワーク（呼吸合わせ・自分の手を見る・沈黙で見合う）で、言葉より前に場に入る …</div>
+              <div class="ws-meta">ファシリ役割: 鏡＋伴走</div>
+            </div>
+            <div class="ws-block" style="margin-top: 0.6rem;">
+              <div class="ws-title">WS1-2 揺れた一語を、旅記憶とつなげる<small>対話型 ／ オンライン90分</small></div>
+              <div class="ws-q">ゲストの話のどの一語で、あなたの身体が揺れましたか</div>
+              <div class="ws-img">ゲスト講義直後の週に実施。3人組で、ゲストの言葉×自分の旅記憶を行き来する …</div>
+              <div class="ws-meta">ファシリ役割: 問い＋鏡</div>
+            </div>
+          </div>
+          <div class="guest-block">
+            <div class="m-section-label" style="color: var(--warm);">○ GUEST</div>
+            <div class="guest-theme">旅と一生付き合うことになった人 — 観光・旅を長年耕している</div>
+            <table class="guest-table">
+              <tr><th>候補</th><th>優先</th><th>一言</th></tr>
+              <tr><td class="name">髙井典子</td><td class="rank">★★★</td><td class="desc">神奈川大・教授／観光研究と体験の往復</td></tr>
+              <tr><td class="name">石田ゆうすけ</td><td class="rank">★★</td><td class="desc">自転車世界一周作家／体験主語の実演者</td></tr>
+              <tr><td class="name">森田真生</td><td class="rank">★★</td><td class="desc">独立研究者／旅と身体の思索</td></tr>
+            </table>
+          </div>
+          <div class="event-block"><b>★ 特別イベント</b>オープニングDay（WS1-1として実施）</div>
+        </div>
+      </article>
+
+      <!-- ========== M2 ========== -->
+      <article class="m-card p1">
+        <header class="m-head">
+          <div class="m-row">
+            <span class="m-num">M2</span>
+            <span class="m-key">対話と受容</span>
+            <span class="m-phase-badge">自分と繋がる</span>
+          </div>
+          <p class="m-purpose">他者を聴く行為が自分を更新するという身体的な発見。越境インタビュー（仲間）で「聴く側」に立ち、戸惑いと発見を経験する。鏡と問いの役割を最初に起動させる月。</p>
+        </header>
+        <div class="m-body">
+          <div>
+            <div class="m-section-label">● WS</div>
+            <div class="ws-block">
+              <div class="ws-title">WS2-1 15分、相手だけを聴く<small>対話型 ／ オンライン90分</small></div>
+              <div class="ws-q">相手が言葉を探している沈黙に、あなたは何をしていますか</div>
+              <div class="ws-img">2人組で交代に15分ずつ聴く。技法解説は最小限。むしろ「聴けなかった瞬間」を後で振り返る …</div>
+              <div class="ws-meta">ファシリ役割: 問い</div>
+            </div>
+            <div class="ws-block" style="margin-top: 0.6rem;">
+              <div class="ws-title">WS2-2 あの人の聴き方で、もう一度<small>対話型 ／ オンライン120分</small></div>
+              <div class="ws-q">ゲストは、何を聴かずに／何に反応していましたか</div>
+              <div class="ws-img">ゲスト講義後、ゲストが示した聴く姿勢を真似て、同じ同期にもう一度聴いてみる …</div>
+              <div class="ws-meta">ファシリ役割: 鏡＋反応</div>
+            </div>
+          </div>
+          <div class="guest-block">
+            <div class="m-section-label" style="color: var(--warm);">○ GUEST</div>
+            <div class="guest-theme">聴くことで自分が変わってきた — インタビュアー／編集者／対話実践者</div>
+            <table class="guest-table">
+              <tr><th>候補</th><th>優先</th><th>一言</th></tr>
+              <tr><td class="name">永井玲衣</td><td class="rank">★★★</td><td class="desc">作家／哲学対話実践者</td></tr>
+              <tr><td class="name">尹雄大</td><td class="rank">★★</td><td class="desc">インタビュアー／身体論</td></tr>
+              <tr><td class="name">西村佳哲</td><td class="rank">★★</td><td class="desc">リビングワールド ※M6重複可能性</td></tr>
+            </table>
+          </div>
+        </div>
+      </article>
+
+      <!-- ========== M3 ========== -->
+      <article class="m-card p1">
+        <header class="m-head">
+          <div class="m-row">
+            <span class="m-num">M3</span>
+            <span class="m-key">言語化と仮置き</span>
+            <span class="m-phase-badge">自分と繋がる</span>
+          </div>
+          <p class="m-purpose">"ついつい"を完成形でなく仮の名で外に置く。発表は提出ではなく「置き場」。ひっくり返ってよい／間違ってよいという許可を、発表前のゲスト（卒業生）から受け取る。</p>
+        </header>
+        <div class="m-body">
+          <div>
+            <div class="m-section-label">● WS</div>
+            <div class="ws-block">
+              <div class="ws-title">WS3 仮で名乗る — この8ヶ月の、仮の主題<small>対話型（発表） ／ オンライン3時間</small></div>
+              <div class="ws-q">いま、あなたが手探りで置きたい名前は何ですか</div>
+              <div class="ws-img">発表は1人5分。プレゼンではなく"置く"行為。スライド不要でも可。聞く側は評価せず、身体反応だけ返す …</div>
+              <div class="ws-meta">ファシリ役割: 反応＋伴走 ／ 評価・助言・まとめを一切しない</div>
+            </div>
+          </div>
+          <div class="guest-block">
+            <div class="m-section-label" style="color: var(--warm);">○ GUEST（唯一の卒業生枠）</div>
+            <div class="guest-theme">"ついつい"を仮で名乗ったら世界が動いた／テーマがひっくり返った卒業生</div>
+            <table class="guest-table">
+              <tr><th>像</th><th>優先</th><th>一言</th></tr>
+              <tr><td class="name">像 a</td><td class="rank">★★★</td><td class="desc">テーマが3-4回ひっくり返った卒業生</td></tr>
+              <tr><td class="name">像 b</td><td class="rank">★★★</td><td class="desc">在学中に当初テーマを完全に捨てた卒業生</td></tr>
+              <tr><td class="name">像 c</td><td class="rank">★★</td><td class="desc">テーマ不変だが表現形態が変わり続けた卒業生</td></tr>
+            </table>
+            <p style="font-size: 0.72rem; color: var(--warm); margin-top: 0.6rem; line-height: 1.7;">※実名は社長指名待ち／成功者フレーム・助言トーン絶対禁止</p>
+          </div>
+          <div class="event-block"><b>★ 特別イベント</b>探究テーマ発表</div>
+        </div>
+      </article>
+
+      <!-- ========== M4 ========== -->
+      <article class="m-card p2">
+        <header class="m-head">
+          <div class="m-row">
+            <span class="m-num">M4</span>
+            <span class="m-key">揺り戻しと名乗り</span>
+            <span class="m-phase-badge">POOLOと繋がる</span>
+          </div>
+          <p class="m-purpose">合宿という身体密度の中で一度輪郭を崩し直し、揺れたまま名乗りを仮置きする。合宿後に来る揺り戻しを、正常な現象として受け止める語彙を持つ。</p>
+        </header>
+        <div class="m-body">
+          <div>
+            <div class="m-section-label">● WS</div>
+            <div class="ws-block">
+              <div class="ws-title">WS4 燃やすと、滲む — 合宿<small>体験型＋非言語型＋対話型 ／ 対面1泊2日</small></div>
+              <div class="ws-q">いま、あなたが仮に置きたい名前は何ですか／それはどこで揺れますか</div>
+              <div class="ws-img">1日目は身体ワーク・同期との徹底対話で輪郭を崩す。夜は焚き火（または薄暗い車座）で沈黙と告白が同居する時間 …</div>
+              <div class="ws-meta">ファシリ役割: 伴走＋非介入 ／ 沈黙を許容する、誘導しない</div>
+            </div>
+          </div>
+          <div class="guest-block">
+            <div class="m-section-label" style="color: var(--warm);">○ GUEST（合宿外 = b案）</div>
+            <div class="guest-theme">揺り戻しが来た日にしたこと — 独立3-7年目で揺り戻しを語彙化できる人</div>
+            <table class="guest-table">
+              <tr><th>候補</th><th>優先</th><th>一言</th></tr>
+              <tr><td class="name">最所あさみ</td><td class="rank">★★★</td><td class="desc">独立後も書き換えながら続ける実演</td></tr>
+              <tr><td class="name">塩谷舞</td><td class="rank">★★</td><td class="desc">文筆家／NY→帰国／揺り戻しの軌跡</td></tr>
+              <tr><td class="name">成田吉彦（narumi）</td><td class="rank">★★</td><td class="desc">編集者／独立メディア</td></tr>
+            </table>
+          </div>
+          <div class="event-block"><b>★ 特別イベント</b>合宿1泊2日（WS4として実施）</div>
+        </div>
+      </article>
+
+      <!-- ========== M5 ========== -->
+      <article class="m-card p2">
+        <header class="m-head">
+          <div class="m-row">
+            <span class="m-num">M5</span>
+            <span class="m-key">宣言と手渡し</span>
+            <span class="m-phase-badge">POOLOと繋がる</span>
+          </div>
+          <p class="m-purpose">仮決めしたWHATを、同期外の知人1名に実際に手渡す。反応の振れ幅（無反応／的外れ／思いがけない共鳴）を全部身体で受ける。Hが立ち上がる感触を知る。</p>
+        </header>
+        <div class="m-body">
+          <div>
+            <div class="m-section-label">● WS</div>
+            <div class="ws-block">
+              <div class="ws-title">WS5 差し出すと、返ってくる — 仮決めを外に出す日<small>対話型 ／ オンライン120分</small></div>
+              <div class="ws-q">あなたが最初に手渡したい1人は、誰ですか</div>
+              <div class="ws-img">宣言文を120字で書く。上手い文章ではなく、揺れたまま書く。3人組で「誰に渡すか」を話す …</div>
+              <div class="ws-meta">ファシリ役割: 問い＋鏡 ／ 宣言文の添削をしない</div>
+            </div>
+          </div>
+          <div class="guest-block">
+            <div class="m-section-label" style="color: var(--warm);">○ GUEST</div>
+            <div class="guest-theme">小さく差し出した最初の100回 — 無反応・的外れ・共鳴を全部語る</div>
+            <table class="guest-table">
+              <tr><th>候補</th><th>優先</th><th>一言</th></tr>
+              <tr><td class="name">影山知明</td><td class="rank">★★★</td><td class="desc">クルミドコーヒー店主／15年以上贈与の論理</td></tr>
+              <tr><td class="name">辻山良雄</td><td class="rank">★★</td><td class="desc">Title店主／本という小さな差し出し</td></tr>
+              <tr><td class="name">鳥居希</td><td class="rank">★★</td><td class="desc">バリューブックス取締役／古本の再循環</td></tr>
+            </table>
+          </div>
+        </div>
+      </article>
+
+      <!-- ========== M6 ========== -->
+      <article class="m-card p2">
+        <header class="m-head">
+          <div class="m-row">
+            <span class="m-num">M6</span>
+            <span class="m-key">越境と反応</span>
+            <span class="m-phase-badge">POOLOと繋がる</span>
+          </div>
+          <p class="m-purpose">POOLO外越境本番。予測不能な他者の現場に行く。受け入れ側の眼を予習で持っておくことで、越境が双方向の出会いになる。場2（POOLO外）の起動。</p>
+        </header>
+        <div class="m-body">
+          <div>
+            <div class="m-section-label">● WS</div>
+            <div class="ws-block">
+              <div class="ws-title">WS6 越境振り返りWS — 晒し合いとM7構想ラフ<small>対話型 ／ オンライン2時間</small><br><small style="color: var(--green); font-weight: 500;">※X案で軽量化：事前WSを集約し、越境後の振り返りに一本化</small></div>
+              <div class="ws-q">越境先で、あなたの仮決めはどう揺れましたか／何が残りましたか</div>
+              <div class="ws-img">越境本番（W3／1-2日）後のW4で実施。持ち帰った反応・違和・発見を晒し合い、M7差し出しの構想ラフを着手する …</div>
+              <div class="ws-meta">ファシリ役割: 問い＋鏡 ／ 整えすぎず、揺れたまま語らせる</div>
+            </div>
+          </div>
+          <div class="guest-block">
+            <div class="m-section-label" style="color: var(--warm);">○ GUEST（立ち会い型に変更）</div>
+            <div class="guest-theme">越境受け入れ側から見える景色 — 現場から短く顔合わせ（X案で軽量化）</div>
+            <table class="guest-table">
+              <tr><th>候補</th><th>優先</th><th>一言</th></tr>
+              <tr><td class="name">林篤志</td><td class="rank">★★★</td><td class="desc">Next Commons Lab／地方受け入れを10年以上</td></tr>
+              <tr><td class="name">田瀬理夫</td><td class="rank">★★★</td><td class="desc">プランタゴ／里山再生・長期で土地と関わる</td></tr>
+              <tr><td class="name">西村佳哲</td><td class="rank">★★</td><td class="desc">リビングワールド ※M2重複可能性</td></tr>
+            </table>
+          </div>
+          <div class="event-block"><b>★ 特別イベント</b>POOLO外越境本番（ホスト先現場へ訪問・個別／小グループ・半日〜1日）</div>
+        </div>
+      </article>
+
+      <!-- ========== M7 ========== -->
+      <article class="m-card p3">
+        <header class="m-head">
+          <div class="m-row">
+            <span class="m-num">M7</span>
+            <span class="m-key">差し出しと受取</span>
+            <span class="m-phase-badge">社会と繋がる</span>
+          </div>
+          <p class="m-purpose">本番名称: <b>「あなたへ、旅を」／「贈り旅」</b>（2案併記・最終決定待ち）。分散型・2週間ウィンドウ・自主企画。各自が居住地・縁の土地・越境先で、知らない人の前に差し出す。受け手の生の反応を身体で浴びる。<br><span style="color: var(--green); font-size: 0.78rem;">M5影山知明から繋がる縦糸 — 贈与は受け手で成立する、という哲学を実践に落とす月。</span></p>
+        </header>
+        <div class="m-body">
+          <div>
+            <div class="m-section-label">● WS</div>
+            <div class="ws-block">
+              <div class="ws-title">WS7 差し出し準備WS — 旅と、贈与の2週間の共通土壌<small>対話型 ／ オンライン2時間（W2）</small></div>
+              <div class="ws-q">あなたが差し出したい相手は誰か／場所はどこか／どんな形か</div>
+              <div class="ws-img">2週間ウィンドウの自主企画に向け、企画テンプレ・共通ハッシュタグ・反応収集フォーマットを共有。T2でも企画最終相談（W2）／反応持ち寄り（W4 解散式）…</div>
+              <div class="ws-meta">ファシリ役割: 問い＋伴走 ／ 形式を統一しない、各自の選択を尊重する</div>
+            </div>
+          </div>
+          <div class="guest-block">
+            <div class="m-section-label" style="color: var(--warm);">○ GUEST（a案=講義型）</div>
+            <div class="guest-theme">キャリア／働き方／生き方を自分の問いで編んでいる</div>
+            <table class="guest-table">
+              <tr><th>候補</th><th>優先</th><th>一言</th></tr>
+              <tr><td class="name">阿部裕志</td><td class="rank">★★★</td><td class="desc">巡の環／海士町／F=G×Hの典型実演者</td></tr>
+              <tr><td class="name">若新雄純</td><td class="rank">★★★</td><td class="desc">プロデューサー／既定レールを外した実験</td></tr>
+              <tr><td class="name">仲山進也</td><td class="rank">★★</td><td class="desc">仲山考材／楽天大学／大企業内外を往復</td></tr>
+            </table>
+          </div>
+          <div class="event-block"><b>★ 特別イベント</b>「あなたへ、旅を」／「贈り旅」本番 — 分散型・2週間ウィンドウ（W3）／場所・日時・形式（展示・対話・体験・小商い・配信等）・相手は各自が決める／救済策: M6越境先で出店を兼ねる選択肢</div>
+        </div>
+      </article>
+
+      <!-- ========== M8 ========== -->
+      <article class="m-card p3">
+        <header class="m-head">
+          <div class="m-row">
+            <span class="m-num">M8</span>
+            <span class="m-key">循環と持ち帰り</span>
+            <span class="m-phase-badge">社会と繋がる</span>
+          </div>
+          <p class="m-purpose">螺旋を身体に宿す。8ヶ月の影響を次の誰かに渡す回路を持ち帰る。ゲストは置かず、受講生の言葉で閉じる。</p>
+        </header>
+        <div class="m-body">
+          <div>
+            <div class="m-section-label">● WS</div>
+            <div class="ws-block">
+              <div class="ws-title">WS8 宿した螺旋を、どう見せるか<small>対話型（準備） ／ オンライン2-2.5h（1-2回）</small></div>
+              <div class="ws-q">8ヶ月で、あなたに何が宿りましたか／それをどう渡しますか</div>
+              <div class="ws-img">発表原稿を作る時間ではなく、何を持ち帰ったかを3人組で語り直す時間。完成形の発表にしようとせず、揺れや迷いが残ったまま話せるよう整える …</div>
+              <div class="ws-meta">ファシリ役割: 鏡＋伴走 ／ 評価しない、総括しない、整えすぎない</div>
+            </div>
+          </div>
+          <div class="guest-block" style="background: var(--bg-deep); border-left-color: var(--mute);">
+            <div class="m-section-label" style="color: var(--mute);">○ GUEST</div>
+            <div style="font-family: var(--serif); font-size: 0.85rem; color: var(--sub);">なし — 受講生主語で閉じる</div>
+          </div>
+          <div class="event-block"><b>★ 特別イベント1</b>最終発表（対面半日／1人5-7分／評価や順位なし／聴き手は鏡として応答）</div>
+          <div class="event-block"><b>★ 特別イベント2</b>卒業式（"儀式"として身体で区切る／焚き火式／持ち寄り式／詩の朗読など）</div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ========== TEAM (T2 & M4-M7 詳細設計) ========== -->
+<section id="team">
+  <div class="wrap">
+    <div class="sec-label">03.5  TEAM DESIGN</div>
+    <h2 class="sec-head">T2チーム & M4-M7詳細設計</h2>
+
+    <p style="font-size: 0.85rem; color: var(--sub); line-height: 1.95; margin-bottom: 1.5rem;">
+      8ヶ月を <b>4人チーム × 3回組み換え</b> で過ごす。<b style="color: var(--green);">T2（M4-M7）はプログラム全体の半分を占める最深のチーム</b>——合宿→越境→贈り旅を同じ4人でくぐることで、最も深い信頼が育つ。<br>
+      <span style="color: var(--mute); font-size: 0.78rem;">思想3フェーズ（P1-P3）とチーム3構成（T1-T3）は別レイヤー。T2はP2/P3を跨ぐ。</span>
+    </p>
+
+    <div class="sec-label" style="margin-top: 1.5rem;">CHEAM STRUCTURE — チーム構成</div>
+    <table class="team-table">
+      <thead>
+        <tr><th>チーム</th><th>期間</th><th>長さ</th><th>性格</th></tr>
+      </thead>
+      <tbody>
+        <tr class="t1"><td class="tname">T1</td><td>M1 – M3</td><td>3ヶ月</td><td>最初の弱さを見せる</td></tr>
+        <tr class="t2"><td class="tname">T2</td><td>M4 – M7</td><td>4ヶ月（プログラム全体の半分）</td><td>最も深い共有・最も安心感のある場 ／ M7末に解散式</td></tr>
+        <tr class="t3"><td class="tname">T3</td><td>M8</td><td>1ヶ月</td><td>別の鏡で振り返る ／ T1・T2で一度も重ならなかった4人</td></tr>
+      </tbody>
+    </table>
+
+    <div class="sec-label" style="margin-top: 2.5rem;">BASIC POLICY — 基本方針</div>
+    <div class="policy-grid">
+      <div class="policy-card main-line">
+        <div class="pol-label">主線</div>
+        <div class="pol-main">共有 → 主線</div>
+        <div class="pol-sub">「共創」ではなく「共有」。作らない。時間・記憶・問いを共有する。相互FBはマスト（評価・助言禁止のルール）。弱さを見せ合える深さをつくる。</div>
+      </div>
+      <div class="policy-card sub-line">
+        <div class="pol-label">補助線</div>
+        <div class="pol-main">自発創発 → 補助線</div>
+        <div class="pol-sub">共創・ZINE・合同企画を運営から提案しない（自発は歓迎）。コミュニティマネージャーが伴走。深さを守るため評価・助言・総括をT2内で禁止合意する。</div>
+      </div>
+    </div>
+
+    <div class="sec-label" style="margin-top: 2.5rem;">TYPE FLOW — T2の型月割り（旅を素材に、自分の探究を型で表現する）</div>
+    <div class="type-flow">
+      <div class="type-cell">
+        <div class="tc-m">M4</div>
+        <div class="tc-type">コンテンツ型</div>
+        <div class="tc-desc">書く・撮る・声にする。自分の探究を旅の記録としてコンテンツ化する。</div>
+        <div class="tc-range">手渡し: 自分 or チーム内</div>
+      </div>
+      <div class="type-cell">
+        <div class="tc-m">M5</div>
+        <div class="tc-type">体験型</div>
+        <div class="tc-desc">ミニ旅体験を手渡す。仮決め宣言文120字＋30-90分の体験設計。</div>
+        <div class="tc-range">手渡し: 同期外1名（自律実行）</div>
+      </div>
+      <div class="type-cell">
+        <div class="tc-m">M6</div>
+        <div class="tc-type">対話型</div>
+        <div class="tc-desc">越境先で対話の場を開く。問い1つを持って踏み込む。</div>
+        <div class="tc-range">手渡し: 越境先1-3人</div>
+      </div>
+      <div class="type-cell">
+        <div class="tc-m">M7</div>
+        <div class="tc-type">統合・差し出し</div>
+        <div class="tc-desc">3型のうち自分に最も効いた型で、旅の贈与を企画・実施する。</div>
+        <div class="tc-range">手渡し: 知らない人（分散型）</div>
+      </div>
+    </div>
+    <p style="font-size: 0.74rem; color: var(--mute); line-height: 1.8; margin-top: 0.8rem;">静→動→相互と身体性が段階的に上がる。作品提出ではなく実験（未完成OK）。チームは聴衆——評価・助言・改善提案しない。</p>
+
+    <div class="sec-label" style="margin-top: 2.5rem;">WEEKLY TIMELINE — M4-M7 週別タイムライン（運営／T2定例／個人）</div>
+    <table class="lane-table">
+      <thead>
+        <tr>
+          <th style="width: 7%;">月</th>
+          <th style="width: 7%;">週</th>
+          <th style="width: 28%;">運営（ゲスト/WS/イベント）</th>
+          <th style="width: 28%;">T2定例（コミュマネ伴走）</th>
+          <th style="width: 30%;">個人</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- M4 -->
+        <tr>
+          <td class="month-head" rowspan="4">M4<br><span style="font-size: 0.66rem; color: var(--mute); font-weight: 400;">揺り戻しと名乗り<br>合宿月 約30h</span></td>
+          <td class="week">W1</td>
+          <td class="lane-ops"><span class="marker event">EVENT</span>合宿1泊2日（揺り戻しと名乗り／約20h・対面）</td>
+          <td class="lane-t2">合宿初日夜キックオフ／朝の対話</td>
+          <td class="lane-self">合宿に身体を置く</td>
+        </tr>
+        <tr>
+          <td class="week">W2</td>
+          <td class="lane-ops"><span class="empty">—</span></td>
+          <td class="lane-t2"><span class="empty">—</span></td>
+          <td class="lane-self">コンテンツ型ラフ着手（書く・撮る・声）</td>
+        </tr>
+        <tr>
+          <td class="week">W3</td>
+          <td class="lane-ops"><span class="marker guest">GUEST</span>最所あさみ等／揺り戻しを語彙化（120分）</td>
+          <td class="lane-t2">ゲスト後60分／揺り戻し語彙化</td>
+          <td class="lane-self">コンテンツ型 制作</td>
+        </tr>
+        <tr>
+          <td class="week">W4</td>
+          <td class="lane-ops"><span class="empty">—</span></td>
+          <td class="lane-t2">90分／コンテンツ型プロト披露</td>
+          <td class="lane-self">T2でお披露目（負荷6-8h）</td>
+        </tr>
+        <!-- M5 -->
+        <tr>
+          <td class="month-head" rowspan="4">M5<br><span style="font-size: 0.66rem; color: var(--mute); font-weight: 400;">宣言と手渡し<br>約13h</span></td>
+          <td class="week">W1</td>
+          <td class="lane-ops"><span class="marker guest">GUEST</span>影山知明等／贈与の論理（120分）</td>
+          <td class="lane-t2">60分／先月の反応持ち寄り</td>
+          <td class="lane-self">体験型構想着手</td>
+        </tr>
+        <tr>
+          <td class="week">W2</td>
+          <td class="lane-ops"><span class="marker ws">WS</span>仮決め宣言WS（オンライン3h）</td>
+          <td class="lane-t2"><span class="empty">—</span></td>
+          <td class="lane-self">仮決め宣言文120字を書く</td>
+        </tr>
+        <tr>
+          <td class="week">W3</td>
+          <td class="lane-ops"><span class="empty">—</span></td>
+          <td class="lane-t2">90分／体験型チーム内リハ（15分×4人）</td>
+          <td class="lane-self">体験設計</td>
+        </tr>
+        <tr>
+          <td class="week">W4</td>
+          <td class="lane-ops"><span class="empty">—</span></td>
+          <td class="lane-t2"><span class="empty">—</span></td>
+          <td class="lane-self">同期外1名に本番手渡し（30-90分／負荷5-7h）</td>
+        </tr>
+        <!-- M6 -->
+        <tr>
+          <td class="month-head" rowspan="4">M6<br><span style="font-size: 0.66rem; color: var(--mute); font-weight: 400;">越境と反応<br>約16-24h</span></td>
+          <td class="week">W1</td>
+          <td class="lane-ops"><span class="marker guest">GUEST</span>林篤志等／<b>立ち会い型</b>（現場から短く顔合わせ・X案）</td>
+          <td class="lane-t2">60分／先月の体験型反応持ち寄り</td>
+          <td class="lane-self">越境先選定</td>
+        </tr>
+        <tr>
+          <td class="week">W2</td>
+          <td class="lane-ops"><span class="empty">—</span></td>
+          <td class="lane-t2">60分／越境の持参品・対話テーマ相談</td>
+          <td class="lane-self">越境準備</td>
+        </tr>
+        <tr>
+          <td class="week">W3</td>
+          <td class="lane-ops"><span class="marker event">EVENT</span>POOLO外越境本番（1-2日）</td>
+          <td class="lane-t2"><span class="empty">—</span></td>
+          <td class="lane-self">越境先で対話の場を開く（1-3人）</td>
+        </tr>
+        <tr>
+          <td class="week">W4</td>
+          <td class="lane-ops"><span class="marker ws">WS</span>越境振り返りWS（オンライン2h／X案で集約）</td>
+          <td class="lane-t2"><span class="empty">—</span></td>
+          <td class="lane-self">M7構想ラフ着手（越境含め負荷10-18h）</td>
+        </tr>
+        <!-- M7 -->
+        <tr>
+          <td class="month-head" rowspan="4">M7<br><span style="font-size: 0.66rem; color: var(--mute); font-weight: 400;">差し出しと受取<br>最重量 約22-27h</span></td>
+          <td class="week">W1</td>
+          <td class="lane-ops"><span class="marker guest">GUEST</span>阿部裕志等／キャリアを編む（120分）</td>
+          <td class="lane-t2"><span class="empty">—</span></td>
+          <td class="lane-self">型の選択／企画着手</td>
+        </tr>
+        <tr>
+          <td class="week">W2</td>
+          <td class="lane-ops"><span class="marker ws">WS</span>差し出し準備WS（オンライン2h／旅と贈与の共通土壌）</td>
+          <td class="lane-t2">90分／贈与企画の最終相談</td>
+          <td class="lane-self">企画詰め</td>
+        </tr>
+        <tr>
+          <td class="week">W3</td>
+          <td class="lane-ops"><span class="marker event">EVENT</span><b>あなたへ、旅を／贈り旅</b>本番（分散型・2週間ウィンドウ・自主企画）</td>
+          <td class="lane-t2"><span class="empty">—</span></td>
+          <td class="lane-self">居住地・縁の土地・越境先で実施</td>
+        </tr>
+        <tr>
+          <td class="week">W4</td>
+          <td class="lane-ops"><span class="empty">—</span></td>
+          <td class="lane-t2"><b>T2解散式</b>（対面 or オンライン半日／4ヶ月の記憶を残す儀式）</td>
+          <td class="lane-self">反応持ち寄り（負荷15-20h）</td>
+        </tr>
+      </tbody>
+    </table>
+    <p style="font-size: 0.74rem; color: var(--mute); line-height: 1.8; margin-top: 0.8rem;">合計接点: 運営(a)ゲスト4回＋(b)WS4回／T2定例8回（約10h＋半日）／個人約36-53h</p>
+
+    <div class="sec-label" style="margin-top: 2.5rem;">STANCE — 運営の構え4原則（4ヶ月通貫）</div>
+    <div class="team-stance">
+      <div class="stance-card">
+        <div class="st-n">01</div>
+        <div class="st-name">伴走する</div>
+        <div class="st-desc">コミュニティマネージャーがT2に寄り添う。強制せず、深さを守る同伴者として立つ。</div>
+      </div>
+      <div class="stance-card">
+        <div class="st-n">02</div>
+        <div class="st-name">強制しない</div>
+        <div class="st-desc">共創・ZINE・合同企画を運営から提案しない。自発の動きは歓迎する。</div>
+      </div>
+      <div class="stance-card">
+        <div class="st-n">03</div>
+        <div class="st-name">評価しない</div>
+        <div class="st-desc">活発さや成果物の有無でチームを比較しない。沈黙の時間も尊重する。</div>
+      </div>
+      <div class="stance-card">
+        <div class="st-n">04</div>
+        <div class="st-name">深さを守る</div>
+        <div class="st-desc">評価禁止・助言禁止・総括禁止の3点をT2内で合意する。弱さを見せ合える場を保つ。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== BALANCE ========== -->
+<section id="balance" style="background: var(--bg-deep);">
+  <div class="wrap">
+    <div class="sec-label">04  BALANCE</div>
+    <h2 class="sec-head">WS × ゲスト バランス図</h2>
+
+    <div class="balance">
+      <div class="bal-row header">
+        <div>月</div>
+        <div>キーワード</div>
+        <div>記号バランス</div>
+        <div>ゲスト比率</div>
+      </div>
+      <!-- M1 -->
+      <div class="bal-row">
+        <div class="bal-m p1">M1</div>
+        <div class="bal-key">旅と揺さぶり</div>
+        <div class="bal-sym"><span class="dot">●Open ●</span> <span class="ring">○</span></div>
+        <div class="bal-bar">
+          <div class="seg filled"></div><div class="seg filled"></div><div class="seg filled"></div>
+          <div class="seg"></div><div class="seg"></div><div class="seg"></div><div class="seg"></div><div class="seg"></div><div class="seg"></div><div class="seg"></div>
+          <span class="pct">33%</span>
+        </div>
+      </div>
+      <!-- M2 -->
+      <div class="bal-row">
+        <div class="bal-m p1">M2</div>
+        <div class="bal-key">対話と受容</div>
+        <div class="bal-sym"><span class="dot">● ●</span> <span class="ring">○</span></div>
+        <div class="bal-bar">
+          <div class="seg filled"></div><div class="seg filled"></div><div class="seg filled"></div>
+          <div class="seg"></div><div class="seg"></div><div class="seg"></div><div class="seg"></div><div class="seg"></div><div class="seg"></div><div class="seg"></div>
+          <span class="pct">33%</span>
+        </div>
+      </div>
+      <!-- M3 -->
+      <div class="bal-row">
+        <div class="bal-m p1">M3</div>
+        <div class="bal-key">言語化と仮置き — 発表月</div>
+        <div class="bal-sym"><span class="dot">●発表</span> <span class="ring">○</span></div>
+        <div class="bal-bar">
+          <div class="seg filled"></div><div class="seg filled"></div><div class="seg filled"></div><div class="seg filled"></div><div class="seg filled"></div>
+          <div class="seg"></div><div class="seg"></div><div class="seg"></div><div class="seg"></div><div class="seg"></div>
+          <span class="pct">50%</span>
+        </div>
+      </div>
+      <!-- M4 -->
+      <div class="bal-row">
+        <div class="bal-m p2">M4</div>
+        <div class="bal-key">揺り戻しと名乗り — 合宿</div>
+        <div class="bal-sym"><span class="dot">●合宿</span> <span class="ring">○</span></div>
+        <div class="bal-bar">
+          <div class="seg filled"></div><div class="seg filled"></div><div class="seg filled"></div><div class="seg filled"></div><div class="seg filled"></div>
+          <div class="seg"></div><div class="seg"></div><div class="seg"></div><div class="seg"></div><div class="seg"></div>
+          <span class="pct">50%</span>
+        </div>
+      </div>
+      <!-- M5 -->
+      <div class="bal-row">
+        <div class="bal-m p2">M5</div>
+        <div class="bal-key">宣言と手渡し</div>
+        <div class="bal-sym"><span class="dot">●</span> <span class="ring">○</span></div>
+        <div class="bal-bar">
+          <div class="seg filled"></div><div class="seg filled"></div><div class="seg filled"></div><div class="seg filled"></div><div class="seg filled"></div>
+          <div class="seg"></div><div class="seg"></div><div class="seg"></div><div class="seg"></div><div class="seg"></div>
+          <span class="pct">50%</span>
+        </div>
+      </div>
+      <!-- M6 -->
+      <div class="bal-row">
+        <div class="bal-m p2">M6</div>
+        <div class="bal-key">越境と反応 — 越境</div>
+        <div class="bal-sym"><span class="dot">●</span> <span class="ring">○</span> <span class="star">★</span></div>
+        <div class="bal-bar">
+          <div class="seg filled"></div><div class="seg filled"></div><div class="seg filled"></div><div class="seg filled"></div><div class="seg filled"></div>
+          <div class="seg"></div><div class="seg"></div><div class="seg"></div><div class="seg"></div><div class="seg"></div>
+          <span class="pct">50%</span>
+        </div>
+      </div>
+      <!-- M7 -->
+      <div class="bal-row">
+        <div class="bal-m p3">M7</div>
+        <div class="bal-key">差し出しと受取 — あなたへ、旅を／贈り旅（分散型・2週間）</div>
+        <div class="bal-sym"><span class="dot">●</span> <span class="ring">○</span> <span class="star">★</span></div>
+        <div class="bal-bar">
+          <div class="seg filled"></div><div class="seg filled"></div><div class="seg filled"></div><div class="seg filled"></div><div class="seg filled"></div>
+          <div class="seg"></div><div class="seg"></div><div class="seg"></div><div class="seg"></div><div class="seg"></div>
+          <span class="pct">50%</span>
+        </div>
+      </div>
+      <!-- M8 -->
+      <div class="bal-row">
+        <div class="bal-m p3">M8</div>
+        <div class="bal-key">循環と持ち帰り — 受講生主語</div>
+        <div class="bal-sym"><span class="dot">●準備</span> <span class="star">★発表 ★式</span></div>
+        <div class="bal-bar">
+          <div class="seg"></div><div class="seg"></div><div class="seg"></div><div class="seg"></div><div class="seg"></div><div class="seg"></div><div class="seg"></div><div class="seg"></div><div class="seg"></div><div class="seg"></div>
+          <span class="pct">0%</span>
+        </div>
+      </div>
+    </div>
+
+    <p style="margin-top: 1.2rem; font-size: 0.8rem; color: var(--sub); line-height: 1.9;">
+      全体: WS:ゲスト = 10:7。<b style="color: var(--green);">ゲスト比重が高い構造</b>——月に1本、外の声で螺旋を揺さぶる設計が各月の半分近いインパクトを持つ。<br>
+      M3-M7はWS1本+ゲスト1本の1:1構造（50%）。ゲスト1本の設計品質で受講生体験の半分が決まる。
+    </p>
+
+    <div id="legend" class="legend">
+      <div class="legend-item"><b><span class="dot">●</span> WS</b>ワークショップ本体</div>
+      <div class="legend-item"><b><span class="ring">○</span> ゲスト</b>外からの声・揺さぶり</div>
+      <div class="legend-item"><b><span class="star">★</span> 特別イベント</b>Open/合宿/越境/旅市/発表/卒業式</div>
+      <div class="legend-item"><b style="color: var(--warm);">■</b>自分と繋がる（M1-M3）</div>
+      <div class="legend-item"><b style="color: var(--green);">■</b>POOLOと繋がる（M4-M6）</div>
+      <div class="legend-item"><b style="color: var(--deep);">■</b>社会と繋がる（M7-M8）</div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== PRINCIPLES ========== -->
+<section id="principles">
+  <div class="wrap">
+    <div class="sec-label">05  PRINCIPLES</div>
+    <h2 class="sec-head">全体を貫く原則</h2>
+
+    <div class="prin-grid">
+      <div class="prin-card">
+        <h3>「導き型」を絶対にしない5か条</h3>
+        <p style="font-size: 0.78rem; color: var(--mute); margin-bottom: 1rem; line-height: 1.8;">「こうあるべき」を示した瞬間、受講生は自分で探すのをやめる。導きは変容を止める最大の要因。</p>
+        <ol class="prin-list">
+          <li data-n="1"><b>「正解を知っている顔」をしない</b>——自分も分かっていない、一緒に探す構えで立つ</li>
+          <li data-n="2"><b>「〜した方がいい」を言わない</b>——代わりに「私はこう見えた」と身体反応で返す</li>
+          <li data-n="3"><b>沈黙を割らない</b>——3秒で割らず、15秒待つ。相手が言葉を探している時間は奪わない</li>
+          <li data-n="4"><b>まとめすぎない</b>——WSの最後に「今日の学び」を要約しない。余白を持ち帰らせる</li>
+          <li data-n="5"><b>「成長」「成功」を褒めない</b>——変化を評価しない。「そうだったんですね」で止める</li>
+        </ol>
+      </div>
+
+      <div class="prin-card">
+        <h3>受講生の言葉を奪わない — 5つの役割</h3>
+        <table class="role-table">
+          <tr><th>役割</th><th>いつ起動するか</th><th>具体の動き</th></tr>
+          <tr><td>鏡</td><td>受講生が自分の言葉に詰まったとき</td><td>「あなたはこう見える」と観察を返す<br><span class="ng">NG: 「こうあるべき」を返す</span></td></tr>
+          <tr><td>反応</td><td>受講生が何かを差し出したとき</td><td>「私はこの一語で止まった」と身体反応を返す<br><span class="ng">NG: 評価・採点する</span></td></tr>
+          <tr><td>問い</td><td>受講生が早すぎる結論に飛びかけたとき</td><td>「もう一歩手前は何でしたか」と戻す<br><span class="ng">NG: 誘導的な問いで答えを引き出す</span></td></tr>
+          <tr><td>出会い</td><td>螺旋が停滞したとき</td><td>予測不能な他者を場に入れる（ゲスト／越境）<br><span class="ng">NG: 安全圏の他者だけを並べる</span></td></tr>
+          <tr><td>伴走</td><td>常時</td><td>8ヶ月を一緒に歩く。変化を急かさない<br><span class="ng">NG: 進捗管理する</span></td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ========== FOOTER ========== -->
+<footer class="foot">
+  <div class="wrap">
+    <b>POOLO LIFE</b> Master Dashboard v1
+  </div>
+</footer>
+
+</body>
+</html>
