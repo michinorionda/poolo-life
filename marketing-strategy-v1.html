@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CODOLI×POOLO マーケティング戦略・戦術 総整理 v1</title>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #1a1a1a;
+  --sub: #5a5a5a;
+  --mute: #7a7a7a;
+  --hint: #999;
+  --bg: #faf9f6;
+  --bg-deep: #f3f1ea;
+  --card: #ffffff;
+  --line: #e5e2db;
+  --green: #2D6A4F;
+  --green-bg: #E9F5EE;
+  --green-lt: #F4FAF6;
+  --blue: #1B4A7A;
+  --blue-bg: #E8F0F8;
+  --blue-lt: #F4F8FC;
+  --purple: #534AB7;
+  --purple-bg: #EEEBF8;
+  --purple-lt: #F6F4FB;
+  --teal: #1A6B5A;
+  --teal-bg: #E5F2EE;
+  --teal-lt: #F2F8F6;
+  --amber: #7A5500;
+  --amber-bg: #F7EFD8;
+  --amber-lt: #FBF7EC;
+  --red: #8B3A2A;
+  --red-bg: #F5E5E0;
+  --serif: 'Shippori Mincho', serif;
+  --sans: 'Noto Sans JP', sans-serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--sans);
+  background: var(--bg);
+  color: var(--ink);
+  line-height: 1.9;
+  font-weight: 300;
+  -webkit-font-smoothing: antialiased;
+}
+.wrap { max-width: 920px; margin: 0 auto; padding: 4rem 1.5rem 6rem; }
+
+/* Header */
+header {
+  text-align: center;
+  border-bottom: 2px solid var(--green);
+  padding-bottom: 2.5rem;
+  margin-bottom: 3.5rem;
+}
+.tag-label {
+  display: inline-block;
+  font-size: 0.72rem;
+  letter-spacing: 0.3em;
+  color: var(--green);
+  border: 1px solid var(--green);
+  padding: 0.35rem 1rem;
+  margin-bottom: 1.5rem;
+  border-radius: 2px;
+}
+h1 {
+  font-family: var(--serif);
+  font-size: 2.1rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+  color: var(--ink);
+}
+.sub-copy {
+  font-family: var(--serif);
+  font-size: 1.05rem;
+  color: var(--sub);
+  margin-bottom: 1.2rem;
+  letter-spacing: 0.04em;
+}
+.meta {
+  font-size: 0.78rem;
+  color: var(--mute);
+  letter-spacing: 0.08em;
+}
+.meta span + span::before { content: " ／ "; margin: 0 0.4rem; color: var(--hint); }
+
+/* Objective */
+.objective {
+  background: var(--green-bg);
+  border-left: 4px solid var(--green);
+  padding: 1.6rem 1.8rem;
+  margin-bottom: 3.5rem;
+  border-radius: 2px;
+}
+.objective .label {
+  font-size: 0.7rem;
+  letter-spacing: 0.3em;
+  color: var(--green);
+  margin-bottom: 0.7rem;
+  font-weight: 600;
+}
+.objective .main {
+  font-family: var(--serif);
+  font-size: 1.05rem;
+  line-height: 1.85;
+  color: var(--ink);
+}
+
+/* Part heading */
+.part-head {
+  margin: 5rem 0 2rem;
+  padding-left: 1rem;
+  border-left: 4px solid currentColor;
+}
+.part-num {
+  font-family: var(--serif);
+  font-size: 0.78rem;
+  letter-spacing: 0.4em;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+  display: block;
+}
+.part-title {
+  font-family: var(--serif);
+  font-size: 1.65rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  line-height: 1.4;
+}
+.part-1 { color: var(--green); }
+.part-2 { color: var(--blue); }
+.part-3 { color: var(--purple); }
+.part-4 { color: var(--teal); }
+.part-5 { color: var(--amber); }
+
+/* Section heading */
+.sec-tag {
+  font-size: 0.72rem;
+  letter-spacing: 0.25em;
+  font-weight: 600;
+  margin-top: 3rem;
+  margin-bottom: 0.5rem;
+  display: inline-block;
+}
+.sec-tag.g { color: var(--green); }
+.sec-tag.b { color: var(--blue); }
+.sec-tag.p { color: var(--purple); }
+.sec-tag.t { color: var(--teal); }
+.sec-tag.a { color: var(--amber); }
+
+h2 {
+  font-family: var(--serif);
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  margin: 0.3rem 0 1.4rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid var(--line);
+  color: var(--ink);
+  line-height: 1.5;
+}
+h3 {
+  font-family: var(--serif);
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  margin: 2.2rem 0 0.9rem;
+  color: var(--ink);
+}
+
+p { margin: 0.9rem 0; font-size: 0.95rem; color: var(--ink); }
+strong { font-weight: 600; color: var(--ink); }
+ul, ol { margin: 0.9rem 0 1.2rem 1.5rem; font-size: 0.93rem; }
+li { margin: 0.45rem 0; line-height: 1.85; }
+
+/* Highlight box */
+.hl {
+  padding: 1.4rem 1.6rem;
+  margin: 1.5rem 0;
+  border-radius: 2px;
+}
+.hl.g { background: var(--green-bg); border-left: 3px solid var(--green); }
+.hl.b { background: var(--blue-bg); border-left: 3px solid var(--blue); }
+.hl.p { background: var(--purple-bg); border-left: 3px solid var(--purple); }
+.hl.t { background: var(--teal-bg); border-left: 3px solid var(--teal); }
+.hl.a { background: var(--amber-bg); border-left: 3px solid var(--amber); }
+.hl .label {
+  font-size: 0.7rem;
+  letter-spacing: 0.25em;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+.hl.g .label { color: var(--green); }
+.hl.b .label { color: var(--blue); }
+.hl.p .label { color: var(--purple); }
+.hl.t .label { color: var(--teal); }
+.hl.a .label { color: var(--amber); }
+.hl .main {
+  font-family: var(--serif);
+  font-size: 1rem;
+  line-height: 1.85;
+}
+
+/* Accent box */
+.ab {
+  background: var(--bg-deep);
+  border-left: 4px solid var(--mute);
+  padding: 1.2rem 1.5rem;
+  margin: 1.3rem 0;
+  border-radius: 2px;
+}
+.ab .ab-title {
+  font-family: var(--serif);
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--ink);
+}
+.ab.g { border-left-color: var(--green); }
+.ab.b { border-left-color: var(--blue); }
+.ab.p { border-left-color: var(--purple); }
+.ab.t { border-left-color: var(--teal); }
+.ab.a { border-left-color: var(--amber); }
+.ab.r { border-left-color: var(--red); }
+
+/* Card grid */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+.cards.three { grid-template-columns: repeat(3, 1fr); }
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-top: 4px solid var(--green);
+  padding: 1.2rem 1.3rem;
+  border-radius: 2px;
+}
+.card.b { border-top-color: var(--blue); }
+.card.p { border-top-color: var(--purple); }
+.card.t { border-top-color: var(--teal); }
+.card.a { border-top-color: var(--amber); }
+.card.r { border-top-color: var(--red); }
+.card-title {
+  font-family: var(--serif);
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+.card-body { font-size: 0.85rem; line-height: 1.75; color: var(--sub); }
+
+/* Table */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.2rem 0 2rem;
+  font-size: 0.86rem;
+}
+th, td {
+  text-align: left;
+  padding: 0.7rem 0.85rem;
+  border: 1px solid var(--line);
+  vertical-align: top;
+  line-height: 1.7;
+}
+thead th {
+  background: var(--green);
+  color: white;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  font-size: 0.82rem;
+}
+tbody tr:hover { background: var(--green-lt); }
+
+/* Priority badge */
+.badge {
+  display: inline-block;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  padding: 0.18rem 0.55rem;
+  border-radius: 2px;
+  margin-left: 0.5rem;
+  vertical-align: middle;
+}
+.badge.A { background: var(--green); color: white; }
+.badge.B { background: var(--amber); color: white; }
+.badge.C { background: var(--mute); color: white; }
+
+/* Code-ish block (KPI tree, flow) */
+.flow {
+  background: var(--bg-deep);
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  padding: 1.2rem 1.4rem;
+  font-family: var(--sans);
+  font-size: 0.86rem;
+  line-height: 2;
+  white-space: pre;
+  overflow-x: auto;
+  margin: 1.3rem 0;
+  color: var(--sub);
+}
+
+/* Decision list */
+.decision {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--amber);
+  padding: 1rem 1.3rem;
+  margin: 0.8rem 0;
+  border-radius: 2px;
+}
+.decision .d-head {
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: 0.98rem;
+  margin-bottom: 0.4rem;
+  color: var(--ink);
+}
+.decision .d-meta {
+  font-size: 0.78rem;
+  color: var(--mute);
+  letter-spacing: 0.04em;
+}
+.decision .d-num { color: var(--amber); font-weight: 700; margin-right: 0.5rem; }
+
+/* Divider */
+.hr-deco {
+  text-align: center;
+  color: var(--hint);
+  font-size: 0.65rem;
+  letter-spacing: 0.4em;
+  margin: 4rem 0;
+}
+.hr-deco::before { content: "— — —"; }
+
+/* Footer */
+footer {
+  margin-top: 5rem;
+  padding-top: 2.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center;
+  font-size: 0.78rem;
+  color: var(--mute);
+  line-height: 2;
+}
+footer a { color: var(--green); text-decoration: none; }
+footer a:hover { text-decoration: underline; }
+
+/* Responsive */
+@media (max-width: 720px) {
+  .wrap { padding: 2.5rem 1.2rem 4rem; }
+  h1 { font-size: 1.55rem; }
+  .part-title { font-size: 1.3rem; }
+  h2 { font-size: 1.15rem; }
+  .cards, .cards.three { grid-template-columns: 1fr; }
+  .flow { font-size: 0.78rem; }
+  table { font-size: 0.8rem; }
+  th, td { padding: 0.55rem 0.6rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div class="tag-label">CODOLI × POOLO ／ MARKETING STRATEGY v1</div>
+  <h1>マーケティング戦略・戦術 総整理</h1>
+  <div class="sub-copy">戦略の幹と、戦術の優先順位と、判断待ちの論点を、一枚に置く。</div>
+  <div class="meta">
+    <span>作成 2026-04-15</span>
+    <span>版 Phase4 最終統合版</span>
+    <span>対象 運営チーム共有</span>
+  </div>
+</header>
+
+<div class="objective">
+  <div class="label">この資料の目的</div>
+  <div class="main">チームで共通言語を持つために、戦略（WHY／WHO／WHAT）と戦術（HOW／チャネル／リズム）を統合的に置く。本書は決定版として運用し、編集長ロールが版管理を担う。次の更新は90日ロードマップ完了時点、または社長判断論点の重要決定時。</div>
+</div>
+
+<!-- Executive Summary -->
+<div class="sec-tag g">EXECUTIVE SUMMARY</div>
+<h2>エグゼクティブサマリ</h2>
+
+<div class="hl g">
+  <div class="label">北極星（二層）</div>
+  <div class="main"><strong>一次：</strong>年間でPOOLOの場に参加する人を増やす（12期LIFE 65名／POOLO全体150名射程）。<br><strong>二次：</strong>Lv.3（知らない人に届ける）必修ラインに到達し、次の誰かへ影響を渡す卒業生比率を守る。<br>数で駆動し、質で守る。</div>
+</div>
+
+<div class="hl b">
+  <div class="label">戦略の幹</div>
+  <div class="main">旅と、問いと、共創の三位一体で、POOLOは「受け取る人から創る人へ」の不可逆な立ち位置変化を起こす。マーケは仮説を差し出し、反応を聴き、言葉にする螺旋を回し続ける装置である。情報開示は早く、施策量は絞り、社長の時間は螺旋の起点に集中させる。</div>
+</div>
+
+<h3>戦術 優先度A施策（5本）</h3>
+<div class="cards">
+  <div class="card"><div class="card-title">1. 月4本イベントの機能別固定</div><div class="card-body">体験型と外向きWSに身体性の最低要件を明示。社長は月1本のみ登壇。</div></div>
+  <div class="card"><div class="card-title">2. ヒアリング週1サイクル還流</div><div class="card-body">48時間還流から週1サイクルへ現実化。「今週の肉声3本」を共有。</div></div>
+  <div class="card"><div class="card-title">3. LIFE LP 母艦化と早期開示</div><div class="card-body">価格・期間・拘束・オンライン比率の開示ブロックを設置。</div></div>
+  <div class="card"><div class="card-title">4. 説明会 対話基調＋情報15-20%</div><div class="card-body">月次は対話標準、四半期1回を体験濃縮版に。</div></div>
+  <div class="card"><div class="card-title">5. SNSはX＋note先行</div><div class="card-body">Instagramは下期投入。公式編集長ロールを明示。</div></div>
+</div>
+
+<h3>社長判断が必要な論点（トップ5）</h3>
+<ol>
+  <li>一次プロミスの最終形（三位一体型／身体順序型／必修ライン型の3案から選ぶ）</li>
+  <li>情報開示方針（LPに価格レンジまで載せるか、説明会前案内までに留めるか）</li>
+  <li>社長接触頻度（月次説明会に15分ゲスト枠を常設するか）</li>
+  <li>差別化軸の対外一語（三語のまま掲げるか、一語に畳むか）</li>
+  <li>紹介の思想的位置づけ（集客装置化しない歯止めを誰が守るか）</li>
+</ol>
+
+<div class="hr-deco"></div>
+
+<!-- Part 1: Strategy -->
+<div class="part-head part-1">
+  <span class="part-num">PART 1</span>
+  <span class="part-title">戦略</span>
+</div>
+
+<div class="sec-tag g">SECTION 1</div>
+<h2>マーケの目的と北極星</h2>
+
+<h3>1-1. 二層の北極星</h3>
+<p>一次北極星は <strong>年間参加者数</strong>。12期POOLO LIFE 65名・売上1,300万、POOLO全体で年間150名を射程に置く。ただし数だけを追うと身体性・深掘り対話・影響の循環というPOOLOの核が毀損し、翌期の獲得構造が崩れる。よって二次北極星を <strong>Lv.3到達と影響の循環を起こす卒業生比率</strong> に置く。マーケは数で駆動し、質で守る。</p>
+
+<h3>1-2. 3軸のうちマーケが直接効く箇所</h3>
+<p>社長3軸のうち、マーケが主役なのは <strong>マーケットフィット検証</strong>。未来デザイン更新では <strong>翻訳役</strong>（内部語を検討者の肉声に訳す）、カリキュラム具体化では <strong>素材供給役</strong>（ヒアリング・イベントの肉声を還流）を兼ねる。マーケは独立したファネル装置ではなく、検証の現場を持ち、翻訳と素材供給を兼ねる三役構造にある。</p>
+
+<h3>1-3. KPIツリー</h3>
+<div class="flow">売上・参加者数（LIFE / JOB / TRAVEL別）
+  ↑ 申込数 × 単価 × 継続率
+  ↑ 説明会参加数 × 申込転換率
+  ↑ リード数 × 説明会参加率
+  ↑ 接触数 × リード転換率</div>
+<p>段ごとの現状値・目標値・チャネル寄与は優先度A施策の実装と並行して埋める。数値確定はマーケ担当（編集長ロール）が月次で管理。</p>
+
+<div class="sec-tag g">SECTION 2</div>
+<h2>WHO：4状態セグメント</h2>
+<p>v5で確定した4状態（出し切れていない／こなしてしまっている／追い込まれている／成長を追い求めてきた）を、年代ではなく状態で切る。マーケ文脈への翻訳は以下。</p>
+
+<table>
+  <thead><tr><th>状態</th><th>想定される流入経路</th><th>響きやすい一次情報</th><th>迷い／決め手の仮説</th></tr></thead>
+  <tbody>
+    <tr><td>出し切れていない</td><td>SNS（卒業生体験談）／知人紹介</td><td>未完成を差し出した人の物語</td><td>「このままでいいのか」を肯定してくれる場への渇き</td></tr>
+    <tr><td>こなしてしまっている</td><td>検索（学び直し・再設計）／note</td><td>感覚を取り戻した人の物語</td><td>「安定を壊したくないが、このままも怖い」の両義性</td></tr>
+    <tr><td>追い込まれている</td><td>知人紹介／説明会</td><td>余白を取り戻した事例</td><td>時間がない、費用、家族の理解</td></tr>
+    <tr><td>成長を追い求めてきた</td><td>検索（コーチング代替）／PR・メディア</td><td>達成の先の到達点の言語化</td><td>「また別の正解レースでは？」という警戒</td></tr>
+  </tbody>
+</table>
+<p>4状態は動的で、同一人物が時期によって行き来する。ペルソナ固定化はしない。制作物では「どの状態のどの声に向けているか」を必ず明示する。</p>
+
+<div class="sec-tag g">SECTION 3</div>
+<h2>WHAT：ブランドプロミス</h2>
+
+<h3>3-1. 一次プロミス（複数案＋推奨）</h3>
+<p>Phase1で「旅と、問いと、共創で、想像もしなかった世界と自分に、出会いにいく」をコアブランド定義として置いた。これは正本で揺るがない。ただし検討者が初接触する場面（LPファーストビュー・イベントLP・説明会導入）では、この一文が旅系コミュニティ・オンラインサロンの既視感カテゴリに落ちる。検討者の身体に届く具体語で書き直した <strong>対外接触面の一次プロミス</strong> を3案提示する。</p>
+
+<div class="ab g">
+  <div class="ab-title">案1：三位一体型</div>
+  <p>旅と、問いと、共創。三つがそろって、はじめて見える自分がいる。</p>
+  <p><strong>強み：</strong>v5の三位一体（越境×内省×共創）を一文に畳む。Big Visionの「未来を共に創る」まで自然に接続する。<br><strong>弱み：</strong>抽象度がやや高く、Q1（サロンと何が違う）Q3（コーチングと何が違う）への初見応答がまだ弱い。</p>
+</div>
+
+<div class="ab b">
+  <div class="ab-title">案2：身体順序型</div>
+  <p>身体を動かしてから、言葉にする。順序が変わると、見える景色が変わる。</p>
+  <p><strong>強み：</strong>POOLOの構造的固有資産（身体が先・言葉が後）を直接言語化。コーチング／オンラインサロンとの差が身体順序の一点で明確化する。<br><strong>弱み：</strong>「共創」「影響の循環」のニュアンスが一文からは消える。Big Visionへの橋が細い。</p>
+</div>
+
+<div class="ab p">
+  <div class="ab-title">案3：必修ライン型</div>
+  <p>自分のために書く日記から、知らない誰かに手渡す一冊へ。</p>
+  <p><strong>強み：</strong>Lv.3必修の体感が鮮明。検討者が「自分が何をする場所か」を身体で予感できる。旅系・サロン系の既視感から最も遠い。<br><strong>弱み：</strong>「旅」の語が消える。POOLO TRAVEL／旅ブランド資産との接続が薄くなる。</p>
+</div>
+
+<div class="hl g">
+  <div class="label">推奨</div>
+  <div class="main"><strong>案1を軸に、イベントLP・SNSには案2と案3の派生を常駐させる二層運用。</strong>三位一体を一次コピーに残しつつ、案2・案3の具体語で検討者の身体の反応を引き出し、状態に応じた接触面で出し分ける。一次が抽象・二次が具体という分断を解消する。</div>
+</div>
+
+<h3>3-2. 差別化軸：越境×内省×共創の三位一体</h3>
+<p>前面に立つのは <strong>越境×内省×共創</strong> の三語。Big Vision「旅で人生を豊かにする人を増やし、未来を共に創る」を上位に置き、Inspire Vision「世の中を面白がりながら、地に足をつけて、誰かの役に立っている人を増やしたい」を起点に据える。</p>
+
+<div class="cards three">
+  <div class="card"><div class="card-title">越境（身体が先）</div><div class="card-body">旅と越境インタビューで、フィルターを外す。</div></div>
+  <div class="card b"><div class="card-title">内省（知的冒険）</div><div class="card-body">1on1・振り返り・対話で、仮の輪郭を言葉にする。</div></div>
+  <div class="card p"><div class="card-title">共創（身体に戻る）</div><div class="card-body">仲間と、知らない誰かに、差し出す。反応が次の螺旋を回す。</div></div>
+</div>
+
+<p>三つが揃って初めて「受け取る人から創る人へ」の不可逆が起きる。どれか一つを単独で前面化すると、POOLOは内省プログラム／旅コミュニティ／共創サロンのいずれかに誤読される。<strong>三位一体はひとつの語に畳まない。三語のまま掲げ続ける</strong>のが対外戦略の核。</p>
+
+<h3>3-3. 競合との差分FAQ（5問答）</h3>
+
+<div class="ab b"><div class="ab-title">Q1. POOLOはオンラインサロンと何が違う？</div>
+<p>サロンは場に集うだけで完結しやすい。POOLOはLv.3必修（知らない人に届ける）を全員の必修ラインに置く。集うだけでは終わらず、8ヶ月の終盤に、知らない誰かに自分の言葉や場を差し出す行為に全員が立つ。</p></div>
+
+<div class="ab b"><div class="ab-title">Q2. 8ヶ月、今の仕事を続けながら通えるの？</div>
+<p>月次のオフライン・オンラインの組み合わせで、参加者側の拘束を具体的に開示する（§6参照）。「通えるか不安」への応答は情報開示方針で扱う。</p></div>
+
+<div class="ab b"><div class="ab-title">Q3. コーチングとの違いは？</div>
+<p>コーチングは1対1で目標逆算型に寄る。POOLOは関心探究型で、「3年後の目標」から出発しない。50人の鏡と越境と差し出しを組み合わせることで、1対1では絶対に見えない自分に出会う。<strong>導きをしないから、体験が主語になる</strong>。</p></div>
+
+<div class="ab b"><div class="ab-title">Q4. 旅したいわけじゃないんだけど、合う？</div>
+<p>旅は「観光地に行くこと」ではなく「知らない場所に身体で飛び込むこと」として扱う。都内で知らない人に話を聞きに行くことも越境。旅が苦手な状態の人に対しても、身体を動かす選択肢は複数用意する。</p></div>
+
+<div class="ab b"><div class="ab-title">Q5. いくら？どれくらい拘束される？</div>
+<p>情報開示方針（§6）で扱う。LPの早い段階で価格レンジ・期間・月次拘束・オンライン比率を開示する運用に切り替える。</p></div>
+
+<div class="sec-tag g">SECTION 4</div>
+<h2>WHY：時代背景と仮説</h2>
+<ul>
+  <li><strong>30代の人生再設計需要：</strong>終身雇用・結婚・住宅の三点セットが崩れ、20代後半〜30代で「このままでいいのか」が常態化。</li>
+  <li><strong>コミュニティ消費の疲労：</strong>受動的サロン疲れが広がり、自分を差し出せる場への渇きが裏返しで立ち上がる。</li>
+  <li><strong>内省ニーズのインフレと疲弊：</strong>ジャーナリング・瞑想・コーチング普及の一方で内省疲れも生まれた。身体と越境を伴わない内省の限界。</li>
+</ul>
+<p>POOLOは「内省だけ」「コミュニティだけ」「旅だけ」のいずれでもなく、<strong>身体×知的冒険×差し出し</strong>の螺旋で応える。これが時代の疲弊への別解になる。裏付けとなる社会調査・一次ヒアリングの引用は、優先度A施策の実装と並行で編集長ロールが整える。</p>
+
+<div class="sec-tag g">SECTION 5</div>
+<h2>戦略フレーム：螺旋型マーケティング</h2>
+<p>社長の螺旋（仮説→ヒアリング→言語化→再仮説）は、カリキュラムだけでなくマーケそのものの駆動原理である。</p>
+
+<div class="flow">［仮説を差し出す］イベント（月4本）／SNS投稿／LP改訂
+   ↓
+［反応を聴く］ヒアリング（常時）／体験会での対話／説明会での問い
+   ↓
+［言葉にする］LP・資料・SNS・ブランドドキュメントへ反映
+   ↓
+［高解像度の対話］説明会・1on1で、言葉にしたものを検討者に返す
+   ↓
+（再び仮説へ）</div>
+
+<p>螺旋が速く回るための条件は3つ。第一に、ヒアリングとマーケの分断を <strong>週1サイクル</strong> で橋渡しする（当初提案の48時間還流は非現実と判断し、週1サイクルに現実化）。第二に、イベント→コンテンツ→次の体験者のサイクルを機能させる。第三に、社長の発信10%を螺旋の起点（一次観察・迷い・問いの供給）に集中させる。予算は <strong>螺旋レイヤー別</strong> に再マッピングし、「チャネル別」ではなく「どの層に投じているか」で仕分ける。</p>
+
+<div class="sec-tag g">SECTION 6</div>
+<h2>情報開示方針</h2>
+<p>価格・期間・拘束の情報開示順序を戦略レイヤーで確定する。具体的な価格数値は社長判断事項として第5部に残す。</p>
+
+<h3>6-1. 開示対象</h3>
+<p>4項目を扱う：（1）価格、（2）期間（8ヶ月）、（3）月次拘束時間（オンライン／オフラインそれぞれの目安）、（4）オンライン／オフライン比率。</p>
+
+<h3>6-2. 開示順序（複数案＋推奨）</h3>
+
+<div class="ab g"><div class="ab-title">案A：LPファーストビューから価格レンジまで全開示</div>
+<p>全項目をLP冒頭に明記。検討者の3秒離脱を最小化し、Q5（いくら？）に即応する。<strong>強み：</strong>検討初期の心理障壁を早期除去。<strong>弱み：</strong>価格が一人歩きし、世界観が先に身体で伝わる前に費用比較の土俵に乗る。</p></div>
+
+<div class="ab b"><div class="ab-title">案B：LPで期間・拘束・比率を開示、価格は説明会前案内で開示</div>
+<p>世界観を身体で味わってから費用判断に入る順序。期間と拘束は早く出し、価格は「検討が進んだ検討者にだけ届く段階」で出す。<strong>強み：</strong>身体が先・言葉が後の原則との整合。<strong>弱み：</strong>価格未公開への不信感が一部検討者に残る。</p></div>
+
+<div class="ab p"><div class="ab-title">案C：LPでは期間・拘束・比率のみ、価格は説明会当日開示</div>
+<p>価格は説明会の体験と合わせて初めて開示。<strong>強み：</strong>世界観接触の質を最大化。<strong>弱み：</strong>現代の検討者は「価格非公開＝高額の身構え」を即座に形成し、説明会参加自体の障壁が上がる。</p></div>
+
+<div class="hl b">
+  <div class="label">推奨：案B</div>
+  <div class="main">「身体が先」の原則と「価格空欄は戦略書ではない」の指摘を同時に満たす中間解。期間・拘束・オンライン比率の3項目はQ2（続けられるか）の応答に不可欠で、LPに必ず載せる。価格は説明会申込の直前案内（自動リマインド／FAQ）に明記し、説明会当日まで空欄という案Cの構造を避ける。価格数値の表現形式は社長判断事項として第5部論点に残す。</div>
+</div>
+
+<div class="hr-deco"></div>
+
+<!-- Part 2: Tactics -->
+<div class="part-head part-2">
+  <span class="part-num">PART 2</span>
+  <span class="part-title">戦術（チャネル別）</span>
+</div>
+
+<p>各章は600〜1000字に圧縮。詳細根拠は <code>02a</code> ／ <code>02b</code> を参照。施策総量は3割削減を前提に <strong>優先度A／B／C</strong> ラベルで明示する。Aから着手、Cは下期（Q4以降）投入。</p>
+
+<div class="sec-tag b">SECTION 7</div>
+<h2>オフラインイベント（月4本）<span class="badge A">優先度A</span></h2>
+<p>螺旋型マーケの「仮説を差し出す層」と「反応を聴く層」を同時に兼ねる最重要装置。月4本の回転を安定させるため、<strong>機能別4本固定（ヒアリング型／体験型／卒業生共創型／外向きWS型）</strong>で運用する。企画コストを最小化し、集客ページをテンプレ化する。</p>
+<p><strong>4型すべてに「身体的一次体験（越境・動く・差し出す）の最低要件」を組み込む。</strong>ヒアリング型でも「聞きに行く」動きを、卒業生共創型でも「一緒に手を動かす」要素を必ず入れる。身体が先・言葉が後の原則を、4型すべてで守る。</p>
+<p><strong>実行体制：</strong>月初に event-architect が翌月4本のテーマ・ゲスト候補を3営業日で提案。機能別に主担当を割り当て、社長は月1本（外向きWS型）のみ登壇・設計主導。残り3本は企画相談のみに関与を限定する。</p>
+
+<div class="sec-tag b">SECTION 8</div>
+<h2>ヒアリング（リード装置）<span class="badge A">優先度A</span></h2>
+<p>常時稼働の反応を聴く層であり、同時にリード獲得装置・素材工場。問いセットは <strong>共通核5問＋状態別3問</strong> で運用。深さは説明会以降で取り戻す。</p>
+<p>還流速度は当初の <strong>48時間→週1サイクル</strong> に現実化。hearing-designer が生データを週前半に insight-harvester へ、そこから週後半に brand-director ／ copywriter ／ social-planner に素材化依頼が回る一本線。週次で「今週の肉声3本」を Slack 共有し、翌週の発信素材に転用する。</p>
+<p>社長は月2〜3本の「深い1on1」のみ直接実施。4状態の最深層の声を自ら拾い、一次プロミスと差別化軸の磨き直しに使う。</p>
+
+<div class="sec-tag b">SECTION 9</div>
+<h2>LP（LIFE / JOB / TRAVEL / イベント）<span class="badge A">LIFE：A</span><span class="badge C">JOB・TRAVEL：C</span></h2>
+<p><strong>案A（LIFE母艦／JOB・TRAVEL衛星）</strong>を採用。12期はLIFEに戦力集中。LIFEのLPを05a方針で本文確定し、§6情報開示方針に基づき <strong>価格・期間・拘束・オンライン比率の開示ブロックを必ず設置</strong> する。一次プロミスは§3-1の推奨に基づき三位一体型を軸に、身体順序型・必修ライン型の派生を併載する。</p>
+<p>JOB／TRAVELは、中途半端な衛星LPは作らず <strong>13期以降に再検討</strong> と明記する。当面はフレームのみ共通化し、本文大幅改訂は見送る。</p>
+<p>イベントLPは <strong>固定7ブロック</strong> でテンプレ化（①キャッチ＋リード／②その日に起きること／③向いている人（4状態の声を1-2本引用）／④ゲスト・ホスト／⑤当日の流れ／⑥申込み／⑦POOLOプログラムへの橋渡し）。</p>
+
+<div class="sec-tag b">SECTION 10</div>
+<h2>説明会<span class="badge A">優先度A</span></h2>
+<p>申込転換の最終関門。<strong>対話基調＋情報提供の薄い織り込み</strong>で運用。情報提供型を切り捨てるのではなく、対話の中に情報（プログラム構造・費用・拘束）を15〜20%織り込む。これで身体が先の原則と、検討初期層への情報提供機能を両立する。</p>
+<p>月次は対話型を標準、<strong>四半期に1回を体験濃縮版</strong>。卒業生トーク枠5分×2本を標準進行台本に組み込む。4状態は冒頭で並列提示し、参加者が自分の位置を自分で見つける構造（05a準拠）。</p>
+<p>社長接触機会の不足を受け、<strong>月次説明会に社長15分ゲスト枠の常設</strong>を検討課題として第5部に上げる（実装は社長判断待ち）。</p>
+
+<div class="sec-tag b">SECTION 11</div>
+<h2>SNS（X / Instagram / note / 社長個人）<span class="badge A">X＋note：A</span><span class="badge B">Instagram＋社長個人：B</span></h2>
+<p>SNSは螺旋の「言葉にする」層を主担当する。認知装置ではなく <strong>翻訳装置</strong>。施策総量過多を受け、<strong>当面はX＋noteの2媒体に絞る</strong>。Instagramは下期（2026後半）投入。社長個人発信は社長の発信10%の範囲で無理なく継続。</p>
+
+<div class="cards">
+  <div class="card b"><div class="card-title">X（公式）</div><div class="card-body">週4〜5本。ヒアリング肉声の引用／一次観察／イベント告知／卒業生の声の再掲。指標：プロフィールクリック率、LP遷移数。</div></div>
+  <div class="card b"><div class="card-title">note（公式）</div><div class="card-body">月2〜3本。観察記／イベントレポ／カリキュラム設計思想。指標：読了率、記事末CTA遷移率。</div></div>
+  <div class="card a"><div class="card-title">Instagram（下期投入）</div><div class="card-body">コンテンツ柱は「イベントの手ざわり」＋「4状態の声」の混成。</div></div>
+  <div class="card a"><div class="card-title">社長個人発信</div><div class="card-body">翻訳前の一次情報を置く場所。公式が引用・再翻訳できる素材の蓄積が指標。</div></div>
+</div>
+
+<div class="hl p">
+  <div class="label">編集長ロール</div>
+  <div class="main">マーケ担当1名を公式編集長として明示（兼務）。週1回の定例で発信枠・素材在庫・イベント連動を確認。社長レビューは週1回15分、通す／差し戻すの2択。稼働が3ヶ月連続で限界を超えた場合は外部招聘に切り替える判断条項を入れる（第5部論点）。</div>
+</div>
+
+<div class="sec-tag b">SECTION 12</div>
+<h2>PR・メディア<span class="badge A">PR補助：A</span><span class="badge B">自治体＋共催：B</span><span class="badge C">取材誘致：C</span></h2>
+<p>案B（自治体連携PR）と案D（パートナー共催）を主、案A（プレスリリース月1本）を補助、<strong>案C（消費者向け取材誘致）は下期投入</strong>。理由は、案Cは効きが強いが単価が高く、SNS・LP・説明会の導線が整う前に投入しても取材露出の受け皿が弱いため。</p>
+<p>卒業生ストーリーの外部媒体提供は、本人許諾テンプレートを先に整備してから動く。社長のメディア露出方針は「煽り・断定・正解提示のトーンを求める媒体には出ない」を明文化。</p>
+
+<div class="sec-tag b">SECTION 13</div>
+<h2>紹介・卒業生リファラル<span class="badge A">優先度A</span></h2>
+<p>finance_v2 案Bの紹介25名は12期計画の核。アンバサダー制度は <strong>役割明示・インセンティブなし</strong> で運用。影響の循環を金銭動機で代替しない。非金銭の優先招待・次期共創役で動機の質を担保する。</p>
+<p>アンバサダー役割定義を <strong>「集客協力者」から「自分の差し出しを続けるための関係網」に再整理</strong> する。体験会招待・SNS応援・個別紹介を並列の業務リストで並べず、卒業生自身のLv.4（関係を紡ぐ）の延長として記述する。</p>
+
+<div class="ab a"><div class="ab-title">三段打ち手（律速要因に応じて）</div>
+<ul>
+  <li><strong>素材不足なら：</strong>copywriterの1枚紹介素材で解く</li>
+  <li><strong>声かけやすさなら：</strong>卒業生窓口担当のサポートで解く</li>
+  <li><strong>動機なら：</strong>卒業体験の質で解く</li>
+</ul>
+</div>
+
+<div class="sec-tag b">SECTION 14</div>
+<h2>自治体・法人ルート<span class="badge B">優先度B</span></h2>
+<p><strong>案B基調（文化形成パートナー）＋POOLO TRAVELに限り案A要素（獲得チャネル）</strong>で運用。LIFE／JOBは問い合わせ受信型に留め、TRAVELのみ自治体連携を獲得チャネルとして運用する。TRAVELの構造上、自治体連携が商品と不可分のため。</p>
+<p>研修パッケージ化の誘惑への歯止めとして、<strong>brand-directorの定期レビュー条項</strong>を組み込む。四半期1回、TRAVELの自治体案件の進行物に対して「研修パッケージ化／導き化」の兆候がないかを brand-director がチェックする。</p>
+
+<div class="hr-deco"></div>
+
+<!-- Part 3: Execution -->
+<div class="part-head part-3">
+  <span class="part-num">PART 3</span>
+  <span class="part-title">実行体制</span>
+</div>
+
+<div class="sec-tag p">SECTION 15</div>
+<h2>運営チームの稼働配分と役割</h2>
+<p>運営チームは事業開発・運営に約4名、マーケに約2名が関与する前提。施策量3割削減を前提に役割を再配分する。</p>
+
+<div class="cards three">
+  <div class="card p"><div class="card-title">マーケ担当</div><div class="card-body">公式SNS編集、LP本文管理、イベントLP量産、紹介素材整備、PR実行、編集長ロール兼務。</div></div>
+  <div class="card p"><div class="card-title">運営チーム</div><div class="card-body">イベント運営責任の機能別割当、体験会進行、卒業生窓口、自治体連携座組、素材供給。</div></div>
+  <div class="card p"><div class="card-title">社長</div><div class="card-body">月1本の外向きWS登壇、四半期1回の体験濃縮版説明会、月2〜3本の深いヒアリング、個人発信（X／note）、週1の発信方針レビュー15分、LIFE本文最終OK。</div></div>
+</div>
+
+<div class="sec-tag p">SECTION 16</div>
+<h2>12期予算との接続</h2>
+<p>確定コスト212万＋可変枠113万＝325万（finance_v2）。予算はチャネル別ではなく <strong>螺旋レイヤー別</strong> に再マッピングする。「仮説を差し出す層」「反応を聴く層」「言葉にする層」「高解像度の対話層」の4レイヤーに費目を付け替える。付け替え作業は finance-ops と brand-director の協働で、90日ロードマップの30日時点までに完了させる。</p>
+
+<div class="sec-tag p">SECTION 17</div>
+<h2>編集長ロール</h2>
+<p>マーケ担当1名を編集長として兼務で明示。役割は、週次定例での発信枠確定、素材在庫管理、イベント連動、社長レビューの集約。稼働が3ヶ月連続で限界を超えた場合は、外部招聘に切り替える判断条項を入れる（第5部論点）。</p>
+
+<div class="hr-deco"></div>
+
+<!-- Part 4: Roadmap -->
+<div class="part-head part-4">
+  <span class="part-num">PART 4</span>
+  <span class="part-title">90日ロードマップ</span>
+</div>
+
+<div class="sec-tag t">SECTION 18</div>
+<h2>30日（Q1優先度A実装）</h2>
+<ul>
+  <li>LIFEのLP本文を05a方針で確定、§6情報開示方針に基づく開示ブロックを設置。</li>
+  <li>月4本イベントの機能別固定運用を開始、4型すべてに身体性最低要件を組み込む。</li>
+  <li>ヒアリング共通核5問＋状態別3問のテンプレ完成。週1サイクルの還流運用を立ち上げる。</li>
+  <li>SNSはX＋noteの2媒体で編集カレンダーを実業務連動に変更。編集長ロールを明示。</li>
+  <li>予算の螺旋レイヤー別再マッピング完了。</li>
+</ul>
+
+<div class="sec-tag t">SECTION 19</div>
+<h2>60日（運用安定化）</h2>
+<ul>
+  <li>説明会の対話基調＋情報薄織り込み標準台本を稼働。月2回固定開催。</li>
+  <li>アンバサダー制度の非金銭案で卒業生同意取り付け開始（3ヶ月で50名目標）。</li>
+  <li>紹介素材1枚資料の整備完了、律速要因ヒアリングを月3〜5本で検証。</li>
+  <li>イベントLPテンプレ（固定7ブロック）の初回量産回転。</li>
+  <li>自治体連携（案B）座組の月1件ペース打診開始。</li>
+</ul>
+
+<div class="sec-tag t">SECTION 20</div>
+<h2>90日（B施策投入・C施策準備）</h2>
+<ul>
+  <li>PR案B（自治体連携）と案D（パートナー共催）を本格稼働。</li>
+  <li>Instagram投入準備（クリエイティブ設計・初期投稿12本分のバッファ整備）。</li>
+  <li>四半期1回の体験濃縮版説明会を初回実施。</li>
+  <li>律速要因検証の結果を受け、紹介の三段打ち手（素材／声かけ／動機）を実装。</li>
+  <li>下期のPR案C（消費者向け取材誘致）投入判断と紹介会社選定。</li>
+</ul>
+
+<div class="hr-deco"></div>
+
+<!-- Part 5: Decisions -->
+<div class="part-head part-5">
+  <span class="part-num">PART 5</span>
+  <span class="part-title">社長判断が必要な論点</span>
+</div>
+
+<p>チーム側で複数案まで整えた論点を、社長判断のために一覧化する。</p>
+
+<div class="decision"><div class="d-head"><span class="d-num">01</span>一次プロミスの対外接触面の最終形</div><div class="d-meta">複数案（案1三位一体／案2身体順序／案3必修ライン）／推奨：案1軸＋案2・3派生併載／決定期限：30日以内（LP本文確定と連動）</div></div>
+
+<div class="decision"><div class="d-head"><span class="d-num">02</span>価格の開示形式</div><div class="d-meta">複数案：レンジ表記／確定表記／補助金前面／決定期限：30日以内（情報開示ブロック実装と連動）</div></div>
+
+<div class="decision"><div class="d-head"><span class="d-num">03</span>価格の開示タイミング</div><div class="d-meta">複数案A全LP開示／B説明会前案内で開示／C説明会当日開示／推奨：B／決定期限：30日以内</div></div>
+
+<div class="decision"><div class="d-head"><span class="d-num">04</span>社長接触頻度の再設計</div><div class="d-meta">複数案：月次説明会15分ゲスト枠常設／月1回オンライン社長質問会／現状維持／決定期限：60日以内</div></div>
+
+<div class="decision"><div class="d-head"><span class="d-num">05</span>差別化軸の対外一語</div><div class="d-meta">単案：越境×内省×共創の三語のまま掲げる（推奨）／複数案への拡張は Phase5 以降／決定期限：30日以内</div></div>
+
+<div class="decision"><div class="d-head"><span class="d-num">06</span>紹介の思想的位置づけと歯止め役</div><div class="d-meta">単案：影響の循環の体現装置／歯止めは brand-director 四半期レビュー／決定期限：60日以内</div></div>
+
+<div class="decision"><div class="d-head"><span class="d-num">07</span>編集長ロールの実装形態</div><div class="d-meta">複数案：兼務（推奨）／外部招聘／不在＋稼働超過時の切替条項の承認／決定期限：30日以内</div></div>
+
+<div class="decision"><div class="d-head"><span class="d-num">08</span>JOB／TRAVELのLP改訂凍結</div><div class="d-meta">単案：13期以降に繰延の最終承認／決定期限：30日以内</div></div>
+
+<div class="decision"><div class="d-head"><span class="d-num">09</span>PR案Cの投入時期</div><div class="d-meta">単案：下期（2026後半）投入／紹介会社選定は90日時点／決定期限：90日時点</div></div>
+
+<div class="decision"><div class="d-head"><span class="d-num">10</span>体験会の年間回数</div><div class="d-meta">複数案：32回維持／月2〜3回（年24〜30回）に現実化／決定期限：60日以内</div></div>
+
+<div class="decision"><div class="d-head"><span class="d-num">11</span>アンバサダー50名目標の現実性</div><div class="d-meta">単案：3ヶ月50名同意、進捗50%下回りなら30名に下方修正／決定期限：60日時点</div></div>
+
+<div class="decision"><div class="d-head"><span class="d-num">12</span>自治体連携で研修パッケージ化の撤退ライン</div><div class="d-meta">単案：brand-director四半期レビューで思想逸脱検知、3回連続警告で撤退／決定期限：90日以内</div></div>
+
+<div class="decision"><div class="d-head"><span class="d-num">13</span>社長個人発信頻度の維持可否</div><div class="d-meta">複数案：維持／削減／外部リライター補助／決定期限：60日以内</div></div>
+
+<div class="decision"><div class="d-head"><span class="d-num">14</span>広告の撤退ライン運用</div><div class="d-meta">finance_v2論点4の具体化／決定期限：60日以内</div></div>
+
+<div class="decision"><div class="d-head"><span class="d-num">15</span>対外版ブランドドキュメント05aの次回改訂タイミング</div><div class="d-meta">決定期限：90日以内</div></div>
+
+<footer>
+  <p>CODOLI × POOLO ／ Marketing Strategy v1（最終版）／ 2026-04-15</p>
+  <p>本書はチーム共有の決定版として運用。次の更新は90日ロードマップ完了時点、または社長判断論点の重要決定時。</p>
+  <p>編集長ロールが版管理を担当。</p>
+</footer>
+
+</div>
+</body>
+</html>
