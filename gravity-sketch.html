@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>POOLO — 引力の干渉（スケッチ）</title>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#1a1a1a; --sub:#4a4a4a; --mute:#7a7a7a;
+  --bg:#faf9f6; --bg-deep:#f3f1ea; --line:#e0ddd3;
+  --green:#2D6A4F; --warm:#C08457; --deep:#1F3A3D; --star:#B8860B;
+  --serif:'Shippori Mincho',serif; --sans:'Noto Sans JP',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:var(--sans);background:var(--bg);color:var(--ink);line-height:1.9;font-weight:300;-webkit-font-smoothing:antialiased;min-height:100vh;display:flex;flex-direction:column}
+.wrap{max-width:780px;margin:0 auto;padding:0 1.5rem;width:100%}
+
+.header{padding:4rem 0 2rem;text-align:center}
+.mark{display:inline-block;font-size:0.6rem;letter-spacing:0.4em;color:var(--star);margin-bottom:1.5rem;font-weight:500;padding:0.3rem 1rem;border:1px solid var(--star);background:#fff}
+.title{font-family:var(--serif);font-size:1.6rem;font-weight:500;letter-spacing:0.1em;line-height:1.7;color:var(--ink);margin-bottom:0.6rem}
+.sub{font-family:var(--serif);font-size:0.9rem;color:var(--sub);letter-spacing:0.08em}
+
+.canvas-wrap{padding:2rem 0 3rem}
+.canvas{max-width:640px;margin:0 auto;position:relative;background:#fff;border:1px solid var(--line);border-radius:3px;padding:1.5rem;box-shadow:0 4px 24px rgba(0,0,0,0.04)}
+.canvas svg{width:100%;height:auto;display:block}
+
+.caption{max-width:640px;margin:2rem auto 0;padding:1.8rem 2rem;background:var(--bg-deep);border-left:3px solid var(--star);border-radius:3px}
+.caption p{font-family:var(--serif);font-size:0.95rem;line-height:2;color:var(--ink);letter-spacing:0.04em;margin-bottom:1rem}
+.caption p:last-child{margin-bottom:0}
+.caption b{color:var(--star);font-weight:600}
+.caption .ink{color:var(--ink);font-weight:500}
+
+.legend{max-width:640px;margin:2rem auto 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:0.8rem}
+.legend-item{display:flex;gap:0.7rem;align-items:center;padding:0.8rem 1rem;background:#fff;border:1px solid var(--line);border-radius:3px;font-size:0.82rem}
+.legend-dot{flex:0 0 14px;width:14px;height:14px;border-radius:50%}
+.legend-item span{color:var(--sub)}
+.legend-item b{color:var(--ink);font-weight:500;font-family:var(--serif);letter-spacing:0.04em}
+
+.footer{margin-top:auto;padding:2.5rem 0 3rem;text-align:center;font-size:0.78rem;color:var(--mute);letter-spacing:0.08em}
+.footer a{color:var(--green);text-decoration:none;border-bottom:1px solid var(--green);padding-bottom:2px}
+
+@media(max-width:640px){.title{font-size:1.3rem}.canvas{padding:1rem}}
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="wrap">
+    <span class="mark">SKETCH — GRAVITY ASSIST</span>
+    <h1 class="title">仲間の引力が干渉して、<br>一人では届かない場所へ運ばれる</h1>
+    <p class="sub">関心探究型の50人が集まると、何が起きるか</p>
+  </div>
+</header>
+
+<section class="canvas-wrap">
+  <div class="canvas">
+    <svg viewBox="0 0 720 560" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <!-- Gravity field gradients -->
+        <radialGradient id="gField1" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#2D6A4F" stop-opacity="0.28"/>
+          <stop offset="70%" stop-color="#2D6A4F" stop-opacity="0.04"/>
+          <stop offset="100%" stop-color="#2D6A4F" stop-opacity="0"/>
+        </radialGradient>
+        <radialGradient id="gField2" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#C08457" stop-opacity="0.28"/>
+          <stop offset="70%" stop-color="#C08457" stop-opacity="0.04"/>
+          <stop offset="100%" stop-color="#C08457" stop-opacity="0"/>
+        </radialGradient>
+        <radialGradient id="gField3" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#1F3A3D" stop-opacity="0.28"/>
+          <stop offset="70%" stop-color="#1F3A3D" stop-opacity="0.04"/>
+          <stop offset="100%" stop-color="#1F3A3D" stop-opacity="0"/>
+        </radialGradient>
+        <radialGradient id="gField4" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#B8860B" stop-opacity="0.28"/>
+          <stop offset="70%" stop-color="#B8860B" stop-opacity="0.04"/>
+          <stop offset="100%" stop-color="#B8860B" stop-opacity="0"/>
+        </radialGradient>
+        <radialGradient id="gField5" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#2D6A4F" stop-opacity="0.22"/>
+          <stop offset="70%" stop-color="#2D6A4F" stop-opacity="0.03"/>
+          <stop offset="100%" stop-color="#2D6A4F" stop-opacity="0"/>
+        </radialGradient>
+        <radialGradient id="gField6" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#C08457" stop-opacity="0.22"/>
+          <stop offset="70%" stop-color="#C08457" stop-opacity="0.03"/>
+          <stop offset="100%" stop-color="#C08457" stop-opacity="0"/>
+        </radialGradient>
+
+        <!-- Trajectory gradient -->
+        <linearGradient id="trajGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#1a1a1a" stop-opacity="0.3"/>
+          <stop offset="40%" stop-color="#1a1a1a" stop-opacity="0.85"/>
+          <stop offset="100%" stop-color="#B8860B" stop-opacity="1"/>
+        </linearGradient>
+
+        <!-- Arrow marker -->
+        <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto">
+          <path d="M 0 0 L 10 5 L 0 10 z" fill="#B8860B"/>
+        </marker>
+      </defs>
+
+      <!-- Gravity fields (大きな円、仲間の引力場) -->
+      <circle cx="200" cy="380" r="100" fill="url(#gField1)"/>
+      <circle cx="320" cy="180" r="110" fill="url(#gField2)"/>
+      <circle cx="480" cy="320" r="100" fill="url(#gField3)"/>
+      <circle cx="560" cy="140" r="85" fill="url(#gField4)"/>
+      <circle cx="140" cy="180" r="80" fill="url(#gField5)"/>
+      <circle cx="420" cy="450" r="80" fill="url(#gField6)"/>
+
+      <!-- Trajectory (自分の軌道、曲線) -->
+      <path d="M 80 460
+               Q 160 430, 200 380
+               Q 230 310, 180 230
+               Q 160 150, 260 130
+               Q 340 125, 340 200
+               Q 340 280, 420 290
+               Q 490 290, 470 230
+               Q 450 160, 540 140
+               Q 620 130, 650 80"
+            fill="none" stroke="url(#trajGrad)" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="0" marker-end="url(#arrow)"/>
+
+      <!-- 仲間の点 (関心) -->
+      <g font-family="'Shippori Mincho',serif" font-size="11" letter-spacing="1">
+        <circle cx="200" cy="380" r="5" fill="#2D6A4F"/>
+        <text x="205" y="402" fill="#2D6A4F">仲間A</text>
+
+        <circle cx="320" cy="180" r="5" fill="#C08457"/>
+        <text x="325" y="170" fill="#C08457">仲間B</text>
+
+        <circle cx="480" cy="320" r="5" fill="#1F3A3D"/>
+        <text x="485" y="342" fill="#1F3A3D">仲間C</text>
+
+        <circle cx="560" cy="140" r="4" fill="#B8860B"/>
+        <text x="530" y="125" fill="#B8860B">仲間D</text>
+
+        <circle cx="140" cy="180" r="4" fill="#2D6A4F"/>
+        <text x="100" y="170" fill="#2D6A4F">仲間E</text>
+
+        <circle cx="420" cy="450" r="4" fill="#C08457"/>
+        <text x="425" y="470" fill="#C08457">仲間F</text>
+      </g>
+
+      <!-- 出発点 (自分) -->
+      <circle cx="80" cy="460" r="7" fill="#1a1a1a"/>
+      <circle cx="80" cy="460" r="13" fill="none" stroke="#1a1a1a" stroke-width="1" stroke-dasharray="2 2"/>
+      <text x="50" y="490" font-family="'Shippori Mincho',serif" font-size="13" fill="#1a1a1a" font-weight="600" letter-spacing="2">自分（スタート）</text>
+
+      <!-- 到達点 -->
+      <circle cx="650" cy="80" r="8" fill="#B8860B"/>
+      <circle cx="650" cy="80" r="16" fill="none" stroke="#B8860B" stroke-width="1" stroke-dasharray="3 3"/>
+      <text x="520" y="55" font-family="'Shippori Mincho',serif" font-size="13" fill="#B8860B" font-weight="600" letter-spacing="2">想像もしなかった場所</text>
+
+      <!-- 破線の直線（一人で行こうとした場合） -->
+      <line x1="80" y1="460" x2="340" y2="280" stroke="#a8a8a8" stroke-width="1" stroke-dasharray="4 4"/>
+      <text x="180" y="380" font-family="'Shippori Mincho',serif" font-size="10" fill="#a8a8a8" letter-spacing="1" transform="rotate(-35 180 380)">一人で届く範囲</text>
+    </svg>
+  </div>
+
+  <div class="caption wrap">
+    <p>
+      <span class="ink">黒い点：</span>あなた。<br>
+      <span class="ink">色付きの点と円：</span>仲間の関心（追いかけたいもの）とその引力場。<br>
+      <span class="ink">実線の軌道：</span>仲間の引力に曲げられながら進む、あなたの8ヶ月。<br>
+      <span class="ink">灰色の破線：</span>一人で届こうとした場合の範囲。
+    </p>
+    <p>
+      関心探究型の人間が集まると、各人の<b>追いかけたいものに引力</b>が生まれる。<br>
+      その引力場の中を通ると、<b>一人のエンジンでは絶対に届かない場所</b>まで運ばれていく。
+    </p>
+    <p>
+      これが、<b>想像もしなかった世界と自分に出会いにいく</b>の物理。<br>
+      宇宙探査のスイングバイ（重力アシスト）と同じ仕組み。
+    </p>
+  </div>
+
+  <div class="legend wrap">
+    <div class="legend-item">
+      <span class="legend-dot" style="background:#1a1a1a"></span>
+      <span><b>自分</b><br>出発点</span>
+    </div>
+    <div class="legend-item">
+      <span class="legend-dot" style="background:#2D6A4F"></span>
+      <span><b>仲間の関心</b><br>引力場を発する点</span>
+    </div>
+    <div class="legend-item">
+      <span class="legend-dot" style="background:#B8860B"></span>
+      <span><b>到達点</b><br>一人では届かない座標</span>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="wrap">
+    <a href="index-share.html">← 共有ハブに戻る</a>
+  </div>
+</footer>
+
+</body>
+</html>
