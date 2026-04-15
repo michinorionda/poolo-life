@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>M4-M7 プログラム内容まとめ ｜ POOLO LIFE</title>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #1a1a1a;
+  --sub: #4a4a4a;
+  --mute: #7a7a7a;
+  --hint: #a8a8a8;
+  --bg: #faf9f6;
+  --bg-deep: #f3f1ea;
+  --line: #e0ddd3;
+  --green: #2D6A4F;
+  --green-lt: #F4FAF6;
+  --green-bg: #E9F5EE;
+  --serif: 'Shippori Mincho', serif;
+  --sans: 'Noto Sans JP', sans-serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--sans);
+  background: var(--bg);
+  color: var(--ink);
+  line-height: 1.9;
+  font-weight: 300;
+  -webkit-font-smoothing: antialiased;
+}
+.wrap { max-width: 860px; margin: 0 auto; padding: 4rem 1.5rem 6rem; }
+
+header {
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 2rem;
+  margin-bottom: 3rem;
+}
+.back-link {
+  display: inline-block;
+  color: var(--green);
+  text-decoration: none;
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  margin-bottom: 2rem;
+  border: 1px solid var(--green);
+  padding: 0.4rem 1rem;
+  border-radius: 2px;
+}
+.back-link:hover { background: var(--green-bg); }
+
+h1 {
+  font-family: var(--serif);
+  font-size: 1.85rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+.meta {
+  font-size: 0.8rem;
+  color: var(--mute);
+  letter-spacing: 0.05em;
+}
+.meta span + span::before { content: " ／ "; margin: 0 0.3rem; color: var(--hint); }
+
+h2 {
+  font-family: var(--serif);
+  font-size: 1.35rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  margin: 3.5rem 0 1.2rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 2px solid var(--green);
+  color: var(--ink);
+}
+h3 {
+  font-family: var(--serif);
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  margin: 2rem 0 0.8rem;
+  color: var(--green);
+}
+h4 {
+  font-family: var(--serif);
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  margin: 1.5rem 0 0.6rem;
+  color: var(--ink);
+  padding-left: 0.6rem;
+  border-left: 3px solid var(--green);
+}
+
+p { margin: 0.8rem 0; font-size: 0.95rem; }
+strong { font-weight: 600; color: var(--ink); }
+
+ul, ol { margin: 0.8rem 0 0.8rem 1.5rem; font-size: 0.92rem; }
+li { margin: 0.4rem 0; }
+
+.hr-deco {
+  text-align: center;
+  color: var(--hint);
+  font-size: 0.65rem;
+  letter-spacing: 0.4em;
+  margin: 3rem 0;
+}
+.hr-deco::before { content: "— — —"; }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0 2rem;
+  font-size: 0.88rem;
+}
+th, td {
+  text-align: left;
+  padding: 0.75rem 0.9rem;
+  border-bottom: 1px solid var(--line);
+  vertical-align: top;
+}
+th {
+  background: var(--bg-deep);
+  font-weight: 600;
+  font-size: 0.82rem;
+  letter-spacing: 0.04em;
+  color: var(--sub);
+  border-bottom: 2px solid var(--line);
+}
+tbody tr:hover { background: var(--green-lt); }
+
+.card {
+  background: #fff;
+  border: 1px solid var(--line);
+  padding: 1.5rem 1.8rem;
+  margin: 1.2rem 0;
+  border-radius: 2px;
+}
+.card h4 { margin-top: 0; }
+.card-note {
+  background: var(--green-lt);
+  border-left: 3px solid var(--green);
+  padding: 0.8rem 1rem;
+  margin: 1rem 0;
+  font-size: 0.88rem;
+  color: var(--sub);
+}
+
+footer {
+  margin-top: 5rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--line);
+  text-align: center;
+  font-size: 0.75rem;
+  color: var(--mute);
+  letter-spacing: 0.08em;
+}
+footer a { color: var(--green); text-decoration: none; margin: 0 0.5rem; }
+
+@media (max-width: 600px) {
+  .wrap { padding: 2.5rem 1rem 4rem; }
+  h1 { font-size: 1.4rem; }
+  h2 { font-size: 1.15rem; }
+  table { font-size: 0.8rem; }
+  th, td { padding: 0.55rem 0.5rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <a href="./" class="back-link">← マスターダッシュボードへ</a>
+  <h1>M4-M7 プログラム内容まとめ<br><span style="font-size: 0.85em; color: var(--sub);">T2チーム4ヶ月の詳細設計</span></h1>
+  <div class="meta">
+    <span>最終更新 2026-04-13</span>
+    <span>対象 運営チーム共有用</span>
+  </div>
+</header>
+
+<h2>前提</h2>
+<ul>
+  <li><strong>T2チーム4人</strong>で4ヶ月を過ごす（POOLO LIFE最深のチーム期間）</li>
+  <li>個人のお題は <strong>「旅を素材に、自分の探究を型で表現する」</strong></li>
+  <li>型の月割り: M4コンテンツ型 → M5体験型 → M6対話型 → M7統合</li>
+  <li>M7本番は <strong>分散型「あなたへ、旅を」／「贈り旅」（2案・最終決定待ち）</strong>（全国各地で各自が自主的に企画）</li>
+</ul>
+
+<div class="hr-deco"></div>
+
+<h2>1. 運営が用意するゲスト講義・ワークショップ</h2>
+
+<h3>(a) ゲスト講義（全4回・各120分）</h3>
+<table>
+  <thead>
+    <tr><th>月</th><th>週</th><th>ゲスト像</th><th>型・特記</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>M4</td><td>W3</td><td>独立3-7年目で揺り戻しを語彙化できる人（最所あさみ等）</td><td>コンテンツ＋対話／合宿外WS</td></tr>
+    <tr><td>M5</td><td>W1</td><td>小商い高頻度の実演者（影山知明等）</td><td>コンテンツ＋対話／贈与の論理</td></tr>
+    <tr><td>M6</td><td>W1</td><td>越境受け入れホスト（林篤志等）</td><td><strong>立ち会い型</strong>（現場から短く顔合わせ）</td></tr>
+    <tr><td>M7</td><td>W1</td><td>キャリア／働き方／生き方を編む人（阿部裕志等）</td><td>コンテンツ＋対話</td></tr>
+  </tbody>
+</table>
+
+<h3>(b) ワークショップ（全4回）</h3>
+<table>
+  <thead>
+    <tr><th>月</th><th>週</th><th>WSタイトル</th><th>形式・時間</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>M4</td><td>W1</td><td><strong>合宿1泊2日</strong>（揺り戻しと名乗り）</td><td>対面・約20h</td></tr>
+    <tr><td>M5</td><td>W2</td><td><strong>仮決め宣言WS</strong></td><td>オンライン3h</td></tr>
+    <tr><td>M6</td><td>W4</td><td><strong>越境振り返りWS</strong></td><td>オンライン2h</td></tr>
+    <tr><td>M7</td><td>W2</td><td><strong>差し出し準備WS</strong>（旅と、贈与の2週間の共通土壌）</td><td>オンライン2h</td></tr>
+  </tbody>
+</table>
+
+<div class="hr-deco"></div>
+
+<h2>2. 参加者のチーム定例（T2定例・全8回）</h2>
+<div class="card-note">ファシリはコミュニティマネージャーが伴走。強制なし・評価なし・助言なし・深さを守る。</div>
+<table>
+  <thead>
+    <tr><th>月</th><th>週</th><th>目的</th><th>時間</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>M4</td><td>W3</td><td>ゲストを受けて揺り戻しを語彙化</td><td>60分</td></tr>
+    <tr><td>M4</td><td>W4</td><td>コンテンツ型プロトを披露し合う</td><td>90分</td></tr>
+    <tr><td>M5</td><td>W1</td><td>先月のコンテンツ型の反応持ち寄り</td><td>60分</td></tr>
+    <tr><td>M5</td><td>W3</td><td>体験型チーム内リハ（15分×4人）</td><td>90分</td></tr>
+    <tr><td>M6</td><td>W1</td><td>先月の体験型の反応持ち寄り</td><td>60分</td></tr>
+    <tr><td>M6</td><td>W2</td><td>越境の持参品・対話テーマ相談</td><td>60分</td></tr>
+    <tr><td>M7</td><td>W2</td><td>贈与企画の最終相談</td><td>90分</td></tr>
+    <tr><td>M7</td><td>W4</td><td><strong>T2解散式</strong>（4ヶ月の記憶を残す儀式）</td><td>対面半日 or オンライン半日</td></tr>
+  </tbody>
+</table>
+<p><strong>合計: 約10h＋半日</strong>（対面/オンライン要選択）</p>
+
+<div class="hr-deco"></div>
+
+<h2>3. 参加者が自分たちで行う実施課題</h2>
+
+<div class="card">
+  <h4>M4 コンテンツ型（書く・撮る・声にする）</h4>
+  <ul>
+    <li><strong>お題</strong>: 自分の探究を、旅の記録としてコンテンツ化する</li>
+    <li><strong>手渡し範囲</strong>: 自分 or チーム内（T2でお披露目）</li>
+    <li><strong>実施</strong>: W2でラフ着手 → W4で仕上げてT2で披露</li>
+    <li><strong>形式自由</strong>: 文／写真／音声／動画など</li>
+    <li><strong>負荷: 約6-8h</strong></li>
+  </ul>
+</div>
+
+<div class="card">
+  <h4>M5 体験型（ミニ旅体験を手渡す）</h4>
+  <ul>
+    <li><strong>お題</strong>: 自分の探究をテーマにしたミニ旅体験を、同期外1名に手渡す</li>
+    <li><strong>手渡し範囲</strong>: 同期外1名（自律実行）</li>
+    <li><strong>実施フロー</strong>:
+      <ul>
+        <li>W2 仮決め宣言文を120字で書く（WSで使用）</li>
+        <li>W3 体験設計 → T2でリハ（15分×4人）</li>
+        <li>W4 同期外1名に本番手渡し（30-90分の体験）</li>
+      </ul>
+    </li>
+    <li><strong>負荷: 約5-7h</strong></li>
+  </ul>
+</div>
+
+<div class="card">
+  <h4>M6 対話型（越境先で対話の場）</h4>
+  <ul>
+    <li><strong>お題</strong>: POOLO外越境先で、対話の場を開く</li>
+    <li><strong>手渡し範囲</strong>: 越境先1-3人</li>
+    <li><strong>実施フロー</strong>:
+      <ul>
+        <li>W2 越境のテーマ・持参品設定／T2で相談</li>
+        <li>W3 <strong>越境本番（1-2日）</strong>：現場で対話を実践</li>
+        <li>W4 越境振り返りWSで晒し合い／M7構想ラフ着手</li>
+      </ul>
+    </li>
+    <li><strong>負荷: 越境含めて約10-18h</strong></li>
+  </ul>
+</div>
+
+<div class="card">
+  <h4>M7 統合「あなたへ、旅を」／「贈り旅」（2案・最終決定待ち）</h4>
+  <ul>
+    <li><strong>お題</strong>: 3型のうち自分に最も効いた型で、旅の贈与を企画・実施する</li>
+    <li><strong>手渡し範囲</strong>: 知らない人（全国各地・分散型・自主企画）</li>
+    <li><strong>実施フロー</strong>:
+      <ul>
+        <li>W1 ゲスト講義／型の選択／企画着手</li>
+        <li>W2 差し出し準備WS／T2で企画最終相談</li>
+        <li>W3 <strong>本番（2週間ウィンドウ内の任意タイミング）</strong>：各自が居住地・縁のある土地・越境先等で場所を決めて実施</li>
+        <li>W4 反応持ち寄り／T2解散式</li>
+      </ul>
+    </li>
+    <li><strong>運営が用意するもの</strong>: 企画テンプレ／共通ハッシュタグ／共有チャンネル／反応収集フォーマット／型例集</li>
+    <li><strong>参加者が決めるもの</strong>: 場所／日時／形式（展示・対話・体験・小商い・配信等）／相手</li>
+    <li><strong>救済策</strong>: M6越境先で出店を兼ねる選択肢を残す</li>
+    <li><strong>負荷: 約15-20h（最重量月）</strong></li>
+  </ul>
+</div>
+
+<div class="hr-deco"></div>
+
+<h2>月別俯瞰（負荷と構造）</h2>
+<table>
+  <thead>
+    <tr><th>月</th><th>キーワード</th><th>運営(a+b)</th><th>T2定例</th><th>個人</th><th>月合計</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>M4</td><td>揺り戻しと名乗り</td><td>合宿20h＋ゲスト2h</td><td>2.5h</td><td>6-8h</td><td><strong>約30h</strong>（合宿月）</td></tr>
+    <tr><td>M5</td><td>宣言と手渡し</td><td>WS3h＋ゲスト2h</td><td>2.5h</td><td>5-7h</td><td><strong>約13h</strong></td></tr>
+    <tr><td>M6</td><td>越境と反応</td><td>WS2h＋ゲスト2h</td><td>2h</td><td>10-18h</td><td><strong>約16-24h</strong></td></tr>
+    <tr><td>M7</td><td>差し出しと受取</td><td>WS2h＋ゲスト2h</td><td>4h＋半日</td><td>15-20h</td><td><strong>約22-27h</strong>（最重量）</td></tr>
+  </tbody>
+</table>
+
+<div class="hr-deco"></div>
+
+<h2>運営の構え（4ヶ月通貫）</h2>
+<ol>
+  <li><strong>伴走する</strong> — コミュニティマネージャーがT2に寄り添う</li>
+  <li><strong>強制しない</strong> — 共創・ZINE・合同企画を運営から提案しない（自発は歓迎）</li>
+  <li><strong>評価しない</strong> — 活発さや成果物の有無でチームを比較しない</li>
+  <li><strong>深さを守る</strong> — 評価禁止・助言禁止・総括禁止をT2内で合意する</li>
+</ol>
+
+<div class="hr-deco"></div>
+
+<h2>議論・確認したいこと</h2>
+<ul>
+  <li><strong>M7本番の名称</strong>: 「あなたへ、旅を」 vs 「贈り旅」 の最終決定</li>
+  <li>T2解散式(M7 W4): <strong>対面集合</strong> vs <strong>オンライン半日</strong></li>
+  <li>M6越境先で旅と贈与を兼ねる選択肢の提示タイミング（M6冒頭？ M7冒頭？）</li>
+  <li>共通ハッシュタグ・共有チャンネルの運営ツール（Slack/Notion/その他）</li>
+</ul>
+
+<footer>
+  POOLO LIFE ／
+  <a href="./">マスター</a>
+  <a href="discussion.html">論点</a>
+</footer>
+
+</div>
+</body>
+</html>
