@@ -94,6 +94,60 @@ section{padding:5.5rem 0}
 .gh .gh-name{font-family:var(--serif);font-size:0.98rem;color:var(--ink);font-weight:600;margin-bottom:0.3rem;letter-spacing:0.04em}
 .gh .gh-desc{font-size:0.8rem;color:var(--sub);line-height:1.7}
 
+/* Uniqueness section */
+.unique{background:#fff;padding:5.5rem 0}
+.unique .sec-label{color:var(--warm)}
+.compare-table{max-width:900px;margin:0 auto 3rem;overflow-x:auto}
+.compare-table table{width:100%;border-collapse:collapse;font-size:0.82rem;background:#fff;border:1px solid var(--line);min-width:720px}
+.compare-table th{background:var(--bg-deep);color:var(--ink);font-weight:600;text-align:left;padding:0.85rem 0.9rem;border-bottom:1px solid var(--line);letter-spacing:0.04em;font-size:0.72rem;font-family:var(--sans)}
+.compare-table th.poolo{background:var(--warm-bg);color:var(--warm);font-family:var(--serif);font-size:0.82rem;letter-spacing:0.06em;text-align:center}
+.compare-table td{padding:0.8rem 0.9rem;border-bottom:1px solid var(--line);color:var(--sub);vertical-align:top;line-height:1.7}
+.compare-table td.dim{font-family:var(--serif);color:var(--ink);font-weight:500;font-size:0.82rem;background:var(--bg);letter-spacing:0.04em}
+.compare-table td.poolo{background:var(--warm-bg);color:var(--ink);font-weight:500}
+.compare-table td.poolo b{color:var(--warm);font-weight:600}
+
+.three-element{max-width:780px;margin:3rem auto 2rem}
+.three-element .sec-sub{font-family:var(--serif);font-size:1.05rem;text-align:center;margin-bottom:2rem;color:var(--ink);letter-spacing:0.04em}
+.matrix{width:100%;border-collapse:collapse;font-size:0.85rem;background:#fff;border:1px solid var(--line)}
+.matrix th{padding:0.85rem 0.7rem;border-bottom:1px solid var(--line);background:var(--bg-deep);font-family:var(--sans);font-size:0.72rem;letter-spacing:0.1em;color:var(--sub);font-weight:500;text-align:center}
+.matrix th:first-child{text-align:left;width:40%}
+.matrix td{padding:0.85rem 0.7rem;border-bottom:1px solid var(--line);text-align:center;font-size:1rem;color:var(--ink)}
+.matrix td:first-child{text-align:left;font-family:var(--serif);font-size:0.88rem;color:var(--sub)}
+.matrix tr.poolo td{background:var(--warm-bg);font-weight:600}
+.matrix tr.poolo td:first-child{color:var(--warm);font-family:var(--serif);font-size:0.95rem}
+.matrix .o{color:var(--green);font-weight:600;font-size:1.2rem}
+.matrix .x{color:var(--hint);font-size:1.1rem}
+.matrix .t{color:var(--star);font-weight:500;font-size:1rem}
+
+/* Positioning map */
+.pos-wrap{max-width:720px;margin:3.5rem auto 0}
+.pos-head{text-align:center;margin-bottom:1.5rem}
+.pos-head h3{font-family:var(--serif);font-size:1.1rem;font-weight:500;letter-spacing:0.06em;color:var(--ink);margin-bottom:0.5rem}
+.pos-head p{font-size:0.82rem;color:var(--sub)}
+.pos-map{position:relative;width:100%;padding-top:68%;background:var(--bg-deep);border:1px solid var(--line);border-radius:3px}
+.pos-map-inner{position:absolute;inset:0}
+.axis-x-label,.axis-y-label{position:absolute;font-size:0.7rem;letter-spacing:0.15em;color:var(--mute);font-weight:500}
+.axis-x-label{bottom:0.5rem;right:1rem}
+.axis-x-label.left{left:1rem;right:auto}
+.axis-y-label{top:0.5rem;left:0.5rem;writing-mode:vertical-rl;transform:rotate(180deg)}
+.axis-y-label.bottom{top:auto;bottom:0.5rem}
+.axis-line-x{position:absolute;left:0;right:0;top:50%;height:1px;background:var(--line);border-top:1px dashed var(--hint)}
+.axis-line-y{position:absolute;top:0;bottom:0;left:50%;width:1px;background:var(--line);border-left:1px dashed var(--hint)}
+.pos-item{position:absolute;transform:translate(-50%,-50%);padding:0.4rem 0.65rem;background:#fff;border:1px solid var(--line);border-radius:2px;font-size:0.72rem;color:var(--sub);letter-spacing:0.04em;white-space:nowrap;font-family:var(--sans)}
+.pos-item.poolo{background:var(--warm);color:#fff;border-color:var(--warm);font-weight:600;font-size:0.82rem;padding:0.55rem 0.85rem;box-shadow:0 3px 12px rgba(192,132,87,0.25);font-family:var(--serif);letter-spacing:0.08em;z-index:5}
+.pos-note{text-align:center;margin-top:1.3rem;font-size:0.78rem;color:var(--sub);font-family:var(--serif);line-height:1.9}
+.pos-note b{color:var(--warm);font-weight:600}
+
+.unique-callout{max-width:680px;margin:3rem auto 0;padding:2rem 2rem;background:var(--warm-bg);border-left:3px solid var(--warm);border-radius:3px;text-align:center}
+.unique-callout p{font-family:var(--serif);font-size:1rem;line-height:2;color:var(--ink);letter-spacing:0.05em}
+.unique-callout b{color:var(--warm);font-weight:600}
+
+@media(max-width:640px){
+  .pos-map{padding-top:100%}
+  .pos-item{font-size:0.62rem;padding:0.3rem 0.45rem}
+  .pos-item.poolo{font-size:0.72rem;padding:0.4rem 0.6rem}
+}
+
 /* Theory appendix */
 .theory{background:var(--bg-deep);padding:4rem 0 5rem}
 .theory .sec-head{font-size:1.15rem;margin-bottom:0.8rem}
@@ -289,6 +343,141 @@ section{padding:5.5rem 0}
       <b style="color:var(--star)">F = G × H</b> の掛け算が、止まらない状態。<br>
       自分を満たしながら、社会とつながり、社会を満たしていく。
     </p>
+  </div>
+</section>
+
+<!-- UNIQUENESS / 他サービスとの違い -->
+<section class="unique">
+  <div class="wrap">
+    <div class="sec-label">05 — UNIQUENESS</div>
+    <h2 class="sec-head">他のサービスと、<b>ここが違う</b></h2>
+
+    <!-- 1. 機能比較マトリクス -->
+    <div class="three-element">
+      <div class="sec-sub">エンジン × 軸 × 場 — <b style="color:var(--warm);font-weight:600">3つを統合しているのはPOOLOだけ</b></div>
+      <table class="matrix">
+        <tr>
+          <th>サービスタイプ</th>
+          <th>エンジン<br><span style="font-size:0.65rem;color:var(--mute);font-weight:400;letter-spacing:0.04em">(動きを起こす装置)</span></th>
+          <th>軸<br><span style="font-size:0.65rem;color:var(--mute);font-weight:400;letter-spacing:0.04em">(追いかけたいもの)</span></th>
+          <th>場<br><span style="font-size:0.65rem;color:var(--mute);font-weight:400;letter-spacing:0.04em">(仲間と期間)</span></th>
+        </tr>
+        <tr><td>コーチング（1on1）</td><td class="o">○</td><td class="x">×</td><td class="x">×</td></tr>
+        <tr><td>キャリアスクール</td><td class="t">△</td><td class="o">○</td><td class="t">△</td></tr>
+        <tr><td>自己啓発セミナー</td><td class="t">△</td><td class="x">×</td><td class="x">×</td></tr>
+        <tr><td>オンラインサロン</td><td class="x">×</td><td class="o">○</td><td class="o">○</td></tr>
+        <tr><td>MBA・ビジネススクール</td><td class="x">×</td><td class="t">△</td><td class="o">○</td></tr>
+        <tr><td>リトリート・旅学び（単発）</td><td class="o">○</td><td class="x">×</td><td class="x">×</td></tr>
+        <tr class="poolo"><td>POOLO LIFE</td><td class="o">○</td><td class="o">○</td><td class="o">○</td></tr>
+      </table>
+    </div>
+
+    <!-- 2. 詳細比較表 -->
+    <div class="compare-table">
+      <table>
+        <tr>
+          <th>次元</th>
+          <th>キャリアスクール</th>
+          <th>自己啓発</th>
+          <th>オンラインサロン</th>
+          <th class="poolo">POOLO LIFE</th>
+        </tr>
+        <tr>
+          <td class="dim">目的</td>
+          <td>想像通りの未来への到達</td>
+          <td>想像通りの自分への変容</td>
+          <td>主宰者の世界観への共鳴</td>
+          <td class="poolo"><b>想像もしなかった</b>世界と自分</td>
+        </tr>
+        <tr>
+          <td class="dim">動きを起こすもの</td>
+          <td>対話・ワーク・講義</td>
+          <td>理論・メソッド・習慣化</td>
+          <td>コンテンツ・交流</td>
+          <td class="poolo"><b>旅で身体を揺さぶる</b></td>
+        </tr>
+        <tr>
+          <td class="dim">追いかける対象</td>
+          <td>キャリアゴール（職種・年収）</td>
+          <td>理想の自分像</td>
+          <td>主宰者の哲学</td>
+          <td class="poolo"><b>追いかけたいもの（探究テーマ）</b><br>自分を内側から突き動かす問い</td>
+        </tr>
+        <tr>
+          <td class="dim">期間・場</td>
+          <td>個別 × 数ヶ月</td>
+          <td>単発 or 継続</td>
+          <td>不定期・コミュニティ</td>
+          <td class="poolo"><b>50人 × 8ヶ月</b>の螺旋</td>
+        </tr>
+        <tr>
+          <td class="dim">卒業時に手にするもの</td>
+          <td>資格・転職・内定</td>
+          <td>考え方・習慣</td>
+          <td>所属感・学び</td>
+          <td class="poolo"><b>動き続ける自分</b>と影響の循環</td>
+        </tr>
+        <tr>
+          <td class="dim">変化のタイプ</td>
+          <td>コントロール可能な到達</td>
+          <td>コントロール可能な変容</td>
+          <td>緩やかな影響</td>
+          <td class="poolo"><b>予測不能な運動の持続</b></td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- 3. ポジショニングマップ -->
+    <div class="pos-wrap">
+      <div class="pos-head">
+        <h3>ポジショニングマップ</h3>
+        <p>目的のコントロール性 × 変化のタイプ の2軸で見る</p>
+      </div>
+      <div class="pos-map">
+        <div class="pos-map-inner">
+          <div class="axis-line-x"></div>
+          <div class="axis-line-y"></div>
+          <span class="axis-y-label">動的・運動の中にいる</span>
+          <span class="axis-y-label bottom">静的・到達して終わる</span>
+          <span class="axis-x-label left">想像通りの未来</span>
+          <span class="axis-x-label">想像もしなかった未来</span>
+
+          <!-- 左下: 静的×想像通り -->
+          <div class="pos-item" style="left:22%;top:82%">資格取得</div>
+          <div class="pos-item" style="left:30%;top:70%">MBA</div>
+          <div class="pos-item" style="left:20%;top:62%">キャリアスクール</div>
+
+          <!-- 左上: 動的×想像通り -->
+          <div class="pos-item" style="left:18%;top:38%">自己啓発セミナー</div>
+          <div class="pos-item" style="left:30%;top:28%">コーチング</div>
+          <div class="pos-item" style="left:22%;top:18%">習慣化プログラム</div>
+
+          <!-- 右下: 静的×想像もしない -->
+          <div class="pos-item" style="left:72%;top:78%">旅・リトリート(単発)</div>
+          <div class="pos-item" style="left:80%;top:64%">越境体験(1回)</div>
+
+          <!-- 右上: 動的×想像もしない ← POOLO -->
+          <div class="pos-item" style="left:78%;top:32%">オンラインサロン</div>
+          <div class="pos-item poolo" style="left:76%;top:20%">POOLO LIFE</div>
+        </div>
+      </div>
+      <p class="pos-note">
+        <b>右上の象限は、ほぼ空白地帯</b>。<br>
+        「想像もしなかった未来」を目指しながら、「動き続ける運動」を長期で支える場は、日本にほとんどない。
+      </p>
+    </div>
+
+    <!-- 4. 独自性の決め手 -->
+    <div class="unique-callout">
+      <p>
+        POOLOの独自性は、<b>理論そのもの</b>ではなく、<br>
+        <b>「3つを同時に満たす設計」</b>と<br>
+        <b>「予測不能性を目的に据える賭け」</b>にある。<br><br>
+        理論は既知でいい。<br>
+        <b>賭けがあるから、独自になる。</b>
+      </p>
+    </div>
+
   </div>
 </section>
 
