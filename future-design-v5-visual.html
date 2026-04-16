@@ -246,6 +246,108 @@ section.alt{background:var(--bg-deep)}
 .footer-sub{font-size:0.78rem;color:rgba(255,255,255,0.65);letter-spacing:0.08em;margin-bottom:1.5rem}
 .footer a{color:rgba(255,255,255,0.85);text-decoration:none;font-size:0.78rem;letter-spacing:0.1em;border-bottom:1px solid rgba(255,255,255,0.3);padding-bottom:2px;margin:0 0.6rem}
 
+/* ===== Being expanded (§02) ===== */
+.being-expanded{background:var(--green);color:#fff;padding:1.8rem 1.6rem;text-align:center;border-radius:0 0 3px 3px}
+.being-expanded .b-label{font-size:0.65rem;letter-spacing:0.3em;margin-bottom:0.5rem;opacity:0.85}
+.being-expanded .b-name{font-family:var(--serif);font-size:1.3rem;font-weight:600;letter-spacing:0.1em;margin-bottom:0.4rem}
+.being-expanded .b-tagline{font-family:var(--serif);font-size:0.88rem;font-weight:400;opacity:0.92;letter-spacing:0.04em;margin-bottom:1.2rem}
+.being-manifest{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:0.6rem;margin-top:0.8rem}
+.being-item{background:rgba(255,255,255,0.12);padding:0.8rem 0.8rem;border-radius:3px;font-size:0.78rem;line-height:1.7;text-align:left;border:1px solid rgba(255,255,255,0.22)}
+.being-item b{display:block;font-family:var(--serif);font-size:0.85rem;margin-bottom:0.3rem;letter-spacing:0.05em;font-weight:500}
+
+/* ===== Venn diagram (§03) ===== */
+.venn-wrap{max-width:680px;margin:2rem auto}
+.venn-svg{width:100%;height:auto;display:block}
+.venn-legend{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:0.8rem;margin-top:1.5rem}
+.venn-item{background:#fff;border:1px solid var(--line);border-radius:3px;padding:1rem 1.2rem;font-size:0.85rem;color:var(--sub);line-height:1.75}
+.venn-item.g{border-left:3px solid var(--green)}
+.venn-item.h{border-left:3px solid var(--warm)}
+.venn-item.f{border-left:3px solid var(--star);background:var(--star-bg)}
+.venn-item .v-let{font-family:var(--serif);font-size:1.4rem;font-weight:700;margin-right:0.5rem;vertical-align:middle}
+.venn-item.g .v-let{color:var(--green)}
+.venn-item.h .v-let{color:var(--warm)}
+.venn-item.f .v-let{color:var(--star)}
+.venn-item b{color:var(--ink);font-weight:500}
+
+/* ===== Quadrant improved (§04) ===== */
+.quadrant2{max-width:620px;margin:2rem auto;position:relative;padding:3.2rem 3.2rem 3.2rem 3.2rem}
+.quadrant2-inner{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:0;background:#fff;border:1px solid var(--line)}
+.quadrant2 .q-cell{padding:1.3rem 1rem;border:1px dashed var(--line);min-height:130px;text-align:center;display:flex;flex-direction:column;justify-content:center}
+.quadrant2 .q-cell.goal{background:var(--green-bg);border-color:var(--green);position:relative}
+.quadrant2 .q-cell.goal::before{content:'★ POOLOの目的地';position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--green);color:#fff;font-size:0.62rem;letter-spacing:0.2em;padding:0.3rem 0.8rem;border-radius:12px;font-weight:500;font-family:var(--sans);white-space:nowrap}
+.quadrant2 .q-title{font-family:var(--serif);font-size:1rem;font-weight:600;color:var(--ink);margin-bottom:0.4rem;letter-spacing:0.04em}
+.quadrant2 .q-cell.goal .q-title{color:var(--green);font-size:1.1rem}
+.quadrant2 .q-desc{font-size:0.78rem;color:var(--sub);line-height:1.7}
+.q-axis-top-label{position:absolute;top:0.6rem;left:50%;transform:translateX(-50%);font-family:var(--serif);font-size:0.82rem;color:var(--deep);font-weight:600;letter-spacing:0.1em;text-align:center;display:flex;align-items:center;gap:1.5rem;width:100%;justify-content:center}
+.q-axis-bottom-label{position:absolute;bottom:0.6rem;left:50%;transform:translateX(-50%);font-family:var(--serif);font-size:0.82rem;color:var(--deep);font-weight:600;letter-spacing:0.1em;text-align:center;display:flex;align-items:center;gap:1.5rem;width:100%;justify-content:center}
+.q-axis-left-label,.q-axis-right-label{position:absolute;top:50%;transform:translateY(-50%);font-family:var(--serif);font-size:0.78rem;color:var(--deep);letter-spacing:0.06em;writing-mode:vertical-rl;white-space:nowrap;padding:0.4rem 0.2rem;background:rgba(250,249,246,0.9)}
+.q-axis-left-label{left:0.4rem}
+.q-axis-right-label{right:0.4rem}
+.q-axis-corner{position:absolute;font-size:0.7rem;color:var(--mute);letter-spacing:0.1em}
+.q-axis-corner.tl{top:2.7rem;left:1.1rem}
+.q-axis-corner.tr{top:2.7rem;right:1.1rem}
+.q-axis-corner.bl{bottom:2.7rem;left:1.1rem}
+.q-axis-corner.br{bottom:2.7rem;right:1.1rem}
+.q-axis-top-col{display:flex;justify-content:space-around;padding:0.3rem 3.2rem 0.5rem}
+.q-axis-top-col span{font-size:0.78rem;color:var(--mute);font-weight:400;letter-spacing:0.08em}
+.q-axis-top-col span b{color:var(--ink);font-weight:600;font-family:var(--serif);margin-left:0.3rem}
+
+/* ===== Travel×POOLO flow (§06) ===== */
+.four-actions{max-width:840px;margin:2.5rem auto 1rem;padding:1.5rem;background:#fff;border:1px solid var(--green);border-radius:3px}
+.four-actions-head{text-align:center;font-family:var(--serif);font-size:0.92rem;color:var(--green);font-weight:600;letter-spacing:0.1em;margin-bottom:1.3rem}
+.four-actions-head::before{content:'POOLOの4動作 → ';color:var(--mute);font-weight:400;letter-spacing:0.05em}
+.four-flow{display:grid;grid-template-columns:repeat(4, 1fr);gap:0.4rem;align-items:stretch;position:relative}
+.fa-step{background:var(--green-bg);border:1px solid var(--green);border-radius:3px;padding:0.9rem 0.7rem;text-align:center;position:relative}
+.fa-step .fa-num{font-family:var(--serif);font-size:0.7rem;color:var(--warm);letter-spacing:0.2em;font-weight:500;margin-bottom:0.3rem}
+.fa-step .fa-name{font-family:var(--serif);font-size:0.92rem;color:var(--ink);font-weight:600;margin-bottom:0.2rem;letter-spacing:0.04em}
+.fa-step .fa-desc{font-size:0.7rem;color:var(--sub);line-height:1.5}
+.fa-step:not(:last-child)::after{content:'→';position:absolute;right:-0.6rem;top:50%;transform:translateY(-50%);color:var(--green);font-size:0.9rem;z-index:2;background:#fff;padding:0 0.1rem}
+.four-loop{text-align:center;margin-top:0.8rem;font-size:0.78rem;color:var(--mute);font-family:var(--serif);letter-spacing:0.05em}
+.four-loop b{color:var(--warm);font-weight:500}
+
+/* ===== Type paths (§07) ===== */
+.type-paths{max-width:860px;margin:2rem auto 1rem}
+.path-row{display:flex;align-items:center;gap:1rem;margin-bottom:1rem;padding:1.3rem 1.4rem;background:#fff;border:1px solid var(--line);border-radius:3px}
+.path-row.goal{border-left:3px solid var(--mute)}
+.path-row.curious{border-left:3px solid var(--green)}
+.path-label{flex:0 0 130px;font-family:var(--serif);font-size:0.85rem;font-weight:600;letter-spacing:0.04em;line-height:1.6}
+.path-row.goal .path-label{color:var(--mute)}
+.path-row.curious .path-label{color:var(--green)}
+.path-label .path-label-sub{display:block;font-size:0.62rem;font-weight:400;color:var(--hint);letter-spacing:0.15em;margin-top:0.2rem;font-family:var(--sans)}
+.path-flow{flex:1;display:flex;align-items:center;gap:0.3rem;flex-wrap:wrap;font-family:var(--serif);font-size:0.82rem;letter-spacing:0.04em;color:var(--ink)}
+.path-step{background:var(--bg-deep);padding:0.4rem 0.7rem;border-radius:2px;font-weight:500}
+.path-row.goal .path-step{color:var(--sub)}
+.path-row.curious .path-step{color:var(--ink);background:var(--green-bg);color:var(--green)}
+.path-arrow{color:var(--mute);font-size:0.85rem}
+.path-row.curious .path-arrow{color:var(--warm)}
+.path-end{flex:0 0 auto;padding:0.5rem 0.85rem;border-radius:2px;font-family:var(--serif);font-size:0.82rem;font-weight:600;letter-spacing:0.04em}
+.path-row.goal .path-end{background:var(--bg-deep);color:var(--mute)}
+.path-row.curious .path-end{background:var(--warm);color:#fff}
+
+/* ===== Offer matrix 2D (§12) ===== */
+.offer-matrix2{max-width:880px;margin:2rem auto 1rem;background:#fff;border:1px solid var(--line);border-radius:3px;overflow-x:auto}
+.offer-matrix2 table{width:100%;border-collapse:collapse;font-size:0.8rem;min-width:680px}
+.offer-matrix2 th{padding:0.8rem 0.7rem;text-align:center;font-family:var(--serif);font-weight:600;color:var(--ink);border:1px solid var(--line);font-size:0.85rem;letter-spacing:0.04em;background:var(--bg-deep)}
+.offer-matrix2 th.content{color:var(--green);background:var(--green-bg)}
+.offer-matrix2 th.experience{color:var(--warm);background:var(--warm-bg)}
+.offer-matrix2 th.dialogue{color:var(--deep);background:var(--deep-bg)}
+.offer-matrix2 th.level-col{background:var(--bg);color:var(--mute);font-size:0.75rem;letter-spacing:0.1em}
+.offer-matrix2 td{padding:0.75rem 0.7rem;border:1px solid var(--line);color:var(--sub);vertical-align:top;line-height:1.7;font-size:0.78rem}
+.offer-matrix2 td.level-cell{font-family:var(--serif);font-weight:600;color:var(--ink);background:var(--bg);text-align:center;white-space:nowrap;width:13%}
+.offer-matrix2 td.level-cell .lv{font-family:var(--serif);font-size:0.95rem;display:block}
+.offer-matrix2 td.level-cell .lv-target{font-size:0.65rem;color:var(--mute);letter-spacing:0.04em;font-weight:400;font-family:var(--sans);margin-top:0.2rem}
+.offer-matrix2 tr.lv3 td.level-cell{background:var(--star);color:#fff}
+.offer-matrix2 tr.lv3 td.level-cell .lv{color:#fff}
+.offer-matrix2 tr.lv3 td.level-cell .lv-target{color:rgba(255,255,255,0.9)}
+.offer-matrix2 tr.lv3 td{background:var(--star-bg);color:var(--ink);font-weight:500}
+.offer-matrix2 tr.lv3 td b{color:var(--star);font-weight:600}
+.form-note{font-size:0.78rem;color:var(--mute);font-family:var(--serif);text-align:center;margin-top:1rem;letter-spacing:0.06em}
+.form-note b{color:var(--ink);font-weight:600}
+
+/* ===== Radial themes (§16) ===== */
+.radial-wrap{max-width:760px;margin:2rem auto}
+.radial-svg{width:100%;height:auto;display:block}
+
 /* Responsive */
 @media(max-width:720px){
   .header-title{font-size:1.55rem}
@@ -367,15 +469,33 @@ section.alt{background:var(--bg-deep)}
           <div class="d-desc">終盤の重心<br>知らない誰かに自分を差し出す</div>
         </div>
       </div>
-      <div class="house-being">
-        <div class="b-label">BEING — 根底の態度</div>
+      <div class="being-expanded">
+        <div class="b-label">BEING — 根底の態度（土台）</div>
         <div class="b-name">共にある</div>
-        <div class="b-desc">何かを一緒にやっていなくても、卒業後も、すべての土台</div>
+        <div class="b-tagline">何かを一緒にやっていなくても、離れていても、卒業後も。<br>ただ「いる」ことが相互に許されている状態。</div>
+        <div class="being-manifest">
+          <div class="being-item">
+            <b>01. 約束なく浮かぶ</b>
+            相談しよう・会おうと決めなくても、ふと顔と名前が浮かぶ関係
+          </div>
+          <div class="being-item">
+            <b>02. 弱さを見せられる</b>
+            完璧じゃなくていい、未完成のまま相手の前に出せる安心
+          </div>
+          <div class="being-item">
+            <b>03. 卒業後も続く</b>
+            プログラムの終わりが関係の終わりにならない土台
+          </div>
+        </div>
       </div>
     </div>
 
+    <div class="callout" style="margin-top:1.5rem">
+      <b>「共にある」は、3つのDoingが行われていなくても存在する。</b>Doingは時期で重心が移るが、Beingは8ヶ月の最初から最後まで、そして卒業後も変わらない土台。「何かをやる関係」ではなく「ただ、いる関係」。
+    </div>
+
     <p style="text-align:center;color:var(--mute);font-size:0.85rem;margin-top:1.5rem">
-      「創る」は序盤から中心行為。重心が移るだけで、切り替わらない。
+      ※「創る」は序盤から中心行為。重心が移るだけで、切り替わらない。
     </p>
   </div>
 </section>
@@ -387,37 +507,62 @@ section.alt{background:var(--bg-deep)}
     <h3 class="sec-head">豊かさの定義 — F = G × H</h3>
     <p class="lead">豊かさ（F）は、内的充足（G）とつながり（H）の<b>掛け算</b>。どちらかがゼロだと、全体がゼロに近づく。</p>
 
-    <div class="formula-wrap">
-      <div class="formula">
-        <div class="formula-cell f">
-          <div class="letter">F</div>
-          <div class="name">豊かさ</div>
-          <div class="desc">持続的に更新されていく充実</div>
-        </div>
-        <div class="formula-op">＝</div>
-        <div class="formula-cell g">
-          <div class="letter">G</div>
-          <div class="name">内的充足</div>
-          <div class="desc">自分が好き・得意と感じることがある</div>
-        </div>
-        <div class="formula-op">×</div>
-        <div class="formula-cell h">
-          <div class="letter">H</div>
-          <div class="name">つながり</div>
-          <div class="desc">それが誰かに届き、反応が返ってくる</div>
-        </div>
-      </div>
+    <div class="venn-wrap">
+      <svg class="venn-svg" viewBox="0 0 560 360" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <radialGradient id="gCircle" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#2D6A4F" stop-opacity="0.4"/>
+            <stop offset="100%" stop-color="#2D6A4F" stop-opacity="0.18"/>
+          </radialGradient>
+          <radialGradient id="hCircle" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#C08457" stop-opacity="0.4"/>
+            <stop offset="100%" stop-color="#C08457" stop-opacity="0.18"/>
+          </radialGradient>
+        </defs>
+
+        <!-- G circle -->
+        <circle cx="210" cy="180" r="130" fill="url(#gCircle)" stroke="#2D6A4F" stroke-width="2"/>
+        <!-- H circle -->
+        <circle cx="350" cy="180" r="130" fill="url(#hCircle)" stroke="#C08457" stroke-width="2"/>
+
+        <!-- Labels -->
+        <text x="115" y="40" font-family="'Shippori Mincho',serif" font-size="22" fill="#2D6A4F" font-weight="700">G</text>
+        <text x="115" y="62" font-family="'Shippori Mincho',serif" font-size="11" fill="#2D6A4F" font-weight="500">内的充足</text>
+
+        <text x="430" y="40" font-family="'Shippori Mincho',serif" font-size="22" fill="#C08457" font-weight="700">H</text>
+        <text x="430" y="62" font-family="'Shippori Mincho',serif" font-size="11" fill="#C08457" font-weight="500">つながり</text>
+
+        <!-- Only G zone (left) -->
+        <text x="140" y="180" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="12" fill="#2D6A4F" font-weight="500">Gだけ</text>
+        <text x="140" y="198" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="9" fill="#4a4a4a">自分の世界に</text>
+        <text x="140" y="212" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="9" fill="#4a4a4a">閉じる</text>
+
+        <!-- Only H zone (right) -->
+        <text x="420" y="180" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="12" fill="#C08457" font-weight="500">Hだけ</text>
+        <text x="420" y="198" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="9" fill="#4a4a4a">自己犠牲</text>
+        <text x="420" y="212" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="9" fill="#4a4a4a">（外を先にすると落ちる）</text>
+
+        <!-- Intersection (F) -->
+        <rect x="233" y="145" width="94" height="70" fill="#F9F0D9" stroke="#B8860B" stroke-width="1.5" rx="3"/>
+        <text x="280" y="170" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="22" fill="#B8860B" font-weight="700">F</text>
+        <text x="280" y="188" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="11" fill="#B8860B" font-weight="600">豊かさ</text>
+        <text x="280" y="205" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="9" fill="#1a1a1a">G × H の重なり</text>
+
+        <!-- Formula at bottom -->
+        <text x="280" y="320" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="20" fill="#1a1a1a" font-weight="600">F = G × H</text>
+        <text x="280" y="345" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="11" fill="#7a7a7a" letter-spacing="2">掛け算だから、どちらかがゼロだと全体がゼロに近づく</text>
+      </svg>
     </div>
 
-    <div class="callout">
+    <div class="venn-legend">
+      <div class="venn-item g"><span class="v-let">G</span><b>内的充足</b><br>自分が好き・得意と感じることがある</div>
+      <div class="venn-item h"><span class="v-let">H</span><b>つながり</b><br>それが誰かに届き、反応が返ってくる</div>
+      <div class="venn-item f"><span class="v-let">F</span><b>豊かさ＝持続的に更新されていく充実</b><br>GとHが重なるところに初めて立ち上がる</div>
+    </div>
+
+    <div class="callout" style="margin-top:1.5rem">
       <b>Fは固定された到達点ではない。</b>新しい世界＝G更新、新しい人＝H更新。「持続的」とは、F を更新し続ける力が内在化すること。
     </div>
-
-    <ul style="list-style:none;margin:1rem 0;padding:0;font-size:0.87rem;color:var(--sub);line-height:2">
-      <li>— Gだけ → 自分の世界に閉じる</li>
-      <li>— Hだけ → 自己犠牲</li>
-      <li>— <b style="color:var(--green)">G × H → 持続的豊かさ</b></li>
-    </ul>
   </div>
 </section>
 
@@ -428,35 +573,41 @@ section.alt{background:var(--bg-deep)}
     <h3 class="sec-head">四象限 — 豊かさの地図</h3>
     <p class="lead">内的充足と外的期待の高低で4つの状態。POOLOの目的地は、<b>右上「F = G × H」</b>。</p>
 
-    <div class="quadrant">
-      <div class="quadrant-grid">
-        <div></div>
-        <div class="q-axis-top">
-          <div>外的期待すり合わせ<b style="display:block;color:var(--ink);font-family:var(--serif);font-size:0.9rem;margin-top:0.2rem">低</b></div>
-          <div>外的期待すり合わせ<b style="display:block;color:var(--ink);font-family:var(--serif);font-size:0.9rem;margin-top:0.2rem">高</b></div>
-        </div>
-        <div class="q-axis-y">内的充足 <b style="color:var(--ink);font-family:var(--serif);margin-top:0.5rem">高</b></div>
+    <div class="quadrant2">
+      <div class="q-axis-top-col">
+        <span>外的期待すり合わせ<b>低</b></span>
+        <span>外的期待すり合わせ<b>高</b></span>
+      </div>
+      <span class="q-axis-left-label">内的充足 <b style="color:var(--ink);font-weight:600">低 ← → 高</b></span>
+      <div class="quadrant2-inner">
+        <!-- 左上：内的充足高 × 外的低 -->
         <div class="q-cell">
           <div class="q-title">自分の世界</div>
-          <div class="q-desc">旅好きの多く／ターゲット層</div>
+          <div class="q-desc">旅好きの多く／<br>ターゲット層</div>
         </div>
+        <!-- 右上：内的充足高 × 外的高 = 目的地 -->
         <div class="q-cell goal">
           <div class="q-title">F = G × H</div>
-          <div class="q-desc"><b>POOLOの目的地</b></div>
+          <div class="q-desc">内も外も満ちている<br>持続的豊かさ</div>
         </div>
-        <div class="q-axis-y">内的充足 <b style="color:var(--ink);font-family:var(--serif);margin-top:0.5rem">低</b></div>
+        <!-- 左下：内的充足低 × 外的低 -->
         <div class="q-cell">
           <div class="q-title">停滞</div>
           <div class="q-desc">動きも関係も止まる</div>
         </div>
+        <!-- 右下：内的充足低 × 外的高 -->
         <div class="q-cell">
           <div class="q-title">自己犠牲</div>
-          <div class="q-desc">外を先にすると落ちる</div>
+          <div class="q-desc">外を先にすると<br>落ちる</div>
         </div>
       </div>
     </div>
 
     <div class="principle">内が先、外が後。</div>
+    <p style="text-align:center;color:var(--mute);font-size:0.82rem;margin-top:1rem">
+      横軸 = 外的期待とのすり合わせの度合い ／ 縦軸 = 内的充足の高さ<br>
+      左下（停滞）から左上（自分の世界）を経由して右上（F=G×H）へ進むのがPOOLOの道
+    </p>
   </div>
 </section>
 
@@ -528,8 +679,35 @@ section.alt{background:var(--bg-deep)}
       <div class="role-box poolo">
         <div class="role-label">TRANSFORMATION</div>
         <div class="role-head">POOLOの役割 — 引き出し、差し出す</div>
-        <div class="role-desc"><b>4動作</b>：さらに引き出す → 言語化する → 差し出す → 反応を受け取る。POOLO担当：WHAT × WHO／自然発生：WHY／担当外：HOW。</div>
+        <div class="role-desc">旅で見えた「Gの種」を、<b>4動作</b>を回すことで育て、社会に届くものに変える。POOLO担当：<b>WHAT × WHO</b>／自然発生：WHY／担当外：HOW（事業化はキャリアスクール領域）。</div>
       </div>
+    </div>
+
+    <div class="four-actions">
+      <div class="four-actions-head">引き出す・言語化する・差し出す・反応を受け取る</div>
+      <div class="four-flow">
+        <div class="fa-step">
+          <div class="fa-num">ACTION 01</div>
+          <div class="fa-name">引き出す</div>
+          <div class="fa-desc">旅の手ざわりをさらに深く掘る</div>
+        </div>
+        <div class="fa-step">
+          <div class="fa-num">ACTION 02</div>
+          <div class="fa-name">言語化する</div>
+          <div class="fa-desc">感覚を言葉の手前まで運ぶ</div>
+        </div>
+        <div class="fa-step">
+          <div class="fa-num">ACTION 03</div>
+          <div class="fa-name">差し出す</div>
+          <div class="fa-desc">未完成のまま誰かにぶつける</div>
+        </div>
+        <div class="fa-step">
+          <div class="fa-num">ACTION 04</div>
+          <div class="fa-name">反応を受け取る</div>
+          <div class="fa-desc">返ってきた声を受け止める</div>
+        </div>
+      </div>
+      <div class="four-loop">↩ <b>ACTION 04 の反応が ACTION 01 に戻り、螺旋として回り続ける</b></div>
     </div>
   </div>
 </section>
@@ -541,11 +719,41 @@ section.alt{background:var(--bg-deep)}
     <h3 class="sec-head">関心探究型 vs 目標逆算型</h3>
     <p class="lead">POOLOは<b>関心探究型</b>。「今、何に心が動く？」から始める。</p>
 
-    <table class="type-table">
+    <div class="type-paths">
+      <div class="path-row goal">
+        <div class="path-label">目標逆算型<span class="path-label-sub">GOAL-REVERSE</span></div>
+        <div class="path-flow">
+          <span class="path-step">ゴール</span>
+          <span class="path-arrow">→</span>
+          <span class="path-step">逆算</span>
+          <span class="path-arrow">→</span>
+          <span class="path-step">計画</span>
+          <span class="path-arrow">→</span>
+          <span class="path-step">HOWを学ぶ</span>
+        </div>
+        <div class="path-end">想定内の自分</div>
+      </div>
+
+      <div class="path-row curious">
+        <div class="path-label">関心探究型<span class="path-label-sub">CURIOSITY-DRIVEN</span></div>
+        <div class="path-flow">
+          <span class="path-step">試す</span>
+          <span class="path-arrow">↻</span>
+          <span class="path-step">反応</span>
+          <span class="path-arrow">↻</span>
+          <span class="path-step">また試す</span>
+          <span class="path-arrow">↻</span>
+          <span class="path-step">螺旋</span>
+        </div>
+        <div class="path-end">想像もしなかった自分</div>
+      </div>
+    </div>
+
+    <table class="type-table" style="margin-top:1rem">
       <tr>
         <th>軸</th>
-        <th class="goal">目標逆算型（キャリアスクール等）</th>
-        <th class="curious">関心探究型（POOLO・自分試し）</th>
+        <th class="goal">目標逆算型</th>
+        <th class="curious">関心探究型（POOLO）</th>
       </tr>
       <tr>
         <td>起点</td>
@@ -553,14 +761,14 @@ section.alt{background:var(--bg-deep)}
         <td class="curious">「今、何に心が動く？」</td>
       </tr>
       <tr>
-        <td>プロセス</td>
-        <td>ゴール → 逆算 → 計画 → HOWを学ぶ</td>
-        <td class="curious">試す → 反応 → また試す</td>
+        <td>予測可能性</td>
+        <td>高い（ゴールが先にある）</td>
+        <td class="curious">低い（やってみないと分からない）</td>
       </tr>
       <tr>
         <td>到達先</td>
-        <td>想定内の自分（ゴールの範囲を超えない）</td>
-        <td class="curious"><b>想像もしなかった自分</b></td>
+        <td>ゴールの範囲を超えない</td>
+        <td class="curious"><b>ゴールの外側へ運ばれる</b></td>
       </tr>
     </table>
 
@@ -763,38 +971,61 @@ section.alt{background:var(--bg-deep)}
     <p class="lead"><b>形 3種</b>：コンテンツ型／体験型／対話型<br>
     <b>深さ 4段階</b>：Lv.1（自分）→ Lv.2（仲間）→ <b style="color:var(--star)">Lv.3（知らない人）＝全員の必修</b> → Lv.4（関係を紡ぐ）</p>
 
-    <div class="offer-matrix">
+    <div class="offer-matrix2">
       <table>
         <tr>
-          <th style="width:10%">Lv</th>
-          <th>対象</th>
-          <th>具体</th>
+          <th class="level-col">深さ ↓ ／ 形 →</th>
+          <th class="content">コンテンツ型</th>
+          <th class="experience">体験型</th>
+          <th class="dialogue">対話型</th>
         </tr>
         <tr>
-          <td>Lv.1</td>
-          <td>自分に向けて</td>
-          <td>日記・一人時間の習慣・自己対話</td>
+          <td class="level-cell">
+            <span class="lv">Lv.1</span>
+            <span class="lv-target">自分に向けて</span>
+          </td>
+          <td>日記・ひとり考察メモ</td>
+          <td>一人時間の習慣・ひとり旅</td>
+          <td>自己対話・ジャーナリング</td>
         </tr>
         <tr>
-          <td>Lv.2</td>
-          <td>仲間に向けて</td>
-          <td>noteで見せる・一緒に作る・聞いてもらう</td>
+          <td class="level-cell">
+            <span class="lv">Lv.2</span>
+            <span class="lv-target">仲間に向けて</span>
+          </td>
+          <td>noteで見せる・POOLO内シェア</td>
+          <td>一緒に作る・合宿で試す</td>
+          <td>聞いてもらう・1on1で語る</td>
         </tr>
         <tr class="lv3">
-          <td>Lv.3</td>
-          <td><b>知らない人に届ける・立つ</b><br>← 全員の必須ライン</td>
-          <td>ZINE／写真展・一日店／企画・対話の場開き</td>
+          <td class="level-cell">
+            <span class="lv">Lv.3</span>
+            <span class="lv-target">知らない人に届ける</span>
+          </td>
+          <td><b>ZINE・写真展・記事公開</b></td>
+          <td><b>一日店・ワークショップ企画</b></td>
+          <td><b>対話の場開き・トークイベント</b></td>
         </tr>
         <tr>
-          <td>Lv.4</td>
-          <td>関係を紡ぐ</td>
-          <td>連載・定期の場・顔の見える関係</td>
+          <td class="level-cell">
+            <span class="lv">Lv.4</span>
+            <span class="lv-target">関係を紡ぐ</span>
+          </td>
+          <td>連載・定期発行</td>
+          <td>定期の場・スナック運営</td>
+          <td>継続的コミュニティ運営</td>
         </tr>
       </table>
     </div>
 
-    <div class="callout">
-      <b>Lv.3が全員の必修ライン</b>。自己分析では絶対に届かない場所に、初めて手が届く。
+    <div class="form-note">
+      <b>形 3種</b>：コンテンツ型（モノ・テキスト）／体験型（場・企画）／対話型（問いかけ・関係）<br>
+      人によって得意な形が違う。どれか一つの深さを上げていけばいい。
+    </div>
+
+    <div class="callout" style="margin-top:1.5rem">
+      <b>Lv.3（知らない人に届ける）が全員の必修ライン</b>。<br>
+      自己分析では絶対に届かない場所に、初めて手が届く。どの「形」で Lv.3 に行くかは人それぞれ。
     </div>
   </div>
 </section>
@@ -940,6 +1171,95 @@ section.alt{background:var(--bg-deep)}
     <div class="sec-num">§ 16</div>
     <h3 class="sec-head">想像もしなかった世界に出会いにいく</h3>
     <p class="lead">旅というレンズを通して、参加者同士でテーマを探究する。2層構造。</p>
+
+    <div class="radial-wrap">
+      <svg class="radial-svg" viewBox="0 0 720 520" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <radialGradient id="radialCenter" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#fff"/>
+            <stop offset="100%" stop-color="#F4FAF6"/>
+          </radialGradient>
+          <radialGradient id="radialLayer1" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#E9F5EE" stop-opacity="0.5"/>
+            <stop offset="100%" stop-color="#E9F5EE" stop-opacity="0.15"/>
+          </radialGradient>
+          <radialGradient id="radialLayer2" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#DCE6E7" stop-opacity="0.35"/>
+            <stop offset="100%" stop-color="#DCE6E7" stop-opacity="0.08"/>
+          </radialGradient>
+        </defs>
+
+        <!-- Outer background ring (Layer 2) -->
+        <circle cx="360" cy="260" r="240" fill="url(#radialLayer2)" stroke="#1F3A3D" stroke-width="1" stroke-dasharray="2 4" opacity="0.4"/>
+        <!-- Inner background ring (Layer 1) -->
+        <circle cx="360" cy="260" r="140" fill="url(#radialLayer1)" stroke="#2D6A4F" stroke-width="1" stroke-dasharray="2 4" opacity="0.6"/>
+        <!-- Center -->
+        <circle cx="360" cy="260" r="58" fill="url(#radialCenter)" stroke="#B8860B" stroke-width="2"/>
+        <text x="360" y="250" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="13" fill="#B8860B" font-weight="700" letter-spacing="3">旅</text>
+        <text x="360" y="270" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="10" fill="#B8860B" letter-spacing="1">（レンズ）</text>
+        <text x="360" y="285" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="8" fill="#7a7a7a" letter-spacing="1">どのテーマも</text>
+        <text x="360" y="297" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="8" fill="#7a7a7a" letter-spacing="1">自分ごとに</text>
+
+        <!-- Layer 1 label -->
+        <text x="210" y="135" font-family="'Shippori Mincho',serif" font-size="10" fill="#2D6A4F" font-weight="600" letter-spacing="2">第1層 — 延長線上</text>
+        <!-- Layer 2 label -->
+        <text x="130" y="55" font-family="'Shippori Mincho',serif" font-size="10" fill="#1F3A3D" font-weight="600" letter-spacing="2">第2層 — 越境</text>
+
+        <!-- Inner ring chips (Layer 1) - 3 themes positioned around center -->
+        <!-- Top: 旅そのもの -->
+        <rect x="305" y="128" width="110" height="38" rx="3" fill="#E9F5EE" stroke="#2D6A4F" stroke-width="1"/>
+        <text x="360" y="145" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="11" fill="#2D6A4F" font-weight="600">旅そのもの</text>
+        <text x="360" y="158" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="8" fill="#4a4a4a">ふるさと・観光・地域</text>
+
+        <!-- Bottom-left: 生き方 -->
+        <rect x="160" y="320" width="110" height="38" rx="3" fill="#E9F5EE" stroke="#2D6A4F" stroke-width="1"/>
+        <text x="215" y="337" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="11" fill="#2D6A4F" font-weight="600">生き方</text>
+        <text x="215" y="350" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="8" fill="#4a4a4a">人生・キャリア・仕事</text>
+
+        <!-- Bottom-right: つながり -->
+        <rect x="450" y="320" width="110" height="38" rx="3" fill="#E9F5EE" stroke="#2D6A4F" stroke-width="1"/>
+        <text x="505" y="337" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="11" fill="#2D6A4F" font-weight="600">つながり</text>
+        <text x="505" y="350" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="8" fill="#4a4a4a">コミュニティ・幸せ</text>
+
+        <!-- Outer ring chips (Layer 2) - 5 themes -->
+        <rect x="280" y="30" width="160" height="38" rx="3" fill="#DCE6E7" stroke="#1F3A3D" stroke-width="1"/>
+        <text x="360" y="47" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="11" fill="#1F3A3D" font-weight="600">社会の仕組み</text>
+        <text x="360" y="60" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="8" fill="#4a4a4a">教育・探究</text>
+
+        <rect x="30" y="180" width="140" height="38" rx="3" fill="#DCE6E7" stroke="#1F3A3D" stroke-width="1"/>
+        <text x="100" y="197" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="11" fill="#1F3A3D" font-weight="600">経済と表現</text>
+        <text x="100" y="210" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="8" fill="#4a4a4a">マーケ・お金・エンタメ</text>
+
+        <rect x="550" y="180" width="140" height="38" rx="3" fill="#DCE6E7" stroke="#1F3A3D" stroke-width="1"/>
+        <text x="620" y="197" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="11" fill="#1F3A3D" font-weight="600">つくり・表し</text>
+        <text x="620" y="210" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="8" fill="#4a4a4a">アート・ものづくり</text>
+
+        <rect x="40" y="430" width="150" height="38" rx="3" fill="#DCE6E7" stroke="#1F3A3D" stroke-width="1"/>
+        <text x="115" y="447" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="11" fill="#1F3A3D" font-weight="600">暮らし</text>
+        <text x="115" y="460" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="8" fill="#4a4a4a">食・農・環境・ウェルネス</text>
+
+        <rect x="525" y="430" width="160" height="38" rx="3" fill="#DCE6E7" stroke="#1F3A3D" stroke-width="1"/>
+        <text x="605" y="447" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="11" fill="#1F3A3D" font-weight="600">社会に届ける</text>
+        <text x="605" y="460" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="8" fill="#4a4a4a">ソーシャル・まちづくり</text>
+
+        <!-- Connecting lines from center to inner ring -->
+        <g stroke="#2D6A4F" stroke-width="0.8" opacity="0.4" stroke-dasharray="2 3">
+          <line x1="360" y1="205" x2="360" y2="168"/>
+          <line x1="322" y1="290" x2="270" y2="324"/>
+          <line x1="398" y1="290" x2="450" y2="324"/>
+        </g>
+        <!-- Connecting lines to outer ring -->
+        <g stroke="#1F3A3D" stroke-width="0.6" opacity="0.3" stroke-dasharray="2 3">
+          <line x1="360" y1="165" x2="360" y2="72"/>
+          <line x1="210" y1="215" x2="170" y2="202"/>
+          <line x1="510" y1="215" x2="550" y2="202"/>
+          <line x1="200" y1="343" x2="180" y2="432"/>
+          <line x1="520" y1="343" x2="540" y2="432"/>
+        </g>
+
+        <text x="360" y="498" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="9" fill="#7a7a7a" letter-spacing="2">50人の仲間を通じて、一人では出会わなかったテーマに届く</text>
+      </svg>
+    </div>
 
     <div class="themes">
       <div class="theme-layer inner">
