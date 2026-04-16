@@ -720,94 +720,91 @@ section.alt{background:var(--bg-deep)}
     <p class="lead">POOLOは<b>関心探究型</b>。「今、何に心が動く？」から始める。</p>
 
     <div style="max-width:880px;margin:2rem auto">
-      <svg viewBox="0 0 880 500" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block">
+      <svg viewBox="0 0 880 480" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block">
         <defs>
-          <marker id="arrowBlk" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
-            <path d="M0,1 L8,5 L0,9 z" fill="#1a1a1a"/>
+          <marker id="arrowMute" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+            <path d="M0,1 L8,5 L0,9 z" fill="#7a7a7a"/>
           </marker>
-          <marker id="arrowThick" markerWidth="14" markerHeight="14" refX="12" refY="7" orient="auto">
-            <path d="M0,0 L12,7 L0,14 z" fill="#1a1a1a"/>
+          <marker id="arrowGreen" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+            <path d="M0,1 L8,5 L0,9 z" fill="#2D6A4F"/>
           </marker>
-          <filter id="penRough3" x="-3%" y="-3%" width="106%" height="106%">
-            <feTurbulence type="fractalNoise" baseFrequency="0.03" numOctaves="2" seed="5"/>
-            <feDisplacementMap in="SourceGraphic" scale="1.5"/>
-          </filter>
         </defs>
 
-        <!-- Background panels -->
-        <rect x="0" y="0" width="430" height="500" rx="6" fill="#f5f5f0" stroke="#e0ddd3" stroke-width="1"/>
-        <rect x="450" y="0" width="430" height="500" rx="6" fill="#f5f5f0" stroke="#e0ddd3" stroke-width="1"/>
+        <!-- ===== LEFT PANEL: 目標逆算型 ===== -->
+        <rect x="0" y="0" width="420" height="480" rx="5" fill="#fff" stroke="#e0ddd3" stroke-width="1"/>
 
-        <!-- Titles -->
-        <rect x="70" y="20" width="290" height="48" rx="4" fill="#e8e6e0"/>
-        <text x="215" y="52" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="20" fill="#1a1a1a" font-weight="600" letter-spacing="4">目標逆算型</text>
+        <!-- Title bar -->
+        <rect x="0" y="0" width="420" height="52" rx="5" fill="var(--bg-deep,#f3f1ea)" stroke="#e0ddd3" stroke-width="1"/>
+        <rect x="0" y="48" width="420" height="4" fill="#fff"/>
+        <text x="210" y="34" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="17" fill="#7a7a7a" font-weight="600" letter-spacing="5">目標逆算型</text>
 
-        <rect x="520" y="20" width="290" height="48" rx="4" fill="#e8e6e0"/>
-        <text x="665" y="52" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="20" fill="#1a1a1a" font-weight="600" letter-spacing="4">興味探究型</text>
+        <!-- 現状 (bottom-left) -->
+        <text x="50" y="430" font-family="'Shippori Mincho',serif" font-size="15" fill="#7a7a7a" font-weight="500">現状</text>
 
-        <!-- Arrow between panels -->
-        <text x="440" y="48" text-anchor="middle" font-size="20" fill="#a8a8a8">▸</text>
-
-        <!-- ===== LEFT: 目標逆算型 ===== -->
-        <!-- 現状 -->
-        <text x="50" y="460" font-family="'Shippori Mincho',serif" font-size="17" fill="#1a1a1a" font-weight="600">現状</text>
-
-        <!-- Dotted line from 現状 to 目標 -->
-        <line x1="80" y1="440" x2="310" y2="120" stroke="#1a1a1a" stroke-width="2" stroke-dasharray="6 6"/>
+        <!-- Dotted line (predictable) -->
+        <line x1="75" y1="410" x2="300" y2="115" stroke="#a8a8a8" stroke-width="1.8" stroke-dasharray="6 5"/>
 
         <!-- ToDo box -->
-        <rect x="155" y="265" width="90" height="42" rx="3" fill="#fff" stroke="#1a1a1a" stroke-width="2"/>
-        <text x="200" y="293" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="17" fill="#1a1a1a" font-weight="700">ToDo</text>
+        <rect x="150" y="248" width="82" height="38" rx="3" fill="#fff" stroke="#a8a8a8" stroke-width="1.5"/>
+        <text x="191" y="273" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="15" fill="#7a7a7a" font-weight="600">ToDo</text>
 
-        <!-- Arrows around ToDo -->
-        <line x1="175" y1="265" x2="195" y2="240" stroke="#1a1a1a" stroke-width="1.5" marker-end="url(#arrowBlk)"/>
-        <line x1="245" y1="280" x2="280" y2="265" stroke="#1a1a1a" stroke-width="1.5" stroke-dasharray="3 3"/>
+        <!-- Arrow up from ToDo -->
+        <line x1="185" y1="248" x2="198" y2="228" stroke="#a8a8a8" stroke-width="1.2" marker-end="url(#arrowMute)"/>
 
-        <!-- 目標 (yellow) -->
-        <rect x="270" y="105" width="90" height="42" rx="3" fill="#FFF176" stroke="none"/>
-        <text x="315" y="133" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="18" fill="#1a1a1a" font-weight="700">目標</text>
+        <!-- 目標 box -->
+        <rect x="265" y="88" width="80" height="38" rx="3" fill="#e0ddd3" stroke="#a8a8a8" stroke-width="1"/>
+        <text x="305" y="113" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="15" fill="#7a7a7a" font-weight="600">目標</text>
 
-        <!-- Small arrow from dotted line to 目標 -->
-        <line x1="295" y1="140" x2="320" y2="115" stroke="#1a1a1a" stroke-width="1.5" marker-end="url(#arrowBlk)"/>
+        <!-- 想定内の自分 label -->
+        <text x="305" y="82" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="9" fill="#a8a8a8" letter-spacing="1">想定内の自分</text>
 
-        <!-- ===== RIGHT: 興味探究型 ===== -->
-        <!-- 探究テーマ (yellow) - bottom center -->
-        <rect x="570" y="400" width="130" height="42" rx="3" fill="#FFF176" stroke="none"/>
-        <text x="635" y="428" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="16" fill="#1a1a1a" font-weight="700">探究テーマ</text>
+        <!-- ===== RIGHT PANEL: 関心探究型 ===== -->
+        <rect x="460" y="0" width="420" height="480" rx="5" fill="#fff" stroke="#2D6A4F" stroke-width="1.5"/>
 
-        <!-- Organic spiraling path upward -->
-        <g filter="url(#penRough3)">
-          <!-- Main thick organic curve from bottom to top-right -->
-          <path d="M 635 398
-                   C 620 370, 590 355, 580 330
-                   C 565 300, 575 270, 600 250
-                   C 630 225, 660 230, 680 210
-                   C 700 190, 690 160, 670 145
-                   C 650 130, 620 130, 610 145
-                   C 595 165, 610 190, 640 195
-                   C 670 198, 700 180, 720 155
-                   C 745 125, 760 100, 790 90"
-                fill="none" stroke="#1a1a1a" stroke-width="5" stroke-linecap="round" marker-end="url(#arrowThick)"/>
+        <!-- Title bar (green accent) -->
+        <rect x="460" y="0" width="420" height="52" rx="5" fill="#E9F5EE" stroke="#2D6A4F" stroke-width="1.5"/>
+        <rect x="460" y="48" width="420" height="4" fill="#fff"/>
+        <text x="670" y="34" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="17" fill="#2D6A4F" font-weight="600" letter-spacing="5">関心探究型</text>
 
-          <!-- Small loop near bottom (体験する) -->
-          <path d="M 610 360
-                   C 590 350, 580 340, 585 325
-                   C 590 310, 610 310, 615 325"
-                fill="none" stroke="#1a1a1a" stroke-width="3.5" stroke-linecap="round"/>
-        </g>
+        <!-- 探究テーマ (warm accent box at bottom) -->
+        <rect x="590" y="390" width="120" height="36" rx="3" fill="#F7EDE2" stroke="#C08457" stroke-width="1.5"/>
+        <text x="650" y="414" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="13" fill="#C08457" font-weight="600" letter-spacing="1">探究テーマ</text>
+
+        <!-- Organic spiral path (green tones, matching palette) -->
+        <path d="M 650 388
+                 C 635 360, 610 348, 600 325
+                 C 585 295, 595 268, 618 248
+                 C 645 225, 675 230, 692 212
+                 C 710 192, 700 162, 682 148
+                 C 662 134, 635 135, 625 148
+                 C 612 168, 628 190, 655 194
+                 C 682 197, 710 178, 730 155
+                 C 752 130, 768 108, 795 96"
+              fill="none" stroke="#2D6A4F" stroke-width="3.5" stroke-linecap="round" marker-end="url(#arrowGreen)" opacity="0.85"/>
+
+        <!-- Small loop (体験する) -->
+        <path d="M 625 355
+                 C 608 345, 598 336, 602 322
+                 C 607 308, 624 310, 628 322"
+              fill="none" stroke="#2D6A4F" stroke-width="2.5" stroke-linecap="round" opacity="0.75"/>
 
         <!-- Labels along the path -->
-        <text x="555" y="342" font-family="'Shippori Mincho',serif" font-size="14" fill="#1a1a1a" font-weight="600">体験する</text>
+        <text x="570" y="330" font-family="'Shippori Mincho',serif" font-size="12" fill="#4a4a4a" font-weight="500">体験する</text>
+        <text x="645" y="248" font-family="'Shippori Mincho',serif" font-size="12" fill="#4a4a4a" font-weight="500">葛藤する</text>
+        <text x="598" y="140" font-family="'Shippori Mincho',serif" font-size="12" fill="#4a4a4a" font-weight="500">本を読む</text>
+        <text x="725" y="208" font-family="'Shippori Mincho',serif" font-size="12" fill="#4a4a4a" font-weight="500">人と話す</text>
 
-        <text x="630" y="252" font-family="'Shippori Mincho',serif" font-size="14" fill="#1a1a1a" font-weight="600">葛藤する</text>
+        <!-- 作品をつくる (destination, green emphasis) -->
+        <rect x="775" y="72" width="86" height="38" rx="3" fill="#E9F5EE" stroke="#2D6A4F" stroke-width="1.5"/>
+        <text x="818" y="89" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="11" fill="#2D6A4F" font-weight="600">作品を</text>
+        <text x="818" y="104" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="11" fill="#2D6A4F" font-weight="600">つくる</text>
 
-        <text x="578" y="140" font-family="'Shippori Mincho',serif" font-size="14" fill="#1a1a1a" font-weight="600">本を読む</text>
+        <!-- 想像もしなかった自分 label -->
+        <text x="818" y="66" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="9" fill="#2D6A4F" letter-spacing="1">想像もしなかった自分</text>
 
-        <text x="720" y="210" font-family="'Shippori Mincho',serif" font-size="14" fill="#1a1a1a" font-weight="600">人と話す</text>
-
-        <!-- 作品をつくる (top-right destination) -->
-        <text x="780" y="80" font-family="'Shippori Mincho',serif" font-size="15" fill="#1a1a1a" font-weight="700">作品を</text>
-        <text x="780" y="100" font-family="'Shippori Mincho',serif" font-size="15" fill="#1a1a1a" font-weight="700">つくる</text>
+        <!-- Comparison bottom labels -->
+        <text x="210" y="470" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="10" fill="#a8a8a8" letter-spacing="2">直線的・予測可能</text>
+        <text x="670" y="470" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="10" fill="#2D6A4F" letter-spacing="2">螺旋的・予測不能</text>
       </svg>
     </div>
 
