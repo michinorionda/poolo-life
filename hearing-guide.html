@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>POOLO LIFE — 卒業生ヒアリングガイド</title>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#1a1a1a;--sub:#4a4a4a;--mute:#7a7a7a;--hint:#a8a8a8;
+  --bg:#faf9f6;--bg-deep:#f3f1ea;--line:#e0ddd3;
+  --green:#2D6A4F;--green-lt:#F4FAF6;--green-bg:#E9F5EE;
+  --warm:#C08457;--warm-bg:#F7EDE2;
+  --deep:#1F3A3D;--deep-bg:#DCE6E7;
+  --star:#B8860B;--star-bg:#F9F0D9;
+  --serif:'Shippori Mincho',serif;--sans:'Noto Sans JP',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--bg);color:var(--ink);line-height:2;font-weight:300;-webkit-font-smoothing:antialiased}
+.wrap{max-width:880px;margin:0 auto;padding:0 1.5rem}
+
+/* Header */
+.header{padding:5rem 0 3.5rem;background:linear-gradient(135deg,var(--bg-deep) 0%,var(--bg) 60%);border-bottom:1px solid var(--line)}
+.mark{display:inline-block;font-size:0.6rem;letter-spacing:0.4em;color:var(--warm);margin-bottom:1.5rem;font-weight:500;padding:0.35rem 1rem;border:1px solid var(--warm);background:#fff}
+.h-title{font-family:var(--serif);font-size:1.9rem;font-weight:600;letter-spacing:0.08em;line-height:1.65;margin-bottom:0.8rem}
+.h-sub{font-family:var(--serif);font-size:0.92rem;color:var(--sub);letter-spacing:0.06em;line-height:1.9}
+.h-meta{display:flex;gap:1.5rem;flex-wrap:wrap;font-size:0.78rem;color:var(--mute);margin-top:1.5rem;padding-top:1rem;border-top:1px dashed var(--line)}
+.h-meta b{color:var(--warm);font-weight:600}
+.back{display:inline-block;margin-top:1.5rem;font-size:0.78rem;color:var(--green);text-decoration:none;letter-spacing:0.1em;border-bottom:1px solid var(--green);padding-bottom:2px}
+
+/* Policy */
+.policy{background:#fff;padding:3rem 0;border-bottom:1px solid var(--line)}
+.policy-title{font-family:var(--serif);font-size:1.1rem;font-weight:600;color:var(--ink);margin-bottom:1.2rem;letter-spacing:0.06em}
+.policy-list{list-style:none;padding:0}
+.policy-list li{padding:0.5rem 0 0.5rem 1.5rem;position:relative;font-size:0.88rem;color:var(--sub)}
+.policy-list li::before{content:'—';position:absolute;left:0;color:var(--warm)}
+
+/* Timeline overview */
+.overview{padding:3rem 0}
+.overview-title{font-family:var(--serif);font-size:1rem;font-weight:600;color:var(--mute);text-align:center;margin-bottom:2rem;letter-spacing:0.15em}
+.timeline-bar{display:grid;grid-template-columns:1fr 2fr 4fr 2fr 1fr;gap:3px;max-width:800px;margin:0 auto}
+.tl-seg{padding:0.9rem 0.6rem;text-align:center;border-radius:3px;font-size:0.72rem;letter-spacing:0.04em}
+.tl-seg .tl-time{font-family:var(--serif);font-size:0.95rem;font-weight:600;display:block;margin-bottom:0.2rem}
+.tl-seg.ice{background:var(--bg-deep);color:var(--mute)}
+.tl-seg.before{background:var(--warm-bg);color:var(--warm)}
+.tl-seg.during{background:var(--green-bg);color:var(--green)}
+.tl-seg.after{background:var(--star-bg);color:var(--star)}
+.tl-seg.close{background:var(--deep-bg);color:var(--deep)}
+
+/* Part header */
+.part{padding:3.5rem 0 0}
+.part-mark{font-size:0.6rem;letter-spacing:0.4em;font-weight:500;margin-bottom:0.8rem}
+.part-title{font-family:var(--serif);font-size:1.4rem;font-weight:600;letter-spacing:0.06em;line-height:1.6;margin-bottom:0.5rem}
+.part-desc{font-size:0.85rem;color:var(--sub)}
+.part.ice .part-mark{color:var(--mute)}
+.part.before .part-mark{color:var(--warm)}
+.part.during .part-mark{color:var(--green)}
+.part.after .part-mark{color:var(--star)}
+.part.close .part-mark{color:var(--deep)}
+
+/* Question card */
+.q-card{background:#fff;border:1px solid var(--line);border-radius:3px;padding:1.5rem 1.8rem;margin:1.2rem 0}
+.q-head{display:flex;align-items:baseline;gap:0.8rem;margin-bottom:1rem}
+.q-num{font-family:var(--serif);font-size:1.1rem;font-weight:600;color:var(--green);min-width:3rem}
+.q-hypothesis{display:flex;gap:0.4rem;flex-wrap:wrap;margin-bottom:0.8rem}
+.q-tag{font-size:0.6rem;letter-spacing:0.15em;padding:0.2rem 0.5rem;border-radius:2px;font-weight:500}
+.q-tag.h1{background:#E9F5EE;color:#2D6A4F}
+.q-tag.h2{background:#F7EDE2;color:#C08457}
+.q-tag.h3{background:#DCE6E7;color:#1F3A3D}
+.q-tag.h4{background:#F9F0D9;color:#B8860B}
+.q-tag.h5{background:#f0e6f5;color:#6a3d7a}
+.q-tag.ep{background:#e8e6e0;color:#4a4a4a}
+.q-main{font-family:var(--serif);font-size:1.08rem;font-weight:500;color:var(--ink);line-height:1.9;letter-spacing:0.04em;padding:1rem 1.2rem;background:var(--bg);border-left:3px solid var(--green);border-radius:0 3px 3px 0}
+.q-deep{margin-top:1rem;padding:0.8rem 1rem;background:var(--bg-deep);border-radius:3px}
+.q-deep-title{font-size:0.65rem;letter-spacing:0.2em;color:var(--warm);font-weight:500;margin-bottom:0.5rem}
+.q-deep ul{list-style:none;padding:0}
+.q-deep li{padding:0.3rem 0 0.3rem 1.2rem;position:relative;font-size:0.85rem;color:var(--sub)}
+.q-deep li::before{content:'→';position:absolute;left:0;color:var(--warm);font-size:0.8rem}
+.q-note{margin-top:0.8rem;font-size:0.78rem;color:var(--mute);font-style:normal;padding:0.6rem 0.8rem;border:1px dashed var(--line);border-radius:3px}
+.q-note b{color:var(--ink);font-weight:500}
+
+/* Branch (案A/案B) */
+.branch{display:grid;grid-template-columns:1fr 1fr;gap:0.8rem;margin-top:1rem}
+.branch-box{background:var(--bg-deep);border:1px solid var(--line);border-radius:3px;padding:1rem 1.1rem}
+.branch-label{font-size:0.62rem;letter-spacing:0.2em;color:var(--warm);font-weight:500;margin-bottom:0.5rem}
+.branch-box ul{list-style:none;padding:0}
+.branch-box li{padding:0.3rem 0;font-size:0.82rem;color:var(--sub);line-height:1.7}
+
+/* Hypothesis checklist */
+.hypo-section{padding:4rem 0;background:var(--bg-deep);border-top:1px solid var(--line)}
+.hypo-title{font-family:var(--serif);font-size:1.3rem;font-weight:600;text-align:center;margin-bottom:0.5rem;letter-spacing:0.06em}
+.hypo-sub{text-align:center;font-size:0.82rem;color:var(--sub);margin-bottom:2.5rem}
+.hypo-card{background:#fff;border:1px solid var(--line);border-radius:3px;padding:1.5rem 1.5rem;margin-bottom:1rem}
+.hypo-card-head{display:flex;align-items:center;gap:0.8rem;margin-bottom:1rem}
+.hypo-card-num{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:0.95rem;font-weight:600;color:#fff;flex-shrink:0}
+.hypo-card-num.h1{background:var(--green)}
+.hypo-card-num.h2{background:var(--warm)}
+.hypo-card-num.h3{background:var(--deep)}
+.hypo-card-num.h4{background:var(--star)}
+.hypo-card-num.h5{background:#6a3d7a}
+.hypo-card-name{font-family:var(--serif);font-size:1rem;font-weight:600;color:var(--ink);letter-spacing:0.04em}
+.judge-table{width:100%;border-collapse:collapse;font-size:0.82rem;margin-top:0.8rem}
+.judge-table th{background:var(--bg);padding:0.6rem 0.8rem;text-align:left;font-family:var(--serif);font-weight:600;font-size:0.75rem;color:var(--mute);letter-spacing:0.1em;border-bottom:1px solid var(--line)}
+.judge-table td{padding:0.6rem 0.8rem;border-bottom:1px solid var(--line);color:var(--sub);vertical-align:top;line-height:1.7}
+.judge-table td:first-child{font-family:var(--serif);font-weight:500;color:var(--ink);width:22%}
+.judge-table td.strong{color:var(--green)}
+.judge-table td.weak{color:var(--star)}
+.judge-table td.none{color:var(--mute)}
+.ref-questions{font-size:0.75rem;color:var(--mute);margin-top:0.5rem;letter-spacing:0.04em}
+
+/* Tips */
+.tips{padding:3rem 0;border-top:1px solid var(--line)}
+.tips-title{font-family:var(--serif);font-size:1.1rem;font-weight:600;margin-bottom:1.5rem;letter-spacing:0.06em}
+.tips-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:0.8rem}
+.tip{background:#fff;border:1px solid var(--line);border-radius:3px;padding:1.1rem 1.1rem;border-top:2px solid var(--warm)}
+.tip b{font-family:var(--serif);color:var(--ink);font-weight:600;font-size:0.88rem;display:block;margin-bottom:0.4rem;letter-spacing:0.04em}
+.tip p{font-size:0.78rem;color:var(--sub);line-height:1.7;margin:0}
+
+/* Footer */
+.footer{background:var(--deep);padding:3rem 0;text-align:center}
+.footer a{color:rgba(255,255,255,0.85);text-decoration:none;font-size:0.78rem;letter-spacing:0.1em;border-bottom:1px solid rgba(255,255,255,0.3);padding-bottom:2px;margin:0 0.6rem}
+.footer p{color:rgba(255,255,255,0.5);font-size:0.72rem;margin-top:1rem;letter-spacing:0.1em}
+
+@media(max-width:680px){
+  .h-title{font-size:1.4rem}
+  .timeline-bar{grid-template-columns:1fr}
+  .branch{grid-template-columns:1fr}
+  .tips-grid{grid-template-columns:1fr}
+  .q-card{padding:1.2rem 1.2rem}
+}
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="wrap">
+    <span class="mark">HEARING GUIDE — GRADUATES</span>
+    <h1 class="h-title">POOLO LIFE<br>卒業生1on1ヒアリングガイド</h1>
+    <p class="h-sub">v5未来デザインの仮説検証 × 対外発信エピソード収集</p>
+    <div class="h-meta">
+      <span>対象: <b>v3・v4期卒業生</b></span>
+      <span>所要: <b>45〜60分</b></span>
+      <span>ヒアリアー: <b>社長</b></span>
+      <span>作成: <b>2026-04-16</b></span>
+    </div>
+    <a href="index-share.html" class="back">← 共有ハブに戻る</a>
+  </div>
+</header>
+
+<!-- Policy -->
+<section class="policy">
+  <div class="wrap">
+    <div class="policy-title">設計方針</div>
+    <ul class="policy-list">
+      <li>仮説を直接ぶつけない。体験を時系列で引き出し、語りの中に仮説との整合を見る</li>
+      <li>卒業生の言葉で語ってもらうことを最優先する（こちらの言葉に置き換えない）</li>
+      <li>「源泉」「引力場」「パースペクティブ」等のこちら側の言葉は出さない</li>
+      <li>対外発信に使える具体エピソードは、許可を取った上で後日引用する前提</li>
+    </ul>
+  </div>
+</section>
+
+<!-- Timeline overview -->
+<section class="overview">
+  <div class="wrap">
+    <div class="overview-title">全体構成 — 45〜60分</div>
+    <div class="timeline-bar">
+      <div class="tl-seg ice"><span class="tl-time">5分</span>アイスブレイク</div>
+      <div class="tl-seg before"><span class="tl-time">10分</span>Before 参加前</div>
+      <div class="tl-seg during"><span class="tl-time">20-25分</span>During 8ヶ月の体験</div>
+      <div class="tl-seg after"><span class="tl-time">10分</span>After 今の自分</div>
+      <div class="tl-seg close"><span class="tl-time">5分</span>クロージング</div>
+    </div>
+  </div>
+</section>
+
+<!-- 仮説タグの凡例 -->
+<section style="padding:0 0 2rem">
+  <div class="wrap">
+    <div style="background:#fff;border:1px solid var(--line);border-radius:3px;padding:1.2rem 1.5rem;display:flex;gap:1.5rem;flex-wrap:wrap;align-items:center">
+      <span style="font-size:0.72rem;color:var(--mute);letter-spacing:0.15em;font-weight:500">検証仮説タグ :</span>
+      <span class="q-tag h1">仮説1 源泉×実践ループ</span>
+      <span class="q-tag h2">仮説2 引力場</span>
+      <span class="q-tag h3">仮説3 旅の3効能</span>
+      <span class="q-tag h4">仮説4 パースペクティブシフト</span>
+      <span class="q-tag h5">仮説5 F=G×H</span>
+      <span class="q-tag ep">エピソード収集</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 0. ICEBREAK ===== -->
+<section>
+  <div class="wrap">
+    <div class="part ice">
+      <div class="part-mark">PART 0 — ICEBREAK（5分）</div>
+      <div class="part-title">安心感をつくる・近況を聴く</div>
+    </div>
+    <div class="q-card" style="border-left:3px solid var(--line)">
+      <div class="q-main" style="border-left-color:var(--line)">最近どうしてる？ 今日はどこから参加してる？</div>
+      <div class="q-note"><b>メモ</b>：卒業後の経過時間と今の活動の概要をここで把握。あとで「変化」を聴くときの基準点になる。</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 1. BEFORE ===== -->
+<section style="padding-top:2rem">
+  <div class="wrap">
+    <div class="part before">
+      <div class="part-mark">PART 1 — BEFORE（10分）</div>
+      <div class="part-title">参加前の状態・動機・「ぼんやり度」を聴く</div>
+    </div>
+
+    <div class="q-card">
+      <div class="q-head"><span class="q-num">1-1</span></div>
+      <div class="q-hypothesis"><span class="q-tag ep">エピソード収集</span></div>
+      <div class="q-main">POOLOに入る前、どんな状態だった？ 日々の暮らしや仕事で感じていたことを教えてほしい。</div>
+      <div class="q-deep">
+        <div class="q-deep-title">深掘り</div>
+        <ul>
+          <li>仕事はどんな感じだった？</li>
+          <li>何か物足りなさとか、引っかかりみたいなものはあった？</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="q-card">
+      <div class="q-head"><span class="q-num">1-2</span></div>
+      <div class="q-main">POOLOを知ったきっかけと、参加を決めた理由は？</div>
+      <div class="q-deep">
+        <div class="q-deep-title">深掘り</div>
+        <ul>
+          <li>決め手は何だった？</li>
+          <li>迷ったポイントはあった？</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="q-card">
+      <div class="q-head"><span class="q-num">1-3</span></div>
+      <div class="q-hypothesis"><span class="q-tag h1">仮説1 源泉×実践ループ</span></div>
+      <div class="q-main">参加する前に、こうなりたいとか、こういうことがしたいとか、具体的なイメージはあった？</div>
+      <div class="q-deep">
+        <div class="q-deep-title">深掘り</div>
+        <ul>
+          <li>入る前に明確な目標があった？ それともぼんやりしていた？</li>
+          <li>何かを探しにいく感覚だった？ それとも違う？</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 2. DURING ===== -->
+<section style="padding-top:2rem">
+  <div class="wrap">
+    <div class="part during">
+      <div class="part-mark">PART 2 — DURING（20〜25分）</div>
+      <div class="part-title">8ヶ月の体験を具体的に引き出す</div>
+      <div class="part-desc">仮説検証の核。体験を語ってもらい、照合はヒアリアーの頭の中で行う。</div>
+    </div>
+
+    <div class="q-card">
+      <div class="q-head"><span class="q-num">2-1</span></div>
+      <div class="q-hypothesis">
+        <span class="q-tag h4">仮説4 パースペクティブシフト</span>
+        <span class="q-tag ep">エピソード収集</span>
+      </div>
+      <div class="q-main">POOLOの8ヶ月を振り返って、最も印象に残っている場面を1つ挙げるとしたら？</div>
+      <div class="q-deep">
+        <div class="q-deep-title">深掘り</div>
+        <ul>
+          <li>そのとき、何が起きていた？</li>
+          <li>その前と後で、自分の中で何か変わった感覚はあった？</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="q-card">
+      <div class="q-head"><span class="q-num">2-2</span></div>
+      <div class="q-hypothesis">
+        <span class="q-tag h2">仮説2 引力場</span>
+        <span class="q-tag h4">仮説4 パースペクティブシフト</span>
+      </div>
+      <div class="q-main">POOLOの中で、最初は興味がなかったのに、やってみたら面白かったこと、予想外だったことはある？</div>
+      <div class="q-deep">
+        <div class="q-deep-title">深掘り</div>
+        <ul>
+          <li>それは誰かの影響があった？</li>
+          <li>一人だったらやっていた？</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="q-card">
+      <div class="q-head"><span class="q-num">2-3</span></div>
+      <div class="q-hypothesis">
+        <span class="q-tag h2">仮説2 引力場</span>
+        <span class="q-tag h5">仮説5 F=G×H</span>
+      </div>
+      <div class="q-main">同期の仲間の存在は、自分にとってどういうものだった？</div>
+      <div class="q-deep">
+        <div class="q-deep-title">深掘り</div>
+        <ul>
+          <li>誰かの活動や関心に触れて、自分にも影響があった経験はある？</li>
+          <li>逆に、自分の何かが誰かに届いたと感じた瞬間はあった？</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="q-card">
+      <div class="q-head"><span class="q-num">2-4</span></div>
+      <div class="q-hypothesis"><span class="q-tag h3">仮説3 旅の3効能</span></div>
+      <div class="q-main">POOLOの中で「旅」はどんな役割を果たした？ 旅がなかったらどうなっていたと思う？</div>
+      <div class="branch">
+        <div class="branch-box">
+          <div class="branch-label">案A — 体験から入る</div>
+          <ul>
+            <li>旅の中で、自分で決めなきゃいけない場面ってあった？ そのとき何を感じた？（自己決定）</li>
+            <li>旅先で出会った人やものが、自分の日常につながった経験はある？（自分事化）</li>
+            <li>思い通りにいかなかったことは？ そのとき自分はどうした？（受容）</li>
+          </ul>
+        </div>
+        <div class="branch-box">
+          <div class="branch-label">案B — 変化から入る</div>
+          <ul>
+            <li>旅の前と後で、自分の感覚が変わったことはある？</li>
+            <li>旅で得たものが、POOLOの他の活動にどうつながった？</li>
+          </ul>
+        </div>
+      </div>
+      <div class="q-note"><b>使い分け</b>：体験をすらすら語れるタイプなら案A、抽象的に語るタイプなら案Bで入って具体を引き出す。</div>
+    </div>
+
+    <div class="q-card">
+      <div class="q-head"><span class="q-num">2-5</span></div>
+      <div class="q-hypothesis">
+        <span class="q-tag h1">仮説1 源泉×実践ループ</span>
+        <span class="q-tag h5">仮説5 F=G×H</span>
+        <span class="q-tag ep">エピソード収集</span>
+      </div>
+      <div class="q-main">POOLOの中で、自分が何かを差し出した経験について教えてほしい。たとえばイベントを開いたり、作品をつくったり、場をひらいたり。</div>
+      <div class="q-deep">
+        <div class="q-deep-title">深掘り</div>
+        <ul>
+          <li>差し出す前と後で、自分の中で何か変わった？</li>
+          <li>反応が返ってきたとき、どう感じた？</li>
+          <li>差し出したことで、自分が追いかけたいものがより見えた、あるいは変わったという感覚はあった？</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="q-card" style="border-style:dashed">
+      <div class="q-head"><span class="q-num" style="color:var(--mute)">2-6</span><span style="font-size:0.72rem;color:var(--mute);letter-spacing:0.1em">余裕があれば</span></div>
+      <div class="q-hypothesis"><span class="q-tag h4">仮説4 パースペクティブシフト</span></div>
+      <div class="q-main" style="border-left-color:var(--mute)">8ヶ月の間に、自分の見方とか考え方が変わったと感じる瞬間はあった？ あったとしたら、何がきっかけだった？</div>
+      <div class="q-deep">
+        <div class="q-deep-title">深掘り</div>
+        <ul>
+          <li>それまでの自分だったら、どう見ていた？</li>
+          <li>その変化は、誰かとの対話がきっかけ？ それとも体験？</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 3. AFTER ===== -->
+<section style="padding-top:2rem">
+  <div class="wrap">
+    <div class="part after">
+      <div class="part-mark">PART 3 — AFTER（10分）</div>
+      <div class="part-title">変化と現在地を言葉にしてもらう</div>
+    </div>
+
+    <div class="q-card">
+      <div class="q-head"><span class="q-num" style="color:var(--star)">3-1</span></div>
+      <div class="q-hypothesis">
+        <span class="q-tag h1">仮説1 源泉×実践ループ</span>
+        <span class="q-tag ep">エピソード収集</span>
+      </div>
+      <div class="q-main" style="border-left-color:var(--star)">POOLO卒業後、今はどんな活動をしている？ POOLOの前と比べて、変わったことはある？</div>
+      <div class="q-deep">
+        <div class="q-deep-title">深掘り</div>
+        <ul>
+          <li>POOLOで得たものが、今の活動にどうつながっている？</li>
+          <li>POOLO前の自分に会えるとしたら、何を伝える？</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="q-card">
+      <div class="q-head"><span class="q-num" style="color:var(--star)">3-2</span></div>
+      <div class="q-hypothesis">
+        <span class="q-tag h1">仮説1 源泉×実践ループ</span>
+        <span class="q-tag h5">仮説5 F=G×H</span>
+      </div>
+      <div class="q-main" style="border-left-color:var(--star)">今、自分の中で大事にしていること、追いかけているものは何？</div>
+      <div class="q-deep">
+        <div class="q-deep-title">深掘り</div>
+        <ul>
+          <li>それはPOOLO前からあったもの？ それとも新しく生まれたもの？</li>
+          <li>それを誰かに届けたいという感覚はある？</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="q-card">
+      <div class="q-head"><span class="q-num" style="color:var(--star)">3-3</span></div>
+      <div class="q-hypothesis"><span class="q-tag ep">エピソード収集</span></div>
+      <div class="q-main" style="border-left-color:var(--star)">POOLOで一番もらったものは何だった？ 一言で言うとしたら。</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 4. CLOSING ===== -->
+<section style="padding-top:2rem;padding-bottom:2rem">
+  <div class="wrap">
+    <div class="part close">
+      <div class="part-mark">PART 4 — CLOSING（5分）</div>
+      <div class="part-title">感謝と発信許可</div>
+    </div>
+
+    <div class="q-card">
+      <div class="q-head"><span class="q-num" style="color:var(--deep)">4-1</span></div>
+      <div class="q-hypothesis"><span class="q-tag ep">エピソード収集</span></div>
+      <div class="q-main" style="border-left-color:var(--deep)">POOLOに興味がある人に、どう説明する？</div>
+    </div>
+
+    <div class="q-card">
+      <div class="q-head"><span class="q-num" style="color:var(--deep)">4-2</span></div>
+      <div class="q-main" style="border-left-color:var(--deep)">今日話してくれた内容を、LP・説明会・SNSで紹介してもいい？</div>
+    </div>
+
+    <div style="margin-top:1.5rem;padding:1rem 1.3rem;background:#fff;border:1px solid var(--line);border-radius:3px;font-family:var(--serif);font-size:0.92rem;color:var(--sub);text-align:center;letter-spacing:0.04em">
+      今日はありがとう。話を聴けてすごくよかった。<br>また何かあったら声をかけさせてほしい。
+    </div>
+  </div>
+</section>
+
+<!-- ===== HYPOTHESIS CHECKLIST ===== -->
+<section class="hypo-section">
+  <div class="wrap">
+    <div class="hypo-title">ヒアリング後の照合シート</div>
+    <div class="hypo-sub">各仮説について、卒業生の発言から「強い整合 / 弱い整合 / 不整合」を判定する</div>
+
+    <div class="hypo-card">
+      <div class="hypo-card-head">
+        <span class="hypo-card-num h1">1</span>
+        <span class="hypo-card-name">源泉 × 実践の相互更新ループ</span>
+      </div>
+      <table class="judge-table">
+        <tr><th>判定</th><th>卒業生がこう語っていれば</th></tr>
+        <tr><td class="strong">強い整合</td><td>「最初はよくわからなかったけど、やっているうちに見えてきた」「差し出したことで、追いかけたいものがはっきりした」</td></tr>
+        <tr><td class="weak">弱い整合</td><td>「最初からやりたいことが明確だった」「差し出しは確認作業に近かった」</td></tr>
+        <tr><td class="none">不整合</td><td>「8ヶ月を通じて追いかけたいものは特に変わらなかった」</td></tr>
+      </table>
+      <div class="ref-questions">対応する問い: 1-3 / 2-5 / 3-1 / 3-2</div>
+    </div>
+
+    <div class="hypo-card">
+      <div class="hypo-card-head">
+        <span class="hypo-card-num h2">2</span>
+        <span class="hypo-card-name">関心探究型 × 仲間の引力場</span>
+      </div>
+      <table class="judge-table">
+        <tr><th>判定</th><th>卒業生がこう語っていれば</th></tr>
+        <tr><td class="strong">強い整合</td><td>「あの人の○○に触れて、自分も△△を始めた」「一人だったら絶対やっていなかった」</td></tr>
+        <tr><td class="weak">弱い整合</td><td>刺激は受けたが、自分の方向は変わっていない</td></tr>
+        <tr><td class="none">不整合</td><td>「仲間は楽しかったけど、自分の方向には影響しなかった」</td></tr>
+      </table>
+      <div class="ref-questions">対応する問い: 2-2 / 2-3</div>
+    </div>
+
+    <div class="hypo-card">
+      <div class="hypo-card-head">
+        <span class="hypo-card-num h3">3</span>
+        <span class="hypo-card-name">旅の3効能（自己決定・自分事化・受容）</span>
+      </div>
+      <table class="judge-table">
+        <tr><th>判定</th><th>卒業生がこう語っていれば</th></tr>
+        <tr><td class="strong">強い整合</td><td>3つの効能のうち2つ以上を具体エピソードで語れる</td></tr>
+        <tr><td class="weak">弱い整合</td><td>「旅は楽しかった」が、効能の言語化が難しい</td></tr>
+        <tr><td class="none">不整合</td><td>「旅はあまり印象に残っていない」「旅がなくても変わっていたと思う」</td></tr>
+      </table>
+      <div class="ref-questions">対応する問い: 2-4</div>
+    </div>
+
+    <div class="hypo-card">
+      <div class="hypo-card-head">
+        <span class="hypo-card-num h4">4</span>
+        <span class="hypo-card-name">パースペクティブ・シフト</span>
+      </div>
+      <table class="judge-table">
+        <tr><th>判定</th><th>卒業生がこう語っていれば</th></tr>
+        <tr><td class="strong">強い整合</td><td>「前はこう思っていたけど、○○をきっかけに全然違う見方になった」</td></tr>
+        <tr><td class="weak">弱い整合</td><td>変化は感じるが、何がトリガーかは曖昧</td></tr>
+        <tr><td class="none">不整合</td><td>「見方はそんなに変わっていない」</td></tr>
+      </table>
+      <div class="ref-questions">対応する問い: 2-1 / 2-2 / 2-6</div>
+    </div>
+
+    <div class="hypo-card">
+      <div class="hypo-card-head">
+        <span class="hypo-card-num h5">5</span>
+        <span class="hypo-card-name">F = G × H の実感</span>
+      </div>
+      <table class="judge-table">
+        <tr><th>判定</th><th>卒業生がこう語っていれば</th></tr>
+        <tr><td class="strong">強い整合</td><td>「自分がこれだと思うものを差し出して、反応が返ってきたとき、すごく充実していた」</td></tr>
+        <tr><td class="weak">弱い整合</td><td>Gはあるが、Hとの掛け算まで語れない（またはその逆）</td></tr>
+        <tr><td class="none">不整合</td><td>「充実感はあったけど、つながりとは関係なかった」</td></tr>
+      </table>
+      <div class="ref-questions">対応する問い: 2-3 / 2-5 / 3-2</div>
+    </div>
+  </div>
+</section>
+
+<!-- TIPS -->
+<section class="tips">
+  <div class="wrap">
+    <div class="tips-title">ヒアリングの心得</div>
+    <div class="tips-grid">
+      <div class="tip">
+        <b>沈黙を恐れない</b>
+        <p>相手が考えている時間は待つ。言葉を補わない。</p>
+      </div>
+      <div class="tip">
+        <b>相手の言葉を繰り返す</b>
+        <p>「○○ということ？」と確認しながら進める。</p>
+      </div>
+      <div class="tip">
+        <b>仮説の言葉を使わない</b>
+        <p>「源泉」「引力場」「パースペクティブ」等は出さない。</p>
+      </div>
+      <div class="tip">
+        <b>感情が出たら大事にする</b>
+        <p>声のトーンが変わったり、言葉に詰まったら、そこが核。急がない。</p>
+      </div>
+      <div class="tip">
+        <b>全部聴かなくていい</b>
+        <p>話の流れで自然に答えが出た問いは飛ばす。問い2-6は余裕があれば。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="wrap">
+    <a href="index-share.html">← 共有ハブ</a>
+    <a href="poolo-essence.html">核の1枚</a>
+    <a href="future-design-v5-visual.html">v5図解版</a>
+    <p>POOLO LIFE — Hearing Guide / 2026.04.16</p>
+  </div>
+</footer>
+
+</body>
+</html>
