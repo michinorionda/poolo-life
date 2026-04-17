@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>POOLO LIFE — なぜ、想像もしなかった世界の自分に出会い続けるのか</title>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#1a1a1a;--sub:#4a4a4a;--mute:#7a7a7a;--hint:#a8a8a8;
+  --bg:#faf9f6;--bg-deep:#f3f1ea;--line:#e0ddd3;
+  --green:#2D6A4F;--green-bg:#E9F5EE;
+  --warm:#C08457;--warm-bg:#F7EDE2;
+  --deep:#1F3A3D;--deep-bg:#DCE6E7;
+  --star:#B8860B;--star-bg:#F9F0D9;
+  --serif:'Shippori Mincho',serif;--sans:'Noto Sans JP',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:var(--sans);background:var(--bg);color:var(--ink);line-height:1.95;font-weight:300;-webkit-font-smoothing:antialiased}
+.wrap{max-width:760px;margin:0 auto;padding:0 1.5rem}
+.wrap-wide{max-width:1000px;margin:0 auto;padding:0 1.5rem}
+
+/* Header */
+.header{padding:5rem 0 3rem;text-align:center;border-bottom:1px solid var(--line)}
+.mark{display:inline-block;font-size:0.6rem;letter-spacing:0.4em;color:var(--star);margin-bottom:1.8rem;font-weight:500;padding:0.35rem 1.1rem;border:1px solid var(--star);background:#fff}
+.h-title{font-family:var(--serif);font-size:1.95rem;font-weight:600;letter-spacing:0.08em;line-height:1.7;margin-bottom:1.2rem;color:var(--ink)}
+.h-sub{font-family:var(--serif);font-size:0.92rem;color:var(--sub);letter-spacing:0.08em;margin-bottom:1.5rem}
+.h-meta{font-size:0.72rem;color:var(--mute);letter-spacing:0.18em}
+.h-meta span{margin:0 0.6rem}
+.back{display:inline-block;margin-top:1.5rem;font-size:0.78rem;color:var(--green);text-decoration:none;letter-spacing:0.1em;border-bottom:1px solid var(--green);padding-bottom:2px}
+
+/* TOC */
+.toc{max-width:760px;margin:3rem auto 0;padding:2rem 2rem;background:#fff;border:1px solid var(--line);border-radius:4px}
+.toc-label{font-size:0.62rem;letter-spacing:0.35em;color:var(--mute);font-weight:500;margin-bottom:1rem;text-align:center}
+.toc ol{list-style:none;padding:0;margin:0;counter-reset:toc}
+.toc li{counter-increment:toc;padding:0.45rem 0;border-top:1px dashed var(--line);font-size:0.88rem;display:flex;gap:1rem;align-items:baseline}
+.toc li:first-child{border-top:none}
+.toc li::before{content:counter(toc,decimal-leading-zero);font-family:var(--serif);color:var(--star);font-weight:600;font-size:0.78rem;letter-spacing:0.1em;min-width:2rem}
+.toc a{color:var(--ink);text-decoration:none;flex:1}
+.toc a:hover{color:var(--green)}
+.toc .sub{display:block;font-size:0.72rem;color:var(--mute);margin-top:0.2rem;letter-spacing:0.05em}
+
+/* Chapter */
+.chapter{padding:4.5rem 0 1.5rem}
+.chapter-head{text-align:center;margin-bottom:3rem}
+.ch-num{font-family:var(--serif);font-size:0.68rem;letter-spacing:0.4em;color:var(--star);font-weight:500;display:block;margin-bottom:0.9rem}
+.ch-title{font-family:var(--serif);font-size:1.55rem;font-weight:600;letter-spacing:0.08em;line-height:1.7;color:var(--ink)}
+.ch-prologue{max-width:760px;margin:0 auto}
+
+/* Thesis card (章冒頭の中心主張) */
+.thesis{background:var(--bg-deep);border-left:3px solid var(--star);border-right:3px solid var(--star);padding:1.8rem 2rem;margin:2rem 0 2.8rem;border-radius:2px}
+.thesis p{font-family:var(--serif);font-size:1.02rem;font-weight:500;line-height:2.05;color:var(--ink);letter-spacing:0.04em;margin:0}
+
+/* Paragraph */
+.ch-prologue p{margin-bottom:1.4rem;font-size:0.93rem;line-height:2.05;color:var(--sub)}
+.ch-prologue p b,.ch-prologue b{color:var(--ink);font-weight:500}
+.ch-prologue p em{font-style:normal;background:linear-gradient(transparent 65%,var(--star-bg) 65%);padding:0 2px}
+
+/* Voice quote (肉声) */
+.voice{padding:1.6rem 1.8rem;background:#fff;border:1px solid var(--line);border-radius:3px;margin:1.4rem 0;font-family:var(--serif);font-size:0.95rem;color:var(--ink);font-weight:500;letter-spacing:0.04em;line-height:1.9;position:relative}
+.voice::before{content:'＼';position:absolute;top:-0.6rem;left:1.5rem;background:var(--bg);padding:0 0.4rem;color:var(--warm);font-size:0.8rem}
+.voice + .voice{margin-top:0.9rem}
+
+/* Side note (用語補足) */
+.note{background:var(--warm-bg);border-left:3px solid var(--warm);padding:1.2rem 1.4rem;margin:1.6rem 0;border-radius:2px}
+.note .note-tag{display:inline-block;font-size:0.6rem;letter-spacing:0.2em;color:var(--warm);border:1px solid var(--warm);padding:0.15rem 0.45rem;margin-bottom:0.55rem;font-weight:500;background:#fff}
+.note .note-term{font-family:var(--serif);font-weight:600;color:var(--ink);font-size:0.92rem;margin-bottom:0.4rem;letter-spacing:0.04em}
+.note p{font-size:0.82rem;line-height:1.95;color:var(--sub);margin:0}
+.note p b{color:var(--ink);font-weight:500}
+
+/* Section break within chapter (2-1/2-2/2-3) */
+.subch{padding:2rem 0 0.5rem;border-top:1px dashed var(--line);margin-top:2.5rem}
+.subch:first-of-type{border-top:none;margin-top:0;padding-top:0}
+.subch-head{display:flex;align-items:baseline;gap:1rem;margin-bottom:1.4rem}
+.subch-num{font-family:var(--serif);font-size:0.7rem;letter-spacing:0.3em;color:var(--green);font-weight:600}
+.subch-title{font-family:var(--serif);font-size:1.1rem;font-weight:600;letter-spacing:0.06em;color:var(--ink)}
+
+/* Chapter closer (章末移行) */
+.closer{margin-top:2.2rem;padding-top:1.5rem;border-top:1px solid var(--line);text-align:center;font-family:var(--serif);font-size:0.88rem;color:var(--mute);font-weight:500;letter-spacing:0.08em;font-style:italic}
+
+/* Scene (体験シーン) */
+.scene{background:var(--deep-bg);border-radius:3px;padding:1.4rem 1.6rem;margin:1.6rem 0;font-size:0.88rem;line-height:2;color:var(--sub);border-left:3px solid var(--deep)}
+.scene-tag{display:inline-block;font-size:0.6rem;letter-spacing:0.3em;color:var(--deep);font-weight:600;margin-bottom:0.5rem}
+
+/* Final CTA */
+.final-cta{background:var(--deep);color:#fff;padding:3.5rem 0;margin-top:4rem}
+.final-cta .wrap{text-align:center}
+.final-cta .final-title{font-family:var(--serif);font-size:1.2rem;font-weight:600;letter-spacing:0.08em;margin-bottom:1.5rem;line-height:1.8;color:#fff}
+.final-cta p{color:rgba(255,255,255,0.85);font-size:0.88rem;line-height:2;margin-bottom:1.8rem}
+.final-cta .links{display:flex;justify-content:center;gap:1rem;flex-wrap:wrap;margin-top:2rem}
+.final-cta .link-card{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.2);padding:1rem 1.3rem;border-radius:3px;text-decoration:none;color:rgba(255,255,255,0.9);font-size:0.82rem;letter-spacing:0.08em;transition:all 0.22s}
+.final-cta .link-card:hover{background:rgba(255,255,255,0.15);border-color:rgba(255,255,255,0.4)}
+.final-cta .link-card b{font-family:var(--serif);display:block;font-size:0.92rem;margin-bottom:0.3rem;color:#fff;font-weight:600}
+.final-cta .link-card span{color:rgba(255,255,255,0.6);font-size:0.72rem}
+
+/* Footer */
+footer{background:var(--ink);padding:2.5rem 0;text-align:center}
+footer a{color:rgba(255,255,255,0.85);text-decoration:none;font-size:0.78rem;letter-spacing:0.1em;border-bottom:1px solid rgba(255,255,255,0.3);padding-bottom:2px;margin:0 0.6rem}
+footer p{color:rgba(255,255,255,0.45);font-size:0.72rem;margin-top:1rem;letter-spacing:0.1em}
+
+/* Mobile */
+@media(max-width:820px){
+  .h-title{font-size:1.4rem;letter-spacing:0.04em}
+  .ch-title{font-size:1.2rem}
+  .thesis p{font-size:0.94rem}
+  .ch-prologue p{font-size:0.9rem;line-height:1.95}
+  .final-cta .links{flex-direction:column;gap:0.7rem}
+}
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="wrap">
+    <span class="mark">POOLO LIFE — THE THEORY</span>
+    <h1 class="h-title">なぜ、想像もしなかった<br>世界の自分に出会い続けるのか</h1>
+    <p class="h-sub">3つの問いで解く、螺旋の構造</p>
+    <p class="h-meta"><span>約13分</span>・<span>5,500字</span>・<span>理論13件</span></p>
+    <a href="index-share.html" class="back">← 共有ハブに戻る</a>
+  </div>
+</header>
+
+<!-- TOC -->
+<nav class="toc">
+  <div class="toc-label">── CONTENTS ──</div>
+  <ol>
+    <li><a href="#prologue">序章<span class="sub">想像力の外側へ運ばれたい人へ</span></a></li>
+    <li><a href="#ch1">なぜ、人は動き出せるのか<span class="sub">揺らぎ ― 身体が先に動く</span></a></li>
+    <li><a href="#ch2">なぜ、深まるのか<span class="sub">輪郭 × 引力 × 受け取り直す</span></a></li>
+    <li><a href="#ch3">なぜ、出会い続けるのか<span class="sub">生成 ― 螺旋の身体化</span></a></li>
+    <li><a href="#epilogue">結章<span class="sub">螺旋を日常の動作にする</span></a></li>
+  </ol>
+</nav>
+
+<!-- 序章 -->
+<section class="chapter" id="prologue">
+  <div class="chapter-head">
+    <span class="ch-num">── PROLOGUE ──</span>
+    <h2 class="ch-title">序章</h2>
+  </div>
+  <div class="ch-prologue">
+    <div class="voice">働くに、生きるが追いやられている。わたしは、どう生きたいのか。</div>
+    <div class="voice">社会的な正解を選び続けてきた。なのに、なぜ満ちないのか。</div>
+
+    <p>呟く場所や形は違っても、声は同じ一点に辿り着く。<b>エネルギーはある。あるいは、あったはずだ。でも行き場がない。</b> 追い込まれて固まっている人も、正解を選び続けて肩で息をしている人も、行き場のなさという一点では地続きにいる。</p>
+
+    <p>ある朝、見知らぬ町の空気を吸い込んで、理由もなく泣いた人がいる。涙は悲しみではなく、何かが緩んだ音だった。その人はまだそれを言葉にできていない。言葉にできないまま、週末からいつもの駅で降りずに、一駅先まで歩いて帰るようになった。</p>
+
+    <p>予測可能な自分は、いつも今の想像力の内側にいる。目標を立てて逆算する未来は、今の自分が見えている範囲までしか届かない。問題は、届かないことではなく、<b>届いた先でも、なぜか満たされない</b>ことだ。</p>
+
+    <p>この文章が応えたいのは、<b>今の想像力の外側へ運ばれたい人</b>に向けてだ。POOLO LIFEが掲げる「想像もしなかった世界と自分に、出会いにいく」は情緒的な旗文句ではない。構造がある。ここでは、その構造がなぜ動態として回り続けるのかを、3つの問いで解いていく。人はなぜ動き出せるのか。なぜ8ヶ月で深まるのか。そしてなぜ、卒業後も出会い続けられるのか。</p>
+
+    <p>姉妹ページ <a href="poolo-model.html" style="color:var(--green);text-decoration:none;border-bottom:1px solid var(--green)">モデル図</a> は、構造を1枚で見せる静的な地図。本稿は、その構造がなぜ動態として回り続けるのかを、既存理論の裏打ちで解く読みものだ。構造の全景を掴みたい人は図へ、動き続ける理由を辿りたい人はこの先へ。</p>
+  </div>
+</section>
+
+<!-- 第1章 -->
+<section class="chapter" id="ch1" style="background:var(--bg-deep)">
+  <div class="chapter-head">
+    <span class="ch-num">── CHAPTER 01 ──</span>
+    <h2 class="ch-title">なぜ、人は動き出せるのか</h2>
+  </div>
+  <div class="ch-prologue">
+    <div class="thesis">
+      <p>動き出しは意志の問題ではない。<b>身体が先に動く条件と、関心を起点にできる場</b>が揃ったときに、人は自分でも予想しなかった速度で動いていく。</p>
+    </div>
+
+    <p>行き場のないエネルギーを抱えている人は、たいてい自分を責めている。やる気が足りない、意志が弱い、と。あるいは、もはやエネルギーを感じられないほど消耗していることを、自分の怠惰として裁いている。<b>行き場のないエネルギーと、枯渇して感じられなくなったエネルギーは、同じ裏返しだ。</b> 場の側はどちらも同じ起動条件で受け取る。</p>
+
+    <p>旅先で見知らぬ坂を登るとき、足の裏が先に土地の傾きを知る。頭の理解は、そのあとからゆっくり追いついてくる。この順序は <b>身体化認知</b>（メルロ＝ポンティ）として哲学の側から定式化されてきた知見と重なる。POOLOが原則として置いている<b>身体が先、言葉が後</b>は、この地続きの上にある。旅は観光ではなく、<em>身体が普段のフィルターを外して、気になってしまうものが浮かび上がる装置</em>として設計されている。</p>
+
+    <p>旅で体に残ったざらつきは、言葉にならないまま次の旅の眼差しを変えていく。頭で振り返る前に、身体が何かを持って帰ってきている——経験そのものが学びなのではなく、経験の質が次の経験を準備する、という順序は教育哲学の <b>経験学習</b>（デューイ）として記述されてきた見方と通じる。POOLOはこの順序をそのまま場の設計に翻訳し、反省より先に<b>持ち帰り</b>を置く。</p>
+
+    <p>人が自分で選んだと感じられるとき、動きは内側から続く。選ばされたと身体が感づいたとき、動きは外からの圧で終わる。この分かれ目を自律性・有能感・関係性の3つの欲求で説明した研究がある（<b>自己決定理論</b>／デシとライアン）。逆算型の目標設定や一般的なコーチングは、本人が選んだように見えて外部の枠を先に置きがちで、自律性を侵食する。POOLOは<b>導きをしない</b>。鏡・反応・問い・出会い・伴走の5役割を置くだけで、本人の関心が起点から外れないようにする。関心探究型という呼び方はここに由来する。</p>
+
+    <div class="note">
+      <span class="note-tag">POOLO用語</span>
+      <div class="note-term">関心探究型</div>
+      <p>3年後の目標から逆算するのではなく、今、気になってしまうものから動く型。POOLOが参加者に最初に求めるのは、目標の設定ではなく、関心の輪郭を差し出すこと。</p>
+    </div>
+
+    <div class="note">
+      <span class="note-tag">POOLO用語</span>
+      <div class="note-term">5役割</div>
+      <p>運営チームが場に対して担う5つの機能。鏡（映す）／反応（返す）／問い（揺らす）／出会い（つなぐ）／伴走（併走する）。いずれも導きではない。<b>変わる条件を整える機能</b>。</p>
+    </div>
+
+    <p>変容の起点についての古典的議論にも触れておく。大人の学び直しを研究した<b>変容的学習</b>（メジロー）は、しばしば disorienting dilemma、つまり危機的な動揺を起点として語られる。POOLOはこの理論の核心を、危機そのものではなく<b>前提枠組が揺らいで組み替わる契機</b>のほうに置く。危機はその契機の一形態にすぎない。核心を維持したまま、<em>契機の形態を危機から旅の快に置き換える</em>——旅で身体が先に動くとき、頭の前提枠組は抵抗を持たずに緩む。苦しさを入口にしないから、自分を責めずに起動できる。場は無理に揺さぶらず、身体が勝手に揺らぐ条件だけを整える。これは<b>導きをしない</b>という原則とも矛盾しない。</p>
+
+    <p>この場は、コーチングでもスクールでもコミュニティでもない。目標を立てて逆算する場でも、熟達者から正解を受け取る場でも、同質の仲間で安心する場でもない。<b>関心から始まり、仲間の反応で軌道が曲がり、知らない人に差し出して軌道が確定する場</b>だ。動き出しの時点で、他の選択肢とは別の地図の上に立っている。</p>
+
+    <div class="closer">動き出した。だが、それだけではまだ深まらない。</div>
+  </div>
+</section>
+
+<!-- 第2章 -->
+<section class="chapter" id="ch2">
+  <div class="chapter-head">
+    <span class="ch-num">── CHAPTER 02 ──</span>
+    <h2 class="ch-title">なぜ、深まるのか</h2>
+  </div>
+  <div class="ch-prologue">
+    <div class="thesis">
+      <p>深さは時間の長さではない。<b>仮の輪郭を置く作業と、仲間の引力場、そして反応を取り込んで螺旋の2周目に入る動作</b>。この3つが噛み合った量で深さは決まる。</p>
+    </div>
+
+    <p>8ヶ月という長さは、単に学習時間を長く取るためではない。3つの局面がそれぞれ数周分起きる最短の構造として設計されている。以下、3つの局面を順に見る。</p>
+
+    <!-- 2-1 -->
+    <div class="subch">
+      <div class="subch-head">
+        <span class="subch-num">2 — 01</span>
+        <span class="subch-title">輪郭 ― 揺らぎを言葉の手前まで運ぶ</span>
+      </div>
+
+      <p>旅から持ち帰ったざらつきは、言葉になる前のまま胸の中にとどまる。多くの人はそれを完成させようとして手が止まる。ここで必要なのは、完成ではなく<b>仮の輪郭</b>だ。</p>
+
+      <p>動きながら考える実践知の働きは、完成された理論とは別物として記述されてきた（<b>省察的実践</b>／ショーン）。ただし、この型の省察は熟達を目指す個人の内側で閉じやすい。POOLOはこれを<b>仲間に差し出す前提の省察</b>に組み替える。内側で完成させる前に、未完成のまま仲間の耳に置く。思考はもともと他者との対話が内面化したものだ（<b>内言</b>／ヴィゴツキー）。<em>言葉は関係の中で育つ</em>。</p>
+
+      <div class="scene">
+        <span class="scene-tag">── SCENE ──</span>
+        たとえば1on1で、自分でもまだうまく言えていない違和を30秒だけ話してみる。相手は答えを返すのではなく、<b>それって、どっちの違和？</b> と一歩だけ手前の輪郭を尋ね返す。話した側は、自分が何に引っかかっていたのかを、その問いの形でようやく掴む。この往復が、仮の輪郭を少しずつ立体にしていく。
+      </div>
+
+      <p>人が自分を物語として理解し直すとき、新しい振る舞いが開く（<b>ナラティブ・アプローチ</b>／ホワイト＆エプストン）。POOLOはこれを完成された物語ではなく<b>仮ナラティブ</b>に留める。今のところ、こういう気がしている、と差し出す。原則である<b>未完成を差し出す</b>は、ここで技術的な意味を持つ。</p>
+
+      <div class="note">
+        <span class="note-tag">POOLO用語</span>
+        <div class="note-term">未完成を差し出す</div>
+        <p>完成してから出すのではなく、未完成のまま出しても安全な場を先に用意する、という場の運営原則。ゆるい場でも厳しい場でもなく、<b>全力で出しても安全であることを場の側が保証する</b>。そのための5役割であり、そのための仲間である。</p>
+      </div>
+
+      <p>POOLOは「自分探し」ではなく<b>自分試し</b>と言う。探すのは答えを当てにいく構えだが、試すのは仮の輪郭を置いて反応を見る構えだ。このトーンの違いが、深まりの最初の分岐点になる。</p>
+    </div>
+
+    <!-- 2-2 -->
+    <div class="subch">
+      <div class="subch-head">
+        <span class="subch-num">2 — 02</span>
+        <span class="subch-title">引力 ― 仲間の関心が軌道を曲げる</span>
+      </div>
+
+      <p>仮の輪郭を一人で抱えていても、軌道は変わらない。ここから先は、他者の関心が必要になる。</p>
+
+      <p>一人ではできないが他者との協働でできる領域が、人にはある——発達心理学は古くからこれを<b>発達の最近接領域（ZPD）</b>（ヴィゴツキー）として扱ってきた。ZPDは伝統的に「熟達者が学習者を引き上げる」垂直の関係で語られてきた。POOLOはこれを<b>水平ZPD</b>に読み替える。熟達者は場にいない。代わりに、<em>それぞれ違う関心を抱えた人同士が、互いに少しだけ遠いものを見せ合う</em>。遠すぎず、近すぎない差異が、一人では届かなかった軌道を連れてくる。</p>
+
+      <div class="note">
+        <span class="note-tag">POOLO用語</span>
+        <div class="note-term">仲間の引力場</div>
+        <p>関心探究型の人が集まったとき、各人の探究テーマが互いの引力として干渉し、一人では届かない軌道まで運ばれていく場のこと。引力は教えによって発生するのではなく、<b>差し出しと反応の往復</b>で発生する。</p>
+      </div>
+
+      <p>集合的な場が深い底に降り、まだ形にならない未来が立ち上がる瞬間——短い合宿で語られてきたその瞬間を、POOLOは一度きりの出来事にしない。<b>8ヶ月のなかで何度も起こせるように、時間構造のほうをチーム組み換えで設計する</b>。同じ顔ぶれで馴れ合う前に関係が組み替わり、引力場の形が変わる。</p>
+
+      <div class="note">
+        <span class="note-tag">POOLO用語</span>
+        <div class="note-term">T1 ／ T2 ／ T3</div>
+        <p>POOLO LIFEの8ヶ月チーム設計。T1（1〜3ヶ月）で最初のチーム、T2（4〜7ヶ月、最深の4ヶ月）で別のチーム、T3（8ヶ月目）で新鮮な組み合わせ。3回の組み換えで、<b>馴れ合う前に引力場の形が変わる</b>。</p>
+      </div>
+
+      <div class="scene">
+        <span class="scene-tag">── SCENE ──</span>
+        T2の初回、新しいチームに移ったばかりの夜。誰かが<b>関心テーマ、T1のときと少し変わってきた</b>と小さく差し出す。別の誰かが<b>その変わり方、わたしにも覚えがある</b>と応える。進行表にはない話が続く。この夜の残響が、次の旅の選び方を変える。
+      </div>
+
+      <p>違いは褒め合うためではなく、互いの軌道を曲げる摩擦として使われる。POOLOはこれを「みんなちがってみんないい」の並列賛美にはしない。<b>差し出して、関係の中で価値が巡る運動体</b>として扱う。</p>
+    </div>
+
+    <!-- 2-3 -->
+    <div class="subch">
+      <div class="subch-head">
+        <span class="subch-num">2 — 03</span>
+        <span class="subch-title">受け取り直す ― 反応が次の旅を変える</span>
+      </div>
+
+      <p>仮の輪郭を差し出すと、反応が返ってくる。深まりが螺旋になるのは、この反応を取り込んで次の旅の眼差しが変わる瞬間だ。</p>
+
+      <p>経験→省察→概念化→試行の円環として学びを描く古典モデルがある（<b>経験学習サイクル</b>／コルブ）。POOLOはこれを<b>閉じた円ではなく、開いた螺旋</b>として書き換える。毎周ごとにインプットが変わり、探究テーマ自体が更新されるので、同じ地点には戻ってこない。2周目の自分は、1周目の自分から少しだけずれた位置に立っている。</p>
+
+      <p>深まりには、差し出す相手の拡張も伴う。POOLOは4ステップで螺旋の射程を広げる。</p>
+
+      <div class="note">
+        <span class="note-tag">POOLO用語</span>
+        <div class="note-term">4ステップ</div>
+        <p>見つける（M1-3）→ 名乗る（M3-4）→ 小さく届ける（M4-6）→ 知らない人に届ける（M7-8）。各ステップの中で、<b>反射・言語化・接続の小さな螺旋が何度も回る</b>。</p>
+      </div>
+
+      <div class="note">
+        <span class="note-tag">POOLO用語</span>
+        <div class="note-term">Lv.3 必修ライン</div>
+        <p>差し出しの深さの4段階（自分／仲間／知らない人／関係を紡ぐ）のうち、POOLOではLv.3（知らない人に差し出す／立つ）を全員の必修ラインとして置く。<b>自己分析や仲間うちの共有では絶対に届かない場所に、Lv.3で初めて手が届く。</b></p>
+      </div>
+
+      <p>前章で触れた<b>変容的学習</b>の核——前提枠組が揺らいで組み替わる——は、この越境で最も濃く現れる。仲間内では成立していた自分像が、知らない人には通用しない。その気づきを危機ではなく快の揺らぎで迎えられるよう、場の側が準備されている。</p>
+    </div>
+
+    <div class="closer">深まった。だが、なぜ卒業後も出会い続けられるのか。</div>
+  </div>
+</section>
+
+<!-- 第3章 -->
+<section class="chapter" id="ch3" style="background:var(--bg-deep)">
+  <div class="chapter-head">
+    <span class="ch-num">── CHAPTER 03 ──</span>
+    <h2 class="ch-title">なぜ、出会い続けるのか</h2>
+  </div>
+  <div class="ch-prologue">
+    <div class="thesis">
+      <p>到達点は固定された自分ではない。<b>生成変化し続ける自分そのもの</b>だ。8ヶ月はゴールではなく、<b>螺旋が身体化して卒業後も回り続ける転換点</b>。</p>
+    </div>
+
+    <p>多くの学びの場は「8ヶ月後にこの状態になっている」を約束する。POOLOはそこを約束しない。代わりに、<b>螺旋が身体化し、自分で回し続けられる状態</b>を約束する。回り続けられる、とは裏を返せば、<em>止まったときに止まったと気づける</em>ということだ。曖昧さに逃げる約束ではない。</p>
+
+    <p>昨日まで自分そのものだった枠組が、今日はその外側から眺められる対象になる。この転換が起きると、世界の見え方が不可逆に変わる——成人の発達を主体と客体の転換として描いた理論がある（<b>成人発達理論</b>／キーガン）。自然な生活のなかで何年もかかるとも言われる転換を、POOLOは<b>関心探究型の引力場 × Lv.3必修の越境</b>という条件で起きやすくする。8ヶ月は、転換を無理に起こす時間ではなく、<em>転換が起きやすい場を何度も差し出す時間</em>だ。</p>
+
+    <p>人は「なる」のではなく「なりつつある」存在だ、という見方がある（<b>生成変化</b>／ドゥルーズ）。ある固定点に到達する運動ではなく、常にずれ続ける運動そのものが人間の本質だ。「出会い続ける」という日本語は、この見方を生活の語に翻訳したものとして機能する。</p>
+
+    <p>ここで、POOLOが持続の条件として置いている考え方を、検討者の言葉で書き下しておく。<b>自分の中身だけでも、他者への貢献だけでも、長くは続かない。内側の手応え（気になってしまうもの、できると感じること）と、それが誰かに届いて返ってくる反応——この2つが掛け算で回り続けるとき、はじめて豊かさは持続する。</b> 内側だけに閉じれば自分の世界で完結してしまうし、外側だけに尽くせば自己犠牲に落ちる。</p>
+
+    <p>この掛け算は「正解」ではない。<b>更新され続ける運動</b>の言語化だ。内側の手応えは旅ごとに更新され、誰に届けるかは差し出しごとに更新される。卒業後も、誰かに差し出した反応が次の旅を連れてきて、その旅が次の内側を更新する。循環は止まる理由を持たない。答えを急がず不確かさに耐える力（<b>ネガティブ・ケイパビリティ</b>／キーツ、ビオン）が、場の運営条件としてそれを支える。POOLOの<b>未完成を差し出す</b>は、この運営条件の別名だ。確定した答えに早く着地したい誘惑に場が加担しないから、生成変化は止まらない。</p>
+
+    <p>POOLOは個人の変容に閉じない。<b>受け取る人から、創る人へ</b>の転換は一度起きると不可逆で、卒業生は次の誰かの旅の起点になる。一人の変容が誰かの胸に小さな波紋を起こし、その誰かがまた別の誰かに差し出す。個人の掛け算が、場の文化を育てていく。</p>
+
+    <p>この運動を、POOLOは<b>旅を消費から文化に戻す</b>と呼んでいる。受け取るだけで終わる旅ではなく、持ち帰り、言葉にし、差し出す旅へ。文化が先行し、それを支える形で経済が循環する——内部ではこの比重を<b>文化51%／経済49%</b>と置いている。売上だけを追う構えとは設計の重心が違う。掛け算は、個人の持続の条件であると同時に、<em>この運動体そのものの持続の条件</em>でもある。</p>
+  </div>
+</section>
+
+<!-- 結章 -->
+<section class="chapter" id="epilogue">
+  <div class="chapter-head">
+    <span class="ch-num">── EPILOGUE ──</span>
+    <h2 class="ch-title">結章</h2>
+  </div>
+  <div class="ch-prologue">
+    <p>8ヶ月後、螺旋は日常の動作になる。朝、見知らぬ駅で降りてみる。会議で飲み込んでいた違和を、仮の輪郭のまま口に出してみる。家族との夕食で、今日いちばん身体が動いた瞬間をオチなしで差し出してみる。返ってきた反応が、次の旅の切符を買わせる。<b>意志の強さではなく、身体に入った動作だ。</b></p>
+
+    <p>内側の手応えと、誰かに届いて返ってくる反応の掛け算は、<em>誰かに差し出した反応が次の旅を連れてくる</em>循環として続く。到達点は一つではない。固定されたゴールでもない。ただ、回り続けられる自分になって、<b>想像もしなかった自分に出会い続ける</b>。</p>
+
+    <p style="color:var(--mute);font-size:0.86rem;margin-top:2.5rem;padding-top:1.5rem;border-top:1px dashed var(--line)">この構造を8ヶ月、50人で回すには、相応の時間と対価を置いている。その設計の詳細と、自分が本当に乗るべき場なのかの見極めは、説明会と1on1で開いている。</p>
+  </div>
+</section>
+
+<!-- Final CTA -->
+<section class="final-cta">
+  <div class="wrap-wide">
+    <div class="final-title">自分の螺旋の1周目を、<br>どこから始めるか</div>
+    <p>構造を図で見るか、時間軸で見るか、直接話すか。<br>入り口は3つある。</p>
+    <div class="links">
+      <a href="poolo-model.html" class="link-card">
+        <b>モデル図</b>
+        <span>THE MODEL — 構造を1枚で</span>
+      </a>
+      <a href="poolo-ripple.html" class="link-card">
+        <b>波紋図</b>
+        <span>THE RIPPLE — 時間軸で見る</span>
+      </a>
+      <a href="index-share.html" class="link-card">
+        <b>共有ハブ</b>
+        <span>INDEX — すべての入り口</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <a href="index-share.html">← 共有ハブ</a>
+    <a href="poolo-model.html">モデル図</a>
+    <a href="poolo-ripple.html">波紋図</a>
+    <p>POOLO LIFE — The Theory / 2026.04.17</p>
+  </div>
+</footer>
+
+</body>
+</html>
