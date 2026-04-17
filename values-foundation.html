@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>POOLOの土台は、どこにある？</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;600;700;800&family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --green:#2D6A4F;
+  --blue:#1B4A7A;
+  --purple:#534AB7;
+  --teal:#1A6B5A;
+  --amber:#7A5500;
+  --red:#8B3A2A;
+  --ink:#1a1a1a;
+  --sub:#5a5a5a;
+  --hint:#999;
+  --bg:#faf9f6;
+  --card:#ffffff;
+  --line:#e5e2db;
+  --sky:#f3f1ea;
+  --earth:#ede6d9;
+  --serif:'Shippori Mincho',serif;
+  --sans:'Noto Sans JP',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  font-family:var(--sans);
+  color:var(--ink);
+  background:var(--bg);
+  line-height:1.9;
+  font-weight:400;
+  -webkit-font-smoothing:antialiased;
+}
+.container{
+  max-width:680px;
+  margin:0 auto;
+  padding:64px 28px 100px;
+}
+
+/* Header */
+.header{
+  text-align:center;
+  padding-bottom:40px;
+  margin-bottom:32px;
+}
+.tag-label{
+  display:inline-block;
+  font-size:10px;
+  letter-spacing:0.3em;
+  color:var(--amber);
+  font-weight:600;
+  margin-bottom:16px;
+}
+.header h1{
+  font-family:var(--serif);
+  font-weight:700;
+  font-size:32px;
+  letter-spacing:0.08em;
+  line-height:1.5;
+  margin-bottom:14px;
+}
+.header .tagline{
+  font-family:var(--serif);
+  font-size:14px;
+  color:var(--sub);
+  letter-spacing:0.1em;
+}
+
+/* Tree visual */
+.tree-wrap{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:6px;
+  padding:36px 28px 28px;
+  margin:32px 0 48px;
+  box-shadow:0 4px 24px rgba(0,0,0,0.03);
+}
+.tree-svg{
+  display:block;
+  width:100%;
+  height:auto;
+  max-width:500px;
+  margin:0 auto;
+}
+.tree-caption{
+  text-align:center;
+  font-family:var(--serif);
+  font-size:14px;
+  color:var(--sub);
+  margin-top:18px;
+  letter-spacing:0.08em;
+  line-height:1.8;
+}
+
+/* Answer box */
+.answer{
+  background:rgba(122,85,0,0.06);
+  border-left:4px solid var(--amber);
+  padding:28px 32px;
+  margin-bottom:40px;
+}
+.answer .label{
+  font-size:10px;
+  letter-spacing:0.3em;
+  color:var(--amber);
+  font-weight:600;
+  margin-bottom:10px;
+}
+.answer .main{
+  font-family:var(--serif);
+  font-size:20px;
+  font-weight:700;
+  color:var(--ink);
+  line-height:1.8;
+  letter-spacing:0.08em;
+  margin-bottom:10px;
+}
+.answer .sub{
+  font-size:14px;
+  color:var(--sub);
+  line-height:1.9;
+  letter-spacing:0.03em;
+}
+
+/* Layer rows */
+.layers{margin:40px 0}
+.layer-row{
+  display:flex;
+  gap:18px;
+  align-items:flex-start;
+  padding:20px 0;
+  border-bottom:1px dashed var(--line);
+}
+.layer-row:last-child{border-bottom:none}
+.layer-icon{
+  flex-shrink:0;
+  width:60px;
+  text-align:center;
+  font-family:var(--serif);
+  font-size:22px;
+  line-height:1.3;
+  padding-top:4px;
+}
+.layer-icon.root{color:var(--amber)}
+.layer-icon.trunk{color:var(--green)}
+.layer-icon.leaf{color:var(--purple)}
+.layer-body{flex:1}
+.layer-role{
+  font-size:10px;
+  letter-spacing:0.3em;
+  font-weight:600;
+  margin-bottom:6px;
+}
+.layer-row.root .layer-role{color:var(--amber)}
+.layer-row.trunk .layer-role{color:var(--green)}
+.layer-row.leaf .layer-role{color:var(--purple)}
+.layer-name{
+  font-family:var(--serif);
+  font-size:17px;
+  font-weight:700;
+  letter-spacing:0.06em;
+  margin-bottom:6px;
+}
+.layer-desc{
+  font-size:13px;
+  color:var(--sub);
+  line-height:1.8;
+  letter-spacing:0.03em;
+}
+
+/* Why it matters */
+.why{
+  background:var(--earth);
+  padding:28px 30px;
+  border-radius:4px;
+  margin:40px 0;
+}
+.why-title{
+  font-family:var(--serif);
+  font-size:14px;
+  font-weight:700;
+  color:var(--amber);
+  margin-bottom:14px;
+  letter-spacing:0.1em;
+}
+.why-body{
+  font-size:14px;
+  color:var(--ink);
+  line-height:2;
+  letter-spacing:0.03em;
+}
+.why-body strong{
+  font-weight:600;
+  color:var(--amber);
+}
+
+/* Footer */
+.footer{
+  text-align:center;
+  padding-top:40px;
+  border-top:1px solid var(--line);
+  margin-top:48px;
+  font-size:11px;
+  color:var(--hint);
+  letter-spacing:0.15em;
+}
+.footer a{
+  color:var(--green);
+  text-decoration:none;
+  border-bottom:1px solid var(--green);
+  padding-bottom:1px;
+}
+.footer .mark{
+  font-family:var(--serif);
+  font-size:13px;
+  color:var(--sub);
+  margin-bottom:6px;
+  letter-spacing:0.3em;
+}
+
+@media (max-width:600px){
+  .container{padding:40px 18px 64px}
+  .header h1{font-size:24px}
+  .answer .main{font-size:17px}
+  .layer-icon{width:48px;font-size:18px}
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+  <header class="header">
+    <div class="tag-label">POOLO VALUES ／ FOUNDATION</div>
+    <h1>POOLOの土台は、<br>どこにある？</h1>
+    <div class="tagline">3層のうち、いちばん下を見る</div>
+  </header>
+
+  <div class="tree-wrap">
+    <svg class="tree-svg" viewBox="0 0 400 520" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <radialGradient id="flowerGlow" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#534AB7" stop-opacity="0.45"/>
+          <stop offset="60%" stop-color="#534AB7" stop-opacity="0.1"/>
+          <stop offset="100%" stop-color="#534AB7" stop-opacity="0"/>
+        </radialGradient>
+        <linearGradient id="trunkGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" stop-color="#2D6A4F" stop-opacity="1"/>
+          <stop offset="100%" stop-color="#2D6A4F" stop-opacity="0.75"/>
+        </linearGradient>
+        <linearGradient id="rootGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" stop-color="#7A5500" stop-opacity="0.9"/>
+          <stop offset="100%" stop-color="#7A5500" stop-opacity="0.35"/>
+        </linearGradient>
+      </defs>
+
+      <!-- Sky background (upper) -->
+      <rect x="0" y="0" width="400" height="320" fill="#faf9f6"/>
+
+      <!-- Earth background (lower) -->
+      <rect x="0" y="320" width="400" height="200" fill="#ede6d9" opacity="0.55"/>
+
+      <!-- Ground line -->
+      <line x1="30" y1="320" x2="370" y2="320" stroke="#7A5500" stroke-width="1" opacity="0.5"/>
+      <text x="375" y="317" font-family="'Shippori Mincho',serif" font-size="8" fill="#7A5500" opacity="0.7" text-anchor="end" letter-spacing="2">地表</text>
+
+      <!-- === ABOVE GROUND === -->
+
+      <!-- Flower glow (Doing) -->
+      <circle cx="200" cy="90" r="85" fill="url(#flowerGlow)"/>
+
+      <!-- Leaves / flowers (Doing: 共に旅→問う→創る) -->
+      <g>
+        <!-- Left flower -->
+        <circle cx="150" cy="100" r="14" fill="#534AB7" opacity="0.85"/>
+        <circle cx="150" cy="100" r="6" fill="#fff" opacity="0.5"/>
+        <!-- Center flower (largest) -->
+        <circle cx="200" cy="75" r="18" fill="#534AB7"/>
+        <circle cx="200" cy="75" r="8" fill="#fff" opacity="0.55"/>
+        <!-- Right flower -->
+        <circle cx="250" cy="100" r="14" fill="#534AB7" opacity="0.85"/>
+        <circle cx="250" cy="100" r="6" fill="#fff" opacity="0.5"/>
+        <!-- Small accent leaves -->
+        <circle cx="175" cy="130" r="6" fill="#534AB7" opacity="0.6"/>
+        <circle cx="225" cy="130" r="6" fill="#534AB7" opacity="0.6"/>
+        <circle cx="170" cy="75" r="5" fill="#534AB7" opacity="0.5"/>
+        <circle cx="230" cy="75" r="5" fill="#534AB7" opacity="0.5"/>
+      </g>
+
+      <!-- Branches (thin lines from trunk to flowers) -->
+      <g stroke="#2D6A4F" stroke-width="1.5" fill="none" opacity="0.75" stroke-linecap="round">
+        <path d="M 200 190 Q 175 150 150 105"/>
+        <path d="M 200 180 Q 200 130 200 85"/>
+        <path d="M 200 190 Q 225 150 250 105"/>
+      </g>
+
+      <!-- Trunk (Stance) -->
+      <path d="M 192 320 L 194 190 Q 200 180 206 190 L 208 320 Z" fill="url(#trunkGrad)"/>
+
+      <!-- Labels: Doing -->
+      <text x="200" y="35" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="11" fill="#534AB7" font-weight="700" letter-spacing="4">DOING</text>
+      <text x="200" y="50" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="9" fill="#5a5a5a" letter-spacing="1">共に旅する → 問う → 創る</text>
+
+      <!-- Labels: Stance (trunk) -->
+      <line x1="215" y1="260" x2="280" y2="260" stroke="#2D6A4F" stroke-width="0.6" stroke-dasharray="2 3" opacity="0.6"/>
+      <text x="285" y="255" font-family="'Shippori Mincho',serif" font-size="11" fill="#2D6A4F" font-weight="700" letter-spacing="3">STANCE</text>
+      <text x="285" y="270" font-family="'Noto Sans JP',sans-serif" font-size="8.5" fill="#5a5a5a">旅のスタンス（3つ）</text>
+      <text x="285" y="283" font-family="'Noto Sans JP',sans-serif" font-size="8" fill="#7a7a7a">自己決定／自分ごと化／面白がる</text>
+
+      <!-- === BELOW GROUND === -->
+
+      <!-- Main root (deepest) -->
+      <path d="M 200 320 L 200 470" fill="none" stroke="url(#rootGrad)" stroke-width="3" stroke-linecap="round"/>
+
+      <!-- Branching roots -->
+      <g stroke="url(#rootGrad)" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.85">
+        <path d="M 200 340 Q 160 370 120 410"/>
+        <path d="M 200 340 Q 240 370 280 410"/>
+        <path d="M 200 370 Q 150 400 100 450"/>
+        <path d="M 200 370 Q 250 400 300 450"/>
+      </g>
+      <g stroke="url(#rootGrad)" stroke-width="1.2" fill="none" stroke-linecap="round" opacity="0.6">
+        <path d="M 200 355 Q 180 390 165 440"/>
+        <path d="M 200 355 Q 220 390 235 440"/>
+        <path d="M 120 410 Q 100 430 80 460"/>
+        <path d="M 280 410 Q 300 430 320 460"/>
+      </g>
+      <g stroke="url(#rootGrad)" stroke-width="0.8" fill="none" stroke-linecap="round" opacity="0.45">
+        <path d="M 200 420 Q 190 450 185 475"/>
+        <path d="M 200 420 Q 210 450 215 475"/>
+        <path d="M 100 450 Q 90 465 85 480"/>
+        <path d="M 300 450 Q 310 465 315 480"/>
+      </g>
+
+      <!-- Root label -->
+      <rect x="110" y="395" width="180" height="34" fill="#faf9f6" opacity="0.85" rx="2"/>
+      <text x="200" y="410" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="12" fill="#7A5500" font-weight="700" letter-spacing="4">BEING（根）</text>
+      <text x="200" y="425" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="11" fill="#1a1a1a" font-weight="600" letter-spacing="3">そのままで、いい。</text>
+
+      <!-- Ground depth note -->
+      <text x="30" y="505" font-family="'Noto Sans JP',sans-serif" font-size="8" fill="#7A5500" opacity="0.7" letter-spacing="2">地下＝見えないが、すべてを支える</text>
+    </svg>
+
+    <div class="tree-caption">
+      見えないけれど、<br>
+      受容の根が深いほど、幹は太く、花は大きく咲く。
+    </div>
+  </div>
+
+  <div class="answer">
+    <div class="label">ANSWER</div>
+    <div class="main">Being（そのままで、いい）が、いちばんの土台。</div>
+    <div class="sub">
+      スタンスもDoingも、受容という根がなければ立ち上がれない。<br>
+      Doingが止まっても、幹と根は残る。幹がぶれても、根があれば立て直せる。<br>
+      でも、根が枯れたら、何を積んでも倒れる。
+    </div>
+  </div>
+
+  <section class="layers">
+
+    <div class="layer-row root">
+      <div class="layer-icon root">根</div>
+      <div class="layer-body">
+        <div class="layer-role">LAYER 1 ／ BEING</div>
+        <div class="layer-name">そのままで、いい。</div>
+        <div class="layer-desc">未完成でも、不完全でも、ここにいていい。受容。見えないけれど、全部を支えている。</div>
+      </div>
+    </div>
+
+    <div class="layer-row trunk">
+      <div class="layer-icon trunk">幹</div>
+      <div class="layer-body">
+        <div class="layer-role">LAYER 2 ／ STANCE</div>
+        <div class="layer-name">旅のスタンス（3つ）</div>
+        <div class="layer-desc">自己決定する／自分ごと化する／面白がる。根から立ち上がり、幹として全期間ぶれずに立ち続ける。</div>
+      </div>
+    </div>
+
+    <div class="layer-row leaf">
+      <div class="layer-icon leaf">枝葉</div>
+      <div class="layer-body">
+        <div class="layer-role">LAYER 3 ／ DOING</div>
+        <div class="layer-name">共に旅する → 問う → 創る</div>
+        <div class="layer-desc">幹の上で、時間軸に沿って枝葉が伸び、花が咲く。8ヶ月の深化3段階。</div>
+      </div>
+    </div>
+
+  </section>
+
+  <div class="why">
+    <div class="why-title">なぜこれが実践上も効くか</div>
+    <div class="why-body">
+      <strong>ヒアリング</strong>で最初に確かめるのは、受容の手応え。<br>
+      <strong>カリキュラム</strong>で最初に守るのは、ここにいていい の設計。<br>
+      <strong>不調なメンバーへの介入</strong>は、スタンスやDoingで煽らず、まずBeingへ戻す。<br>
+      <br>
+      根が弱れば、何を積んでも倒れるから。
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="mark">POOLO ／ 旅の学校</div>
+    <div>土台構造 v1 ／ 2026-04-17</div>
+    <div style="margin-top:14px">
+      <a href="values.html">← バリュー3層構造に戻る</a>
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>
