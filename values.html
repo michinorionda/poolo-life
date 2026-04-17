@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>POOLOのバリュー｜旅の学校の、在り方</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;600;700;800&family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --green:#2D6A4F;
+  --blue:#1B4A7A;
+  --purple:#534AB7;
+  --teal:#1A6B5A;
+  --amber:#7A5500;
+  --red:#8B3A2A;
+  --ink:#1a1a1a;
+  --sub:#5a5a5a;
+  --hint:#999;
+  --bg:#faf9f6;
+  --card:#ffffff;
+  --line:#e5e2db;
+  --serif:'Shippori Mincho',serif;
+  --sans:'Noto Sans JP',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  font-family:var(--sans);
+  color:var(--ink);
+  background:var(--bg);
+  line-height:1.8;
+  font-weight:400;
+  -webkit-font-smoothing:antialiased;
+}
+.container{
+  max-width:880px;
+  margin:0 auto;
+  padding:80px 32px 120px;
+}
+
+/* Header */
+.header{
+  text-align:center;
+  padding-bottom:56px;
+  border-bottom:2px solid var(--green);
+  margin-bottom:64px;
+}
+.tag-label{
+  display:inline-block;
+  font-family:var(--sans);
+  font-size:11px;
+  letter-spacing:0.25em;
+  color:var(--green);
+  font-weight:600;
+  margin-bottom:20px;
+}
+.header h1{
+  font-family:var(--serif);
+  font-weight:700;
+  font-size:44px;
+  letter-spacing:0.06em;
+  color:var(--ink);
+  margin-bottom:18px;
+  line-height:1.4;
+}
+.header .tagline{
+  font-family:var(--serif);
+  font-size:17px;
+  color:var(--sub);
+  letter-spacing:0.1em;
+  font-weight:400;
+}
+.header .meta{
+  font-size:12px;
+  color:var(--hint);
+  letter-spacing:0.15em;
+  margin-top:24px;
+}
+
+/* Objective */
+.objective{
+  background:rgba(45,106,79,0.06);
+  border-left:4px solid var(--green);
+  padding:28px 32px;
+  margin-bottom:72px;
+}
+.objective .label{
+  font-size:11px;
+  color:var(--green);
+  letter-spacing:0.2em;
+  font-weight:600;
+  margin-bottom:10px;
+}
+.objective p{
+  font-family:var(--serif);
+  font-size:16px;
+  color:var(--ink);
+  line-height:1.9;
+}
+
+/* Section titles */
+.sec-tag{
+  display:inline-block;
+  font-size:11px;
+  letter-spacing:0.25em;
+  font-weight:600;
+  margin-bottom:10px;
+}
+.section h2{
+  font-family:var(--serif);
+  font-size:28px;
+  font-weight:700;
+  letter-spacing:0.05em;
+  border-bottom:1px solid var(--line);
+  padding-bottom:14px;
+  margin-bottom:32px;
+}
+.section{margin-bottom:72px}
+
+/* Core visual: stacked structure */
+.stack{
+  margin:48px 0 80px;
+}
+.stack-block{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:4px;
+  padding:40px 36px;
+  position:relative;
+}
+.stack-block .layer-label{
+  font-family:var(--sans);
+  font-size:10px;
+  letter-spacing:0.3em;
+  font-weight:600;
+  margin-bottom:14px;
+  text-transform:uppercase;
+}
+.stack-block .layer-name{
+  font-family:var(--serif);
+  font-size:22px;
+  font-weight:700;
+  letter-spacing:0.08em;
+  margin-bottom:8px;
+}
+.stack-block .layer-desc{
+  font-size:13px;
+  color:var(--sub);
+  letter-spacing:0.05em;
+  margin-bottom:24px;
+}
+
+/* Being block */
+.being{
+  border-top:4px solid var(--amber);
+  text-align:center;
+  padding:48px 36px;
+}
+.being .layer-label{color:var(--amber)}
+.being .being-statement{
+  font-family:var(--serif);
+  font-size:32px;
+  font-weight:700;
+  letter-spacing:0.15em;
+  color:var(--ink);
+  margin:18px 0 24px;
+  line-height:1.5;
+}
+.being .being-sub{
+  font-family:var(--serif);
+  font-size:15px;
+  color:var(--sub);
+  line-height:2;
+  letter-spacing:0.08em;
+}
+
+/* Arrow between blocks */
+.stack-arrow{
+  text-align:center;
+  padding:20px 0;
+  color:var(--hint);
+  font-size:12px;
+  letter-spacing:0.2em;
+}
+.stack-arrow .arrow-mark{
+  font-family:var(--serif);
+  font-size:24px;
+  color:var(--sub);
+  display:block;
+  margin-bottom:4px;
+}
+
+/* Stance block (floor) */
+.stance{
+  border-top:4px solid var(--green);
+  background:linear-gradient(180deg,var(--card) 0%,rgba(45,106,79,0.04) 100%);
+}
+.stance .layer-label{color:var(--green)}
+.stance-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+  margin-top:8px;
+}
+.stance-card{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-top:3px solid var(--green);
+  padding:24px 20px;
+  text-align:center;
+}
+.stance-card .stance-name{
+  font-family:var(--serif);
+  font-size:19px;
+  font-weight:700;
+  letter-spacing:0.1em;
+  color:var(--green);
+  margin-bottom:12px;
+}
+.stance-card .stance-body{
+  font-size:13px;
+  color:var(--sub);
+  line-height:1.8;
+  text-align:left;
+  letter-spacing:0.03em;
+}
+.floor-line{
+  height:3px;
+  background:var(--green);
+  margin-top:24px;
+  opacity:0.6;
+}
+.floor-note{
+  text-align:center;
+  font-size:11px;
+  color:var(--green);
+  letter-spacing:0.2em;
+  margin-top:10px;
+  font-weight:600;
+}
+
+/* Doing block (steps on the floor) */
+.doing{
+  border-top:4px solid var(--purple);
+}
+.doing .layer-label{color:var(--purple)}
+.doing-timeline{
+  display:flex;
+  align-items:stretch;
+  gap:0;
+  margin-top:8px;
+}
+.doing-step{
+  flex:1;
+  background:var(--card);
+  border:1px solid var(--line);
+  border-top:3px solid var(--purple);
+  padding:24px 16px;
+  text-align:center;
+  position:relative;
+}
+.doing-step .phase{
+  font-size:10px;
+  letter-spacing:0.25em;
+  color:var(--purple);
+  font-weight:600;
+  margin-bottom:10px;
+}
+.doing-step .step-name{
+  font-family:var(--serif);
+  font-size:20px;
+  font-weight:700;
+  letter-spacing:0.1em;
+  color:var(--ink);
+  margin-bottom:8px;
+}
+.doing-step .step-detail{
+  font-size:12px;
+  color:var(--sub);
+  letter-spacing:0.03em;
+  line-height:1.7;
+}
+.doing-connector{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:var(--purple);
+  font-size:18px;
+  padding:0 6px;
+  font-family:var(--serif);
+}
+
+/* Highlight box */
+.hl{
+  background:rgba(83,74,183,0.06);
+  border-left:4px solid var(--purple);
+  padding:28px 32px;
+  margin:32px 0;
+}
+.hl .hl-label{
+  font-size:11px;
+  letter-spacing:0.25em;
+  color:var(--purple);
+  font-weight:600;
+  margin-bottom:10px;
+}
+.hl .hl-main{
+  font-family:var(--serif);
+  font-size:18px;
+  font-weight:600;
+  color:var(--ink);
+  line-height:1.9;
+  letter-spacing:0.06em;
+}
+.hl .hl-sub{
+  font-size:14px;
+  color:var(--sub);
+  line-height:1.9;
+  margin-top:14px;
+  letter-spacing:0.03em;
+}
+
+/* Body text */
+.body-text{
+  font-size:15px;
+  color:var(--ink);
+  line-height:2;
+  letter-spacing:0.04em;
+}
+.body-text + .body-text{margin-top:18px}
+
+/* Accent box */
+.ab{
+  background:rgba(26,107,90,0.05);
+  border-left:4px solid var(--teal);
+  padding:24px 28px;
+  margin:28px 0;
+}
+.ab .ab-title{
+  font-family:var(--serif);
+  font-size:16px;
+  font-weight:700;
+  color:var(--teal);
+  margin-bottom:10px;
+  letter-spacing:0.08em;
+}
+.ab .ab-body{
+  font-size:14px;
+  color:var(--ink);
+  line-height:1.9;
+  letter-spacing:0.03em;
+}
+
+/* Footer */
+.footer{
+  text-align:center;
+  padding-top:60px;
+  border-top:1px solid var(--line);
+  margin-top:80px;
+  font-size:12px;
+  color:var(--hint);
+  letter-spacing:0.15em;
+}
+.footer .footer-mark{
+  font-family:var(--serif);
+  font-size:14px;
+  color:var(--sub);
+  margin-bottom:8px;
+  letter-spacing:0.3em;
+}
+
+@media (max-width:640px){
+  .container{padding:48px 20px 80px}
+  .header h1{font-size:32px}
+  .being .being-statement{font-size:24px}
+  .stance-grid{grid-template-columns:1fr;gap:12px}
+  .doing-timeline{flex-direction:column;gap:12px}
+  .doing-connector{transform:rotate(90deg);padding:6px 0}
+  .section h2{font-size:22px}
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+  <header class="header">
+    <div class="tag-label">POOLO VALUES</div>
+    <h1>POOLOのバリュー</h1>
+    <div class="tagline">旅の学校の、在り方</div>
+    <div class="meta">3 LAYERED STRUCTURE</div>
+  </header>
+
+  <div class="objective">
+    <div class="label">この構造の前提</div>
+    <p>POOLOは旅の学校である。だから、旅のスタンス・マインドがすべての土台になる。<br>バリューは3層で積み重なる。上の層を、下の層が支える構造。</p>
+  </div>
+
+  <section class="section">
+    <div class="sec-tag" style="color:var(--green)">CORE STRUCTURE</div>
+    <h2>3層の積層</h2>
+
+    <div class="stack">
+
+      <div class="stack-block being">
+        <div class="layer-label">LAYER 1 ／ BEING</div>
+        <div class="layer-name">存在の土台</div>
+        <div class="being-statement">そのままで、いい。</div>
+        <div class="being-sub">未完成でも、不完全でも、ここにいていい。<br>その受容が、すべての土台になる。</div>
+      </div>
+
+      <div class="stack-arrow">
+        <span class="arrow-mark">↓</span>
+        すべての前提
+      </div>
+
+      <div class="stack-block stance">
+        <div class="layer-label">LAYER 2 ／ STANCE</div>
+        <div class="layer-name">旅のスタンス</div>
+        <div class="layer-desc">8ヶ月のあいだ、ずっと床のように支え続ける3つの態度。旅だけでなく、問いも、共創も、すべてを貫く。</div>
+        <div class="stance-grid">
+          <div class="stance-card">
+            <div class="stance-name">自己決定する</div>
+            <div class="stance-body">受容があるから、自分で決められる。そのままでいい土台があるから、怖がらずに選べる。</div>
+          </div>
+          <div class="stance-card">
+            <div class="stance-name">自分ごと化する</div>
+            <div class="stance-body">誰かの問題ではなく、自分の問題として引き受ける。そこから初めて、問いが湧く。</div>
+          </div>
+          <div class="stance-card">
+            <div class="stance-name">面白がる</div>
+            <div class="stance-body">想定外も、予想外も、ぜんぶ面白がる。コントロールを手放す態度。</div>
+          </div>
+        </div>
+        <div class="floor-line"></div>
+        <div class="floor-note">── この3つが、全期間を床のように支える ──</div>
+      </div>
+
+      <div class="stack-arrow">
+        <span class="arrow-mark">↑</span>
+        この床の上を、時系列で歩む
+      </div>
+
+      <div class="stack-block doing">
+        <div class="layer-label">LAYER 3 ／ DOING</div>
+        <div class="layer-name">体験の深化</div>
+        <div class="layer-desc">スタンスという床の上を、時系列で3歩進む。スタンスが支え続けるから、歩むほどに深まっていく。</div>
+        <div class="doing-timeline">
+          <div class="doing-step">
+            <div class="phase">序盤</div>
+            <div class="step-name">共に旅する</div>
+            <div class="step-detail">身体を動かし、<br>出会う</div>
+          </div>
+          <div class="doing-connector">→</div>
+          <div class="doing-step">
+            <div class="phase">中盤</div>
+            <div class="step-name">共に問う</div>
+            <div class="step-detail">自分と世界に、<br>問いを立てる</div>
+          </div>
+          <div class="doing-connector">→</div>
+          <div class="doing-step">
+            <div class="phase">終盤</div>
+            <div class="step-name">共に創る</div>
+            <div class="step-detail">仲間と、何かを<br>形にする</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="sec-tag" style="color:var(--purple)">IMPORTANT</div>
+    <h2>重要な構造的意味</h2>
+
+    <div class="hl">
+      <div class="hl-label">誤読しないために</div>
+      <div class="hl-main">スタンスとDoingは「対」ではない。</div>
+      <div class="hl-sub">
+        旅のスタンス3つは、全8ヶ月を<strong>床のように支える土台</strong>。<br>
+        Doing 3段階は、その床の上を<strong>時系列で深化する3歩</strong>。<br>
+        スタンスは消えない。Doingが進んでも、床はずっとそこにある。
+      </div>
+    </div>
+
+    <p class="body-text">
+      たとえば「序盤＝自己決定／中盤＝自分ごと化／終盤＝面白がる」のようなフェーズ対応ではない。
+    </p>
+    <p class="body-text">
+      旅の序盤でも、共創の終盤でも、3つのスタンスはすべて発動している。それが旅の学校の流儀。
+    </p>
+  </section>
+
+  <section class="section">
+    <div class="sec-tag" style="color:var(--teal)">APPLICATION</div>
+    <h2>カリキュラムへの接続</h2>
+
+    <div class="ab">
+      <div class="ab-title">育成軸としてのスタンス</div>
+      <div class="ab-body">
+        3つのスタンスは、全8ヶ月を通じて育て続ける。<br>
+        各ワークは「どのスタンスを刺激するか」で設計される。<br>
+        Doingのフェーズは、そのスタンスが発露する場の時系列にすぎない。
+      </div>
+    </div>
+
+    <p class="body-text">
+      これにより、カリキュラムの各ワークは「何をやるか」ではなく、「何を育てるか」で設計できる。
+    </p>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-mark">POOLO ／ 旅の学校</div>
+    <div>バリュー構造 v1 ／ 2026-04-17</div>
+  </footer>
+
+</div>
+</body>
+</html>
