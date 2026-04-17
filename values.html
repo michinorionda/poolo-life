@@ -43,7 +43,7 @@ body{
 .header{
   text-align:center;
   padding-bottom:56px;
-  border-bottom:2px solid var(--green);
+  border-bottom:2px solid var(--amber);
   margin-bottom:64px;
 }
 .tag-label{
@@ -51,7 +51,7 @@ body{
   font-family:var(--sans);
   font-size:11px;
   letter-spacing:0.25em;
-  color:var(--green);
+  color:var(--amber);
   font-weight:600;
   margin-bottom:20px;
 }
@@ -78,26 +78,28 @@ body{
   margin-top:24px;
 }
 
-/* Objective */
-.objective{
-  background:rgba(45,106,79,0.06);
-  border-left:4px solid var(--green);
-  padding:28px 32px;
-  margin-bottom:72px;
+/* Lede */
+.lede{
+  background:rgba(122,85,0,0.06);
+  border-left:4px solid var(--amber);
+  padding:32px 36px;
+  margin-bottom:80px;
 }
-.objective .label{
+.lede .label{
   font-size:11px;
-  color:var(--green);
+  color:var(--amber);
   letter-spacing:0.2em;
   font-weight:600;
-  margin-bottom:10px;
+  margin-bottom:14px;
 }
-.objective p{
+.lede p{
   font-family:var(--serif);
-  font-size:16px;
+  font-size:17px;
   color:var(--ink);
-  line-height:1.9;
+  line-height:2;
 }
+.lede p + p{margin-top:14px}
+.lede strong{color:var(--amber);font-weight:700}
 
 /* Section titles */
 .sec-tag{
@@ -116,17 +118,115 @@ body{
   padding-bottom:14px;
   margin-bottom:32px;
 }
-.section{margin-bottom:72px}
+.section{margin-bottom:80px}
 
-/* Core visual: stacked structure */
-.stack{
-  margin:48px 0 80px;
+/* Tree visualization */
+.tree{
+  background:var(--card);
+  border:1px solid var(--line);
+  padding:48px 32px;
+  margin:40px 0 48px;
 }
+.tree-row{
+  display:grid;
+  grid-template-columns:140px 1fr;
+  gap:32px;
+  padding:28px 0;
+  border-bottom:1px dashed var(--line);
+  align-items:start;
+}
+.tree-row:last-child{border-bottom:none}
+.tree-label{
+  text-align:right;
+  border-right:2px solid;
+  padding-right:24px;
+}
+.tree-label .part{
+  font-family:var(--serif);
+  font-size:26px;
+  font-weight:700;
+  letter-spacing:0.1em;
+  line-height:1.3;
+  margin-bottom:4px;
+}
+.tree-label .role{
+  font-size:11px;
+  letter-spacing:0.2em;
+  font-weight:600;
+}
+.tree-content .layer-name{
+  font-family:var(--serif);
+  font-size:20px;
+  font-weight:700;
+  letter-spacing:0.08em;
+  margin-bottom:8px;
+}
+.tree-content .layer-gist{
+  font-family:var(--serif);
+  font-size:15px;
+  color:var(--sub);
+  line-height:1.9;
+}
+.tree-row.root .tree-label{color:var(--amber);border-color:var(--amber)}
+.tree-row.root .layer-name{color:var(--amber)}
+.tree-row.trunk .tree-label{color:var(--green);border-color:var(--green)}
+.tree-row.trunk .layer-name{color:var(--green)}
+.tree-row.leaves .tree-label{color:var(--purple);border-color:var(--purple)}
+.tree-row.leaves .layer-name{color:var(--purple)}
+
+/* Causal chain */
+.chain{
+  background:rgba(122,85,0,0.04);
+  border:1px solid rgba(122,85,0,0.2);
+  padding:36px 32px;
+  margin:40px 0;
+}
+.chain-title{
+  font-family:var(--serif);
+  font-size:18px;
+  font-weight:700;
+  color:var(--amber);
+  margin-bottom:24px;
+  letter-spacing:0.08em;
+  text-align:center;
+}
+.chain-flow{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  align-items:center;
+  gap:8px 12px;
+  font-family:var(--serif);
+  line-height:1.8;
+}
+.chain-node{
+  background:var(--card);
+  border:1px solid var(--line);
+  padding:10px 18px;
+  font-size:14px;
+  font-weight:600;
+  letter-spacing:0.05em;
+  color:var(--ink);
+}
+.chain-node.start{border-color:var(--amber);color:var(--amber);border-width:2px}
+.chain-node.mid{border-color:var(--green);color:var(--green)}
+.chain-node.end{border-color:var(--purple);color:var(--purple);border-width:2px}
+.chain-arrow{color:var(--hint);font-size:16px;font-family:var(--serif)}
+.chain-note{
+  font-family:var(--serif);
+  font-size:13px;
+  color:var(--sub);
+  text-align:center;
+  margin-top:22px;
+  line-height:1.9;
+}
+
+/* Core structure detail */
+.stack{margin:48px 0 0}
 .stack-block{
   background:var(--card);
   border:1px solid var(--line);
-  border-radius:4px;
-  padding:40px 36px;
+  padding:36px 32px;
   position:relative;
 }
 .stack-block .layer-label{
@@ -134,7 +234,7 @@ body{
   font-size:10px;
   letter-spacing:0.3em;
   font-weight:600;
-  margin-bottom:14px;
+  margin-bottom:12px;
   text-transform:uppercase;
 }
 .stack-block .layer-name{
@@ -142,29 +242,29 @@ body{
   font-size:22px;
   font-weight:700;
   letter-spacing:0.08em;
-  margin-bottom:8px;
+  margin-bottom:6px;
 }
 .stack-block .layer-desc{
   font-size:13px;
   color:var(--sub);
   letter-spacing:0.05em;
-  margin-bottom:24px;
+  margin-bottom:22px;
 }
 
 /* Being block */
 .being{
   border-top:4px solid var(--amber);
   text-align:center;
-  padding:48px 36px;
+  padding:44px 32px;
 }
 .being .layer-label{color:var(--amber)}
 .being .being-statement{
   font-family:var(--serif);
-  font-size:32px;
+  font-size:30px;
   font-weight:700;
   letter-spacing:0.15em;
   color:var(--ink);
-  margin:18px 0 24px;
+  margin:14px 0 20px;
   line-height:1.5;
 }
 .being .being-sub{
@@ -175,48 +275,44 @@ body{
   letter-spacing:0.08em;
 }
 
-/* Arrow between blocks */
 .stack-arrow{
   text-align:center;
-  padding:20px 0;
+  padding:14px 0;
   color:var(--hint);
-  font-size:12px;
+  font-size:11px;
   letter-spacing:0.2em;
 }
 .stack-arrow .arrow-mark{
   font-family:var(--serif);
-  font-size:24px;
+  font-size:22px;
   color:var(--sub);
   display:block;
-  margin-bottom:4px;
+  margin-bottom:2px;
 }
 
-/* Stance block (floor) */
-.stance{
-  border-top:4px solid var(--green);
-  background:linear-gradient(180deg,var(--card) 0%,rgba(45,106,79,0.04) 100%);
-}
+/* Stance */
+.stance{border-top:4px solid var(--green)}
 .stance .layer-label{color:var(--green)}
 .stance-grid{
   display:grid;
   grid-template-columns:repeat(3,1fr);
-  gap:20px;
+  gap:16px;
   margin-top:8px;
 }
 .stance-card{
   background:var(--card);
   border:1px solid var(--line);
   border-top:3px solid var(--green);
-  padding:24px 20px;
+  padding:22px 18px;
   text-align:center;
 }
 .stance-card .stance-name{
   font-family:var(--serif);
-  font-size:19px;
+  font-size:18px;
   font-weight:700;
   letter-spacing:0.1em;
   color:var(--green);
-  margin-bottom:12px;
+  margin-bottom:10px;
 }
 .stance-card .stance-body{
   font-size:13px;
@@ -225,25 +321,9 @@ body{
   text-align:left;
   letter-spacing:0.03em;
 }
-.floor-line{
-  height:3px;
-  background:var(--green);
-  margin-top:24px;
-  opacity:0.6;
-}
-.floor-note{
-  text-align:center;
-  font-size:11px;
-  color:var(--green);
-  letter-spacing:0.2em;
-  margin-top:10px;
-  font-weight:600;
-}
 
-/* Doing block (steps on the floor) */
-.doing{
-  border-top:4px solid var(--purple);
-}
+/* Doing */
+.doing{border-top:4px solid var(--purple)}
 .doing .layer-label{color:var(--purple)}
 .doing-timeline{
   display:flex;
@@ -256,24 +336,23 @@ body{
   background:var(--card);
   border:1px solid var(--line);
   border-top:3px solid var(--purple);
-  padding:24px 16px;
+  padding:22px 14px;
   text-align:center;
-  position:relative;
 }
 .doing-step .phase{
   font-size:10px;
   letter-spacing:0.25em;
   color:var(--purple);
   font-weight:600;
-  margin-bottom:10px;
+  margin-bottom:8px;
 }
 .doing-step .step-name{
   font-family:var(--serif);
-  font-size:20px;
+  font-size:19px;
   font-weight:700;
   letter-spacing:0.1em;
   color:var(--ink);
-  margin-bottom:8px;
+  margin-bottom:6px;
 }
 .doing-step .step-detail{
   font-size:12px;
@@ -286,8 +365,8 @@ body{
   align-items:center;
   justify-content:center;
   color:var(--purple);
-  font-size:18px;
-  padding:0 6px;
+  font-size:16px;
+  padding:0 4px;
   font-family:var(--serif);
 }
 
@@ -295,8 +374,8 @@ body{
 .hl{
   background:rgba(83,74,183,0.06);
   border-left:4px solid var(--purple);
-  padding:28px 32px;
-  margin:32px 0;
+  padding:26px 30px;
+  margin:28px 0;
 }
 .hl .hl-label{
   font-size:11px;
@@ -307,7 +386,7 @@ body{
 }
 .hl .hl-main{
   font-family:var(--serif);
-  font-size:18px;
+  font-size:17px;
   font-weight:600;
   color:var(--ink);
   line-height:1.9;
@@ -317,7 +396,7 @@ body{
   font-size:14px;
   color:var(--sub);
   line-height:1.9;
-  margin-top:14px;
+  margin-top:12px;
   letter-spacing:0.03em;
 }
 
@@ -328,28 +407,64 @@ body{
   line-height:2;
   letter-spacing:0.04em;
 }
-.body-text + .body-text{margin-top:18px}
+.body-text + .body-text{margin-top:14px}
 
-/* Accent box */
-.ab{
-  background:rgba(26,107,90,0.05);
-  border-left:4px solid var(--teal);
-  padding:24px 28px;
-  margin:28px 0;
+/* Practical implications */
+.praxis-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+  margin-top:32px;
 }
-.ab .ab-title{
-  font-family:var(--serif);
-  font-size:16px;
-  font-weight:700;
+.praxis{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-top:3px solid var(--teal);
+  padding:28px 22px;
+}
+.praxis .praxis-label{
+  font-size:10px;
+  letter-spacing:0.25em;
   color:var(--teal);
+  font-weight:600;
   margin-bottom:10px;
-  letter-spacing:0.08em;
 }
-.ab .ab-body{
-  font-size:14px;
+.praxis .praxis-head{
+  font-family:var(--serif);
+  font-size:17px;
+  font-weight:700;
   color:var(--ink);
+  margin-bottom:12px;
+  letter-spacing:0.06em;
+  line-height:1.6;
+}
+.praxis .praxis-body{
+  font-size:13px;
+  color:var(--sub);
   line-height:1.9;
   letter-spacing:0.03em;
+}
+
+/* Root reminder */
+.root-note{
+  background:rgba(122,85,0,0.05);
+  border-left:4px solid var(--amber);
+  padding:24px 28px;
+  margin:32px 0 0;
+}
+.root-note .rn-label{
+  font-size:11px;
+  letter-spacing:0.25em;
+  color:var(--amber);
+  font-weight:600;
+  margin-bottom:8px;
+}
+.root-note .rn-body{
+  font-family:var(--serif);
+  font-size:15px;
+  color:var(--ink);
+  line-height:2;
+  letter-spacing:0.04em;
 }
 
 /* Footer */
@@ -372,9 +487,11 @@ body{
 
 @media (max-width:640px){
   .container{padding:48px 20px 80px}
-  .header h1{font-size:32px}
-  .being .being-statement{font-size:24px}
-  .stance-grid{grid-template-columns:1fr;gap:12px}
+  .header h1{font-size:30px}
+  .being .being-statement{font-size:22px}
+  .tree-row{grid-template-columns:1fr;gap:12px}
+  .tree-label{text-align:left;border-right:none;border-left:3px solid;padding-right:0;padding-left:16px}
+  .stance-grid,.praxis-grid{grid-template-columns:1fr;gap:12px}
   .doing-timeline{flex-direction:column;gap:12px}
   .doing-connector{transform:rotate(90deg);padding:6px 0}
   .section h2{font-size:22px}
@@ -385,39 +502,96 @@ body{
 <div class="container">
 
   <header class="header">
-    <div class="tag-label">POOLO VALUES</div>
+    <div class="tag-label">POOLO VALUES ／ ESSENCE</div>
     <h1>POOLOのバリュー</h1>
     <div class="tagline">旅の学校の、在り方</div>
-    <div class="meta">3 LAYERED STRUCTURE</div>
+    <div class="meta">ROOT ／ TRUNK ／ LEAVES</div>
   </header>
 
-  <div class="objective">
-    <div class="label">この構造の前提</div>
-    <p>POOLOは旅の学校である。だから、旅のスタンス・マインドがすべての土台になる。<br>バリューは3層で積み重なる。上の層を、下の層が支える構造。</p>
+  <div class="lede">
+    <div class="label">この構造の核心</div>
+    <p>POOLOのバリューは、木のような構造を持つ。<br>根が幹を支え、幹が枝葉を立ち上げる。上の層は、下の層が無ければ立たない。</p>
+    <p>そして、<strong>一番の土台は「そのままで、いい」という受容（Being）</strong>。根が弱れば、何を積んでも倒れる。</p>
   </div>
 
   <section class="section">
-    <div class="sec-tag" style="color:var(--green)">CORE STRUCTURE</div>
-    <h2>3層の積層</h2>
+    <div class="sec-tag" style="color:var(--amber)">TREE STRUCTURE</div>
+    <h2>木にたとえる</h2>
+
+    <div class="tree">
+      <div class="tree-row root">
+        <div class="tree-label">
+          <div class="part">根</div>
+          <div class="role">ROOT</div>
+        </div>
+        <div class="tree-content">
+          <div class="layer-name">Being ／ 受容</div>
+          <div class="layer-gist">そのままで、いい。<br>見えないが、全部を支えている。ここが弱れば、幹も枝葉もすべて倒れる。</div>
+        </div>
+      </div>
+      <div class="tree-row trunk">
+        <div class="tree-label">
+          <div class="part">幹</div>
+          <div class="role">TRUNK</div>
+        </div>
+        <div class="tree-content">
+          <div class="layer-name">旅のスタンス ／ 3つの態度</div>
+          <div class="layer-gist">自己決定する／自分ごと化する／面白がる。<br>受容という根から立ち上がる、8ヶ月を貫く軸。</div>
+        </div>
+      </div>
+      <div class="tree-row leaves">
+        <div class="tree-label">
+          <div class="part">枝葉・花</div>
+          <div class="role">LEAVES</div>
+        </div>
+        <div class="tree-content">
+          <div class="layer-name">Doing ／ 体験の深化</div>
+          <div class="layer-gist">共に旅する→共に問う→共に創る。<br>時間軸で伸び、咲いていく。幹が立っているから伸びられる。</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="chain">
+      <div class="chain-title">なぜ Being が一番の土台か ─ 因果を辿る</div>
+      <div class="chain-flow">
+        <span class="chain-node start">受容がある</span>
+        <span class="chain-arrow">→</span>
+        <span class="chain-node mid">自己決定できる</span>
+        <span class="chain-arrow">→</span>
+        <span class="chain-node mid">自分ごと化できる</span>
+        <span class="chain-arrow">→</span>
+        <span class="chain-node mid">面白がれる</span>
+        <span class="chain-arrow">→</span>
+        <span class="chain-node end">共に旅し、問い、創れる</span>
+      </div>
+      <div class="chain-note">
+        受容が消えると、全部崩れる。<br>逆に Doing が止まっても、Being と Stance は残り続ける。
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="sec-tag" style="color:var(--green)">DETAIL</div>
+    <h2>3層、それぞれの内実</h2>
 
     <div class="stack">
 
       <div class="stack-block being">
-        <div class="layer-label">LAYER 1 ／ BEING</div>
+        <div class="layer-label">ROOT ／ BEING</div>
         <div class="layer-name">存在の土台</div>
         <div class="being-statement">そのままで、いい。</div>
-        <div class="being-sub">未完成でも、不完全でも、ここにいていい。<br>その受容が、すべての土台になる。</div>
+        <div class="being-sub">未完成でも、不完全でも、ここにいていい。<br>この受容が、根として全部を支える。</div>
       </div>
 
       <div class="stack-arrow">
         <span class="arrow-mark">↓</span>
-        すべての前提
+        根から幹が立ち上がる
       </div>
 
       <div class="stack-block stance">
-        <div class="layer-label">LAYER 2 ／ STANCE</div>
+        <div class="layer-label">TRUNK ／ STANCE</div>
         <div class="layer-name">旅のスタンス</div>
-        <div class="layer-desc">8ヶ月のあいだ、ずっと床のように支え続ける3つの態度。旅だけでなく、問いも、共創も、すべてを貫く。</div>
+        <div class="layer-desc">8ヶ月を貫いて育て続ける3つの態度。旅だけでなく、問いも共創も、すべてをこの幹が支える。</div>
         <div class="stance-grid">
           <div class="stance-card">
             <div class="stance-name">自己決定する</div>
@@ -425,26 +599,24 @@ body{
           </div>
           <div class="stance-card">
             <div class="stance-name">自分ごと化する</div>
-            <div class="stance-body">誰かの問題ではなく、自分の問題として引き受ける。そこから初めて、問いが湧く。</div>
+            <div class="stance-body">自己決定したから、誰かの問題ではなく自分の問題として引き受けられる。そこから初めて、問いが湧く。</div>
           </div>
           <div class="stance-card">
             <div class="stance-name">面白がる</div>
-            <div class="stance-body">想定外も、予想外も、ぜんぶ面白がる。コントロールを手放す態度。</div>
+            <div class="stance-body">自分ごとだから、想定外も予想外も面白がれる。コントロールを手放す態度。</div>
           </div>
         </div>
-        <div class="floor-line"></div>
-        <div class="floor-note">── この3つが、全期間を床のように支える ──</div>
       </div>
 
       <div class="stack-arrow">
-        <span class="arrow-mark">↑</span>
-        この床の上を、時系列で歩む
+        <span class="arrow-mark">↓</span>
+        幹から枝葉が伸びる
       </div>
 
       <div class="stack-block doing">
-        <div class="layer-label">LAYER 3 ／ DOING</div>
+        <div class="layer-label">LEAVES ／ DOING</div>
         <div class="layer-name">体験の深化</div>
-        <div class="layer-desc">スタンスという床の上を、時系列で3歩進む。スタンスが支え続けるから、歩むほどに深まっていく。</div>
+        <div class="layer-desc">スタンスの幹から伸び、時系列で咲いていく3段階。幹が立っているから、枝葉は伸びるほどに深まる。</div>
         <div class="doing-timeline">
           <div class="doing-step">
             <div class="phase">序盤</div>
@@ -471,57 +643,55 @@ body{
 
   <section class="section">
     <div class="sec-tag" style="color:var(--purple)">IMPORTANT</div>
-    <h2>重要な構造的意味</h2>
+    <h2>誤読しないために</h2>
 
     <div class="hl">
-      <div class="hl-label">誤読しないために</div>
-      <div class="hl-main">スタンスとDoingは「対」ではない。</div>
+      <div class="hl-label">スタンスと Doing は「対」ではない</div>
+      <div class="hl-main">幹（スタンス）は常に立ち続け、枝葉（Doing）だけが時系列で伸びる。</div>
       <div class="hl-sub">
-        旅のスタンス3つは、全8ヶ月を<strong>床のように支える土台</strong>。<br>
-        Doing 3段階は、その床の上を<strong>時系列で深化する3歩</strong>。<br>
-        スタンスは消えない。Doingが進んでも、床はずっとそこにある。
+        旅のスタンス3つは、全8ヶ月を<strong>幹として支え続ける</strong>。<br>
+        Doing 3段階は、その幹から<strong>時系列で伸びる枝葉</strong>。<br>
+        たとえば「序盤＝自己決定／中盤＝自分ごと化／終盤＝面白がる」のようなフェーズ対応ではない。旅の序盤でも、共創の終盤でも、3つのスタンスはすべて発動している。
       </div>
     </div>
-
-    <p class="body-text">
-      たとえば「序盤＝自己決定／中盤＝自分ごと化／終盤＝面白がる」のようなフェーズ対応ではない。
-    </p>
-    <p class="body-text">
-      旅の序盤でも、共創の終盤でも、3つのスタンスはすべて発動している。それが旅の学校の流儀。
-    </p>
   </section>
 
   <section class="section">
-    <div class="sec-tag" style="color:var(--teal)">APPLICATION</div>
-    <h2>カリキュラムへの接続</h2>
+    <div class="sec-tag" style="color:var(--teal)">PRAXIS</div>
+    <h2>実践上の示唆</h2>
 
-    <div class="ab">
-      <div class="ab-title">育成軸としてのスタンス</div>
-      <div class="ab-body">
-        3つのスタンスは、全8ヶ月を通じて育て続ける。<br>
-        各ワークは「どのスタンスを刺激するか」で設計される。<br>
-        Doingのフェーズは、そのスタンスが発露する場の時系列にすぎない。
+    <p class="body-text">この構造を運用に落とすと、優先順位が変わる。</p>
+
+    <div class="praxis-grid">
+      <div class="praxis">
+        <div class="praxis-label">HEARING</div>
+        <div class="praxis-head">ヒアリングで最優先で確かめるのは、受容の手応え。</div>
+        <div class="praxis-body">自己決定できているか、より先に「ここにいていい」と感じられているかを確かめる。根が立っているかの確認が、常に先。</div>
+      </div>
+      <div class="praxis">
+        <div class="praxis-label">CURRICULUM</div>
+        <div class="praxis-head">カリキュラム設計で最初に守るべきは、ここにいていいの設計。</div>
+        <div class="praxis-body">挑戦課題を置くより先に、まず受容の場を設計する。根の場所を確保してから、幹と枝葉の仕掛けを積む。</div>
+      </div>
+      <div class="praxis">
+        <div class="praxis-label">INTERVENTION</div>
+        <div class="praxis-head">不調なメンバーへの介入は、まず Being へ戻す。</div>
+        <div class="praxis-body">スタンスやDoingで煽らない。受容が根だから、根が弱れば何を積んでも倒れる。まず根へ。</div>
       </div>
     </div>
 
-    <p class="body-text">
-      これにより、カリキュラムの各ワークは「何をやるか」ではなく、「何を育てるか」で設計できる。
-    </p>
-  </section>
-
-  <section class="section" style="margin-bottom:0">
-    <div class="sec-tag" style="color:var(--amber)">SISTER PAGE</div>
-    <h2>土台は、どこにある？</h2>
-    <a href="values-foundation.html" style="display:block;background:rgba(122,85,0,0.04);border-left:4px solid var(--amber);padding:24px 28px;text-decoration:none;color:inherit;transition:background 0.2s" onmouseover="this.style.background='rgba(122,85,0,0.08)'" onmouseout="this.style.background='rgba(122,85,0,0.04)'">
-      <div style="font-size:10px;letter-spacing:0.3em;color:var(--amber);font-weight:600;margin-bottom:8px">FOUNDATION ／ 木の比喩で見る</div>
-      <div style="font-family:var(--serif);font-size:18px;font-weight:700;letter-spacing:0.06em;margin-bottom:8px">POOLOの土台は、どこにある？ →</div>
-      <div style="font-size:13px;color:var(--sub);line-height:1.8">根（Being）／幹（スタンス）／枝葉・花（Doing）の木の比喩で、3層のうちいちばん下の土台を明らかにする1枚図。</div>
-    </a>
+    <div class="root-note">
+      <div class="rn-label">運営チームへ</div>
+      <div class="rn-body">
+        各ワークは「何をやるか」ではなく「何を育てるか」で設計される。<br>
+        ただし、育てる前に<strong>根が張れているか</strong>を常に確かめる。受容が揺らいでいるときに幹や枝葉を急いでも、木は倒れる。
+      </div>
+    </div>
   </section>
 
   <footer class="footer">
     <div class="footer-mark">POOLO ／ 旅の学校</div>
-    <div>バリュー構造 v1 ／ 2026-04-17</div>
+    <div>バリュー構造 v2 ／ 2026-04-17 ／ 木のメタファー反映</div>
   </footer>
 
 </div>
