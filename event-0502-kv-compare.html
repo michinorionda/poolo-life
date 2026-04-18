@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>3つの問い｜キービジュアル比較</title>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#1a1a1a;--sub:#4a4a4a;--mute:#7a7a7a;
+  --bg:#fafafa;--paper:#fff;--line:#e5e3dd;
+  --warm:#C08457;--star:#B8860B;--green:#2D6A4F;
+  --serif:'Shippori Mincho',serif;--sans:'Noto Sans JP',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:var(--sans);background:var(--bg);color:var(--ink);line-height:1.8;font-weight:300;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1080px;margin:0 auto;padding:3rem 1.5rem 5rem}
+
+.header{text-align:center;padding:3rem 0 2.5rem;border-bottom:1px solid var(--line);margin-bottom:3rem}
+.mark{display:inline-block;font-size:0.62rem;letter-spacing:0.4em;color:#fff;padding:0.35rem 1rem;background:var(--warm);border-radius:30px;margin-bottom:1.2rem}
+.h-title{font-family:var(--serif);font-size:1.6rem;font-weight:600;letter-spacing:0.08em;line-height:1.6;margin-bottom:0.6rem}
+.h-sub{font-family:var(--serif);font-size:0.9rem;color:var(--sub);letter-spacing:0.06em}
+
+.variant{margin-bottom:3.5rem;padding:1.6rem;background:var(--paper);border-radius:8px;box-shadow:0 2px 12px rgba(0,0,0,0.04)}
+.v-head{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:1.2rem;flex-wrap:wrap;gap:0.8rem}
+.v-label{font-family:var(--serif);font-size:0.7rem;letter-spacing:0.3em;color:var(--warm);font-weight:600;margin-bottom:0.4rem}
+.v-title{font-family:var(--serif);font-size:1.15rem;font-weight:600;letter-spacing:0.05em}
+.v-desc{font-size:0.82rem;color:var(--sub);line-height:1.9;max-width:640px}
+.v-img-wrap{border:1px solid var(--line);border-radius:4px;overflow:hidden;background:#fff}
+.v-img-wrap img{width:100%;height:auto;display:block}
+.v-meta{display:flex;gap:1rem;flex-wrap:wrap;font-size:0.72rem;color:var(--mute);margin-top:0.8rem;letter-spacing:0.08em}
+.v-meta a{color:var(--green);text-decoration:none;border-bottom:1px solid var(--green);padding-bottom:1px}
+.v-meta a:hover{color:var(--warm);border-color:var(--warm)}
+
+.footer{text-align:center;padding:2rem 0;font-size:0.72rem;color:var(--mute);letter-spacing:0.15em}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header class="header">
+    <span class="mark">KEY VISUAL COMPARE</span>
+    <h1 class="h-title">この日、向き合う3つの問い<br>キービジュアル比較</h1>
+    <p class="h-sub">シンプル方向で3案 ＋ 既存1案</p>
+  </header>
+
+  <section class="variant">
+    <div class="v-head">
+      <div>
+        <div class="v-label">SIMPLE A</div>
+        <div class="v-title">白背景 × 横罫線 × 縦3行</div>
+      </div>
+    </div>
+    <p class="v-desc">左に番号、中央に問い、右に所要時間。雑誌の目次のような整理感。最もフォーマルで読みやすい。</p>
+    <div class="v-img-wrap"><img src="event-0502-3questions-a.png" alt="Simple A" /></div>
+    <div class="v-meta"><span>1600×900 PNG</span><a href="event-0502-3questions-a.png" target="_blank">画像単体で開く →</a></div>
+  </section>
+
+  <section class="variant">
+    <div class="v-head">
+      <div>
+        <div class="v-label">SIMPLE B</div>
+        <div class="v-title">クリーム単色 × タイポのみ × 中央揃え</div>
+      </div>
+    </div>
+    <p class="v-desc">装飾を極限まで削り、問いの文字だけが浮かぶミニマル構成。番号も超小さく。静けさと品格で勝負する案。</p>
+    <div class="v-img-wrap"><img src="event-0502-3questions-b.png" alt="Simple B" /></div>
+    <div class="v-meta"><span>1600×900 PNG</span><a href="event-0502-3questions-b.png" target="_blank">画像単体で開く →</a></div>
+  </section>
+
+  <section class="variant">
+    <div class="v-head">
+      <div>
+        <div class="v-label">SIMPLE C</div>
+        <div class="v-title">白背景 × 3カラム横並び × 大きな番号</div>
+      </div>
+    </div>
+    <p class="v-desc">問いごとに列を分け、縦の細い罫線で区切る。大きな番号が視線を引く図解的な構成。スマホで見たときは縦に積まれる想定。</p>
+    <div class="v-img-wrap"><img src="event-0502-3questions-c.png" alt="Simple C" /></div>
+    <div class="v-meta"><span>1600×900 PNG</span><a href="event-0502-3questions-c.png" target="_blank">画像単体で開く →</a></div>
+  </section>
+
+  <section class="variant">
+    <div class="v-head">
+      <div>
+        <div class="v-label">EXISTING</div>
+        <div class="v-title">既存版 × カード型 × 色分け3色</div>
+      </div>
+    </div>
+    <p class="v-desc">前回作成した版。3色（金・緑・オレンジ）で問いを区別し、カード状にまとめたリッチな構成。参考として併置。</p>
+    <div class="v-img-wrap"><img src="event-0502-3questions.png" alt="Existing" /></div>
+    <div class="v-meta"><span>1600×900 PNG</span><a href="event-0502-3questions.png" target="_blank">画像単体で開く →</a></div>
+  </section>
+
+  <footer class="footer">
+    <p>POOLOオフラインイベント 5/2＠恵比寿｜3つの問いキービジュアル比較<br>TABIPPO ／ POOLO　2026年4月作成</p>
+  </footer>
+</div>
+
+</body>
+</html>
