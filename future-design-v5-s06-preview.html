@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>§06 3層が重なって、POOLOになる｜プレビュー</title>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#1a1a1a; --sub:#4a4a4a; --mute:#7a7a7a; --hint:#a8a8a8;
+  --bg:#faf9f6; --bg-deep:#f3f1ea; --line:#e0ddd3;
+  --green:#2D6A4F; --green-bg:#E9F5EE;
+  --warm:#C08457; --warm-bg:#F7EDE2;
+  --deep:#1F3A3D; --deep-bg:#DCE6E7;
+  --star:#B8860B; --star-bg:#F9F0D9;
+  --serif:'Shippori Mincho',serif; --sans:'Noto Sans JP',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:var(--sans);background:var(--bg);color:var(--ink);line-height:1.95;font-weight:300;-webkit-font-smoothing:antialiased}
+.wrap{max-width:980px;margin:0 auto;padding:0 1.5rem}
+
+/* Header */
+.preview-header{padding:3rem 0 2rem;text-align:center;background:var(--bg-deep);border-bottom:1px solid var(--line)}
+.preview-tag{display:inline-block;font-size:0.6rem;letter-spacing:0.4em;color:var(--star);margin-bottom:1.2rem;font-weight:500;padding:0.35rem 1.1rem;border:1px solid var(--star);background:#fff}
+.preview-title{font-family:var(--serif);font-size:1.6rem;font-weight:600;letter-spacing:0.08em;line-height:1.7;color:var(--ink);margin-bottom:0.5rem}
+.preview-sub{font-family:var(--serif);font-size:0.82rem;color:var(--mute);letter-spacing:0.06em}
+
+/* Section */
+section{padding:4rem 0}
+.sec-num{font-family:var(--serif);font-size:0.75rem;color:var(--green);letter-spacing:0.3em;margin-bottom:0.8rem;font-weight:500}
+.sec-head{font-family:var(--serif);font-size:1.6rem;font-weight:600;letter-spacing:0.06em;margin-bottom:1.6rem;color:var(--ink);line-height:1.6}
+.sec-head::before{content:'';display:inline-block;width:3rem;height:2px;background:var(--green);margin-right:0.8rem;vertical-align:middle;margin-bottom:0.35em}
+p.lead{font-family:var(--serif);font-size:1.05rem;color:var(--ink);font-weight:500;line-height:2;margin-bottom:2rem}
+p.lead b{color:var(--star)}
+
+/* 3-layer stack */
+.stack3{max-width:860px;margin:2.5rem auto;display:flex;flex-direction:column;gap:0}
+.stack3-layer{background:#fff;border:1px solid var(--line);border-radius:3px;padding:1.8rem 2rem;display:grid;grid-template-columns:110px 1fr 130px;gap:1.5rem;align-items:center;position:relative}
+.stack3-layer.l1{border-left:5px solid var(--warm);background:linear-gradient(90deg,var(--warm-bg) 0%,#fff 55%)}
+.stack3-layer.l2{border-left:5px solid var(--green);background:linear-gradient(90deg,var(--green-bg) 0%,#fff 55%)}
+.stack3-layer.l3{border-left:5px solid var(--star);background:linear-gradient(90deg,var(--star-bg) 0%,#fff 55%)}
+.stack3-num{font-family:var(--serif);font-size:3.2rem;font-weight:600;letter-spacing:0.02em;line-height:1;text-align:center;opacity:0.35}
+.stack3-layer.l1 .stack3-num{color:var(--warm)}
+.stack3-layer.l2 .stack3-num{color:var(--green)}
+.stack3-layer.l3 .stack3-num{color:var(--star)}
+.stack3-body{}
+.stack3-role{font-size:0.62rem;letter-spacing:0.3em;font-weight:500;margin-bottom:0.35rem}
+.stack3-layer.l1 .stack3-role{color:var(--warm)}
+.stack3-layer.l2 .stack3-role{color:var(--green)}
+.stack3-layer.l3 .stack3-role{color:var(--star)}
+.stack3-name{font-family:var(--serif);font-size:1.25rem;font-weight:600;color:var(--ink);letter-spacing:0.06em;margin-bottom:0.5rem;line-height:1.5}
+.stack3-name .qmark{font-family:var(--serif);font-size:0.85rem;font-weight:500;color:var(--mute);margin-left:0.6rem;letter-spacing:0.04em}
+.stack3-detail{font-size:0.85rem;color:var(--sub);line-height:1.85}
+.stack3-detail b{color:var(--ink);font-weight:600}
+.stack3-link{text-align:right}
+.stack3-link a{display:inline-block;font-family:var(--serif);font-size:0.78rem;color:var(--mute);text-decoration:none;border:1px solid var(--line);padding:0.45rem 0.9rem;border-radius:2px;letter-spacing:0.06em;background:#fff;transition:all 0.15s;line-height:1.4}
+.stack3-layer.l1 .stack3-link a:hover{color:var(--warm);border-color:var(--warm)}
+.stack3-layer.l2 .stack3-link a:hover{color:var(--green);border-color:var(--green)}
+.stack3-layer.l3 .stack3-link a:hover{color:var(--star);border-color:var(--star)}
+.stack3-link .ref-label{display:block;font-size:0.6rem;letter-spacing:0.22em;color:var(--hint);margin-bottom:0.15rem;font-family:var(--sans)}
+
+/* Up-arrow between layers */
+.stack3-up{display:flex;align-items:center;justify-content:center;padding:0.6rem 0;gap:0.8rem;font-family:var(--serif);font-size:0.78rem;color:var(--mute);letter-spacing:0.06em}
+.stack3-up .up-mark{font-size:1.4rem;color:var(--sub)}
+.stack3-up b{color:var(--ink);font-weight:500}
+
+/* Callout */
+.callout{background:var(--deep-bg);border-left:3px solid var(--deep);padding:1.3rem 1.6rem;margin:2rem auto;max-width:860px;font-family:var(--serif);font-size:0.95rem;color:var(--ink);line-height:2;letter-spacing:0.04em}
+.callout b{color:var(--deep);font-weight:600}
+
+.principle{background:var(--warm-bg);padding:1rem 1.3rem;border-radius:3px;margin:1.5rem auto 0;font-size:0.92rem;color:var(--warm);font-weight:500;text-align:center;letter-spacing:0.06em;max-width:860px}
+.principle::before{content:'原則 — ';color:var(--warm);font-family:var(--serif);font-weight:600}
+
+/* Visual alt: overlapping circles — shown below stack */
+.variant-divider{text-align:center;font-family:var(--serif);font-size:0.8rem;color:var(--mute);letter-spacing:0.2em;margin:4rem 0 1.5rem;position:relative}
+.variant-divider::before,.variant-divider::after{content:'';display:inline-block;width:60px;height:1px;background:var(--line);vertical-align:middle;margin:0 1rem}
+
+.venn3-wrap{max-width:620px;margin:0 auto}
+.venn3-wrap svg{width:100%;height:auto;display:block}
+.venn3-note{text-align:center;font-family:var(--serif);font-size:0.82rem;color:var(--sub);letter-spacing:0.06em;margin-top:1rem;line-height:1.9}
+
+/* Footer */
+.footer{background:var(--deep);padding:2.5rem 0;text-align:center;color:#fff;margin-top:4rem}
+.footer a{color:rgba(255,255,255,0.85);text-decoration:none;font-size:0.78rem;letter-spacing:0.1em;border-bottom:1px solid rgba(255,255,255,0.3);padding-bottom:2px;margin:0 0.6rem}
+.footer p{color:rgba(255,255,255,0.5);font-size:0.72rem;margin-top:0.8rem;letter-spacing:0.1em}
+
+@media(max-width:720px){
+  .preview-title{font-size:1.25rem}
+  .stack3-layer{grid-template-columns:1fr;gap:0.6rem}
+  .stack3-num{text-align:left;font-size:2rem}
+  .stack3-link{text-align:left}
+}
+</style>
+</head>
+<body>
+
+<header class="preview-header">
+  <div class="wrap">
+    <span class="preview-tag">§06 PREVIEW ／ 案1 統合ビュー</span>
+    <h1 class="preview-title">3層が重なって、POOLOになる</h1>
+    <div class="preview-sub">未来デザイン v5 ／ §06 差し替え候補</div>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <div class="sec-num">§ 06</div>
+    <h2 class="sec-head">3層が重なって、POOLOになる</h2>
+    <p class="lead">「想像もしなかった世界と自分」に届くためには、この3つが同時に働く必要がある。<br><b>どれか1つでも欠けると、POOLOは成立しない。</b></p>
+
+    <!-- Main 3-layer stack (bottom → top) -->
+    <div class="stack3">
+
+      <!-- Top: 関心探究型 -->
+      <div class="stack3-layer l3">
+        <div class="stack3-num">03</div>
+        <div class="stack3-body">
+          <div class="stack3-role">MODEL ／ 型</div>
+          <div class="stack3-name">関心探究型<span class="qmark">── どう歩むか</span></div>
+          <div class="stack3-detail">「目標を立てて逆算」ではなく、<b>「今、何に心が動く？」</b>から始める。到達点は一つではなく、螺旋の先に複数が立ち現れる。同じ探究テーマから、歩み方次第で違う自分に届く。</div>
+        </div>
+        <div class="stack3-link">
+          <a href="#s07"><span class="ref-label">詳細</span>§07<br>関心探究型</a>
+        </div>
+      </div>
+
+      <div class="stack3-up">
+        <span class="up-mark">↑</span><span>この型を駆動するのは</span>
+      </div>
+
+      <!-- Middle: エンジン -->
+      <div class="stack3-layer l2">
+        <div class="stack3-num">02</div>
+        <div class="stack3-body">
+          <div class="stack3-role">ENGINE ／ 動き</div>
+          <div class="stack3-name">変容のエンジン<span class="qmark">── 何が起きているか</span></div>
+          <div class="stack3-detail"><b>探究テーマ ⇄ 実践（旅・問い・創る）</b>の双方向ループが、8ヶ月で何周も回る。実践は手段ではなく、探究テーマそのものを更新する営み。3周目の自分は、1周目の自分が想像すらできない自分。</div>
+        </div>
+        <div class="stack3-link">
+          <a href="#s08"><span class="ref-label">詳細</span>§08<br>変容のエンジン</a>
+        </div>
+      </div>
+
+      <div class="stack3-up">
+        <span class="up-mark">↑</span><span>このエンジンを支えるのは</span>
+      </div>
+
+      <!-- Bottom: バリュー -->
+      <div class="stack3-layer l1">
+        <div class="stack3-num">01</div>
+        <div class="stack3-body">
+          <div class="stack3-role">VALUES ／ 基層</div>
+          <div class="stack3-name">バリュー<span class="qmark">── どういう態度で臨むか</span></div>
+          <div class="stack3-detail"><b>根</b>:そのままで、いい（受容）／<b>幹</b>:自己決定・自分ごと化・面白がる（スタンス3）／<b>枝葉</b>:共に旅する→問う→創る（Doing3）。この木の構造が、エンジンが回る前提を作る。</div>
+        </div>
+        <div class="stack3-link">
+          <a href="#s02"><span class="ref-label">詳細</span>§02<br>バリュー</a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="callout">
+      <b>3層は、独立ではなく積層。</b>バリューがなければエンジンは回らない。エンジンが回らなければ、関心探究型の螺旋は進まない。逆にいえば、バリューが立っていて、エンジンが回っていれば、関心探究型は自然に成立する。POOLOが提供するのは、この3層が同時に働く<b>場</b>。
+    </div>
+
+    <div class="principle">バリューがあるから、エンジンが回る。エンジンが回るから、関心探究の螺旋が進む。</div>
+
+    <!-- Alternative visualization: overlapping circles -->
+    <div class="variant-divider">もう一つの見方 ／ 3つの重なり</div>
+
+    <div class="venn3-wrap">
+      <svg viewBox="0 0 600 460" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <radialGradient id="vWarm" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#C08457" stop-opacity="0.32"/>
+            <stop offset="100%" stop-color="#C08457" stop-opacity="0.08"/>
+          </radialGradient>
+          <radialGradient id="vGreen" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#2D6A4F" stop-opacity="0.32"/>
+            <stop offset="100%" stop-color="#2D6A4F" stop-opacity="0.08"/>
+          </radialGradient>
+          <radialGradient id="vStar" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#B8860B" stop-opacity="0.32"/>
+            <stop offset="100%" stop-color="#B8860B" stop-opacity="0.08"/>
+          </radialGradient>
+        </defs>
+
+        <!-- Three overlapping circles -->
+        <circle cx="220" cy="280" r="150" fill="url(#vWarm)" stroke="#C08457" stroke-width="1.5" stroke-opacity="0.55"/>
+        <circle cx="380" cy="280" r="150" fill="url(#vGreen)" stroke="#2D6A4F" stroke-width="1.5" stroke-opacity="0.55"/>
+        <circle cx="300" cy="155" r="150" fill="url(#vStar)" stroke="#B8860B" stroke-width="1.5" stroke-opacity="0.55"/>
+
+        <!-- Circle labels -->
+        <text x="130" y="355" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="15" fill="#C08457" font-weight="600" letter-spacing="2">バリュー</text>
+        <text x="130" y="375" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="9" fill="#C08457" letter-spacing="2">基層・態度</text>
+
+        <text x="470" y="355" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="15" fill="#2D6A4F" font-weight="600" letter-spacing="2">エンジン</text>
+        <text x="470" y="375" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="9" fill="#2D6A4F" letter-spacing="2">動き・ループ</text>
+
+        <text x="300" y="42" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="15" fill="#B8860B" font-weight="600" letter-spacing="2">関心探究型</text>
+        <text x="300" y="62" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="9" fill="#B8860B" letter-spacing="2">型・歩み方</text>
+
+        <!-- Center -->
+        <rect x="248" y="222" width="104" height="44" rx="3" fill="#fff" stroke="#1F3A3D" stroke-width="1.5"/>
+        <text x="300" y="243" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="15" fill="#1F3A3D" font-weight="700" letter-spacing="3">POOLO</text>
+        <text x="300" y="258" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="8" fill="#1F3A3D" letter-spacing="2">3つが重なる場</text>
+      </svg>
+    </div>
+    <div class="venn3-note">
+      3つの円の真ん中にPOOLOが立つ。どれか1つの円だけでは、POOLOにならない。<br>
+      バリューだけ＝仲良くなるだけの場。エンジンだけ＝空回り。関心探究型だけ＝個人の営みで終わる。
+    </div>
+
+  </div>
+</section>
+
+<footer class="footer">
+  <a href="future-design-v5-visual.html">← 未来デザイン v5 本体に戻る</a>
+  <a href="index-share.html">共有ハブ</a>
+  <p>§06 プレビュー ／ 確認後に本体へ反映</p>
+</footer>
+
+</body>
+</html>
