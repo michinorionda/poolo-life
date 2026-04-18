@@ -96,7 +96,7 @@ body{font-family:var(--sans);background:var(--bg);color:var(--ink);line-height:1
   <div class="wrap">
     <div class="canvas">
       <div class="canvas-head">
-        <span class="num">MAIN MAP</span>
+        <span class="num">SCENE 1 — 8ヶ月の中で</span>
         <span class="label">一人のエンジンと、仲間の引力場と、8ヶ月の螺旋</span>
       </div>
 
@@ -405,6 +405,154 @@ body{font-family:var(--sans);background:var(--bg);color:var(--ink);line-height:1
         <b>似た探究テーマを持つ仲間が集まる場で、探究テーマと実践がお互いを育て合う8ヶ月。</b><br>
         各人の追いかけたいものが引力として干渉し合い、<br>
         <b>一人では届かなかった場所まで運ばれていく。</b>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Scene 2: 卒業後の∞運動 -->
+<section style="padding:4rem 0 3rem;background:var(--bg);border-top:1px solid var(--line)">
+  <div class="wrap">
+    <div class="canvas">
+      <div class="canvas-head" style="margin-bottom:1.2rem">
+        <span class="num">SCENE 2 — 卒業後、ずっと</span>
+        <span class="label">内的欲求と他者とのつながりを、作り続ける</span>
+      </div>
+
+      <div style="text-align:center;max-width:680px;margin:0 auto 1.8rem">
+        <p style="font-family:'Shippori Mincho',serif;font-size:0.95rem;color:var(--sub);line-height:2.1;letter-spacing:0.04em">
+          8ヶ月で身体に入るのは、<b style="color:var(--ink)">内的欲求に従って動く筋肉</b>と、<b style="color:var(--ink)">他者とのつながりを結び直す筋肉</b>。<br>
+          この2つが互いを呼び合い、卒業後もずっと回り続ける。
+        </p>
+      </div>
+
+      <svg class="canvas-svg" viewBox="0 0 1100 560" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <radialGradient id="s2InnerGlow" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#C08457" stop-opacity="0.22"/>
+            <stop offset="60%" stop-color="#C08457" stop-opacity="0.05"/>
+            <stop offset="100%" stop-color="#C08457" stop-opacity="0"/>
+          </radialGradient>
+          <radialGradient id="s2OtherGlow" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#2D6A4F" stop-opacity="0.22"/>
+            <stop offset="60%" stop-color="#2D6A4F" stop-opacity="0.05"/>
+            <stop offset="100%" stop-color="#2D6A4F" stop-opacity="0"/>
+          </radialGradient>
+          <radialGradient id="s2CrossGlow" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#B8860B" stop-opacity="0.95"/>
+            <stop offset="55%" stop-color="#B8860B" stop-opacity="0.35"/>
+            <stop offset="100%" stop-color="#B8860B" stop-opacity="0"/>
+          </radialGradient>
+          <linearGradient id="s2InfinityLeft" x1="100%" y1="0%" x2="0%" y2="0%">
+            <stop offset="0%" stop-color="#B8860B" stop-opacity="1"/>
+            <stop offset="100%" stop-color="#C08457" stop-opacity="0.75"/>
+          </linearGradient>
+          <linearGradient id="s2InfinityRight" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#B8860B" stop-opacity="1"/>
+            <stop offset="100%" stop-color="#2D6A4F" stop-opacity="0.75"/>
+          </linearGradient>
+          <marker id="s2FlowArrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+            <path d="M0,1 L8,5 L0,9 z" fill="#B8860B"/>
+          </marker>
+        </defs>
+
+        <!-- Background field glows -->
+        <circle cx="330" cy="280" r="210" fill="url(#s2InnerGlow)"/>
+        <circle cx="770" cy="280" r="210" fill="url(#s2OtherGlow)"/>
+
+        <!-- Side labels -->
+        <text x="330" y="52" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="10" letter-spacing="5" fill="#C08457" font-weight="500">INNER</text>
+        <text x="330" y="78" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="17" fill="#1a1a1a" font-weight="700" letter-spacing="4">内的欲求</text>
+        <text x="330" y="100" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="10" fill="#7a7a7a" letter-spacing="1">今、気になってしまうものに従って動く</text>
+
+        <text x="770" y="52" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="10" letter-spacing="5" fill="#2D6A4F" font-weight="500">OTHERS</text>
+        <text x="770" y="78" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="17" fill="#1a1a1a" font-weight="700" letter-spacing="4">他者とのつながり</text>
+        <text x="770" y="100" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="10" fill="#7a7a7a" letter-spacing="1">出会い続け、結び直し続ける</text>
+
+        <!-- Lemniscate: left loop (inner side) -->
+        <path d="M 550 280
+                 C 510 170, 380 170, 300 220
+                 C 220 270, 220 310, 300 360
+                 C 380 410, 510 410, 550 280"
+              fill="none" stroke="url(#s2InfinityLeft)" stroke-width="4.5" stroke-linecap="round" opacity="0.92"/>
+
+        <!-- Lemniscate: right loop (others side) -->
+        <path d="M 550 280
+                 C 590 170, 720 170, 800 220
+                 C 880 270, 880 310, 800 360
+                 C 720 410, 590 410, 550 280"
+              fill="none" stroke="url(#s2InfinityRight)" stroke-width="4.5" stroke-linecap="round" opacity="0.92"/>
+
+        <!-- Flow arrows on loops -->
+        <path d="M 450 188 L 410 184" fill="none" stroke="#C08457" stroke-width="2.3" stroke-linecap="round" marker-end="url(#s2FlowArrow)"/>
+        <path d="M 380 390 L 440 400" fill="none" stroke="#C08457" stroke-width="2.3" stroke-linecap="round" marker-end="url(#s2FlowArrow)"/>
+        <path d="M 650 188 L 690 184" fill="none" stroke="#2D6A4F" stroke-width="2.3" stroke-linecap="round" marker-end="url(#s2FlowArrow)"/>
+        <path d="M 720 400 L 660 390" fill="none" stroke="#2D6A4F" stroke-width="2.3" stroke-linecap="round" marker-end="url(#s2FlowArrow)"/>
+
+        <!-- Left loop (inner side) — practice markers -->
+        <g>
+          <circle cx="330" cy="200" r="19" fill="#fff" stroke="#C08457" stroke-width="1.8"/>
+          <text x="330" y="205" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="12" fill="#C08457" font-weight="600">旅</text>
+        </g>
+        <g>
+          <circle cx="255" cy="290" r="19" fill="#fff" stroke="#C08457" stroke-width="1.8"/>
+          <text x="255" y="295" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="12" fill="#C08457" font-weight="600">問い</text>
+        </g>
+        <g>
+          <circle cx="345" cy="395" r="19" fill="#fff" stroke="#C08457" stroke-width="1.8"/>
+          <text x="345" y="400" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="12" fill="#C08457" font-weight="600">作る</text>
+        </g>
+
+        <!-- Right loop (others side) — connection markers -->
+        <g>
+          <circle cx="770" cy="200" r="7" fill="#2D6A4F"/>
+          <text x="785" y="204" font-family="'Noto Sans JP',sans-serif" font-size="11" fill="#2D6A4F" font-weight="500">出会う</text>
+        </g>
+        <g>
+          <circle cx="845" cy="290" r="7" fill="#2D6A4F"/>
+          <text x="858" y="294" font-family="'Noto Sans JP',sans-serif" font-size="11" fill="#2D6A4F" font-weight="500">共に動く</text>
+        </g>
+        <g>
+          <circle cx="755" cy="395" r="7" fill="#2D6A4F"/>
+          <text x="770" y="399" font-family="'Noto Sans JP',sans-serif" font-size="11" fill="#2D6A4F" font-weight="500">結び直す</text>
+        </g>
+        <g opacity="0.5">
+          <circle cx="700" cy="230" r="4" fill="#2D6A4F"/>
+          <circle cx="820" cy="350" r="4" fill="#2D6A4F"/>
+          <circle cx="690" cy="370" r="4" fill="#2D6A4F"/>
+          <circle cx="830" cy="235" r="4" fill="#2D6A4F"/>
+        </g>
+
+        <!-- Cross point in the middle -->
+        <circle cx="550" cy="280" r="50" fill="url(#s2CrossGlow)"/>
+        <circle cx="550" cy="280" r="20" fill="#B8860B"/>
+        <text x="550" y="285" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="11" fill="#fff" font-weight="700">循環</text>
+
+        <!-- Middle description below center -->
+        <text x="550" y="355" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="11" fill="#4a4a4a" font-weight="500" letter-spacing="1">動けば、出会う　／　出会えば、動く</text>
+
+        <!-- Widening ripples: 場は広がり続ける -->
+        <ellipse cx="550" cy="290" rx="470" ry="185" fill="none" stroke="#B8860B" stroke-width="0.7" stroke-dasharray="2 6" opacity="0.3"/>
+        <ellipse cx="550" cy="290" rx="510" ry="215" fill="none" stroke="#B8860B" stroke-width="0.7" stroke-dasharray="2 6" opacity="0.18"/>
+        <ellipse cx="550" cy="290" rx="545" ry="240" fill="none" stroke="#B8860B" stroke-width="0.7" stroke-dasharray="2 6" opacity="0.1"/>
+
+        <!-- Time axis -->
+        <line x1="100" y1="475" x2="1000" y2="475" stroke="#e0ddd3" stroke-width="1"/>
+        <circle cx="100" cy="475" r="4" fill="#B8860B"/>
+        <text x="100" y="498" font-family="'Shippori Mincho',serif" font-size="11" fill="#4a4a4a" font-weight="600">卒業</text>
+        <text x="550" y="498" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="11" fill="#7a7a7a" letter-spacing="3">ずっと</text>
+        <text x="1000" y="498" text-anchor="end" font-family="'Noto Sans JP',sans-serif" font-size="10" fill="#a8a8a8">時間軸は続く →</text>
+
+        <!-- Bottom note -->
+        <text x="550" y="535" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="10" fill="#7a7a7a" letter-spacing="1">内的欲求が動けば、新しい他者と出会う。他者との出会いが、新しい内的欲求を呼ぶ。</text>
+      </svg>
+    </div>
+
+    <!-- Bridge text: Scene1 → Scene2 -->
+    <div style="max-width:720px;margin:2rem auto 0;padding:1.8rem 2rem;background:var(--bg-deep);border-left:3px solid var(--star);border-right:3px solid var(--star);border-radius:3px;text-align:center">
+      <p style="font-family:'Shippori Mincho',serif;font-size:1rem;color:var(--ink);line-height:2.1;letter-spacing:0.05em;font-weight:500">
+        <b style="color:var(--star)">8ヶ月の螺旋</b>で身体に入ったのは、2つの筋肉を<b>交互に使う動き方</b>。<br>
+        卒業後、それは<b>∞の運動</b>として、一人ひとりの中で回り続ける。
       </p>
     </div>
   </div>
