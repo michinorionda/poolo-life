@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>POOLO LIFE — MAIN MAP 5パターン比較</title>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#1a1a1a;--sub:#4a4a4a;--mute:#7a7a7a;--hint:#a8a8a8;
+  --bg:#faf9f6;--bg-deep:#f3f1ea;--line:#e0ddd3;
+  --green:#2D6A4F;--green-bg:#E9F5EE;
+  --warm:#C08457;--warm-bg:#F7EDE2;
+  --deep:#1F3A3D;--deep-bg:#DCE6E7;
+  --star:#B8860B;--star-bg:#F9F0D9;
+  --serif:'Shippori Mincho',serif;--sans:'Noto Sans JP',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:var(--sans);background:var(--bg);color:var(--ink);line-height:1.9;font-weight:300;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1100px;margin:0 auto;padding:0 1.5rem}
+
+.header{padding:4rem 0 2rem;text-align:center}
+.mark{display:inline-block;font-size:0.6rem;letter-spacing:0.4em;color:var(--star);margin-bottom:1.5rem;font-weight:500;padding:0.35rem 1.1rem;border:1px solid var(--star);background:#fff}
+.h-title{font-family:var(--serif);font-size:2.0rem;font-weight:600;letter-spacing:0.12em;line-height:1.55;margin-bottom:0.9rem}
+.h-sub{font-family:var(--serif);font-size:0.95rem;color:var(--sub);letter-spacing:0.08em}
+.back{display:inline-block;margin-top:1.5rem;font-size:0.78rem;color:var(--green);text-decoration:none;letter-spacing:0.1em;border-bottom:1px solid var(--green);padding-bottom:2px}
+
+.intro{padding:1.5rem 0 2.5rem}
+.intro-box{background:#fff;border:1px solid var(--line);border-left:3px solid var(--star);padding:1.5rem 1.8rem;border-radius:3px}
+.intro-box p{font-size:0.88rem;color:var(--sub);line-height:1.95}
+.intro-box b{color:var(--ink);font-weight:500}
+
+.variant{padding:2rem 0 1rem}
+.variant-card{background:#fff;border:1px solid var(--line);border-radius:4px;padding:1.8rem 2rem;box-shadow:0 4px 28px rgba(0,0,0,0.04);margin-bottom:2rem}
+.variant-head{display:flex;align-items:baseline;gap:1rem;margin-bottom:0.4rem;flex-wrap:wrap}
+.variant-num{font-family:var(--serif);font-size:0.7rem;letter-spacing:0.35em;color:var(--mute);font-weight:500}
+.variant-title{font-family:var(--serif);font-size:1.3rem;font-weight:600;letter-spacing:0.06em}
+.variant-en{font-family:var(--serif);font-size:0.78rem;color:var(--warm);letter-spacing:0.2em;font-weight:500}
+.variant-desc{font-size:0.85rem;color:var(--sub);line-height:1.9;margin-bottom:1.2rem;padding-bottom:1rem;border-bottom:1px dashed var(--line)}
+.variant-desc b{color:var(--ink);font-weight:500}
+.variant-svg{display:block;width:100%;height:auto}
+.variant-foot{margin-top:1rem;display:grid;grid-template-columns:1fr 1fr;gap:0.8rem}
+.foot-cell{padding:0.8rem 1rem;background:var(--bg-deep);border-radius:3px;font-size:0.78rem;color:var(--sub);line-height:1.7}
+.foot-cell b{display:block;font-family:var(--serif);color:var(--ink);font-size:0.82rem;margin-bottom:0.3rem;letter-spacing:0.08em;font-weight:600}
+.foot-cell.strong{border-left:2px solid var(--green)}
+.foot-cell.weak{border-left:2px solid var(--warm)}
+
+/* Compare table */
+.compare{padding:2rem 0 4rem}
+.compare-title{text-align:center;font-family:var(--serif);font-size:1.1rem;color:var(--mute);margin-bottom:1.2rem;letter-spacing:0.2em}
+.compare-table{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--line);border-radius:4px;overflow:hidden}
+.compare-table th,.compare-table td{padding:0.9rem 0.8rem;text-align:center;border-bottom:1px solid var(--line);border-right:1px solid var(--line);font-size:0.78rem}
+.compare-table th{background:var(--bg-deep);font-family:var(--serif);font-weight:600;letter-spacing:0.05em;color:var(--ink)}
+.compare-table th:first-child,.compare-table td:first-child{text-align:left;font-family:var(--serif);font-weight:500;color:var(--ink)}
+.compare-table tr:last-child td{border-bottom:none}
+.compare-table td:last-child,.compare-table th:last-child{border-right:none}
+.score{display:inline-block;font-weight:600}
+.score.hi{color:var(--green)}
+.score.mid{color:var(--star)}
+.score.lo{color:var(--hint)}
+
+.footer{background:var(--deep);padding:3rem 0;text-align:center;margin-top:3rem}
+.footer a{color:rgba(255,255,255,0.85);text-decoration:none;font-size:0.78rem;letter-spacing:0.1em;border-bottom:1px solid rgba(255,255,255,0.3);padding-bottom:2px;margin:0 0.6rem}
+.footer p{color:rgba(255,255,255,0.5);font-size:0.72rem;margin-top:1rem;letter-spacing:0.1em}
+
+@media(max-width:820px){
+  .h-title{font-size:1.45rem}
+  .variant-foot{grid-template-columns:1fr}
+  .compare-table th,.compare-table td{padding:0.6rem 0.4rem;font-size:0.7rem}
+}
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="wrap">
+    <span class="mark">MAIN MAP — 5 VARIANTS</span>
+    <h1 class="h-title">MAIN MAPのパターン比較<br>5つの視覚メタファー</h1>
+    <p class="h-sub">同じ構成要素を、違う比喩で描く</p>
+    <a href="poolo-model.html" class="back">← 現行のMAIN MAPへ</a>
+  </div>
+</header>
+
+<section class="intro">
+  <div class="wrap">
+    <div class="intro-box">
+      <p>
+        どのパターンも、<b>同じ構成要素（探究テーマ・実践3つ・仲間の引力場・複数の到達点・8ヶ月の時間軸）</b>を描いています。
+        違うのは、<b>何を主役に見せるか</b>と<b>どんな比喩で運動を表すか</b>。
+        現行の「螺旋型」と比べながら、どれが社長の伝えたい感覚に近いかを選んでください。
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- A. 放射分岐型（Radial Bloom） -->
+<!-- ============================================================ -->
+<section class="variant">
+  <div class="wrap">
+    <div class="variant-card">
+      <div class="variant-head">
+        <span class="variant-num">PATTERN A</span>
+        <span class="variant-title">放射分岐型</span>
+        <span class="variant-en">RADIAL BLOOM</span>
+      </div>
+      <p class="variant-desc">
+        探究テーマを中心に置き、<b>花びら状に複数のルートが放射する</b>。各ルートの途中に「旅・問い・作る」のマーカー、先端に到達点。背景には仲間の引力場が広がる。<br>
+        → <b>一つの種から多方向に芽吹く</b>印象。到達点が「一つではない」ことが最も明確に伝わる。
+      </p>
+
+      <svg class="variant-svg" viewBox="0 0 900 560" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <radialGradient id="aBloom" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#C08457" stop-opacity="1"/>
+            <stop offset="60%" stop-color="#C08457" stop-opacity="0.5"/>
+            <stop offset="100%" stop-color="#C08457" stop-opacity="0.1"/>
+          </radialGradient>
+          <radialGradient id="aDest" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#B8860B" stop-opacity="1"/>
+            <stop offset="60%" stop-color="#B8860B" stop-opacity="0.4"/>
+            <stop offset="100%" stop-color="#B8860B" stop-opacity="0"/>
+          </radialGradient>
+          <radialGradient id="aField" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#2D6A4F" stop-opacity="0.12"/>
+            <stop offset="80%" stop-color="#2D6A4F" stop-opacity="0"/>
+          </radialGradient>
+          <marker id="aArrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+            <path d="M0,0 L10,5 L0,10 L3,5 z" fill="#B8860B"/>
+          </marker>
+        </defs>
+
+        <!-- 場（仲間の引力場の全体） -->
+        <circle cx="450" cy="280" r="260" fill="url(#aField)"/>
+        <rect x="50" y="30" width="800" height="500" rx="10" fill="none" stroke="#e0ddd3" stroke-width="1" stroke-dasharray="4 6"/>
+        <text x="70" y="55" font-family="'Shippori Mincho',serif" font-size="11" fill="#4a4a4a" letter-spacing="3">場 — 50人の仲間 × 8ヶ月</text>
+
+        <!-- 仲間の点（散らす） -->
+        <g opacity="0.6">
+          <circle cx="180" cy="140" r="4" fill="#2D6A4F"/>
+          <circle cx="750" cy="170" r="4" fill="#C08457"/>
+          <circle cx="820" cy="380" r="4" fill="#1F3A3D"/>
+          <circle cx="130" cy="420" r="4" fill="#B8860B"/>
+          <circle cx="450" cy="490" r="4" fill="#2D6A4F"/>
+          <circle cx="290" cy="200" r="3" fill="#C08457"/>
+          <circle cx="620" cy="130" r="3" fill="#1F3A3D"/>
+          <circle cx="720" cy="440" r="3" fill="#B8860B"/>
+          <circle cx="220" cy="380" r="3" fill="#2D6A4F"/>
+        </g>
+
+        <!-- 6本の花びらルート（中心から外へ） -->
+        <!-- 角度: -90°(上), -30°, 30°, 90°(下), 150°, 210° -->
+        <!-- 各ルートは旅→問い→作る→到達点 を通る -->
+
+        <!-- Route 1: 上 -->
+        <path d="M 450 280 Q 430 200 440 140 T 450 70" fill="none" stroke="#C08457" stroke-width="2" stroke-linecap="round" marker-end="url(#aArrow)"/>
+        <!-- Route 2: 右上 -->
+        <path d="M 450 280 Q 560 240 640 190 T 770 100" fill="none" stroke="#2D6A4F" stroke-width="2" stroke-linecap="round" marker-end="url(#aArrow)"/>
+        <!-- Route 3: 右下 -->
+        <path d="M 450 280 Q 580 330 660 380 T 780 470" fill="none" stroke="#1F3A3D" stroke-width="2" stroke-linecap="round" marker-end="url(#aArrow)"/>
+        <!-- Route 4: 下 -->
+        <path d="M 450 280 Q 470 360 455 420 T 450 510" fill="none" stroke="#C08457" stroke-width="2" stroke-linecap="round" stroke-dasharray="6 4" marker-end="url(#aArrow)"/>
+        <!-- Route 5: 左下 -->
+        <path d="M 450 280 Q 330 340 250 390 T 120 470" fill="none" stroke="#B8860B" stroke-width="2" stroke-linecap="round" stroke-dasharray="6 4" marker-end="url(#aArrow)"/>
+        <!-- Route 6: 左上 -->
+        <path d="M 450 280 Q 350 220 260 180 T 130 100" fill="none" stroke="#2D6A4F" stroke-width="2" stroke-linecap="round" stroke-dasharray="6 4" marker-end="url(#aArrow)"/>
+
+        <!-- 実践マーカー（主役ルート Route 2=右上 に配置） -->
+        <g>
+          <circle cx="500" cy="258" r="16" fill="#fff" stroke="#C08457" stroke-width="2"/>
+          <text x="500" y="262" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="10" fill="#C08457" font-weight="600">旅</text>
+        </g>
+        <g>
+          <circle cx="600" cy="215" r="16" fill="#fff" stroke="#2D6A4F" stroke-width="2"/>
+          <text x="600" y="219" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="10" fill="#2D6A4F" font-weight="600">問い</text>
+        </g>
+        <g>
+          <circle cx="700" cy="150" r="16" fill="#fff" stroke="#1F3A3D" stroke-width="2"/>
+          <text x="700" y="154" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="10" fill="#1F3A3D" font-weight="600">作る</text>
+        </g>
+
+        <!-- 到達点（6つ） -->
+        <g>
+          <circle cx="450" cy="70" r="14" fill="url(#aDest)"/>
+          <circle cx="450" cy="70" r="7" fill="#B8860B"/>
+          <circle cx="770" cy="100" r="16" fill="url(#aDest)"/>
+          <circle cx="770" cy="100" r="8" fill="#B8860B"/>
+          <g stroke="#B8860B" stroke-width="1.5" stroke-linecap="round">
+            <line x1="770" y1="82" x2="770" y2="76"/>
+            <line x1="770" y1="118" x2="770" y2="124"/>
+            <line x1="752" y1="100" x2="746" y2="100"/>
+            <line x1="788" y1="100" x2="794" y2="100"/>
+          </g>
+          <circle cx="780" cy="470" r="13" fill="url(#aDest)"/>
+          <circle cx="780" cy="470" r="6.5" fill="#B8860B"/>
+          <circle cx="450" cy="510" r="12" fill="url(#aDest)" opacity="0.85"/>
+          <circle cx="450" cy="510" r="6" fill="#B8860B"/>
+          <circle cx="120" cy="470" r="13" fill="url(#aDest)" opacity="0.85"/>
+          <circle cx="120" cy="470" r="6.5" fill="#B8860B"/>
+          <circle cx="130" cy="100" r="12" fill="url(#aDest)" opacity="0.85"/>
+          <circle cx="130" cy="100" r="6" fill="#B8860B"/>
+        </g>
+
+        <!-- 中心: 探究テーマ -->
+        <circle cx="450" cy="280" r="42" fill="url(#aBloom)"/>
+        <circle cx="450" cy="280" r="24" fill="#C08457"/>
+        <text x="450" y="285" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="12" fill="#fff" font-weight="700">探究テーマ</text>
+
+        <!-- 注釈 -->
+        <text x="450" y="540" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="11" fill="#4a4a4a" letter-spacing="2">一つの探究テーマから、どの方向にも芽吹きうる</text>
+      </svg>
+
+      <div class="variant-foot">
+        <div class="foot-cell strong"><b>強み</b>「到達点は一つではない」が最も直感的。対称性があり美しい。</div>
+        <div class="foot-cell weak"><b>弱み</b>時間軸（8ヶ月の流れ）が描きにくい。中心→外のみで、戻り・反復が表現しづらい。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- B. 編み込み螺旋型（Woven Spiral） -->
+<!-- ============================================================ -->
+<section class="variant">
+  <div class="wrap">
+    <div class="variant-card">
+      <div class="variant-head">
+        <span class="variant-num">PATTERN B</span>
+        <span class="variant-title">編み込み螺旋型</span>
+        <span class="variant-en">WOVEN SPIRAL</span>
+      </div>
+      <p class="variant-desc">
+        <b>3人の螺旋が互いに編み合う</b>。各自の軌跡が独立しているように見えて、交差点で引力が働き、その後の曲がり方が変わる。実践マーカーは中央人物の螺旋上に。<br>
+        → <b>仲間の引力場がどう軌道を曲げるか</b>が最もはっきり出る。POOLO独自性の核心を描く。
+      </p>
+
+      <svg class="variant-svg" viewBox="0 0 900 560" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <radialGradient id="bSrc" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#C08457" stop-opacity="1"/>
+            <stop offset="60%" stop-color="#C08457" stop-opacity="0.4"/>
+            <stop offset="100%" stop-color="#C08457" stop-opacity="0"/>
+          </radialGradient>
+          <radialGradient id="bDest" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#B8860B" stop-opacity="1"/>
+            <stop offset="60%" stop-color="#B8860B" stop-opacity="0.4"/>
+            <stop offset="100%" stop-color="#B8860B" stop-opacity="0"/>
+          </radialGradient>
+          <radialGradient id="bGrav" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#2D6A4F" stop-opacity="0.22"/>
+            <stop offset="70%" stop-color="#2D6A4F" stop-opacity="0.04"/>
+            <stop offset="100%" stop-color="#2D6A4F" stop-opacity="0"/>
+          </radialGradient>
+          <marker id="bArrow1" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+            <path d="M0,0 L10,5 L0,10 L3,5 z" fill="#B8860B"/>
+          </marker>
+        </defs>
+
+        <rect x="50" y="30" width="800" height="500" rx="10" fill="#fafaf5" stroke="#e0ddd3" stroke-width="1" stroke-dasharray="4 6"/>
+
+        <!-- 起点側 (左) -->
+        <text x="75" y="55" font-family="'Shippori Mincho',serif" font-size="10" fill="#7a7a7a" letter-spacing="3">START</text>
+        <text x="830" y="55" font-family="'Shippori Mincho',serif" font-size="10" fill="#B8860B" letter-spacing="3" text-anchor="end">DESTINATIONS</text>
+
+        <!-- 引力場（交差点に配置） -->
+        <circle cx="340" cy="260" r="80" fill="url(#bGrav)"/>
+        <circle cx="540" cy="280" r="90" fill="url(#bGrav)"/>
+        <circle cx="700" cy="220" r="70" fill="url(#bGrav)"/>
+
+        <!-- 3本の螺旋（左下→右上へ、それぞれが螺旋を描きながら進む） -->
+        <!-- Person 1 (主役、実線、warm) -->
+        <path d="M 130 460
+                 C 180 420, 240 430, 280 380
+                 C 320 330, 280 280, 230 290
+                 C 190 300, 200 240, 260 220
+                 C 330 200, 380 260, 370 310
+                 C 360 360, 430 360, 470 310
+                 C 510 260, 470 200, 420 210
+                 C 380 220, 400 170, 470 160
+                 C 560 150, 610 220, 570 280
+                 C 540 320, 620 340, 680 290
+                 C 720 250, 700 190, 660 200
+                 C 640 210, 660 170, 720 170
+                 C 790 170, 820 140, 820 100"
+              fill="none" stroke="#C08457" stroke-width="2.8" stroke-linecap="round" marker-end="url(#bArrow1)" opacity="0.95"/>
+
+        <!-- Person 2 (破線, green) -->
+        <path d="M 130 460
+                 C 200 470, 260 440, 320 460
+                 C 380 480, 420 430, 400 380
+                 C 380 340, 440 320, 490 360
+                 C 530 390, 600 370, 620 320
+                 C 640 270, 580 240, 540 270
+                 C 510 300, 540 350, 610 360
+                 C 700 370, 750 320, 770 260
+                 C 785 220, 810 190, 820 155"
+              fill="none" stroke="#2D6A4F" stroke-width="2" stroke-linecap="round" stroke-dasharray="5 4" opacity="0.75" marker-end="url(#bArrow1)"/>
+
+        <!-- Person 3 (破線, deep) -->
+        <path d="M 130 460
+                 C 170 400, 230 360, 210 300
+                 C 195 250, 260 220, 310 240
+                 C 360 260, 340 310, 290 320
+                 C 240 330, 260 400, 340 410
+                 C 440 420, 490 380, 510 330
+                 C 525 290, 590 290, 620 340
+                 C 650 390, 720 400, 760 350
+                 C 790 310, 810 240, 820 210"
+              fill="none" stroke="#1F3A3D" stroke-width="2" stroke-linecap="round" stroke-dasharray="5 4" opacity="0.65" marker-end="url(#bArrow1)"/>
+
+        <!-- 実践マーカー（主役 Person 1 の螺旋上） -->
+        <g>
+          <circle cx="260" cy="220" r="17" fill="#fff" stroke="#C08457" stroke-width="2"/>
+          <text x="260" y="224" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="10" fill="#C08457" font-weight="600">旅</text>
+        </g>
+        <g>
+          <circle cx="470" cy="160" r="17" fill="#fff" stroke="#2D6A4F" stroke-width="2"/>
+          <text x="470" y="164" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="10" fill="#2D6A4F" font-weight="600">問い</text>
+        </g>
+        <g>
+          <circle cx="660" cy="200" r="17" fill="#fff" stroke="#1F3A3D" stroke-width="2"/>
+          <text x="660" y="204" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="10" fill="#1F3A3D" font-weight="600">作る</text>
+        </g>
+
+        <!-- 交差点マーカー -->
+        <g opacity="0.9">
+          <circle cx="340" cy="310" r="4" fill="#2D6A4F"/>
+          <circle cx="540" cy="280" r="4" fill="#C08457"/>
+          <circle cx="620" cy="340" r="4" fill="#1F3A3D"/>
+          <text x="340" y="340" font-family="'Noto Sans JP',sans-serif" font-size="9" fill="#7a7a7a" text-anchor="middle">引力点</text>
+        </g>
+
+        <!-- 起点 -->
+        <circle cx="130" cy="460" r="35" fill="url(#bSrc)"/>
+        <circle cx="130" cy="460" r="20" fill="#C08457"/>
+        <text x="130" y="464" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="10" fill="#fff" font-weight="700">探究テーマ</text>
+
+        <!-- 到達点3つ -->
+        <g>
+          <circle cx="820" cy="100" r="18" fill="url(#bDest)"/>
+          <circle cx="820" cy="100" r="9" fill="#B8860B"/>
+          <g stroke="#B8860B" stroke-width="1.4" stroke-linecap="round">
+            <line x1="820" y1="78" x2="820" y2="72"/>
+            <line x1="820" y1="122" x2="820" y2="128"/>
+            <line x1="798" y1="100" x2="792" y2="100"/>
+            <line x1="842" y1="100" x2="848" y2="100"/>
+          </g>
+          <circle cx="820" cy="155" r="12" fill="url(#bDest)" opacity="0.85"/>
+          <circle cx="820" cy="155" r="6" fill="#B8860B"/>
+          <circle cx="820" cy="210" r="11" fill="url(#bDest)" opacity="0.75"/>
+          <circle cx="820" cy="210" r="5.5" fill="#B8860B"/>
+        </g>
+
+        <!-- 注釈 -->
+        <text x="450" y="510" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="11" fill="#4a4a4a" letter-spacing="2">3人の螺旋が交差するたび、引力が軌道を曲げる</text>
+        <text x="450" y="528" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="9" fill="#7a7a7a">実線=主役 / 破線=仲間 / 緑の円=互いの引力がぶつかる点</text>
+      </svg>
+
+      <div class="variant-foot">
+        <div class="foot-cell strong"><b>強み</b>「仲間の引力で軌道が曲がる」がこの型で最もよく見える。POOLO独自性の核を描ける。</div>
+        <div class="foot-cell weak"><b>弱み</b>線が多く複雑。初見で読みにくい可能性あり。実践3つが主役1人の軌跡に限定される。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- C. 川デルタ型（River Delta） -->
+<!-- ============================================================ -->
+<section class="variant">
+  <div class="wrap">
+    <div class="variant-card">
+      <div class="variant-head">
+        <span class="variant-num">PATTERN C</span>
+        <span class="variant-title">川デルタ型</span>
+        <span class="variant-en">RIVER DELTA</span>
+      </div>
+      <p class="variant-desc">
+        <b>左端の源流（探究テーマ）から右端のデルタ（複数の到達点）へ</b>、川が蛇行しながら進む。途中で支流が分岐し、合流する。実践マーカーは本流の蛇行点に。<br>
+        → <b>運ばれていく</b>感覚が最も強い。時間軸が自然に横方向に流れる。
+      </p>
+
+      <svg class="variant-svg" viewBox="0 0 900 560" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="cRiver" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#C08457" stop-opacity="0.9"/>
+            <stop offset="50%" stop-color="#2D6A4F" stop-opacity="0.85"/>
+            <stop offset="100%" stop-color="#B8860B" stop-opacity="0.95"/>
+          </linearGradient>
+          <radialGradient id="cSrc" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#C08457" stop-opacity="1"/>
+            <stop offset="100%" stop-color="#C08457" stop-opacity="0"/>
+          </radialGradient>
+          <radialGradient id="cDest" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#B8860B" stop-opacity="1"/>
+            <stop offset="100%" stop-color="#B8860B" stop-opacity="0"/>
+          </radialGradient>
+          <radialGradient id="cField" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#1F3A3D" stop-opacity="0.14"/>
+            <stop offset="100%" stop-color="#1F3A3D" stop-opacity="0"/>
+          </radialGradient>
+          <marker id="cArrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+            <path d="M0,0 L10,5 L0,10 L3,5 z" fill="#B8860B"/>
+          </marker>
+        </defs>
+
+        <rect x="40" y="30" width="820" height="460" rx="10" fill="#fafaf5" stroke="#e0ddd3" stroke-width="1" stroke-dasharray="4 6"/>
+        <text x="60" y="55" font-family="'Shippori Mincho',serif" font-size="11" fill="#4a4a4a" letter-spacing="3">場 — 岸辺に仲間がいる川</text>
+
+        <!-- 岸辺の引力場 -->
+        <circle cx="260" cy="130" r="70" fill="url(#cField)"/>
+        <circle cx="500" cy="420" r="80" fill="url(#cField)"/>
+        <circle cx="650" cy="130" r="70" fill="url(#cField)"/>
+
+        <!-- 仲間（岸辺の点） -->
+        <g opacity="0.7">
+          <circle cx="240" cy="110" r="4" fill="#2D6A4F"/>
+          <text x="250" y="108" font-family="'Noto Sans JP',sans-serif" font-size="9" fill="#2D6A4F">仲間</text>
+          <circle cx="480" cy="440" r="4" fill="#C08457"/>
+          <text x="490" y="452" font-family="'Noto Sans JP',sans-serif" font-size="9" fill="#C08457">仲間</text>
+          <circle cx="670" cy="115" r="4" fill="#1F3A3D"/>
+          <text x="680" y="113" font-family="'Noto Sans JP',sans-serif" font-size="9" fill="#1F3A3D">仲間</text>
+          <circle cx="350" cy="430" r="3" fill="#B8860B"/>
+          <circle cx="580" cy="450" r="3" fill="#2D6A4F"/>
+          <circle cx="180" cy="410" r="3" fill="#1F3A3D"/>
+          <circle cx="420" cy="100" r="3" fill="#B8860B"/>
+        </g>
+
+        <!-- 川（本流） - 太い帯として描く -->
+        <path d="M 130 290
+                 C 220 270, 260 320, 320 300
+                 C 380 280, 420 340, 490 310
+                 C 560 280, 600 240, 670 270
+                 C 720 290, 760 250, 820 220
+                 L 820 260
+                 C 760 290, 720 330, 670 310
+                 C 600 280, 560 320, 490 350
+                 C 420 380, 380 320, 320 340
+                 C 260 360, 220 310, 130 330
+                 Z"
+              fill="url(#cRiver)" opacity="0.28"/>
+
+        <!-- 本流の中心線 -->
+        <path d="M 130 310
+                 C 220 290, 260 340, 320 320
+                 C 380 300, 420 360, 490 330
+                 C 560 300, 600 260, 670 290
+                 C 720 310, 760 265, 820 240"
+              fill="none" stroke="url(#cRiver)" stroke-width="3" stroke-linecap="round" marker-end="url(#cArrow)"/>
+
+        <!-- 支流（上方向に分岐、デルタ出口2つ目へ） -->
+        <path d="M 490 330
+                 C 550 310, 590 240, 650 200
+                 C 710 160, 760 150, 820 145"
+              fill="none" stroke="#2D6A4F" stroke-width="2" stroke-linecap="round" stroke-dasharray="6 4" opacity="0.7" marker-end="url(#cArrow)"/>
+
+        <!-- 支流（下方向、デルタ出口3つ目へ） -->
+        <path d="M 320 320
+                 C 380 350, 440 400, 520 400
+                 C 620 400, 720 380, 820 360"
+              fill="none" stroke="#1F3A3D" stroke-width="2" stroke-linecap="round" stroke-dasharray="6 4" opacity="0.6" marker-end="url(#cArrow)"/>
+
+        <!-- 実践マーカー（本流上） -->
+        <g>
+          <circle cx="280" cy="316" r="17" fill="#fff" stroke="#C08457" stroke-width="2"/>
+          <text x="280" y="320" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="10" fill="#C08457" font-weight="600">旅</text>
+        </g>
+        <g>
+          <circle cx="490" cy="330" r="17" fill="#fff" stroke="#2D6A4F" stroke-width="2"/>
+          <text x="490" y="334" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="10" fill="#2D6A4F" font-weight="600">問い</text>
+        </g>
+        <g>
+          <circle cx="690" cy="280" r="17" fill="#fff" stroke="#1F3A3D" stroke-width="2"/>
+          <text x="690" y="284" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="10" fill="#1F3A3D" font-weight="600">作る</text>
+        </g>
+
+        <!-- 源流 -->
+        <circle cx="130" cy="310" r="36" fill="url(#cSrc)"/>
+        <circle cx="130" cy="310" r="22" fill="#C08457"/>
+        <text x="130" y="314" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="10" fill="#fff" font-weight="700">探究テーマ</text>
+        <text x="130" y="360" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="10" fill="#C08457" font-weight="500">源流</text>
+
+        <!-- デルタ（到達点、右端に3つ） -->
+        <g>
+          <circle cx="820" cy="240" r="18" fill="url(#cDest)"/>
+          <circle cx="820" cy="240" r="9" fill="#B8860B"/>
+          <g stroke="#B8860B" stroke-width="1.4" stroke-linecap="round">
+            <line x1="820" y1="218" x2="820" y2="212"/>
+            <line x1="820" y1="262" x2="820" y2="268"/>
+            <line x1="798" y1="240" x2="792" y2="240"/>
+            <line x1="842" y1="240" x2="848" y2="240"/>
+          </g>
+          <circle cx="820" cy="145" r="13" fill="url(#cDest)" opacity="0.85"/>
+          <circle cx="820" cy="145" r="6.5" fill="#B8860B"/>
+          <circle cx="820" cy="360" r="13" fill="url(#cDest)" opacity="0.85"/>
+          <circle cx="820" cy="360" r="6.5" fill="#B8860B"/>
+        </g>
+
+        <!-- 時間軸 -->
+        <g>
+          <line x1="100" y1="500" x2="820" y2="500" stroke="#e0ddd3" stroke-width="1"/>
+          <line x1="100" y1="495" x2="100" y2="505" stroke="#a8a8a8"/>
+          <line x1="360" y1="495" x2="360" y2="505" stroke="#a8a8a8"/>
+          <line x1="580" y1="495" x2="580" y2="505" stroke="#a8a8a8"/>
+          <line x1="820" y1="495" x2="820" y2="505" stroke="#a8a8a8"/>
+          <text x="100" y="520" font-family="'Noto Sans JP',sans-serif" font-size="9" fill="#a8a8a8">M1</text>
+          <text x="230" y="520" font-family="'Noto Sans JP',sans-serif" font-size="9" fill="#a8a8a8">見つける</text>
+          <text x="450" y="520" font-family="'Noto Sans JP',sans-serif" font-size="9" fill="#a8a8a8">小さく届ける</text>
+          <text x="680" y="520" font-family="'Noto Sans JP',sans-serif" font-size="9" fill="#a8a8a8">社会へ届ける</text>
+          <text x="820" y="520" font-family="'Noto Sans JP',sans-serif" font-size="9" fill="#a8a8a8" text-anchor="end">M8</text>
+        </g>
+
+        <text x="450" y="548" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="11" fill="#4a4a4a" letter-spacing="2">源流から河口へ、本流は蛇行し、支流は分岐する</text>
+      </svg>
+
+      <div class="variant-foot">
+        <div class="foot-cell strong"><b>強み</b>時間軸が一目でわかる。「運ばれていく」感覚が自然。初見で読みやすい。</div>
+        <div class="foot-cell weak"><b>弱み</b>「仲間の引力で軌道が曲がる」の能動性が弱く、受け身な印象に寄る。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- D. 星座マップ型（Constellation） -->
+<!-- ============================================================ -->
+<section class="variant">
+  <div class="wrap">
+    <div class="variant-card">
+      <div class="variant-head">
+        <span class="variant-num">PATTERN D</span>
+        <span class="variant-title">星座マップ型</span>
+        <span class="variant-en">CONSTELLATION</span>
+      </div>
+      <p class="variant-desc">
+        濃紺の夜空に<b>星として探究テーマ・実践・仲間・到達点を配置</b>し、線で結んで星座を描く。複数の星座が一つの夜空に並ぶ。<br>
+        → <b>自分だけの星座が浮かび上がる</b>物語感。卒業後も夜空に残る、という余韻が作れる。
+      </p>
+
+      <svg class="variant-svg" viewBox="0 0 900 560" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <radialGradient id="dStarBright" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#fff" stop-opacity="1"/>
+            <stop offset="40%" stop-color="#B8860B" stop-opacity="0.8"/>
+            <stop offset="100%" stop-color="#B8860B" stop-opacity="0"/>
+          </radialGradient>
+          <radialGradient id="dStarWarm" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#fff" stop-opacity="1"/>
+            <stop offset="40%" stop-color="#C08457" stop-opacity="0.8"/>
+            <stop offset="100%" stop-color="#C08457" stop-opacity="0"/>
+          </radialGradient>
+          <radialGradient id="dStarGreen" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#fff" stop-opacity="1"/>
+            <stop offset="40%" stop-color="#2D6A4F" stop-opacity="0.6"/>
+            <stop offset="100%" stop-color="#2D6A4F" stop-opacity="0"/>
+          </radialGradient>
+        </defs>
+
+        <!-- 夜空 -->
+        <rect x="0" y="0" width="900" height="560" fill="#1F3A3D"/>
+        <rect x="0" y="0" width="900" height="560" fill="#0d1f22" opacity="0.3"/>
+
+        <!-- 小さな星（散らす） -->
+        <g fill="#fff" opacity="0.5">
+          <circle cx="80" cy="60" r="0.8"/>
+          <circle cx="150" cy="200" r="0.6"/>
+          <circle cx="200" cy="90" r="1"/>
+          <circle cx="300" cy="150" r="0.7"/>
+          <circle cx="380" cy="70" r="0.9"/>
+          <circle cx="450" cy="180" r="0.6"/>
+          <circle cx="560" cy="80" r="0.8"/>
+          <circle cx="630" cy="220" r="0.7"/>
+          <circle cx="720" cy="100" r="0.9"/>
+          <circle cx="800" cy="180" r="0.6"/>
+          <circle cx="820" cy="320" r="0.8"/>
+          <circle cx="700" cy="380" r="0.7"/>
+          <circle cx="500" cy="440" r="0.9"/>
+          <circle cx="350" cy="400" r="0.6"/>
+          <circle cx="200" cy="440" r="0.8"/>
+          <circle cx="130" cy="350" r="0.7"/>
+          <circle cx="60" cy="450" r="0.6"/>
+          <circle cx="880" cy="480" r="0.8"/>
+          <circle cx="410" cy="260" r="0.6"/>
+          <circle cx="600" cy="340" r="0.7"/>
+        </g>
+
+        <!-- 仲間の星（少し明るい、色つき） -->
+        <g>
+          <circle cx="220" cy="180" r="2.5" fill="#2D6A4F"/>
+          <circle cx="380" cy="430" r="2.5" fill="#C08457"/>
+          <circle cx="650" cy="150" r="2.5" fill="#B8860B"/>
+          <circle cx="750" cy="380" r="2.5" fill="#2D6A4F"/>
+          <circle cx="180" cy="400" r="2" fill="#C08457"/>
+          <circle cx="500" cy="100" r="2" fill="#1F3A3D"/>
+        </g>
+
+        <!-- 探究テーマ（最も明るい星、左下） -->
+        <circle cx="170" cy="440" r="35" fill="url(#dStarWarm)" opacity="0.6"/>
+        <circle cx="170" cy="440" r="9" fill="#fff"/>
+        <g stroke="#fff" stroke-width="1" stroke-linecap="round" opacity="0.9">
+          <line x1="170" y1="420" x2="170" y2="410"/>
+          <line x1="170" y1="460" x2="170" y2="470"/>
+          <line x1="150" y1="440" x2="140" y2="440"/>
+          <line x1="190" y1="440" x2="200" y2="440"/>
+        </g>
+        <text x="170" y="497" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="11" fill="#C08457" font-weight="600">探究テーマ</text>
+        <text x="170" y="514" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="9" fill="#a8a8a8">起点の星</text>
+
+        <!-- 星座の線（実線=主役の星座） -->
+        <g stroke="#B8860B" stroke-width="1" stroke-linecap="round" opacity="0.75">
+          <line x1="170" y1="440" x2="290" y2="340"/>
+          <line x1="290" y1="340" x2="450" y2="280"/>
+          <line x1="450" y1="280" x2="620" y2="230"/>
+          <line x1="620" y1="230" x2="780" y2="130"/>
+        </g>
+
+        <!-- 実践（3つの星、星座上） -->
+        <g>
+          <circle cx="290" cy="340" r="16" fill="url(#dStarWarm)" opacity="0.5"/>
+          <circle cx="290" cy="340" r="6" fill="#fff"/>
+          <text x="290" y="370" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="10" fill="#C08457" font-weight="600">旅</text>
+        </g>
+        <g>
+          <circle cx="450" cy="280" r="16" fill="url(#dStarGreen)" opacity="0.5"/>
+          <circle cx="450" cy="280" r="6" fill="#fff"/>
+          <text x="450" y="310" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="10" fill="#2D6A4F" font-weight="600">問い</text>
+        </g>
+        <g>
+          <circle cx="620" cy="230" r="16" fill="url(#dStarGreen)" opacity="0.4"/>
+          <circle cx="620" cy="230" r="6" fill="#fff"/>
+          <text x="620" y="260" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="10" fill="#DCE6E7" font-weight="600">作る</text>
+        </g>
+
+        <!-- 別の星座の線（破線=別の人の星座） -->
+        <g stroke="#fff" stroke-width="0.8" stroke-dasharray="3 3" opacity="0.4">
+          <line x1="170" y1="440" x2="220" y2="180"/>
+          <line x1="220" y1="180" x2="500" y2="100"/>
+          <line x1="500" y1="100" x2="400" y2="60"/>
+        </g>
+        <g stroke="#fff" stroke-width="0.8" stroke-dasharray="3 3" opacity="0.4">
+          <line x1="170" y1="440" x2="380" y2="430"/>
+          <line x1="380" y1="430" x2="650" y2="430"/>
+          <line x1="650" y1="430" x2="830" y2="430"/>
+        </g>
+
+        <!-- 到達点（最も明るい星、複数） -->
+        <circle cx="780" cy="130" r="28" fill="url(#dStarBright)" opacity="0.8"/>
+        <circle cx="780" cy="130" r="8" fill="#fff"/>
+        <g stroke="#fff" stroke-width="1.2" stroke-linecap="round">
+          <line x1="780" y1="108" x2="780" y2="96"/>
+          <line x1="780" y1="152" x2="780" y2="164"/>
+          <line x1="758" y1="130" x2="746" y2="130"/>
+          <line x1="802" y1="130" x2="814" y2="130"/>
+        </g>
+        <text x="780" y="185" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="11" fill="#B8860B" font-weight="600">到達点</text>
+
+        <circle cx="400" cy="60" r="14" fill="url(#dStarBright)" opacity="0.6"/>
+        <circle cx="400" cy="60" r="5" fill="#fff"/>
+
+        <circle cx="830" cy="430" r="14" fill="url(#dStarBright)" opacity="0.6"/>
+        <circle cx="830" cy="430" r="5" fill="#fff"/>
+
+        <!-- タイトル -->
+        <text x="450" y="40" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="10" fill="#B8860B" letter-spacing="5">━━ 夜空に描かれる、自分の星座 ━━</text>
+
+        <!-- 凡例 -->
+        <text x="450" y="540" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="9" fill="#a8a8a8">実線=自分の星座 / 破線=仲間の星座 / 小さな星=同じ夜空にいる50人</text>
+      </svg>
+
+      <div class="variant-foot">
+        <div class="foot-cell strong"><b>強み</b>物語性・余韻が最も強い。卒業後も「夜空は残る」の比喩が使える。ビジュアルが他と全く違う。</div>
+        <div class="foot-cell weak"><b>弱み</b>反復（螺旋）や時間の流れが静的で伝わりにくい。夜空の背景はブランドと浮く懸念。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- E. 年輪深化型（Annual Rings） -->
+<!-- ============================================================ -->
+<section class="variant">
+  <div class="wrap">
+    <div class="variant-card">
+      <div class="variant-head">
+        <span class="variant-num">PATTERN E</span>
+        <span class="variant-title">年輪深化型</span>
+        <span class="variant-en">ANNUAL RINGS</span>
+      </div>
+      <p class="variant-desc">
+        中心に探究テーマを置き、<b>同心円の年輪で8ヶ月を刻む</b>。ルートは内→外へ螺旋で貫く。月ごとに輪が一つ増え、外に向かうほど深まり・広がる。<br>
+        → <b>深まりながら広がる</b>が主役。木の年輪のメタファーで、内発的な成長感が出る。
+      </p>
+
+      <svg class="variant-svg" viewBox="0 0 900 560" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <radialGradient id="eCore" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#C08457" stop-opacity="1"/>
+            <stop offset="100%" stop-color="#C08457" stop-opacity="0"/>
+          </radialGradient>
+          <radialGradient id="eField" cx="50%" cy="50%" r="50%">
+            <stop offset="60%" stop-color="#1F3A3D" stop-opacity="0"/>
+            <stop offset="90%" stop-color="#2D6A4F" stop-opacity="0.08"/>
+            <stop offset="100%" stop-color="#2D6A4F" stop-opacity="0"/>
+          </radialGradient>
+          <radialGradient id="eDest" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#B8860B" stop-opacity="1"/>
+            <stop offset="100%" stop-color="#B8860B" stop-opacity="0"/>
+          </radialGradient>
+          <marker id="eArrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+            <path d="M0,0 L10,5 L0,10 L3,5 z" fill="#B8860B"/>
+          </marker>
+        </defs>
+
+        <rect x="40" y="30" width="820" height="500" rx="10" fill="#fafaf5" stroke="#e0ddd3" stroke-width="1" stroke-dasharray="4 6"/>
+
+        <!-- 引力場（全体） -->
+        <circle cx="450" cy="280" r="250" fill="url(#eField)"/>
+
+        <!-- 年輪 8つ -->
+        <g fill="none" stroke="#C08457" stroke-width="0.8" opacity="0.3">
+          <circle cx="450" cy="280" r="40"/>
+          <circle cx="450" cy="280" r="70"/>
+          <circle cx="450" cy="280" r="100"/>
+          <circle cx="450" cy="280" r="130"/>
+          <circle cx="450" cy="280" r="160"/>
+          <circle cx="450" cy="280" r="190"/>
+          <circle cx="450" cy="280" r="220"/>
+          <circle cx="450" cy="280" r="250"/>
+        </g>
+
+        <!-- 月ラベル -->
+        <g font-family="'Noto Sans JP',sans-serif" font-size="9" fill="#a8a8a8" text-anchor="middle">
+          <text x="450" y="245">M1</text>
+          <text x="450" y="215">M2</text>
+          <text x="450" y="185">M3</text>
+          <text x="450" y="155">M4</text>
+          <text x="450" y="125">M5</text>
+          <text x="450" y="95">M6</text>
+          <text x="450" y="65">M7</text>
+          <text x="450" y="35">M8</text>
+        </g>
+
+        <!-- 仲間の点（各輪に散らす） -->
+        <g>
+          <circle cx="380" cy="260" r="3" fill="#2D6A4F"/>
+          <circle cx="520" cy="310" r="3" fill="#C08457"/>
+          <circle cx="330" cy="220" r="3" fill="#1F3A3D"/>
+          <circle cx="570" cy="230" r="3" fill="#B8860B"/>
+          <circle cx="280" cy="300" r="3.5" fill="#2D6A4F"/>
+          <circle cx="620" cy="330" r="3.5" fill="#C08457"/>
+          <circle cx="390" cy="170" r="3.5" fill="#1F3A3D"/>
+          <circle cx="550" cy="150" r="3.5" fill="#B8860B"/>
+          <circle cx="250" cy="200" r="4" fill="#2D6A4F"/>
+          <circle cx="650" cy="220" r="4" fill="#C08457"/>
+          <circle cx="350" cy="110" r="4" fill="#1F3A3D"/>
+          <circle cx="240" cy="380" r="4" fill="#B8860B"/>
+          <circle cx="660" cy="400" r="4" fill="#2D6A4F"/>
+          <circle cx="550" cy="80" r="4" fill="#C08457"/>
+          <circle cx="220" cy="460" r="4" fill="#1F3A3D"/>
+          <circle cx="700" cy="150" r="4" fill="#B8860B"/>
+        </g>
+
+        <!-- 螺旋ルート（中心から外へ、螺旋を描きながら） -->
+        <path d="M 450 280
+                 C 470 240, 430 230, 420 260
+                 C 410 290, 480 310, 500 260
+                 C 520 210, 440 190, 400 220
+                 C 360 250, 390 330, 470 330
+                 C 550 330, 570 250, 530 200
+                 C 490 150, 400 160, 370 220
+                 C 340 280, 420 380, 530 370
+                 C 640 360, 660 230, 580 160
+                 C 500 90, 380 130, 340 220
+                 C 300 310, 420 440, 580 410
+                 C 740 380, 750 180, 640 90
+                 C 550 30, 470 50, 440 40"
+              fill="none" stroke="#C08457" stroke-width="2.5" stroke-linecap="round" marker-end="url(#eArrow)" opacity="0.85"/>
+
+        <!-- 実践マーカー（螺旋の3地点） -->
+        <g>
+          <circle cx="400" cy="220" r="16" fill="#fff" stroke="#C08457" stroke-width="2"/>
+          <text x="400" y="224" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="10" fill="#C08457" font-weight="600">旅</text>
+        </g>
+        <g>
+          <circle cx="370" cy="220" r="16" fill="#fff" stroke="#2D6A4F" stroke-width="2" opacity="0"/>
+        </g>
+        <g>
+          <circle cx="530" cy="200" r="16" fill="#fff" stroke="#2D6A4F" stroke-width="2"/>
+          <text x="530" y="204" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="10" fill="#2D6A4F" font-weight="600">問い</text>
+        </g>
+        <g>
+          <circle cx="580" cy="160" r="16" fill="#fff" stroke="#1F3A3D" stroke-width="2"/>
+          <text x="580" y="164" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="10" fill="#1F3A3D" font-weight="600">作る</text>
+        </g>
+
+        <!-- 中心 -->
+        <circle cx="450" cy="280" r="28" fill="url(#eCore)"/>
+        <circle cx="450" cy="280" r="18" fill="#C08457"/>
+        <text x="450" y="284" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="9" fill="#fff" font-weight="700">探究</text>
+
+        <!-- 到達点（外周に複数） -->
+        <g>
+          <circle cx="440" cy="40" r="16" fill="url(#eDest)"/>
+          <circle cx="440" cy="40" r="8" fill="#B8860B"/>
+          <g stroke="#B8860B" stroke-width="1.3" stroke-linecap="round">
+            <line x1="440" y1="22" x2="440" y2="16"/>
+            <line x1="440" y1="58" x2="440" y2="64"/>
+            <line x1="422" y1="40" x2="416" y2="40"/>
+            <line x1="458" y1="40" x2="464" y2="40"/>
+          </g>
+          <circle cx="660" cy="50" r="11" fill="url(#eDest)" opacity="0.8"/>
+          <circle cx="660" cy="50" r="5.5" fill="#B8860B"/>
+          <circle cx="230" cy="70" r="11" fill="url(#eDest)" opacity="0.8"/>
+          <circle cx="230" cy="70" r="5.5" fill="#B8860B"/>
+          <circle cx="90" cy="250" r="10" fill="url(#eDest)" opacity="0.7"/>
+          <circle cx="90" cy="250" r="5" fill="#B8860B"/>
+          <circle cx="810" cy="250" r="10" fill="url(#eDest)" opacity="0.7"/>
+          <circle cx="810" cy="250" r="5" fill="#B8860B"/>
+        </g>
+
+        <!-- 注釈 -->
+        <text x="450" y="550" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="11" fill="#4a4a4a" letter-spacing="2">中心の探究テーマから、年輪を重ねて外へ広がる</text>
+      </svg>
+
+      <div class="variant-foot">
+        <div class="foot-cell strong"><b>強み</b>「深まり」と「広がり」が同時に描ける。時間軸が同心円で直感的。内発的成長の比喩が強い。</div>
+        <div class="foot-cell weak"><b>弱み</b>到達点が外周に並び、「一つではない」が対称的になりすぎる。分岐の強調が弱い。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- 比較表 -->
+<!-- ============================================================ -->
+<section class="compare">
+  <div class="wrap">
+    <div class="compare-title">━━ COMPARISON ━━</div>
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th>評価軸</th>
+          <th>A 放射分岐</th>
+          <th>B 編み込み螺旋</th>
+          <th>C 川デルタ</th>
+          <th>D 星座</th>
+          <th>E 年輪</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>到達点は一つではない</td>
+          <td><span class="score hi">◎</span></td>
+          <td><span class="score mid">○</span></td>
+          <td><span class="score hi">◎</span></td>
+          <td><span class="score mid">○</span></td>
+          <td><span class="score mid">○</span></td>
+        </tr>
+        <tr>
+          <td>仲間の引力で軌道が曲がる</td>
+          <td><span class="score lo">△</span></td>
+          <td><span class="score hi">◎</span></td>
+          <td><span class="score mid">○</span></td>
+          <td><span class="score lo">△</span></td>
+          <td><span class="score lo">△</span></td>
+        </tr>
+        <tr>
+          <td>8ヶ月の時間軸</td>
+          <td><span class="score lo">△</span></td>
+          <td><span class="score mid">○</span></td>
+          <td><span class="score hi">◎</span></td>
+          <td><span class="score lo">△</span></td>
+          <td><span class="score hi">◎</span></td>
+        </tr>
+        <tr>
+          <td>初見の読みやすさ</td>
+          <td><span class="score hi">◎</span></td>
+          <td><span class="score lo">△</span></td>
+          <td><span class="score hi">◎</span></td>
+          <td><span class="score mid">○</span></td>
+          <td><span class="score mid">○</span></td>
+        </tr>
+        <tr>
+          <td>物語性・余韻</td>
+          <td><span class="score mid">○</span></td>
+          <td><span class="score mid">○</span></td>
+          <td><span class="score mid">○</span></td>
+          <td><span class="score hi">◎</span></td>
+          <td><span class="score mid">○</span></td>
+        </tr>
+        <tr>
+          <td>POOLO独自性の核を描けるか</td>
+          <td><span class="score mid">○</span></td>
+          <td><span class="score hi">◎</span></td>
+          <td><span class="score mid">○</span></td>
+          <td><span class="score mid">○</span></td>
+          <td><span class="score mid">○</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="wrap">
+    <a href="poolo-model.html">現行 MAIN MAP</a>
+    <a href="index-share.html">共有ハブ</a>
+    <a href="poolo-ripple.html">探究テーマの広がり</a>
+    <a href="poolo-spiral-theory.html">理論で読み解く</a>
+    <p>POOLO LIFE — MAIN MAP 5 Variants / 2026.04.18</p>
+  </div>
+</footer>
+
+</body>
+</html>
