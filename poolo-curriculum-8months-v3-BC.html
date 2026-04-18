@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>POOLO LIFE 8か月構成 v3 ／ 案B・案C 比較プレビュー</title>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#1a1a1a; --sub:#4a4a4a; --mute:#7a7a7a; --hint:#a8a8a8;
+  --bg:#faf9f6; --bg-deep:#f3f1ea; --line:#e0ddd3;
+  --green:#2D6A4F; --green-bg:#E9F5EE; --green-deep:#1A5238;
+  --warm:#C08457; --warm-bg:#F7EDE2; --warm-deep:#9F6A43;
+  --deep:#1F3A3D; --deep-bg:#DCE6E7;
+  --star:#B8860B; --star-bg:#F9F0D9;
+  --purple:#534AB7; --purple-bg:#ECEAF7;
+  --slate:#4A5A68; --slate-bg:#E4E8EC;
+  --serif:'Shippori Mincho',serif; --sans:'Noto Sans JP',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:var(--sans);background:var(--bg);color:var(--ink);line-height:1.95;font-weight:300;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1100px;margin:0 auto;padding:0 1.5rem}
+
+.preview-header{padding:3.2rem 0 2.4rem;text-align:center;background:var(--bg-deep);border-bottom:1px solid var(--line)}
+.preview-tag{display:inline-block;font-size:0.6rem;letter-spacing:0.4em;color:var(--star);margin-bottom:1.2rem;font-weight:500;padding:0.35rem 1.1rem;border:1px solid var(--star);background:#fff}
+.preview-title{font-family:var(--serif);font-size:1.75rem;font-weight:600;letter-spacing:0.08em;line-height:1.7;color:var(--ink);margin-bottom:0.6rem}
+.preview-sub{font-family:var(--serif);font-size:0.88rem;color:var(--mute);letter-spacing:0.06em}
+.preview-meta{font-size:0.72rem;color:var(--hint);letter-spacing:0.12em;margin-top:1rem}
+
+section{padding:3.6rem 0}
+.sec-num{font-family:var(--serif);font-size:0.72rem;letter-spacing:0.3em;margin-bottom:0.6rem;font-weight:500;color:var(--green)}
+.sec-num.warm{color:var(--warm)}
+.sec-num.deep{color:var(--deep)}
+.sec-num.purple{color:var(--purple)}
+.sec-head{font-family:var(--serif);font-size:1.55rem;font-weight:600;letter-spacing:0.06em;margin-bottom:1.4rem;color:var(--ink);line-height:1.6}
+.sec-head::before{content:'';display:inline-block;width:2.6rem;height:2px;background:currentColor;margin-right:0.8rem;vertical-align:middle;margin-bottom:0.35em}
+.sec-head.warm{color:var(--warm-deep)}
+.sec-head.green{color:var(--green-deep)}
+.sec-head.deep{color:var(--deep)}
+.sec-head.purple{color:var(--purple)}
+p.lead{font-family:var(--serif);font-size:1.02rem;color:var(--ink);font-weight:500;line-height:2;margin-bottom:1.6rem}
+
+.objective{background:var(--deep-bg);border-left:3px solid var(--deep);padding:1.5rem 1.8rem;margin:0 auto 2rem;max-width:880px;font-family:var(--serif);font-size:0.95rem;color:var(--ink);line-height:2;letter-spacing:0.04em}
+.objective b{color:var(--deep);font-weight:600}
+.objective-label{font-size:0.62rem;letter-spacing:0.3em;color:var(--deep);font-family:var(--sans);font-weight:600;margin-bottom:0.5rem;display:block}
+
+.changes{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;max-width:1000px;margin:1.5rem auto 0}
+.chcard{background:#fff;border:1px solid var(--line);border-top:3px solid var(--warm);padding:1.2rem 1.1rem;border-radius:2px}
+.chcard h4{font-family:var(--serif);font-size:0.95rem;color:var(--warm-deep);font-weight:600;letter-spacing:0.06em;margin-bottom:0.6rem}
+.chcard p{font-size:0.8rem;color:var(--sub);line-height:1.85}
+.chcard p b{color:var(--ink);font-weight:600}
+.chcard .before{font-size:0.7rem;color:var(--mute);text-decoration:line-through;margin-right:0.4rem}
+.chcard .after{font-size:0.8rem;color:var(--warm-deep);font-weight:600}
+
+.theory-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin:1.5rem 0}
+.theory-card{background:#fff;border:1px solid var(--line);border-top:3px solid var(--purple);padding:1.2rem 1rem;border-radius:2px}
+.theory-card h4{font-family:var(--serif);font-size:0.85rem;color:var(--purple);font-weight:600;letter-spacing:0.08em;margin-bottom:0.6rem;line-height:1.6}
+.theory-card p{font-size:0.78rem;color:var(--sub);line-height:1.85}
+.theory-card b{color:var(--ink);font-weight:600}
+.theory-term{background:var(--purple-bg);padding:0.8rem 1.2rem;border-radius:2px;margin-top:1rem;font-size:0.78rem;color:var(--purple);line-height:1.85}
+.theory-term b{color:var(--purple);font-weight:600}
+
+.frame-band{display:grid;grid-template-columns:2fr 2fr 3fr 1fr;gap:0.4rem;max-width:1040px;margin:1.5rem auto 0;font-size:0.72rem;letter-spacing:0.12em;text-align:center}
+.frame-band .ph{padding:0.9rem 0.5rem;border-radius:2px;font-weight:500}
+.frame-band .ph1{background:var(--green-bg);color:var(--green-deep)}
+.frame-band .ph2{background:var(--purple-bg);color:var(--purple)}
+.frame-band .ph3{background:var(--star-bg);color:var(--star)}
+.frame-band .ph4{background:var(--slate-bg);color:var(--slate)}
+.frame-band .ph b{display:block;font-family:var(--serif);font-size:0.9rem;letter-spacing:0.05em;margin-bottom:0.3rem}
+.frame-sub{text-align:center;font-size:0.75rem;color:var(--mute);margin-top:0.6rem;letter-spacing:0.06em}
+
+.plan-header{text-align:center;padding:2.5rem 0 1rem}
+.plan-header::before,.plan-header::after{content:'';display:inline-block;width:60px;height:1px;background:var(--line);vertical-align:middle;margin:0 1rem}
+.plan-header .plan-tag{display:inline-block;font-size:0.68rem;letter-spacing:0.4em;padding:0.35rem 1.4rem;border:1px solid currentColor;background:#fff;font-weight:500;vertical-align:middle}
+.plan-header.b .plan-tag{color:var(--green-deep);background:var(--green-bg)}
+.plan-header.c .plan-tag{color:var(--warm-deep);background:var(--warm-bg)}
+.plan-title{font-family:var(--serif);font-size:1.9rem;font-weight:700;letter-spacing:0.06em;margin-top:1rem;line-height:1.6}
+.plan-header.b .plan-title{color:var(--green-deep)}
+.plan-header.c .plan-title{color:var(--warm-deep)}
+.plan-subtitle{font-family:var(--serif);font-size:0.95rem;color:var(--mute);letter-spacing:0.08em;margin-top:0.4rem}
+
+.principle{padding:1.1rem 1.4rem;margin:1.5rem auto;max-width:880px;font-size:0.92rem;font-weight:500;text-align:center;letter-spacing:0.04em;line-height:1.9;border-radius:2px}
+.principle.b{background:var(--green-bg);color:var(--green-deep);border-left:3px solid var(--green)}
+.principle.c{background:var(--warm-bg);color:var(--warm-deep);border-left:3px solid var(--warm)}
+.principle::before{content:'駆動原理 — ';font-family:var(--serif);font-weight:600}
+
+.months8{display:grid;grid-template-columns:repeat(4,1fr);gap:0.9rem;margin:2rem auto;max-width:1040px}
+.mcard{background:#fff;border:1px solid var(--line);border-radius:3px;padding:1.2rem 1.1rem;display:flex;flex-direction:column;gap:0.55rem;min-height:230px;transition:transform 0.18s}
+.mcard:hover{transform:translateY(-2px);box-shadow:0 4px 16px rgba(0,0,0,0.06)}
+.mcard-top{display:flex;justify-content:space-between;align-items:center;gap:0.5rem}
+.mnum{font-family:var(--serif);font-size:1.5rem;font-weight:600;line-height:1}
+.mbadges{display:flex;gap:0.35rem;flex-wrap:wrap;justify-content:flex-end}
+.mbadge{font-size:0.58rem;letter-spacing:0.18em;font-weight:500;padding:0.2rem 0.5rem;border-radius:2px;white-space:nowrap}
+.mbadge.p1{background:var(--green-bg);color:var(--green-deep)}
+.mbadge.p2{background:var(--purple-bg);color:var(--purple)}
+.mbadge.p3{background:var(--star-bg);color:var(--star)}
+.mbadge.p4{background:var(--slate-bg);color:var(--slate)}
+.mbadge.camp{background:var(--warm-bg);color:var(--warm-deep);font-weight:700}
+.mtheme{font-family:var(--serif);font-size:1.05rem;font-weight:600;letter-spacing:0.04em;line-height:1.55;color:var(--ink)}
+.mdesc{font-size:0.77rem;color:var(--sub);line-height:1.8}
+.mstep{font-size:0.6rem;letter-spacing:0.2em;font-weight:500;color:var(--hint);text-transform:uppercase}
+.mguest{margin-top:auto;padding-top:0.7rem;border-top:1px dashed var(--line);display:flex;gap:0.5rem;align-items:flex-start;font-size:0.72rem;color:var(--mute);line-height:1.75}
+.mguest .glbl{font-family:var(--serif);color:var(--ink);font-weight:600;white-space:nowrap}
+.mguest .gval{color:var(--sub)}
+
+.plan-b .mcard{border-top:3px solid var(--green)}
+.plan-b .mcard .mnum{color:var(--green)}
+.plan-c .mcard{border-top:3px solid var(--warm)}
+.plan-c .mcard .mnum{color:var(--warm)}
+
+.phase-band4{display:grid;grid-template-columns:2fr 2fr 3fr 1fr;gap:0.4rem;margin:0.8rem auto 0;max-width:1040px;font-size:0.68rem;letter-spacing:0.12em;text-align:center}
+.phase-band4 .ph{padding:0.6rem 0.5rem;border-radius:2px;font-weight:500}
+.phase-band4 .ph1{background:var(--green-bg);color:var(--green-deep)}
+.phase-band4 .ph2{background:var(--purple-bg);color:var(--purple)}
+.phase-band4 .ph3{background:var(--star-bg);color:var(--star)}
+.phase-band4 .ph4{background:var(--slate-bg);color:var(--slate)}
+
+.visual-wrap{max-width:940px;margin:2.5rem auto 0}
+.visual-wrap svg{width:100%;height:auto;display:block}
+.visual-cap{text-align:center;font-family:var(--serif);font-size:0.82rem;color:var(--sub);letter-spacing:0.06em;margin-top:0.8rem;line-height:1.9}
+
+.guest-section{background:var(--bg-deep);padding:3.5rem 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.guest-table{width:100%;max-width:1020px;margin:1.5rem auto;border-collapse:collapse;background:#fff;border:1px solid var(--line);font-size:0.85rem}
+.guest-table thead th{background:var(--deep);color:#fff;font-family:var(--serif);font-weight:600;padding:0.9rem 0.9rem;text-align:left;letter-spacing:0.06em;font-size:0.8rem}
+.guest-table tbody td{padding:0.9rem 0.9rem;color:var(--sub);border-bottom:1px solid var(--line);line-height:1.75;vertical-align:top}
+.guest-table tbody td.m-cell{font-family:var(--serif);font-weight:600;color:var(--ink);white-space:nowrap;background:var(--bg-deep);font-size:0.85rem}
+.guest-table tbody td b{color:var(--ink);font-weight:600}
+.guest-table tbody tr.camp-row td.m-cell{background:var(--warm-bg);color:var(--warm-deep)}
+.guest-table tbody tr.review-row td.m-cell{background:var(--slate-bg);color:var(--slate)}
+.guest-note{max-width:1000px;margin:1.5rem auto 0;font-size:0.82rem;color:var(--sub);line-height:1.9;background:#fff;padding:1.2rem 1.5rem;border-left:3px solid var(--deep);border-radius:2px}
+.guest-note b{color:var(--ink);font-weight:600}
+
+.compare-section{padding:3.5rem 0}
+.cmp-table{width:100%;max-width:980px;margin:1.5rem auto;border-collapse:collapse;background:#fff;border:1px solid var(--line);font-size:0.85rem}
+.cmp-table thead th{background:var(--deep);color:#fff;font-family:var(--serif);font-weight:600;padding:1rem 1rem;text-align:left;letter-spacing:0.06em;font-size:0.85rem}
+.cmp-table thead th.b-col{background:var(--green)}
+.cmp-table thead th.c-col{background:var(--warm)}
+.cmp-table tbody th{text-align:left;padding:1rem 1rem;font-family:var(--serif);font-weight:600;color:var(--ink);background:var(--bg-deep);font-size:0.85rem;border-bottom:1px solid var(--line);white-space:nowrap}
+.cmp-table tbody td{padding:1rem 1rem;color:var(--sub);border-bottom:1px solid var(--line);line-height:1.75;vertical-align:top}
+.cmp-table tbody td b{color:var(--ink);font-weight:600}
+
+.q-list{max-width:880px;margin:1rem auto 0;display:flex;flex-direction:column;gap:1rem}
+.q-item{background:#fff;border:1px solid var(--line);border-left:4px solid var(--star);padding:1.4rem 1.6rem;border-radius:2px}
+.q-num{font-family:var(--serif);font-size:0.7rem;letter-spacing:0.3em;color:var(--star);font-weight:600;margin-bottom:0.5rem}
+.q-body{font-family:var(--serif);font-size:1.02rem;font-weight:600;color:var(--ink);line-height:1.75;margin-bottom:0.5rem}
+.q-note{font-size:0.82rem;color:var(--sub);line-height:1.85}
+.q-note b{color:var(--ink)}
+
+.rec{background:var(--deep);color:#fff;padding:1.8rem 2rem;max-width:880px;margin:2rem auto 0;border-radius:2px;line-height:2;font-size:0.9rem;letter-spacing:0.04em}
+.rec .rec-label{font-family:var(--serif);font-size:0.7rem;letter-spacing:0.3em;color:rgba(255,255,255,0.6);margin-bottom:0.6rem;display:block;font-weight:500}
+.rec b{color:#fff;font-weight:600}
+.rec .hl-b{color:var(--green-bg);border-bottom:1px solid var(--green-bg);padding-bottom:1px}
+.rec .hl-c{color:var(--warm-bg);border-bottom:1px solid var(--warm-bg);padding-bottom:1px}
+
+.footer{background:var(--deep);padding:2.5rem 0;text-align:center;color:#fff}
+.footer-links{display:flex;justify-content:center;gap:0.6rem;flex-wrap:wrap;margin-bottom:0.9rem}
+.footer a{color:rgba(255,255,255,0.85);text-decoration:none;font-size:0.78rem;letter-spacing:0.1em;border-bottom:1px solid rgba(255,255,255,0.3);padding-bottom:2px}
+.footer a:hover{color:#fff;border-bottom-color:#fff}
+.footer p{color:rgba(255,255,255,0.5);font-size:0.72rem;margin-top:0.5rem;letter-spacing:0.1em}
+
+@media(max-width:860px){
+  .theory-grid,.changes{grid-template-columns:repeat(2,1fr)}
+  .months8{grid-template-columns:repeat(2,1fr)}
+  .frame-band,.phase-band4{grid-template-columns:1fr 1fr}
+  .preview-title{font-size:1.3rem}
+  .plan-title{font-size:1.4rem}
+}
+</style>
+</head>
+<body>
+
+<header class="preview-header">
+  <div class="wrap">
+    <span class="preview-tag">PREVIEW v3 ／ 8か月構成（2+2+3+1・合宿M3）</span>
+    <h1 class="preview-title">POOLO LIFE 月テーマ再考 ／ 8か月構成</h1>
+    <div class="preview-sub">案B・案C 比較プレビュー（月次ゲスト像つき）</div>
+    <div class="preview-meta">2026-04-18 ／ 社長判断用プレビュー（公開前）</div>
+  </div>
+</header>
+
+<!-- CHANGE SUMMARY -->
+<section>
+  <div class="wrap">
+    <div class="objective">
+      <span class="objective-label">このプレビューの前提</span>
+      8か月を<b>2+2+3+1</b>の4フェーズで組み直します。自分とつながる2か月／POOLOとつながる2か月／社会とつながる3か月／振り返り1か月。合宿は<b>M3（POOLOとつながる2か月の入口＝3か月目）</b>に配置。既存のM4合宿から<b>1か月前倒し</b>され、名乗り合宿としての性格を継承します。
+    </div>
+
+    <div class="changes">
+      <div class="chcard">
+        <h4>期間 ／ 8か月・4フェーズ</h4>
+        <p><span class="after">P1自分2 ／ P2 POOLO2 ／ P3社会3 ／ P4振り返り1</span><br>既存M8「循環と持ち帰り」を<b>M7 Lv.3 ＋ M8 振り返り</b>に分離し、到達と持ち帰りを独立月として立たせる。</p>
+      </div>
+      <div class="chcard">
+        <h4>合宿位置 ／ M3へ前倒し</h4>
+        <p><span class="before">既存M4</span><span class="after">新M3（3か月目）</span><br>POOLOとつながる2か月の<b>入口</b>。既存同様<b>仲間への名乗り合宿</b>として機能。1か月前倒しで仮の輪郭形成期間は既存3か月→<b>新2か月</b>へ圧縮。</p>
+      </div>
+      <div class="chcard">
+        <h4>ゲスト像 ／ 月カードに併記</h4>
+        <p>各月に<b>ゲストの型</b>（候補）を添え、全体配置タイムラインを別枠で用意。M8振り返りは<b>ゲスト不在</b>（受講生主語）。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- THEORY RECAP -->
+<section>
+  <div class="wrap">
+    <div class="sec-num purple">§ 01 ／ THEORY</div>
+    <h2 class="sec-head purple">螺旋理論の骨子（おさらい）</h2>
+    <p class="lead">月テーマ案の基準となる理論の核を先に置きます。</p>
+    <div class="theory-grid">
+      <div class="theory-card">
+        <h4>3つの問い</h4>
+        <p><b>動き出せる条件</b>／<b>深まる条件</b>／<b>出会い続ける条件</b>。螺旋を駆動する根源的な問い。</p>
+      </div>
+      <div class="theory-card">
+        <h4>駆動原理</h4>
+        <p><b>仮の輪郭</b>を未完成で差し出す→仲間の<b>引力場</b>で軌道が曲がる→<b>受け取り直す</b>→また差し出す。</p>
+      </div>
+      <div class="theory-card">
+        <h4>4ステップ</h4>
+        <p>見つける → 名乗る → 小さく届ける → <b>知らない人に届ける</b>（達成指標）。</p>
+      </div>
+      <div class="theory-card">
+        <h4>時系列（新）</h4>
+        <p>T1（自分2）／<b>T2（POOLO2）M3合宿開始</b>／T3（社会3）Lv.3達成／T4（振り返り1）。</p>
+      </div>
+    </div>
+    <div class="theory-term">
+      <b>用語補足：Lv.3</b>（レベル3）＝POOLO内の差し出し段階のうち「知らない人に届ける／立つ」レベル。螺旋理論の達成指標であり、POOLO参加者全員の必修ライン。以降、このページでは<b>Lv.3</b>で表記します。
+    </div>
+  </div>
+</section>
+
+<!-- COMMON FRAME -->
+<section>
+  <div class="wrap">
+    <div class="sec-num">§ 02 ／ FRAME</div>
+    <h2 class="sec-head">新8か月フェーズ構成（案B／Cの共通土台）</h2>
+    <p class="lead">案Bも案Cも、この4フェーズ（2:2:3:1）＋M3合宿を共通の土台にします。</p>
+    <div class="frame-band">
+      <div class="ph ph1"><b>P1 自分とつながる</b>M1 - M2 ／ 2か月</div>
+      <div class="ph ph2"><b>P2 POOLOとつながる</b>M3 - M4 ／ 2か月（M3合宿）</div>
+      <div class="ph ph3"><b>P3 社会とつながる</b>M5 - M7 ／ 3か月</div>
+      <div class="ph ph4"><b>P4 振り返り</b>M8 ／ 1か月</div>
+    </div>
+    <div class="frame-sub">合宿はP2の入口（M3＝3か月目）、Lv.3達成はP3の終盤（M7）、ゲスト不在はM8（受講生主語）。</div>
+  </div>
+</section>
+
+<!-- 案B -->
+<div class="plan-header b">
+  <div class="wrap">
+    <span class="plan-tag">PLAN B ／ サイクル可視化</span>
+    <div class="plan-title">差し出し→反応→受け取り直しを、月ごとに一周させる</div>
+    <div class="plan-subtitle">螺旋のサイクルそのものが月テーマに立ち上がる構成</div>
+  </div>
+</div>
+
+<section class="plan-b">
+  <div class="wrap">
+    <div class="principle b">
+      螺旋のサイクル（差し出す・反応を受ける・書き直す）を月ごとに一周させる。M3合宿で名乗り、M4で書き直し、M5-M7で社会へ差し出し続ける。
+    </div>
+    <div class="months8">
+      <div class="mcard">
+        <div class="mcard-top"><span class="mnum">M1</span><div class="mbadges"><span class="mbadge p1">P1 自分</span></div></div>
+        <div class="mtheme">受け取る</div>
+        <div class="mdesc">旅で感度を開く。フィルターを外し、揺さぶりを身体で受ける。</div>
+        <div class="mguest"><span class="glbl">GUEST</span><span class="gval">観光研究者／旅人／文化人類学者</span></div>
+      </div>
+      <div class="mcard">
+        <div class="mcard-top"><span class="mnum">M2</span><div class="mbadges"><span class="mbadge p1">P1 自分</span></div></div>
+        <div class="mtheme">聴かれる</div>
+        <div class="mdesc">受容の床をつくる。聴かれることで、自分の中の仮の言葉が動き始める。</div>
+        <div class="mguest"><span class="glbl">GUEST</span><span class="gval">インタビュアー／編集者／セラピスト</span></div>
+      </div>
+      <div class="mcard">
+        <div class="mcard-top"><span class="mnum">M3</span><div class="mbadges"><span class="mbadge p2">P2 POOLO</span><span class="mbadge camp">合宿</span></div></div>
+        <div class="mtheme">仲間に置く</div>
+        <div class="mdesc">合宿で仮の輪郭を仲間の前に置く。T2開始、引力場が切り替わる節目。</div>
+        <div class="mguest"><span class="glbl">GUEST</span><span class="gval">POOLO卒業生1-2＋ファシリ（場の密度を担う少人数）</span></div>
+      </div>
+      <div class="mcard">
+        <div class="mcard-top"><span class="mnum">M4</span><div class="mbadges"><span class="mbadge p2">P2 POOLO</span></div></div>
+        <div class="mtheme">書き直す</div>
+        <div class="mdesc">合宿で受けた反応で仮の輪郭を更新する。螺旋の「受け取り直し」が独立月として立つ。</div>
+        <div class="mguest"><span class="glbl">GUEST</span><span class="gval">言葉を更新した卒業生／書き手・編集者</span></div>
+      </div>
+      <div class="mcard">
+        <div class="mcard-top"><span class="mnum">M5</span><div class="mbadges"><span class="mbadge p3">P3 社会</span></div></div>
+        <div class="mtheme">外へ一歩</div>
+        <div class="mdesc">社会への第一歩。同期外の知人に仮の輪郭を小さく差し出す。</div>
+        <div class="mguest"><span class="glbl">GUEST</span><span class="gval">小さな場を運営する実践者／贈り手の先輩</span></div>
+      </div>
+      <div class="mcard">
+        <div class="mcard-top"><span class="mnum">M6</span><div class="mbadges"><span class="mbadge p3">P3 社会</span></div></div>
+        <div class="mtheme">越境して届ける</div>
+        <div class="mdesc">POOLO外の予測不能な他者の反応で、仮の輪郭がもう一度揺れる。</div>
+        <div class="mguest"><span class="glbl">GUEST</span><span class="gval">地域プレイヤー／別領域の実践者（越境先の伴走）</span></div>
+      </div>
+      <div class="mcard">
+        <div class="mcard-top"><span class="mnum">M7</span><div class="mbadges"><span class="mbadge p3">P3 社会</span></div></div>
+        <div class="mtheme">知らない人に差し出す</div>
+        <div class="mdesc">Lv.3で立つ。螺旋が日常動作になり、次の旅を連れてくる。</div>
+        <div class="mguest"><span class="glbl">GUEST</span><span class="gval">Lv.3立ち会い型／反応の返し手（少人数）</span></div>
+      </div>
+      <div class="mcard">
+        <div class="mcard-top"><span class="mnum">M8</span><div class="mbadges"><span class="mbadge p4">P4 振り返り</span></div></div>
+        <div class="mtheme">螺旋を身体化する</div>
+        <div class="mdesc">7か月で回した螺旋を日常動作に変換する。ゲストを外し、受講生主語で閉じる。</div>
+        <div class="mguest"><span class="glbl">GUEST</span><span class="gval">不在（受講生主語で閉じる）</span></div>
+      </div>
+    </div>
+    <div class="phase-band4">
+      <div class="ph ph1">P1 自分（M1-M2）</div>
+      <div class="ph ph2">P2 POOLO（M3合宿-M4）</div>
+      <div class="ph ph3">P3 社会（M5-M7）</div>
+      <div class="ph ph4">P4 振り返り（M8）</div>
+    </div>
+
+    <div class="visual-wrap">
+      <svg viewBox="0 0 860 380" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <marker id="arrB" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+            <path d="M 0 0 L 10 5 L 0 10 z" fill="#2D6A4F"/>
+          </marker>
+        </defs>
+        <circle cx="430" cy="190" r="125" fill="none" stroke="#2D6A4F" stroke-width="1.2" stroke-opacity="0.35" stroke-dasharray="4 4"/>
+        <text x="430" y="185" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="14" fill="#2D6A4F" font-weight="600" letter-spacing="3">螺旋のサイクル</text>
+        <text x="430" y="207" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="10" fill="#2D6A4F" letter-spacing="3">月ごとに一周</text>
+
+        <g>
+          <circle cx="430" cy="55" r="44" fill="#E9F5EE" stroke="#2D6A4F" stroke-width="1.5"/>
+          <text x="430" y="53" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="13" fill="#1A5238" font-weight="600">差し出す</text>
+          <text x="430" y="71" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="9" fill="#2D6A4F">M3/M5/M6/M7</text>
+        </g>
+        <g>
+          <circle cx="650" cy="260" r="44" fill="#E9F5EE" stroke="#2D6A4F" stroke-width="1.5"/>
+          <text x="650" y="258" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="13" fill="#1A5238" font-weight="600">反応を受ける</text>
+          <text x="650" y="276" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="9" fill="#2D6A4F">M2/M3/M5/M6</text>
+        </g>
+        <g>
+          <circle cx="210" cy="260" r="44" fill="#E9F5EE" stroke="#2D6A4F" stroke-width="1.5"/>
+          <text x="210" y="258" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="13" fill="#1A5238" font-weight="600">書き直す</text>
+          <text x="210" y="276" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="9" fill="#2D6A4F">M4</text>
+        </g>
+
+        <path d="M 470 81 Q 600 130 633 225" fill="none" stroke="#2D6A4F" stroke-width="2" marker-end="url(#arrB)"/>
+        <path d="M 608 294 Q 430 340 250 294" fill="none" stroke="#2D6A4F" stroke-width="2" marker-end="url(#arrB)"/>
+        <path d="M 228 225 Q 260 130 390 81" fill="none" stroke="#2D6A4F" stroke-width="2" marker-end="url(#arrB)"/>
+
+        <g>
+          <rect x="25" y="30" width="110" height="54" rx="3" fill="#fff" stroke="#2D6A4F" stroke-width="1"/>
+          <text x="80" y="52" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="11" fill="#1A5238" font-weight="600">入口</text>
+          <text x="80" y="70" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="9" fill="#2D6A4F">受け取る M1-M2</text>
+        </g>
+        <path d="M 135 57 Q 270 50 388 55" fill="none" stroke="#2D6A4F" stroke-width="1.3" stroke-dasharray="3 3" marker-end="url(#arrB)"/>
+
+        <g>
+          <rect x="480" y="98" width="130" height="34" rx="3" fill="#F7EDE2" stroke="#C08457" stroke-width="1.5"/>
+          <text x="545" y="120" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="11" fill="#9F6A43" font-weight="600">合宿 M3</text>
+        </g>
+        <path d="M 480 115 L 475 98" fill="none" stroke="#C08457" stroke-width="1.3"/>
+
+        <g>
+          <rect x="720" y="30" width="120" height="54" rx="3" fill="#fff" stroke="#B8860B" stroke-width="1.5"/>
+          <text x="780" y="52" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="11" fill="#B8860B" font-weight="600">到達</text>
+          <text x="780" y="70" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="9" fill="#B8860B">Lv.3 M7</text>
+        </g>
+        <path d="M 472 55 Q 600 50 720 57" fill="none" stroke="#B8860B" stroke-width="1.3" stroke-dasharray="3 3" marker-end="url(#arrB)"/>
+
+        <g>
+          <rect x="360" y="340" width="140" height="32" rx="3" fill="#E4E8EC" stroke="#4A5A68" stroke-width="1"/>
+          <text x="430" y="361" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="11" fill="#4A5A68" font-weight="600">振り返り M8</text>
+        </g>
+        <path d="M 430 318 L 430 340" fill="none" stroke="#4A5A68" stroke-width="1.3" stroke-dasharray="3 3" marker-end="url(#arrB)"/>
+      </svg>
+      <div class="visual-cap">サイクルは何周も回る。M3合宿で名乗り、M4で書き直し、M5-M7で社会へ差し出し続け、M7でLv.3、M8で持ち帰る。</div>
+    </div>
+  </div>
+</section>
+
+<!-- 案C -->
+<div class="plan-header c">
+  <div class="wrap">
+    <span class="plan-tag">PLAN C ／ 4ステップ背骨</span>
+    <div class="plan-title">見つける・名乗る・届ける・知らない人に届ける</div>
+    <div class="plan-subtitle">4ステップ＋振り返りを月テーマの背骨に据える構成</div>
+  </div>
+</div>
+
+<section class="plan-c">
+  <div class="wrap">
+    <div class="principle c">
+      4ステップを月テーマの背骨に採用する。FIND2／NAME1（M3合宿）／DELIVER3／REACH1（Lv.3）／REVIEW1の5層構造。合宿が<b>NAMEの達成月</b>として機能する。
+    </div>
+    <div class="months8">
+      <div class="mcard">
+        <div class="mcard-top"><span class="mnum">M1</span><div class="mbadges"><span class="mbadge p1">P1 自分</span></div></div>
+        <div class="mstep">STEP 1 ／ FIND</div>
+        <div class="mtheme">見つける ①</div>
+        <div class="mdesc">旅で揺さぶられる。普段のフィルターを外し、気になってしまうものの種を感知する。</div>
+        <div class="mguest"><span class="glbl">GUEST</span><span class="gval">観光研究者／旅人／文化人類学者</span></div>
+      </div>
+      <div class="mcard">
+        <div class="mcard-top"><span class="mnum">M2</span><div class="mbadges"><span class="mbadge p1">P1 自分</span></div></div>
+        <div class="mstep">STEP 1 ／ FIND</div>
+        <div class="mtheme">見つける ②</div>
+        <div class="mdesc">受容と対話で聴く。Beingの床の上で、他者を聴く行為が自分を更新する。</div>
+        <div class="mguest"><span class="glbl">GUEST</span><span class="gval">インタビュアー／編集者／セラピスト</span></div>
+      </div>
+      <div class="mcard">
+        <div class="mcard-top"><span class="mnum">M3</span><div class="mbadges"><span class="mbadge p2">P2 POOLO</span><span class="mbadge camp">合宿</span></div></div>
+        <div class="mstep">STEP 2 ／ NAME</div>
+        <div class="mtheme">名乗る</div>
+        <div class="mdesc">合宿で仮の輪郭を仲間の前に仮置きする。T2開始、引力場が切り替わる。</div>
+        <div class="mguest"><span class="glbl">GUEST</span><span class="gval">POOLO卒業生1-2＋ファシリ（場の密度を担う少人数）</span></div>
+      </div>
+      <div class="mcard">
+        <div class="mcard-top"><span class="mnum">M4</span><div class="mbadges"><span class="mbadge p2">P2 POOLO</span></div></div>
+        <div class="mstep">STEP 3 ／ DELIVER</div>
+        <div class="mtheme">仲間に届ける</div>
+        <div class="mdesc">合宿で出た仮の輪郭を仲間同士で差し出し、反応で書き直す。</div>
+        <div class="mguest"><span class="glbl">GUEST</span><span class="gval">言葉を更新した卒業生／書き手・編集者</span></div>
+      </div>
+      <div class="mcard">
+        <div class="mcard-top"><span class="mnum">M5</span><div class="mbadges"><span class="mbadge p3">P3 社会</span></div></div>
+        <div class="mstep">STEP 3 ／ DELIVER</div>
+        <div class="mtheme">外で試す</div>
+        <div class="mdesc">同期外の知人に小さく差し出す。社会への第一歩。</div>
+        <div class="mguest"><span class="glbl">GUEST</span><span class="gval">小さな場を運営する実践者／贈り手の先輩</span></div>
+      </div>
+      <div class="mcard">
+        <div class="mcard-top"><span class="mnum">M6</span><div class="mbadges"><span class="mbadge p3">P3 社会</span></div></div>
+        <div class="mstep">STEP 3 ／ DELIVER</div>
+        <div class="mtheme">越境して届ける</div>
+        <div class="mdesc">POOLO外の他者の現場で試す。予測不能な反応で軌道が曲がる。</div>
+        <div class="mguest"><span class="glbl">GUEST</span><span class="gval">地域プレイヤー／別領域の実践者（越境先の伴走）</span></div>
+      </div>
+      <div class="mcard">
+        <div class="mcard-top"><span class="mnum">M7</span><div class="mbadges"><span class="mbadge p3">P3 社会</span></div></div>
+        <div class="mstep">STEP 4 ／ Lv.3</div>
+        <div class="mtheme">知らない人に届ける</div>
+        <div class="mdesc">Lv.3で立つ。螺旋が身体化し、誰かに差し出した反応が次の旅を連れてくる。</div>
+        <div class="mguest"><span class="glbl">GUEST</span><span class="gval">Lv.3立ち会い型／反応の返し手（少人数）</span></div>
+      </div>
+      <div class="mcard">
+        <div class="mcard-top"><span class="mnum">M8</span><div class="mbadges"><span class="mbadge p4">P4 振り返り</span></div></div>
+        <div class="mstep">STEP 5 ／ REVIEW</div>
+        <div class="mtheme">螺旋を持ち帰る</div>
+        <div class="mdesc">7か月で踏んだ4ステップを日常動作に変換する。次の旅を準備する月。</div>
+        <div class="mguest"><span class="glbl">GUEST</span><span class="gval">不在（受講生主語で閉じる）</span></div>
+      </div>
+    </div>
+    <div class="phase-band4">
+      <div class="ph ph1">P1 自分（M1-M2）</div>
+      <div class="ph ph2">P2 POOLO（M3合宿-M4）</div>
+      <div class="ph ph3">P3 社会（M5-M7）</div>
+      <div class="ph ph4">P4 振り返り（M8）</div>
+    </div>
+
+    <div class="visual-wrap">
+      <svg viewBox="0 0 940 290" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <marker id="arrC" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+            <path d="M 0 0 L 10 5 L 0 10 z" fill="#C08457"/>
+          </marker>
+        </defs>
+
+        <g>
+          <rect x="20" y="110" width="155" height="100" rx="3" fill="#F7EDE2" stroke="#C08457" stroke-width="1.5"/>
+          <text x="97" y="138" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="12" fill="#9F6A43" letter-spacing="3" font-weight="600">STEP 1 FIND</text>
+          <text x="97" y="162" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="17" fill="#1a1a1a" font-weight="600">見つける</text>
+          <text x="97" y="185" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="10" fill="#9F6A43">M1・M2（2か月）</text>
+        </g>
+
+        <g>
+          <rect x="200" y="110" width="115" height="100" rx="3" fill="#F7EDE2" stroke="#C08457" stroke-width="1.8"/>
+          <text x="257" y="138" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="12" fill="#9F6A43" letter-spacing="3" font-weight="600">STEP 2</text>
+          <text x="257" y="162" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="17" fill="#1a1a1a" font-weight="600">名乗る</text>
+          <text x="257" y="185" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="10" fill="#9F6A43">M3（合宿・1か月）</text>
+        </g>
+
+        <g>
+          <rect x="340" y="110" width="275" height="100" rx="3" fill="#F7EDE2" stroke="#C08457" stroke-width="1.5"/>
+          <text x="477" y="138" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="12" fill="#9F6A43" letter-spacing="3" font-weight="600">STEP 3 DELIVER</text>
+          <text x="477" y="162" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="17" fill="#1a1a1a" font-weight="600">届ける</text>
+          <text x="477" y="185" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="10" fill="#9F6A43">M4・M5・M6（3か月）</text>
+        </g>
+
+        <g>
+          <rect x="640" y="110" width="130" height="100" rx="3" fill="#F9F0D9" stroke="#B8860B" stroke-width="1.8"/>
+          <text x="705" y="138" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="12" fill="#B8860B" letter-spacing="3" font-weight="700">STEP 4 Lv.3</text>
+          <text x="705" y="162" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="15" fill="#1a1a1a" font-weight="600">知らない人に</text>
+          <text x="705" y="178" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="15" fill="#1a1a1a" font-weight="600">届ける</text>
+          <text x="705" y="198" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="10" fill="#B8860B">M7（1か月）</text>
+        </g>
+
+        <g>
+          <rect x="795" y="110" width="130" height="100" rx="3" fill="#E4E8EC" stroke="#4A5A68" stroke-width="1.5"/>
+          <text x="860" y="138" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="12" fill="#4A5A68" letter-spacing="3" font-weight="600">STEP 5</text>
+          <text x="860" y="162" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="17" fill="#1a1a1a" font-weight="600">振り返り</text>
+          <text x="860" y="185" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="10" fill="#4A5A68">M8（1か月）</text>
+        </g>
+
+        <g>
+          <rect x="214" y="72" width="86" height="26" rx="3" fill="#C08457" stroke="none"/>
+          <text x="257" y="89" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="11" fill="#fff" font-weight="700">M3 合宿</text>
+        </g>
+        <path d="M 257 99 L 257 108" fill="none" stroke="#C08457" stroke-width="1.5"/>
+
+        <path d="M 177 160 L 198 160" fill="none" stroke="#C08457" stroke-width="2" marker-end="url(#arrC)"/>
+        <path d="M 317 160 L 338 160" fill="none" stroke="#C08457" stroke-width="2" marker-end="url(#arrC)"/>
+        <path d="M 617 160 L 638 160" fill="none" stroke="#C08457" stroke-width="2" marker-end="url(#arrC)"/>
+        <path d="M 772 160 L 793 160" fill="none" stroke="#4A5A68" stroke-width="2" marker-end="url(#arrC)" stroke-dasharray="3 3"/>
+
+        <line x1="20" y1="248" x2="925" y2="248" stroke="#d0cdc3" stroke-width="1"/>
+        <g font-family="'Noto Sans JP',sans-serif" font-size="10" fill="#7a7a7a" text-anchor="middle">
+          <text x="55" y="268">M1</text>
+          <text x="140" y="268">M2</text>
+          <text x="257" y="268">M3</text>
+          <text x="380" y="268">M4</text>
+          <text x="477" y="268">M5</text>
+          <text x="575" y="268">M6</text>
+          <text x="705" y="268">M7</text>
+          <text x="860" y="268">M8</text>
+        </g>
+        <g>
+          <circle cx="55" cy="248" r="3" fill="#C08457"/>
+          <circle cx="140" cy="248" r="3" fill="#C08457"/>
+          <circle cx="257" cy="248" r="4.5" fill="#C08457" stroke="#9F6A43" stroke-width="1.5"/>
+          <circle cx="380" cy="248" r="3" fill="#C08457"/>
+          <circle cx="477" cy="248" r="3" fill="#C08457"/>
+          <circle cx="575" cy="248" r="3" fill="#C08457"/>
+          <circle cx="705" cy="248" r="4.5" fill="#B8860B"/>
+          <circle cx="860" cy="248" r="3" fill="#4A5A68"/>
+        </g>
+
+        <g font-family="'Shippori Mincho',serif" font-size="11" letter-spacing="3">
+          <text x="97" y="45" text-anchor="middle" fill="#1A5238" font-weight="600">P1 自分</text>
+          <text x="318" y="45" text-anchor="middle" fill="#534AB7" font-weight="600">P2 POOLO</text>
+          <text x="575" y="45" text-anchor="middle" fill="#B8860B" font-weight="600">P3 社会</text>
+          <text x="860" y="45" text-anchor="middle" fill="#4A5A68" font-weight="600">P4 振り返り</text>
+        </g>
+      </svg>
+      <div class="visual-cap">4ステップ＋振り返りが月テーマの背骨。M3合宿がNAMEの達成月、M4-M6のDELIVER期を経てM7でLv.3、M8で持ち帰る。</div>
+    </div>
+  </div>
+</section>
+
+<!-- GUEST SECTION -->
+<section class="guest-section">
+  <div class="wrap">
+    <div class="sec-num deep">§ 04 ／ GUEST</div>
+    <h2 class="sec-head deep">月次ゲスト配置タイムライン（両案共通）</h2>
+    <p class="lead">月ごとのゲスト役割と候補型を俯瞰します。配置の原則は<b>遠い先輩→合宿（内の深化）→身近な先輩→越境先の伴走者→立ち会い型→不在</b>の6段。</p>
+
+    <table class="guest-table">
+      <thead>
+        <tr>
+          <th style="width:9%">月</th>
+          <th style="width:14%">フェーズ</th>
+          <th style="width:20%">ゲストの役割</th>
+          <th style="width:35%">候補の型</th>
+          <th style="width:22%">配置の密度</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="m-cell">M1</td>
+          <td>P1 自分</td>
+          <td>旅の語り手</td>
+          <td>観光研究者／文化人類学者／旅人の書き手</td>
+          <td>ゲスト1名＋WS</td>
+        </tr>
+        <tr>
+          <td class="m-cell">M2</td>
+          <td>P1 自分</td>
+          <td>聴かれる側の型</td>
+          <td>インタビュアー／編集者／セラピスト</td>
+          <td>ゲスト1名＋WS</td>
+        </tr>
+        <tr class="camp-row">
+          <td class="m-cell">M3</td>
+          <td>P2 POOLO（合宿）</td>
+          <td>場の密度をつくる伴走者</td>
+          <td><b>POOLO卒業生1-2</b>＋運営ファシリ（外部ゲスト少なめ、卒業生中心）</td>
+          <td>合宿内のみ（少人数）</td>
+        </tr>
+        <tr>
+          <td class="m-cell">M4</td>
+          <td>P2 POOLO</td>
+          <td>書き直した経験の先輩</td>
+          <td>言葉を更新した卒業生／書き手・編集者</td>
+          <td>ゲスト1名＋WS</td>
+        </tr>
+        <tr>
+          <td class="m-cell">M5</td>
+          <td>P3 社会</td>
+          <td>小さく届ける実践者</td>
+          <td>小さな場を運営する実践者／贈り手の先輩</td>
+          <td>ゲスト1名＋WS</td>
+        </tr>
+        <tr>
+          <td class="m-cell">M6</td>
+          <td>P3 社会</td>
+          <td>越境先の伴走者</td>
+          <td>地域プレイヤー／別領域の実践者（越境先で立ち会い）</td>
+          <td>越境先ゲスト＋WS</td>
+        </tr>
+        <tr>
+          <td class="m-cell">M7</td>
+          <td>P3 社会</td>
+          <td>Lv.3の立ち会い</td>
+          <td>反応を返す受け手／立ち会い型の伴走者（少人数）</td>
+          <td>立ち会い型（受講生主役）</td>
+        </tr>
+        <tr class="review-row">
+          <td class="m-cell">M8</td>
+          <td>P4 振り返り</td>
+          <td>ゲスト不在</td>
+          <td><b>受講生主語で閉じる</b>（外部ゲストなし）</td>
+          <td>ゲスト0</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="guest-note">
+      <b>配置の原則（6段）</b>：M1-M2は<b>遠い先輩</b>（旅・聴くの型を外から見せる）／M3は<b>合宿＝内の深化</b>（卒業生＋運営中心、外部ゲスト少なめ）／M4-M5は<b>身近な先輩</b>（書き直しと小さく届けるの実践者）／M6は<b>越境先の伴走者</b>（外の他者）／M7は<b>立ち会い型</b>（受講生が主役、ゲストは反応を返すのみ）／M8は<b>不在</b>（受講生主語で閉じる）。ゲスト比率は月を追って下がり、螺旋の「受講生主語化」が可視化されます。
+    </div>
+  </div>
+</section>
+
+<!-- COMPARE -->
+<section class="compare-section">
+  <div class="wrap">
+    <div class="sec-num deep">§ 05 ／ COMPARE</div>
+    <h2 class="sec-head deep">案B と 案C の並列比較（8か月 2+2+3+1）</h2>
+    <p class="lead">5つの観点で、2案のトレードオフを並べます。</p>
+    <table class="cmp-table">
+      <thead>
+        <tr>
+          <th>観点</th>
+          <th class="b-col">案B ／ サイクル可視化</th>
+          <th class="c-col">案C ／ 4ステップ背骨</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>既存との連続性</th>
+          <td><b>中</b>　M4「書き直す」が独立月として新設される</td>
+          <td><b>中</b>　月の意味がステップ軸で再配置される</td>
+        </tr>
+        <tr>
+          <th>螺旋理論との整合</th>
+          <td><b>高</b>　サイクルそのものが月テーマに現れる</td>
+          <td><b>高</b>　4ステップが直接背骨になる</td>
+        </tr>
+        <tr>
+          <th>合宿の位置づけの明瞭さ</th>
+          <td><b>高</b>　M3「仲間に置く」で名乗り合宿が独自テーマで立つ</td>
+          <td><b>最高</b>　M3がSTEP 2 NAMEの達成月として完全一致</td>
+        </tr>
+        <tr>
+          <th>受講生が月を識別する明瞭さ</th>
+          <td><b>高</b>　動詞で現在地が分かる</td>
+          <td><b>最高</b>　STEPバッジで一目で分かる</td>
+        </tr>
+        <tr>
+          <th>マーケ言語化のしやすさ</th>
+          <td><b>最高</b>　サイクル図が単独で売れる</td>
+          <td><b>高</b>　4ステップが旗になる</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="rec">
+      <span class="rec-label">参謀長の推奨観点</span>
+      合宿がM3（POOLO入口）に置かれたことで、<b class="hl-c">案Cは合宿がSTEP 2 NAMEの達成月としてきれいに収まる</b>利点が強まりました。案Bは<b class="hl-b">M4「書き直す」が独立月</b>として立ち、螺旋サイクルの受け取り直しが可視化されます。マーケ優先なら案B、体系的な見え方優先なら案Cの軸は変わらず。
+    </div>
+  </div>
+</section>
+
+<!-- QUESTIONS -->
+<section>
+  <div class="wrap">
+    <div class="sec-num">§ 06 ／ DECISION</div>
+    <h2 class="sec-head">判断のための問い</h2>
+    <p class="lead">構成変更で出てきた論点を優先で並べます。</p>
+    <div class="q-list">
+      <div class="q-item">
+        <div class="q-num">Q 1 ／ 合宿前倒しと自分フェーズ圧縮</div>
+        <div class="q-body">P1自分2か月（M1-M2）で仮の輪郭形成が成立し、M3合宿でいきなり名乗りに入れますか。</div>
+        <div class="q-note">既存は<b>M1-M3で見つける</b>（3か月）、<b>M4で合宿名乗り</b>でした。新構成では見つける2か月＋M3で即合宿名乗りです。T1（仮ナラティブ）の密度が薄くなる懸念がある一方、M2「聴かれる」で仮の言葉を引き出してM3合宿で名乗る流れは、螺旋理論的には十分成立します。ワーク設計で補えるか論点。</div>
+      </div>
+      <div class="q-item">
+        <div class="q-num">Q 2 ／ M7「Lv.3」とM8「振り返り」の分離</div>
+        <div class="q-body">既存M8「循環と持ち帰り」を<b>M7 Lv.3 ＋ M8 振り返り</b>に分離することに合意できますか。</div>
+        <div class="q-note">到達と持ち帰りを独立月にすることで、<b>Lv.3必修ラインの担保が月テーマレベルで明確になる</b>利点があります。一方、既存のM8「循環」の思想が薄まる懸念もあります。M8を「振り返り＋循環」の両義月にする折衷案もあり得ます。</div>
+      </div>
+      <div class="q-item">
+        <div class="q-num">Q 3 ／ 案Bか案Cか</div>
+        <div class="q-body">どちらを採用するか。</div>
+        <div class="q-note">合宿がM3（NAME）に位置づけられたことで、案Cの整合性がさらに上がりました。マーケ優先なら<b>案B</b>、4ステップで体系化するなら<b>案C</b>。</div>
+      </div>
+      <div class="q-item">
+        <div class="q-num">Q 4 ／ ゲスト配置</div>
+        <div class="q-body">§04のゲスト配置（遠い先輩→合宿少人数→身近な先輩→越境伴走→立ち会い→不在）でOKか。</div>
+        <div class="q-note">M3合宿を<b>卒業生＋運営中心</b>（外部ゲスト少なめ）、M7を<b>立ち会い型</b>、M8を<b>不在</b>とする方針は既存の「深さを守る」原則と整合します。候補型の追加・削除があればご指示ください。</div>
+      </div>
+      <div class="q-item">
+        <div class="q-num">Q 5 ／ 期間</div>
+        <div class="q-body">8か月で行くか、振り返りを吸収して7か月に短縮するか。</div>
+        <div class="q-note">募集価格・LPの表記・L-STEP配信カレンダーへの影響は最小です（既存と同じ8か月）。振り返りを独立月として守るなら8か月維持が推奨。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-links">
+    <a href="poolo-spiral-theory.html">螺旋理論</a>
+    <a href="index.html">既存カリキュラム</a>
+    <a href="future-design-v5-visual.html">未来デザイン v5</a>
+  </div>
+  <p>POOLO LIFE ／ 月テーマ再考 ／ 8か月構成 v3（2+2+3+1・合宿M3）／ 2026-04-18</p>
+</footer>
+
+</body>
+</html>
