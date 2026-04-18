@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>POOLOオフラインイベント 5/2＠恵比寿｜記事ドラフト3案</title>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#1a1a1a;--sub:#4a4a4a;--mute:#7a7a7a;--hint:#a8a8a8;
+  --bg:#faf9f6;--bg-deep:#f3f1ea;--line:#e0ddd3;
+  --green:#2D6A4F;--green-lt:#F4FAF6;--green-bg:#E9F5EE;
+  --warm:#C08457;--warm-bg:#F7EDE2;
+  --deep:#1F3A3D;--deep-bg:#DCE6E7;
+  --star:#B8860B;--star-bg:#F9F0D9;
+  --serif:'Shippori Mincho',serif;--sans:'Noto Sans JP',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--bg);color:var(--ink);line-height:2;font-weight:300;-webkit-font-smoothing:antialiased}
+.wrap{max-width:820px;margin:0 auto;padding:0 1.5rem}
+
+/* Header */
+.header{padding:4.5rem 0 3rem;background:linear-gradient(135deg,var(--bg-deep) 0%,var(--bg) 60%);border-bottom:1px solid var(--line)}
+.mark{display:inline-block;font-size:0.6rem;letter-spacing:0.4em;color:var(--warm);margin-bottom:1.5rem;font-weight:500;padding:0.35rem 1rem;border:1px solid var(--warm);background:#fff}
+.h-title{font-family:var(--serif);font-size:1.7rem;font-weight:600;letter-spacing:0.08em;line-height:1.65;margin-bottom:0.8rem}
+.h-sub{font-family:var(--serif);font-size:0.88rem;color:var(--sub);letter-spacing:0.06em;line-height:1.9}
+.h-meta{display:flex;gap:1.2rem;flex-wrap:wrap;font-size:0.75rem;color:var(--mute);margin-top:1.5rem;padding-top:1rem;border-top:1px dashed var(--line)}
+.h-meta b{color:var(--warm);font-weight:600}
+
+/* Tabs */
+.tabs-wrap{position:sticky;top:0;background:rgba(250,249,246,0.96);backdrop-filter:blur(6px);border-bottom:1px solid var(--line);z-index:10;padding:0.8rem 0}
+.tabs{display:flex;gap:0.4rem;justify-content:center;flex-wrap:wrap}
+.tab{background:#fff;border:1px solid var(--line);padding:0.6rem 1.1rem;font-family:var(--serif);font-size:0.82rem;letter-spacing:0.08em;color:var(--mute);cursor:pointer;border-radius:3px;transition:all .2s;font-weight:500}
+.tab:hover{color:var(--ink);border-color:var(--warm)}
+.tab.active{background:var(--ink);color:#fff;border-color:var(--ink)}
+.tab-a.active{background:var(--green);border-color:var(--green)}
+.tab-b.active{background:var(--deep);border-color:var(--deep)}
+.tab-c.active{background:var(--warm);border-color:var(--warm)}
+.tab-s.active{background:var(--star);border-color:var(--star)}
+
+/* Draft body */
+.draft{display:none;padding:3rem 0 4rem}
+.draft.active{display:block}
+.draft-mark{font-size:0.62rem;letter-spacing:0.35em;font-weight:500;margin-bottom:0.6rem;display:inline-block;padding:0.3rem 0.9rem;border-radius:2px}
+.draft.a .draft-mark{color:var(--green);background:var(--green-bg)}
+.draft.b .draft-mark{color:var(--deep);background:var(--deep-bg)}
+.draft.c .draft-mark{color:var(--warm);background:var(--warm-bg)}
+.draft-intro{font-size:0.78rem;color:var(--mute);margin-bottom:2rem;letter-spacing:0.04em;padding:0.8rem 1rem;background:#fff;border:1px dashed var(--line);border-radius:3px;line-height:1.8}
+
+/* Article content (記事本体) */
+.art-h1{font-family:var(--serif);font-size:1.5rem;font-weight:600;letter-spacing:0.05em;line-height:1.6;margin:0.5rem 0 2rem;padding-bottom:1.2rem;border-bottom:2px solid var(--ink)}
+.lead{font-family:var(--serif);font-size:1.02rem;color:var(--ink);line-height:2.1;letter-spacing:0.04em;margin-bottom:2rem;padding:1.5rem 1.6rem;background:#fff;border-left:3px solid var(--warm);border-radius:0 3px 3px 0}
+.lead p{margin-bottom:0.9rem}
+.lead p:last-child{margin-bottom:0}
+.cta{display:block;text-align:center;background:var(--ink);color:#fff;padding:1.1rem 2rem;font-family:var(--serif);font-size:0.95rem;letter-spacing:0.15em;margin:2rem 0;border-radius:3px;text-decoration:none;font-weight:500;transition:all .2s}
+.cta:hover{background:var(--warm)}
+.cta-note{text-align:center;font-size:0.68rem;color:var(--mute);letter-spacing:0.2em;margin-top:-1.5rem;margin-bottom:2rem}
+.art-h2{font-family:var(--serif);font-size:1.22rem;font-weight:600;letter-spacing:0.06em;margin:3rem 0 1.2rem;padding-left:0.8rem;border-left:4px solid var(--green);line-height:1.5}
+.draft.b .art-h2{border-left-color:var(--deep)}
+.draft.c .art-h2{border-left-color:var(--warm)}
+.art-p{font-size:0.92rem;color:var(--sub);line-height:2.1;letter-spacing:0.03em;margin-bottom:1.1rem}
+.art-p strong{color:var(--ink);font-weight:600;font-family:var(--serif)}
+.art-list{list-style:none;padding:0;margin:1rem 0 1.5rem}
+.art-list li{padding:0.6rem 0 0.6rem 1.5rem;position:relative;font-size:0.88rem;color:var(--sub);line-height:1.85;border-bottom:1px dashed var(--line)}
+.art-list li:last-child{border-bottom:none}
+.art-list li::before{content:'—';position:absolute;left:0;color:var(--warm)}
+.art-list li b{font-family:var(--serif);color:var(--ink);font-weight:600}
+.art-note{font-size:0.76rem;color:var(--mute);padding:0.6rem 0.9rem;border:1px dashed var(--line);border-radius:3px;margin:0.8rem 0;line-height:1.8}
+.art-note b{color:var(--warm);font-weight:600}
+
+/* Summary section */
+.summary{background:var(--bg-deep);border-top:1px solid var(--line);padding:4rem 0}
+.sum-title{font-family:var(--serif);font-size:1.35rem;font-weight:600;text-align:center;letter-spacing:0.1em;margin-bottom:0.5rem}
+.sum-sub{text-align:center;font-size:0.8rem;color:var(--sub);letter-spacing:0.1em;margin-bottom:2.5rem}
+.tradeoff{background:#fff;border:1px solid var(--line);border-radius:3px;padding:1.5rem;margin-bottom:2rem;overflow-x:auto}
+.tradeoff table{width:100%;border-collapse:collapse;font-size:0.82rem;min-width:520px}
+.tradeoff th{background:var(--bg);padding:0.7rem 0.9rem;text-align:left;font-family:var(--serif);font-weight:600;font-size:0.76rem;color:var(--mute);letter-spacing:0.1em;border-bottom:1px solid var(--line)}
+.tradeoff td{padding:0.7rem 0.9rem;border-bottom:1px solid var(--line);color:var(--sub);vertical-align:top;line-height:1.7}
+.tradeoff td:first-child{font-family:var(--serif);font-weight:500;color:var(--ink);width:28%}
+.tradeoff .star-cell{font-family:var(--serif);color:var(--star);font-weight:600}
+
+.rec-card{background:#fff;border-left:4px solid var(--star);border-radius:0 3px 3px 0;padding:1.5rem 1.6rem;margin-bottom:1.8rem}
+.rec-label{font-size:0.62rem;letter-spacing:0.3em;color:var(--star);font-weight:500;margin-bottom:0.6rem}
+.rec-title{font-family:var(--serif);font-size:1.05rem;font-weight:600;color:var(--ink);margin-bottom:0.8rem;letter-spacing:0.04em;line-height:1.6}
+.rec-body{font-size:0.86rem;color:var(--sub);line-height:2}
+.rec-body b{color:var(--ink);font-weight:600}
+
+.decide-card{background:#fff;border:1px solid var(--line);border-radius:3px;padding:1.5rem 1.6rem}
+.decide-title{font-family:var(--serif);font-size:1rem;font-weight:600;margin-bottom:1rem;letter-spacing:0.04em}
+.decide-list{list-style:none;padding:0}
+.decide-list li{padding:0.7rem 0 0.7rem 1.5rem;position:relative;font-size:0.85rem;color:var(--sub);line-height:1.85;border-bottom:1px dashed var(--line)}
+.decide-list li:last-child{border-bottom:none}
+.decide-list li::before{content:'◇';position:absolute;left:0;color:var(--star);font-size:0.8rem;top:0.8rem}
+.decide-list li b{color:var(--ink);font-family:var(--serif);font-weight:600}
+
+/* Reviews */
+.reviews{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:2rem}
+@media(max-width:640px){.reviews{grid-template-columns:1fr}}
+.rev-card{background:#fff;border:1px solid var(--line);border-radius:3px;padding:1.2rem 1.3rem}
+.rev-label{font-size:0.62rem;letter-spacing:0.25em;font-weight:500;margin-bottom:0.5rem}
+.rev-card.mc .rev-label{color:var(--warm)}
+.rev-card.pa .rev-label{color:var(--green)}
+.rev-title{font-family:var(--serif);font-size:0.92rem;font-weight:600;margin-bottom:0.8rem;letter-spacing:0.04em;line-height:1.6}
+.rev-body{font-size:0.8rem;color:var(--sub);line-height:1.9}
+.rev-body b{color:var(--ink);font-weight:600}
+
+/* Footer */
+.footer{padding:3rem 0;text-align:center;border-top:1px solid var(--line);background:#fff}
+.footer p{font-size:0.72rem;color:var(--mute);letter-spacing:0.15em;line-height:1.9}
+
+@media(max-width:640px){
+  .h-title{font-size:1.4rem}
+  .art-h1{font-size:1.25rem}
+  .art-h2{font-size:1.08rem}
+  .lead{font-size:0.95rem;padding:1.2rem 1.2rem}
+  .art-p{font-size:0.88rem}
+  .tab{font-size:0.75rem;padding:0.5rem 0.8rem}
+}
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="wrap">
+    <span class="mark">EVENT DRAFTS</span>
+    <h1 class="h-title">POOLOオフラインイベント 5/2＠恵比寿<br>募集記事ドラフト 3案</h1>
+    <p class="h-sub">「わたしが大切にしたい、旅とは、豊かさとは、仕事とは」<br>2026年5月2日（土）15:00-18:00／恵比寿エリア／参加費3,500円／定員24名</p>
+    <div class="h-meta">
+      <span><b>キーメッセージ</b>　全部、こなせるようになってしまったあなたへ</span>
+      <span><b>3キーワード</b>　原体験 × 言語化 × 対話</span>
+    </div>
+  </div>
+</header>
+
+<div class="tabs-wrap">
+  <div class="wrap">
+    <div class="tabs">
+      <button class="tab tab-a active" data-target="draft-a">案A｜安全踏襲</button>
+      <button class="tab tab-b" data-target="draft-b">案B｜逆説・揺さぶり</button>
+      <button class="tab tab-c" data-target="draft-c">案C｜風景・季節感</button>
+      <button class="tab tab-s" data-target="draft-s">評価・推奨</button>
+    </div>
+  </div>
+</div>
+
+<!-- 案A -->
+<section id="draft-a" class="draft a active">
+  <div class="wrap">
+    <span class="draft-mark">PATTERN A — 安全踏襲</span>
+    <p class="draft-intro">元記事のリード構造と情報設計を最も忠実に踏襲。キーメッセージを冒頭に置き、リスク最小で届ける。フォーマット耐性の高い安全案。</p>
+
+    <h1 class="art-h1">【5/2＠恵比寿】全部こなせるようになってしまったあなたへ｜旅と豊かさと仕事を問い直す3時間</h1>
+
+    <div class="lead">
+      <p>全部、こなせるようになってしまった。</p>
+      <p>仕事は回っている。人間関係も回っている。日々は、とくに問題なく過ぎていく。<br>それなのに、どこかで手応えが薄い。誰かに聞かれたい問いが、胸の奥にだけ残っている。</p>
+      <p>このイベントは、その問いをひとりで抱え続けないための3時間です。<br>旅と豊かさと仕事、3つの問いを、24人で分け合います。</p>
+    </div>
+
+    <a href="#" class="cta">お申し込みはこちら</a>
+    <p class="cta-note">CTA 上部</p>
+
+    <h2 class="art-h2">イベントの概要</h2>
+    <ul class="art-list">
+      <li>日時: 2026年5月2日（土）15:00-18:00（受付14:45）</li>
+      <li>会場: 恵比寿エリア（参加確定者に住所をお送りします）</li>
+      <li>参加費: 3,500円（税込／ワーク用紙・お茶菓子代込み）</li>
+      <li>定員: 24名（3人組×8組）</li>
+      <li>持ち物: 筆記用具のみ</li>
+      <li>主催: POOLO（株式会社TABIPPO）</li>
+    </ul>
+    <p class="art-note"><b>※POOLO</b>＝旅を入り口に、自分の生き方・働き方を問い直す大人の学び場。</p>
+
+    <h2 class="art-h2">イベントでやること</h2>
+    <p class="art-p">3つの問いに、順番に向き合います。</p>
+    <ul class="art-list">
+      <li><b>問い①「旅とは」（45分）</b>心が動いた旅の場面を書き出し、2人組で問い返し合う</li>
+      <li><b>問い②「豊かさとは」（50分）</b>豊かだと感じた瞬間を3つ並べ、3人組で優先順位を言語化する</li>
+      <li><b>問い③「仕事とは」（45分）</b>前のめりになった場面から動詞を1つ抽出し、3人組に差し出す</li>
+      <li><b>全体で差し出す（15分）</b>立ち上がった言葉を短く共有する</li>
+    </ul>
+    <p class="art-p">鍵は<strong>原体験×言語化×対話</strong>。自分の中にすでにある素材を、他者の問いで磨き直します。</p>
+
+    <h2 class="art-h2">こんな方におすすめ</h2>
+    <ul class="art-list">
+      <li>仕事は回っているけれど、手応えが薄いと感じている方</li>
+      <li>役職や実績はあるのに、どこかで充足しきれていない方</li>
+      <li>自分の可能性を、まだ出し切れていない気がしている方</li>
+      <li>誰かに勧められてではなく、自分の言葉で選び直したい方</li>
+    </ul>
+
+    <a href="#" class="cta">お申し込みはこちら</a>
+    <p class="cta-note">CTA 中段</p>
+
+    <h2 class="art-h2">このイベントを企画した理由</h2>
+    <p class="art-p">POOLOは、旅を入り口に自分の生き方を問い直す学び場として10年以上続けてきました。その中で、ある層の方々にくり返し出会ってきました。</p>
+    <p class="art-p">何でもそつなくこなせて、周囲からの評価も悪くない。なのに、自分の軸が薄く感じる方々です。</p>
+    <p class="art-p">この層に必要なのは、新しい情報でも、立派なフレームワークでもありませんでした。必要だったのは、<strong>自分の原体験を他者の問いで掘り直す時間</strong>でした。</p>
+    <p class="art-p">だから、このイベントではアドバイスを封じます。対話のルールは5つ。</p>
+    <ul class="art-list">
+      <li>①アドバイスしない</li>
+      <li>②要約しない、まとめない</li>
+      <li>③質問だけを返す</li>
+      <li>④沈黙を埋めない</li>
+      <li>⑤メモを取らない</li>
+    </ul>
+    <p class="art-p">聞いてもらうのではなく、問い返してもらう。その違いが、3時間で効いてきます。</p>
+
+    <h2 class="art-h2">最後に</h2>
+    <p class="art-p">答えを持ち帰るイベントではありません。<br>自分の中にあった言葉が、他者の前で初めて輪郭を持つ。その瞬間を持ち帰る3時間です。</p>
+
+    <h2 class="art-h2">イベント詳細</h2>
+    <ul class="art-list">
+      <li>日時: 2026年5月2日（土）15:00-18:00</li>
+      <li>場所: 恵比寿エリア</li>
+      <li>参加費: 3,500円（税込）</li>
+      <li>定員: 24名</li>
+      <li>募集期間: 2026年4月15日（火）〜4月28日（月）</li>
+    </ul>
+
+    <h2 class="art-h2">申込方法</h2>
+    <p class="art-p">下記ボタンからお申し込みください。定員に達し次第、締め切ります。</p>
+    <a href="#" class="cta">お申し込みはこちら</a>
+    <p class="cta-note">CTA 下部</p>
+  </div>
+</section>
+
+<!-- 案B -->
+<section id="draft-b" class="draft b">
+  <div class="wrap">
+    <span class="draft-mark">PATTERN B — 逆説・揺さぶり</span>
+    <p class="draft-intro">「こなせる自分」が行き止まりになっている感覚を逆説で正面から突く。ワークショップが提供するのは答えではなく「問いを返される体験」であることを強調。深度で勝負する案。</p>
+
+    <h1 class="art-h1">【5/2＠恵比寿】こなせる自分が、行き止まりになっていませんか｜旅・豊かさ・仕事を問い返される3時間</h1>
+
+    <div class="lead">
+      <p>こなせるようになった。<br>それは、ひとつの達成のはずでした。</p>
+      <p>けれど、こなせる自分が増えるほど、手応えが薄くなる感覚がある。<br>できることが広がったのに、どこに向かっているのか分からなくなる感覚がある。</p>
+      <p>このイベントは、その違和感を解消するためのものではありません。<br>違和感を、他者の問いで深めるための3時間です。</p>
+    </div>
+
+    <a href="#" class="cta">お申し込みはこちら</a>
+    <p class="cta-note">CTA 上部</p>
+
+    <h2 class="art-h2">イベントの概要</h2>
+    <ul class="art-list">
+      <li>日時: 2026年5月2日（土）15:00-18:00（受付14:45）</li>
+      <li>会場: 恵比寿エリア（参加確定者に住所をお送りします）</li>
+      <li>参加費: 3,500円（税込／ワーク用紙・お茶菓子代込み）</li>
+      <li>定員: 24名（3人組×8組）</li>
+      <li>持ち物: 筆記用具のみ</li>
+      <li>主催: POOLO（株式会社TABIPPO）</li>
+    </ul>
+    <p class="art-note"><b>※POOLO</b>＝旅を入り口に、自分の生き方・働き方を問い直す大人の学び場。</p>
+
+    <h2 class="art-h2">イベントでやること</h2>
+    <p class="art-p">3時間、<strong>答えを出しません</strong>。<br>その代わりに、3つの問いに他者と向き合います。</p>
+    <ul class="art-list">
+      <li><b>問い①「旅とは」（45分）</b>心が動いた旅の場面を書き、2人組で問い返される</li>
+      <li><b>問い②「豊かさとは」（50分）</b>豊かだった瞬間を3つ並べ、3人組で並べ直す</li>
+      <li><b>問い③「仕事とは」（45分）</b>前のめりになった場面から動詞を1つ取り出し、3人組に差し出す</li>
+      <li><b>全体で差し出す（15分）</b>立ち上がった言葉を短く共有する</li>
+    </ul>
+    <p class="art-p"><strong>原体験×言語化×対話</strong>。素材はすでに自分の中にあります。掘り出す道具が、他者の問いです。</p>
+
+    <h2 class="art-h2">こんな方におすすめ</h2>
+    <ul class="art-list">
+      <li>「全部こなせる」自分に、静かな違和感を抱いている方</li>
+      <li>手応えの薄さを、気のせいにしてやり過ごしてきた方</li>
+      <li>答えではなく、良い問いが欲しい方</li>
+      <li>深い対話に飢えている方</li>
+    </ul>
+
+    <a href="#" class="cta">お申し込みはこちら</a>
+    <p class="cta-note">CTA 中段</p>
+
+    <h2 class="art-h2">このイベントを企画した理由</h2>
+    <p class="art-p">「結局、何がしたいんだっけ」。<br>近年POOLOで出会う方の多くが、この問いをどこかで抱えています。</p>
+    <p class="art-p">共通項は、能力の高さです。仕事ができる。人間関係もうまい。だからこそ、周囲から問い返されない。<br>問われない時間が続くと、自分の輪郭はゆっくり溶けていきます。</p>
+    <p class="art-p">このイベントでは、対話のルールを5つに絞りました。</p>
+    <ul class="art-list">
+      <li>①アドバイスしない</li>
+      <li>②要約しない、まとめない</li>
+      <li>③質問だけを返す</li>
+      <li>④沈黙を埋めない</li>
+      <li>⑤メモを取らない</li>
+    </ul>
+    <p class="art-p">助言は要りません。要約も要りません。<br>欲しいのは、「それってどういうこと」と、静かに問い返してくれる他者です。<br>3人組×8組、24人という小さな場は、そのために設計されています。</p>
+
+    <h2 class="art-h2">最後に</h2>
+    <p class="art-p">3時間後、すっきりした答えは持ち帰れないかもしれません。<br>代わりに、<strong>自分だけの問い</strong>を1つ、持ち帰ってもらえるはずです。<br>答えより、その問いのほうが、きっと長く効きます。</p>
+
+    <h2 class="art-h2">イベント詳細</h2>
+    <ul class="art-list">
+      <li>日時: 2026年5月2日（土）15:00-18:00</li>
+      <li>場所: 恵比寿エリア</li>
+      <li>参加費: 3,500円（税込）</li>
+      <li>定員: 24名</li>
+      <li>募集期間: 2026年4月15日（火）〜4月28日（月）</li>
+    </ul>
+
+    <h2 class="art-h2">申込方法</h2>
+    <p class="art-p">下記ボタンからお申し込みください。定員に達し次第、締め切ります。</p>
+    <a href="#" class="cta">お申し込みはこちら</a>
+    <p class="cta-note">CTA 下部</p>
+  </div>
+</section>
+
+<!-- 案C -->
+<section id="draft-c" class="draft c">
+  <div class="wrap">
+    <span class="draft-mark">PATTERN C — 風景・季節感</span>
+    <p class="draft-intro">GW後半の土曜午後、恵比寿、3時間という時間と場所の質感を前面に出す。情緒・感性派の読者に、内面体験の静けさで訴求する案。</p>
+
+    <h1 class="art-h1">【5/2＠恵比寿】ゴールデンウィークの土曜午後、旅と豊かさと仕事を静かに問い直す3時間</h1>
+
+    <div class="lead">
+      <p>5月2日、土曜日の15時。<br>ゴールデンウィーク後半の、少しだけ時間がゆるむ午後です。</p>
+      <p>予定の隙間に、3時間だけ余白を置いてみる。<br>恵比寿のひと部屋で、初めて会う24人と、静かに3つの問いに向き合う。<br>慌ただしい日常から一歩だけ距離を置くための、小さな椅子を用意しました。</p>
+    </div>
+
+    <a href="#" class="cta">お申し込みはこちら</a>
+    <p class="cta-note">CTA 上部</p>
+
+    <h2 class="art-h2">イベントの概要</h2>
+    <ul class="art-list">
+      <li>日時: 2026年5月2日（土）15:00-18:00（受付14:45）</li>
+      <li>会場: 恵比寿エリア（参加確定者に住所をお送りします）</li>
+      <li>参加費: 3,500円（税込／ワーク用紙・お茶菓子代込み）</li>
+      <li>定員: 24名（3人組×8組）</li>
+      <li>持ち物: 筆記用具のみ</li>
+      <li>主催: POOLO（株式会社TABIPPO）</li>
+    </ul>
+    <p class="art-note"><b>※POOLO</b>＝旅を入り口に、自分の生き方・働き方を問い直す大人の学び場。</p>
+
+    <h2 class="art-h2">イベントでやること</h2>
+    <p class="art-p">お茶菓子と、ワーク用紙と、筆記用具。<br>それだけを手元に置いて、3つの問いに順番に向き合います。</p>
+    <ul class="art-list">
+      <li><b>問い①「旅とは」（45分）</b>心が動いた旅の場面を書き出し、2人組で問い返し合う</li>
+      <li><b>問い②「豊かさとは」（50分）</b>豊かだった瞬間を3つ並べ、3人組で優先順位を言葉にする</li>
+      <li><b>問い③「仕事とは」（45分）</b>前のめりになった場面から動詞を1つ抽出し、3人組に差し出す</li>
+      <li><b>全体で差し出す（15分）</b>立ち上がった言葉を短く共有する</li>
+    </ul>
+    <p class="art-p"><strong>原体験×言語化×対話</strong>。派手な演出はありません。紙とペンと、他者の問いだけで進みます。</p>
+
+    <h2 class="art-h2">こんな方におすすめ</h2>
+    <ul class="art-list">
+      <li>GWの後半、ひとりで静かに考え直したいテーマがある方</li>
+      <li>仕事は回っているのに、手応えが薄いと感じている方</li>
+      <li>旅の記憶や日常の一瞬を、ていねいに言葉にしてみたい方</li>
+      <li>初対面の相手と、深い対話を交わしてみたい方</li>
+    </ul>
+
+    <a href="#" class="cta">お申し込みはこちら</a>
+    <p class="cta-note">CTA 中段</p>
+
+    <h2 class="art-h2">このイベントを企画した理由</h2>
+    <p class="art-p">POOLOは、旅を入り口に生き方を問い直す学び場を10年以上続けてきました。<br>運営チームが繰り返し立ち会ってきたのは、言葉になる手前の素材が、他者の問いで輪郭を持ち始める瞬間です。</p>
+    <p class="art-p">その瞬間は、騒がしい場では生まれにくいものでした。<br>情報を浴びる場ではなく、自分の内側に静かに耳を澄ませる場が必要でした。</p>
+    <p class="art-p">だから、この日の対話には5つのルールを置きます。</p>
+    <ul class="art-list">
+      <li>①アドバイスしない</li>
+      <li>②要約しない、まとめない</li>
+      <li>③質問だけを返す</li>
+      <li>④沈黙を埋めない</li>
+      <li>⑤メモを取らない</li>
+    </ul>
+    <p class="art-p">沈黙を埋めない。この1つだけでも、場の空気は大きく変わります。<br>3人組×8組、24人。恵比寿の土曜午後に、そんな静けさを持つ3時間をつくります。</p>
+
+    <h2 class="art-h2">最後に</h2>
+    <p class="art-p">帰り道、少しだけ空の見え方が変わっているかもしれません。<br>派手な変化ではなく、自分の中の問いが1つ、はっきりした形になっている。<br>そんな3時間をお届けします。</p>
+
+    <h2 class="art-h2">イベント詳細</h2>
+    <ul class="art-list">
+      <li>日時: 2026年5月2日（土）15:00-18:00</li>
+      <li>場所: 恵比寿エリア</li>
+      <li>参加費: 3,500円（税込）</li>
+      <li>定員: 24名</li>
+      <li>募集期間: 2026年4月15日（火）〜4月28日（月）</li>
+    </ul>
+
+    <h2 class="art-h2">申込方法</h2>
+    <p class="art-p">下記ボタンからお申し込みください。定員に達し次第、締め切ります。</p>
+    <a href="#" class="cta">お申し込みはこちら</a>
+    <p class="cta-note">CTA 下部</p>
+  </div>
+</section>
+
+<!-- 評価・推奨 -->
+<section id="draft-s" class="draft summary" style="padding:4rem 0 4rem">
+  <div class="wrap">
+    <h2 class="sum-title">3案の評価と推奨</h2>
+    <p class="sum-sub">TRADEOFF ／ REVIEWS ／ RECOMMENDATION ／ DECIDE</p>
+
+    <div class="tradeoff">
+      <table>
+        <thead>
+          <tr><th>観点</th><th>案A 安全踏襲</th><th>案B 逆説</th><th>案C 風景</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>訴求強度（届く深さ）</td><td>中</td><td>高</td><td>中〜高</td></tr>
+          <tr><td>リスク（響かない層の発生）</td><td>低</td><td>中〜高</td><td>低〜中</td></tr>
+          <tr><td>集客広さ（万人受け）</td><td>高</td><td>中</td><td>中〜高</td></tr>
+          <tr><td>ブランド整合（POOLO既存トーン）</td><td>高</td><td>中〜高</td><td>高</td></tr>
+          <tr><td>推奨度</td><td class="star-cell">★★</td><td class="star-cell">★★★</td><td class="star-cell">★★★</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="reviews">
+      <div class="rev-card mc">
+        <div class="rev-label">MARKET-CRITIC 市場視点</div>
+        <div class="rev-title">案C推奨。案Bは挑発トーンに警戒リスク</div>
+        <div class="rev-body">現状3案で離脱率が最も低いのは<b>案C</b>。案Bの「違和感を深める」「問い返される」は、28-32歳の警戒心強い層に「意識高い系」と読まれる逆噴射リスク大。<br>3案共通で<b>主催者の顔／当日の空間／参加者属性レンジ／終了後の扱い／3,500円の内訳</b>が欠落している。</div>
+      </div>
+      <div class="rev-card pa">
+        <div class="rev-label">PROGRAM-ARCHITECT 思想視点</div>
+        <div class="rev-title">案B推奨。POOLO思想と正面一致</div>
+        <div class="rev-body"><b>案B</b>の「違和感を解消しない・深める」「答えを出さない」宣言が、受容が土台／問いを返す／共創→共有の積層構造と正面一致する。<br>案Cはブランドトーン整合で優れるが、本体POOLO LIFEへの引き上げ力で案Bに劣る。</div>
+      </div>
+    </div>
+
+    <div class="rec-card">
+      <div class="rec-label">RECOMMENDATION 司令塔推奨</div>
+      <div class="rec-title">案Cベース ＋ 案Bの中核要素移植 ＋ 共通不足情報の補強（ハイブリッド）</div>
+      <div class="rec-body">
+        「参加者を増やす」という目的で最も効くのは<b>離脱率の低さ</b>。案Cの情景導入で読み始めのハードルを下げ、本文中に案Bの<b>「答えを出さない」宣言</b>と<b>対話5ルールの魅力化</b>を移植することで、深度と間口を両立させる。<br><br>
+        改修ポイント: ①冒頭は案C維持、抽象比喩（小さな椅子・空の見え方）を「18時終了で夜の予定も両立可」等の生活視点に置換　②イベント章の冒頭に案Bの「答えを出しません」を1行挿入　③「こんな方」は案Aの具体箇条書きベース　④対話5ルールの魅力化は案Bトーン採用　⑤主催者・当日の流れ・参加者レンジ・終了後扱い・価格内訳を追加　⑥末尾に本体POOLO LIFEへの控えめな接続
+      </div>
+    </div>
+
+    <div class="decide-card">
+      <div class="decide-title">判断が必要な論点</div>
+      <ul class="decide-list">
+        <li><b>どの案をベースに最終化するか</b>　(a) 案Cベース＋ハイブリッド改修（司令塔推奨）／(b) 案Bそのまま／(c) 案Cそのまま／(d) 案Aそのまま</li>
+        <li><b>ファシリテーター・主催者の顔出し情報</b>をどこまで記事に入れるか（集客効果大だが準備コスト発生）</li>
+        <li><b>本体POOLO LIFEへの接続表現の強さ</b>（強く書けば本体リード化、弱く書けば単発イベントとして気軽に参加しやすい）</li>
+        <li><b>18時終了後の扱い</b>（例: 希望者のみ近隣で軽食、等）を文中に書くか</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="wrap">
+    <p>POOLOオフラインイベント 5/2＠恵比寿｜記事ドラフト比較プレビュー<br>TABIPPO ／ POOLO　2026年4月作成</p>
+  </div>
+</footer>
+
+<script>
+const tabs=document.querySelectorAll('.tab');
+const drafts=document.querySelectorAll('.draft');
+tabs.forEach(t=>t.addEventListener('click',()=>{
+  tabs.forEach(x=>x.classList.remove('active'));
+  drafts.forEach(x=>x.classList.remove('active'));
+  t.classList.add('active');
+  document.getElementById(t.dataset.target).classList.add('active');
+  window.scrollTo({top:document.querySelector('.tabs-wrap').offsetTop,behavior:'smooth'});
+}));
+</script>
+
+</body>
+</html>
