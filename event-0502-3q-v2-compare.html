@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>3つの問い｜スマホ最適v2 比較</title>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#1a1a1a;--sub:#4a4a4a;--mute:#7a7a7a;
+  --bg:#fafafa;--paper:#fff;--line:#e5e3dd;
+  --warm:#C08457;--star:#B8860B;--green:#2D6A4F;
+  --serif:'Shippori Mincho',serif;--sans:'Noto Sans JP',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:var(--sans);background:var(--bg);color:var(--ink);line-height:1.8;font-weight:300}
+.wrap{max-width:920px;margin:0 auto;padding:3rem 1.5rem 5rem}
+
+.preview-bar{background:var(--ink);color:#fff;padding:0.7rem 1.5rem;text-align:center;font-size:0.72rem;letter-spacing:0.15em}
+.preview-bar a{color:#b8d5ff;text-decoration:none;border-bottom:1px solid #b8d5ff;margin-left:0.8rem;padding-bottom:1px}
+
+.header{text-align:center;padding:2.5rem 0 2.5rem;border-bottom:1px solid var(--line);margin-bottom:3rem}
+.mark{display:inline-block;font-size:0.62rem;letter-spacing:0.4em;color:#fff;padding:0.35rem 1rem;background:var(--warm);border-radius:30px;margin-bottom:1.2rem}
+.h-title{font-family:var(--serif);font-size:1.5rem;font-weight:600;letter-spacing:0.08em;line-height:1.65;margin-bottom:0.6rem}
+.h-sub{font-family:var(--serif);font-size:0.88rem;color:var(--sub);letter-spacing:0.06em;line-height:1.9;max-width:640px;margin:0 auto}
+
+.variant{margin-bottom:3.5rem;padding:1.6rem;background:var(--paper);border-radius:8px;box-shadow:0 2px 12px rgba(0,0,0,0.04)}
+.v-head{margin-bottom:1.2rem}
+.v-label{font-family:var(--serif);font-size:0.7rem;letter-spacing:0.3em;color:var(--warm);font-weight:600;margin-bottom:0.4rem}
+.v-title{font-family:var(--serif);font-size:1.1rem;font-weight:600;letter-spacing:0.05em;margin-bottom:0.5rem}
+.v-desc{font-size:0.82rem;color:var(--sub);line-height:1.9}
+
+.v-img-wrap{border:1px solid var(--line);border-radius:4px;overflow:hidden;background:#fff;max-width:520px;margin:1rem auto 0;text-align:center}
+.v-img-wrap img{max-width:100%;width:auto;height:auto;display:block;margin:0 auto}
+
+.v-meta{display:flex;gap:1rem;flex-wrap:wrap;font-size:0.72rem;color:var(--mute);margin-top:0.8rem;letter-spacing:0.08em;justify-content:center}
+.v-meta a{color:var(--green);text-decoration:none;border-bottom:1px solid var(--green);padding-bottom:1px}
+
+.old-note{background:#fff;border:1px dashed var(--line);border-radius:6px;padding:1rem 1.3rem;font-size:0.82rem;color:var(--sub);line-height:1.85;margin-bottom:2rem}
+.old-note b{color:var(--warm);font-weight:600}
+.old-note a{color:var(--green);text-decoration:none;border-bottom:1px solid var(--green);padding-bottom:1px}
+
+.footer{text-align:center;padding:2rem 0;font-size:0.72rem;color:var(--mute);letter-spacing:0.15em}
+</style>
+</head>
+<body>
+
+<div class="preview-bar">
+  <b>PREVIEW</b> スマホ最適v2
+  <a href="event-0502-kv-compare.html">v1（旧・横長シンプル3案）</a>
+  <a href="event-0502-final-preview.html">5/2オフライン記事</a>
+</div>
+
+<div class="wrap">
+  <header class="header">
+    <span class="mark">V2 ／ MOBILE-FRIENDLY</span>
+    <h1 class="h-title">この日、向き合う3つの問い<br>スマホで見やすいv2デザイン 3案</h1>
+    <p class="h-sub">前回の横長1600×900版はスマホで文字が小さく見えたため、<br>縦長・正方形比率で各問いの文字を絶対サイズで大きくした改訂版。</p>
+  </header>
+
+  <div class="old-note">
+    <b>課題</b>：旧v1（横長1600×900）はスマホで横幅いっぱいに縮小されるため、1行に詰め込まれた番号・本文・時間すべてが小さくなる。<br>
+    <b>改善</b>：比率を縦長／正方形にし、1行あたりの情報量を減らすことで、各要素の表示サイズを相対的に大きくした。
+  </div>
+
+  <section class="variant">
+    <div class="v-head">
+      <div class="v-label">V2-A ／ 正方形・横並び</div>
+      <div class="v-title">1200×1200 ／ SNS投稿にも転用可</div>
+      <p class="v-desc">前回v1の構造を維持しつつ、正方形に再構成。各行に「番号 ＋ 問い本文」の2要素だけ配置し、時間表示は削除。SNS（X/Instagram）のスクエア投稿にもそのまま使える比率。</p>
+    </div>
+    <div class="v-img-wrap"><img src="event-0502-3q-v2-a.png" alt="V2-A Square" /></div>
+    <div class="v-meta"><span>1200×1200 PNG</span><a href="event-0502-3q-v2-a.png" target="_blank">画像単体で開く →</a></div>
+  </section>
+
+  <section class="variant">
+    <div class="v-head">
+      <div class="v-label">V2-B ／ 縦長・カード型</div>
+      <div class="v-title">1080×1620 ／ 3問いを独立カードで</div>
+      <p class="v-desc">Instagram縦長比率（2:3）。各問いをそれぞれ独立したカードとして配置し、左に問いの色アクセント（金／緑／オレンジ）。視線の流れが明確で、カードごとの読みやすさが高い。</p>
+    </div>
+    <div class="v-img-wrap"><img src="event-0502-3q-v2-b.png" alt="V2-B Card" /></div>
+    <div class="v-meta"><span>1080×1620 PNG</span><a href="event-0502-3q-v2-b.png" target="_blank">画像単体で開く →</a></div>
+  </section>
+
+  <section class="variant">
+    <div class="v-head">
+      <div class="v-label">V2-C ／ 縦長・タイポのみ</div>
+      <div class="v-title">1080×1620 ／ 装飾ゼロで問い本文を最大化</div>
+      <p class="v-desc">装飾・カード・罫線すべて排除し、問い本文を最も大きく見せるミニマル構成。クリーム背景で余白を広く取り、静謐なPOOLOトーンを最も強く体現。情緒派・感性派向け。</p>
+    </div>
+    <div class="v-img-wrap"><img src="event-0502-3q-v2-c.png" alt="V2-C Minimal" /></div>
+    <div class="v-meta"><span>1080×1620 PNG</span><a href="event-0502-3q-v2-c.png" target="_blank">画像単体で開く →</a></div>
+  </section>
+
+  <footer class="footer">
+    <p>POOLO 5/2オフライン｜3つの問いKV スマホ最適v2<br>TABIPPO ／ POOLO　2026年4月作成</p>
+  </footer>
+</div>
+
+</body>
+</html>
