@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>POOLO LIFE 8か月スケジュール ／ ゲスト3人イメージ＋3レイヤー</title>
+<title>POOLO LIFE 8か月スケジュール ／ ゲスト候補（バイネーム）＋3レイヤー</title>
 <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
@@ -29,26 +29,16 @@ body{font-family:var(--sans);background:var(--bg);color:var(--ink);line-height:1
 
 section{padding:3.6rem 0}
 .sec-num{font-family:var(--serif);font-size:0.72rem;letter-spacing:0.3em;margin-bottom:0.6rem;font-weight:500;color:var(--warm)}
-.sec-num.green{color:var(--green)}
-.sec-num.purple{color:var(--purple)}
-.sec-num.star{color:var(--star)}
 .sec-num.deep{color:var(--deep)}
-.sec-num.slate{color:var(--slate)}
 .sec-head{font-family:var(--serif);font-size:1.6rem;font-weight:600;letter-spacing:0.06em;margin-bottom:1.4rem;color:var(--ink);line-height:1.6}
 .sec-head::before{content:'';display:inline-block;width:2.6rem;height:2px;background:currentColor;margin-right:0.8rem;vertical-align:middle;margin-bottom:0.35em}
-.sec-head.warm{color:var(--warm-deep)}
-.sec-head.green{color:var(--green-deep)}
-.sec-head.purple{color:var(--purple-deep)}
-.sec-head.star{color:var(--star)}
 .sec-head.deep{color:var(--deep)}
-.sec-head.slate{color:var(--slate)}
 p.lead{font-family:var(--serif);font-size:1.03rem;color:var(--ink);font-weight:500;line-height:2;margin-bottom:1.6rem}
 
 .objective{background:var(--deep-bg);border-left:3px solid var(--deep);padding:1.6rem 1.9rem;margin:0 auto 2rem;max-width:900px;font-family:var(--serif);font-size:0.95rem;color:var(--ink);line-height:2;letter-spacing:0.04em}
 .objective b{color:var(--deep);font-weight:600}
 .objective-label{font-size:0.62rem;letter-spacing:0.3em;color:var(--deep);font-family:var(--sans);font-weight:600;margin-bottom:0.5rem;display:block}
 
-/* Month anchor block: each month has header + guest 3cards + schedule 3 layers */
 .month-anchor{padding:3rem 0 2rem;border-top:1px solid var(--line)}
 .month-anchor.p1{background:linear-gradient(180deg,#E9F5EE 0%,var(--bg) 100%)}
 .month-anchor.p2{background:linear-gradient(180deg,#ECEAF7 0%,var(--bg) 100%)}
@@ -78,11 +68,12 @@ p.lead{font-family:var(--serif);font-size:1.03rem;color:var(--ink);font-weight:5
 .mq-inner{background:#fff;border-left:3px solid var(--star);padding:0.9rem 1.2rem;font-family:var(--serif);font-size:0.95rem;color:var(--ink);letter-spacing:0.04em}
 .mq-inner .qlabel{font-size:0.6rem;letter-spacing:0.3em;color:var(--star);font-weight:600;margin-right:0.6rem}
 
-/* Guest 3 cards */
 .guests3{max-width:1100px;margin:1.5rem auto 0;padding:0 1.5rem;display:grid;grid-template-columns:repeat(3,1fr);gap:0.9rem}
-.gcard{background:#fff;border:1px solid var(--line);border-top:3px solid var(--warm);padding:1.15rem 1.1rem;border-radius:2px;display:flex;flex-direction:column;gap:0.55rem;min-height:200px}
-.gcard-head{display:flex;justify-content:space-between;align-items:baseline;gap:0.5rem;padding-bottom:0.55rem;border-bottom:1px dashed var(--line)}
-.gcard-label{font-family:var(--serif);font-size:0.85rem;font-weight:600;color:var(--warm-deep);letter-spacing:0.08em}
+.gcard{background:#fff;border:1px solid var(--line);border-top:3px solid var(--warm);padding:1.15rem 1.1rem;border-radius:2px;display:flex;flex-direction:column;gap:0.55rem;min-height:210px}
+.gcard-head{display:flex;justify-content:space-between;align-items:center;gap:0.5rem;padding-bottom:0.55rem;border-bottom:1px dashed var(--line)}
+.gcard-head-l{display:flex;align-items:center;gap:0.5rem;flex-wrap:wrap}
+.gcard-name{font-family:var(--serif);font-size:1.05rem;font-weight:700;color:var(--ink);letter-spacing:0.03em;line-height:1.4}
+.gcard-rank{color:var(--star);font-size:0.75rem;letter-spacing:0.02em;font-weight:600}
 .gcard-type{font-size:0.58rem;letter-spacing:0.18em;padding:0.18rem 0.48rem;border-radius:2px;background:var(--warm-bg);color:var(--warm-deep);font-weight:500;white-space:nowrap}
 .gcard-type.tehon{background:var(--green-bg);color:var(--green-deep)}
 .gcard-type.sozai{background:var(--purple-bg);color:var(--purple)}
@@ -97,7 +88,6 @@ p.lead{font-family:var(--serif);font-size:1.03rem;color:var(--ink);font-weight:5
 .noguest-box{max-width:1080px;margin:1.5rem auto 0;padding:1.2rem 1.5rem;background:var(--slate-bg);border-left:3px solid var(--slate);border-radius:2px;font-size:0.88rem;color:var(--slate);line-height:1.9}
 .noguest-box b{color:var(--slate);font-weight:700}
 
-/* 3 Layers schedule */
 .layers3{max-width:1100px;margin:1.8rem auto 0;padding:0 1.5rem;display:grid;grid-template-columns:repeat(3,1fr);gap:0.9rem}
 .lcard{background:#fff;border:1px solid var(--line);padding:1.15rem 1.1rem;border-radius:2px;display:flex;flex-direction:column;gap:0.4rem}
 .lcard.unei{border-top:3px solid var(--deep)}
@@ -120,7 +110,6 @@ p.lead{font-family:var(--serif);font-size:1.03rem;color:var(--ink);font-weight:5
 .lcard ul li.highlight b{color:var(--warm-deep)}
 .lcard .ltheme{font-size:0.73rem;color:var(--mute);font-style:italic;padding-top:0.5rem;margin-top:auto;border-top:1px dashed var(--line);line-height:1.75}
 
-/* Overview section */
 .overview-wrap{padding:3.5rem 0;background:var(--bg-deep);border-top:1px solid var(--line)}
 .overview{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;max-width:1050px;margin:1.5rem auto 0;padding:0 1.5rem}
 .ocard{background:#fff;border:1px solid var(--line);border-top:3px solid var(--deep);padding:1.4rem 1.3rem;border-radius:2px}
@@ -128,7 +117,6 @@ p.lead{font-family:var(--serif);font-size:1.03rem;color:var(--ink);font-weight:5
 .ocard p{font-size:0.8rem;color:var(--sub);line-height:1.85}
 .ocard p b{color:var(--ink);font-weight:600}
 
-/* Density chart */
 .density-wrap{max-width:1000px;margin:2rem auto 0;padding:0 1.5rem}
 .density-wrap svg{width:100%;height:auto;display:block}
 .density-cap{text-align:center;font-family:var(--serif);font-size:0.82rem;color:var(--sub);letter-spacing:0.06em;margin-top:0.8rem;line-height:1.9}
@@ -151,10 +139,10 @@ p.lead{font-family:var(--serif);font-size:1.03rem;color:var(--ink);font-weight:5
 
 <header class="preview-header">
   <div class="wrap">
-    <span class="preview-tag">SCHEDULE ／ 8 MONTHS</span>
+    <span class="preview-tag">SCHEDULE ／ 8 MONTHS ／ v2</span>
     <h1 class="preview-title">POOLO LIFE 8か月スケジュール</h1>
-    <div class="preview-sub">月別ゲスト3人イメージ＋3レイヤー構成（運営／定例／個人）</div>
-    <div class="preview-meta">2026-04-20 ／ 社長判断用プレビュー</div>
+    <div class="preview-sub">月別ゲスト候補（バイネーム）＋3レイヤー構成（運営／定例／個人）</div>
+    <div class="preview-meta">2026-04-20 ／ 既存カリキュラム index.html のゲスト候補を反映</div>
   </div>
 </header>
 
@@ -162,7 +150,7 @@ p.lead{font-family:var(--serif);font-size:1.03rem;color:var(--ink);font-weight:5
   <div class="wrap">
     <div class="objective">
       <span class="objective-label">このプレビューの読み方</span>
-      各月ごとに<b>ゲスト3人のイメージ</b>（架空プロフィール）と、<b>3レイヤーの月次スケジュール</b>（運営＝ゲスト/WS/イベント／定例＝コミュマネ伴走／個人＝受講生個人の取り組み）を並べます。ゲストは月の問いへの接続型（素材提供／立ち会い／手本／並走／素通り）で色分け。合宿はM3、Lv.3本番はM7、M8はゲスト不在（受講生主語）。
+      各月ごとに<b>ゲスト候補3人（バイネーム）</b>と<b>3レイヤーの月次スケジュール</b>（運営＝ゲスト/WS/イベント／定例＝コミュマネ伴走／個人＝受講生個人の取り組み）を並べます。ゲスト候補は既存カリキュラム（index.html）に記載のバイネームと優先度（★）を反映。接続型（素材提供／立ち会い／手本／並走／素通り）で月の問いへの効かせ方を示します。合宿はM3、Lv.3本番はM7、M8はゲスト不在。
     </div>
   </div>
 </section>
@@ -183,18 +171,18 @@ p.lead{font-family:var(--serif);font-size:1.03rem;color:var(--ink);font-weight:5
 
   <div class="guests3">
     <div class="gcard">
-      <div class="gcard-head"><span class="gcard-label">候補 A</span><span class="gcard-type tehon">手本型</span></div>
-      <div class="gcard-profile"><b>40代後半、観光系大学教員</b>。現場と研究を20年往復、最近は「観光しない旅」を学生と試している。</div>
-      <div class="gcard-connect">観光を手放した先に身体が動く話が、受講生の揺れの素材になる。</div>
+      <div class="gcard-head"><div class="gcard-head-l"><span class="gcard-name">髙井典子</span><span class="gcard-rank">★★★</span></div><span class="gcard-type tehon">手本型</span></div>
+      <div class="gcard-profile">神奈川大・教授／観光研究と体験の往復。研究者と旅人の視座を同時に持つ実演者。</div>
+      <div class="gcard-connect">研究と体験を往復する視座が、受講生の揺れの手がかりになる。</div>
     </div>
     <div class="gcard">
-      <div class="gcard-head"><span class="gcard-label">候補 B</span><span class="gcard-type sozai">素材提供型</span></div>
-      <div class="gcard-profile"><b>30代後半、書き手</b>。自転車で世界を7年旅したあと帰国し、無名の商店街を週1で取材している。</div>
-      <div class="gcard-connect">派手な旅から日常の微震へ降りた軌跡が、受講生の小さな揺れを許可する。</div>
+      <div class="gcard-head"><div class="gcard-head-l"><span class="gcard-name">石田ゆうすけ</span><span class="gcard-rank">★★</span></div><span class="gcard-type sozai">素材提供型</span></div>
+      <div class="gcard-profile">自転車世界一周作家／体験主語の実演者。身体で走り続けた人の語り。</div>
+      <div class="gcard-connect">体験を主語にした語りが、受講生に身体の許可を渡す。</div>
     </div>
     <div class="gcard">
-      <div class="gcard-head"><span class="gcard-label">候補 C</span><span class="gcard-type sutooi">素通り型</span></div>
-      <div class="gcard-profile"><b>50代前半、独立研究者</b>。数学と身体の本を書き、10年前から京都の町家で半隠居している。</div>
+      <div class="gcard-head"><div class="gcard-head-l"><span class="gcard-name">森田真生</span><span class="gcard-rank">★★</span></div><span class="gcard-type sutooi">素通り型</span></div>
+      <div class="gcard-profile">独立研究者／旅と身体の思索。数学と身体を往復する言葉。</div>
       <div class="gcard-connect">思索と身体を往復する言葉に、受講生が言語化前の揺らぎを重ねる。</div>
     </div>
   </div>
@@ -204,7 +192,7 @@ p.lead{font-family:var(--serif);font-size:1.03rem;color:var(--ink);font-weight:5
       <h5><span class="llabel">運営</span>ゲスト／WS／イベント</h5>
       <ul>
         <li>W1：オープニングDay／WS1-1「浸ると、揺らぐ」／<b>オンライン3h</b></li>
-        <li>W2：ゲスト講義（A/B/Cから1人）／<b>2h</b></li>
+        <li>W2：ゲスト講義／<b>2h</b></li>
         <li>W3：WS1-2「揺れた一語を旅記憶とつなげる」／<b>90分</b></li>
       </ul>
     </div>
@@ -243,19 +231,19 @@ p.lead{font-family:var(--serif);font-size:1.03rem;color:var(--ink);font-weight:5
 
   <div class="guests3">
     <div class="gcard">
-      <div class="gcard-head"><span class="gcard-label">候補 A</span><span class="gcard-type tehon">手本型</span></div>
-      <div class="gcard-profile"><b>30代後半、哲学対話ファシリテーター</b>。大学教員と並行で刑務所・高校・商店街で年80本の場を開く。</div>
+      <div class="gcard-head"><div class="gcard-head-l"><span class="gcard-name">永井玲衣</span><span class="gcard-rank">★★★</span></div><span class="gcard-type tehon">手本型</span></div>
+      <div class="gcard-profile">作家／哲学対話実践者。問いを渡す姿勢そのものが型になっている。</div>
       <div class="gcard-connect">問いを渡す姿勢そのものが、WS直後のワーク素材になる。</div>
     </div>
     <div class="gcard">
-      <div class="gcard-head"><span class="gcard-label">候補 B</span><span class="gcard-type sozai">素材提供型</span></div>
-      <div class="gcard-profile"><b>40代後半、元雑誌インタビュアー</b>。15年で2,000本聴いたあと、いまは聴かないカフェを経営。</div>
-      <div class="gcard-connect">聴きすぎた人が聴くのをやめた話が、受講生の聴く構えを揺らす。</div>
+      <div class="gcard-head"><div class="gcard-head-l"><span class="gcard-name">尹雄大</span><span class="gcard-rank">★★</span></div><span class="gcard-type sozai">素材提供型</span></div>
+      <div class="gcard-profile">インタビュアー／身体論。沈黙と呼吸を含めた聴き方の書き手。</div>
+      <div class="gcard-connect">身体を含めた聴き方が、受講生の聴く構えを揺らす。</div>
     </div>
     <div class="gcard">
-      <div class="gcard-head"><span class="gcard-label">候補 C</span><span class="gcard-type narran">並走型</span></div>
-      <div class="gcard-profile"><b>30代前半、身体論ライター</b>。演劇経験者で、インタビュー中の沈黙と呼吸を記述する連載を持つ。<br><small>※M6で再登場</small></div>
-      <div class="gcard-connect">沈黙の時間に何が起きているかを言語化する視点を、自分の対話に持ち込む。</div>
+      <div class="gcard-head"><div class="gcard-head-l"><span class="gcard-name">西村佳哲</span><span class="gcard-rank">★★</span></div><span class="gcard-type narran">並走型</span></div>
+      <div class="gcard-profile">リビングワールド。聴くことを仕事にし続けている実演者。<br><small>※M6で再登場可能性</small></div>
+      <div class="gcard-connect">M6越境での再登場で、聴き方の縦糸を作る。</div>
     </div>
   </div>
 
@@ -303,24 +291,24 @@ p.lead{font-family:var(--serif);font-size:1.03rem;color:var(--ink);font-weight:5
 
   <div class="guests3">
     <div class="gcard">
-      <div class="gcard-head"><span class="gcard-label">候補 A</span><span class="gcard-type tachiai">立ち会い型</span></div>
-      <div class="gcard-profile"><b>POOLO LIFE卒業生、30代半ば</b>。受講中2回、卒業後1回テーマがひっくり返り、現在は地方の小さな出版社で働く。</div>
-      <div class="gcard-connect">ひっくり返った履歴ごと見せ、仮置きに対する恐れを外す。</div>
+      <div class="gcard-head"><div class="gcard-head-l"><span class="gcard-name">卒業生 像A</span><span class="gcard-rank">★★★</span></div><span class="gcard-type tachiai">立ち会い型</span></div>
+      <div class="gcard-profile">POOLO LIFE卒業生。テーマが3-4回ひっくり返った実演者。<br><small>※実名は運営と個別選定（卒業生枠）</small></div>
+      <div class="gcard-connect">ひっくり返った履歴ごと見せ、仮置きへの恐れを外す。</div>
     </div>
     <div class="gcard">
-      <div class="gcard-head"><span class="gcard-label">候補 B</span><span class="gcard-type tachiai">立ち会い型</span></div>
-      <div class="gcard-profile"><b>POOLO LIFE卒業生、40代前半</b>。入学時のテーマを完全に捨て、いまは介護現場で働きながら発信を続けている。</div>
+      <div class="gcard-head"><div class="gcard-head-l"><span class="gcard-name">卒業生 像B</span><span class="gcard-rank">★★★</span></div><span class="gcard-type tachiai">立ち会い型</span></div>
+      <div class="gcard-profile">POOLO LIFE卒業生。在学中に当初テーマを完全に捨てた経験を持つ。<br><small>※実名は運営と個別選定（卒業生枠）</small></div>
       <div class="gcard-connect">捨てることが到達であった姿を見せ、完成形を求めない許可を渡す。</div>
     </div>
     <div class="gcard">
-      <div class="gcard-head"><span class="gcard-label">候補 C</span><span class="gcard-type tachiai">立ち会い型</span></div>
-      <div class="gcard-profile"><b>POOLO LIFE卒業生、20代後半</b>。テーマの名前は8ヶ月変わらなかったが、表現が文→声→場へ移ってきた。</div>
+      <div class="gcard-head"><div class="gcard-head-l"><span class="gcard-name">卒業生 像C</span><span class="gcard-rank">★★</span></div><span class="gcard-type tachiai">立ち会い型</span></div>
+      <div class="gcard-profile">POOLO LIFE卒業生。テーマ不変だが表現形態が文→声→場へ変わり続けた。<br><small>※実名は運営と個別選定（卒業生枠）</small></div>
       <div class="gcard-connect">同じ名前を手渡し方を変えて持ち続けた軌跡が、名乗りの可塑性を開く。</div>
     </div>
   </div>
 
   <div class="noguest-box">
-    <b>M3は卒業生枠のみ</b>：成功者フレーム・助言トーンは避け、失敗と迷いを含めて立ち会う構えを共有する。
+    <b>M3は卒業生枠のみ</b>：成功者フレーム・助言トーンは避け、失敗と迷いを含めて立ち会う構えを共有する。バイネームは運営チームで個別選定（既存 index.html の「像 a/b/c」に対応）。
   </div>
 
   <div class="layers3">
@@ -368,18 +356,18 @@ p.lead{font-family:var(--serif);font-size:1.03rem;color:var(--ink);font-weight:5
 
   <div class="guests3">
     <div class="gcard">
-      <div class="gcard-head"><span class="gcard-label">候補 A</span><span class="gcard-type sozai">素材提供型</span></div>
-      <div class="gcard-profile"><b>30代後半、独立5年目の編集者</b>。独立直後の燃え尽きを書き残し、揺り戻しを公開の場で書き続けている。</div>
-      <div class="gcard-connect">揺り戻し期の具体的な日々の描写が、受講生の違和感に言葉を貸す。</div>
+      <div class="gcard-head"><div class="gcard-head-l"><span class="gcard-name">最所あさみ</span><span class="gcard-rank">★★★</span></div><span class="gcard-type sozai">素材提供型</span></div>
+      <div class="gcard-profile">独立後も書き換えながら続ける実演者。揺り戻しを公開の場で書き続けている。</div>
+      <div class="gcard-connect">揺り戻し期の具体的な描写が、合宿後の違和感に言葉を貸す。</div>
     </div>
     <div class="gcard">
-      <div class="gcard-head"><span class="gcard-label">候補 B</span><span class="gcard-type tehon">手本型</span></div>
-      <div class="gcard-profile"><b>40代前半、文筆家</b>。海外在住10年後に帰国、環境が変わるたび自分の軸を書き直してきた。</div>
+      <div class="gcard-head"><div class="gcard-head-l"><span class="gcard-name">塩谷舞</span><span class="gcard-rank">★★</span></div><span class="gcard-type tehon">手本型</span></div>
+      <div class="gcard-profile">文筆家／NY→帰国／揺り戻しの軌跡。環境変化のたびに軸を書き直してきた。</div>
       <div class="gcard-connect">書き直しを恥ではなく作法として扱う姿が、受講生の書き直しを後押しする。</div>
     </div>
     <div class="gcard">
-      <div class="gcard-head"><span class="gcard-label">候補 C</span><span class="gcard-type sutooi">素通り型</span></div>
-      <div class="gcard-profile"><b>30代半ば、独立メディア編集者</b>。月1で自分の仮説を公開で捨てる連載を持つ。</div>
+      <div class="gcard-head"><div class="gcard-head-l"><span class="gcard-name">成田吉彦（narumi）</span><span class="gcard-rank">★★</span></div><span class="gcard-type sutooi">素通り型</span></div>
+      <div class="gcard-profile">編集者／独立メディア。自分の仮説を軽やかに捨てる作法を持つ。</div>
       <div class="gcard-connect">捨てる作法を軽やかに見せ、T2チーム内の揺れを正常化する。</div>
     </div>
   </div>
@@ -406,7 +394,7 @@ p.lead{font-family:var(--serif);font-size:1.03rem;color:var(--ink);font-weight:5
       <h5><span class="llabel">個人</span>受講生の取り組み</h5>
       <ul>
         <li>毎日：5分ジャーナル</li>
-        <li>週次：<b>仮名乗りを1形式で表現</b>（文／写真／音声のいずれか）</li>
+        <li>週次：<b>仮名乗りを1形式で表現</b>（文／写真／音声）</li>
         <li>月末：T2 4人に向けた短いコンテンツを仕上げる</li>
       </ul>
     </div>
@@ -429,18 +417,18 @@ p.lead{font-family:var(--serif);font-size:1.03rem;color:var(--ink);font-weight:5
 
   <div class="guests3">
     <div class="gcard">
-      <div class="gcard-head"><span class="gcard-label">候補 A</span><span class="gcard-type tehon">手本型</span></div>
-      <div class="gcard-profile"><b>50代前半、喫茶店主</b>。都市郊外で15年営み、贈与をテーマにした本を複数書いている。</div>
-      <div class="gcard-connect">無反応・的外れ・共鳴の全部を語れる実演者として、手渡し不安を支える。</div>
+      <div class="gcard-head"><div class="gcard-head-l"><span class="gcard-name">影山知明</span><span class="gcard-rank">★★★</span></div><span class="gcard-type tehon">手本型</span></div>
+      <div class="gcard-profile">クルミドコーヒー店主／15年以上贈与の論理を実演。無反応・的外れ・共鳴の全部を語れる。</div>
+      <div class="gcard-connect">贈与の哲学を実演する軌跡が、受講生の手渡し不安を支える。M7本番に繋ぐ縦糸。</div>
     </div>
     <div class="gcard">
-      <div class="gcard-head"><span class="gcard-label">候補 B</span><span class="gcard-type sozai">素材提供型</span></div>
-      <div class="gcard-profile"><b>40代前半、独立系書店店主</b>。10年で小さな企画を300本回し、失敗した200本を記録している。</div>
-      <div class="gcard-connect">失敗した差し出しの具体が、受講生の手渡しを気軽にする。</div>
+      <div class="gcard-head"><div class="gcard-head-l"><span class="gcard-name">辻山良雄</span><span class="gcard-rank">★★</span></div><span class="gcard-type sozai">素材提供型</span></div>
+      <div class="gcard-profile">Title店主／本という小さな差し出し。小さな差し出しを長く続けてきた店主。</div>
+      <div class="gcard-connect">小さな差し出しの蓄積が、受講生の手渡しを気軽にする。</div>
     </div>
     <div class="gcard">
-      <div class="gcard-head"><span class="gcard-label">候補 C</span><span class="gcard-type narran">並走型</span></div>
-      <div class="gcard-profile"><b>30代後半、古本の再循環事業の執行役員</b>。小さな商いを大きくせず長く続けるために何を捨てたかを話せる。<br><small>※M7で再登場</small></div>
+      <div class="gcard-head"><div class="gcard-head-l"><span class="gcard-name">鳥居希</span><span class="gcard-rank">★★</span></div><span class="gcard-type narran">並走型</span></div>
+      <div class="gcard-profile">バリューブックス取締役／古本の再循環。小さく長く続けるために何を捨てたかを話せる。<br><small>※M7で再登場可能性</small></div>
       <div class="gcard-connect">規模に流されない差し出しの哲学を、M7本番に繋ぐ縦糸として残す。</div>
     </div>
   </div>
@@ -490,19 +478,19 @@ p.lead{font-family:var(--serif);font-size:1.03rem;color:var(--ink);font-weight:5
 
   <div class="guests3">
     <div class="gcard">
-      <div class="gcard-head"><span class="gcard-label">候補 A</span><span class="gcard-type tachiai">立ち会い型</span></div>
-      <div class="gcard-profile"><b>40代後半、地方の事業家</b>。10年以上受け入れを続け、年間50人の越境者を迎えている。</div>
+      <div class="gcard-head"><div class="gcard-head-l"><span class="gcard-name">林篤志</span><span class="gcard-rank">★★★</span></div><span class="gcard-type tachiai">立ち会い型</span></div>
+      <div class="gcard-profile">Next Commons Lab／地方受け入れを10年以上続ける事業家。年間多くの越境者を迎えている。</div>
       <div class="gcard-connect">受け入れ側の眼を短く共有し、越境を双方向にする準備を渡す。</div>
     </div>
     <div class="gcard">
-      <div class="gcard-head"><span class="gcard-label">候補 B</span><span class="gcard-type tehon">手本型</span></div>
-      <div class="gcard-profile"><b>60代前半、里山再生のプロ</b>。植物と長期で関わる仕事を40年。</div>
+      <div class="gcard-head"><div class="gcard-head-l"><span class="gcard-name">田瀬理夫</span><span class="gcard-rank">★★★</span></div><span class="gcard-type tehon">手本型</span></div>
+      <div class="gcard-profile">プランタゴ／里山再生・長期で土地と関わる。植物と長期で向き合う仕事。</div>
       <div class="gcard-connect">時間軸の違う仕事の話が、受講生の越境体験の意味を拡げる。</div>
     </div>
     <div class="gcard">
-      <div class="gcard-head"><span class="gcard-label">候補 C</span><span class="gcard-type narran">並走型</span></div>
-      <div class="gcard-profile"><b>M2で登場した身体論ライター、再登場</b>。越境先で起きた沈黙と呼吸を後日書き起こす役で並走。</div>
-      <div class="gcard-connect">現場の記述者がいることで、自分の越境体験を言語化する視座を得る。</div>
+      <div class="gcard-head"><div class="gcard-head-l"><span class="gcard-name">西村佳哲</span><span class="gcard-rank">★★</span></div><span class="gcard-type narran">並走型</span></div>
+      <div class="gcard-profile">リビングワールド。M2から再登場、聴き方の縦糸を閉じる。<br><small>※M2で登場済み</small></div>
+      <div class="gcard-connect">M2からの聴くの縦糸を、越境体験の中で閉じる。</div>
     </div>
   </div>
 
@@ -551,19 +539,19 @@ p.lead{font-family:var(--serif);font-size:1.03rem;color:var(--ink);font-weight:5
 
   <div class="guests3">
     <div class="gcard">
-      <div class="gcard-head"><span class="gcard-label">候補 A</span><span class="gcard-type tehon">手本型</span></div>
-      <div class="gcard-profile"><b>40代後半、離島の実演者</b>。事業と暮らしを20年重ね、自分の問いを起点に仕事を編んできた。</div>
+      <div class="gcard-head"><div class="gcard-head-l"><span class="gcard-name">阿部裕志</span><span class="gcard-rank">★★★</span></div><span class="gcard-type tehon">手本型</span></div>
+      <div class="gcard-profile">巡の環／海士町。F=G×Hの典型実演者。自分の問いを起点に仕事を編んできた。</div>
       <div class="gcard-connect">差し出し続けた人生そのものを見せ、本番に向かう背中を押す。</div>
     </div>
     <div class="gcard">
-      <div class="gcard-head"><span class="gcard-label">候補 B</span><span class="gcard-type sozai">素材提供型</span></div>
-      <div class="gcard-profile"><b>50代前半、プロデューサー</b>。既定のレールを外した企画を20年、失敗率も高いまま続けている。</div>
-      <div class="gcard-connect">差し出し続ける者の身体感覚が、本番前の受講生の緊張を軽くする。</div>
+      <div class="gcard-head"><div class="gcard-head-l"><span class="gcard-name">若新雄純</span><span class="gcard-rank">★★★</span></div><span class="gcard-type sozai">素材提供型</span></div>
+      <div class="gcard-profile">プロデューサー／既定レールを外した実験を20年。失敗率も高いまま続けている。</div>
+      <div class="gcard-connect">差し出し続ける者の身体感覚が、本番前の緊張を軽くする。</div>
     </div>
     <div class="gcard">
-      <div class="gcard-head"><span class="gcard-label">候補 C</span><span class="gcard-type narran">並走型</span></div>
-      <div class="gcard-profile"><b>M5で登場した再循環事業の執行役員、再登場</b>。本番直前の伴走として短時間参加。</div>
-      <div class="gcard-connect">M5からの縦糸を閉じる存在として、分散型本番での各自の判断を支える。</div>
+      <div class="gcard-head"><div class="gcard-head-l"><span class="gcard-name">仲山進也</span><span class="gcard-rank">★★</span></div><span class="gcard-type tehon">手本型</span></div>
+      <div class="gcard-profile">仲山考材／楽天大学／大企業内外を往復。組織の内外を跨いで届け続ける実演。</div>
+      <div class="gcard-connect">内外を跨いだ差し出しの型が、Lv.3本番の選択肢を拡げる。</div>
     </div>
   </div>
 
@@ -653,7 +641,6 @@ p.lead{font-family:var(--serif);font-size:1.03rem;color:var(--ink);font-weight:5
 
   <div class="density-wrap">
     <svg viewBox="0 0 960 260" xmlns="http://www.w3.org/2000/svg">
-      <!-- bars for 運営密度 -->
       <g>
         <rect x="40" y="130" width="70" height="50" fill="#1F3A3D" opacity="0.55"/>
         <rect x="150" y="110" width="70" height="70" fill="#1F3A3D" opacity="0.65"/>
@@ -664,11 +651,7 @@ p.lead{font-family:var(--serif);font-size:1.03rem;color:var(--ink);font-weight:5
         <rect x="700" y="55" width="70" height="125" fill="#B8860B" opacity="0.85"/>
         <rect x="810" y="125" width="70" height="55" fill="#4A5A68" opacity="0.6"/>
       </g>
-
-      <!-- baseline -->
       <line x1="30" y1="180" x2="890" y2="180" stroke="#4A4A4A" stroke-width="1"/>
-
-      <!-- month labels -->
       <g font-family="'Noto Sans JP',sans-serif" font-size="11" fill="#4A4A4A" text-anchor="middle">
         <text x="75" y="205">M1</text>
         <text x="185" y="205">M2</text>
@@ -679,21 +662,15 @@ p.lead{font-family:var(--serif);font-size:1.03rem;color:var(--ink);font-weight:5
         <text x="735" y="205">M7</text>
         <text x="845" y="205">M8</text>
       </g>
-
-      <!-- phase labels -->
       <g font-family="'Shippori Mincho',serif" font-size="11" letter-spacing="4" font-weight="600">
         <text x="130" y="230" fill="#1A5238" text-anchor="middle">P1 自分</text>
         <text x="350" y="230" fill="#534AB7" text-anchor="middle">P2 POOLO</text>
         <text x="625" y="230" fill="#B8860B" text-anchor="middle">P3 社会</text>
         <text x="845" y="230" fill="#4A5A68" text-anchor="middle">P4</text>
       </g>
-
-      <!-- special markers -->
       <text x="295" y="30" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="11" fill="#9F6A43" font-weight="600">合宿</text>
       <text x="735" y="45" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="11" fill="#B8860B" font-weight="600">Lv.3本番</text>
       <text x="845" y="115" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="10" fill="#4A5A68">ゲスト不在</text>
-
-      <!-- chart title -->
       <text x="480" y="15" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="12" fill="#1a1a1a" letter-spacing="4" font-weight="600">運営密度の月推移（M3合宿・M7 Lv.3で山）</text>
     </svg>
     <div class="density-cap">※ 棒の高さは「運営側が場を張る密度」を示す概念図。個人時間は月を追うごとに増え、M8は運営が背景化し受講生主語で閉じます。</div>
@@ -706,7 +683,7 @@ p.lead{font-family:var(--serif);font-size:1.03rem;color:var(--ink);font-weight:5
     </div>
     <div class="ocard">
       <h4>M3合宿・M7本番の特別設計</h4>
-      <p>M3は唯一の対面集中月。週次定例1回をスキップし、合宿2日で代替。<b>合宿後W4に短い振り返り枠</b>を必ず置き、揺り戻しを放置しない。M7は<b>2週間ウィンドウの分散型自主企画</b>、運営は企画テンプレ・共通ハッシュタグ・反応収集フォームのみ準備。T2解散式で儀式化。</p>
+      <p>M3は唯一の対面集中月。週次定例1回スキップ＋合宿2日で代替。<b>合宿後W4に短い振り返り枠</b>を必ず置き、揺り戻しを放置しない。M7は<b>2週間ウィンドウの分散型自主企画</b>、運営は企画テンプレ・共通ハッシュタグ・反応収集フォームのみ準備。T2解散式で儀式化。</p>
     </div>
     <div class="ocard">
       <h4>M8 ゲスト不在の設計</h4>
@@ -723,7 +700,7 @@ p.lead{font-family:var(--serif);font-size:1.03rem;color:var(--ink);font-weight:5
     <a href="index.html">既存カリキュラム</a>
     <a href="m4-m7.html">M4-M7詳細</a>
   </div>
-  <p>POOLO LIFE ／ 8か月スケジュール＋月別ゲスト3人イメージ ／ 2026-04-20</p>
+  <p>POOLO LIFE ／ 8か月スケジュール＋月別ゲスト候補（バイネーム）／ 2026-04-20</p>
 </footer>
 
 </body>
