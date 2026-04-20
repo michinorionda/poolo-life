@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>旅好きの方へのヒアリングシート — POOLO運営チーム</title>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#1a1a1a;--sub:#4a4a4a;--mute:#7a7a7a;--hint:#a8a8a8;
+  --bg:#faf9f6;--bg-deep:#f3f1ea;--line:#e0ddd3;
+  --green:#2D6A4F;--green-lt:#F4FAF6;--green-bg:#E9F5EE;
+  --warm:#C08457;--warm-bg:#F7EDE2;
+  --deep:#1F3A3D;--deep-bg:#DCE6E7;
+  --star:#B8860B;--star-bg:#F9F0D9;
+  --violet:#6a3d7a;--violet-bg:#f0e6f5;
+  --serif:'Shippori Mincho',serif;--sans:'Noto Sans JP',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--bg);color:var(--ink);line-height:1.95;font-weight:300;-webkit-font-smoothing:antialiased}
+.wrap{max-width:920px;margin:0 auto;padding:0 1.5rem}
+
+/* Header */
+.header{padding:5rem 0 3.5rem;background:linear-gradient(135deg,var(--bg-deep) 0%,var(--bg) 60%);border-bottom:1px solid var(--line)}
+.mark{display:inline-block;font-size:0.62rem;letter-spacing:0.4em;color:var(--warm);margin-bottom:1.4rem;font-weight:500;padding:0.35rem 1rem;border:1px solid var(--warm);background:#fff}
+.h-title{font-family:var(--serif);font-size:2rem;font-weight:600;letter-spacing:0.08em;line-height:1.6;margin-bottom:0.8rem}
+.h-sub{font-family:var(--serif);font-size:0.96rem;color:var(--sub);letter-spacing:0.06em;line-height:2}
+.h-meta{display:flex;gap:1.5rem;flex-wrap:wrap;font-size:0.76rem;color:var(--mute);margin-top:1.8rem;padding-top:1rem;border-top:1px dashed var(--line)}
+.h-meta b{color:var(--warm);font-weight:600}
+
+/* Section title */
+.sec-title{font-family:var(--serif);font-size:1.25rem;font-weight:600;letter-spacing:0.08em;margin-bottom:1.4rem;padding-bottom:0.5rem;border-bottom:1px solid var(--line);color:var(--ink)}
+.sec-title small{display:block;font-family:var(--sans);font-size:0.68rem;letter-spacing:0.2em;color:var(--mute);margin-bottom:0.3rem;font-weight:400}
+
+/* Overview */
+.overview{padding:3.5rem 0 2.5rem;border-bottom:1px solid var(--line)}
+.target-box{background:#fff;border:1px solid var(--line);padding:1.5rem 1.8rem;margin-bottom:1.5rem;border-left:3px solid var(--green)}
+.target-box h3{font-family:var(--serif);font-size:0.98rem;font-weight:600;margin-bottom:0.6rem;color:var(--green);letter-spacing:0.06em}
+.target-box p{font-size:0.88rem;color:var(--sub);line-height:1.95}
+
+.hypo-grid{display:grid;grid-template-columns:1fr 1fr;gap:0.8rem;margin-top:0.8rem}
+.hypo-item{background:var(--bg-deep);padding:0.9rem 1.1rem;border-radius:3px;font-size:0.82rem;color:var(--sub);line-height:1.7}
+.hypo-item b{color:var(--ink);font-weight:500;display:block;margin-bottom:0.3rem;font-size:0.75rem;letter-spacing:0.1em;color:var(--warm)}
+
+/* Compare table */
+.compare{padding:3rem 0;background:var(--bg-deep);border-bottom:1px solid var(--line)}
+.tbl{width:100%;border-collapse:collapse;background:#fff;font-size:0.82rem;margin-top:0.5rem}
+.tbl th,.tbl td{padding:0.75rem 0.9rem;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+.tbl th{background:var(--bg-deep);font-family:var(--serif);font-weight:600;color:var(--ink);font-size:0.85rem;letter-spacing:0.05em}
+.tbl td:first-child{font-weight:500;color:var(--ink);background:var(--bg)}
+.tbl .ok{color:var(--green);font-weight:600}
+.tbl .mid{color:var(--warm);font-weight:500}
+.tbl .low{color:var(--hint)}
+
+.rec-box{background:#fff;border:2px solid var(--green);padding:1.8rem 2rem;margin-top:2rem;border-radius:3px}
+.rec-box h3{font-family:var(--serif);font-size:1.05rem;color:var(--green);margin-bottom:0.8rem;letter-spacing:0.06em;font-weight:600}
+.rec-box p{font-size:0.88rem;color:var(--sub);line-height:2}
+
+/* Tabs */
+.tabs-wrap{padding:3rem 0 0;border-bottom:1px solid var(--line);position:sticky;top:0;background:var(--bg);z-index:10}
+.tabs{display:flex;gap:0.5rem;flex-wrap:wrap;padding-bottom:1rem}
+.tab-btn{flex:1;min-width:200px;padding:1rem 1.2rem;background:#fff;border:1px solid var(--line);cursor:pointer;font-family:var(--sans);font-size:0.85rem;color:var(--sub);transition:all 0.2s;text-align:left;letter-spacing:0.03em;border-radius:3px}
+.tab-btn:hover{background:var(--bg-deep);color:var(--ink)}
+.tab-btn.active{background:var(--green);color:#fff;border-color:var(--green)}
+.tab-btn .t-mark{display:block;font-size:0.62rem;letter-spacing:0.2em;margin-bottom:0.3rem;opacity:0.85}
+.tab-btn .t-name{font-family:var(--serif);font-size:0.95rem;font-weight:600}
+
+/* Tab content */
+.tab-content{display:none;padding:2.5rem 0 4rem}
+.tab-content.active{display:block}
+
+/* Part */
+.part{margin-top:2.5rem}
+.part:first-child{margin-top:0}
+.part-head{display:flex;align-items:baseline;gap:1rem;margin-bottom:1.5rem;padding-bottom:0.6rem;border-bottom:1px solid var(--line)}
+.part-num{font-family:var(--serif);font-size:1.3rem;font-weight:600;color:var(--warm);letter-spacing:0.08em}
+.part-name{font-family:var(--serif);font-size:1.15rem;font-weight:600;color:var(--ink);letter-spacing:0.06em}
+.part-time{margin-left:auto;font-size:0.75rem;color:var(--mute);letter-spacing:0.15em}
+
+/* Script block */
+.script{background:var(--warm-bg);border-left:3px solid var(--warm);padding:1.3rem 1.5rem;margin:1rem 0;border-radius:0 3px 3px 0;font-family:var(--serif);font-size:0.94rem;line-height:2.1;color:var(--sub);letter-spacing:0.03em;white-space:pre-line}
+
+/* Question card */
+.q-card{background:#fff;border:1px solid var(--line);border-radius:3px;padding:1.5rem 1.8rem;margin:1.2rem 0}
+.q-head{display:flex;align-items:baseline;gap:0.8rem;margin-bottom:0.8rem;flex-wrap:wrap}
+.q-num{font-family:var(--serif);font-size:1rem;font-weight:600;color:var(--green);letter-spacing:0.05em;min-width:4rem}
+.q-tag{font-size:0.62rem;letter-spacing:0.15em;padding:0.2rem 0.5rem;border-radius:2px;font-weight:500}
+.q-tag.h1{background:var(--green-bg);color:var(--green)}
+.q-tag.h2{background:var(--warm-bg);color:var(--warm)}
+.q-tag.h3{background:var(--deep-bg);color:var(--deep)}
+.q-tag.h4{background:var(--star-bg);color:var(--star)}
+.q-tag.rel{background:var(--violet-bg);color:var(--violet)}
+.q-main{font-family:var(--serif);font-size:1.05rem;font-weight:500;color:var(--ink);line-height:1.9;letter-spacing:0.04em;padding:1rem 1.2rem;background:var(--bg);border-left:3px solid var(--green);border-radius:0 3px 3px 0;margin-top:0.5rem}
+.q-meta{margin-top:0.9rem;font-size:0.78rem;color:var(--mute);line-height:1.8}
+.q-meta b{color:var(--sub);font-weight:500}
+.q-deep{margin-top:1rem;padding:0.9rem 1.1rem;background:var(--bg-deep);border-radius:3px}
+.q-deep-title{font-size:0.62rem;letter-spacing:0.2em;color:var(--warm);font-weight:500;margin-bottom:0.5rem}
+.q-deep ul{list-style:none;padding:0}
+.q-deep li{padding:0.3rem 0 0.3rem 1.2rem;position:relative;font-size:0.85rem;color:var(--sub);line-height:1.8}
+.q-deep li::before{content:'→';position:absolute;left:0;color:var(--warm);font-size:0.8rem}
+.q-note{margin-top:0.8rem;font-size:0.78rem;color:var(--mute);padding:0.7rem 0.9rem;border:1px dashed var(--line);border-radius:3px;line-height:1.8}
+.q-note b{color:var(--ink);font-weight:500}
+
+.branch{display:grid;grid-template-columns:1fr;gap:0.6rem;margin-top:0.9rem}
+.branch-box{background:var(--bg-deep);border-left:2px solid var(--hint);padding:0.8rem 1rem;border-radius:0 3px 3px 0}
+.branch-box b{font-size:0.7rem;letter-spacing:0.15em;color:var(--warm);font-weight:500;display:block;margin-bottom:0.3rem}
+.branch-box span{font-size:0.83rem;color:var(--sub);line-height:1.8}
+
+/* Closing options */
+.close-box{background:#fff;border:1px solid var(--line);padding:1.5rem 1.8rem;border-radius:3px;margin-top:1rem}
+.close-box h4{font-family:var(--serif);font-size:0.98rem;font-weight:600;margin-bottom:1rem;color:var(--deep);letter-spacing:0.05em}
+.close-box ol{padding-left:1.8rem;font-size:0.88rem;color:var(--sub);line-height:2.1}
+.close-box li{padding:0.15rem 0}
+.close-box li b{color:var(--ink);font-weight:500}
+
+/* Form (for case C) */
+.form-q{background:#fff;border:1px solid var(--line);border-radius:3px;padding:1.3rem 1.6rem;margin:1rem 0}
+.form-q-label{font-family:var(--serif);font-size:0.95rem;font-weight:600;color:var(--ink);margin-bottom:0.6rem;line-height:1.8;letter-spacing:0.03em}
+.form-q-label .req{font-size:0.62rem;letter-spacing:0.15em;color:var(--warm);padding:0.15rem 0.4rem;border:1px solid var(--warm);margin-right:0.5rem;font-weight:500;vertical-align:middle}
+.form-q-label .opt{font-size:0.62rem;letter-spacing:0.15em;color:var(--mute);padding:0.15rem 0.4rem;border:1px solid var(--line);margin-right:0.5rem;font-weight:500;vertical-align:middle}
+.form-q-options{padding:0.5rem 0;font-size:0.88rem;color:var(--sub);line-height:2}
+.form-q-options label{display:block;padding:0.2rem 0;cursor:pointer}
+.form-q-options label:hover{color:var(--ink)}
+.form-q-options input[type=checkbox],.form-q-options input[type=radio]{margin-right:0.5rem;accent-color:var(--green)}
+.form-q-text{background:var(--bg);border:1px dashed var(--line);padding:1rem;margin-top:0.5rem;font-size:0.82rem;color:var(--hint);min-height:3.5rem;border-radius:3px;font-style:italic}
+.form-q-note{margin-top:0.7rem;font-size:0.76rem;color:var(--mute);padding:0.5rem 0.7rem;background:var(--bg-deep);border-radius:3px;line-height:1.7}
+
+/* Notice */
+.notice{background:var(--violet-bg);border-left:3px solid var(--violet);padding:1.1rem 1.4rem;margin:1rem 0;border-radius:0 3px 3px 0;font-size:0.85rem;color:var(--sub);line-height:1.9}
+.notice b{color:var(--violet);font-weight:600;display:block;margin-bottom:0.3rem;font-size:0.72rem;letter-spacing:0.15em}
+
+/* Footer */
+.footer{padding:3.5rem 0 4rem;background:var(--bg-deep);text-align:center;border-top:1px solid var(--line)}
+.footer-title{font-family:var(--serif);font-size:1rem;font-weight:600;color:var(--ink);margin-bottom:0.8rem;letter-spacing:0.06em}
+.footer-note{font-size:0.78rem;color:var(--mute);line-height:2;letter-spacing:0.05em}
+.footer-mark{margin-top:2rem;font-size:0.62rem;letter-spacing:0.3em;color:var(--warm)}
+
+/* Utility */
+.spacer{height:2rem}
+ul.clean{list-style:none;padding:0;margin:0.5rem 0}
+ul.clean li{padding:0.3rem 0 0.3rem 1.3rem;position:relative;font-size:0.85rem;color:var(--sub);line-height:1.9}
+ul.clean li::before{content:'—';position:absolute;left:0;color:var(--warm)}
+
+@media (max-width:640px){
+  .h-title{font-size:1.5rem}
+  .hypo-grid{grid-template-columns:1fr}
+  .tab-btn{min-width:100%}
+  .part-head{flex-wrap:wrap}
+  .part-time{margin-left:0;width:100%;margin-top:0.3rem}
+  .wrap{padding:0 1.2rem}
+  .q-card{padding:1.2rem 1.3rem}
+}
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="wrap">
+    <span class="mark">HEARING SHEET / FOR TRAVEL LOVERS</span>
+    <h1 class="h-title">旅好きの方へのヒアリングシート</h1>
+    <p class="h-sub">POOLOをまだ知らない旅好きの方に、旅と日常のあわいを<br>聴かせていただくための問いのセット</p>
+    <div class="h-meta">
+      <span>作成 <b>2026-04-20</b></span>
+      <span>作成者 <b>POOLO運営チーム</b></span>
+      <span>対象 <b>旅好き × POOLO未認知層</b></span>
+      <span>用途 <b>マーケットフィット検証＋リード獲得</b></span>
+    </div>
+  </div>
+</header>
+
+<section class="overview">
+  <div class="wrap">
+    <h2 class="sec-title"><small>OVERVIEW</small>このヒアリングで確かめたいこと</h2>
+
+    <div class="target-box">
+      <h3>対象像</h3>
+      <p>旅が好きで、旅の経験が少なからずある方。POOLOは名前を聞いた程度か、全く知らない。年齢・職業は問いませんが、20代後半〜30代中心を想定しています。「旅を消費以上に感じている」萌芽を持つ方に向けた問いです。</p>
+    </div>
+
+    <div class="target-box" style="border-left-color:var(--warm)">
+      <h3 style="color:var(--warm)">検証したい4つの仮説</h3>
+      <div class="hypo-grid">
+        <div class="hypo-item"><b>仮説1 / 持ち帰り</b>旅好きの多くは、旅で感じた何かを日常に持ち帰れず、言葉にする場所を欲している</div>
+        <div class="hypo-item"><b>仮説2 / 関係性</b>旅を一緒にする仲間は見つかっても、旅後に問いを交わす仲間が見つからない</div>
+        <div class="hypo-item"><b>仮説3 / 関心探究</b>旅好き層は「今何に心が動くか」起点への親和性が高い。目標逆算型より共感しやすい</div>
+        <div class="hypo-item"><b>仮説4 / 刺さり方</b>POOLOのコアは、言葉で説明するより体験を引き出した後に差し出すほうが刺さる</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="compare">
+  <div class="wrap">
+    <h2 class="sec-title"><small>3 PROPOSALS</small>3案のトレードオフ</h2>
+    <table class="tbl">
+      <thead>
+        <tr><th>観点</th><th>案A / 60分深堀り</th><th>案B / 30分ライト</th><th>案C / 15分アンケート</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>深さ</td><td class="ok">◎ 変化まで引き出せる</td><td class="mid">○ 輪郭は掴める</td><td class="low">△ 表面的な事実中心</td></tr>
+        <tr><td>母数</td><td class="low">△ 月5〜10人が限界</td><td class="mid">○ 月20人程度</td><td class="ok">◎ 無制限に近い</td></tr>
+        <tr><td>運営コスト</td><td class="low">高</td><td class="mid">中</td><td class="ok">低</td></tr>
+        <tr><td>沈黙の扱い</td><td class="ok">◎ 3秒待てる</td><td class="mid">○ 短く待てる</td><td class="low">× 発生しない</td></tr>
+        <tr><td>リード転換</td><td class="ok">◎ 文脈を作れる</td><td class="mid">○ 次接点を置ける</td><td class="low">△ チェック頼み</td></tr>
+        <tr><td>検証の質</td><td class="ok">◎ 仮説1〜4全部</td><td class="mid">○ 仮説1・2中心</td><td class="low">△ 仮説3のみ軽く</td></tr>
+        <tr><td>未認知でも成立</td><td class="ok">◎ 文脈を作れる</td><td class="mid">○ 成立</td><td class="mid">○ 成立（前提）</td></tr>
+      </tbody>
+    </table>
+
+    <div class="rec-box">
+      <h3>推奨：案A（60分深堀り）を主軸に、案C（アンケート）を前段スクリーニングで併用</h3>
+      <p>旅好き×未認知層は、まず「相手の旅の体験を引き出す」ことで信頼と文脈が立ち上がります。Bだと開く問いで終わり、仮説検証が浅くなる。案Cで母数を取り、該当者を案Aへ。5/2恵比寿イベント参加者のフォロー接点としても案Aが最も自然につながります。</p>
+    </div>
+  </div>
+</section>
+
+<div class="tabs-wrap">
+  <div class="wrap">
+    <div class="tabs">
+      <button class="tab-btn active" data-tab="a">
+        <span class="t-mark">PLAN A / RECOMMENDED</span>
+        <span class="t-name">60分深堀り版</span>
+      </button>
+      <button class="tab-btn" data-tab="b">
+        <span class="t-mark">PLAN B</span>
+        <span class="t-name">30分ライト版</span>
+      </button>
+      <button class="tab-btn" data-tab="c">
+        <span class="t-mark">PLAN C</span>
+        <span class="t-name">15分アンケート版</span>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== TAB A ==================== -->
+<div class="tab-content active" id="tab-a">
+<div class="wrap">
+
+<h2 class="sec-title"><small>PLAN A / 60 MIN</small>60分深堀り版ヒアリングシート</h2>
+<p style="font-size:0.85rem;color:var(--sub);margin-bottom:2rem;line-height:1.9">1on1（Zoom／対面）想定。仮説1〜4すべてを検証でき、自然にリード転換まで繋げられる中核シート。</p>
+
+<div class="notice"><b>ヒアリアー事前チェック</b>録音の同意文面を用意／相手とPOOLOの距離を仮置き／本シートを画面共有しながら進める前提／クロージングで提示する5択を整理</div>
+
+<div class="part">
+  <div class="part-head">
+    <span class="part-num">0</span>
+    <span class="part-name">挨拶と目的説明</span>
+    <span class="part-time">5 min</span>
+  </div>
+
+<div class="script">今日はお時間ありがとうございます。
+わたしたちは「POOLO」という旅をテーマにした学校のような場を運営している運営チームの〇〇です。
+今日のヒアリングは、営業とか勧誘ではなくて、旅が好きな方が日々どんなことを感じているか、どんな場や仲間を求めているか、そういうことを教えていただきたくてお声がけしました。
+こちらが一方的に話すより、〇〇さんの言葉で聴かせていただきたいので、質問は投げますが、正解も不正解もないです。
+思いついたまま話してください。沈黙も全然大丈夫です。
+録音してもよいですか。あとで私たちがちゃんと振り返るためだけに使います。外には出しません。</div>
+
+<div class="q-note"><b>ヒアリアー用メモ</b>：POOLOの説明はここでは一切しない。相手から聞かれたら「8ヶ月のオンライン中心の場で、旅好きの人が集まって対話と体験をする場」程度にとどめる。</div>
+</div>
+
+<div class="part">
+  <div class="part-head">
+    <span class="part-num">1</span>
+    <span class="part-name">開く問い（旅の入口）</span>
+    <span class="part-time">10 min</span>
+  </div>
+
+  <div class="q-card">
+    <div class="q-head"><span class="q-num">Q1-1</span><span class="q-tag rel">関係づくり</span></div>
+    <div class="q-main">最近、どんな旅に行きましたか？ 直近でもいいし、印象に残っている旅でも。</div>
+    <div class="q-meta"><b>聴きどころ：</b>旅の頻度・スタイル（ひとり／仲間／家族）、どこに喜びを置いているか</div>
+    <div class="q-deep">
+      <div class="q-deep-title">DEEPER QUESTIONS</div>
+      <ul><li>その旅、どこが一番よかった？</li><li>誰と行った？ ひとり旅が多い？</li><li>旅に行くペースって、どれくらい？</li></ul>
+    </div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-head"><span class="q-num">Q1-2</span><span class="q-tag rel">関係づくり</span></div>
+    <div class="q-main">旅が好きになったきっかけって、なにかありますか？</div>
+    <div class="q-meta"><b>聴きどころ：</b>旅が「消費」なのか「変容」に近いのか、初期動機を確認</div>
+    <div class="q-deep">
+      <div class="q-deep-title">DEEPER QUESTIONS</div>
+      <ul><li>それからどう変わっていった？</li><li>誰かに影響を受けた？</li></ul>
+    </div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-head"><span class="q-num">Q1-3</span><span class="q-tag rel">認知確認</span></div>
+    <div class="q-main">旅をテーマにしたコミュニティとか、学校みたいな場って、聞いたことありますか？ POOLOっていう名前、聞いたことあります？</div>
+    <div class="q-meta"><b>聴きどころ：</b>未認知／名前だけ／少し知っている のどこか</div>
+    <div class="branch">
+      <div class="branch-box"><b>名前だけ知っている</b><span>「どんなイメージありますか？」と聞いて、相手の中の仮説を出してもらう。説明はまだしない。</span></div>
+      <div class="branch-box"><b>全く知らない</b><span>そのまま次へ進む。POOLOの説明を長々としない。</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="part">
+  <div class="part-head">
+    <span class="part-num">2</span>
+    <span class="part-name">深める問い（持ち帰りと関係性）</span>
+    <span class="part-time">30 min</span>
+  </div>
+
+  <div class="notice"><b>ヒアリアー注意</b>ここから感情・変化の話に入る。答えづらそうならすぐ1つ前の問いに戻る。問いの後3秒は必ず待つ。沈黙を埋めにいかない。相手の言葉をそのまま繰り返す（「〜って感じたんですね」）。言い換えない。</div>
+
+  <div class="q-card">
+    <div class="q-head"><span class="q-num">Q2-1</span><span class="q-tag h1">仮説1 / 持ち帰り</span></div>
+    <div class="q-main">旅から帰ってきたあと、自分の中で何かが変わった感覚ってありますか？ あるとしたら、それは日常にどう残っていますか？</div>
+    <div class="q-meta"><b>聴きどころ：</b>変化の実感／言語化できているか／日常の中に残っているか</div>
+    <div class="q-deep">
+      <div class="q-deep-title">DEEPER QUESTIONS</div>
+      <ul><li>もやもやのまま、でいうと、どういうもやもや？</li><li>戻ってすぐ薄れる、って話だと、どのタイミングで薄れていく？</li><li>誰かにそれを話したことある？ 話したらどんな反応だった？</li></ul>
+    </div>
+    <div class="branch">
+      <div class="branch-box"><b>戻るとすぐ日常に埋もれる</b><span>仮説1合致。Q2-2へ</span></div>
+      <div class="branch-box"><b>ちゃんと言葉にできていて仕事にも活かせている</b><span>仮説1から外れる。Bゾーン。Q2-2をスキップしQ2-3へ</span></div>
+      <div class="branch-box"><b>変わってる気はするけど、何がって聞かれると困る</b><span>ど真ん中。深掘りをしっかり</span></div>
+    </div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-head"><span class="q-num">Q2-2</span><span class="q-tag h2">仮説2 / 関係性</span></div>
+    <div class="q-main">旅について、深く話せる相手って、いますか？「楽しかったね」の先まで話せるような相手。</div>
+    <div class="q-meta"><b>聴きどころ：</b>そういう相手がいるか／いない場合、何を話したいと思っているか</div>
+    <div class="q-deep">
+      <div class="q-deep-title">DEEPER QUESTIONS</div>
+      <ul><li>話したいけど話せていない、みたいなことはありますか？</li><li>話せる相手がいたら、何を話してみたいですか？</li><li>旅仲間と、旅の先を話せる仲間って、同じ人ですか？ 違う人ですか？</li></ul>
+    </div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-head"><span class="q-num">Q2-3</span><span class="q-tag h3">仮説3 / 関心探究</span></div>
+    <div class="q-main">最近、旅とは関係なくてもいいんですが、自分がなにか心が動いている、気になって仕方ないテーマとか、人とか、ありますか？</div>
+    <div class="q-meta"><b>聴きどころ：</b>答えが出るか／出ないか。出る場合、内側から出ているか外から借りているか</div>
+    <div class="q-note"><b>ヒアリアーの振る舞い：</b>相手が詰まったら、絶対に答えを示唆しない。「ぱっと出なくても大丈夫ですよ。最近の週末に何してたとか、何の動画見てたとか、そういうところからでも」と枠をゆるめる。</div>
+    <div class="q-deep">
+      <div class="q-deep-title">DEEPER QUESTIONS</div>
+      <ul><li>それのどこが気になる？</li><li>いつ頃から気になってる？</li><li>誰かに話したことある？</li></ul>
+    </div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-head"><span class="q-num">Q2-4</span><span class="q-tag h3">仮説3・4接続</span></div>
+    <div class="q-main">気になってること、もし少しでも形にして誰かに見せるとしたら、どんな形になりそうですか？ 発信とか、場を開くとか、作るとか、何でもいいんですが。</div>
+    <div class="q-meta"><b>聴きどころ：</b>出す気配がある／ない。「出せたらいいと思うけど出せていない」は最も反応しやすいゾーン</div>
+    <div class="q-deep">
+      <div class="q-deep-title">DEEPER QUESTIONS</div>
+      <ul><li>出していない、のはどうして？（準備不足／場がない／反応が怖い、どれか）</li><li>出せる場所があるとしたら、どんな場所だといい？</li></ul>
+    </div>
+  </div>
+</div>
+
+<div class="part">
+  <div class="part-head">
+    <span class="part-num">3</span>
+    <span class="part-name">返す問い（相手の中に残す）</span>
+    <span class="part-time">10 min</span>
+  </div>
+
+  <p style="font-size:0.85rem;color:var(--mute);margin-bottom:1rem;padding:0.7rem 0.9rem;background:var(--bg-deep);border-radius:3px">相手が今日の会話を持ち帰って、自分の中で反芻できる問いを残す。ヒアリアーが答えない問い。</p>
+
+  <div class="q-card">
+    <div class="q-head"><span class="q-num">Q3-1</span></div>
+    <div class="q-main">今日話してみて、自分でも「あ、こういうこと考えてたんだな」って気づいたこと、ありますか？</div>
+    <div class="q-meta"><b>聴きどころ：</b>相手が自分の中で起きた変化を言葉にできるか</div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-head"><span class="q-num">Q3-2</span><span class="q-tag h3">仮説3裏テスト</span></div>
+    <div class="q-main">もし半年後、自分が少しだけ違う姿になっているとしたら、どんな姿だと嬉しいですか？</div>
+    <div class="q-meta"><b>聴きどころ：</b>具体的な職業・成果で答えるか／感覚・関係性で答えるか。後者なら関心探究型との親和性が高い</div>
+    <div class="q-note"><b>ヒアリアーの振る舞い：</b>「キャリアで」「年収で」など逆算型の枠に戻してこないこと。答えが出なくても「出なくても大丈夫です、持ち帰ってください」でOK。</div>
+  </div>
+</div>
+
+<div class="part">
+  <div class="part-head">
+    <span class="part-num">4</span>
+    <span class="part-name">クロージング</span>
+    <span class="part-time">5 min</span>
+  </div>
+
+  <div class="script">今日たくさん話してくださって、ありがとうございます。
+最後に、もしご興味があればで、こちらから今後の接点として置ける選択肢をお伝えします。
+どれも無理には勧めません。全部なしでも全然大丈夫です。</div>
+
+  <div class="close-box">
+    <h4>次接点の5択（そのまま相手に見せてもよい）</h4>
+    <ol>
+      <li><b>もう1回、1on1で話す</b>（今日話しきれなかったこと、持ち帰った問いの続きを）</li>
+      <li><b>5/2の恵比寿でのオフラインイベントへの招待</b>（3つの問いをテーマに対話する場。15〜20名規模）</li>
+      <li><b>POOLO LIFEのオンライン説明会を受ける</b>（8ヶ月プログラムの内容を聞く場）</li>
+      <li><b>メール／LINEで情報を受け取る</b>（イベント情報やnote記事が届く）</li>
+      <li><b>今日はここまで、何もなし</b>（これも全然OK）</li>
+    </ol>
+  </div>
+
+  <div class="q-note" style="margin-top:1rem"><b>運営メモ：</b>相手に選んでもらう。ヒアリアーから「3がおすすめです」とは言わない。ただし、相手の応答次第で「2が合いそうな気がするんですが、どうですか？」と仮置きして反応を見るのは可。相手が「5」を選んだらそのまま受け止める。「ぜひまたどこかで」で終える。</div>
+
+  <div class="script" style="margin-top:1.5rem">今日話してくださったこと、私たちの場をより良くするために、大切に使わせてもらいます。
+録音と簡単なメモを後で整理して、もし発信に使わせていただきたい箇所があれば、改めてご連絡して許可を確認します。
+ありがとうございました。</div>
+</div>
+
+<div class="part">
+  <div class="part-head">
+    <span class="part-num">5</span>
+    <span class="part-name">ヒアリング後のフロー</span>
+  </div>
+  <ul class="clean">
+    <li>24時間以内にお礼メール送信（テンプレ別途）</li>
+    <li>録音を聴き返し、キーフレーズを原文で記録</li>
+    <li>insight-harvester に記録を引き渡す</li>
+    <li>4状態（🔵🟡🔴🟣）のどれに最も近かったかを記録（内部用）</li>
+    <li>次接点で何を選んだかを記録し、該当する運営フローに乗せる</li>
+    <li>仮説1〜4のうち、検証が進んだもの・裏返ったもの・新たに見えた仮説を記録</li>
+  </ul>
+</div>
+
+</div>
+</div>
+
+<!-- ==================== TAB B ==================== -->
+<div class="tab-content" id="tab-b">
+<div class="wrap">
+
+<h2 class="sec-title"><small>PLAN B / 30 MIN</small>30分ライト版ヒアリングシート</h2>
+<p style="font-size:0.85rem;color:var(--sub);margin-bottom:2rem;line-height:1.9">イベント会場・SNS接点後の初回・Zoom短時間向け。深い変化より輪郭を素早く掴み、次接点の種を蒔く設計。</p>
+
+<div class="part">
+  <div class="part-head">
+    <span class="part-num">0</span>
+    <span class="part-name">挨拶・目的説明</span>
+    <span class="part-time">3 min</span>
+  </div>
+
+  <div class="script">今日はお時間ありがとうございます。
+旅をテーマにした学校のような場「POOLO」の運営チームの〇〇です。
+今日は短めに、〇〇さんが旅にどんなことを感じているか、教えていただければと思っています。
+勧誘とかではなく、旅好きな方の話を聴かせていただくのがメインです。
+思いついたまま、話してください。メモしていいですか？</div>
+
+  <div class="q-note"><b>ヒアリアー用メモ：</b>録音はしない前提。ただし相手が長く話してくれそうなら許可を取って録音。POOLOの説明は最小限に。相手が興味を持ったらクロージングで詳しく話す。</div>
+</div>
+
+<div class="part">
+  <div class="part-head">
+    <span class="part-num">1</span>
+    <span class="part-name">開く問い</span>
+    <span class="part-time">7 min</span>
+  </div>
+
+  <div class="q-card">
+    <div class="q-head"><span class="q-num">Q1-1</span></div>
+    <div class="q-main">最近の旅で、一番印象に残っているのはどんな旅ですか？</div>
+    <div class="q-meta"><b>聴きどころ：</b>旅のスタイル・頻度・どこに喜びを置いているか</div>
+    <div class="q-deep">
+      <div class="q-deep-title">DEEPER QUESTIONS</div>
+      <ul><li>どこが印象的だった？</li><li>ひとりで行く？ 誰かと？</li></ul>
+    </div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-head"><span class="q-num">Q1-2</span></div>
+    <div class="q-main">旅って、〇〇さんにとってどういう存在ですか？</div>
+    <div class="q-meta"><b>聴きどころ：</b>抽象化された旅観。「逃避」「リフレッシュ」「学び」「出会い」などキーワードが出る</div>
+    <div class="q-deep">
+      <div class="q-deep-title">DEEPER QUESTIONS</div>
+      <ul><li>それっていつ頃からそう感じてる？</li><li>周りの人とは同じ感覚ですか、違う感覚ですか？</li></ul>
+    </div>
+  </div>
+</div>
+
+<div class="part">
+  <div class="part-head">
+    <span class="part-num">2</span>
+    <span class="part-name">深める問い</span>
+    <span class="part-time">15 min</span>
+  </div>
+
+  <div class="q-card">
+    <div class="q-head"><span class="q-num">Q2-1</span><span class="q-tag h1">仮説1 / 持ち帰り</span></div>
+    <div class="q-main">旅から帰ってきて、日常に戻ったときに、何かが自分の中に残ってる感覚ってありますか？</div>
+    <div class="q-meta"><b>聴きどころ：</b>残っている／薄れる／もやもや、どれか。もやもやの中身を言葉にできるか</div>
+    <div class="q-deep">
+      <div class="q-deep-title">DEEPER QUESTIONS</div>
+      <ul><li>残ってるもの、言葉にするとどんな感じ？</li><li>薄れていく、だと、どのタイミングで薄れる？</li><li>もやもやって、どういうもやもや？</li></ul>
+    </div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-head"><span class="q-num">Q2-2</span><span class="q-tag h2">仮説2 / 関係性</span></div>
+    <div class="q-main">旅の話を深くできる相手って、身の回りにいますか？</div>
+    <div class="q-meta"><b>聴きどころ：</b>いる／いない。いない場合、何を話したいと思っているか</div>
+    <div class="branch">
+      <div class="branch-box"><b>いない／話したいけど話せていない</b><span>「話せる相手がいたら、何を話してみたい？」「そういう場って、あったらほしいと思いますか？」</span></div>
+      <div class="branch-box"><b>いる</b><span>「どんな相手？」「物足りないと思うことはありますか？」</span></div>
+    </div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-head"><span class="q-num">Q2-3</span><span class="q-tag h3">仮説3 / 関心探究（軽め）</span></div>
+    <div class="q-main">旅のこととか関係なく、最近〇〇さんが気になってるテーマとか、人とか、なにかありますか？</div>
+    <div class="q-meta"><b>聴きどころ：</b>答えが出るか／出ないか。詰まったら深掘らず次へ</div>
+    <div class="q-note"><b>ヒアリアーの振る舞い：</b>答えが出なくてもプレッシャーをかけない。「ぱっと出ないときは、今度ゆっくり考えてみてください」で受ける。</div>
+  </div>
+</div>
+
+<div class="part">
+  <div class="part-head">
+    <span class="part-num">3</span>
+    <span class="part-name">クロージング</span>
+    <span class="part-time">5 min</span>
+  </div>
+
+  <div class="script">今日は短い時間でしたが、教えていただきありがとうございました。
+もし続きが気になることがあれば、今後の接点として選択肢を置かせてください。
+どれもなしでも大丈夫です。</div>
+
+  <div class="close-box">
+    <h4>次接点の4択</h4>
+    <ol>
+      <li><b>もう少しゆっくり話す1on1（60分）を今度セットする</b></li>
+      <li><b>5/2の恵比寿でのオフラインイベントへの招待</b></li>
+      <li><b>メール／LINEで情報を受け取る</b></li>
+      <li><b>今日はここまで、何もなし</b></li>
+    </ol>
+  </div>
+
+  <div class="q-note" style="margin-top:1rem"><b>運営メモ：</b>相手の反応・温度感に応じて、最も自然な選択肢を「仮置き」で口にしてみるのはOK。例：「旅の先をもう少し話したそうだったので、1on1もしよければ」。ただし、相手が乗ってこなかったらすぐ引く。</div>
+
+  <div class="script" style="margin-top:1.5rem">今日の話、大切に受け取りました。また旅のどこかで、場でお会いできたら嬉しいです。ありがとうございました。</div>
+</div>
+
+</div>
+</div>
+
+<!-- ==================== TAB C ==================== -->
+<div class="tab-content" id="tab-c">
+<div class="wrap">
+
+<h2 class="sec-title"><small>PLAN C / 15 MIN</small>15分アンケート版（LP埋め込み／Googleフォーム）</h2>
+<p style="font-size:0.85rem;color:var(--sub);margin-bottom:2rem;line-height:1.9">SNS・LP・noteからの流入を想定した自己記述型アンケート。母数を取りながら、ヒアリング適格者をスクリーニングする前段として機能。</p>
+
+<div class="script">旅についてのアンケート
+
+「POOLO」という旅をテーマにした場を運営している運営チームです。
+旅が好きな方にいくつか質問させてください。10〜15分ほどで回答できます。
+勧誘ではなく、旅好きの方がどんなことを感じているか、教えていただきたいという主旨です。
+
+気が向かない質問は飛ばしてもらって大丈夫です。</div>
+
+<div class="part">
+  <div class="part-head">
+    <span class="part-num">1</span>
+    <span class="part-name">旅のこと（答えやすい事実から）</span>
+  </div>
+
+  <div class="form-q">
+    <div class="form-q-label"><span class="req">必須</span>Q1. 年に何回くらい、旅に出ますか？</div>
+    <div class="form-q-options">
+      <label><input type="radio" name="q1" disabled> 月1回以上</label>
+      <label><input type="radio" name="q1" disabled> 数ヶ月に1回</label>
+      <label><input type="radio" name="q1" disabled> 年に1〜2回</label>
+      <label><input type="radio" name="q1" disabled> それ以下</label>
+    </div>
+  </div>
+
+  <div class="form-q">
+    <div class="form-q-label"><span class="req">必須</span>Q2. 主にどんな旅が多いですか？（複数選択可）</div>
+    <div class="form-q-options">
+      <label><input type="checkbox" disabled> ひとり旅</label>
+      <label><input type="checkbox" disabled> パートナー・家族と</label>
+      <label><input type="checkbox" disabled> 友人グループで</label>
+      <label><input type="checkbox" disabled> 仕事を兼ねて</label>
+      <label><input type="checkbox" disabled> その他</label>
+    </div>
+  </div>
+
+  <div class="form-q">
+    <div class="form-q-label"><span class="req">必須</span>Q3. 最近の旅で、一番印象に残っているのはどんな旅でしたか？（1〜2文で）</div>
+    <div class="form-q-text">例：〇〇に行って、△△だった／海外でひとりで歩いていたときの夜／など</div>
+  </div>
+</div>
+
+<div class="part">
+  <div class="part-head">
+    <span class="part-num">2</span>
+    <span class="part-name">旅と日常（仮説1検証）</span>
+  </div>
+
+  <div class="form-q">
+    <div class="form-q-label"><span class="req">必須</span>Q4. 旅から帰ってきたあと、自分の中で何かが変わった、という感覚はありますか？</div>
+    <div class="form-q-options">
+      <label><input type="radio" name="q4" disabled> 毎回ある</label>
+      <label><input type="radio" name="q4" disabled> 旅による</label>
+      <label><input type="radio" name="q4" disabled> あまりない</label>
+      <label><input type="radio" name="q4" disabled> わからない</label>
+    </div>
+  </div>
+
+  <div class="form-q">
+    <div class="form-q-label"><span class="opt">任意</span>Q5. その変化、言葉にするとどんな感じですか？（もやもやで構いません）</div>
+    <div class="form-q-text">自由記述</div>
+    <div class="form-q-note"><b>仮説1の核心</b>：自由記述の質と長さで、言葉にしたい欲求の強さを見る</div>
+  </div>
+</div>
+
+<div class="part">
+  <div class="part-head">
+    <span class="part-num">3</span>
+    <span class="part-name">旅と誰か（仮説2検証）</span>
+  </div>
+
+  <div class="form-q">
+    <div class="form-q-label"><span class="req">必須</span>Q6. 旅の話を深く（「楽しかったね」の先まで）話せる相手は、身近にいますか？</div>
+    <div class="form-q-options">
+      <label><input type="radio" name="q6" disabled> いる</label>
+      <label><input type="radio" name="q6" disabled> 一人だけいる</label>
+      <label><input type="radio" name="q6" disabled> いない／物足りなさがある</label>
+      <label><input type="radio" name="q6" disabled> そもそも話したいと思っていない</label>
+    </div>
+  </div>
+
+  <div class="form-q">
+    <div class="form-q-label"><span class="opt">任意</span>Q7. もし話せる相手や場があったら、何を話してみたいですか？</div>
+    <div class="form-q-text">自由記述</div>
+    <div class="form-q-note"><b>仮説2の核心</b>：Q6で「いない／物足りない」を選んだ人のQ7回答が最も濃い示唆になる</div>
+  </div>
+</div>
+
+<div class="part">
+  <div class="part-head">
+    <span class="part-num">4</span>
+    <span class="part-name">今の心の動き（仮説3検証）</span>
+  </div>
+
+  <div class="form-q">
+    <div class="form-q-label"><span class="opt">任意</span>Q8. 旅に限らず、最近自分が気になってる／心が動くテーマや、人、ものはありますか？ 複数でも1つでも、思いつかなければ空欄でも大丈夫です。</div>
+    <div class="form-q-text">自由記述</div>
+    <div class="form-q-note"><b>仮説3の核心</b>：埋まるか埋まらないか、埋まった場合の具体性。「思いつかない」も一つのデータ</div>
+  </div>
+
+  <div class="form-q">
+    <div class="form-q-label"><span class="opt">任意</span>Q9. もし半年後、今より少しだけ違う自分になっているとしたら、どちらの感覚が近いですか？</div>
+    <div class="form-q-options">
+      <label><input type="radio" name="q9" disabled> 具体的な職業・成果・スキルで変わっている自分</label>
+      <label><input type="radio" name="q9" disabled> 感覚・関係性・日常の手触りで変わっている自分</label>
+      <label><input type="radio" name="q9" disabled> 両方</label>
+      <label><input type="radio" name="q9" disabled> わからない／想像できない</label>
+    </div>
+    <div class="form-q-note">関心探究型 vs 目標逆算型の親和性を間接的に見る</div>
+  </div>
+</div>
+
+<div class="part">
+  <div class="part-head">
+    <span class="part-num">5</span>
+    <span class="part-name">POOLOとの距離</span>
+  </div>
+
+  <div class="form-q">
+    <div class="form-q-label"><span class="req">必須</span>Q10. 「POOLO」という旅のコミュニティを、聞いたことがありますか？</div>
+    <div class="form-q-options">
+      <label><input type="radio" name="q10" disabled> 名前は知っている／SNSで見たことがある</label>
+      <label><input type="radio" name="q10" disabled> 聞いたことはあるが内容は知らない</label>
+      <label><input type="radio" name="q10" disabled> 全く知らない</label>
+    </div>
+  </div>
+
+  <div class="form-q">
+    <div class="form-q-label"><span class="req">必須</span>Q11. もし旅好きが集まって、旅の前後で対話して、関心を探究して、何かを外に差し出していく8ヶ月の場があるとしたら、どんな印象を持ちますか？（率直な第一印象でOK、批判的でも歓迎）</div>
+    <div class="form-q-text">自由記述</div>
+    <div class="form-q-note"><b>仮説4の核心</b>：第一印象の肌感覚を見る</div>
+  </div>
+</div>
+
+<div class="part">
+  <div class="part-head">
+    <span class="part-num">6</span>
+    <span class="part-name">今後の接点（任意・リード転換）</span>
+  </div>
+
+  <div class="form-q">
+    <div class="form-q-label"><span class="opt">任意</span>Q12. もしご興味があれば、今後こちらから情報をお送りしてもよいですか？ 希望するものがあればチェックしてください。なしでもOKです。</div>
+    <div class="form-q-options">
+      <label><input type="checkbox" disabled> メール／LINEで、旅や場のイベント情報を受け取りたい</label>
+      <label><input type="checkbox" disabled> 5/2の恵比寿でのオフラインイベントの案内を受けたい</label>
+      <label><input type="checkbox" disabled> POOLO LIFE（8ヶ月プログラム）のオンライン説明会を受けたい</label>
+      <label><input type="checkbox" disabled> 1on1でもう少し話を聴いてもらいたい／話してみたい</label>
+      <label><input type="checkbox" disabled> 今はなにも希望しない</label>
+    </div>
+  </div>
+
+  <div class="form-q">
+    <div class="form-q-label"><span class="opt">任意</span>Q13. 上記で1つ以上チェックした方は、メールアドレスをご記入ください。</div>
+    <div class="form-q-text">メールアドレス</div>
+  </div>
+</div>
+
+<div class="script" style="margin-top:2rem">ご回答ありがとうございました。教えてくださったことは、場をより良くするために大切に使わせていただきます。</div>
+
+</div>
+</div>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-title">旅好きの方へのヒアリングシート</div>
+    <p class="footer-note">POOLO運営チーム ／ 2026-04-20作成<br>マーケットフィット検証と、自然なリード獲得のための設計</p>
+    <div class="footer-mark">POOLO — FROM TRAVEL TO ONE'S OWN QUESTION</div>
+  </div>
+</footer>
+
+<script>
+document.querySelectorAll('.tab-btn').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    const target=btn.dataset.tab;
+    document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+    document.querySelectorAll('.tab-content').forEach(c=>c.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('tab-'+target).classList.add('active');
+    window.scrollTo({top:document.querySelector('.tabs-wrap').offsetTop,behavior:'smooth'});
+  });
+});
+</script>
+
+</body>
+</html>
