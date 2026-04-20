@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>POOLO LIFE 8か月スケジュール ／ ゲスト3人イメージ＋3レイヤー</title>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#1a1a1a; --sub:#4a4a4a; --mute:#7a7a7a; --hint:#a8a8a8;
+  --bg:#faf9f6; --bg-deep:#f3f1ea; --line:#e0ddd3;
+  --green:#2D6A4F; --green-bg:#E9F5EE; --green-deep:#1A5238;
+  --warm:#C08457; --warm-bg:#F7EDE2; --warm-deep:#9F6A43;
+  --deep:#1F3A3D; --deep-bg:#DCE6E7;
+  --star:#B8860B; --star-bg:#F9F0D9;
+  --purple:#534AB7; --purple-bg:#ECEAF7; --purple-deep:#3A338A;
+  --slate:#4A5A68; --slate-bg:#E4E8EC;
+  --serif:'Shippori Mincho',serif; --sans:'Noto Sans JP',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:var(--sans);background:var(--bg);color:var(--ink);line-height:1.95;font-weight:300;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1140px;margin:0 auto;padding:0 1.5rem}
+
+.preview-header{padding:3.5rem 0 2.8rem;text-align:center;background:linear-gradient(180deg,#F7EDE2 0%,#faf9f6 100%);border-bottom:1px solid var(--line)}
+.preview-tag{display:inline-block;font-size:0.6rem;letter-spacing:0.4em;color:var(--warm-deep);margin-bottom:1.2rem;font-weight:500;padding:0.35rem 1.1rem;border:1px solid var(--warm);background:#fff}
+.preview-title{font-family:var(--serif);font-size:1.85rem;font-weight:600;letter-spacing:0.08em;line-height:1.7;color:var(--ink);margin-bottom:0.6rem}
+.preview-sub{font-family:var(--serif);font-size:0.95rem;color:var(--mute);letter-spacing:0.06em}
+.preview-meta{font-size:0.72rem;color:var(--hint);letter-spacing:0.12em;margin-top:1rem}
+
+section{padding:3.6rem 0}
+.sec-num{font-family:var(--serif);font-size:0.72rem;letter-spacing:0.3em;margin-bottom:0.6rem;font-weight:500;color:var(--warm)}
+.sec-num.green{color:var(--green)}
+.sec-num.purple{color:var(--purple)}
+.sec-num.star{color:var(--star)}
+.sec-num.deep{color:var(--deep)}
+.sec-num.slate{color:var(--slate)}
+.sec-head{font-family:var(--serif);font-size:1.6rem;font-weight:600;letter-spacing:0.06em;margin-bottom:1.4rem;color:var(--ink);line-height:1.6}
+.sec-head::before{content:'';display:inline-block;width:2.6rem;height:2px;background:currentColor;margin-right:0.8rem;vertical-align:middle;margin-bottom:0.35em}
+.sec-head.warm{color:var(--warm-deep)}
+.sec-head.green{color:var(--green-deep)}
+.sec-head.purple{color:var(--purple-deep)}
+.sec-head.star{color:var(--star)}
+.sec-head.deep{color:var(--deep)}
+.sec-head.slate{color:var(--slate)}
+p.lead{font-family:var(--serif);font-size:1.03rem;color:var(--ink);font-weight:500;line-height:2;margin-bottom:1.6rem}
+
+.objective{background:var(--deep-bg);border-left:3px solid var(--deep);padding:1.6rem 1.9rem;margin:0 auto 2rem;max-width:900px;font-family:var(--serif);font-size:0.95rem;color:var(--ink);line-height:2;letter-spacing:0.04em}
+.objective b{color:var(--deep);font-weight:600}
+.objective-label{font-size:0.62rem;letter-spacing:0.3em;color:var(--deep);font-family:var(--sans);font-weight:600;margin-bottom:0.5rem;display:block}
+
+/* Month anchor block: each month has header + guest 3cards + schedule 3 layers */
+.month-anchor{padding:3rem 0 2rem;border-top:1px solid var(--line)}
+.month-anchor.p1{background:linear-gradient(180deg,#E9F5EE 0%,var(--bg) 100%)}
+.month-anchor.p2{background:linear-gradient(180deg,#ECEAF7 0%,var(--bg) 100%)}
+.month-anchor.p3{background:linear-gradient(180deg,#F9F0D9 0%,var(--bg) 100%)}
+.month-anchor.p4{background:linear-gradient(180deg,#E4E8EC 0%,var(--bg) 100%)}
+
+.mhead{max-width:1100px;margin:0 auto;padding:0 1.5rem 1.5rem;display:flex;align-items:center;gap:1rem;flex-wrap:wrap;justify-content:space-between}
+.mhead-left{display:flex;align-items:center;gap:1.3rem}
+.mh-num{font-family:var(--serif);font-size:2.8rem;font-weight:700;letter-spacing:0.04em;line-height:1}
+.month-anchor.p1 .mh-num{color:var(--green-deep)}
+.month-anchor.p2 .mh-num{color:var(--purple-deep)}
+.month-anchor.p3 .mh-num{color:var(--star)}
+.month-anchor.p4 .mh-num{color:var(--slate)}
+.mh-title{font-family:var(--serif);font-size:1.35rem;font-weight:600;color:var(--ink);letter-spacing:0.04em;line-height:1.5}
+.mh-sub{font-size:0.78rem;color:var(--sub);letter-spacing:0.05em;margin-top:0.2rem;font-family:var(--serif)}
+.mh-badges{display:flex;gap:0.4rem;flex-wrap:wrap}
+.mh-badge{font-size:0.6rem;letter-spacing:0.2em;padding:0.3rem 0.7rem;border-radius:2px;font-weight:500}
+.mh-badge.p1{background:var(--green-bg);color:var(--green-deep)}
+.mh-badge.p2{background:var(--purple-bg);color:var(--purple)}
+.mh-badge.p3{background:var(--star-bg);color:var(--star)}
+.mh-badge.p4{background:var(--slate-bg);color:var(--slate)}
+.mh-badge.camp{background:var(--warm);color:#fff;font-weight:700}
+.mh-badge.lv3{background:#B8860B;color:#fff;font-weight:700}
+.mh-badge.noguest{background:var(--slate);color:#fff}
+
+.mq{max-width:1080px;margin:0 auto;padding:0 1.5rem}
+.mq-inner{background:#fff;border-left:3px solid var(--star);padding:0.9rem 1.2rem;font-family:var(--serif);font-size:0.95rem;color:var(--ink);letter-spacing:0.04em}
+.mq-inner .qlabel{font-size:0.6rem;letter-spacing:0.3em;color:var(--star);font-weight:600;margin-right:0.6rem}
+
+/* Guest 3 cards */
+.guests3{max-width:1100px;margin:1.5rem auto 0;padding:0 1.5rem;display:grid;grid-template-columns:repeat(3,1fr);gap:0.9rem}
+.gcard{background:#fff;border:1px solid var(--line);border-top:3px solid var(--warm);padding:1.15rem 1.1rem;border-radius:2px;display:flex;flex-direction:column;gap:0.55rem;min-height:200px}
+.gcard-head{display:flex;justify-content:space-between;align-items:baseline;gap:0.5rem;padding-bottom:0.55rem;border-bottom:1px dashed var(--line)}
+.gcard-label{font-family:var(--serif);font-size:0.85rem;font-weight:600;color:var(--warm-deep);letter-spacing:0.08em}
+.gcard-type{font-size:0.58rem;letter-spacing:0.18em;padding:0.18rem 0.48rem;border-radius:2px;background:var(--warm-bg);color:var(--warm-deep);font-weight:500;white-space:nowrap}
+.gcard-type.tehon{background:var(--green-bg);color:var(--green-deep)}
+.gcard-type.sozai{background:var(--purple-bg);color:var(--purple)}
+.gcard-type.sutooi{background:var(--slate-bg);color:var(--slate)}
+.gcard-type.narran{background:var(--star-bg);color:var(--star)}
+.gcard-type.tachiai{background:var(--deep-bg);color:var(--deep)}
+.gcard-profile{font-size:0.78rem;color:var(--sub);line-height:1.85}
+.gcard-profile b{color:var(--ink);font-weight:600}
+.gcard-connect{font-size:0.74rem;color:var(--ink);background:var(--bg-deep);padding:0.55rem 0.7rem;border-radius:2px;line-height:1.7;margin-top:auto}
+.gcard-connect::before{content:'接続：';color:var(--warm-deep);font-weight:600;font-size:0.7rem;margin-right:0.25rem}
+
+.noguest-box{max-width:1080px;margin:1.5rem auto 0;padding:1.2rem 1.5rem;background:var(--slate-bg);border-left:3px solid var(--slate);border-radius:2px;font-size:0.88rem;color:var(--slate);line-height:1.9}
+.noguest-box b{color:var(--slate);font-weight:700}
+
+/* 3 Layers schedule */
+.layers3{max-width:1100px;margin:1.8rem auto 0;padding:0 1.5rem;display:grid;grid-template-columns:repeat(3,1fr);gap:0.9rem}
+.lcard{background:#fff;border:1px solid var(--line);padding:1.15rem 1.1rem;border-radius:2px;display:flex;flex-direction:column;gap:0.4rem}
+.lcard.unei{border-top:3px solid var(--deep)}
+.lcard.teirei{border-top:3px solid var(--purple)}
+.lcard.kojin{border-top:3px solid var(--green)}
+.lcard h5{font-family:var(--serif);font-size:0.92rem;font-weight:600;color:var(--ink);letter-spacing:0.06em;padding-bottom:0.45rem;border-bottom:1px dashed var(--line);margin-bottom:0.3rem;display:flex;align-items:center;gap:0.4rem}
+.lcard h5 .llabel{font-size:0.6rem;letter-spacing:0.22em;padding:0.15rem 0.42rem;border-radius:2px;font-weight:500}
+.lcard.unei h5 .llabel{background:var(--deep-bg);color:var(--deep)}
+.lcard.teirei h5 .llabel{background:var(--purple-bg);color:var(--purple)}
+.lcard.kojin h5 .llabel{background:var(--green-bg);color:var(--green-deep)}
+.lcard ul{list-style:none;padding:0;font-size:0.77rem;color:var(--sub);line-height:1.85}
+.lcard ul li{padding:0.15rem 0 0.15rem 1rem;position:relative}
+.lcard ul li::before{content:'◦';position:absolute;left:0;color:var(--mute)}
+.lcard.unei ul li::before{color:var(--deep)}
+.lcard.teirei ul li::before{color:var(--purple)}
+.lcard.kojin ul li::before{color:var(--green)}
+.lcard ul li b{color:var(--ink);font-weight:600}
+.lcard ul li.highlight{background:var(--warm-bg);border-radius:2px;padding-left:1.4rem;color:var(--warm-deep)}
+.lcard ul li.highlight::before{content:'★';color:var(--warm)}
+.lcard ul li.highlight b{color:var(--warm-deep)}
+.lcard .ltheme{font-size:0.73rem;color:var(--mute);font-style:italic;padding-top:0.5rem;margin-top:auto;border-top:1px dashed var(--line);line-height:1.75}
+
+/* Overview section */
+.overview-wrap{padding:3.5rem 0;background:var(--bg-deep);border-top:1px solid var(--line)}
+.overview{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;max-width:1050px;margin:1.5rem auto 0;padding:0 1.5rem}
+.ocard{background:#fff;border:1px solid var(--line);border-top:3px solid var(--deep);padding:1.4rem 1.3rem;border-radius:2px}
+.ocard h4{font-family:var(--serif);font-size:1rem;color:var(--ink);font-weight:600;margin-bottom:0.7rem;letter-spacing:0.04em}
+.ocard p{font-size:0.8rem;color:var(--sub);line-height:1.85}
+.ocard p b{color:var(--ink);font-weight:600}
+
+/* Density chart */
+.density-wrap{max-width:1000px;margin:2rem auto 0;padding:0 1.5rem}
+.density-wrap svg{width:100%;height:auto;display:block}
+.density-cap{text-align:center;font-family:var(--serif);font-size:0.82rem;color:var(--sub);letter-spacing:0.06em;margin-top:0.8rem;line-height:1.9}
+
+.footer{background:var(--deep);padding:2.5rem 0;text-align:center;color:#fff}
+.footer-links{display:flex;justify-content:center;gap:0.6rem;flex-wrap:wrap;margin-bottom:0.9rem}
+.footer a{color:rgba(255,255,255,0.85);text-decoration:none;font-size:0.78rem;letter-spacing:0.1em;border-bottom:1px solid rgba(255,255,255,0.3);padding-bottom:2px}
+.footer a:hover{color:#fff;border-bottom-color:#fff}
+.footer p{color:rgba(255,255,255,0.5);font-size:0.72rem;margin-top:0.5rem;letter-spacing:0.1em}
+
+@media(max-width:860px){
+  .guests3,.layers3,.overview{grid-template-columns:1fr}
+  .preview-title{font-size:1.3rem}
+  .mh-num{font-size:2.2rem}
+  .mh-title{font-size:1.15rem}
+}
+</style>
+</head>
+<body>
+
+<header class="preview-header">
+  <div class="wrap">
+    <span class="preview-tag">SCHEDULE ／ 8 MONTHS</span>
+    <h1 class="preview-title">POOLO LIFE 8か月スケジュール</h1>
+    <div class="preview-sub">月別ゲスト3人イメージ＋3レイヤー構成（運営／定例／個人）</div>
+    <div class="preview-meta">2026-04-20 ／ 社長判断用プレビュー</div>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <div class="objective">
+      <span class="objective-label">このプレビューの読み方</span>
+      各月ごとに<b>ゲスト3人のイメージ</b>（架空プロフィール）と、<b>3レイヤーの月次スケジュール</b>（運営＝ゲスト/WS/イベント／定例＝コミュマネ伴走／個人＝受講生個人の取り組み）を並べます。ゲストは月の問いへの接続型（素材提供／立ち会い／手本／並走／素通り）で色分け。合宿はM3、Lv.3本番はM7、M8はゲスト不在（受講生主語）。
+    </div>
+  </div>
+</section>
+
+<!-- M1 -->
+<div class="month-anchor p1">
+  <div class="mhead">
+    <div class="mhead-left">
+      <div class="mh-num">M1</div>
+      <div>
+        <div class="mh-title">受け取る ／ 見つける①</div>
+        <div class="mh-sub">旅で揺らいだ身体に場を届け、受容の土台を起動する月</div>
+      </div>
+    </div>
+    <div class="mh-badges"><span class="mh-badge p1">P1 自分とつながる</span></div>
+  </div>
+  <div class="mq"><div class="mq-inner"><span class="qlabel">問い</span>いま、自分は何に揺れているか。</div></div>
+
+  <div class="guests3">
+    <div class="gcard">
+      <div class="gcard-head"><span class="gcard-label">候補 A</span><span class="gcard-type tehon">手本型</span></div>
+      <div class="gcard-profile"><b>40代後半、観光系大学教員</b>。現場と研究を20年往復、最近は「観光しない旅」を学生と試している。</div>
+      <div class="gcard-connect">観光を手放した先に身体が動く話が、受講生の揺れの素材になる。</div>
+    </div>
+    <div class="gcard">
+      <div class="gcard-head"><span class="gcard-label">候補 B</span><span class="gcard-type sozai">素材提供型</span></div>
+      <div class="gcard-profile"><b>30代後半、書き手</b>。自転車で世界を7年旅したあと帰国し、無名の商店街を週1で取材している。</div>
+      <div class="gcard-connect">派手な旅から日常の微震へ降りた軌跡が、受講生の小さな揺れを許可する。</div>
+    </div>
+    <div class="gcard">
+      <div class="gcard-head"><span class="gcard-label">候補 C</span><span class="gcard-type sutooi">素通り型</span></div>
+      <div class="gcard-profile"><b>50代前半、独立研究者</b>。数学と身体の本を書き、10年前から京都の町家で半隠居している。</div>
+      <div class="gcard-connect">思索と身体を往復する言葉に、受講生が言語化前の揺らぎを重ねる。</div>
+    </div>
+  </div>
+
+  <div class="layers3">
+    <div class="lcard unei">
+      <h5><span class="llabel">運営</span>ゲスト／WS／イベント</h5>
+      <ul>
+        <li>W1：オープニングDay／WS1-1「浸ると、揺らぐ」／<b>オンライン3h</b></li>
+        <li>W2：ゲスト講義（A/B/Cから1人）／<b>2h</b></li>
+        <li>W3：WS1-2「揺れた一語を旅記憶とつなげる」／<b>90分</b></li>
+      </ul>
+    </div>
+    <div class="lcard teirei">
+      <h5><span class="llabel">定例</span>コミュマネ伴走</h5>
+      <ul>
+        <li>週次：<b>T1チーム伴走定例</b>／オンライン60分（4回）</li>
+        <li>月次：全体集まり／90分（末週）</li>
+      </ul>
+      <div class="ltheme">対話テーマ：今週、身体が先に動いた瞬間</div>
+    </div>
+    <div class="lcard kojin">
+      <h5><span class="llabel">個人</span>受講生の取り組み</h5>
+      <ul>
+        <li>毎日：5分ジャーナル「今日、何に揺れたか」</li>
+        <li>週次：自己対話ノート1ページ</li>
+        <li>月末：月末レター（次の月の自分への手紙）</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- M2 -->
+<div class="month-anchor p1">
+  <div class="mhead">
+    <div class="mhead-left">
+      <div class="mh-num">M2</div>
+      <div>
+        <div class="mh-title">聴かれる ／ 見つける②</div>
+        <div class="mh-sub">聴く・聴かれるを往復して、他者が自分を更新する感覚を身体で掴む月</div>
+      </div>
+    </div>
+    <div class="mh-badges"><span class="mh-badge p1">P1 自分とつながる</span></div>
+  </div>
+  <div class="mq"><div class="mq-inner"><span class="qlabel">問い</span>聴く・聴かれる往復で、自分の何が更新されたか。</div></div>
+
+  <div class="guests3">
+    <div class="gcard">
+      <div class="gcard-head"><span class="gcard-label">候補 A</span><span class="gcard-type tehon">手本型</span></div>
+      <div class="gcard-profile"><b>30代後半、哲学対話ファシリテーター</b>。大学教員と並行で刑務所・高校・商店街で年80本の場を開く。</div>
+      <div class="gcard-connect">問いを渡す姿勢そのものが、WS直後のワーク素材になる。</div>
+    </div>
+    <div class="gcard">
+      <div class="gcard-head"><span class="gcard-label">候補 B</span><span class="gcard-type sozai">素材提供型</span></div>
+      <div class="gcard-profile"><b>40代後半、元雑誌インタビュアー</b>。15年で2,000本聴いたあと、いまは聴かないカフェを経営。</div>
+      <div class="gcard-connect">聴きすぎた人が聴くのをやめた話が、受講生の聴く構えを揺らす。</div>
+    </div>
+    <div class="gcard">
+      <div class="gcard-head"><span class="gcard-label">候補 C</span><span class="gcard-type narran">並走型</span></div>
+      <div class="gcard-profile"><b>30代前半、身体論ライター</b>。演劇経験者で、インタビュー中の沈黙と呼吸を記述する連載を持つ。<br><small>※M6で再登場</small></div>
+      <div class="gcard-connect">沈黙の時間に何が起きているかを言語化する視点を、自分の対話に持ち込む。</div>
+    </div>
+  </div>
+
+  <div class="layers3">
+    <div class="lcard unei">
+      <h5><span class="llabel">運営</span>ゲスト／WS／イベント</h5>
+      <ul>
+        <li>W1：ゲスト講義／<b>2h</b></li>
+        <li>W2：WS2-1「15分、相手だけを聴く」／<b>90分</b></li>
+        <li>W3：WS2-2「あの人の聴き方でもう一度」／<b>120分</b></li>
+      </ul>
+    </div>
+    <div class="lcard teirei">
+      <h5><span class="llabel">定例</span>コミュマネ伴走</h5>
+      <ul>
+        <li>週次：T1チーム伴走定例／オンライン60分（4回）</li>
+        <li>月次：全体集まり／90分</li>
+      </ul>
+      <div class="ltheme">対話テーマ：聴かれた時間に、自分の何が動いたか</div>
+    </div>
+    <div class="lcard kojin">
+      <h5><span class="llabel">個人</span>受講生の取り組み</h5>
+      <ul>
+        <li>毎日：5分ジャーナル</li>
+        <li>週次：同期1人に<b>15分聴く練習</b>×2本</li>
+        <li>月末：月末レター＋M3仮名乗りのラフ</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- M3 合宿 -->
+<div class="month-anchor p2">
+  <div class="mhead">
+    <div class="mhead-left">
+      <div class="mh-num">M3</div>
+      <div>
+        <div class="mh-title">名乗る</div>
+        <div class="mh-sub">仮の輪郭を言葉にして最初の置き場に出す月</div>
+      </div>
+    </div>
+    <div class="mh-badges"><span class="mh-badge p2">P2 POOLOとつながる</span><span class="mh-badge camp">合宿</span></div>
+  </div>
+  <div class="mq"><div class="mq-inner"><span class="qlabel">問い</span>仮の輪郭を、どこに置くか。</div></div>
+
+  <div class="guests3">
+    <div class="gcard">
+      <div class="gcard-head"><span class="gcard-label">候補 A</span><span class="gcard-type tachiai">立ち会い型</span></div>
+      <div class="gcard-profile"><b>POOLO LIFE卒業生、30代半ば</b>。受講中2回、卒業後1回テーマがひっくり返り、現在は地方の小さな出版社で働く。</div>
+      <div class="gcard-connect">ひっくり返った履歴ごと見せ、仮置きに対する恐れを外す。</div>
+    </div>
+    <div class="gcard">
+      <div class="gcard-head"><span class="gcard-label">候補 B</span><span class="gcard-type tachiai">立ち会い型</span></div>
+      <div class="gcard-profile"><b>POOLO LIFE卒業生、40代前半</b>。入学時のテーマを完全に捨て、いまは介護現場で働きながら発信を続けている。</div>
+      <div class="gcard-connect">捨てることが到達であった姿を見せ、完成形を求めない許可を渡す。</div>
+    </div>
+    <div class="gcard">
+      <div class="gcard-head"><span class="gcard-label">候補 C</span><span class="gcard-type tachiai">立ち会い型</span></div>
+      <div class="gcard-profile"><b>POOLO LIFE卒業生、20代後半</b>。テーマの名前は8ヶ月変わらなかったが、表現が文→声→場へ移ってきた。</div>
+      <div class="gcard-connect">同じ名前を手渡し方を変えて持ち続けた軌跡が、名乗りの可塑性を開く。</div>
+    </div>
+  </div>
+
+  <div class="noguest-box">
+    <b>M3は卒業生枠のみ</b>：成功者フレーム・助言トーンは避け、失敗と迷いを含めて立ち会う構えを共有する。
+  </div>
+
+  <div class="layers3">
+    <div class="lcard unei">
+      <h5><span class="llabel">運営</span>ゲスト／WS／イベント</h5>
+      <ul>
+        <li>W1：合宿事前ブリーフ／オンライン60分</li>
+        <li>W2：卒業生ゲスト講義／オンライン2h</li>
+        <li class="highlight">W3：<b>合宿 1泊2日</b>／WS3「仮で名乗る」／対面約20h</li>
+        <li>W4：合宿後ふりかえり／オンライン60分</li>
+      </ul>
+    </div>
+    <div class="lcard teirei">
+      <h5><span class="llabel">定例</span>コミュマネ伴走</h5>
+      <ul>
+        <li>週次：T1伴走定例／60分（3回／合宿週はスキップ）</li>
+        <li>月次：<b>合宿がその役目を兼ねる</b></li>
+      </ul>
+      <div class="ltheme">対話テーマ：合宿で揺れた輪郭を、どう扱うか</div>
+    </div>
+    <div class="lcard kojin">
+      <h5><span class="llabel">個人</span>受講生の取り組み</h5>
+      <ul>
+        <li>毎日：5分ジャーナル</li>
+        <li>週次：<b>仮名乗り120字の草稿を3バージョン</b>書く</li>
+        <li>月末：月末レター（合宿で揺れたまま書く）</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- M4 -->
+<div class="month-anchor p2">
+  <div class="mhead">
+    <div class="mhead-left">
+      <div class="mh-num">M4</div>
+      <div>
+        <div class="mh-title">書き直す ／ 仲間に届ける</div>
+        <div class="mh-sub">仮置きを同期の鏡で揺り戻し、名乗りを書き直す月</div>
+      </div>
+    </div>
+    <div class="mh-badges"><span class="mh-badge p2">P2 POOLOとつながる</span></div>
+  </div>
+  <div class="mq"><div class="mq-inner"><span class="qlabel">問い</span>合宿で揺れた自分を、どう書き直すか。</div></div>
+
+  <div class="guests3">
+    <div class="gcard">
+      <div class="gcard-head"><span class="gcard-label">候補 A</span><span class="gcard-type sozai">素材提供型</span></div>
+      <div class="gcard-profile"><b>30代後半、独立5年目の編集者</b>。独立直後の燃え尽きを書き残し、揺り戻しを公開の場で書き続けている。</div>
+      <div class="gcard-connect">揺り戻し期の具体的な日々の描写が、受講生の違和感に言葉を貸す。</div>
+    </div>
+    <div class="gcard">
+      <div class="gcard-head"><span class="gcard-label">候補 B</span><span class="gcard-type tehon">手本型</span></div>
+      <div class="gcard-profile"><b>40代前半、文筆家</b>。海外在住10年後に帰国、環境が変わるたび自分の軸を書き直してきた。</div>
+      <div class="gcard-connect">書き直しを恥ではなく作法として扱う姿が、受講生の書き直しを後押しする。</div>
+    </div>
+    <div class="gcard">
+      <div class="gcard-head"><span class="gcard-label">候補 C</span><span class="gcard-type sutooi">素通り型</span></div>
+      <div class="gcard-profile"><b>30代半ば、独立メディア編集者</b>。月1で自分の仮説を公開で捨てる連載を持つ。</div>
+      <div class="gcard-connect">捨てる作法を軽やかに見せ、T2チーム内の揺れを正常化する。</div>
+    </div>
+  </div>
+
+  <div class="layers3">
+    <div class="lcard unei">
+      <h5><span class="llabel">運営</span>ゲスト／WS／イベント</h5>
+      <ul>
+        <li>W1：<b>T2チーム再編</b>オリエン／オンライン90分</li>
+        <li>W2：ゲスト講義／2h</li>
+        <li>W3：「コンテンツ型プロト披露」伴走WS／90分</li>
+        <li>W4：仲間に届けるWS（合宿振り返り＋書き直し）／2h</li>
+      </ul>
+    </div>
+    <div class="lcard teirei">
+      <h5><span class="llabel">定例</span>コミュマネ伴走</h5>
+      <ul>
+        <li>週次：T2伴走定例／オンライン60分（4回）</li>
+        <li>月次：全体集まり／90分</li>
+      </ul>
+      <div class="ltheme">対話テーマ：合宿後の揺り戻しを、どう言葉にするか</div>
+    </div>
+    <div class="lcard kojin">
+      <h5><span class="llabel">個人</span>受講生の取り組み</h5>
+      <ul>
+        <li>毎日：5分ジャーナル</li>
+        <li>週次：<b>仮名乗りを1形式で表現</b>（文／写真／音声のいずれか）</li>
+        <li>月末：T2 4人に向けた短いコンテンツを仕上げる</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- M5 -->
+<div class="month-anchor p3">
+  <div class="mhead">
+    <div class="mhead-left">
+      <div class="mh-num">M5</div>
+      <div>
+        <div class="mh-title">外へ一歩 ／ 外で試す</div>
+        <div class="mh-sub">仮決めを同期の外の1人に手渡し、反応の振れ幅を身体で受ける月</div>
+      </div>
+    </div>
+    <div class="mh-badges"><span class="mh-badge p3">P3 社会とつながる</span></div>
+  </div>
+  <div class="mq"><div class="mq-inner"><span class="qlabel">問い</span>仮決めは、同期の外で何を連れて帰ってくるか。</div></div>
+
+  <div class="guests3">
+    <div class="gcard">
+      <div class="gcard-head"><span class="gcard-label">候補 A</span><span class="gcard-type tehon">手本型</span></div>
+      <div class="gcard-profile"><b>50代前半、喫茶店主</b>。都市郊外で15年営み、贈与をテーマにした本を複数書いている。</div>
+      <div class="gcard-connect">無反応・的外れ・共鳴の全部を語れる実演者として、手渡し不安を支える。</div>
+    </div>
+    <div class="gcard">
+      <div class="gcard-head"><span class="gcard-label">候補 B</span><span class="gcard-type sozai">素材提供型</span></div>
+      <div class="gcard-profile"><b>40代前半、独立系書店店主</b>。10年で小さな企画を300本回し、失敗した200本を記録している。</div>
+      <div class="gcard-connect">失敗した差し出しの具体が、受講生の手渡しを気軽にする。</div>
+    </div>
+    <div class="gcard">
+      <div class="gcard-head"><span class="gcard-label">候補 C</span><span class="gcard-type narran">並走型</span></div>
+      <div class="gcard-profile"><b>30代後半、古本の再循環事業の執行役員</b>。小さな商いを大きくせず長く続けるために何を捨てたかを話せる。<br><small>※M7で再登場</small></div>
+      <div class="gcard-connect">規模に流されない差し出しの哲学を、M7本番に繋ぐ縦糸として残す。</div>
+    </div>
+  </div>
+
+  <div class="layers3">
+    <div class="lcard unei">
+      <h5><span class="llabel">運営</span>ゲスト／WS／イベント</h5>
+      <ul>
+        <li>W1：ゲスト講義／2h</li>
+        <li>W2：WS5「差し出すと、返ってくる」／120分</li>
+        <li>W3：T2内リハ（15分×4人）／90分</li>
+        <li class="highlight">W4：<b>同期外1名への手渡し本番</b>／各自</li>
+      </ul>
+    </div>
+    <div class="lcard teirei">
+      <h5><span class="llabel">定例</span>コミュマネ伴走</h5>
+      <ul>
+        <li>週次：T2伴走定例／オンライン60分（4回）</li>
+        <li>月次：全体集まり／90分</li>
+      </ul>
+      <div class="ltheme">対話テーマ：手渡した相手から返ってきた反応の、どこに揺れたか</div>
+    </div>
+    <div class="lcard kojin">
+      <h5><span class="llabel">個人</span>受講生の取り組み</h5>
+      <ul>
+        <li>毎日：5分ジャーナル</li>
+        <li>週次：<b>同期外インタビュー1本</b>（次月の越境候補の下調べ）</li>
+        <li>月末：手渡し反応の記録</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- M6 -->
+<div class="month-anchor p3">
+  <div class="mhead">
+    <div class="mhead-left">
+      <div class="mh-num">M6</div>
+      <div>
+        <div class="mh-title">越境して届ける</div>
+        <div class="mh-sub">POOLO外の現場に越境し、予測不能な他者と双方向で出会う月</div>
+      </div>
+    </div>
+    <div class="mh-badges"><span class="mh-badge p3">P3 社会とつながる</span></div>
+  </div>
+  <div class="mq"><div class="mq-inner"><span class="qlabel">問い</span>予測不能な他者に、自分の何が通じたか。</div></div>
+
+  <div class="guests3">
+    <div class="gcard">
+      <div class="gcard-head"><span class="gcard-label">候補 A</span><span class="gcard-type tachiai">立ち会い型</span></div>
+      <div class="gcard-profile"><b>40代後半、地方の事業家</b>。10年以上受け入れを続け、年間50人の越境者を迎えている。</div>
+      <div class="gcard-connect">受け入れ側の眼を短く共有し、越境を双方向にする準備を渡す。</div>
+    </div>
+    <div class="gcard">
+      <div class="gcard-head"><span class="gcard-label">候補 B</span><span class="gcard-type tehon">手本型</span></div>
+      <div class="gcard-profile"><b>60代前半、里山再生のプロ</b>。植物と長期で関わる仕事を40年。</div>
+      <div class="gcard-connect">時間軸の違う仕事の話が、受講生の越境体験の意味を拡げる。</div>
+    </div>
+    <div class="gcard">
+      <div class="gcard-head"><span class="gcard-label">候補 C</span><span class="gcard-type narran">並走型</span></div>
+      <div class="gcard-profile"><b>M2で登場した身体論ライター、再登場</b>。越境先で起きた沈黙と呼吸を後日書き起こす役で並走。</div>
+      <div class="gcard-connect">現場の記述者がいることで、自分の越境体験を言語化する視座を得る。</div>
+    </div>
+  </div>
+
+  <div class="layers3">
+    <div class="lcard unei">
+      <h5><span class="llabel">運営</span>ゲスト／WS／イベント</h5>
+      <ul>
+        <li>W1：ゲスト講義（立ち会い型）／90分</li>
+        <li>W2：越境準備ブリーフ／60分</li>
+        <li class="highlight">W3：<b>越境本番 1〜2日</b>／現場</li>
+        <li>W4：WS6「越境振り返り」／2h</li>
+      </ul>
+    </div>
+    <div class="lcard teirei">
+      <h5><span class="llabel">定例</span>コミュマネ伴走</h5>
+      <ul>
+        <li>週次：T2伴走定例／60分（3回／越境週スキップ）</li>
+        <li>月次：全体集まり／90分</li>
+      </ul>
+      <div class="ltheme">対話テーマ：越境先で、仮決めはどう揺れたか</div>
+    </div>
+    <div class="lcard kojin">
+      <h5><span class="llabel">個人</span>受講生の取り組み</h5>
+      <ul>
+        <li>毎日：5分ジャーナル</li>
+        <li>週次：<b>越境の持参品・対話テーマの準備</b></li>
+        <li>月末：越境記録をM7構想ラフに接続</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- M7 Lv.3 -->
+<div class="month-anchor p3">
+  <div class="mhead">
+    <div class="mhead-left">
+      <div class="mh-num">M7</div>
+      <div>
+        <div class="mh-title">知らない人に届ける</div>
+        <div class="mh-sub">知らない人に差し出す本番（Lv.3必修ライン）</div>
+      </div>
+    </div>
+    <div class="mh-badges"><span class="mh-badge p3">P3 社会とつながる</span><span class="mh-badge lv3">Lv.3 本番</span></div>
+  </div>
+  <div class="mq"><div class="mq-inner"><span class="qlabel">問い</span>知らない人の前に差し出して、何が返ってきたか。</div></div>
+
+  <div class="guests3">
+    <div class="gcard">
+      <div class="gcard-head"><span class="gcard-label">候補 A</span><span class="gcard-type tehon">手本型</span></div>
+      <div class="gcard-profile"><b>40代後半、離島の実演者</b>。事業と暮らしを20年重ね、自分の問いを起点に仕事を編んできた。</div>
+      <div class="gcard-connect">差し出し続けた人生そのものを見せ、本番に向かう背中を押す。</div>
+    </div>
+    <div class="gcard">
+      <div class="gcard-head"><span class="gcard-label">候補 B</span><span class="gcard-type sozai">素材提供型</span></div>
+      <div class="gcard-profile"><b>50代前半、プロデューサー</b>。既定のレールを外した企画を20年、失敗率も高いまま続けている。</div>
+      <div class="gcard-connect">差し出し続ける者の身体感覚が、本番前の受講生の緊張を軽くする。</div>
+    </div>
+    <div class="gcard">
+      <div class="gcard-head"><span class="gcard-label">候補 C</span><span class="gcard-type narran">並走型</span></div>
+      <div class="gcard-profile"><b>M5で登場した再循環事業の執行役員、再登場</b>。本番直前の伴走として短時間参加。</div>
+      <div class="gcard-connect">M5からの縦糸を閉じる存在として、分散型本番での各自の判断を支える。</div>
+    </div>
+  </div>
+
+  <div class="layers3">
+    <div class="lcard unei">
+      <h5><span class="llabel">運営</span>ゲスト／WS／イベント</h5>
+      <ul>
+        <li>W1：ゲスト講義／2h</li>
+        <li>W2：WS7「差し出し準備」／2h</li>
+        <li class="highlight">W3：<b>Lv.3本番</b>（2週間ウィンドウ・分散型・自主企画）</li>
+        <li class="highlight">W4：反応持ち寄り／<b>T2解散式</b>／半日</li>
+      </ul>
+    </div>
+    <div class="lcard teirei">
+      <h5><span class="llabel">定例</span>コミュマネ伴走</h5>
+      <ul>
+        <li>週次：T2伴走定例／60分（2回／本番＆解散週はイベント兼用）</li>
+        <li>月次：<b>解散式がその役目を兼ねる</b></li>
+      </ul>
+      <div class="ltheme">対話テーマ：知らない人の前で、自分のどの輪郭が通じたか</div>
+    </div>
+    <div class="lcard kojin">
+      <h5><span class="llabel">個人</span>受講生の取り組み</h5>
+      <ul>
+        <li>毎日：5分ジャーナル</li>
+        <li>週次：<b>本番準備</b>（企画／場所／相手）</li>
+        <li>月末：反応を受け取った記録</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- M8 振り返り -->
+<div class="month-anchor p4">
+  <div class="mhead">
+    <div class="mhead-left">
+      <div class="mh-num">M8</div>
+      <div>
+        <div class="mh-title">振り返り</div>
+        <div class="mh-sub">螺旋を身体に宿し、次の誰かに渡す回路を持ち帰る月</div>
+      </div>
+    </div>
+    <div class="mh-badges"><span class="mh-badge p4">P4 振り返り</span><span class="mh-badge noguest">ゲスト不在</span></div>
+  </div>
+  <div class="mq"><div class="mq-inner"><span class="qlabel">問い</span>8か月で、自分のどの筋肉が残ったか。</div></div>
+
+  <div class="noguest-box">
+    <b>ゲスト不在の理由</b>：この月は受講生自身が主語になる月。外からの言葉を足さず、8か月の螺旋を自分の身体で閉じる。ゲスト講義枠を抜き、その時間を<b>受講生同士の対話と個人の書き残し</b>に充てる。T3（新しい4人）の鏡の新鮮さで振り返りを担保する。
+  </div>
+
+  <div class="layers3">
+    <div class="lcard unei">
+      <h5><span class="llabel">運営</span>ゲスト／WS／イベント</h5>
+      <ul>
+        <li>W1：<b>T3チーム再編</b>オリエン／オンライン90分</li>
+        <li>W2：振り返り対話会①「8か月の螺旋を辿る」／2h</li>
+        <li>W3：振り返り対話会②「次に渡す回路を言葉にする」／2h</li>
+        <li class="highlight">W4：<b>最終発表会</b>（受講生主語）／半日</li>
+      </ul>
+    </div>
+    <div class="lcard teirei">
+      <h5><span class="llabel">定例</span>コミュマネ伴走</h5>
+      <ul>
+        <li>週次：T3伴走定例／オンライン60分（4回）</li>
+        <li>月次：<b>最終発表会がその役目を兼ねる</b></li>
+      </ul>
+      <div class="ltheme">対話テーマ：8か月で、自分のどの筋肉が残ったか</div>
+    </div>
+    <div class="lcard kojin">
+      <h5><span class="llabel">個人</span>受講生の取り組み</h5>
+      <ul>
+        <li>毎日：5分ジャーナル</li>
+        <li>週次：<b>次の誰かに渡す手紙もしくは発信を1本</b>書く</li>
+        <li>月末：8か月レター（自分の言葉で閉じる）</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- OVERVIEW -->
+<div class="overview-wrap">
+  <div class="wrap">
+    <div class="sec-num deep">§ OVERVIEW</div>
+    <h2 class="sec-head deep">全体俯瞰 ／ 3レイヤーのバランス</h2>
+    <p class="lead">運営密度は<b>M3合宿とM7本番で跳ね、M1・M8で絞る山型</b>。個人時間は月を追うごとに増え、M5-M7で最大化。定例は全期間で週1を崩さず、チーム再編（M4／M8）でも途絶えない伴走線として敷きます。</p>
+  </div>
+
+  <div class="density-wrap">
+    <svg viewBox="0 0 960 260" xmlns="http://www.w3.org/2000/svg">
+      <!-- bars for 運営密度 -->
+      <g>
+        <rect x="40" y="130" width="70" height="50" fill="#1F3A3D" opacity="0.55"/>
+        <rect x="150" y="110" width="70" height="70" fill="#1F3A3D" opacity="0.65"/>
+        <rect x="260" y="40" width="70" height="140" fill="#C08457" opacity="0.85"/>
+        <rect x="370" y="120" width="70" height="60" fill="#1F3A3D" opacity="0.6"/>
+        <rect x="480" y="95" width="70" height="85" fill="#1F3A3D" opacity="0.7"/>
+        <rect x="590" y="75" width="70" height="105" fill="#1F3A3D" opacity="0.75"/>
+        <rect x="700" y="55" width="70" height="125" fill="#B8860B" opacity="0.85"/>
+        <rect x="810" y="125" width="70" height="55" fill="#4A5A68" opacity="0.6"/>
+      </g>
+
+      <!-- baseline -->
+      <line x1="30" y1="180" x2="890" y2="180" stroke="#4A4A4A" stroke-width="1"/>
+
+      <!-- month labels -->
+      <g font-family="'Noto Sans JP',sans-serif" font-size="11" fill="#4A4A4A" text-anchor="middle">
+        <text x="75" y="205">M1</text>
+        <text x="185" y="205">M2</text>
+        <text x="295" y="205">M3</text>
+        <text x="405" y="205">M4</text>
+        <text x="515" y="205">M5</text>
+        <text x="625" y="205">M6</text>
+        <text x="735" y="205">M7</text>
+        <text x="845" y="205">M8</text>
+      </g>
+
+      <!-- phase labels -->
+      <g font-family="'Shippori Mincho',serif" font-size="11" letter-spacing="4" font-weight="600">
+        <text x="130" y="230" fill="#1A5238" text-anchor="middle">P1 自分</text>
+        <text x="350" y="230" fill="#534AB7" text-anchor="middle">P2 POOLO</text>
+        <text x="625" y="230" fill="#B8860B" text-anchor="middle">P3 社会</text>
+        <text x="845" y="230" fill="#4A5A68" text-anchor="middle">P4</text>
+      </g>
+
+      <!-- special markers -->
+      <text x="295" y="30" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="11" fill="#9F6A43" font-weight="600">合宿</text>
+      <text x="735" y="45" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="11" fill="#B8860B" font-weight="600">Lv.3本番</text>
+      <text x="845" y="115" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="10" fill="#4A5A68">ゲスト不在</text>
+
+      <!-- chart title -->
+      <text x="480" y="15" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="12" fill="#1a1a1a" letter-spacing="4" font-weight="600">運営密度の月推移（M3合宿・M7 Lv.3で山）</text>
+    </svg>
+    <div class="density-cap">※ 棒の高さは「運営側が場を張る密度」を示す概念図。個人時間は月を追うごとに増え、M8は運営が背景化し受講生主語で閉じます。</div>
+  </div>
+
+  <div class="overview">
+    <div class="ocard">
+      <h4>3レイヤーのバランス</h4>
+      <p>M1-M3は<b>運営が場を濃く張って</b>受容の土台を起動。M4以降は運営が一歩引き、<b>個人と越境の比率を上げる</b>。M8は運営が背景化し、受講生の個人時間が場全体を駆動する。定例は全期間で週1を崩さない伴走線。</p>
+    </div>
+    <div class="ocard">
+      <h4>M3合宿・M7本番の特別設計</h4>
+      <p>M3は唯一の対面集中月。週次定例1回をスキップし、合宿2日で代替。<b>合宿後W4に短い振り返り枠</b>を必ず置き、揺り戻しを放置しない。M7は<b>2週間ウィンドウの分散型自主企画</b>、運営は企画テンプレ・共通ハッシュタグ・反応収集フォームのみ準備。T2解散式で儀式化。</p>
+    </div>
+    <div class="ocard">
+      <h4>M8 ゲスト不在の設計</h4>
+      <p>外の言葉を足さない代わりに、<b>T3（新しい4人）の鏡の新鮮さ</b>で担保。対話会2本＋最終発表会はすべて受講生主語。運営は問いと時間枠だけを用意し、内容に介入しない。<b>次の誰かに渡す回路</b>（手紙／発信／場）を個人選択で残す。</p>
+    </div>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="footer-links">
+    <a href="poolo-spiral-theory.html">螺旋理論</a>
+    <a href="poolo-curriculum-redesign-phase1.html">再設計 Phase 1</a>
+    <a href="poolo-curriculum-8months-v3-BC.html">v3 月テーマ比較</a>
+    <a href="index.html">既存カリキュラム</a>
+    <a href="m4-m7.html">M4-M7詳細</a>
+  </div>
+  <p>POOLO LIFE ／ 8か月スケジュール＋月別ゲスト3人イメージ ／ 2026-04-20</p>
+</footer>
+
+</body>
+</html>
