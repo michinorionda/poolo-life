@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>POOLO LIFE 8か月カリキュラム 再設計 Phase 1 ／ 設計フレーム骨子</title>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#1a1a1a; --sub:#4a4a4a; --mute:#7a7a7a; --hint:#a8a8a8;
+  --bg:#faf9f6; --bg-deep:#f3f1ea; --line:#e0ddd3;
+  --green:#2D6A4F; --green-bg:#E9F5EE; --green-deep:#1A5238;
+  --warm:#C08457; --warm-bg:#F7EDE2; --warm-deep:#9F6A43;
+  --deep:#1F3A3D; --deep-bg:#DCE6E7;
+  --star:#B8860B; --star-bg:#F9F0D9;
+  --purple:#534AB7; --purple-bg:#ECEAF7; --purple-deep:#3A338A;
+  --slate:#4A5A68; --slate-bg:#E4E8EC;
+  --red:#8B3A2A; --red-bg:#F5E4DF;
+  --serif:'Shippori Mincho',serif; --sans:'Noto Sans JP',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:var(--sans);background:var(--bg);color:var(--ink);line-height:1.95;font-weight:300;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1120px;margin:0 auto;padding:0 1.5rem}
+
+.preview-header{padding:3.5rem 0 2.8rem;text-align:center;background:linear-gradient(180deg,#ECEAF7 0%,#faf9f6 100%);border-bottom:1px solid var(--line)}
+.preview-tag{display:inline-block;font-size:0.6rem;letter-spacing:0.4em;color:var(--purple-deep);margin-bottom:1.2rem;font-weight:500;padding:0.35rem 1.1rem;border:1px solid var(--purple);background:#fff}
+.preview-title{font-family:var(--serif);font-size:1.85rem;font-weight:600;letter-spacing:0.08em;line-height:1.7;color:var(--ink);margin-bottom:0.6rem}
+.preview-sub{font-family:var(--serif);font-size:0.95rem;color:var(--mute);letter-spacing:0.06em}
+.preview-meta{font-size:0.72rem;color:var(--hint);letter-spacing:0.12em;margin-top:1rem}
+
+section{padding:3.8rem 0}
+.sec-num{font-family:var(--serif);font-size:0.72rem;letter-spacing:0.3em;margin-bottom:0.6rem;font-weight:500;color:var(--purple)}
+.sec-num.warm{color:var(--warm)}
+.sec-num.deep{color:var(--deep)}
+.sec-num.green{color:var(--green)}
+.sec-num.star{color:var(--star)}
+.sec-num.slate{color:var(--slate)}
+.sec-head{font-family:var(--serif);font-size:1.6rem;font-weight:600;letter-spacing:0.06em;margin-bottom:1.4rem;color:var(--ink);line-height:1.6}
+.sec-head::before{content:'';display:inline-block;width:2.6rem;height:2px;background:currentColor;margin-right:0.8rem;vertical-align:middle;margin-bottom:0.35em}
+.sec-head.purple{color:var(--purple-deep)}
+.sec-head.warm{color:var(--warm-deep)}
+.sec-head.deep{color:var(--deep)}
+.sec-head.green{color:var(--green-deep)}
+.sec-head.star{color:var(--star)}
+.sec-head.slate{color:var(--slate)}
+p.lead{font-family:var(--serif);font-size:1.04rem;color:var(--ink);font-weight:500;line-height:2;margin-bottom:1.6rem}
+
+.objective{background:var(--deep-bg);border-left:3px solid var(--deep);padding:1.6rem 1.9rem;margin:0 auto 2rem;max-width:900px;font-family:var(--serif);font-size:0.95rem;color:var(--ink);line-height:2;letter-spacing:0.04em}
+.objective b{color:var(--deep);font-weight:600}
+.objective-label{font-size:0.62rem;letter-spacing:0.3em;color:var(--deep);font-family:var(--sans);font-weight:600;margin-bottom:0.5rem;display:block}
+
+/* Diagnosis cards (6 causes) */
+.diagnosis{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;max-width:1050px;margin:1.5rem auto 0}
+.dcard{background:#fff;border:1px solid var(--line);border-left:3px solid var(--red);padding:1.3rem 1.2rem;border-radius:2px;display:flex;flex-direction:column;gap:0.6rem}
+.dcard .dnum{font-family:var(--serif);font-size:0.7rem;letter-spacing:0.25em;color:var(--red);font-weight:600}
+.dcard h4{font-family:var(--serif);font-size:0.97rem;color:var(--ink);font-weight:600;line-height:1.6;letter-spacing:0.03em}
+.dcard p{font-size:0.78rem;color:var(--sub);line-height:1.85}
+.dcard p b{color:var(--ink);font-weight:600}
+
+/* Framework 3 cases */
+.frames{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;max-width:1050px;margin:1.5rem auto 0}
+.fcard{background:#fff;border:1px solid var(--line);border-top:4px solid var(--purple);padding:1.5rem 1.3rem;border-radius:2px;display:flex;flex-direction:column;gap:0.7rem;position:relative}
+.fcard.rec{border-top-color:var(--star);background:linear-gradient(180deg,#F9F0D9 0%,#fff 18%)}
+.fcard .fbadge{position:absolute;top:-10px;right:10px;background:var(--star);color:#fff;font-size:0.62rem;letter-spacing:0.2em;padding:0.25rem 0.7rem;border-radius:2px;font-weight:600}
+.fcard h4{font-family:var(--serif);font-size:1.05rem;color:var(--purple-deep);font-weight:600;letter-spacing:0.05em;line-height:1.5}
+.fcard.rec h4{color:var(--warm-deep)}
+.fcard .felm{font-size:0.78rem;color:var(--ink);background:var(--purple-bg);padding:0.55rem 0.8rem;border-radius:2px;line-height:1.7;letter-spacing:0.04em}
+.fcard.rec .felm{background:var(--star-bg);color:var(--warm-deep)}
+.fcard .fnote{font-size:0.75rem;color:var(--sub);line-height:1.8}
+.fcard .fnote b{color:var(--ink);font-weight:600}
+
+.tradeoff{width:100%;max-width:960px;margin:2rem auto;border-collapse:collapse;background:#fff;border:1px solid var(--line);font-size:0.83rem}
+.tradeoff thead th{background:var(--deep);color:#fff;font-family:var(--serif);font-weight:600;padding:0.9rem;text-align:left;letter-spacing:0.06em;font-size:0.82rem}
+.tradeoff thead th.rec-col{background:var(--warm)}
+.tradeoff tbody th{text-align:left;padding:0.9rem;font-family:var(--serif);font-weight:600;color:var(--ink);background:var(--bg-deep);border-bottom:1px solid var(--line);white-space:nowrap}
+.tradeoff tbody td{padding:0.9rem;color:var(--sub);border-bottom:1px solid var(--line);line-height:1.75}
+.tradeoff tbody td b{color:var(--ink);font-weight:600}
+.tradeoff tbody td.rec-col{background:var(--star-bg)}
+
+/* Case Y detail: 6 elements cell example */
+.cell6{background:#fff;border:1px solid var(--line);border-radius:3px;padding:1.8rem;max-width:860px;margin:1.5rem auto;display:grid;grid-template-columns:1fr 1fr;gap:0.8rem}
+.cell6 .cell-head{grid-column:1/-1;display:flex;justify-content:space-between;align-items:center;padding-bottom:0.8rem;border-bottom:1px solid var(--line);margin-bottom:0.3rem}
+.cell6 .cell-title{font-family:var(--serif);font-size:1.1rem;font-weight:600;color:var(--ink);letter-spacing:0.04em}
+.cell6 .cell-label{font-size:0.62rem;letter-spacing:0.3em;color:var(--purple);font-weight:600}
+.cell-elm{padding:0.9rem 1rem;border-radius:2px;background:var(--bg-deep);display:flex;flex-direction:column;gap:0.35rem;min-height:88px}
+.cell-elm .elm-tag{font-size:0.58rem;letter-spacing:0.28em;color:var(--purple);font-weight:600}
+.cell-elm .elm-body{font-family:var(--serif);font-size:0.88rem;color:var(--ink);line-height:1.8;letter-spacing:0.03em}
+.cell-elm.q{background:var(--star-bg);border-left:3px solid var(--star)}
+.cell-elm.q .elm-tag{color:var(--star)}
+.cell-elm.w{background:var(--purple-bg)}
+.cell-elm.g{background:var(--warm-bg)}
+.cell-elm.g .elm-tag{color:var(--warm)}
+.cell-elm.h{background:var(--green-bg)}
+.cell-elm.h .elm-tag{color:var(--green)}
+
+/* 4-phase WHY cards */
+.phases4{display:grid;grid-template-columns:repeat(2,1fr);gap:1.2rem;max-width:1050px;margin:1.5rem auto 0}
+.pcard{background:#fff;border:1px solid var(--line);border-top:4px solid var(--line);padding:1.6rem 1.5rem;border-radius:2px;display:flex;flex-direction:column;gap:0.8rem}
+.pcard.p1{border-top-color:var(--green)}
+.pcard.p2{border-top-color:var(--purple)}
+.pcard.p3{border-top-color:var(--star)}
+.pcard.p4{border-top-color:var(--slate)}
+.pcard-head{display:flex;justify-content:space-between;align-items:center;padding-bottom:0.6rem;border-bottom:1px dashed var(--line)}
+.pcard-tag{font-size:0.62rem;letter-spacing:0.28em;font-weight:600}
+.pcard.p1 .pcard-tag{color:var(--green-deep)}
+.pcard.p2 .pcard-tag{color:var(--purple-deep)}
+.pcard.p3 .pcard-tag{color:var(--star)}
+.pcard.p4 .pcard-tag{color:var(--slate)}
+.pcard-title{font-family:var(--serif);font-size:1.2rem;color:var(--ink);font-weight:600;letter-spacing:0.04em}
+.pcard-months{font-size:0.75rem;color:var(--mute);letter-spacing:0.1em}
+.pcard-block{display:flex;gap:0.7rem;align-items:flex-start;font-size:0.82rem;line-height:1.85}
+.pcard-block .plbl{font-family:var(--serif);color:var(--ink);font-weight:600;min-width:90px;flex-shrink:0;font-size:0.75rem;padding-top:0.1rem;letter-spacing:0.05em}
+.pcard.p1 .pcard-block .plbl{color:var(--green-deep)}
+.pcard.p2 .pcard-block .plbl{color:var(--purple-deep)}
+.pcard.p3 .pcard-block .plbl{color:var(--star)}
+.pcard.p4 .pcard-block .plbl{color:var(--slate)}
+.pcard-block .pval{color:var(--sub)}
+.pcard-block .pval b{color:var(--ink);font-weight:600}
+.pcard-nega{background:var(--red-bg);padding:0.8rem 1rem;font-size:0.78rem;color:var(--red);border-left:2px solid var(--red);line-height:1.8;margin-top:0.3rem;border-radius:2px}
+.pcard-nega b{color:var(--red);font-weight:700}
+
+/* Month WHY list */
+.months-why{display:grid;grid-template-columns:repeat(4,1fr);gap:0.85rem;max-width:1050px;margin:1.5rem auto 0}
+.mwcard{background:#fff;border:1px solid var(--line);border-top:3px solid var(--line);padding:1.1rem 1rem;border-radius:2px;display:flex;flex-direction:column;gap:0.5rem;min-height:175px}
+.mwcard.p1{border-top-color:var(--green)}
+.mwcard.p2{border-top-color:var(--purple)}
+.mwcard.p3{border-top-color:var(--star)}
+.mwcard.p4{border-top-color:var(--slate)}
+.mwcard-top{display:flex;justify-content:space-between;align-items:baseline}
+.mwnum{font-family:var(--serif);font-size:1.35rem;font-weight:600;line-height:1}
+.mwcard.p1 .mwnum{color:var(--green)}
+.mwcard.p2 .mwnum{color:var(--purple)}
+.mwcard.p3 .mwnum{color:var(--star)}
+.mwcard.p4 .mwnum{color:var(--slate)}
+.mwphase{font-size:0.58rem;letter-spacing:0.2em;padding:0.15rem 0.45rem;border-radius:2px;font-weight:500}
+.mwcard.p1 .mwphase{background:var(--green-bg);color:var(--green-deep)}
+.mwcard.p2 .mwphase{background:var(--purple-bg);color:var(--purple)}
+.mwcard.p3 .mwphase{background:var(--star-bg);color:var(--star)}
+.mwcard.p4 .mwphase{background:var(--slate-bg);color:var(--slate)}
+.mwbadge{display:inline-block;font-size:0.58rem;letter-spacing:0.18em;padding:0.15rem 0.45rem;border-radius:2px;background:var(--warm-bg);color:var(--warm-deep);font-weight:700;margin-left:0.3rem}
+.mwwhy{font-size:0.76rem;color:var(--sub);line-height:1.75;font-family:var(--serif);letter-spacing:0.02em}
+.mwwhy b{color:var(--ink);font-weight:600}
+
+/* Guest types */
+.gtypes{display:grid;grid-template-columns:repeat(5,1fr);gap:0.8rem;max-width:1080px;margin:1.5rem auto 0}
+.gtcard{background:#fff;border:1px solid var(--line);border-top:3px solid var(--warm);padding:1.1rem 0.9rem;border-radius:2px;display:flex;flex-direction:column;gap:0.5rem;min-height:180px}
+.gtcard-num{font-family:var(--serif);font-size:1.3rem;font-weight:600;color:var(--warm-deep);line-height:1}
+.gtcard h5{font-family:var(--serif);font-size:0.92rem;color:var(--ink);font-weight:600;letter-spacing:0.04em;line-height:1.5}
+.gtcard p{font-size:0.72rem;color:var(--sub);line-height:1.8}
+.gtcard .guse{font-size:0.67rem;color:var(--warm-deep);letter-spacing:0.1em;margin-top:auto;font-weight:500;padding-top:0.5rem;border-top:1px dashed var(--line)}
+
+.guest-table{width:100%;max-width:1000px;margin:1.5rem auto;border-collapse:collapse;background:#fff;border:1px solid var(--line);font-size:0.83rem}
+.guest-table thead th{background:var(--deep);color:#fff;font-family:var(--serif);font-weight:600;padding:0.9rem;text-align:left;letter-spacing:0.06em;font-size:0.8rem}
+.guest-table tbody td{padding:0.85rem;color:var(--sub);border-bottom:1px solid var(--line);line-height:1.7;vertical-align:middle}
+.guest-table tbody td.m-cell{font-family:var(--serif);font-weight:600;color:var(--ink);background:var(--bg-deep);white-space:nowrap}
+.guest-table tbody td b{color:var(--ink);font-weight:600}
+
+/* Phase 2 flow */
+.flow-wrap{max-width:1000px;margin:2rem auto 0}
+.flow-wrap svg{width:100%;height:auto;display:block}
+
+.granul{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;max-width:960px;margin:2rem auto 0}
+.gcard{background:#fff;border:1px solid var(--line);padding:1.3rem 1.3rem;border-radius:2px}
+.gcard.rec{border:2px solid var(--star);background:var(--star-bg)}
+.gcard h4{font-family:var(--serif);font-size:1rem;color:var(--ink);font-weight:600;margin-bottom:0.7rem}
+.gcard ul{list-style:none;padding:0;font-size:0.8rem;color:var(--sub);line-height:1.95}
+.gcard ul li{padding-left:1rem;position:relative}
+.gcard ul li::before{content:'◦';position:absolute;left:0;color:var(--purple)}
+.gcard.rec ul li::before{color:var(--star)}
+.gcard .grec{font-size:0.7rem;letter-spacing:0.2em;color:var(--star);font-weight:700;margin-bottom:0.4rem}
+
+/* Questions */
+.q-list{max-width:900px;margin:1rem auto 0;display:flex;flex-direction:column;gap:1rem}
+.q-item{background:#fff;border:1px solid var(--line);border-left:4px solid var(--star);padding:1.4rem 1.6rem;border-radius:2px}
+.q-num{font-family:var(--serif);font-size:0.7rem;letter-spacing:0.3em;color:var(--star);font-weight:600;margin-bottom:0.5rem}
+.q-body{font-family:var(--serif);font-size:1.02rem;font-weight:600;color:var(--ink);line-height:1.75;margin-bottom:0.5rem}
+.q-note{font-size:0.82rem;color:var(--sub);line-height:1.85}
+.q-note b{color:var(--ink)}
+.q-rec{display:inline-block;font-size:0.62rem;letter-spacing:0.2em;background:var(--star);color:#fff;padding:0.15rem 0.55rem;border-radius:2px;font-weight:600;margin-left:0.5rem;vertical-align:middle}
+
+.rec{background:var(--deep);color:#fff;padding:1.8rem 2rem;max-width:900px;margin:2rem auto 0;border-radius:2px;line-height:2;font-size:0.9rem;letter-spacing:0.04em}
+.rec .rec-label{font-family:var(--serif);font-size:0.7rem;letter-spacing:0.3em;color:rgba(255,255,255,0.6);margin-bottom:0.6rem;display:block;font-weight:500}
+.rec b{color:#fff;font-weight:600}
+.rec .hl{color:var(--star-bg);border-bottom:1px solid var(--star-bg);padding-bottom:1px}
+
+.footer{background:var(--deep);padding:2.5rem 0;text-align:center;color:#fff}
+.footer-links{display:flex;justify-content:center;gap:0.6rem;flex-wrap:wrap;margin-bottom:0.9rem}
+.footer a{color:rgba(255,255,255,0.85);text-decoration:none;font-size:0.78rem;letter-spacing:0.1em;border-bottom:1px solid rgba(255,255,255,0.3);padding-bottom:2px}
+.footer a:hover{color:#fff;border-bottom-color:#fff}
+.footer p{color:rgba(255,255,255,0.5);font-size:0.72rem;margin-top:0.5rem;letter-spacing:0.1em}
+
+@media(max-width:860px){
+  .diagnosis,.frames{grid-template-columns:1fr}
+  .months-why{grid-template-columns:repeat(2,1fr)}
+  .gtypes{grid-template-columns:repeat(2,1fr)}
+  .phases4,.granul{grid-template-columns:1fr}
+  .cell6{grid-template-columns:1fr}
+  .preview-title{font-size:1.3rem}
+}
+</style>
+</head>
+<body>
+
+<header class="preview-header">
+  <div class="wrap">
+    <span class="preview-tag">PHASE 1 ／ FRAMEWORK</span>
+    <h1 class="preview-title">POOLO LIFE 8か月カリキュラム 再設計</h1>
+    <div class="preview-sub">月次テーマの意図を参加者に伝える設計フレームの骨子</div>
+    <div class="preview-meta">Phase 1 成果物 ／ 2026-04-20 ／ 社長判断用プレビュー</div>
+  </div>
+</header>
+
+<!-- OBJECTIVE -->
+<section>
+  <div class="wrap">
+    <div class="objective">
+      <span class="objective-label">このページの位置づけ</span>
+      参加者から「月次テーマの意図が伝わっていない」という声が上がっている課題に対して、3フェーズ（自分→POOLO→社会）の順序は保持したまま、<b>月を構成する要素セット（設計フレーム）</b>を先に定義します。Phase 1は骨子段階。Phase 2で各月の詳細化、Phase 3で評価（思想整合＋参加者視点）、Phase 4でLP・説明会素材への展開を行います。
+    </div>
+  </div>
+</section>
+
+<!-- DIAGNOSIS -->
+<section>
+  <div class="wrap">
+    <div class="sec-num">§ 01 ／ DIAGNOSIS</div>
+    <h2 class="sec-head">「意図が伝わらない」問題の構造的診断（6つの原因）</h2>
+    <p class="lead">月テーマの言葉選びではなく、設計の構造側に原因があります。</p>
+
+    <div class="diagnosis">
+      <div class="dcard">
+        <div class="dnum">CAUSE 01</div>
+        <h4>月テーマが独立して決まっている</h4>
+        <p>見出しだけ先に決まり、WHY・WHAT・HOWが後付けで紐づいている。見出しが届いても<b>「今月は何する月なんだっけ」</b>が残る。</p>
+      </div>
+      <div class="dcard">
+        <div class="dnum">CAUSE 02</div>
+        <h4>WHYが運営の頭の中にしかない</h4>
+        <p>「なぜこの月にこれをやるか」が運営では共有されているが、<b>参加者に渡される言葉になっていない</b>。渡されないWHYは存在しないのと同じ。</p>
+      </div>
+      <div class="dcard">
+        <div class="dnum">CAUSE 03</div>
+        <h4>ゲスト講義が月テーマの外側に立つ</h4>
+        <p>ゲストが呼ばれる文脈が「この月の問いを深めるため」ではなく<b>「呼べるから・面白いから」</b>になりがち。結果、ゲスト回だけが浮く。</p>
+      </div>
+      <div class="dcard">
+        <div class="dnum">CAUSE 04</div>
+        <h4>縦軸と横軸が接続されていない</h4>
+        <p>3フェーズ（縦）と月テーマ（横）をどう編むかのロジックが未定義。月ごとに<b>「これは自分の月？POOLOの月？」</b>が曖昧になる。</p>
+      </div>
+      <div class="dcard">
+        <div class="dnum">CAUSE 05</div>
+        <h4>変化の姿で月が定義されていない</h4>
+        <p>月が<b>やることで定義され、何が起きている状態になるかで定義されていない</b>。運営も受講生もゴール達成の判定ができない。</p>
+      </div>
+      <div class="dcard">
+        <div class="dnum">CAUSE 06</div>
+        <h4>4ステップと月テーマの対応が非明示</h4>
+        <p>思想側の到達点マップ（見つける・名乗る・小さく届ける・知らない人に届ける）との対応表がなく、月テーマ案が<b>別々の骨格の上で比較される</b>状態。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FRAMEWORK -->
+<section style="background:var(--bg-deep);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="wrap">
+    <div class="sec-num purple">§ 02 ／ FRAMEWORK</div>
+    <h2 class="sec-head purple">設計フレーム 3案（各月の要素セット）</h2>
+    <p class="lead">月を構成する要素セットの設計案を3つ。案Y（6要素）を推奨します。</p>
+
+    <div class="frames">
+      <div class="fcard">
+        <h4>案X ／ 4要素セット</h4>
+        <div class="felm">WHY ／ WHAT ／ HOW ／ GUEST</div>
+        <div class="fnote"><b>狙い</b>：最小構成。運営が書きやすい。4枠なら今すぐ8か月分埋められる。</div>
+        <div class="fnote"><b>リスク</b>：受講生の変化が描かれず、運営向けドキュメント止まりになりやすい。</div>
+      </div>
+      <div class="fcard rec">
+        <span class="fbadge">推奨</span>
+        <h4>案Y ／ 6要素セット</h4>
+        <div class="felm">WHY ／ <b>目指す状態</b> ／ WHAT ／ HOW ／ GUEST ／ <b>問い</b></div>
+        <div class="fnote"><b>狙い</b>：参加者の受け取りやすさとマーケ言語化の両方が出る。「問い」が残れば、LP・SNS・説明会の素材がそのまま落ちる。</div>
+        <div class="fnote"><b>リスク</b>：6枠×8か月＝48セルを埋めるコストが重い。</div>
+      </div>
+      <div class="fcard">
+        <h4>案Z ／ 変化軸</h4>
+        <div class="felm">入口状態 ／ 出口状態 ／ 動作 ／ 問い ／ ゲスト</div>
+        <div class="fnote"><b>狙い</b>：月＝変化の単位として定義。運営も受講生もゴール判定ができる。</div>
+        <div class="fnote"><b>リスク</b>：変化を設計で起こそうとすると、原則4「導きをしない」と衝突する危険。</div>
+      </div>
+    </div>
+
+    <table class="tradeoff">
+      <thead>
+        <tr>
+          <th>観点</th>
+          <th>案X（4要素）</th>
+          <th class="rec-col">案Y（6要素）</th>
+          <th>案Z（変化軸）</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><th>運営の書きやすさ</th><td>◎</td><td class="rec-col">△</td><td>○</td></tr>
+        <tr><th>受講生の受け取りやすさ</th><td>△</td><td class="rec-col">◎</td><td>◎</td></tr>
+        <tr><th>マーケ言語化の素材性</th><td>△</td><td class="rec-col">◎</td><td>○</td></tr>
+        <tr><th>思想整合リスク</th><td>低</td><td class="rec-col">低</td><td>中</td></tr>
+        <tr><th>工数</th><td>小</td><td class="rec-col">大</td><td>中</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- CASE Y DETAIL -->
+<section>
+  <div class="wrap">
+    <div class="sec-num purple">§ 03 ／ CASE Y</div>
+    <h2 class="sec-head purple">案Y（6要素）の中身 ／ 1セルの例</h2>
+    <p class="lead">月ごとに6つの欄を埋めます。特に<b>「問い」1行</b>を先に8つ確定する順序を推奨します（問いが定まれば他の5枠は逆算できる）。</p>
+
+    <div class="cell6">
+      <div class="cell-head">
+        <div class="cell-title">例：M3「名乗る」（合宿）</div>
+        <div class="cell-label">P2 POOLO ／ 合宿</div>
+      </div>
+      <div class="cell-elm q">
+        <span class="elm-tag">問い</span>
+        <div class="elm-body">未完成のまま、誰かの前に置く怖さを抱えられるか。</div>
+      </div>
+      <div class="cell-elm w">
+        <span class="elm-tag">WHY</span>
+        <div class="elm-body">仮の輪郭を仲間の前に置き、引力場を起動する月。ここを跨がないと、以降の差し出しがすべて自己対話で終わる。</div>
+      </div>
+      <div class="cell-elm">
+        <span class="elm-tag">目指す状態</span>
+        <div class="elm-body">月末、仮の名乗りを1つ持ち、仲間の前で口にしている。完成度ではなく、置いたという事実が残っている。</div>
+      </div>
+      <div class="cell-elm">
+        <span class="elm-tag">WHAT</span>
+        <div class="elm-body">名乗り／仮置き／焚き火での沈黙と告白／反応の受け取り。</div>
+      </div>
+      <div class="cell-elm h">
+        <span class="elm-tag">HOW</span>
+        <div class="elm-body">1泊2日合宿（非言語型＋対話型）／名乗りワーク／反応の受け取り直し。</div>
+      </div>
+      <div class="cell-elm g">
+        <span class="elm-tag">GUEST</span>
+        <div class="elm-body">手本型（卒業生1-2）。未完成で置いた実体験を軌跡ごと見せる。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3 PHASE WHY -->
+<section style="background:var(--bg-deep);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="wrap">
+    <div class="sec-num">§ 04 ／ PHASE WHY</div>
+    <h2 class="sec-head">4フェーズのWHY（なぜそれが必要なのか）</h2>
+    <p class="lead">受講生視点・螺旋理論視点・POOLO思想視点の3レイヤーで、なぜそのフェーズが必要か。抜けたら何が壊れるか（ネガ）も添えます。</p>
+
+    <div class="phases4">
+      <div class="pcard p1">
+        <div class="pcard-head">
+          <div>
+            <div class="pcard-tag">P1 ／ 自分とつながる</div>
+            <div class="pcard-title">土壌を耕す</div>
+          </div>
+          <div class="pcard-months">M1 - M2 ／ 2か月</div>
+        </div>
+        <div class="pcard-block"><span class="plbl">受講生視点</span><span class="pval">日常で擦り減った感覚を取り戻す。<b>探究テーマ</b>の種を掴み直す。</span></div>
+        <div class="pcard-block"><span class="plbl">螺旋視点</span><span class="pval">仮の輪郭を置く手前。まだ輪郭にならない断片を身体で集める段階。</span></div>
+        <div class="pcard-block"><span class="plbl">POOLO思想</span><span class="pval">Being（そのままでいい）の受容が成立していないと、<b>この先の自己決定・差し出しは起きない</b>。</span></div>
+        <div class="pcard-nega"><b>抜けたら</b>：外的期待を起点に8か月を走ってしまい、終盤で燃え尽きる。</div>
+      </div>
+
+      <div class="pcard p2">
+        <div class="pcard-head">
+          <div>
+            <div class="pcard-tag">P2 ／ POOLOとつながる</div>
+            <div class="pcard-title">仲間の鏡に映す</div>
+          </div>
+          <div class="pcard-months">M3合宿 - M4 ／ 2か月</div>
+        </div>
+        <div class="pcard-block"><span class="plbl">受講生視点</span><span class="pval">自分の断片を仲間の鏡に映して確かめる。差し出して反応を受け取り、また差し出す。</span></div>
+        <div class="pcard-block"><span class="plbl">螺旋視点</span><span class="pval">螺旋の第2-3周目。差し出し→受け取り直し→また差し出しが<b>安全な場で回る</b>。</span></div>
+        <div class="pcard-block"><span class="plbl">POOLO思想</span><span class="pval">50人は想像もしなかった自分に出会う鏡。仲間の<b>引力場</b>で一人では届かない深さに運ばれる。</span></div>
+        <div class="pcard-nega"><b>抜けたら</b>：自己対話の檻から出られず、仮決めの言葉を外に試せないまま終わる。</div>
+      </div>
+
+      <div class="pcard p3">
+        <div class="pcard-head">
+          <div>
+            <div class="pcard-tag">P3 ／ 社会とつながる</div>
+            <div class="pcard-title">螺旋が外に抜ける</div>
+          </div>
+          <div class="pcard-months">M5 - M7 ／ 3か月</div>
+        </div>
+        <div class="pcard-block"><span class="plbl">受講生視点</span><span class="pval">知らない人に差し出す。受け取る人から創る人への立ち位置変化が、<b>外の現実で起きる</b>。</span></div>
+        <div class="pcard-block"><span class="plbl">螺旋視点</span><span class="pval">螺旋が外に抜ける瞬間。POOLO内で育った言葉が外の空気に晒される。</span></div>
+        <div class="pcard-block"><span class="plbl">POOLO思想</span><span class="pval">Lv.3（知らない人への差し出し／POOLO全員の必修ライン）到達は、<b>自己分析では絶対に届かない場所</b>。</span></div>
+        <div class="pcard-nega"><b>抜けたら</b>：POOLO内で完結した満足で終わり、卒業後に世界が変わらない。</div>
+      </div>
+
+      <div class="pcard p4">
+        <div class="pcard-head">
+          <div>
+            <div class="pcard-tag">P4 ／ 振り返り</div>
+            <div class="pcard-title">螺旋を身体に宿す</div>
+          </div>
+          <div class="pcard-months">M8 ／ 1か月</div>
+        </div>
+        <div class="pcard-block"><span class="plbl">受講生視点</span><span class="pval">8か月で何度も回した螺旋を別の角度から見直す。<b>3周目の自分</b>を言葉にして持ち帰る。</span></div>
+        <div class="pcard-block"><span class="plbl">螺旋視点</span><span class="pval">螺旋を身体に格納するフェーズ。卒業後も自分で回せる形にする。</span></div>
+        <div class="pcard-block"><span class="plbl">POOLO思想</span><span class="pval">卒業後も不可逆であるためには、<b>振り返りが独立した時間として必要</b>。</span></div>
+        <div class="pcard-nega"><b>抜けたら</b>：卒業後に螺旋が止まる。POOLOが期間限定の体験で終わる。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MONTH WHY DRAFT -->
+<section>
+  <div class="wrap">
+    <div class="sec-num">§ 05 ／ MONTH WHY</div>
+    <h2 class="sec-head">8か月分の「月のWHY」仮置き</h2>
+    <p class="lead">各月の「なぜ」を仮置きします（案B／案Cどちらの月テーマでも成立する汎用表現）。Phase 2で各月6要素に展開していきます。</p>
+
+    <div class="months-why">
+      <div class="mwcard p1">
+        <div class="mwcard-top"><span class="mwnum">M1</span><span class="mwphase">P1 自分</span></div>
+        <div class="mwwhy">旅で揺らいだ身体に言葉より先に場を届け、<b>受容の土台を起動</b>する月。</div>
+      </div>
+      <div class="mwcard p1">
+        <div class="mwcard-top"><span class="mwnum">M2</span><span class="mwphase">P1 自分</span></div>
+        <div class="mwwhy">聴く／聴かれるを往復して、<b>他者が自分を更新する感覚</b>を身体で掴む月。</div>
+      </div>
+      <div class="mwcard p2">
+        <div class="mwcard-top"><span class="mwnum">M3</span><span><span class="mwphase">P2 POOLO</span><span class="mwbadge">合宿</span></span></div>
+        <div class="mwwhy">仮の輪郭を言葉にして、<b>最初の置き場</b>に出す月。</div>
+      </div>
+      <div class="mwcard p2">
+        <div class="mwcard-top"><span class="mwnum">M4</span><span class="mwphase">P2 POOLO</span></div>
+        <div class="mwwhy">仮置きを同期の鏡で揺り戻し、<b>名乗りを書き直す</b>月。</div>
+      </div>
+      <div class="mwcard p3">
+        <div class="mwcard-top"><span class="mwnum">M5</span><span class="mwphase">P3 社会</span></div>
+        <div class="mwwhy">仮決めを同期の外の1人に手渡し、<b>反応の振れ幅を身体で受ける</b>月。</div>
+      </div>
+      <div class="mwcard p3">
+        <div class="mwcard-top"><span class="mwnum">M6</span><span class="mwphase">P3 社会</span></div>
+        <div class="mwwhy">POOLO外の現場に越境し、<b>予測不能な他者と双方向で出会う</b>月。</div>
+      </div>
+      <div class="mwcard p3">
+        <div class="mwcard-top"><span class="mwnum">M7</span><span class="mwphase">P3 社会</span></div>
+        <div class="mwwhy"><b>知らない人に差し出す本番</b>（Lv.3必修ライン）。</div>
+      </div>
+      <div class="mwcard p4">
+        <div class="mwcard-top"><span class="mwnum">M8</span><span class="mwphase">P4 振り返り</span></div>
+        <div class="mwwhy">螺旋を身体に宿し、<b>次の誰かに渡す回路</b>を持ち帰る月。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GUEST TYPES -->
+<section style="background:var(--bg-deep);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="wrap">
+    <div class="sec-num warm">§ 06 ／ GUEST</div>
+    <h2 class="sec-head warm">ゲスト × プロセスの接続 5型</h2>
+    <p class="lead">ゲスト講義をプロセスから独立させないため、接続の仕方を<b>5つの型</b>に分類します。月テーマではなく<b>月の問い</b>を渡すのが原則。</p>
+
+    <div class="gtypes">
+      <div class="gtcard">
+        <div class="gtcard-num">01</div>
+        <h5>素材提供型</h5>
+        <p>ゲストの語りが受講生のワーク素材になる。直後のワークで「揺れた一語」を使う。</p>
+        <div class="guse">P1序盤（M1, M2）</div>
+      </div>
+      <div class="gtcard">
+        <div class="gtcard-num">02</div>
+        <h5>立ち会い型</h5>
+        <p>受講生の差し出し／越境現場にゲストが同席し、短時間で反応を返す。</p>
+        <div class="guse">P2後半・P3序盤（M6）</div>
+      </div>
+      <div class="gtcard">
+        <div class="gtcard-num">03</div>
+        <h5>手本型</h5>
+        <p>ゲスト自身の実践（独立後の揺り戻し／贈与）を軌跡ごと見せる。</p>
+        <div class="guse">P2・P3前半（M4, M5）</div>
+      </div>
+      <div class="gtcard">
+        <div class="gtcard-num">04</div>
+        <h5>並走型</h5>
+        <p>ゲストが複数月にわたり再登場し、受講生の変化に応答する。</p>
+        <div class="guse">再登場枠（M2↔M6）</div>
+      </div>
+      <div class="gtcard">
+        <div class="gtcard-num">05</div>
+        <h5>素通り型</h5>
+        <p>ゲストは来るが深入りしない。触発だけ残し、受講生主語を守る。</p>
+        <div class="guse">P1初回・P3直前</div>
+      </div>
+    </div>
+
+    <table class="guest-table">
+      <thead>
+        <tr><th style="width:9%">月</th><th style="width:18%">主</th><th style="width:18%">補</th><th>意図</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="m-cell">M1</td><td>素材提供型</td><td>素通り型</td><td>身体を起動、助言を入れない</td></tr>
+        <tr><td class="m-cell">M2</td><td>素材提供型</td><td>手本型</td><td>聴く姿勢を模写する素材に</td></tr>
+        <tr><td class="m-cell">M3</td><td>手本型（卒業生のみ）</td><td>―</td><td>仮置きを許可する先達の軌跡</td></tr>
+        <tr><td class="m-cell">M4</td><td>手本型</td><td>―</td><td>揺り戻しの語彙化</td></tr>
+        <tr><td class="m-cell">M5</td><td>手本型</td><td>―</td><td>贈与と反応の先達</td></tr>
+        <tr><td class="m-cell">M6</td><td>立ち会い型</td><td>並走型</td><td>現場から顔合わせ</td></tr>
+        <tr><td class="m-cell">M7</td><td>手本型</td><td>素通り型</td><td>本番直前は受講生主語を守る</td></tr>
+        <tr><td class="m-cell">M8</td><td>（ゲストなし）</td><td>―</td><td>受講生主語で閉じる</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- PHASE 2 PLAN -->
+<section>
+  <div class="wrap">
+    <div class="sec-num deep">§ 07 ／ PHASE 2 PLAN</div>
+    <h2 class="sec-head deep">Phase 2の進め方</h2>
+    <p class="lead">Phase 1で確定したフレームをもとに、各月の詳細化を進めます。粒度と発注区切りの推奨を提示します。</p>
+
+    <div class="flow-wrap">
+      <svg viewBox="0 0 960 240" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <marker id="arrF" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+            <path d="M 0 0 L 10 5 L 0 10 z" fill="#1F3A3D"/>
+          </marker>
+        </defs>
+        <g>
+          <rect x="20" y="80" width="130" height="80" rx="3" fill="#E9F5EE" stroke="#2D6A4F" stroke-width="1.5"/>
+          <text x="85" y="108" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="11" fill="#1A5238" letter-spacing="3" font-weight="600">① P1</text>
+          <text x="85" y="128" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="13" fill="#1a1a1a" font-weight="600">M1・M2</text>
+          <text x="85" y="145" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="9" fill="#2D6A4F">薄め粒度</text>
+        </g>
+        <g>
+          <rect x="185" y="80" width="130" height="80" rx="3" fill="#ECEAF7" stroke="#534AB7" stroke-width="1.5"/>
+          <text x="250" y="108" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="11" fill="#3A338A" letter-spacing="3" font-weight="600">② M3合宿</text>
+          <text x="250" y="128" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="13" fill="#1a1a1a" font-weight="600">単独発注</text>
+          <text x="250" y="145" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="9" fill="#534AB7">厚め粒度</text>
+        </g>
+        <g>
+          <rect x="350" y="80" width="120" height="80" rx="3" fill="#ECEAF7" stroke="#534AB7" stroke-width="1.5"/>
+          <text x="410" y="108" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="11" fill="#3A338A" letter-spacing="3" font-weight="600">③ P2後半</text>
+          <text x="410" y="128" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="13" fill="#1a1a1a" font-weight="600">M4</text>
+          <text x="410" y="145" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="9" fill="#534AB7">厚め粒度</text>
+        </g>
+        <g>
+          <rect x="505" y="80" width="180" height="80" rx="3" fill="#F9F0D9" stroke="#B8860B" stroke-width="1.5"/>
+          <text x="595" y="108" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="11" fill="#B8860B" letter-spacing="3" font-weight="600">④ P3</text>
+          <text x="595" y="128" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="13" fill="#1a1a1a" font-weight="600">M5・M6・M7</text>
+          <text x="595" y="145" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="9" fill="#B8860B">厚め粒度（Lv.3含む）</text>
+        </g>
+        <g>
+          <rect x="720" y="80" width="130" height="80" rx="3" fill="#E4E8EC" stroke="#4A5A68" stroke-width="1.5"/>
+          <text x="785" y="108" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="11" fill="#4A5A68" letter-spacing="3" font-weight="600">⑤ P4</text>
+          <text x="785" y="128" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="13" fill="#1a1a1a" font-weight="600">M8</text>
+          <text x="785" y="145" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="9" fill="#4A5A68">薄め粒度</text>
+        </g>
+        <g>
+          <rect x="875" y="90" width="65" height="60" rx="3" fill="#1F3A3D" stroke="none"/>
+          <text x="907" y="116" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="11" fill="#fff" letter-spacing="2" font-weight="600">Phase 3</text>
+          <text x="907" y="135" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="9" fill="#fff">評価</text>
+        </g>
+
+        <path d="M 150 120 L 183 120" fill="none" stroke="#1F3A3D" stroke-width="1.5" marker-end="url(#arrF)"/>
+        <path d="M 317 120 L 348 120" fill="none" stroke="#1F3A3D" stroke-width="1.5" marker-end="url(#arrF)"/>
+        <path d="M 472 120 L 503 120" fill="none" stroke="#1F3A3D" stroke-width="1.5" marker-end="url(#arrF)"/>
+        <path d="M 687 120 L 718 120" fill="none" stroke="#1F3A3D" stroke-width="1.5" marker-end="url(#arrF)"/>
+        <path d="M 852 120 L 873 120" fill="none" stroke="#1F3A3D" stroke-width="1.5" marker-end="url(#arrF)"/>
+
+        <text x="480" y="40" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="14" fill="#1F3A3D" letter-spacing="6" font-weight="600">Phase 2 ／ 月単位 8回発注（推奨順序）</text>
+        <text x="480" y="210" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="10" fill="#7a7a7a" letter-spacing="2">各回で curriculum-specifier に6要素×月を発注 → 統合レビュー → 社長判断</text>
+      </svg>
+    </div>
+
+    <div class="granul">
+      <div class="gcard rec">
+        <div class="grec">粒度 ／ A+B折衷（推奨）</div>
+        <h4>P1・P4は薄め／P2・P3は厚め</h4>
+        <ul>
+          <li>P1（M1・M2）・P4（M8）は骨格完成・判断論点少ないため薄め</li>
+          <li>P2・P3は合宿／越境／Lv.3の実装密度が高く運営手引き化が急務のため厚め</li>
+          <li>薄め：WHY2-3行／WHAT箇条3-5点／HOWワーク名＋種別／GUEST候補1-2名</li>
+          <li>厚め：WHY3-5行＋受講生の声想定／WHAT本文1段落／HOWワーク詳細＋FB型／GUEST候補3名＋接続文</li>
+        </ul>
+      </div>
+      <div class="gcard">
+        <div class="grec" style="color:var(--purple)">補足 ／ 書いてはいけないこと</div>
+        <h4>原則の逸脱を防ぐ注意書き</h4>
+        <ul>
+          <li>「導き」「教える」表現は使わない</li>
+          <li>目標逆算型の語りにしない（関心探究型の原則と衝突）</li>
+          <li>月間完結の語りにしない（螺旋のどの位置かを必ず添える）</li>
+          <li>「目指す状態」は運営の想定。受講生には<b>問いの形</b>で渡す</li>
+          <li>ゲストには<b>月の問いだけ</b>を渡し、WHATで縛らない</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DECISION -->
+<section style="background:var(--bg-deep);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="wrap">
+    <div class="sec-num star">§ 08 ／ DECISION</div>
+    <h2 class="sec-head star">判断のための問い（Phase 2発注前に要確定）</h2>
+    <p class="lead">5点に判断が入れば、Phase 2（各月6要素の詳細化）に入ります。</p>
+
+    <div class="q-list">
+      <div class="q-item">
+        <div class="q-num">Q 1 ／ 設計フレーム</div>
+        <div class="q-body">案Y（6要素：WHY／目指す状態／WHAT／HOW／GUEST／問い）でよいか。<span class="q-rec">推奨 案Y</span></div>
+        <div class="q-note">案X（4要素）は書きやすいが薄い。案Z（変化軸）は強力だが導き禁止原則と衝突リスク。<b>案Y</b>は問いがマーケ素材になる強みあり。</div>
+      </div>
+      <div class="q-item">
+        <div class="q-num">Q 2 ／ 月テーマの背骨</div>
+        <div class="q-body">案B（サイクル動詞）／案C（4ステップ背骨）のどちらを採用するか。フレーム確定後に決めるハイブリッドか。<span class="q-rec">推奨 案C</span></div>
+        <div class="q-note">合宿がM3に置かれたことで、<b>案Cは合宿がSTEP 2 NAMEの達成月として完全一致</b>する整合性の強さ。ただし「問い」1行を先に確定してからWHATラベルを選ぶ順序でも可。</div>
+      </div>
+      <div class="q-item">
+        <div class="q-num">Q 3 ／ 合宿位置</div>
+        <div class="q-body">合宿をM3（POOLOとつながる2か月の入口）に置くことでよいか。<span class="q-rec">推奨 M3</span></div>
+        <div class="q-note">既存M4から1か月前倒し。仮の輪郭形成期間が既存3か月→新2か月に圧縮される懸念はあるが、M2「聴かれる」で仮の言葉を引き出して合宿で名乗る流れは螺旋理論的に成立。</div>
+      </div>
+      <div class="q-item">
+        <div class="q-num">Q 4 ／ Phase 2 粒度</div>
+        <div class="q-body">A+B折衷（P1・P4薄め／P2・P3厚め）でよいか。<span class="q-rec">推奨 折衷</span></div>
+        <div class="q-note">均一粒度より、判断論点の多い合宿・越境・Lv.3月を厚く書いて、他月を軽くする設計。工数と判断しやすさの両方を取る。</div>
+      </div>
+      <div class="q-item">
+        <div class="q-num">Q 5 ／ Phase 2 区切り</div>
+        <div class="q-body">月単位8回発注でよいか。<span class="q-rec">推奨 月単位</span></div>
+        <div class="q-note">発注順は<b>P1→M3合宿単独→M4→P3→P4</b>。合宿を単独で閉じることで論点整理がスムーズに進む。</div>
+      </div>
+    </div>
+
+    <div class="rec">
+      <span class="rec-label">参謀長の推奨</span>
+      <b class="hl">案Y（6要素）</b>× <b class="hl">案C（4ステップ背骨）</b>× <b class="hl">合宿M3</b>× <b class="hl">A+B折衷粒度</b>× <b class="hl">月単位8回発注</b>。まず<b>「問い」1行を8つ</b>先に書き、それを骨にWHY・目指す状態・WHAT・HOW・GUESTを肉付けする順序で進めます。5点に判断が入り次第、Phase 2（M1・M2）から起動します。
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-links">
+    <a href="poolo-spiral-theory.html">螺旋理論</a>
+    <a href="index.html">既存カリキュラム</a>
+    <a href="poolo-curriculum-8months-v3-BC.html">v3 月テーマ比較</a>
+    <a href="future-design-v5-visual.html">未来デザイン v5</a>
+  </div>
+  <p>POOLO LIFE ／ 8か月カリキュラム 再設計 Phase 1 ／ 設計フレーム骨子 ／ 2026-04-20</p>
+</footer>
+
+</body>
+</html>
