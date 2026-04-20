@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>未来デザイン × カリキュラム コンセプトテスト型ヒアリングシート</title>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#1a1a1a;--sub:#4a4a4a;--mute:#7a7a7a;--hint:#a8a8a8;
+  --bg:#faf9f6;--bg-deep:#f3f1ea;--line:#e0ddd3;
+  --green:#2D6A4F;--green-lt:#F4FAF6;--green-bg:#E9F5EE;
+  --warm:#C08457;--warm-bg:#F7EDE2;
+  --deep:#1F3A3D;--deep-bg:#DCE6E7;
+  --star:#B8860B;--star-bg:#F9F0D9;
+  --violet:#6a3d7a;--violet-bg:#f0e6f5;
+  --red:#a34d4d;--red-bg:#f5e6e6;
+  --serif:'Shippori Mincho',serif;--sans:'Noto Sans JP',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--bg);color:var(--ink);line-height:1.95;font-weight:300;-webkit-font-smoothing:antialiased}
+.wrap{max-width:940px;margin:0 auto;padding:0 1.5rem}
+
+/* Header */
+.header{padding:5rem 0 3.5rem;background:linear-gradient(135deg,var(--bg-deep) 0%,var(--bg) 60%);border-bottom:1px solid var(--line)}
+.mark{display:inline-block;font-size:0.62rem;letter-spacing:0.4em;color:var(--warm);margin-bottom:1.4rem;font-weight:500;padding:0.35rem 1rem;border:1px solid var(--warm);background:#fff}
+.h-title{font-family:var(--serif);font-size:2rem;font-weight:600;letter-spacing:0.08em;line-height:1.6;margin-bottom:0.8rem}
+.h-sub{font-family:var(--serif);font-size:0.96rem;color:var(--sub);letter-spacing:0.06em;line-height:2}
+.h-meta{display:flex;gap:1.5rem;flex-wrap:wrap;font-size:0.76rem;color:var(--mute);margin-top:1.8rem;padding-top:1rem;border-top:1px dashed var(--line)}
+.h-meta b{color:var(--warm);font-weight:600}
+.h-back{display:inline-block;margin-top:1.2rem;font-size:0.75rem;color:var(--green);text-decoration:none;letter-spacing:0.1em;border-bottom:1px solid var(--green);padding-bottom:2px}
+
+/* Section */
+.sec-title{font-family:var(--serif);font-size:1.25rem;font-weight:600;letter-spacing:0.08em;margin-bottom:1.4rem;padding-bottom:0.5rem;border-bottom:1px solid var(--line);color:var(--ink)}
+.sec-title small{display:block;font-family:var(--sans);font-size:0.68rem;letter-spacing:0.2em;color:var(--mute);margin-bottom:0.3rem;font-weight:400}
+
+/* Scope */
+.scope{padding:3.5rem 0 2.5rem;border-bottom:1px solid var(--line)}
+.scope-lead{font-family:var(--serif);font-size:1rem;color:var(--sub);line-height:2.1;margin-bottom:2rem;letter-spacing:0.04em}
+.scope-box{background:#fff;border:1px solid var(--line);padding:1.6rem 1.8rem;margin-bottom:1.2rem;border-left:3px solid var(--green)}
+.scope-box h3{font-family:var(--serif);font-size:0.98rem;font-weight:600;margin-bottom:0.7rem;color:var(--green);letter-spacing:0.06em}
+.scope-box p{font-size:0.88rem;color:var(--sub);line-height:1.95}
+
+.hypo-grid{display:grid;grid-template-columns:1fr 1fr;gap:0.8rem;margin-top:0.8rem}
+.hypo-item{background:var(--bg-deep);padding:0.9rem 1.1rem;border-radius:3px;font-size:0.82rem;color:var(--sub);line-height:1.75}
+.hypo-item b{color:var(--warm);font-weight:500;display:block;margin-bottom:0.3rem;font-size:0.72rem;letter-spacing:0.12em}
+
+/* Materials */
+.mat-grid{display:grid;grid-template-columns:1fr 1fr;gap:0.8rem;margin-top:1rem}
+.mat-card{background:#fff;border:1px solid var(--line);padding:1rem 1.2rem;border-radius:3px;text-decoration:none;color:inherit;transition:all 0.2s;display:block}
+.mat-card:hover{border-color:var(--green);transform:translateY(-1px);box-shadow:0 3px 12px rgba(45,106,79,0.06)}
+.mat-card .mat-mark{font-size:0.6rem;letter-spacing:0.18em;color:var(--warm);font-weight:500;margin-bottom:0.4rem}
+.mat-card .mat-ttl{font-family:var(--serif);font-size:0.92rem;font-weight:600;color:var(--ink);margin-bottom:0.4rem;line-height:1.6}
+.mat-card .mat-desc{font-size:0.76rem;color:var(--mute);line-height:1.75}
+.mat-card.used{border-left:3px solid var(--green)}
+.mat-card.optional{border-left:3px solid var(--hint);opacity:0.85}
+.mat-card.used .mat-mark{color:var(--green)}
+
+/* Compare */
+.compare{padding:3rem 0;background:var(--bg-deep);border-bottom:1px solid var(--line)}
+.tbl{width:100%;border-collapse:collapse;background:#fff;font-size:0.82rem;margin-top:0.5rem}
+.tbl th,.tbl td{padding:0.75rem 0.9rem;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+.tbl th{background:var(--bg-deep);font-family:var(--serif);font-weight:600;color:var(--ink);font-size:0.85rem;letter-spacing:0.05em}
+.tbl td:first-child{font-weight:500;color:var(--ink);background:var(--bg)}
+.tbl .ok{color:var(--green);font-weight:600}
+.tbl .mid{color:var(--warm);font-weight:500}
+.tbl .low{color:var(--hint)}
+
+.rec-box{background:#fff;border:2px solid var(--green);padding:1.8rem 2rem;margin-top:2rem;border-radius:3px}
+.rec-box h3{font-family:var(--serif);font-size:1.05rem;color:var(--green);margin-bottom:0.8rem;letter-spacing:0.06em;font-weight:600}
+.rec-box p{font-size:0.88rem;color:var(--sub);line-height:2}
+
+/* Tabs */
+.tabs-wrap{padding:3rem 0 0;border-bottom:1px solid var(--line);position:sticky;top:0;background:var(--bg);z-index:10}
+.tabs{display:flex;gap:0.5rem;flex-wrap:wrap;padding-bottom:1rem}
+.tab-btn{flex:1;min-width:220px;padding:1rem 1.2rem;background:#fff;border:1px solid var(--line);cursor:pointer;font-family:var(--sans);font-size:0.85rem;color:var(--sub);transition:all 0.2s;text-align:left;letter-spacing:0.03em;border-radius:3px}
+.tab-btn:hover{background:var(--bg-deep);color:var(--ink)}
+.tab-btn.active{background:var(--green);color:#fff;border-color:var(--green)}
+.tab-btn .t-mark{display:block;font-size:0.62rem;letter-spacing:0.2em;margin-bottom:0.3rem;opacity:0.85}
+.tab-btn .t-name{font-family:var(--serif);font-size:0.95rem;font-weight:600}
+
+.tab-content{display:none;padding:2.5rem 0 4rem}
+.tab-content.active{display:block}
+
+/* Part */
+.part{margin-top:2.5rem}
+.part:first-child{margin-top:0}
+.part-head{display:flex;align-items:baseline;gap:1rem;margin-bottom:1.5rem;padding-bottom:0.6rem;border-bottom:1px solid var(--line)}
+.part-num{font-family:var(--serif);font-size:1.3rem;font-weight:600;color:var(--warm);letter-spacing:0.08em;flex-shrink:0}
+.part-name{font-family:var(--serif);font-size:1.12rem;font-weight:600;color:var(--ink);letter-spacing:0.06em}
+.part-time{margin-left:auto;font-size:0.73rem;color:var(--mute);letter-spacing:0.15em;white-space:nowrap}
+
+/* Script */
+.script{background:var(--warm-bg);border-left:3px solid var(--warm);padding:1.3rem 1.5rem;margin:1rem 0;border-radius:0 3px 3px 0;font-family:var(--serif);font-size:0.94rem;line-height:2.1;color:var(--sub);letter-spacing:0.03em;white-space:pre-line}
+
+/* Material showcase */
+.show-mat{background:linear-gradient(135deg,var(--green-bg) 0%,#fff 80%);border:1px solid var(--green);border-radius:3px;padding:1.3rem 1.6rem;margin:1.2rem 0;display:flex;align-items:center;gap:1.2rem;flex-wrap:wrap}
+.show-mat-mark{font-size:0.6rem;letter-spacing:0.25em;color:var(--green);font-weight:600;flex-shrink:0;padding:0.3rem 0.7rem;background:#fff;border:1px solid var(--green);border-radius:2px}
+.show-mat-ttl{font-family:var(--serif);font-size:1rem;font-weight:600;color:var(--ink);letter-spacing:0.04em;flex:1;min-width:150px}
+.show-mat a{font-size:0.78rem;color:var(--green);text-decoration:none;border-bottom:1px solid var(--green);padding-bottom:1px;letter-spacing:0.05em}
+
+/* Question card */
+.q-card{background:#fff;border:1px solid var(--line);border-radius:3px;padding:1.5rem 1.7rem;margin:1rem 0}
+.q-head{display:flex;align-items:baseline;gap:0.8rem;margin-bottom:0.7rem;flex-wrap:wrap}
+.q-num{font-family:var(--serif);font-size:0.98rem;font-weight:600;color:var(--green);letter-spacing:0.05em}
+.q-tag{font-size:0.62rem;letter-spacing:0.15em;padding:0.2rem 0.5rem;border-radius:2px;font-weight:500}
+.q-tag.h4a{background:var(--green-bg);color:var(--green)}
+.q-tag.h4b{background:var(--warm-bg);color:var(--warm)}
+.q-tag.h4c{background:var(--deep-bg);color:var(--deep)}
+.q-tag.h4d{background:var(--star-bg);color:var(--star)}
+.q-tag.rel{background:var(--violet-bg);color:var(--violet)}
+.q-tag.core{background:#fff;color:var(--red);border:1px solid var(--red)}
+.q-main{font-family:var(--serif);font-size:1.04rem;font-weight:500;color:var(--ink);line-height:1.9;letter-spacing:0.04em;padding:1rem 1.2rem;background:var(--bg);border-left:3px solid var(--green);border-radius:0 3px 3px 0;margin-top:0.4rem}
+.q-list{margin-top:0.8rem;padding-left:0}
+.q-list li{list-style:none;padding:0.35rem 0 0.35rem 1.8rem;position:relative;font-size:0.9rem;color:var(--sub);line-height:1.85}
+.q-list li::before{content:counter(qn);counter-increment:qn;position:absolute;left:0;color:var(--warm);font-weight:500;font-family:var(--serif);font-size:0.85rem}
+.q-list{counter-reset:qn}
+.q-meta{margin-top:0.9rem;font-size:0.78rem;color:var(--mute);line-height:1.85}
+.q-meta b{color:var(--sub);font-weight:500}
+.q-deep{margin-top:0.9rem;padding:0.85rem 1.1rem;background:var(--bg-deep);border-radius:3px}
+.q-deep-title{font-size:0.62rem;letter-spacing:0.2em;color:var(--warm);font-weight:500;margin-bottom:0.4rem}
+.q-deep ul{list-style:none;padding:0}
+.q-deep li{padding:0.28rem 0 0.28rem 1.2rem;position:relative;font-size:0.84rem;color:var(--sub);line-height:1.8}
+.q-deep li::before{content:'→';position:absolute;left:0;color:var(--warm);font-size:0.8rem}
+.q-note{margin-top:0.8rem;font-size:0.78rem;color:var(--mute);padding:0.7rem 0.9rem;border:1px dashed var(--line);border-radius:3px;line-height:1.8}
+.q-note b{color:var(--ink);font-weight:500}
+
+/* Branch table */
+.branch-tbl{width:100%;border-collapse:collapse;font-size:0.82rem;margin-top:0.8rem;background:var(--bg-deep)}
+.branch-tbl td{padding:0.7rem 0.9rem;border-bottom:1px solid var(--line);vertical-align:top;line-height:1.75}
+.branch-tbl td:first-child{font-weight:500;color:var(--warm);white-space:nowrap;width:35%;background:#fff}
+.branch-tbl td:last-child{color:var(--sub)}
+
+/* Notice */
+.notice{background:var(--violet-bg);border-left:3px solid var(--violet);padding:1.1rem 1.4rem;margin:1rem 0;border-radius:0 3px 3px 0;font-size:0.85rem;color:var(--sub);line-height:1.95}
+.notice b{color:var(--violet);font-weight:600;display:block;margin-bottom:0.3rem;font-size:0.72rem;letter-spacing:0.15em}
+
+.ban{background:var(--red-bg);border-left:3px solid var(--red);padding:1.2rem 1.5rem;margin:1.5rem 0;border-radius:0 3px 3px 0}
+.ban h4{font-family:var(--serif);font-size:0.92rem;color:var(--red);margin-bottom:0.6rem;letter-spacing:0.06em;font-weight:600}
+.ban ul{list-style:none;padding:0}
+.ban li{padding:0.25rem 0 0.25rem 1.2rem;position:relative;font-size:0.82rem;color:var(--sub);line-height:1.8}
+.ban li::before{content:'×';position:absolute;left:0;color:var(--red);font-weight:600}
+
+/* Close */
+.close-box{background:#fff;border:1px solid var(--line);padding:1.5rem 1.8rem;border-radius:3px;margin-top:1rem}
+.close-box h4{font-family:var(--serif);font-size:0.98rem;font-weight:600;margin-bottom:1rem;color:var(--deep);letter-spacing:0.05em}
+.close-box ol{padding-left:1.8rem;font-size:0.88rem;color:var(--sub);line-height:2.1}
+.close-box li{padding:0.15rem 0}
+.close-box li b{color:var(--ink);font-weight:500}
+
+/* Form */
+.form-q{background:#fff;border:1px solid var(--line);border-radius:3px;padding:1.2rem 1.5rem;margin:0.9rem 0}
+.form-q-label{font-family:var(--serif);font-size:0.92rem;font-weight:600;color:var(--ink);margin-bottom:0.5rem;line-height:1.8;letter-spacing:0.03em}
+.form-q-label .req{font-size:0.6rem;letter-spacing:0.15em;color:var(--warm);padding:0.15rem 0.4rem;border:1px solid var(--warm);margin-right:0.5rem;font-weight:500;vertical-align:middle}
+.form-q-label .opt{font-size:0.6rem;letter-spacing:0.15em;color:var(--mute);padding:0.15rem 0.4rem;border:1px solid var(--line);margin-right:0.5rem;font-weight:500;vertical-align:middle}
+.form-q-options{padding:0.3rem 0;font-size:0.86rem;color:var(--sub);line-height:1.95}
+.form-q-options label{display:block;padding:0.2rem 0}
+.form-q-options input[type=checkbox],.form-q-options input[type=radio]{margin-right:0.5rem;accent-color:var(--green)}
+.form-q-text{background:var(--bg);border:1px dashed var(--line);padding:0.9rem;margin-top:0.4rem;font-size:0.82rem;color:var(--hint);min-height:3rem;border-radius:3px;font-style:italic}
+.form-q-note{margin-top:0.55rem;font-size:0.74rem;color:var(--mute);padding:0.45rem 0.7rem;background:var(--bg-deep);border-radius:3px;line-height:1.7}
+
+/* Utility */
+ul.clean{list-style:none;padding:0;margin:0.5rem 0}
+ul.clean li{padding:0.3rem 0 0.3rem 1.3rem;position:relative;font-size:0.85rem;color:var(--sub);line-height:1.9}
+ul.clean li::before{content:'—';position:absolute;left:0;color:var(--warm)}
+
+/* Footer */
+.footer{padding:3.5rem 0 4rem;background:var(--bg-deep);text-align:center;border-top:1px solid var(--line)}
+.footer-title{font-family:var(--serif);font-size:1rem;font-weight:600;color:var(--ink);margin-bottom:0.8rem;letter-spacing:0.06em}
+.footer-note{font-size:0.78rem;color:var(--mute);line-height:2;letter-spacing:0.05em}
+.footer-mark{margin-top:2rem;font-size:0.62rem;letter-spacing:0.3em;color:var(--warm)}
+
+@media (max-width:680px){
+  .h-title{font-size:1.5rem}
+  .hypo-grid,.mat-grid{grid-template-columns:1fr}
+  .tab-btn{min-width:100%}
+  .part-head{flex-wrap:wrap}
+  .part-time{margin-left:0;width:100%;margin-top:0.2rem}
+  .wrap{padding:0 1.2rem}
+  .q-card{padding:1.1rem 1.2rem}
+  .show-mat{flex-direction:column;align-items:flex-start}
+  .branch-tbl td:first-child{width:auto}
+}
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="wrap">
+    <span class="mark">CONCEPT TEST HEARING / SHARE HUB REACTION</span>
+    <h1 class="h-title">未来デザイン × カリキュラム<br>コンセプトテスト型ヒアリングシート</h1>
+    <p class="h-sub">旅好きでPOOLO未認知の方に、共有ハブの考え方を実際にお見せし、<br>何が刺さり／何が伝わらないかを聴く90分の問い</p>
+    <div class="h-meta">
+      <span>作成 <b>2026-04-20</b></span>
+      <span>作成者 <b>POOLO運営チーム</b></span>
+      <span>対象 <b>旅好き × POOLO未認知</b></span>
+      <span>用途 <b>コンセプト検証＋磨き込み材料収集</b></span>
+    </div>
+    <a class="h-back" href="index-share.html">← MARKETER SHARE HUB に戻る</a>
+  </div>
+</header>
+
+<section class="scope">
+  <div class="wrap">
+    <h2 class="sec-title"><small>SCOPE</small>このヒアリングで確かめたいこと</h2>
+    <p class="scope-lead">前回の「体験ヒアリング」と違い、今回はPOOLOの世界観・思想・カリキュラムの中身（共有ハブの素材群）を実際に相手に見せ、言葉と図が旅好き×未認知層にどう届くかを直接確かめます。同時に、未来デザイン更新のための肌の反応と違和感ワードを拾います。</p>
+
+    <div class="scope-box" style="border-left-color:var(--warm)">
+      <h3 style="color:var(--warm)">検証したい4つの仮説</h3>
+      <div class="hypo-grid">
+        <div class="hypo-item"><b>仮説4-a / 核の1枚</b>ESSENCE を見せたとき、「自分の話に見える」か「賢そうだけど自分ごとにならない」か</div>
+        <div class="hypo-item"><b>仮説4-b / 受容の言葉</b>VALUES の「そのままで、いい」が、キャリア系の言葉より強く刺さるか</div>
+        <div class="hypo-item"><b>仮説4-c / 変化イメージ</b>RIPPLE の3ステージで、8ヶ月後の自分を具体的に想像できるか</div>
+        <div class="hypo-item"><b>仮説4-d / 8ヶ月の重さ</b>CURRICULUM の長さ・粒度で、どこに離脱ポイントを感じるか</div>
+      </div>
+    </div>
+
+    <div class="scope-box" style="border-left-color:var(--deep)">
+      <h3 style="color:var(--deep)">提示戦略の核</h3>
+      <p>いきなり全8素材は見せません。旅の話で文脈を作ったあと、<b>ESSENCE → VALUES → RIPPLE → CURRICULUM</b> の順で降ろします。抽象的な核の1枚から、受容の言葉、変化イメージ、実際のコミット粒度へ。反応タイプで分岐を設け、理論版や未来デザインv5は「知的関心が強い層への分岐オプション」として扱います。</p>
+    </div>
+
+    <h3 style="font-family:var(--serif);font-size:1rem;margin:2rem 0 0.8rem;letter-spacing:0.06em;font-weight:600">共有ハブ8素材の役割分担</h3>
+    <div class="mat-grid">
+      <a href="poolo-essence.html" class="mat-card used"><div class="mat-mark">MAIN / 素材1</div><div class="mat-ttl">ESSENCE — 核の1枚</div><div class="mat-desc">最初に提示。第一印象と目が止まった一文を聴く</div></a>
+      <a href="values.html" class="mat-card used"><div class="mat-mark">MAIN / 素材2</div><div class="mat-ttl">VALUES — Being土台＋スタンス3＋Doing3</div><div class="mat-desc">「そのままで、いい」の響き方を確かめる</div></a>
+      <a href="poolo-ripple.html" class="mat-card used"><div class="mat-mark">MAIN / 素材3</div><div class="mat-ttl">RIPPLE — 探究テーマの広がり3ステージ</div><div class="mat-desc">8ヶ月後の変化イメージを具体化</div></a>
+      <a href="index.html" class="mat-card used"><div class="mat-mark">MAIN / 素材4</div><div class="mat-ttl">CURRICULUM — 8ヶ月ダッシュボード</div><div class="mat-desc">長さ・重さ・離脱ポイントを確かめる</div></a>
+      <a href="poolo-model.html" class="mat-card optional"><div class="mat-mark">OPTIONAL</div><div class="mat-ttl">THE MODEL — 1枚で見る</div><div class="mat-desc">ESSENCEの代替候補、分岐で差し替え可</div></a>
+      <a href="poolo-spiral-theory.html" class="mat-card optional"><div class="mat-mark">OPTIONAL</div><div class="mat-ttl">THE THEORY — 理論で読み解く</div><div class="mat-desc">知的関心が強い層への分岐提示のみ</div></a>
+      <a href="future-design-v5-visual.html" class="mat-card optional"><div class="mat-mark">OPTIONAL</div><div class="mat-ttl">FUTURE DESIGN v5 — 図解版</div><div class="mat-desc">深堀りしたい層への分岐提示</div></a>
+      <a href="future-design-public.html" class="mat-card optional"><div class="mat-mark">FOLLOW UP</div><div class="mat-ttl">PUBLIC PHILOSOPHY — 対外版</div><div class="mat-desc">終了後のお礼メールで送付</div></a>
+    </div>
+  </div>
+</section>
+
+<section class="compare">
+  <div class="wrap">
+    <h2 class="sec-title"><small>3 PROPOSALS</small>3案のトレードオフ</h2>
+    <table class="tbl">
+      <thead>
+        <tr><th>観点</th><th>案A / 90分深堀り</th><th>案B / 60分短縮</th><th>案C / 非同期フォーム</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>素材点数</td><td class="ok">4素材＋分岐</td><td class="mid">3素材（分岐で選択）</td><td class="low">自己閲覧（任意）</td></tr>
+        <tr><td>仮説回収</td><td class="ok">◎ 4-a〜4-d全部</td><td class="mid">○ 2-3仮説</td><td class="low">△ 表面的</td></tr>
+        <tr><td>磨き込み材料</td><td class="ok">◎ 沈黙と間から肉声</td><td class="mid">○ 核の問いは拾える</td><td class="low">△ 選好のみ</td></tr>
+        <tr><td>母数</td><td class="low">△ 月5〜8人</td><td class="mid">○ 月10〜15人</td><td class="ok">◎ 無制限</td></tr>
+        <tr><td>運営コスト</td><td class="low">高</td><td class="mid">中</td><td class="ok">低</td></tr>
+        <tr><td>沈黙が取れる</td><td class="ok">◎ 3秒以上</td><td class="mid">○ 短めに</td><td class="low">× なし</td></tr>
+        <tr><td>リード転換</td><td class="ok">◎ 文脈を作れる</td><td class="ok">◎ 5択自然提示</td><td class="mid">○ チェック式</td></tr>
+      </tbody>
+    </table>
+    <div class="rec-box">
+      <h3>推奨：案A（90分）を主軸、案C（非同期フォーム）を前段スクリーニングとして併用</h3>
+      <p>コンセプトの反応は沈黙と間から出ます。4素材を順序立てて見せるには90分が必要。案Cで母数を取り、条件を満たした方を案Aへ。5/2恵比寿イベント後のフォロー接点としても案Aが最も自然に繋がります。</p>
+    </div>
+  </div>
+</section>
+
+<div class="tabs-wrap">
+  <div class="wrap">
+    <div class="tabs">
+      <button class="tab-btn active" data-tab="a">
+        <span class="t-mark">PLAN A / RECOMMENDED</span>
+        <span class="t-name">90分深堀り版</span>
+      </button>
+      <button class="tab-btn" data-tab="b">
+        <span class="t-mark">PLAN B</span>
+        <span class="t-name">60分短縮版</span>
+      </button>
+      <button class="tab-btn" data-tab="c">
+        <span class="t-mark">PLAN C</span>
+        <span class="t-name">非同期フォーム</span>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== TAB A ==================== -->
+<div class="tab-content active" id="tab-a">
+<div class="wrap">
+
+<h2 class="sec-title"><small>PLAN A / 90 MIN</small>90分深堀り版（推奨）</h2>
+<p style="font-size:0.85rem;color:var(--sub);margin-bottom:2rem;line-height:1.95">1on1／Zoom画面共有／4素材順次提示。仮説4-a〜4-dすべてを検証し、磨き込み材料となる肉声を拾う中核シート。</p>
+
+<div class="notice"><b>開始前チェック</b>共有ハブURLを事前に開く／Zoom画面共有の準備／録音許諾台本／相手の4状態仮説をメモ／キーフレーズを原文で書くメモ欄</div>
+
+<div class="part">
+  <div class="part-head">
+    <span class="part-num">0</span>
+    <span class="part-name">挨拶・枠組み共有</span>
+    <span class="part-time">3 min / 0:00-0:03</span>
+  </div>
+
+<div class="script">今日はお時間ありがとうございます。90分でだいたい3つのパートに分かれます。
+前半は◯◯さんの旅の話を聞かせてください。
+中盤はわたしたちがやっているPOOLOというコミュニティの考え方を画面共有で見ていただいて、率直に感じたことを聞かせてください。
+最後に少しだけ、今後の関わり方の選択肢をお伝えします。今日で終わりも含めて、気楽に選んでください。
+録音させていただいてもよろしいですか？本人確認できる話はカットします。</div>
+
+<div class="q-note"><b>注意：</b>枠組みを先に示すのは安心感のため。「今日で終わりも含めて」を必ず言う（押し売り回避）。</div>
+</div>
+
+<div class="part">
+  <div class="part-head">
+    <span class="part-num">1</span>
+    <span class="part-name">旅の体験を引き出す</span>
+    <span class="part-time">10 min / 0:03-0:13</span>
+  </div>
+  <p style="font-size:0.85rem;color:var(--mute);margin-bottom:1rem;padding:0.7rem 0.9rem;background:var(--bg-deep);border-radius:3px">相手の文脈と信頼をつくる。いきなりコンセプトを見せない。</p>
+
+  <div class="q-card">
+    <div class="q-head"><span class="q-num">開く問い</span><span class="q-tag rel">3つから相手の反応で選ぶ</span></div>
+    <ul class="q-list">
+      <li>最近、印象に残っている旅はありますか？どんな場面が残ってますか？</li>
+      <li>◯◯さんにとって、旅って日常とどう違う時間ですか？</li>
+      <li>旅から戻ってきて、変わった感覚／続かなかった感覚、どちらが強いですか？</li>
+    </ul>
+    <div class="q-deep">
+      <div class="q-deep-title">DEEPER / 合いの手</div>
+      <ul><li>その場面、もう少し教えてください</li><li>そのとき、誰と／一人で？</li><li>どこで、その感覚が薄れましたか？</li></ul>
+    </div>
+    <div class="q-meta"><b>聴くポイント：</b>消費型か持ち帰り型か／旅仲間・旅後の仲間の有無／「変わりたい・変わった・変われない」のどこにいるか／4状態のどれが強いか。沈黙ルール：問いの後3秒は待つ。</div>
+  </div>
+</div>
+
+<div class="part">
+  <div class="part-head">
+    <span class="part-num">2</span>
+    <span class="part-name">素材1 ESSENCE（核の1枚）</span>
+    <span class="part-time">15 min / 0:13-0:28</span>
+  </div>
+
+  <div class="show-mat">
+    <span class="show-mat-mark">SHOW</span>
+    <span class="show-mat-ttl">ESSENCE — 核の1枚</span>
+    <a href="poolo-essence.html" target="_blank">poolo-essence.html ↗</a>
+  </div>
+
+  <div class="script">今お話しいただいた◯◯さんの旅の感覚、実は、わたしたちが8ヶ月のコミュニティで真ん中に置いていることと近い気がします。ちょっと一枚見ていただいてもいいですか？</div>
+
+  <div class="q-note"><b>見せ方：</b>画面共有しながら「これ、POOLOがやっていることを1枚に書いたものです。まず見ていただいて、第一印象を教えてください」と伝える。3-5秒沈黙を置く（読み終わるまで待つ）。</div>
+
+  <div class="q-card">
+    <div class="q-head"><span class="q-num">Q2-a</span><span class="q-tag h4a">仮説4-a / 核の1枚</span></div>
+    <ul class="q-list">
+      <li>第一印象、どうですか？率直に</li>
+      <li>この中で、一番目が止まった一文／言葉はどれでしたか？</li>
+      <li>逆に、ピンとこなかった／違和感があった言葉はありましたか？</li>
+    </ul>
+    <div class="q-deep">
+      <div class="q-deep-title">DEEPER</div>
+      <ul>
+        <li>刺さった反応 → その言葉、◯◯さんのどの経験と繋がってますか？</li>
+        <li>違和感の反応 → どこが引っかかりましたか？どう書いてあれば入ってきましたか？</li>
+        <li>無反応 → 賢そうな資料に見えますか？それとも自分の話に見えますか？（あえて聞く）</li>
+      </ul>
+    </div>
+  </div>
+
+  <table class="branch-tbl">
+    <tr><td>「これ、自分の話だ」</td><td>素材2（VALUES）へそのまま進む</td></tr>
+    <tr><td>「賢そうだけど自分ごとにならない」</td><td>素材3（RIPPLE）を先に見せて具体化してから素材2へ</td></tr>
+    <tr><td>理論的な関心が強い</td><td>終盤で理論版（poolo-spiral-theory.html）を分岐提示</td></tr>
+    <tr><td>反応薄い／無言</td><td>素材2を短めに／旅の話にもう一度戻す</td></tr>
+  </table>
+</div>
+
+<div class="part">
+  <div class="part-head">
+    <span class="part-num">3</span>
+    <span class="part-name">素材2 VALUES（Being土台＋スタンス3＋Doing3）</span>
+    <span class="part-time">15 min / 0:28-0:43</span>
+  </div>
+
+  <div class="show-mat">
+    <span class="show-mat-mark">SHOW</span>
+    <span class="show-mat-ttl">VALUES — 旅の学校の、在り方</span>
+    <a href="values.html" target="_blank">values.html ↗</a>
+  </div>
+
+  <div class="script">もう一枚、POOLOが一番大事にしている土台を書いたものがあります。1分ほど目を通していただけますか？</div>
+
+  <div class="q-note"><b>見せ方：</b>「3層になってます。一番下が『そのままで、いい』。その上に3つのスタンス。さらにその上に3つの動き」と見出しだけ声に出す（読み上げない）。5秒沈黙。</div>
+
+  <div class="q-card">
+    <div class="q-head"><span class="q-num">Q3-a</span><span class="q-tag h4b">仮説4-b / 受容の言葉</span></div>
+    <ul class="q-list">
+      <li>この3層の中で、一番目が止まった層はどこでしたか？</li>
+      <li>「そのままで、いい」という言葉、どう受け取りましたか？</li>
+      <li>逆に、ここは嘘っぽい／甘く聞こえると感じた箇所はありましたか？</li>
+    </ul>
+    <div class="q-deep">
+      <div class="q-deep-title">DEEPER / 反応タイプ別</div>
+      <ul>
+        <li>Beingに反応 → ◯◯さんが、そのままでいいと感じられた瞬間、最近ありましたか？</li>
+        <li>スタンス3に反応 → 自己決定・自分ごと化・面白がる、どれが一番遠い感覚ですか？</li>
+        <li>Doing3に反応 → 共に旅する／共に問う／共に創る、今の◯◯さんはどこが欠けてますか？</li>
+        <li>甘く聞こえる反応 → どの言葉をどう変えたら、◯◯さんに入ってきますか？（磨き込み材料）</li>
+      </ul>
+    </div>
+    <div class="q-meta"><b>内心メモ：</b>Being（受容）がキャリア系の言葉（成長／挑戦）より強く刺さるか／4状態のどれに「そのままでいい」がハマるか。</div>
+  </div>
+</div>
+
+<div class="part">
+  <div class="part-head">
+    <span class="part-num">4</span>
+    <span class="part-name">素材3 RIPPLE（探究テーマの広がり3ステージ）</span>
+    <span class="part-time">15 min / 0:43-0:58</span>
+  </div>
+
+  <div class="show-mat">
+    <span class="show-mat-mark">SHOW</span>
+    <span class="show-mat-ttl">RIPPLE — 探究テーマは、増え、広がる</span>
+    <a href="poolo-ripple.html" target="_blank">poolo-ripple.html ↗</a>
+  </div>
+
+  <div class="script">じゃあ、実際に8ヶ月やるとどう変わっていくのか、別の角度で1枚見ていただけますか？</div>
+
+  <div class="q-note"><b>見せ方：</b>「3つのステージで、追いかけたいテーマ（※相手に合わせて『好奇心が向いている方向』と訳しても可）が広がっていくイメージです」と伝え、5秒沈黙。</div>
+
+  <div class="q-card">
+    <div class="q-head"><span class="q-num">Q4-a</span><span class="q-tag h4c">仮説4-c / 変化イメージ</span></div>
+    <ul class="q-list">
+      <li>この3ステージ、◯◯さんは今、どのあたりにいそうですか？</li>
+      <li>8ヶ月後の絵を見て、そこに自分がいるイメージは湧きますか？／湧きませんか？</li>
+      <li>このステージで、一番リアルに感じた／一番遠く感じたのはどれでしたか？</li>
+    </ul>
+    <div class="q-deep">
+      <div class="q-deep-title">DEEPER</div>
+      <ul>
+        <li>リアル反応 → そこに辿り着くには、今何が足りないと感じますか？</li>
+        <li>遠い反応 → どのステージまでなら、手が届きそうな気がしますか？</li>
+        <li>図の分かりにくさ → この図で、分かりにくかった／省きたいパーツはありますか？（図の改善材料）</li>
+      </ul>
+    </div>
+    <div class="q-meta"><b>用語補足（初出）：</b>相手が「探究テーマ」に戸惑った場合のみ「追いかけたいテーマ、好奇心が向いている方向、くらいの意味です」と添える。</div>
+  </div>
+</div>
+
+<div class="part">
+  <div class="part-head">
+    <span class="part-num">5</span>
+    <span class="part-name">素材4 CURRICULUM（8ヶ月ダッシュボード）</span>
+    <span class="part-time">15 min / 0:58-1:13</span>
+  </div>
+
+  <div class="show-mat">
+    <span class="show-mat-mark">SHOW</span>
+    <span class="show-mat-ttl">CURRICULUM — 8ヶ月マスターダッシュボード</span>
+    <a href="index.html" target="_blank">index.html ↗</a>
+  </div>
+
+  <div class="script">最後に、実際の8ヶ月の中身をざっと見ていただきたいです。全部読むと重いので、見出しを追ってください。</div>
+
+  <div class="q-note"><b>見せ方：</b>各月の見出しだけをスクロールで見せる（本文は相手が気になれば止まる）。「どこか止まりたいところで教えてください」と促し、相手が止まったらそこを一緒に見る。</div>
+
+  <div class="q-card">
+    <div class="q-head"><span class="q-num">Q5-a</span><span class="q-tag h4d">仮説4-d / 8ヶ月の重さ</span></div>
+    <ul class="q-list">
+      <li>8ヶ月という長さ、聞いてどう感じましたか？</li>
+      <li>見ていて、一番気になった月はどこでしたか？</li>
+      <li>逆に、重い／自分には無理と感じたパーツはありましたか？</li>
+      <li>この8ヶ月、想像の中で◯◯さんはどこで離脱しそうですか？（あえて聞く）</li>
+    </ul>
+    <div class="q-deep">
+      <div class="q-deep-title">DEEPER</div>
+      <ul>
+        <li>魅力反応 → その月の、何に惹かれましたか？</li>
+        <li>重い反応 → 何がハードルですか？時間／内容／関係性／他？</li>
+        <li>離脱ポイント → そこで何があれば、続けられそうですか？（設計改善の材料）</li>
+      </ul>
+    </div>
+  </div>
+
+  <table class="branch-tbl">
+    <tr><td>理論的に興味が続いている</td><td>poolo-spiral-theory.html／future-design-v5-visual.html を軽く見せる</td></tr>
+    <tr><td>相手が満腹</td><td>パート6へ進む</td></tr>
+  </table>
+</div>
+
+<div class="part">
+  <div class="part-head">
+    <span class="part-num">6</span>
+    <span class="part-name">返す問い＋クロージング</span>
+    <span class="part-time">17 min / 1:13-1:30</span>
+  </div>
+
+  <div class="q-card">
+    <div class="q-head"><span class="q-num">返す問い</span><span class="q-tag core">磨き込み核</span></div>
+    <ul class="q-list">
+      <li>今日見た中で、一番残った1枚はどれでしたか？</li>
+      <li>もし◯◯さんが、友達にこのコミュニティを1文で説明するとしたら、どう言いますか？</li>
+      <li>今日、話してみて／見てみて、ご自身の中で少し動いたものはありましたか？</li>
+    </ul>
+    <div class="q-meta"><b>最も磨き込み材料になるのは2問目。</b>相手の肉声を原文で記録。3問目は10秒以上待ってもよい。「ない」と言われたら否定しない。「ないのもOKです」と返す。</div>
+  </div>
+
+  <div class="script" style="margin-top:1.5rem">最後に、今後の関わり方の選択肢をお伝えします。5つあります。どれを選んでも、選ばなくてもOKです。</div>
+
+  <div class="close-box">
+    <h4>クロージング 次接点の5択</h4>
+    <ol>
+      <li><b>次の1on1</b>（今日見たコンセプトのどこかを、もう少し深く話す）</li>
+      <li><b>5/2恵比寿オフラインイベント</b>（少人数で対話する場。POOLO LIFEの雰囲気を体験できる）</li>
+      <li><b>POOLO LIFE説明会</b>（オンライン／8ヶ月の中身と費用を含めて詳しく）</li>
+      <li><b>メール／LINEで情報だけ受け取る</b>（気が向いたらでOK）</li>
+      <li><b>今日で終わり</b>（何もなしもまったくOK）</li>
+    </ol>
+  </div>
+
+  <div class="q-note" style="margin-top:1rem">「今日すぐ決めなくても大丈夫です。3日以内にメールでもう一度選択肢を送ります。そこで選んでください」<br><br><b>フォローメールで送る素材：</b>future-design-public.html（対外版）／希望があれば future-design-v5-visual.html（未来デザインv5図解）</div>
+</div>
+
+<div class="ban">
+  <h4>禁句リスト（言ってはいけない言葉）</h4>
+  <ul>
+    <li>「共感しますよね？」「刺さりますよね？」（誘導）</li>
+    <li>「これ、POOLOは本当に特別な場所で」（自画自賛）</li>
+    <li>「この素材すごくないですか？」（同意圧）</li>
+    <li>「普通の人はこう感じるんですが、◯◯さんは？」（比較圧）</li>
+    <li>「お金の話をすると…」（相手が聞いてないタイミング）</li>
+    <li>契約形態・内部人件費に関する表現（一切出さない）</li>
+    <li>「必修のLv.3が」「F=G×Hで」（内部用語をそのまま出す）</li>
+  </ul>
+</div>
+
+<div class="part">
+  <div class="part-head">
+    <span class="part-num">7</span>
+    <span class="part-name">実施後フロー</span>
+  </div>
+  <ul class="clean">
+    <li>24時間以内にお礼メール（選択肢5択を再提示）</li>
+    <li>記録を insight-harvester に渡す</li>
+    <li>3件たまったら vision-curator と磨き込みワードを共有</li>
+    <li>各素材の「第一印象／目が止まった一文／違和感」を原文で記録</li>
+    <li>返す問い2（友達に1文で説明するなら）の回答を磨き込み候補ワードリストへ蓄積</li>
+  </ul>
+</div>
+
+</div>
+</div>
+
+<!-- ==================== TAB B ==================== -->
+<div class="tab-content" id="tab-b">
+<div class="wrap">
+
+<h2 class="sec-title"><small>PLAN B / 60 MIN</small>60分短縮版</h2>
+<p style="font-size:0.85rem;color:var(--sub);margin-bottom:2rem;line-height:1.95">時間確保が難しい相手・2回目以降の接点用。ESSENCE固定＋分岐（VALUES or CURRICULUM）＋RIPPLE で仮説2-3個を回収。</p>
+
+<div class="notice"><b>事前判断：</b>パート1で相手が Being寄り（余白・受容・今の自分のまま）か、Doing寄り（動きたい・形にしたい・コミット）かを掴む。その判断で素材2／素材4の分岐を決める。</div>
+
+<div class="part">
+  <div class="part-head">
+    <span class="part-num">0</span>
+    <span class="part-name">挨拶・枠組み共有</span>
+    <span class="part-time">3 min / 0:00-0:03</span>
+  </div>
+  <div class="script">今日は60分、3パートで進めます。
+前半は◯◯さんの旅の話、中盤はわたしたちのPOOLOというコミュニティの考え方を画面共有でお見せします。
+最後に今後の関わり方の選択肢を。今日で終わりも含めて選べます。
+録音よろしいですか？</div>
+</div>
+
+<div class="part">
+  <div class="part-head">
+    <span class="part-num">1</span>
+    <span class="part-name">旅の体験を引き出す</span>
+    <span class="part-time">10 min / 0:03-0:13</span>
+  </div>
+  <div class="q-card">
+    <div class="q-head"><span class="q-num">開く問い</span><span class="q-tag rel">2問に絞る</span></div>
+    <ul class="q-list">
+      <li>最近、印象に残っている旅は？</li>
+      <li>旅から戻ってきて、変わった感覚／続かなかった感覚、どちらが強いですか？</li>
+    </ul>
+    <div class="q-meta"><b>内心メモ：</b>持ち帰り型／消費型。4状態仮説。<b>Being寄り</b>（受容・余白を求める）か、<b>Doing寄り</b>（差し出したい・創りたい）か ← ここで素材2／素材4の分岐を決める</div>
+  </div>
+</div>
+
+<div class="part">
+  <div class="part-head">
+    <span class="part-num">2</span>
+    <span class="part-name">素材1 ESSENCE</span>
+    <span class="part-time">10 min / 0:13-0:23</span>
+  </div>
+
+  <div class="show-mat">
+    <span class="show-mat-mark">SHOW</span>
+    <span class="show-mat-ttl">ESSENCE — 核の1枚</span>
+    <a href="poolo-essence.html" target="_blank">poolo-essence.html ↗</a>
+  </div>
+
+  <div class="script">今お話しいただいた感覚と近いかもしれない一枚をお見せします。</div>
+
+  <div class="q-note"><b>見せ方：</b>「第一印象、どうですか？」→ 3秒沈黙</div>
+
+  <div class="q-card">
+    <div class="q-head"><span class="q-num">Q2</span><span class="q-tag h4a">仮説4-a</span></div>
+    <ul class="q-list">
+      <li>一番目が止まった一文は？</li>
+      <li>違和感があった言葉は？</li>
+    </ul>
+    <div class="q-meta"><b>時間優先：</b>1つだけ選んで深める。</div>
+  </div>
+</div>
+
+<div class="part">
+  <div class="part-head">
+    <span class="part-num">3</span>
+    <span class="part-name">分岐素材（VALUES or CURRICULUM）</span>
+    <span class="part-time">10 min / 0:23-0:33</span>
+  </div>
+
+  <table class="branch-tbl">
+    <tr><td>Being寄り</td><td>素材2 VALUES（values.html）を見せる</td></tr>
+    <tr><td>Doing寄り</td><td>素材4 CURRICULUM（index.html）を見せる</td></tr>
+    <tr><td>判断つかない</td><td>デフォルトで素材2 VALUES</td></tr>
+  </table>
+
+  <div class="q-card">
+    <div class="q-head"><span class="q-num">VALUESの場合</span></div>
+    <div class="q-note"><b>見せ方：</b>「POOLOが一番大事にしている土台です。3層になってます」→ 見出しだけ声に出す</div>
+    <ul class="q-list">
+      <li>一番目が止まった層は？</li>
+      <li>「そのままで、いい」をどう受け取りましたか？</li>
+    </ul>
+  </div>
+
+  <div class="q-card">
+    <div class="q-head"><span class="q-num">CURRICULUMの場合</span></div>
+    <div class="q-note"><b>見せ方：</b>「実際の8ヶ月の中身です。見出しだけ追ってください」</div>
+    <ul class="q-list">
+      <li>一番気になった月は？</li>
+      <li>8ヶ月という長さ、どう感じますか？</li>
+    </ul>
+  </div>
+</div>
+
+<div class="part">
+  <div class="part-head">
+    <span class="part-num">4</span>
+    <span class="part-name">素材3 RIPPLE（必須）</span>
+    <span class="part-time">10 min / 0:33-0:43</span>
+  </div>
+
+  <div class="show-mat">
+    <span class="show-mat-mark">SHOW</span>
+    <span class="show-mat-ttl">RIPPLE — 探究テーマの広がり</span>
+    <a href="poolo-ripple.html" target="_blank">poolo-ripple.html ↗</a>
+  </div>
+
+  <div class="script">もう1枚、8ヶ月で◯◯さんがどう変わっていくかのイメージを見てください。</div>
+
+  <div class="q-note"><b>見せ方：</b>「3ステージで広がるイメージです」→ 5秒沈黙</div>
+
+  <div class="q-card">
+    <div class="q-head"><span class="q-num">Q4</span><span class="q-tag h4c">仮説4-c</span></div>
+    <ul class="q-list">
+      <li>今、どのあたりにいそうですか？</li>
+      <li>8ヶ月後、そこに自分がいるイメージは湧きますか？</li>
+      <li>一番遠く感じたステージは？</li>
+    </ul>
+  </div>
+</div>
+
+<div class="part">
+  <div class="part-head">
+    <span class="part-num">5</span>
+    <span class="part-name">返す問い＋クロージング</span>
+    <span class="part-time">17 min / 0:43-1:00</span>
+  </div>
+
+  <div class="q-card">
+    <div class="q-head"><span class="q-num">返す問い</span><span class="q-tag core">磨き込み核</span></div>
+    <ul class="q-list">
+      <li>今日見た中で、一番残った1枚は？</li>
+      <li>友達に1文で説明するなら、どう言いますか？</li>
+      <li>今日、動いたものはありましたか？</li>
+    </ul>
+  </div>
+
+  <div class="close-box">
+    <h4>クロージング 5択</h4>
+    <ol>
+      <li><b>次の1on1</b>（今日見せてない素材を追加で見る機会もあり）</li>
+      <li><b>5/2恵比寿オフラインイベント</b></li>
+      <li><b>POOLO LIFE説明会</b></li>
+      <li><b>メール／LINEで情報のみ</b></li>
+      <li><b>今日で終わり</b></li>
+    </ol>
+  </div>
+
+  <div class="q-note" style="margin-top:1rem"><b>フォローメールで送る素材：</b>当日見せなかった素材2 or 素材4（分岐で選ばなかった方）／future-design-public.html</div>
+</div>
+
+<div class="notice"><b>案Aと案Bの使い分け基準</b>本人が旅／コンセプトを振り返りたい動機が強い → 案A／時間確保が難しい・2回目以降を約束できる → 案B／初対面で距離がある → 案Bから始めて案Aに繋ぐ／5/2イベント後の直後フォロー → 案Aが理想、難しければ案B</div>
+
+</div>
+</div>
+
+<!-- ==================== TAB C ==================== -->
+<div class="tab-content" id="tab-c">
+<div class="wrap">
+
+<h2 class="sec-title"><small>PLAN C / ASYNC</small>非同期フォーム版（案Aの前段スクリーニング）</h2>
+<p style="font-size:0.85rem;color:var(--sub);margin-bottom:2rem;line-height:1.95">共有ハブを事前に見てもらい、非同期で15分アンケートに回答いただく形式。母数を取り、案A（90分）に招待する候補を絞るのが主目的。</p>
+
+<div class="part">
+  <div class="part-head">
+    <span class="part-num">0</span>
+    <span class="part-name">事前案内メール テンプレート</span>
+  </div>
+
+  <div class="script">件名：POOLOの考え方を見ていただきたくて／15分アンケートのお願い
+
+◯◯さん
+
+先日は（接点のきっかけ）ありがとうございました。
+
+今、POOLO LIFEという8ヶ月のコミュニティの考え方をアップデートしているところで、旅が好きな方の率直な感覚を聞かせていただきたく、アンケートをお願いしています。
+
+下記のページに、POOLOがやっていることを1枚ずつまとめた8つのドキュメントがあります。全部読まなくてOKです。気になったものだけ目を通してください。
+
+https://michinorionda.github.io/poolo-life/index-share.html
+
+その後、下記フォームに15分ほどで回答していただけると嬉しいです。3日以内を目安に、無理のない範囲で。
+
+（フォームURL）
+
+答えていただいた方には、お礼として◯◯を送ります。
+押し売りは一切しませんので、安心して率直に書いてください。</div>
+</div>
+
+<div class="part">
+  <div class="part-head">
+    <span class="part-num">1</span>
+    <span class="part-name">はじめに</span>
+  </div>
+
+  <div class="form-q"><div class="form-q-label"><span class="req">必須</span>Q1. お名前（ニックネーム可）</div><div class="form-q-text">自由記述</div></div>
+  <div class="form-q"><div class="form-q-label"><span class="req">必須</span>Q2. ご連絡先（メール／LINE いずれか）</div><div class="form-q-text">自由記述</div></div>
+  <div class="form-q"><div class="form-q-label"><span class="req">必須</span>Q3. 今の旅との関わり方を教えてください（100字程度）</div><div class="form-q-text">自由記述</div></div>
+</div>
+
+<div class="part">
+  <div class="part-head">
+    <span class="part-num">2</span>
+    <span class="part-name">旅の体験</span>
+  </div>
+
+  <div class="form-q"><div class="form-q-label"><span class="req">必須</span>Q4. 最近、印象に残っている旅を1つ教えてください</div><div class="form-q-text">自由記述</div></div>
+
+  <div class="form-q">
+    <div class="form-q-label"><span class="req">必須</span>Q5. 旅から戻ってきて、変わった感覚／続かなかった感覚、どちらが強いですか？</div>
+    <div class="form-q-options">
+      <label><input type="radio" disabled> 変わった感覚の方が強い</label>
+      <label><input type="radio" disabled> 続かなかった感覚の方が強い</label>
+      <label><input type="radio" disabled> どちらも同じくらい</label>
+      <label><input type="radio" disabled> わからない</label>
+    </div>
+  </div>
+
+  <div class="form-q"><div class="form-q-label"><span class="req">必須</span>Q6. Q5の選択理由を一言で</div><div class="form-q-text">自由記述</div></div>
+</div>
+
+<div class="part">
+  <div class="part-head">
+    <span class="part-num">3</span>
+    <span class="part-name">共有ハブの閲覧</span>
+  </div>
+
+  <div class="form-q">
+    <div class="form-q-label"><span class="req">必須</span>Q7. 共有ハブの8つのドキュメントのうち、実際に開いて目を通したものをすべて選んでください</div>
+    <div class="form-q-options">
+      <label><input type="checkbox" disabled> POOLOのバリュー（values）</label>
+      <label><input type="checkbox" disabled> POOLOのモデル1枚（poolo-model）</label>
+      <label><input type="checkbox" disabled> 探究テーマの広がり3ステージ（poolo-ripple）</label>
+      <label><input type="checkbox" disabled> 理論で読み解く（poolo-spiral-theory）</label>
+      <label><input type="checkbox" disabled> 核の1枚 Essence（poolo-essence）</label>
+      <label><input type="checkbox" disabled> わたしたちが信じていること（future-design-public）</label>
+      <label><input type="checkbox" disabled> 未来デザインv5図解版（future-design-v5-visual）</label>
+      <label><input type="checkbox" disabled> 8ヶ月カリキュラム・ダッシュボード（index）</label>
+    </div>
+  </div>
+</div>
+
+<div class="part">
+  <div class="part-head">
+    <span class="part-num">4</span>
+    <span class="part-name">コンセプトへの反応</span>
+  </div>
+
+  <div class="form-q">
+    <div class="form-q-label"><span class="req">必須</span>Q8. 読んだ中で、一番残った1枚はどれでしたか？</div>
+    <div class="form-q-options">（Q7と同じ選択肢、単一選択）</div>
+  </div>
+
+  <div class="form-q"><div class="form-q-label"><span class="req">必須</span>Q9. Q8で選んだ理由を、引っかかった一文を引用して教えてください</div><div class="form-q-text">自由記述</div><div class="form-q-note">引用を求めるのは磨き込み材料として肉声を取るため</div></div>
+
+  <div class="form-q"><div class="form-q-label"><span class="opt">任意</span>Q10. 逆に、違和感があった／わかりにくかった箇所はありましたか？（原文引用推奨）</div><div class="form-q-text">自由記述</div></div>
+
+  <div class="form-q"><div class="form-q-label"><span class="opt">任意</span>Q11. もし参加するとしたら、一番気になることは何ですか？<br>例：時間的なコミット／費用／人間関係／内容が自分に合うか／他</div><div class="form-q-text">自由記述</div></div>
+
+  <div class="form-q">
+    <div class="form-q-label"><span class="opt">任意</span>Q12. 「そのままで、いい」という言葉を読んで、どう受け取りましたか？</div>
+    <div class="form-q-options">
+      <label><input type="radio" disabled> 安心した</label>
+      <label><input type="radio" disabled> 甘く聞こえた</label>
+      <label><input type="radio" disabled> 自分には関係ない</label>
+      <label><input type="radio" disabled> まだよくわからない</label>
+      <label><input type="radio" disabled> その他（自由記述）</label>
+    </div>
+  </div>
+
+  <div class="form-q">
+    <div class="form-q-label"><span class="opt">任意</span>Q13. 8ヶ月という期間、どう感じましたか？</div>
+    <div class="form-q-options">
+      <label><input type="radio" disabled> ちょうどいい</label>
+      <label><input type="radio" disabled> 長い</label>
+      <label><input type="radio" disabled> 短い</label>
+      <label><input type="radio" disabled> わからない</label>
+    </div>
+    <div class="form-q-text">理由を一言</div>
+  </div>
+</div>
+
+<div class="part">
+  <div class="part-head">
+    <span class="part-num">5</span>
+    <span class="part-name">コンセプトの磨き込み材料</span>
+  </div>
+
+  <div class="form-q"><div class="form-q-label"><span class="opt">任意</span>Q14. もし◯◯さんが、友達にこのコミュニティを1文で説明するとしたら、どう言いますか？</div><div class="form-q-text">自由記述</div><div class="form-q-note">磨き込み材料の核となる問い</div></div>
+
+  <div class="form-q"><div class="form-q-label"><span class="opt">任意</span>Q15. 「わたしたちが信じていること」を読んだ方のみ：一番強く響いた箇所を引用してください</div><div class="form-q-text">自由記述</div></div>
+
+  <div class="form-q"><div class="form-q-label"><span class="opt">任意</span>Q16. 今日このアンケートに答えながら、ご自身の中で少し動いたものはありましたか？</div><div class="form-q-text">自由記述</div></div>
+</div>
+
+<div class="part">
+  <div class="part-head">
+    <span class="part-num">6</span>
+    <span class="part-name">次の関係設計</span>
+  </div>
+
+  <div class="form-q">
+    <div class="form-q-label"><span class="opt">任意</span>Q17. 今後、どの関わり方なら興味がありますか？（複数選択可）</div>
+    <div class="form-q-options">
+      <label><input type="checkbox" disabled> 今日見た中身について、もう少し深く話す1on1（60-90分）</label>
+      <label><input type="checkbox" disabled> 5/2恵比寿オフラインイベント（少人数で対話する場）</label>
+      <label><input type="checkbox" disabled> POOLO LIFE説明会（オンライン）</label>
+      <label><input type="checkbox" disabled> メール／LINEで情報だけ受け取る</label>
+      <label><input type="checkbox" disabled> 今日で終わりで大丈夫</label>
+      <label><input type="checkbox" disabled> その他</label>
+    </div>
+  </div>
+
+  <div class="form-q"><div class="form-q-label"><span class="opt">任意</span>Q18. 1on1を希望された方：都合の良い時間帯</div><div class="form-q-text">自由記述</div></div>
+</div>
+
+<div class="part">
+  <div class="part-head">
+    <span class="part-num">7</span>
+    <span class="part-name">回答後の運営フロー</span>
+  </div>
+
+  <h3 style="font-family:var(--serif);font-size:0.95rem;margin:1rem 0 0.5rem;color:var(--ink);font-weight:600">案Aに招待する選抜ルール</h3>
+  <ul class="clean">
+    <li>Q5で「変わった感覚の方が強い」または「どちらも同じくらい」</li>
+    <li>Q7で3つ以上閲覧</li>
+    <li>Q9／Q10／Q14 のいずれかに具体的な引用または肉声がある</li>
+    <li>Q17で「1on1」または「オフラインイベント」を選択</li>
+  </ul>
+
+  <table class="branch-tbl">
+    <tr><td>選抜基準＋1on1希望</td><td>案A（90分）を3日以内に提案</td></tr>
+    <tr><td>選抜基準＋5/2イベント希望</td><td>イベント案内を送信</td></tr>
+    <tr><td>基準を満たさない＋情報希望</td><td>メルマガ登録</td></tr>
+    <tr><td>「今日で終わり」</td><td>お礼のみ、以降接触しない</td></tr>
+  </table>
+</div>
+
+<div class="notice"><b>案Cの限界（明示）</b>沈黙・間から出る言葉は取れない／動機の低い相手は途中離脱／表面的な選好しか取れない可能性／案Aの前段スクリーニングとして運用する前提。これ単体で意思決定しない。</div>
+
+</div>
+</div>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-title">コンセプトテスト型ヒアリングシート</div>
+    <p class="footer-note">POOLO運営チーム ／ 2026-04-20作成<br>共有ハブの反応を通じて、未来デザインとカリキュラムを磨き込むための設計</p>
+    <div class="footer-mark">POOLO — FROM CONCEPT TO RESONANCE</div>
+  </div>
+</footer>
+
+<script>
+document.querySelectorAll('.tab-btn').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    const target=btn.dataset.tab;
+    document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+    document.querySelectorAll('.tab-content').forEach(c=>c.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('tab-'+target).classList.add('active');
+    window.scrollTo({top:document.querySelector('.tabs-wrap').offsetTop,behavior:'smooth'});
+  });
+});
+</script>
+
+</body>
+</html>
