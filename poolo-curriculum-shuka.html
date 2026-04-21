@@ -139,11 +139,38 @@ p.lead{font-family:var(--serif);font-size:1.03rem;color:var(--ink);font-weight:5
 .footer a:hover{color:#fff;border-bottom-color:#fff}
 .footer p{color:rgba(255,255,255,0.7);font-size:0.72rem;margin-top:0.5rem;letter-spacing:0.1em}
 
+/* Guest cards for shuka */
+.guests-shuka{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;max-width:1120px;margin:1.5rem auto 0}
+.gcardshuka{background:#fff;border:1px solid var(--line);border-radius:3px;padding:1.3rem 1.2rem;display:flex;flex-direction:column;gap:0.55rem;min-height:360px;border-top:4px solid var(--line)}
+.gcardshuka.m1,.gcardshuka.m2{border-top-color:var(--green)}
+.gcardshuka.m3,.gcardshuka.m4{border-top-color:var(--purple)}
+.gcardshuka.m5,.gcardshuka.m6,.gcardshuka.m7{border-top-color:var(--star)}
+.gcardshuka.m8{border-top-color:var(--teal)}
+.gcs-head{display:flex;justify-content:space-between;align-items:baseline;padding-bottom:0.5rem;border-bottom:1px dashed var(--line)}
+.gcs-m{font-family:var(--serif);font-size:0.72rem;letter-spacing:0.15em;font-weight:600;color:var(--warm-deep)}
+.gcs-number{font-family:var(--serif);font-size:0.7rem;letter-spacing:0.2em;color:var(--mute);font-weight:500}
+.gcs-name{font-family:var(--serif);font-size:1.25rem;font-weight:700;color:var(--ink);letter-spacing:0.02em;line-height:1.4}
+.gcs-role{font-size:0.75rem;color:var(--sub);line-height:1.75;padding-bottom:0.55rem;border-bottom:1px dashed var(--line)}
+.gcs-role b{color:var(--ink);font-weight:600}
+.gcs-theory{padding:0.55rem 0.7rem;background:var(--teal-bg);border-left:2px solid var(--teal);border-radius:2px;font-size:0.72rem;color:var(--ink);line-height:1.7}
+.gcs-theory b{color:var(--teal);font-weight:700}
+.gcs-type6{margin-top:auto;padding-top:0.55rem;border-top:1px dashed var(--line);display:flex;gap:0.35rem;flex-wrap:wrap;align-items:center;font-size:0.68rem}
+.gcs-type6 .t6lbl{color:var(--mute);letter-spacing:0.12em}
+.gcs-type6 .t6tag{padding:0.15rem 0.5rem;border-radius:2px;font-weight:600;letter-spacing:0.08em}
+.gcs-type6 .t6tag.spec{background:var(--purple-bg);color:var(--purple)}
+.gcs-type6 .t6tag.add{background:var(--warm-bg);color:var(--warm-deep)}
+.guest-note-shuka{max-width:900px;margin:2rem auto 0;padding:1.4rem 1.6rem;background:#fff;border:1px solid var(--line);border-left:3px solid var(--warm);border-radius:2px;font-size:0.84rem;color:var(--sub);line-height:1.9}
+.guest-note-shuka h4{font-family:var(--serif);font-size:1rem;color:var(--ink);font-weight:600;margin-bottom:0.6rem}
+.guest-note-shuka p{margin:0.4rem 0}
+.guest-note-shuka p b{color:var(--ink);font-weight:600}
+.guest-note-shuka .move{color:var(--warm-deep);font-weight:600}
+
 @media(max-width:860px){
   .months-grid{grid-template-columns:repeat(2,1fr)}
   .theory-groups{grid-template-columns:repeat(2,1fr)}
   .phase-band{grid-template-columns:repeat(2,1fr)}
   .preview-title{font-size:1.3rem}
+  .guests-shuka{grid-template-columns:repeat(2,1fr)}
 }
 </style>
 </head>
@@ -458,6 +485,90 @@ p.lead{font-family:var(--serif);font-size:1.03rem;color:var(--ink);font-weight:5
     </div>
   </div>
 </div>
+
+<!-- GUEST SHUKA -->
+<section>
+  <div class="wrap">
+    <div class="sec-num warm">§ 04.5 ／ GUEST</div>
+    <h2 class="sec-head warm">shuka案のゲストイメージ（8名・理論軸で再配置）</h2>
+    <p class="lead">shuka案の理論軸（認知不協和／ミラーニューロン／RAS／エージェンシーなど）に合わせて、既存候補バイネームから8名を再配置します。Phase 1案と配置が変わる月があります。社長指定の6型（観光系／言語化／対話＆受容／面白がる／越境／企画）も内包。</p>
+
+    <div class="guests-shuka">
+
+      <div class="gcardshuka m1">
+        <div class="gcs-head"><span class="gcs-m">M1 旅・ゆさぶり</span><span class="gcs-number">01 ／ 08</span></div>
+        <div class="gcs-name">石田ゆうすけ</div>
+        <div class="gcs-role">自転車世界一周作家／体験主語の実演者。身体で走り続けた人の語り。</div>
+        <div class="gcs-theory"><b>接続理論：現状維持バイアスの脱却</b>／極端な旅で認知の枠組み（スキーマ）を解体した実演者。認知不協和の典型を受講生に渡す。</div>
+        <div class="gcs-type6"><span class="t6lbl">社長6型：</span><span class="t6tag spec">観光系（隣接）</span></div>
+      </div>
+
+      <div class="gcardshuka m2">
+        <div class="gcs-head"><span class="gcs-m">M2 言語化</span><span class="gcs-number">02 ／ 08</span></div>
+        <div class="gcs-name">最所あさみ</div>
+        <div class="gcs-role">独立後も書き換えながら続ける実演者。揺り戻しを公開の場で書き続ける書き手。</div>
+        <div class="gcs-theory"><b>接続理論：自己効力感／運動性神経による記憶定着</b>／書き続けることで小さな気づきを積み上げる＝言語化による回路変革の典型。</div>
+        <div class="gcs-type6"><span class="t6lbl">社長6型：</span><span class="t6tag spec">言語化</span></div>
+      </div>
+
+      <div class="gcardshuka m3">
+        <div class="gcs-head"><span class="gcs-m">M3 つながり／合宿</span><span class="gcs-number">03 ／ 08</span></div>
+        <div class="gcs-name">永井玲衣</div>
+        <div class="gcs-role">作家／哲学対話実践者。問いを渡す姿勢そのものが型になっている。</div>
+        <div class="gcs-theory"><b>接続理論：ミラーニューロン／ジョハリの窓</b>／問いを渡すことで合宿参加者の「盲点の窓」を開き、他者の視点を自分の体験として取り込む鏡になる。</div>
+        <div class="gcs-type6"><span class="t6lbl">社長6型：</span><span class="t6tag spec">対話＆受容</span></div>
+      </div>
+
+      <div class="gcardshuka m4">
+        <div class="gcs-head"><span class="gcs-m">M4 コンフォートゾーン拡張</span><span class="gcs-number">04 ／ 08</span></div>
+        <div class="gcs-name">若新雄純</div>
+        <div class="gcs-role">プロデューサー／既定のレールを外した実験を20年、失敗率も高いまま続けている。</div>
+        <div class="gcs-theory"><b>接続理論：ホメオスタシス抵抗／水平ZPD</b>／20年コンフォートゾーンを破り続けた実演者。ニュースタンダードの高さで境界を塗り替える。</div>
+        <div class="gcs-type6"><span class="t6lbl">社長6型：</span><span class="t6tag spec">面白がる</span></div>
+      </div>
+
+      <div class="gcardshuka m5">
+        <div class="gcs-head"><span class="gcs-m">M5 メタ認知・RAS開放</span><span class="gcs-number">05 ／ 08</span></div>
+        <div class="gcs-name">林篤志</div>
+        <div class="gcs-role">Next Commons Lab／地方受け入れを10年以上続ける事業家。</div>
+        <div class="gcs-theory"><b>接続理論：ラーニングゾーン越境／RAS拡大</b>／受け入れ側から越境を双方向に設計。受講生のRAS（網様体賦活系）が開く体験を伴走する。</div>
+        <div class="gcs-type6"><span class="t6lbl">社長6型：</span><span class="t6tag spec">越境</span></div>
+      </div>
+
+      <div class="gcardshuka m6">
+        <div class="gcs-head"><span class="gcs-m">M6 自己変革・アウトプット</span><span class="gcs-number">06 ／ 08</span></div>
+        <div class="gcs-name">影山知明</div>
+        <div class="gcs-role">クルミドコーヒー店主／15年以上「贈与の論理」を実演してきた実演者。</div>
+        <div class="gcs-theory"><b>接続理論：リミッティング・ビリーフ打破／セルフ・トランスフォーメーション</b>／ビジネスの常識を破った実演者。「ここまでだ」という思い込みを壊す典型。</div>
+        <div class="gcs-type6"><span class="t6lbl">社長6型：</span><span class="t6tag add">贈与（補完）</span></div>
+      </div>
+
+      <div class="gcardshuka m7">
+        <div class="gcs-head"><span class="gcs-m">M7 観客から当事者へ</span><span class="gcs-number">07 ／ 08</span></div>
+        <div class="gcs-name">阿部裕志</div>
+        <div class="gcs-role">巡の環／海士町。自分の問いを起点に仕事を編んできた実演者。F=G×H の典型実演者。</div>
+        <div class="gcs-theory"><b>接続理論：主体的エージェンシー／波紋（Ripple）</b>／20年にわたり離島で事業と暮らしを重ね、波紋を社会に広げてきた当事者の典型。</div>
+        <div class="gcs-type6"><span class="t6lbl">社長6型：</span><span class="t6tag spec">企画</span></div>
+      </div>
+
+      <div class="gcardshuka m8">
+        <div class="gcs-head"><span class="gcs-m">M8 経験の概念化（螺旋）</span><span class="gcs-number">08 ／ 08</span></div>
+        <div class="gcs-name">森田真生</div>
+        <div class="gcs-role">独立研究者／旅と身体の思索。数学と身体を往復する言葉を持つ思索家。</div>
+        <div class="gcs-theory"><b>接続理論：ネガティブ・ケイパビリティ／コルブの経験学習</b>／答えを急がない思索の型。8か月の体験を抽象化＝知恵化する伴走者。</div>
+        <div class="gcs-type6"><span class="t6lbl">社長6型：</span><span class="t6tag add">統合（補完）</span></div>
+      </div>
+
+    </div>
+
+    <div class="guest-note-shuka">
+      <h4>Phase 1案との違い（配置変更）</h4>
+      <p>shuka案では理論軸に合わせて、Phase 1案と以下の月で配置が変わります：</p>
+      <p>・<span class="move">M1</span>：髙井典子（観光系） → <b>石田ゆうすけ</b>（認知不協和の極端な実演）<br>・<span class="move">M2</span>：永井玲衣（対話＆受容） → <b>最所あさみ</b>（言語化・自己効力感）<br>・<span class="move">M3</span>：卒業生像（合宿） → <b>永井玲衣</b>（ミラーニューロン・ジョハリの窓）＋卒業生並走<br>・<span class="move">M4</span>：最所あさみ（書き直し） → <b>若新雄純</b>（ホメオスタシス抵抗）<br>・<span class="move">M6</span>：（Phase 1案にはなし） → <b>影山知明</b>（リミッティング・ビリーフ打破）<br>・<span class="move">M8</span>：ゲスト不在 → <b>森田真生</b>（ネガティブ・ケイパビリティ）</p>
+      <p><b>M8の論点</b>：Phase 1案は「受講生主語で閉じる」原則で<b>ゲスト不在</b>でしたが、shuka案は「コルブの経験学習／知恵化」の理論駆動で<b>統合の伴走者</b>が必要と判断。社長の判断で<b>「ゲスト不在を維持」か「森田真生を配置」</b>のどちらかを選択します。</p>
+    </div>
+  </div>
+</section>
 
 <!-- COMPARISON WITH PHASE 1 FRAMEWORK -->
 <section>
