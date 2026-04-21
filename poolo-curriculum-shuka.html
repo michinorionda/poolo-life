@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>POOLO LIFE 8か月カリキュラム shuka案 ／ 行動変容ロードマップ準拠</title>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#1a1a1a; --sub:#4a4a4a; --mute:#7a7a7a; --hint:#a8a8a8;
+  --bg:#faf9f6; --bg-deep:#f3f1ea; --line:#e0ddd3;
+  --green:#2D6A4F; --green-bg:#E9F5EE; --green-deep:#1A5238;
+  --warm:#C08457; --warm-bg:#F7EDE2; --warm-deep:#9F6A43;
+  --deep:#1F3A3D; --deep-bg:#DCE6E7;
+  --star:#B8860B; --star-bg:#F9F0D9;
+  --purple:#534AB7; --purple-bg:#ECEAF7; --purple-deep:#3A338A;
+  --slate:#4A5A68; --slate-bg:#E4E8EC;
+  --teal:#1A6B5A; --teal-bg:#DEEDE7;
+  --red:#8B3A2A; --red-bg:#F5E4DF;
+  --serif:'Shippori Mincho',serif; --sans:'Noto Sans JP',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:var(--sans);background:var(--bg);color:var(--ink);line-height:1.95;font-weight:300;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1140px;margin:0 auto;padding:0 1.5rem}
+
+.preview-header{padding:3.5rem 0 2.8rem;text-align:center;background:linear-gradient(180deg,#DEEDE7 0%,#faf9f6 100%);border-bottom:1px solid var(--line)}
+.preview-tag{display:inline-block;font-size:0.6rem;letter-spacing:0.4em;color:var(--teal);margin-bottom:1.2rem;font-weight:500;padding:0.35rem 1.1rem;border:1px solid var(--teal);background:#fff}
+.preview-title{font-family:var(--serif);font-size:1.9rem;font-weight:700;letter-spacing:0.06em;line-height:1.7;color:var(--ink);margin-bottom:0.6rem}
+.preview-sub{font-family:var(--serif);font-size:0.95rem;color:var(--mute);letter-spacing:0.06em}
+.preview-meta{font-size:0.72rem;color:var(--hint);letter-spacing:0.12em;margin-top:1rem}
+
+section{padding:3.6rem 0}
+.sec-num{font-family:var(--serif);font-size:0.72rem;letter-spacing:0.3em;margin-bottom:0.6rem;font-weight:500;color:var(--teal)}
+.sec-num.warm{color:var(--warm)}
+.sec-num.deep{color:var(--deep)}
+.sec-num.purple{color:var(--purple)}
+.sec-num.star{color:var(--star)}
+.sec-head{font-family:var(--serif);font-size:1.6rem;font-weight:600;letter-spacing:0.06em;margin-bottom:1.4rem;color:var(--ink);line-height:1.6}
+.sec-head::before{content:'';display:inline-block;width:2.6rem;height:2px;background:currentColor;margin-right:0.8rem;vertical-align:middle;margin-bottom:0.35em}
+.sec-head.teal{color:var(--teal)}
+.sec-head.warm{color:var(--warm-deep)}
+.sec-head.deep{color:var(--deep)}
+.sec-head.purple{color:var(--purple-deep)}
+.sec-head.star{color:var(--star)}
+p.lead{font-family:var(--serif);font-size:1.03rem;color:var(--ink);font-weight:500;line-height:2;margin-bottom:1.6rem}
+
+.objective{background:var(--teal-bg);border-left:3px solid var(--teal);padding:1.6rem 1.9rem;margin:0 auto 2rem;max-width:900px;font-family:var(--serif);font-size:0.95rem;color:var(--ink);line-height:2;letter-spacing:0.04em}
+.objective b{color:var(--teal);font-weight:600}
+.objective-label{font-size:0.62rem;letter-spacing:0.3em;color:var(--teal);font-family:var(--sans);font-weight:600;margin-bottom:0.5rem;display:block}
+
+.source-badge{display:inline-block;font-family:var(--serif);font-size:0.75rem;color:var(--teal);background:#fff;border:1px solid var(--teal);padding:0.3rem 0.9rem;border-radius:2px;letter-spacing:0.04em;margin-top:0.5rem}
+
+/* 4 phase bar */
+.phase-band{display:grid;grid-template-columns:2fr 2fr 3fr 1fr;gap:0.4rem;max-width:1080px;margin:1.5rem auto 0;font-size:0.72rem;letter-spacing:0.12em;text-align:center}
+.phase-band .ph{padding:1.2rem 0.6rem;border-radius:2px;font-weight:500;display:flex;flex-direction:column;gap:0.3rem;justify-content:center}
+.phase-band .ph-num{font-family:var(--serif);font-size:0.65rem;letter-spacing:0.3em;font-weight:700}
+.phase-band .ph-title{font-family:var(--serif);font-size:1rem;letter-spacing:0.05em;font-weight:600}
+.phase-band .ph-sub{font-size:0.62rem;letter-spacing:0.08em;color:var(--mute)}
+.phase-band .ph1{background:var(--green-bg);color:var(--green-deep)}
+.phase-band .ph2{background:var(--purple-bg);color:var(--purple)}
+.phase-band .ph3{background:var(--star-bg);color:var(--star)}
+.phase-band .ph4{background:var(--teal-bg);color:var(--teal)}
+
+/* 8 month cards */
+.months-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;max-width:1120px;margin:1.5rem auto 0}
+.mcard{background:#fff;border:1px solid var(--line);border-radius:3px;padding:1.4rem 1.2rem;display:flex;flex-direction:column;gap:0.6rem;min-height:390px;position:relative;border-top:4px solid var(--line)}
+.mcard.p1{border-top-color:var(--green)}
+.mcard.p2{border-top-color:var(--purple)}
+.mcard.p3{border-top-color:var(--star)}
+.mcard.p4{border-top-color:var(--teal)}
+.mcard-head{display:flex;justify-content:space-between;align-items:baseline;padding-bottom:0.5rem;border-bottom:1px dashed var(--line)}
+.mcard-num{font-family:var(--serif);font-size:2rem;font-weight:700;line-height:1}
+.mcard.p1 .mcard-num{color:var(--green-deep)}
+.mcard.p2 .mcard-num{color:var(--purple-deep)}
+.mcard.p3 .mcard-num{color:var(--star)}
+.mcard.p4 .mcard-num{color:var(--teal)}
+.mphase{font-size:0.6rem;letter-spacing:0.2em;padding:0.2rem 0.55rem;border-radius:2px;font-weight:600;white-space:nowrap}
+.mphase.p1{background:var(--green-bg);color:var(--green-deep)}
+.mphase.p2{background:var(--purple-bg);color:var(--purple)}
+.mphase.p3{background:var(--star-bg);color:var(--star)}
+.mphase.p4{background:var(--teal-bg);color:var(--teal)}
+.mkw{font-family:var(--serif);font-size:1.05rem;font-weight:600;color:var(--ink);line-height:1.5;letter-spacing:0.04em}
+.mstate{font-size:0.7rem;color:var(--mute);letter-spacing:0.04em;padding:0.4rem 0.6rem;background:var(--bg-deep);border-radius:2px;line-height:1.6;font-family:var(--serif)}
+.mstate b{color:var(--ink);font-weight:600}
+.mtheory{padding:0.6rem 0.7rem;background:var(--teal-bg);border-left:2px solid var(--teal);border-radius:2px;margin-top:0.3rem}
+.mtheory .thlabel{font-size:0.58rem;letter-spacing:0.25em;color:var(--teal);font-weight:600;margin-bottom:0.3rem}
+.mtheory .thname{font-family:var(--serif);font-size:0.88rem;color:var(--ink);font-weight:700;letter-spacing:0.03em;line-height:1.45;margin-bottom:0.35rem}
+.mtheory .thdesc{font-size:0.73rem;color:var(--sub);line-height:1.75}
+.mtheory .thdesc b{color:var(--ink);font-weight:600}
+.mwork{margin-top:auto;padding-top:0.65rem;border-top:1px dashed var(--line);display:flex;gap:0.5rem;align-items:flex-start;font-size:0.75rem;line-height:1.7}
+.mwork .wlbl{font-family:var(--serif);color:var(--ink);font-weight:700;white-space:nowrap;font-size:0.7rem;letter-spacing:0.05em}
+.mwork .wval{color:var(--sub)}
+
+/* 16 theories group */
+.theories-wrap{background:var(--bg-deep);padding:3.5rem 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.theory-groups{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;max-width:1120px;margin:1.5rem auto 0}
+.tgroup{background:#fff;border:1px solid var(--line);border-top:3px solid var(--deep);padding:1.2rem 1.1rem;border-radius:2px;display:flex;flex-direction:column;gap:0.55rem}
+.tgroup.tg1{border-top-color:var(--green)}
+.tgroup.tg2{border-top-color:var(--purple)}
+.tgroup.tg3{border-top-color:var(--star)}
+.tgroup.tg4{border-top-color:var(--teal)}
+.tglabel{font-size:0.6rem;letter-spacing:0.2em;font-weight:600}
+.tgroup.tg1 .tglabel{color:var(--green-deep)}
+.tgroup.tg2 .tglabel{color:var(--purple)}
+.tgroup.tg3 .tglabel{color:var(--star)}
+.tgroup.tg4 .tglabel{color:var(--teal)}
+.tgroup h4{font-family:var(--serif);font-size:1rem;color:var(--ink);font-weight:600;letter-spacing:0.04em;margin-bottom:0.4rem;line-height:1.5}
+.tgroup ul{list-style:none;padding:0;font-size:0.75rem;color:var(--sub);line-height:1.9;display:flex;flex-direction:column;gap:0.2rem}
+.tgroup ul li{padding-left:0.9rem;position:relative}
+.tgroup ul li::before{content:'◦';position:absolute;left:0}
+.tgroup.tg1 ul li::before{color:var(--green)}
+.tgroup.tg2 ul li::before{color:var(--purple)}
+.tgroup.tg3 ul li::before{color:var(--star)}
+.tgroup.tg4 ul li::before{color:var(--teal)}
+.tgroup ul li b{color:var(--ink);font-weight:600}
+.tgroup ul li small{color:var(--hint);font-size:0.68rem;display:block}
+
+/* Journey SVG */
+.journey-wrap{max-width:1040px;margin:2rem auto 0;padding:0 1.5rem}
+.journey-wrap svg{width:100%;height:auto;display:block}
+.journey-cap{text-align:center;font-family:var(--serif);font-size:0.82rem;color:var(--sub);letter-spacing:0.06em;margin-top:0.8rem;line-height:1.9}
+
+/* Comparison */
+.compare-card{background:#fff;border:1px solid var(--line);border-top:3px solid var(--purple);padding:1.5rem 1.6rem;border-radius:2px;max-width:900px;margin:1rem auto 0}
+.compare-card h4{font-family:var(--serif);font-size:1.02rem;color:var(--ink);font-weight:600;margin-bottom:0.7rem}
+.compare-card p{font-size:0.85rem;color:var(--sub);line-height:1.9}
+.compare-card p b{color:var(--ink);font-weight:600}
+.compare-table{width:100%;max-width:900px;margin:1.5rem auto 0;border-collapse:collapse;background:#fff;border:1px solid var(--line);font-size:0.82rem}
+.compare-table thead th{background:var(--deep);color:#fff;font-family:var(--serif);font-weight:600;padding:0.9rem;text-align:left;letter-spacing:0.06em;font-size:0.82rem}
+.compare-table thead th.shuka-col{background:var(--teal)}
+.compare-table tbody th{text-align:left;padding:0.9rem;font-family:var(--serif);font-weight:600;color:var(--ink);background:var(--bg-deep);border-bottom:1px solid var(--line);white-space:nowrap}
+.compare-table tbody td{padding:0.9rem;color:var(--sub);border-bottom:1px solid var(--line);line-height:1.75;vertical-align:top}
+.compare-table tbody td.shuka-col{background:var(--teal-bg);color:var(--ink)}
+.compare-table tbody td b{color:var(--ink);font-weight:600}
+
+.footer{background:var(--teal);padding:2.5rem 0;text-align:center;color:#fff}
+.footer-links{display:flex;justify-content:center;gap:0.6rem;flex-wrap:wrap;margin-bottom:0.9rem}
+.footer a{color:rgba(255,255,255,0.85);text-decoration:none;font-size:0.78rem;letter-spacing:0.1em;border-bottom:1px solid rgba(255,255,255,0.3);padding-bottom:2px}
+.footer a:hover{color:#fff;border-bottom-color:#fff}
+.footer p{color:rgba(255,255,255,0.7);font-size:0.72rem;margin-top:0.5rem;letter-spacing:0.1em}
+
+@media(max-width:860px){
+  .months-grid{grid-template-columns:repeat(2,1fr)}
+  .theory-groups{grid-template-columns:repeat(2,1fr)}
+  .phase-band{grid-template-columns:repeat(2,1fr)}
+  .preview-title{font-size:1.3rem}
+}
+</style>
+</head>
+<body>
+
+<header class="preview-header">
+  <div class="wrap">
+    <span class="preview-tag">SHUKA案 ／ NEW VERSION</span>
+    <h1 class="preview-title">POOLO LIFE 8か月カリキュラム shuka案</h1>
+    <div class="preview-sub">行動変容ロードマップに基づく新バージョン</div>
+    <div class="source-badge">出典：Google Drive「行動変容ロードマップ」（所有：新朱華／Shuka）</div>
+    <div class="preview-meta">脳科学・心理学の16理論×月別設計 ／ 2026-04-21</div>
+  </div>
+</header>
+
+<!-- OBJECTIVE -->
+<section>
+  <div class="wrap">
+    <div class="objective">
+      <span class="objective-label">このバージョンの位置づけ</span>
+      既存の再設計（Phase 1フレーム案）とは<b>別ライン</b>として、新朱華（Shuka）さんがGoogle Driveで整理している<b>行動変容ロードマップ</b>を正本とした新バージョンです。月ごとに<b>理論×テーマ×ワーク</b>を紐づけ、脳科学・心理学の<b>16の理論</b>で裏付けた行動変容設計。4フェーズ構造（自己探求／チーム共創／社会提供／人生統合）をベースに、受講生の変容を段階的に引き起こすカリキュラムです。
+    </div>
+  </div>
+</section>
+
+<!-- 4 PHASE BAR -->
+<section>
+  <div class="wrap">
+    <div class="sec-num teal">§ 01 ／ PHASE</div>
+    <h2 class="sec-head teal">4フェーズ構造（行動変容の4段階）</h2>
+    <p class="lead">受講生の脳内変化に対応した4フェーズ。各フェーズは別々の脳科学的・心理学的メカニズムを駆動します。</p>
+
+    <div class="phase-band">
+      <div class="ph ph1">
+        <div class="ph-num">PHASE 1</div>
+        <div class="ph-title">自己探求</div>
+        <div class="ph-sub">M1-M2 ／ 揺さぶりと言語化</div>
+      </div>
+      <div class="ph ph2">
+        <div class="ph-num">PHASE 2</div>
+        <div class="ph-title">チーム共創</div>
+        <div class="ph-sub">M3-M4 ／ 合宿と挑戦</div>
+      </div>
+      <div class="ph ph3">
+        <div class="ph-num">PHASE 3</div>
+        <div class="ph-title">社会提供</div>
+        <div class="ph-sub">M5-M7 ／ 社会実装と波紋</div>
+      </div>
+      <div class="ph ph4">
+        <div class="ph-num">PHASE 4</div>
+        <div class="ph-title">人生統合</div>
+        <div class="ph-sub">M8 ／ 経験の知恵化</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 8 MONTHS -->
+<section style="background:var(--bg-deep);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="wrap">
+    <div class="sec-num teal">§ 02 ／ MONTHS</div>
+    <h2 class="sec-head teal">8か月 × 理論 × ワーク</h2>
+    <p class="lead">各月に<b>テーマ・変容の状態・使用理論・土台ワーク</b>を配置。理論は蛍光色枠で可視化。</p>
+
+    <div class="months-grid">
+
+      <!-- M1 -->
+      <div class="mcard p1">
+        <div class="mcard-head"><span class="mcard-num">M1</span><span class="mphase p1">PHASE 1 自己探求</span></div>
+        <div class="mkw">旅・ゆさぶり</div>
+        <div class="mstate"><b>認知の不協和と解体</b>／日常のコンテキストを強制的に外す。</div>
+        <div class="mtheory">
+          <div class="thlabel">THEORY</div>
+          <div class="thname">現状維持バイアスの脱却と認知の再構成</div>
+          <div class="thdesc">凝り固まった<b>認知の枠組み（スキーマ）</b>を揺さぶり、変化への余白を作る。</div>
+        </div>
+        <div class="mwork"><span class="wlbl">WORK</span><span class="wval">ゆさぶり（旅・移動）</span></div>
+      </div>
+
+      <!-- M2 -->
+      <div class="mcard p1">
+        <div class="mcard-head"><span class="mcard-num">M2</span><span class="mphase p1">PHASE 1 自己探求</span></div>
+        <div class="mkw">小さな成功体験・言語化</div>
+        <div class="mstate"><b>意思決定のアンビバレンス</b>／側坐核（報酬）と扁桃体（リスク）の葛藤を超える。</div>
+        <div class="mtheory">
+          <div class="thlabel">THEORY</div>
+          <div class="thname">自己効力感の醸成と言語化による回路変革</div>
+          <div class="thdesc">身体が感じた微細な変化を言葉に落とし込み、<b>古い習慣回路から新しい思考回路へバイパス</b>を通す。</div>
+        </div>
+        <div class="mwork"><span class="wlbl">WORK</span><span class="wval">言語化、個人アクション発表</span></div>
+      </div>
+
+      <!-- M3 -->
+      <div class="mcard p2">
+        <div class="mcard-head"><span class="mcard-num">M3</span><span class="mphase p2">PHASE 2 チーム共創</span></div>
+        <div class="mkw">つながり（引力）</div>
+        <div class="mstate"><b>「自分一人の正解」から「対話による最適解」へ</b>。自分の殻を破る。</div>
+        <div class="mtheory">
+          <div class="thlabel">THEORY</div>
+          <div class="thname">盲点の窓の開放とミラーニューロンによる共鳴</div>
+          <div class="thdesc">「未完成を差し出す」ことで、他者の視点という<b>引力</b>を借り、一人の軌道では届かない場所へ自己を移動。</div>
+        </div>
+        <div class="mwork"><span class="wlbl">WORK</span><span class="wval">合宿、PJ制作スタンダード</span></div>
+      </div>
+
+      <!-- M4 -->
+      <div class="mcard p2">
+        <div class="mcard-head"><span class="mcard-num">M4</span><span class="mphase p2">PHASE 2 チーム共創</span></div>
+        <div class="mkw">コンフォートゾーンの拡張</div>
+        <div class="mstate"><b>自己効力感の揺らぎと再構築</b>／ニュースタンダードへの引き上げ。</div>
+        <div class="mtheory">
+          <div class="thlabel">THEORY</div>
+          <div class="thname">ホメオスタシス（恒常性）への抵抗と水平ZPD</div>
+          <div class="thdesc">元の自分に戻ろうとする脳の抵抗を、チームという<b>近い差異を持つ仲間</b>（水平的最近接領域）で乗り越える。</div>
+        </div>
+        <div class="mwork"><span class="wlbl">WORK</span><span class="wval">チーム内挑戦発表</span></div>
+      </div>
+
+      <!-- M5 -->
+      <div class="mcard p3">
+        <div class="mcard-head"><span class="mcard-num">M5</span><span class="mphase p3">PHASE 3 社会提供</span></div>
+        <div class="mkw">メタ認知・RASの開放</div>
+        <div class="mstate"><b>主観的な正解から社会的な最適解へ</b>。思考の次元が上昇。</div>
+        <div class="mtheory">
+          <div class="thlabel">THEORY</div>
+          <div class="thname">ラーニングゾーンへの身の投下とRASの拡大</div>
+          <div class="thdesc">社会（知らない人）へ視点を向けることで、脳のフィルター（<b>RAS＝網様体賦活系</b>）が書き換わり、世界から受け取る情報の質が劇的に変わる。</div>
+        </div>
+        <div class="mwork"><span class="wlbl">WORK</span><span class="wval">メタ認知、PJ制作アドバンス</span></div>
+      </div>
+
+      <!-- M6 -->
+      <div class="mcard p3">
+        <div class="mcard-head"><span class="mcard-num">M6</span><span class="mphase p3">PHASE 3 社会提供</span></div>
+        <div class="mkw">自己変革・社会へのアウトプット</div>
+        <div class="mstate"><b>正解をなぞる側から、環境を創るリーダーへ</b>のアイデンティティ転換。</div>
+        <div class="mtheory">
+          <div class="thlabel">THEORY</div>
+          <div class="thname">セルフ・トランスフォーメーションとリミッティング・ビリーフの打破</div>
+          <div class="thdesc">環境を「外（社会）」に置くことで、行動が強制的に変わり、<b>「自分はここまでだ」という限界の思い込み</b>を実体験で破壊する。</div>
+        </div>
+        <div class="mwork"><span class="wlbl">WORK</span><span class="wval">社会へのアウトプット実行</span></div>
+      </div>
+
+      <!-- M7 -->
+      <div class="mcard p3">
+        <div class="mcard-head"><span class="mcard-num">M7</span><span class="mphase p3">PHASE 3 社会提供</span></div>
+        <div class="mkw">観客から当事者へ（波紋）</div>
+        <div class="mstate"><b>主体的エージェンシー（Sense of Agency）の確立</b>／世界の構成員としての自覚。</div>
+        <div class="mtheory">
+          <div class="thlabel">THEORY</div>
+          <div class="thname">主体的エージェンシーと波紋（Ripple）の形成</div>
+          <div class="thdesc">自らのアクションが社会に波紋を広げる感覚を得ることで、人生の<b>「観客」から、現実を動かす「当事者」</b>へとアイデンティティが転換。</div>
+        </div>
+        <div class="mwork"><span class="wlbl">WORK</span><span class="wval">社会へのアウトプット発表</span></div>
+      </div>
+
+      <!-- M8 -->
+      <div class="mcard p4">
+        <div class="mcard-head"><span class="mcard-num">M8</span><span class="mphase p4">PHASE 4 人生統合</span></div>
+        <div class="mkw">経験の概念化（螺旋）</div>
+        <div class="mstate"><b>変容した自分が「人格」として統合</b>／古い習慣回路の再活性化を防ぎ、変容を永続化。</div>
+        <div class="mtheory">
+          <div class="thlabel">THEORY</div>
+          <div class="thname">ネガティブ・ケイパビリティと螺旋の知恵化</div>
+          <div class="thdesc">8ヶ月の「ずれ」や「揺らぎ」を肯定し、答えを急がず、<b>一生回り続ける「螺旋の動作」</b>として経験を深い知恵に統合。</div>
+        </div>
+        <div class="mwork"><span class="wlbl">WORK</span><span class="wval">最終リフレクション・発表</span></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- JOURNEY VIZ -->
+<section>
+  <div class="wrap">
+    <div class="sec-num warm">§ 03 ／ JOURNEY</div>
+    <h2 class="sec-head warm">脳内変容の8か月ジャーニー</h2>
+    <p class="lead">受講生の脳内で起きる変化を、8か月のタイムラインで俯瞰します。</p>
+  </div>
+
+  <div class="journey-wrap">
+    <svg viewBox="0 0 1000 340" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="arrJ" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+          <path d="M 0 0 L 10 5 L 0 10 z" fill="#1F3A3D"/>
+        </marker>
+        <linearGradient id="gPhase1" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#E9F5EE"/>
+          <stop offset="100%" stop-color="#E9F5EE"/>
+        </linearGradient>
+      </defs>
+
+      <!-- Phase background bands -->
+      <rect x="50" y="60" width="200" height="200" fill="#E9F5EE" opacity="0.6"/>
+      <rect x="250" y="60" width="200" height="200" fill="#ECEAF7" opacity="0.6"/>
+      <rect x="450" y="60" width="300" height="200" fill="#F9F0D9" opacity="0.6"/>
+      <rect x="750" y="60" width="100" height="200" fill="#DEEDE7" opacity="0.6"/>
+
+      <!-- Phase labels -->
+      <g font-family="'Shippori Mincho',serif" font-size="11" letter-spacing="3" font-weight="600" text-anchor="middle">
+        <text x="150" y="50" fill="#1A5238">PHASE 1 自己探求</text>
+        <text x="350" y="50" fill="#3A338A">PHASE 2 チーム共創</text>
+        <text x="600" y="50" fill="#B8860B">PHASE 3 社会提供</text>
+        <text x="800" y="50" fill="#1A6B5A">PHASE 4 統合</text>
+      </g>
+
+      <!-- Month markers -->
+      <g font-family="'Noto Sans JP',sans-serif" font-size="10" font-weight="600" text-anchor="middle" fill="#4a4a4a">
+        <text x="100" y="285">M1</text>
+        <text x="200" y="285">M2</text>
+        <text x="300" y="285">M3</text>
+        <text x="400" y="285">M4</text>
+        <text x="500" y="285">M5</text>
+        <text x="600" y="285">M6</text>
+        <text x="700" y="285">M7</text>
+        <text x="800" y="285">M8</text>
+      </g>
+
+      <!-- Rising curve -->
+      <path d="M 100 230 Q 200 215 300 190 T 500 140 T 700 90 L 800 75" fill="none" stroke="#1F3A3D" stroke-width="2.5" marker-end="url(#arrJ)"/>
+
+      <!-- Node dots -->
+      <g>
+        <circle cx="100" cy="230" r="7" fill="#2D6A4F"/>
+        <circle cx="200" cy="210" r="7" fill="#2D6A4F"/>
+        <circle cx="300" cy="190" r="7" fill="#534AB7"/>
+        <circle cx="400" cy="170" r="7" fill="#534AB7"/>
+        <circle cx="500" cy="140" r="7" fill="#B8860B"/>
+        <circle cx="600" cy="115" r="7" fill="#B8860B"/>
+        <circle cx="700" cy="90" r="8" fill="#B8860B" stroke="#9F6A43" stroke-width="2"/>
+        <circle cx="800" cy="75" r="8" fill="#1A6B5A" stroke="#133E33" stroke-width="2"/>
+      </g>
+
+      <!-- State labels above nodes -->
+      <g font-family="'Noto Sans JP',sans-serif" font-size="9" fill="#1a1a1a" text-anchor="middle">
+        <text x="100" y="218">ゆさぶり</text>
+        <text x="200" y="198">言語化</text>
+        <text x="300" y="178">引力</text>
+        <text x="400" y="158">挑戦</text>
+        <text x="500" y="128">メタ認知</text>
+        <text x="600" y="103">越境</text>
+        <text x="700" y="78">波紋</text>
+        <text x="800" y="63">統合</text>
+      </g>
+
+      <!-- Y axis label -->
+      <text x="25" y="170" font-family="'Shippori Mincho',serif" font-size="11" fill="#4a4a4a" letter-spacing="3" transform="rotate(-90, 25, 170)" text-anchor="middle">変容の深さ →</text>
+
+      <!-- Title -->
+      <text x="500" y="25" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="13" fill="#1a1a1a" letter-spacing="4" font-weight="600">行動変容の螺旋的上昇（観客 → 当事者 → 螺旋の習慣化）</text>
+
+      <!-- Bottom caption -->
+      <text x="500" y="320" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="10" fill="#7a7a7a" letter-spacing="2">認知不協和 → 自己効力感 → 引力 → ZPD → RAS → セルフ・トランス → エージェンシー → ネガティブ・ケイパビリティ</text>
+    </svg>
+    <div class="journey-cap">月を追うごとに脳内で起きる変化が深まり、M8で螺旋が日常動作に統合される。直線ではなく、螺旋の上昇カーブ。</div>
+  </div>
+</section>
+
+<!-- 16 THEORIES -->
+<div class="theories-wrap">
+  <div class="wrap">
+    <div class="sec-num deep">§ 04 ／ THEORIES</div>
+    <h2 class="sec-head deep">使用理論 16（4グループに整理）</h2>
+    <p class="lead">カリキュラムの裏で駆動する16の理論を、駆動の性質で4グループに分類します。</p>
+
+    <div class="theory-groups">
+      <div class="tgroup tg1">
+        <div class="tglabel">GROUP A ／ 認知・動機系（Phase 1）</div>
+        <h4>「変化を拒む脳」を動かす</h4>
+        <ul>
+          <li><b>認知の不協和と現状維持バイアスの脱却</b><small>脳の変化拒絶本能を突破する（1ヶ月目）</small></li>
+          <li><b>認知の再構成と自己対話</b><small>心の枠組みを書き換える（1-2ヶ月目）</small></li>
+          <li><b>自己効力感の醸成（スモールステップ）</b><small>扁桃体の過剰反応を抑える（2ヶ月目）</small></li>
+          <li><b>ドーパミン・ループ（社会的報酬）</b><small>発表・承認で行動を脳に刻印（1-3フェーズ）</small></li>
+          <li><b>運動性神経による記憶定着</b><small>書く・話すで海馬に重要判定（全期間）</small></li>
+        </ul>
+      </div>
+
+      <div class="tgroup tg2">
+        <div class="tglabel">GROUP B ／ 関係・集団系（Phase 2）</div>
+        <h4>仲間の引力で軌道を曲げる</h4>
+        <ul>
+          <li><b>ミラーニューロンによる情動的共鳴</b><small>他者体験をシミュレーションし世界認識を拡張（3ヶ月目）</small></li>
+          <li><b>ジョハリの窓（盲点の窓の開放）</b><small>他者からのFBで古い自己イメージが解体（3ヶ月目合宿）</small></li>
+          <li><b>中だるみの打破（セロトニン・オキシトシン活性化）</b><small>3ヶ月目の脱落を合宿で防ぐ（3ヶ月目）</small></li>
+          <li><b>ホメオスタシスへの抵抗と集団の力</b><small>仲間の高い基準でコンフォートゾーン境界を塗り替え（4ヶ月目）</small></li>
+        </ul>
+      </div>
+
+      <div class="tgroup tg3">
+        <div class="tglabel">GROUP C ／ 越境・行動系（Phase 3）</div>
+        <h4>社会の摩擦でアイデンティティを転換する</h4>
+        <ul>
+          <li><b>メタ認知の強制活性化</b><small>主観から社会的最適解へ思考の次元上昇（2-3フェーズ企画立案時）</small></li>
+          <li><b>ラーニングゾーンへの越境（RASの開放）</b><small>予測不可能な外部で脳のアンテナが開く（5ヶ月目以降）</small></li>
+          <li><b>レジリエンスの強化（摩擦によるアイデンティティ転換）</b><small>予定外の摩擦を課題解決のチャンスに（6ヶ月目）</small></li>
+          <li><b>主体的エージェンシーの確立</b><small>「自分は価値を提供できる」への転換（7ヶ月目）</small></li>
+        </ul>
+      </div>
+
+      <div class="tgroup tg4">
+        <div class="tglabel">GROUP D ／ 統合・定着系（Phase 4）</div>
+        <h4>変容を人格まで統合する</h4>
+        <ul>
+          <li><b>ナラティブによる自己変容の定着</b><small>変化を他者に語ることで脳に定着（3-4フェーズ）</small></li>
+          <li><b>自己モニタリングと習慣の自動化</b><small>行動を無意識レベルまで落とし込む（8ヶ月目以降）</small></li>
+          <li><b>コルブの経験学習モデル（知恵への昇華）</b><small>体験を抽象的な法則＝知恵に変換（8ヶ月目）</small></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- COMPARISON WITH PHASE 1 FRAMEWORK -->
+<section>
+  <div class="wrap">
+    <div class="sec-num purple">§ 05 ／ COMPARE</div>
+    <h2 class="sec-head purple">既存の再設計（Phase 1フレーム案）との違い</h2>
+    <p class="lead">shuka案と Phase 1フレーム案は<b>別ラインの設計</b>。どちらを採用する／統合するかは社長判断。</p>
+
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th style="width:18%">観点</th>
+          <th>Phase 1 フレーム案（既存再設計）</th>
+          <th class="shuka-col">shuka案（行動変容ロードマップ準拠）</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>設計の起点</th>
+          <td>螺旋理論・POOLO思想から月の問いを設計</td>
+          <td class="shuka-col"><b>脳科学・心理学の16理論</b>から月の変容を設計</td>
+        </tr>
+        <tr>
+          <th>構造</th>
+          <td>4フェーズ（自分・POOLO・社会・振り返り）＋6要素フレーム（WHY/目指す状態/WHAT/HOW/GUEST/問い）</td>
+          <td class="shuka-col">4フェーズ（<b>自己探求・チーム共創・社会提供・人生統合</b>）＋月×理論×ワーク</td>
+        </tr>
+        <tr>
+          <th>合宿位置</th>
+          <td>M3（POOLO入口）</td>
+          <td class="shuka-col"><b>M3（つながり・引力の起動）</b>／ミラーニューロン＋ジョハリの窓</td>
+        </tr>
+        <tr>
+          <th>M8の性格</th>
+          <td>振り返り／受講生主語で閉じる</td>
+          <td class="shuka-col"><b>人生統合</b>／ネガティブ・ケイパビリティと螺旋の知恵化</td>
+        </tr>
+        <tr>
+          <th>言葉のトーン</th>
+          <td>螺旋・仮の輪郭・引力場・差し出す</td>
+          <td class="shuka-col"><b>認知不協和・RAS・ホメオスタシス・エージェンシー</b>（科学的語彙）</td>
+        </tr>
+        <tr>
+          <th>強み</th>
+          <td>POOLO独自の思想で一貫／受講生の体験が螺旋で語られる</td>
+          <td class="shuka-col"><b>理論的裏付けが強い</b>／変容のメカニズムが脳科学で説明できる</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="compare-card">
+      <h4>統合の可能性</h4>
+      <p>両案は<b>対立ではなく層が違う</b>設計として扱えます。shuka案の<b>理論レイヤー（なぜ起きるか）</b>が、Phase 1フレームの<b>体験レイヤー（何を問うか／何を差し出すか）</b>の下支えになる構造。表面の言葉（受講生・マーケ向け）は Phase 1 の螺旋語彙、裏側の設計ロジック（運営・ファシリ向け）はshuka案の理論、と使い分ける統合案も可能です。</p>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-links">
+    <a href="poolo-curriculum-redesign-phase1.html">Phase 1フレーム案</a>
+    <a href="poolo-curriculum-schedule-8months.html">8か月スケジュール</a>
+    <a href="poolo-curriculum-guest-lineup-8.html">ゲスト8名</a>
+    <a href="poolo-spiral-theory.html">螺旋理論</a>
+    <a href="index.html">既存カリキュラム</a>
+  </div>
+  <p>POOLO LIFE ／ 8か月カリキュラム shuka案（行動変容ロードマップ準拠）／ 2026-04-21</p>
+</footer>
+
+</body>
+</html>
