@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>POOLO LIFE 8か月ゲストラインナップ（8名）</title>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#1a1a1a; --sub:#4a4a4a; --mute:#7a7a7a; --hint:#a8a8a8;
+  --bg:#faf9f6; --bg-deep:#f3f1ea; --line:#e0ddd3;
+  --green:#2D6A4F; --green-bg:#E9F5EE; --green-deep:#1A5238;
+  --warm:#C08457; --warm-bg:#F7EDE2; --warm-deep:#9F6A43;
+  --deep:#1F3A3D; --deep-bg:#DCE6E7;
+  --star:#B8860B; --star-bg:#F9F0D9;
+  --purple:#534AB7; --purple-bg:#ECEAF7; --purple-deep:#3A338A;
+  --slate:#4A5A68; --slate-bg:#E4E8EC;
+  --serif:'Shippori Mincho',serif; --sans:'Noto Sans JP',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:var(--sans);background:var(--bg);color:var(--ink);line-height:1.95;font-weight:300;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1140px;margin:0 auto;padding:0 1.5rem}
+
+.preview-header{padding:3.5rem 0 2.8rem;text-align:center;background:linear-gradient(180deg,#ECEAF7 0%,#faf9f6 100%);border-bottom:1px solid var(--line)}
+.preview-tag{display:inline-block;font-size:0.6rem;letter-spacing:0.4em;color:var(--purple-deep);margin-bottom:1.2rem;font-weight:500;padding:0.35rem 1.1rem;border:1px solid var(--purple);background:#fff}
+.preview-title{font-family:var(--serif);font-size:1.85rem;font-weight:600;letter-spacing:0.08em;line-height:1.7;color:var(--ink);margin-bottom:0.6rem}
+.preview-sub{font-family:var(--serif);font-size:0.95rem;color:var(--mute);letter-spacing:0.06em}
+.preview-meta{font-size:0.72rem;color:var(--hint);letter-spacing:0.12em;margin-top:1rem}
+
+section{padding:3.6rem 0}
+.sec-num{font-family:var(--serif);font-size:0.72rem;letter-spacing:0.3em;margin-bottom:0.6rem;font-weight:500;color:var(--purple)}
+.sec-num.warm{color:var(--warm)}
+.sec-num.deep{color:var(--deep)}
+.sec-num.green{color:var(--green)}
+.sec-num.star{color:var(--star)}
+.sec-head{font-family:var(--serif);font-size:1.6rem;font-weight:600;letter-spacing:0.06em;margin-bottom:1.4rem;color:var(--ink);line-height:1.6}
+.sec-head::before{content:'';display:inline-block;width:2.6rem;height:2px;background:currentColor;margin-right:0.8rem;vertical-align:middle;margin-bottom:0.35em}
+.sec-head.purple{color:var(--purple-deep)}
+.sec-head.warm{color:var(--warm-deep)}
+.sec-head.deep{color:var(--deep)}
+p.lead{font-family:var(--serif);font-size:1.03rem;color:var(--ink);font-weight:500;line-height:2;margin-bottom:1.6rem}
+
+.objective{background:var(--deep-bg);border-left:3px solid var(--deep);padding:1.6rem 1.9rem;margin:0 auto 2rem;max-width:900px;font-family:var(--serif);font-size:0.95rem;color:var(--ink);line-height:2;letter-spacing:0.04em}
+.objective b{color:var(--deep);font-weight:600}
+.objective-label{font-size:0.62rem;letter-spacing:0.3em;color:var(--deep);font-family:var(--sans);font-weight:600;margin-bottom:0.5rem;display:block}
+
+/* Type map 6+2 */
+.type-map{display:grid;grid-template-columns:repeat(4,1fr);gap:0.9rem;max-width:1080px;margin:1.5rem auto 0}
+.tcard{background:#fff;border:1px solid var(--line);padding:1rem 1rem;border-radius:2px;border-top:3px solid var(--purple)}
+.tcard.added{border-top-color:var(--warm)}
+.tcard .tlabel{font-size:0.6rem;letter-spacing:0.28em;color:var(--purple);font-weight:600;margin-bottom:0.35rem}
+.tcard.added .tlabel{color:var(--warm)}
+.tcard .ttitle{font-family:var(--serif);font-size:0.95rem;font-weight:600;color:var(--ink);margin-bottom:0.45rem;letter-spacing:0.04em}
+.tcard .tguest{font-size:0.78rem;color:var(--sub);line-height:1.75}
+.tcard .tguest b{color:var(--ink);font-weight:600}
+.tcard .tmonth{display:inline-block;font-size:0.62rem;letter-spacing:0.16em;padding:0.15rem 0.45rem;border-radius:2px;background:var(--purple-bg);color:var(--purple);font-weight:500;margin-top:0.4rem}
+.tcard.added .tmonth{background:var(--warm-bg);color:var(--warm-deep)}
+
+/* Guest lineup 8 cards */
+.lineup{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;max-width:1120px;margin:1.5rem auto 0}
+.lcard{background:#fff;border:1px solid var(--line);border-radius:3px;padding:1.4rem 1.2rem;display:flex;flex-direction:column;gap:0.55rem;min-height:360px;position:relative;border-top:4px solid var(--warm)}
+.lcard.c1{border-top-color:#2D6A4F}
+.lcard.c2{border-top-color:#3AA87F}
+.lcard.c3{border-top-color:#8860BE}
+.lcard.c4{border-top-color:#534AB7}
+.lcard.c5{border-top-color:#B8860B}
+.lcard.c6{border-top-color:#C08457}
+.lcard.c7{border-top-color:#9F6A43}
+.lcard.c8{border-top-color:#B8860B}
+
+.lnum{position:absolute;top:-1px;right:10px;background:var(--ink);color:#fff;font-family:var(--serif);font-size:0.72rem;letter-spacing:0.2em;padding:0.25rem 0.55rem;font-weight:600;border-radius:0 0 2px 2px}
+.ltype{font-size:0.6rem;letter-spacing:0.25em;color:var(--purple);font-weight:600;margin-bottom:0.2rem}
+.lcard.c3 .ltype{color:var(--slate)}
+.lname{font-family:var(--serif);font-size:1.3rem;font-weight:700;color:var(--ink);letter-spacing:0.03em;line-height:1.4}
+.lrank{color:var(--star);font-size:0.78rem;letter-spacing:0.02em;font-weight:600;margin-left:0.3rem}
+.lprofile{font-size:0.79rem;color:var(--sub);line-height:1.85;padding-bottom:0.6rem;border-bottom:1px dashed var(--line)}
+.lprofile b{color:var(--ink);font-weight:600}
+.lmonth-block{display:flex;gap:0.4rem;flex-wrap:wrap;margin-top:0.2rem}
+.lmonth{font-size:0.6rem;letter-spacing:0.18em;padding:0.2rem 0.55rem;border-radius:2px;font-weight:600}
+.lmonth.p1{background:var(--green-bg);color:var(--green-deep)}
+.lmonth.p2{background:var(--purple-bg);color:var(--purple)}
+.lmonth.p3{background:var(--star-bg);color:var(--star)}
+.lmonth.p4{background:var(--slate-bg);color:var(--slate)}
+.lmonth.camp{background:var(--warm);color:#fff}
+.lmonth.lv3{background:#B8860B;color:#fff}
+.lq{background:var(--star-bg);padding:0.55rem 0.75rem;border-radius:2px;font-family:var(--serif);font-size:0.78rem;color:var(--ink);line-height:1.65;border-left:2px solid var(--star);letter-spacing:0.02em}
+.lq .qlabel{font-family:var(--sans);font-size:0.55rem;letter-spacing:0.3em;color:var(--star);font-weight:600;display:block;margin-bottom:0.2rem}
+.lconnect{font-size:0.76rem;color:var(--ink);background:var(--bg-deep);padding:0.55rem 0.75rem;border-radius:2px;line-height:1.75;margin-top:auto}
+.lconnect::before{content:'接続：';color:var(--warm-deep);font-weight:600;font-size:0.7rem;margin-right:0.25rem}
+
+/* Timeline map SVG */
+.timeline-wrap{max-width:1080px;margin:2.5rem auto 0;padding:0 1.5rem}
+.timeline-wrap svg{width:100%;height:auto;display:block}
+.timeline-cap{text-align:center;font-family:var(--serif);font-size:0.82rem;color:var(--sub);letter-spacing:0.06em;margin-top:0.8rem;line-height:1.9}
+
+/* Phase1 mapping table */
+.phase1-table{width:100%;max-width:1060px;margin:1.5rem auto;border-collapse:collapse;background:#fff;border:1px solid var(--line);font-size:0.82rem}
+.phase1-table thead th{background:var(--purple-deep);color:#fff;font-family:var(--serif);font-weight:600;padding:0.9rem 0.7rem;text-align:left;letter-spacing:0.06em;font-size:0.8rem}
+.phase1-table tbody td{padding:0.85rem 0.7rem;color:var(--sub);border-bottom:1px solid var(--line);line-height:1.75;vertical-align:top}
+.phase1-table tbody td.m-cell{font-family:var(--serif);font-weight:700;color:var(--ink);white-space:nowrap;background:var(--bg-deep);font-size:0.92rem}
+.phase1-table tbody tr.camp-row td.m-cell{background:var(--warm-bg);color:var(--warm-deep)}
+.phase1-table tbody tr.review-row td.m-cell{background:var(--slate-bg);color:var(--slate)}
+.phase1-table tbody td.q-cell{font-family:var(--serif);color:var(--ink);font-size:0.85rem;background:#fffdf5}
+.phase1-table tbody td.g-cell{font-weight:600;color:var(--ink)}
+.phase1-table tbody td b{color:var(--ink);font-weight:600}
+
+/* Design notes */
+.notes{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;max-width:1050px;margin:1.5rem auto 0}
+.ncard{background:#fff;border:1px solid var(--line);border-top:3px solid var(--deep);padding:1.3rem 1.2rem;border-radius:2px}
+.ncard h4{font-family:var(--serif);font-size:0.98rem;color:var(--ink);font-weight:600;margin-bottom:0.7rem;letter-spacing:0.03em}
+.ncard p{font-size:0.8rem;color:var(--sub);line-height:1.85}
+.ncard p b{color:var(--ink);font-weight:600}
+
+.footer{background:var(--deep);padding:2.5rem 0;text-align:center;color:#fff}
+.footer-links{display:flex;justify-content:center;gap:0.6rem;flex-wrap:wrap;margin-bottom:0.9rem}
+.footer a{color:rgba(255,255,255,0.85);text-decoration:none;font-size:0.78rem;letter-spacing:0.1em;border-bottom:1px solid rgba(255,255,255,0.3);padding-bottom:2px}
+.footer a:hover{color:#fff;border-bottom-color:#fff}
+.footer p{color:rgba(255,255,255,0.5);font-size:0.72rem;margin-top:0.5rem;letter-spacing:0.1em}
+
+@media(max-width:860px){
+  .type-map{grid-template-columns:repeat(2,1fr)}
+  .lineup{grid-template-columns:repeat(2,1fr)}
+  .notes{grid-template-columns:1fr}
+  .preview-title{font-size:1.3rem}
+}
+</style>
+</head>
+<body>
+
+<header class="preview-header">
+  <div class="wrap">
+    <span class="preview-tag">GUEST LINEUP ／ 8 NAMES</span>
+    <h1 class="preview-title">POOLO LIFE 8か月ゲストラインナップ</h1>
+    <div class="preview-sub">Phase 1フレームに則った8名の例示（バイネーム）</div>
+    <div class="preview-meta">社長指定6型＋補完2型 ／ 2026-04-21</div>
+  </div>
+</header>
+
+<!-- OBJECTIVE -->
+<section>
+  <div class="wrap">
+    <div class="objective">
+      <span class="objective-label">このラインナップの設計</span>
+      Phase 1フレーム（6要素：WHY／目指す状態／WHAT／HOW／<b>GUEST</b>／問い）に則り、8か月×1か月につき主ゲスト1名の原則で<b>8名のゲスト</b>を配置します。社長指定の6型（観光系／言語化／対話＆受容／面白がる／越境／企画）をバイネームで明示し、足りない位置を<b>卒業生（合宿）</b>と<b>贈与／縦糸並走</b>の2型で補完。ゲストは<b>月の問い</b>に接続させ、講義ではなく月の体験の一部として効かせる設計です。
+    </div>
+  </div>
+</section>
+
+<!-- TYPE MAP -->
+<section>
+  <div class="wrap">
+    <div class="sec-num purple">§ 01 ／ TYPE MAP</div>
+    <h2 class="sec-head purple">型×ゲストの対応（6型指定＋2型補完）</h2>
+    <p class="lead">社長指定の6型は紫、補完の2型は橙。どの月で効かせるかを併記します。</p>
+
+    <div class="type-map">
+      <div class="tcard">
+        <div class="tlabel">TYPE 1 ／ 指定</div>
+        <div class="ttitle">観光系</div>
+        <div class="tguest"><b>髙井典子</b>／神奈川大・教授</div>
+        <div class="tmonth">M1</div>
+      </div>
+      <div class="tcard">
+        <div class="tlabel">TYPE 2 ／ 指定</div>
+        <div class="ttitle">対話＆受容</div>
+        <div class="tguest"><b>永井玲衣</b>／作家・哲学対話</div>
+        <div class="tmonth">M2</div>
+      </div>
+      <div class="tcard">
+        <div class="tlabel">TYPE 3 ／ 指定</div>
+        <div class="ttitle">言語化</div>
+        <div class="tguest"><b>最所あさみ</b>／書き直しながら続ける実演</div>
+        <div class="tmonth">M4</div>
+      </div>
+      <div class="tcard">
+        <div class="tlabel">TYPE 4 ／ 指定</div>
+        <div class="ttitle">面白がる</div>
+        <div class="tguest"><b>若新雄純</b>／プロデューサー</div>
+        <div class="tmonth">M5</div>
+      </div>
+      <div class="tcard">
+        <div class="tlabel">TYPE 5 ／ 指定</div>
+        <div class="ttitle">越境</div>
+        <div class="tguest"><b>林篤志</b>／Next Commons Lab</div>
+        <div class="tmonth">M6</div>
+      </div>
+      <div class="tcard">
+        <div class="tlabel">TYPE 6 ／ 指定</div>
+        <div class="ttitle">企画</div>
+        <div class="tguest"><b>阿部裕志</b>／巡の環・海士町</div>
+        <div class="tmonth">M7</div>
+      </div>
+      <div class="tcard added">
+        <div class="tlabel">TYPE 7 ／ 補完</div>
+        <div class="ttitle">卒業生（合宿の場）</div>
+        <div class="tguest"><b>卒業生 像A</b>／個別選定（POOLO LIFE卒業生）</div>
+        <div class="tmonth">M3（合宿）</div>
+      </div>
+      <div class="tcard added">
+        <div class="tlabel">TYPE 8 ／ 補完</div>
+        <div class="ttitle">贈与／縦糸並走</div>
+        <div class="tguest"><b>影山知明</b>／クルミドコーヒー</div>
+        <div class="tmonth">M5 ⇆ M7（並走）</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LINEUP 8 GUEST CARDS -->
+<section style="background:var(--bg-deep);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="wrap">
+    <div class="sec-num">§ 02 ／ LINEUP</div>
+    <h2 class="sec-head">ゲスト8名 ／ 月の問いへの接続</h2>
+    <p class="lead">各カードは、バイネーム・型・月配置・月の問い・接続文をひとまとめにした「月ゲスト1枚」。</p>
+
+    <div class="lineup">
+      <!-- 01 髙井典子 -->
+      <div class="lcard c1">
+        <div class="lnum">01 ／ M1</div>
+        <div class="ltype">TYPE 観光系</div>
+        <div class="lname">髙井典子 <span class="lrank">★★★</span></div>
+        <div class="lprofile"><b>神奈川大学 経営学部 教授</b>。観光研究と体験の往復を20年。研究者の眼と旅人の身体を同時に持つ実演者。</div>
+        <div class="lmonth-block"><span class="lmonth p1">M1 P1 自分</span></div>
+        <div class="lq"><span class="qlabel">月の問い</span>いま、自分は何に揺れているか。</div>
+        <div class="lconnect">観光研究と体験を往復する視座が、受講生の「揺れの手がかり」を渡す。</div>
+      </div>
+
+      <!-- 02 永井玲衣 -->
+      <div class="lcard c2">
+        <div class="lnum">02 ／ M2</div>
+        <div class="ltype">TYPE 対話＆受容</div>
+        <div class="lname">永井玲衣 <span class="lrank">★★★</span></div>
+        <div class="lprofile"><b>作家／哲学対話実践者</b>。刑務所・高校・商店街など様々な場で哲学対話を実践。問いを渡す姿勢そのものが型になっている。</div>
+        <div class="lmonth-block"><span class="lmonth p1">M2 P1 自分</span></div>
+        <div class="lq"><span class="qlabel">月の問い</span>聴く・聴かれる往復で、自分の何が更新されたか。</div>
+        <div class="lconnect">問いを渡す姿勢そのものが、WS直後のワーク素材になる。</div>
+      </div>
+
+      <!-- 03 卒業生像 -->
+      <div class="lcard c3">
+        <div class="lnum">03 ／ M3</div>
+        <div class="ltype">TYPE 卒業生（合宿）</div>
+        <div class="lname">卒業生 像A <span class="lrank">★★★</span></div>
+        <div class="lprofile"><b>POOLO LIFE卒業生</b>／テーマが3-4回ひっくり返った実演者。<br><small>※実名は運営と個別選定（卒業生枠）。合宿の場の密度を担う。</small></div>
+        <div class="lmonth-block"><span class="lmonth p2">M3 P2 POOLO</span><span class="lmonth camp">合宿</span></div>
+        <div class="lq"><span class="qlabel">月の問い</span>仮の輪郭を、どこに置くか。</div>
+        <div class="lconnect">ひっくり返った履歴ごと見せ、仮置きへの恐れを外す。</div>
+      </div>
+
+      <!-- 04 最所あさみ -->
+      <div class="lcard c4">
+        <div class="lnum">04 ／ M4</div>
+        <div class="ltype">TYPE 言語化</div>
+        <div class="lname">最所あさみ <span class="lrank">★★★</span></div>
+        <div class="lprofile"><b>独立後も書き換えながら続ける実演者</b>。揺り戻しを公開の場で書き続け、仮説を軽やかに更新する姿を見せてきた書き手。</div>
+        <div class="lmonth-block"><span class="lmonth p2">M4 P2 POOLO</span></div>
+        <div class="lq"><span class="qlabel">月の問い</span>合宿で揺れた自分を、どう書き直すか。</div>
+        <div class="lconnect">書き直しを恥ではなく作法として扱う姿が、受講生の書き直しを後押しする。</div>
+      </div>
+
+      <!-- 05 若新雄純 -->
+      <div class="lcard c5">
+        <div class="lnum">05 ／ M5</div>
+        <div class="ltype">TYPE 面白がる</div>
+        <div class="lname">若新雄純 <span class="lrank">★★★</span></div>
+        <div class="lprofile"><b>プロデューサー</b>／既定のレールを外した実験を20年、失敗率も高いまま続けている。予測不能を面白がる身体感覚の実演者。</div>
+        <div class="lmonth-block"><span class="lmonth p3">M5 P3 社会</span></div>
+        <div class="lq"><span class="qlabel">月の問い</span>仮決めは、同期の外で何を連れて帰ってくるか。</div>
+        <div class="lconnect">予測不能を面白がる身体感覚が、受講生の手渡し不安を軽くする。</div>
+      </div>
+
+      <!-- 06 影山知明（並走） -->
+      <div class="lcard c6">
+        <div class="lnum">06 ／ M5-M7</div>
+        <div class="ltype">TYPE 贈与／並走</div>
+        <div class="lname">影山知明 <span class="lrank">★★★</span></div>
+        <div class="lprofile"><b>クルミドコーヒー店主</b>／15年以上「贈与の論理」を実演。無反応・的外れ・共鳴の全部を語れる、贈与文化の縦糸役。</div>
+        <div class="lmonth-block"><span class="lmonth p3">M5 登場</span><span class="lmonth lv3">M7 再登場</span></div>
+        <div class="lq"><span class="qlabel">月の問い</span>（M5）仮決めは外で何を連れて帰ってくるか／（M7）知らない人の前に差し出して、何が返ってきたか。</div>
+        <div class="lconnect">贈与は受け手で成立するという哲学を、M5の小さな手渡しからM7 Lv.3本番まで縦糸として通す。</div>
+      </div>
+
+      <!-- 07 林篤志 -->
+      <div class="lcard c7">
+        <div class="lnum">07 ／ M6</div>
+        <div class="ltype">TYPE 越境</div>
+        <div class="lname">林篤志 <span class="lrank">★★★</span></div>
+        <div class="lprofile"><b>Next Commons Lab</b>／地方受け入れを10年以上続ける事業家。年間多くの越境者を迎え入れる受け入れ側の眼を持つ。</div>
+        <div class="lmonth-block"><span class="lmonth p3">M6 P3 社会</span></div>
+        <div class="lq"><span class="qlabel">月の問い</span>予測不能な他者に、自分の何が通じたか。</div>
+        <div class="lconnect">受け入れ側の眼を短く共有し、越境を双方向にする準備を渡す。</div>
+      </div>
+
+      <!-- 08 阿部裕志 -->
+      <div class="lcard c8">
+        <div class="lnum">08 ／ M7</div>
+        <div class="ltype">TYPE 企画</div>
+        <div class="lname">阿部裕志 <span class="lrank">★★★</span></div>
+        <div class="lprofile"><b>巡の環／海士町</b>。自分の問いを起点に仕事を編んできた実演者。20年にわたり事業と暮らしを重ねる。F=G×Hの典型実演者。</div>
+        <div class="lmonth-block"><span class="lmonth p3">M7 P3 社会</span><span class="lmonth lv3">Lv.3本番</span></div>
+        <div class="lq"><span class="qlabel">月の問い</span>知らない人の前に差し出して、何が返ってきたか。</div>
+        <div class="lconnect">差し出し続けた人生そのものを見せ、Lv.3本番に向かう背中を押す。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TIMELINE VIZ -->
+<section>
+  <div class="wrap">
+    <div class="sec-num warm">§ 03 ／ TIMELINE</div>
+    <h2 class="sec-head warm">8か月×ゲスト配置タイムライン</h2>
+    <p class="lead">縦軸＝型、横軸＝月。影山知明のM5→M7並走が縦糸として見える配置です。</p>
+  </div>
+
+  <div class="timeline-wrap">
+    <svg viewBox="0 0 1040 420" xmlns="http://www.w3.org/2000/svg">
+      <!-- Month columns -->
+      <g font-family="'Shippori Mincho',serif" font-size="13" font-weight="600" letter-spacing="3" text-anchor="middle">
+        <text x="130" y="30" fill="#1A5238">M1</text>
+        <text x="230" y="30" fill="#1A5238">M2</text>
+        <text x="330" y="30" fill="#3A338A">M3</text>
+        <text x="430" y="30" fill="#3A338A">M4</text>
+        <text x="530" y="30" fill="#B8860B">M5</text>
+        <text x="630" y="30" fill="#B8860B">M6</text>
+        <text x="730" y="30" fill="#B8860B">M7</text>
+        <text x="830" y="30" fill="#4A5A68">M8</text>
+      </g>
+      <g font-family="'Noto Sans JP',sans-serif" font-size="9" letter-spacing="2" text-anchor="middle">
+        <text x="180" y="52" fill="#1A5238">P1 自分</text>
+        <text x="380" y="52" fill="#3A338A">P2 POOLO</text>
+        <text x="630" y="52" fill="#B8860B">P3 社会</text>
+        <text x="830" y="52" fill="#4A5A68">P4 振り返り</text>
+      </g>
+
+      <!-- Horizontal grid -->
+      <g stroke="#e0ddd3" stroke-width="0.8">
+        <line x1="80" y1="70" x2="880" y2="70"/>
+        <line x1="80" y1="70" x2="80" y2="400"/>
+      </g>
+
+      <!-- Vertical month lines -->
+      <g stroke="#f0ede4" stroke-width="0.6">
+        <line x1="180" y1="70" x2="180" y2="400"/>
+        <line x1="280" y1="70" x2="280" y2="400"/>
+        <line x1="380" y1="70" x2="380" y2="400"/>
+        <line x1="480" y1="70" x2="480" y2="400"/>
+        <line x1="580" y1="70" x2="580" y2="400"/>
+        <line x1="680" y1="70" x2="680" y2="400"/>
+        <line x1="780" y1="70" x2="780" y2="400"/>
+        <line x1="880" y1="70" x2="880" y2="400"/>
+      </g>
+
+      <!-- Guest blocks -->
+      <!-- 01 髙井典子 M1 観光系 -->
+      <g>
+        <rect x="90" y="80" width="80" height="36" rx="3" fill="#2D6A4F"/>
+        <text x="130" y="100" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="12" fill="#fff" font-weight="600">髙井典子</text>
+        <text x="130" y="112" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="8" fill="#fff" letter-spacing="1">観光系</text>
+      </g>
+
+      <!-- 02 永井玲衣 M2 対話＆受容 -->
+      <g>
+        <rect x="190" y="126" width="80" height="36" rx="3" fill="#3AA87F"/>
+        <text x="230" y="146" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="12" fill="#fff" font-weight="600">永井玲衣</text>
+        <text x="230" y="158" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="8" fill="#fff" letter-spacing="1">対話＆受容</text>
+      </g>
+
+      <!-- 03 卒業生像 M3 合宿 -->
+      <g>
+        <rect x="290" y="172" width="80" height="36" rx="3" fill="#4A5A68" stroke="#C08457" stroke-width="1.5"/>
+        <text x="330" y="192" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="12" fill="#fff" font-weight="600">卒業生 像A</text>
+        <text x="330" y="204" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="8" fill="#fff" letter-spacing="1">合宿・卒業生</text>
+      </g>
+
+      <!-- 04 最所あさみ M4 言語化 -->
+      <g>
+        <rect x="390" y="218" width="80" height="36" rx="3" fill="#534AB7"/>
+        <text x="430" y="238" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="12" fill="#fff" font-weight="600">最所あさみ</text>
+        <text x="430" y="250" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="8" fill="#fff" letter-spacing="1">言語化</text>
+      </g>
+
+      <!-- 05 若新雄純 M5 面白がる -->
+      <g>
+        <rect x="490" y="264" width="80" height="36" rx="3" fill="#B8860B"/>
+        <text x="530" y="284" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="12" fill="#fff" font-weight="600">若新雄純</text>
+        <text x="530" y="296" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="8" fill="#fff" letter-spacing="1">面白がる</text>
+      </g>
+
+      <!-- 06 影山知明 M5-M7 縦糸（ブリッジ） -->
+      <g>
+        <rect x="490" y="310" width="280" height="36" rx="3" fill="#C08457" opacity="0.92"/>
+        <text x="630" y="330" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="12" fill="#fff" font-weight="700">影山知明（M5 ⇆ M7 並走・縦糸）</text>
+        <text x="630" y="342" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="8" fill="#fff" letter-spacing="1">贈与の論理</text>
+      </g>
+
+      <!-- 07 林篤志 M6 越境 -->
+      <g>
+        <rect x="590" y="264" width="80" height="36" rx="3" fill="#9F6A43"/>
+        <text x="630" y="284" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="12" fill="#fff" font-weight="600">林篤志</text>
+        <text x="630" y="296" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="8" fill="#fff" letter-spacing="1">越境</text>
+      </g>
+
+      <!-- 08 阿部裕志 M7 企画/Lv.3 -->
+      <g>
+        <rect x="690" y="264" width="80" height="36" rx="3" fill="#B8860B" stroke="#FFC107" stroke-width="1.5"/>
+        <text x="730" y="284" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="12" fill="#fff" font-weight="700">阿部裕志</text>
+        <text x="730" y="296" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="8" fill="#fff" letter-spacing="1">企画 Lv.3</text>
+      </g>
+
+      <!-- M8 No guest -->
+      <g>
+        <rect x="790" y="218" width="80" height="128" rx="3" fill="#E4E8EC" stroke="#4A5A68" stroke-width="1"/>
+        <text x="830" y="270" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="12" fill="#4A5A68" font-weight="600">ゲスト不在</text>
+        <text x="830" y="290" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="9" fill="#4A5A68">受講生主語で閉じる</text>
+      </g>
+
+      <!-- Row labels on left -->
+      <g font-family="'Noto Sans JP',sans-serif" font-size="9" fill="#7a7a7a" text-anchor="end">
+        <text x="75" y="102">観光系</text>
+        <text x="75" y="148">対話＆受容</text>
+        <text x="75" y="194">卒業生</text>
+        <text x="75" y="240">言語化</text>
+        <text x="75" y="286">面白がる/越境/企画</text>
+        <text x="75" y="332">贈与（縦糸）</text>
+      </g>
+
+      <!-- Legend -->
+      <g transform="translate(80,380)">
+        <text x="0" y="0" font-family="'Noto Sans JP',sans-serif" font-size="10" fill="#4a4a4a" letter-spacing="1">★ ＝ 縦糸（複数月並走）は贈与哲学（影山知明）がM5からM7へ繋がる設計。</text>
+      </g>
+    </svg>
+    <div class="timeline-cap">8か月×8名。M5の若新雄純（面白がる）・影山知明（並走）・林篤志（越境M6）・阿部裕志（企画M7）がP3で厚く、M5-M7の縦糸が見える配置。</div>
+  </div>
+</section>
+
+<!-- PHASE 1 MAPPING TABLE -->
+<section style="background:var(--bg-deep);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="wrap">
+    <div class="sec-num purple">§ 04 ／ PHASE 1 MAPPING</div>
+    <h2 class="sec-head purple">Phase 1 の6要素との対応（GUEST × 月の問い × WHY）</h2>
+    <p class="lead">各月を Phase 1 フレームの <b>問い → WHY → GUEST</b> の順で並べ、ゲスト配置の一貫性を確認します。</p>
+
+    <table class="phase1-table">
+      <thead>
+        <tr>
+          <th style="width:7%">月</th>
+          <th style="width:22%">問い（Q）</th>
+          <th style="width:36%">WHY（なぜこの月）</th>
+          <th style="width:35%">GUEST（バイネーム・接続）</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="m-cell">M1</td>
+          <td class="q-cell">いま、自分は何に揺れているか。</td>
+          <td>旅で揺らいだ身体に言葉より先に場を届け、受容の土台を起動する月。</td>
+          <td class="g-cell">髙井典子（観光系）<br><small>観光研究と体験の往復が、受講生の揺れの手がかりになる</small></td>
+        </tr>
+        <tr>
+          <td class="m-cell">M2</td>
+          <td class="q-cell">聴く・聴かれる往復で、自分の何が更新されたか。</td>
+          <td>聴く・聴かれるを往復して、他者が自分を更新する感覚を身体で掴む月。</td>
+          <td class="g-cell">永井玲衣（対話＆受容）<br><small>問いを渡す姿勢が、WS直後のワーク素材になる</small></td>
+        </tr>
+        <tr class="camp-row">
+          <td class="m-cell">M3</td>
+          <td class="q-cell">仮の輪郭を、どこに置くか。</td>
+          <td>仮の輪郭を言葉にして最初の置き場に出す月（合宿）。T2開始、引力場が切り替わる節目。</td>
+          <td class="g-cell">卒業生 像A（合宿）<br><small>ひっくり返った履歴ごと見せ、仮置きへの恐れを外す</small></td>
+        </tr>
+        <tr>
+          <td class="m-cell">M4</td>
+          <td class="q-cell">合宿で揺れた自分を、どう書き直すか。</td>
+          <td>仮置きを同期の鏡で揺り戻し、名乗りを書き直す月。</td>
+          <td class="g-cell">最所あさみ（言語化）<br><small>書き直しを作法として扱う姿が、受講生の書き直しを後押しする</small></td>
+        </tr>
+        <tr>
+          <td class="m-cell">M5</td>
+          <td class="q-cell">仮決めは、同期の外で何を連れて帰ってくるか。</td>
+          <td>仮決めを同期の外の1人に手渡し、反応の振れ幅を身体で受ける月。</td>
+          <td class="g-cell">若新雄純（面白がる）＋ <b>影山知明（並走開始）</b><br><small>面白がる身体感覚と贈与哲学の両輪で、手渡しを支える</small></td>
+        </tr>
+        <tr>
+          <td class="m-cell">M6</td>
+          <td class="q-cell">予測不能な他者に、自分の何が通じたか。</td>
+          <td>POOLO外の現場に越境し、予測不能な他者と双方向で出会う月。</td>
+          <td class="g-cell">林篤志（越境）<br><small>受け入れ側の眼を渡し、越境を双方向にする</small></td>
+        </tr>
+        <tr>
+          <td class="m-cell">M7</td>
+          <td class="q-cell">知らない人の前に差し出して、何が返ってきたか。</td>
+          <td>知らない人に差し出す本番（Lv.3必修ライン）。</td>
+          <td class="g-cell">阿部裕志（企画）＋ <b>影山知明（並走閉じ）</b><br><small>人生そのものの企画と贈与哲学の縦糸を、本番直前に重ねる</small></td>
+        </tr>
+        <tr class="review-row">
+          <td class="m-cell">M8</td>
+          <td class="q-cell">8か月で、自分のどの筋肉が残ったか。</td>
+          <td>螺旋を身体に宿し、次の誰かに渡す回路を持ち帰る月。</td>
+          <td class="g-cell">（ゲスト不在）<br><small>受講生主語で閉じる／T3の鏡の新鮮さで担保</small></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- DESIGN NOTES -->
+<section>
+  <div class="wrap">
+    <div class="sec-num deep">§ 05 ／ NOTES</div>
+    <h2 class="sec-head deep">設計のポイント（3つ）</h2>
+
+    <div class="notes">
+      <div class="ncard">
+        <h4>社長指定6型をバイネームで充足</h4>
+        <p>観光系＝髙井典子／対話＆受容＝永井玲衣／言語化＝最所あさみ／面白がる＝若新雄純／越境＝林篤志／企画＝阿部裕志の<b>6名を指定型で明示</b>。既存 index.html の候補から★印を引き継ぎ、信頼性を担保。</p>
+      </div>
+      <div class="ncard">
+        <h4>補完2型：合宿卒業生と贈与縦糸</h4>
+        <p>M3合宿は<b>卒業生枠のみ</b>（外部講師を入れない既存方針を継承）。M5→M7に<b>影山知明を並走</b>させ、贈与哲学を縦糸として通すことでLv.3本番への伴走を強化。並走型がゲスト講義を月テーマの外に立たせない。</p>
+      </div>
+      <div class="ncard">
+        <h4>M8はゲスト不在（原則維持）</h4>
+        <p>M8は<b>受講生主語で閉じる原則</b>を維持し、ゲストを置かない。T3（新チーム4人）の鏡の新鮮さで振り返りを担保。ゲスト8名の配置は<b>M1-M7の7月分＋並走1名</b>で構成。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-links">
+    <a href="poolo-curriculum-redesign-phase1.html">再設計 Phase 1</a>
+    <a href="poolo-curriculum-schedule-8months.html">8か月スケジュール</a>
+    <a href="poolo-spiral-theory.html">螺旋理論</a>
+    <a href="index.html">既存カリキュラム</a>
+  </div>
+  <p>POOLO LIFE ／ 8か月ゲストラインナップ（8名・Phase 1準拠）／ 2026-04-21</p>
+</footer>
+
+</body>
+</html>
