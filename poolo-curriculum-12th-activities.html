@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>POOLO LIFE 12期 活動内容設計 ／ 3層×4フェーズ×3案</title>
+<title>POOLO LIFE 12期 活動内容設計 ／ 時系列×3層×4フェーズ</title>
 <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
@@ -36,20 +36,21 @@ section{padding:3.6rem 0}
 .sec-num.deep{color:var(--deep)}
 .sec-num.star{color:var(--star)}
 .sec-num.amber{color:var(--amber)}
+.sec-num.teal{color:var(--teal)}
 .sec-head{font-family:var(--serif);font-size:1.6rem;font-weight:600;letter-spacing:0.06em;margin-bottom:1.4rem;color:var(--ink);line-height:1.6}
 .sec-head::before{content:'';display:inline-block;width:2.6rem;height:2px;background:currentColor;margin-right:0.8rem;vertical-align:middle;margin-bottom:0.35em}
 .sec-head.blue{color:var(--blue-deep)}
 .sec-head.warm{color:var(--warm-deep)}
 .sec-head.deep{color:var(--deep)}
 .sec-head.star{color:var(--star)}
-.sec-head.amber{color:var(--amber)}
+.sec-head.teal{color:var(--teal)}
 p.lead{font-family:var(--serif);font-size:1.03rem;color:var(--ink);font-weight:500;line-height:2;margin-bottom:1.6rem}
 
 .objective{background:var(--blue-bg);border-left:3px solid var(--blue);padding:1.6rem 1.9rem;margin:0 auto 2rem;max-width:900px;font-family:var(--serif);font-size:0.95rem;color:var(--ink);line-height:2;letter-spacing:0.04em}
 .objective b{color:var(--blue-deep);font-weight:600}
 .objective-label{font-size:0.62rem;letter-spacing:0.3em;color:var(--blue-deep);font-family:var(--sans);font-weight:600;margin-bottom:0.5rem;display:block}
 
-/* 3 layers overview */
+/* 3 layers */
 .layers-overview{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;max-width:1080px;margin:1.5rem auto 0}
 .locard{background:#fff;border:1px solid var(--line);border-top:3px solid var(--deep);padding:1.4rem 1.3rem;border-radius:2px}
 .locard.l1{border-top-color:var(--deep)}
@@ -69,19 +70,78 @@ p.lead{font-family:var(--serif);font-size:1.03rem;color:var(--ink);font-weight:5
 .locard.l2 ul li::before{color:var(--purple)}
 .locard.l3 ul li::before{color:var(--green)}
 
-/* Case compare table */
-.case-compare{width:100%;max-width:1020px;margin:2rem auto;border-collapse:collapse;background:#fff;border:1px solid var(--line);font-size:0.84rem}
-.case-compare thead th{background:var(--deep);color:#fff;font-family:var(--serif);font-weight:600;padding:1rem;text-align:left;letter-spacing:0.06em;font-size:0.82rem}
-.case-compare thead th.b-col{background:var(--blue)}
-.case-compare thead th.a-col{background:var(--slate)}
-.case-compare thead th.c-col{background:var(--amber)}
-.case-compare thead th .rec-mark{display:inline-block;background:#fff;color:var(--blue-deep);font-size:0.6rem;letter-spacing:0.15em;padding:0.15rem 0.4rem;margin-left:0.5rem;border-radius:2px;font-weight:700}
-.case-compare tbody th{text-align:left;padding:0.9rem;font-family:var(--serif);font-weight:600;color:var(--ink);background:var(--bg-deep);border-bottom:1px solid var(--line);white-space:nowrap}
-.case-compare tbody td{padding:0.9rem;color:var(--sub);border-bottom:1px solid var(--line);line-height:1.75;vertical-align:top}
-.case-compare tbody td.b-col{background:var(--blue-bg);color:var(--ink)}
-.case-compare tbody td b{color:var(--ink);font-weight:600}
+/* WS types */
+.ws-types{display:grid;grid-template-columns:repeat(5,1fr);gap:0.8rem;max-width:1120px;margin:1.5rem auto 0}
+.wstc{background:#fff;border:1px solid var(--line);border-top:3px solid var(--line);padding:1.2rem 1rem;border-radius:2px;display:flex;flex-direction:column;gap:0.5rem;min-height:260px;position:relative}
+.wstc.t1{border-top-color:var(--green)}
+.wstc.t2{border-top-color:var(--purple)}
+.wstc.t3{border-top-color:var(--star)}
+.wstc.t4{border-top-color:var(--warm)}
+.wstc.t5{border-top-color:var(--slate)}
+.wstc-num{position:absolute;top:-1px;right:10px;background:var(--deep);color:#fff;font-family:var(--serif);font-size:0.65rem;letter-spacing:0.2em;padding:0.2rem 0.5rem;font-weight:600;border-radius:0 0 2px 2px}
+.wstc-icon{font-size:1.5rem;text-align:center;margin-top:0.3rem}
+.wstc.t1 .wstc-icon{color:var(--green)}
+.wstc.t2 .wstc-icon{color:var(--purple)}
+.wstc.t3 .wstc-icon{color:var(--star)}
+.wstc.t4 .wstc-icon{color:var(--warm)}
+.wstc.t5 .wstc-icon{color:var(--slate)}
+.wstc h4{font-family:var(--serif);font-size:1rem;color:var(--ink);font-weight:600;text-align:center;margin-bottom:0.2rem}
+.wstc-count{font-size:0.7rem;color:var(--mute);text-align:center;letter-spacing:0.05em;padding:0.35rem 0.5rem;background:var(--bg-deep);border-radius:2px;line-height:1.5}
+.wstc-desc{font-size:0.75rem;color:var(--sub);line-height:1.8;flex:1}
+.wstc-desc b{color:var(--ink);font-weight:600}
+.wstc-time{font-family:var(--serif);font-size:0.8rem;color:var(--blue-deep);font-weight:600;text-align:center;padding:0.4rem;background:var(--blue-bg);border-radius:2px;margin-top:auto}
 
-/* Month matrix large table */
+/* WS matrix table */
+.ws-types-matrix{width:100%;max-width:1120px;margin:1.8rem auto 0;border-collapse:collapse;background:#fff;border:1px solid var(--line);font-size:0.78rem}
+.ws-types-matrix thead th{background:var(--deep);color:#fff;font-family:var(--serif);font-weight:600;padding:0.8rem 0.6rem;text-align:center;letter-spacing:0.04em;font-size:0.75rem}
+.ws-types-matrix thead th.t1-col{background:var(--green)}
+.ws-types-matrix thead th.t2-col{background:var(--purple)}
+.ws-types-matrix thead th.t3-col{background:var(--star)}
+.ws-types-matrix thead th.t4-col{background:var(--warm)}
+.ws-types-matrix thead th.t5-col{background:var(--slate)}
+.ws-types-matrix tbody td{padding:0.7rem 0.5rem;color:var(--sub);border-bottom:1px solid var(--line);line-height:1.55;vertical-align:middle;text-align:center;font-size:0.73rem}
+.ws-types-matrix tbody td.m-cell{font-family:var(--serif);font-weight:700;color:var(--ink);background:var(--bg-deep);white-space:nowrap}
+.ws-types-matrix tbody td.has{background:#fff9ee;color:var(--ink);font-weight:500}
+.ws-types-matrix tbody td.has .dot{font-size:1.1rem;color:var(--warm);font-weight:700;display:block;line-height:1}
+.ws-types-matrix tbody tr.total-ws{background:var(--blue-bg)}
+.ws-types-matrix tbody tr.total-ws td{color:var(--blue-deep);font-weight:700;font-family:var(--serif);font-size:0.9rem}
+
+/* Timeline cards (time x tasks) */
+.timeline-cards{display:flex;flex-direction:column;gap:1rem;max-width:1100px;margin:1.5rem auto 0}
+.tlcard{background:#fff;border:1px solid var(--line);border-left:4px solid var(--line);border-radius:2px;padding:1.5rem 1.6rem;display:grid;grid-template-columns:85px 1fr 1fr;gap:1.3rem;align-items:start}
+.tlcard.p1{border-left-color:var(--green)}
+.tlcard.p2{border-left-color:var(--purple)}
+.tlcard.p3{border-left-color:var(--star)}
+.tlcard.p4{border-left-color:var(--slate)}
+.tlcard-m{display:flex;flex-direction:column;align-items:center;padding-right:0.5rem;border-right:1px dashed var(--line);min-height:90px;justify-content:center}
+.tlcard-mnum{font-family:var(--serif);font-size:2rem;font-weight:700;line-height:1;letter-spacing:0.04em}
+.tlcard.p1 .tlcard-mnum{color:var(--green-deep)}
+.tlcard.p2 .tlcard-mnum{color:var(--purple-deep)}
+.tlcard.p3 .tlcard-mnum{color:var(--star)}
+.tlcard.p4 .tlcard-mnum{color:var(--slate)}
+.tlcard-phase{font-size:0.58rem;letter-spacing:0.2em;margin-top:0.3rem;font-weight:600}
+.tlcard.p1 .tlcard-phase{color:var(--green-deep)}
+.tlcard.p2 .tlcard-phase{color:var(--purple-deep)}
+.tlcard.p3 .tlcard-phase{color:var(--star)}
+.tlcard.p4 .tlcard-phase{color:var(--slate)}
+.tlcard-title{font-family:var(--serif);font-size:1.15rem;color:var(--ink);font-weight:600;letter-spacing:0.03em;line-height:1.5;margin-bottom:0.5rem}
+.tlcard-q{background:var(--star-bg);border-left:2px solid var(--star);padding:0.5rem 0.7rem;font-family:var(--serif);font-size:0.82rem;color:var(--ink);line-height:1.7;border-radius:2px;letter-spacing:0.02em}
+.tlcard-q::before{content:'問：';color:var(--star);font-weight:600;font-size:0.75rem;margin-right:0.2rem}
+.tlcard-tasks{display:flex;flex-direction:column;gap:0.3rem}
+.tlcard-tasks-label{font-size:0.6rem;letter-spacing:0.25em;color:var(--mute);font-weight:600;margin-bottom:0.2rem}
+.tlcard-tasks ul{list-style:none;padding:0;font-size:0.79rem;color:var(--ink);line-height:1.8}
+.tlcard-tasks ul li{padding-left:1rem;position:relative}
+.tlcard-tasks ul li::before{content:'▸';position:absolute;left:0;color:var(--blue)}
+.tlcard-tasks ul li b{color:var(--ink);font-weight:700;background:var(--warm-bg);padding:0 0.3rem;border-radius:2px;color:var(--warm-deep)}
+.tlcard-tasks ul li.event::before{content:'★';color:var(--warm)}
+.tlcard-tasks ul li.event b{background:var(--warm);color:#fff;padding:0.1rem 0.4rem}
+
+@media(max-width:860px){
+  .tlcard{grid-template-columns:1fr;gap:0.8rem}
+  .tlcard-m{border-right:none;border-bottom:1px dashed var(--line);padding-bottom:0.6rem;flex-direction:row;gap:0.8rem;min-height:auto}
+}
+
+/* Month matrix */
 .month-matrix{width:100%;max-width:1140px;margin:1.5rem auto;border-collapse:collapse;background:#fff;border:1px solid var(--line);font-size:0.78rem}
 .month-matrix thead th{background:var(--blue-deep);color:#fff;font-family:var(--serif);font-weight:600;padding:0.9rem 0.7rem;text-align:left;letter-spacing:0.04em;font-size:0.76rem;vertical-align:top}
 .month-matrix tbody td{padding:0.85rem 0.7rem;color:var(--sub);border-bottom:1px solid var(--line);line-height:1.65;vertical-align:top}
@@ -91,14 +151,14 @@ p.lead{font-family:var(--serif);font-size:1.03rem;color:var(--ink);font-weight:5
 .month-matrix tbody tr.p3-row td.m-cell{border-left:4px solid var(--star)}
 .month-matrix tbody tr.p4-row td.m-cell{border-left:4px solid var(--slate)}
 .month-matrix tbody tr.camp-row{background:var(--warm-bg)}
-.month-matrix tbody tr.lv3-row{background:var(--star-bg);background-opacity:0.3}
+.month-matrix tbody tr.lv3-row{background:var(--star-bg)}
 .month-matrix tbody td b{color:var(--ink);font-weight:600}
 .month-matrix tbody td .unit{font-size:0.68rem;color:var(--mute);letter-spacing:0.05em}
 .month-matrix tbody td .total{font-family:var(--serif);font-size:0.92rem;color:var(--blue-deep);font-weight:700}
 .month-matrix tbody tr.total-row{background:var(--blue-bg);font-weight:600}
 .month-matrix tbody tr.total-row td{color:var(--ink)}
 
-/* Phase aggregation */
+/* Phase */
 .phase-agg{display:grid;grid-template-columns:repeat(4,1fr);gap:0.9rem;max-width:1100px;margin:1.5rem auto 0}
 .pacard{background:#fff;border:1px solid var(--line);padding:1.3rem 1.1rem;border-radius:2px;border-top:3px solid var(--line)}
 .pacard.p1{border-top-color:var(--green)}
@@ -117,20 +177,7 @@ p.lead{font-family:var(--serif);font-size:1.03rem;color:var(--ink);font-weight:5
 .pacard .paitem .pval{color:var(--ink);font-weight:600}
 .pacard .patotal{margin-top:0.6rem;padding-top:0.6rem;border-top:2px solid var(--line);font-size:0.85rem;color:var(--blue-deep);font-weight:700;text-align:center;font-family:var(--serif)}
 
-/* Added guests */
-.added-guests{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;max-width:1050px;margin:1.5rem auto 0}
-.agcard{background:#fff;border:1px solid var(--line);border-top:4px solid var(--warm);padding:1.5rem 1.4rem;border-radius:2px}
-.agcard .agm{font-size:0.65rem;letter-spacing:0.25em;color:var(--warm-deep);font-weight:700;margin-bottom:0.4rem}
-.agcard h4{font-family:var(--serif);font-size:1.15rem;color:var(--ink);font-weight:700;margin-bottom:0.5rem;letter-spacing:0.03em}
-.agcard .agq{font-family:var(--serif);font-size:0.85rem;color:var(--ink);background:var(--star-bg);padding:0.6rem 0.8rem;border-left:2px solid var(--star);margin-bottom:0.8rem;line-height:1.65;border-radius:2px}
-.agcard .agq b{color:var(--star);font-weight:600}
-.agcard .agreason{font-size:0.82rem;color:var(--sub);line-height:1.9;margin-bottom:0.8rem}
-.agcard .agreason b{color:var(--ink);font-weight:600}
-.agcard .agcands{font-size:0.78rem;color:var(--sub);line-height:1.85;background:var(--bg-deep);padding:0.7rem 0.9rem;border-radius:2px}
-.agcard .agcands b{color:var(--ink);font-weight:600}
-.agcard .agcands strong{display:inline-block;background:var(--warm);color:#fff;font-size:0.62rem;letter-spacing:0.12em;padding:0.1rem 0.4rem;border-radius:2px;margin-right:0.3rem;vertical-align:middle;font-weight:700}
-
-/* Diff table */
+/* Diff */
 .diff-table{width:100%;max-width:980px;margin:1.5rem auto;border-collapse:collapse;background:#fff;border:1px solid var(--line);font-size:0.84rem}
 .diff-table thead th{background:var(--deep);color:#fff;font-family:var(--serif);font-weight:600;padding:0.9rem;text-align:left;letter-spacing:0.06em;font-size:0.82rem}
 .diff-table thead th.new-col{background:var(--blue)}
@@ -158,43 +205,8 @@ p.lead{font-family:var(--serif);font-size:1.03rem;color:var(--ink);font-weight:5
 .footer a:hover{color:#fff;border-bottom-color:#fff}
 .footer p{color:rgba(255,255,255,0.6);font-size:0.72rem;margin-top:0.5rem;letter-spacing:0.1em}
 
-/* WS types */
-.ws-types{display:grid;grid-template-columns:repeat(5,1fr);gap:0.8rem;max-width:1120px;margin:1.5rem auto 0}
-.wstc{background:#fff;border:1px solid var(--line);border-top:3px solid var(--line);padding:1.2rem 1rem;border-radius:2px;display:flex;flex-direction:column;gap:0.5rem;min-height:250px;position:relative}
-.wstc.t1{border-top-color:var(--green)}
-.wstc.t2{border-top-color:var(--purple)}
-.wstc.t3{border-top-color:var(--star)}
-.wstc.t4{border-top-color:var(--warm)}
-.wstc.t5{border-top-color:var(--slate)}
-.wstc-num{position:absolute;top:-1px;right:10px;background:var(--deep);color:#fff;font-family:var(--serif);font-size:0.65rem;letter-spacing:0.2em;padding:0.2rem 0.5rem;font-weight:600;border-radius:0 0 2px 2px}
-.wstc-icon{font-size:1.5rem;text-align:center;margin-top:0.3rem}
-.wstc.t1 .wstc-icon{color:var(--green)}
-.wstc.t2 .wstc-icon{color:var(--purple)}
-.wstc.t3 .wstc-icon{color:var(--star)}
-.wstc.t4 .wstc-icon{color:var(--warm)}
-.wstc.t5 .wstc-icon{color:var(--slate)}
-.wstc h4{font-family:var(--serif);font-size:1rem;color:var(--ink);font-weight:600;text-align:center;margin-bottom:0.2rem}
-.wstc-count{font-size:0.7rem;color:var(--mute);text-align:center;letter-spacing:0.05em;padding:0.35rem 0.5rem;background:var(--bg-deep);border-radius:2px;line-height:1.5}
-.wstc-desc{font-size:0.75rem;color:var(--sub);line-height:1.8;flex:1}
-.wstc-desc b{color:var(--ink);font-weight:600}
-.wstc-time{font-family:var(--serif);font-size:0.8rem;color:var(--blue-deep);font-weight:600;text-align:center;padding:0.4rem;background:var(--blue-bg);border-radius:2px;margin-top:auto}
-
-.ws-types-matrix{width:100%;max-width:1120px;margin:1.8rem auto 0;border-collapse:collapse;background:#fff;border:1px solid var(--line);font-size:0.78rem}
-.ws-types-matrix thead th{background:var(--deep);color:#fff;font-family:var(--serif);font-weight:600;padding:0.8rem 0.6rem;text-align:center;letter-spacing:0.04em;font-size:0.75rem}
-.ws-types-matrix thead th.t1-col{background:var(--green)}
-.ws-types-matrix thead th.t2-col{background:var(--purple)}
-.ws-types-matrix thead th.t3-col{background:var(--star)}
-.ws-types-matrix thead th.t4-col{background:var(--warm)}
-.ws-types-matrix thead th.t5-col{background:var(--slate)}
-.ws-types-matrix tbody td{padding:0.7rem 0.5rem;color:var(--sub);border-bottom:1px solid var(--line);line-height:1.55;vertical-align:middle;text-align:center;font-size:0.73rem}
-.ws-types-matrix tbody td.m-cell{font-family:var(--serif);font-weight:700;color:var(--ink);background:var(--bg-deep);white-space:nowrap}
-.ws-types-matrix tbody td.has{background:#fff9ee;color:var(--ink);font-weight:500}
-.ws-types-matrix tbody td.has .dot{font-size:1.1rem;color:var(--warm);font-weight:700;display:block;line-height:1}
-.ws-types-matrix tbody tr.total-ws{background:var(--blue-bg)}
-.ws-types-matrix tbody tr.total-ws td{color:var(--blue-deep);font-weight:700;font-family:var(--serif);font-size:0.9rem}
-
 @media(max-width:860px){
-  .layers-overview,.added-guests{grid-template-columns:1fr}
+  .layers-overview{grid-template-columns:1fr}
   .phase-agg{grid-template-columns:repeat(2,1fr)}
   .preview-title{font-size:1.3rem}
   .month-matrix{font-size:0.72rem}
@@ -207,10 +219,10 @@ p.lead{font-family:var(--serif);font-size:1.03rem;color:var(--ink);font-weight:5
 
 <header class="preview-header">
   <div class="wrap">
-    <span class="preview-tag">12TH ／ ACTIVITY DESIGN</span>
+    <span class="preview-tag">12TH ／ ACTIVITY DESIGN ／ v4</span>
     <h1 class="preview-title">POOLO LIFE 12期 活動内容設計</h1>
-    <div class="preview-sub">3層（運営／チームMTG／個人）× 4フェーズ × 3案比較</div>
-    <div class="preview-meta">今期（11期）振り返りベース ／ ゲスト講義 11→13（+2）／ WSを5種類に分類 ／ 2026-04-22</div>
+    <div class="preview-sub">時系列×3層（運営／チームMTG／個人）×4フェーズ</div>
+    <div class="preview-meta">ゲスト講義 11コマ維持 ／ WS2-2＝探究テーマ発表 ／ M3合宿起点 ／ 2026-04-22</div>
   </div>
 </header>
 
@@ -218,8 +230,8 @@ p.lead{font-family:var(--serif);font-size:1.03rem;color:var(--ink);font-weight:5
 <section>
   <div class="wrap">
     <div class="objective">
-      <span class="objective-label">このプレビューの目的</span>
-      12期の活動内容を<b>3層（固定日／チームMTG／個人）× 4フェーズ（P1-P4）× 時間見通し</b>で整理します。現状<b>ゲスト講義11コマ → 13コマ（+2）</b>に拡張する前提で、<b>3案（A/B/C）を比較</b>します。M1は1コマ維持（入口は既に十分）、追加は<b>P2-P3寄り</b>に配置。WSは<b>オープニング／定例／発表／特別イベント／卒業式の5種類</b>に分類。推奨は案B（越境前と本番送り出しを両輪強化）。
+      <span class="objective-label">このバージョンの変更点</span>
+      12期の活動は<b>11期と同等の総量（ゲスト講義11コマ）を維持</b>し、質・配置の見直しで設計します。WSは<b>WS2-2を探究テーマ発表</b>として「発表」枠に再分類。<b>M3は合宿から始める</b>（W1合宿）。さらに<b>時系列でどんな課題に取り組むか</b>を月別カードで可視化します。
     </div>
   </div>
 </section>
@@ -229,7 +241,7 @@ p.lead{font-family:var(--serif);font-size:1.03rem;color:var(--ink);font-weight:5
   <div class="wrap">
     <div class="sec-num deep">§ 01 ／ 3 LAYERS</div>
     <h2 class="sec-head deep">活動の3層（運営／チームMTG／個人）</h2>
-    <p class="lead">POOLO LIFEの活動は<b>運営レイヤー／チームMTGレイヤー／個人レイヤー</b>の3層で構成されます。各層の目安を先に定義します。</p>
+    <p class="lead">POOLO LIFEの活動は<b>3層</b>で構成。各層の目安を先に定義します。</p>
 
     <div class="layers-overview">
       <div class="locard l1">
@@ -238,8 +250,8 @@ p.lead{font-family:var(--serif);font-size:1.03rem;color:var(--ink);font-weight:5
         <p>受講生全員が集まる<b>固定日</b>。ゲスト講義・WS・合宿／越境／Lv.3本番などの特別イベント。</p>
         <ul>
           <li>ゲスト講義：各2時間（オンライン）</li>
-          <li>WS：1.5〜3時間（型により変動）</li>
-          <li>特別イベント：合宿1泊2日・越境1-2日・Lv.3本番2週間ウィンドウ 他</li>
+          <li>WS：90分〜3時間</li>
+          <li>特別イベント：合宿1泊2日・越境1-2日・Lv.3本番2週ウィンドウ</li>
         </ul>
       </div>
       <div class="locard l2">
@@ -257,7 +269,7 @@ p.lead{font-family:var(--serif);font-size:1.03rem;color:var(--ink);font-weight:5
         <h4>個人で進めるもの</h4>
         <p>受講生が個人で取り組む<b>ジャーナル・プロト制作・越境準備・Lv.3本番</b>など。</p>
         <ul>
-          <li>毎日：5分ジャーナル（全期間）</li>
+          <li>毎日：5分ジャーナル</li>
           <li>週次：月のワークに合わせた個人取り組み</li>
           <li>月末：月末レター／制作物提出</li>
         </ul>
@@ -270,8 +282,8 @@ p.lead{font-family:var(--serif);font-size:1.03rem;color:var(--ink);font-weight:5
 <section style="background:var(--bg-deep);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
   <div class="wrap">
     <div class="sec-num">§ 02 ／ WS TYPES</div>
-    <h2 class="sec-head">WS／イベントの5種類分類（11期を踏襲）</h2>
-    <p class="lead">WSとイベントは<b>5種類</b>に分かれます。種類ごとに目的・頻度・時間が異なるため、分けて可視化します。</p>
+    <h2 class="sec-head">WS／イベントの5種類分類</h2>
+    <p class="lead">WSとイベントは<b>5種類</b>。今回 WS2-2 を「定例」から<b>「発表」（探究テーマ発表）</b>に再分類しました。</p>
 
     <div class="ws-types">
       <div class="wstc t1">
@@ -279,31 +291,31 @@ p.lead{font-family:var(--serif);font-size:1.03rem;color:var(--ink);font-weight:5
         <div class="wstc-icon">◆</div>
         <h4>オープニング</h4>
         <div class="wstc-count">1回<br>M1</div>
-        <div class="wstc-desc">開講日。<b>受講生全員が集まる最初の場</b>。自己紹介なしで身体ワークから入る特殊設計。</div>
+        <div class="wstc-desc">開講日。<b>全員が集まる最初の場</b>。身体ワークから入る特殊設計。</div>
         <div class="wstc-time">3時間</div>
       </div>
       <div class="wstc t2">
         <div class="wstc-num">02</div>
         <div class="wstc-icon">●</div>
         <h4>定例WS</h4>
-        <div class="wstc-count">7回<br>毎月1-2本</div>
-        <div class="wstc-desc">月ごとの学びのワーク。<b>問い×ペアワーク×対話</b>が基本構造。オンラインで実施。</div>
+        <div class="wstc-count">6回<br>毎月1本</div>
+        <div class="wstc-desc">月ごとの学びのワーク。<b>問い×ペアワーク×対話</b>が基本構造。</div>
         <div class="wstc-time">90-180分</div>
       </div>
       <div class="wstc t3">
         <div class="wstc-num">03</div>
         <div class="wstc-icon">▲</div>
         <h4>発表</h4>
-        <div class="wstc-count">2回<br>M3・M8</div>
-        <div class="wstc-desc">仮名乗り発表（M3）と最終発表（M8）。<b>評価しない・整理しない</b>が原則。</div>
-        <div class="wstc-time">各3時間</div>
+        <div class="wstc-count">3回<br>M2・M3・M8</div>
+        <div class="wstc-desc"><b>WS2-2 探究テーマ発表</b>／<b>WS3 仮名乗り発表</b>／<b>最終発表</b>の3回。</div>
+        <div class="wstc-time">各2-3時間</div>
       </div>
       <div class="wstc t4">
         <div class="wstc-num">04</div>
         <div class="wstc-icon">★</div>
         <h4>特別イベント</h4>
         <div class="wstc-count">3回<br>合宿／越境／Lv.3</div>
-        <div class="wstc-desc"><b>身体を伴う非日常の場</b>。合宿1泊2日、越境1-2日、Lv.3本番は2週間ウィンドウの分散型。</div>
+        <div class="wstc-desc"><b>身体を伴う非日常の場</b>。合宿1泊2日・越境1-2日・Lv.3本番2週ウィンドウ。</div>
         <div class="wstc-time">1泊〜2週間</div>
       </div>
       <div class="wstc t5">
@@ -311,7 +323,7 @@ p.lead{font-family:var(--serif);font-size:1.03rem;color:var(--ink);font-weight:5
         <div class="wstc-icon">◇</div>
         <h4>卒業式</h4>
         <div class="wstc-count">1回<br>M8末</div>
-        <div class="wstc-desc">8か月を閉じる<b>儀式</b>。焚き火式・詩の朗読など、評価ではなく身体で区切る場。</div>
+        <div class="wstc-desc">8か月を閉じる<b>儀式</b>。評価ではなく身体で区切る場。</div>
         <div class="wstc-time">半日</div>
       </div>
     </div>
@@ -325,7 +337,7 @@ p.lead{font-family:var(--serif);font-size:1.03rem;color:var(--ink);font-weight:5
           <th class="t3-col">発表</th>
           <th class="t4-col">特別イベント</th>
           <th class="t5-col">卒業式</th>
-          <th style="width:14%">ゲスト講義（参考）</th>
+          <th style="width:14%">ゲスト講義</th>
         </tr>
       </thead>
       <tbody>
@@ -334,21 +346,22 @@ p.lead{font-family:var(--serif);font-size:1.03rem;color:var(--ink);font-weight:5
           <td class="has"><span class="dot">●</span>Open 3h</td>
           <td class="has"><span class="dot">●</span>WS1-2 90分</td>
           <td></td><td></td><td></td>
-          <td>1回（維持）</td>
+          <td>1回</td>
         </tr>
         <tr>
           <td class="m-cell">M2</td>
           <td></td>
-          <td class="has"><span class="dot">● ●</span>WS2-1／WS2-2</td>
-          <td></td><td></td><td></td>
+          <td class="has"><span class="dot">●</span>WS2-1 90分</td>
+          <td class="has"><span class="dot">●</span><b>WS2-2 探究テーマ発表</b></td>
+          <td></td><td></td>
           <td>1回</td>
         </tr>
         <tr>
           <td class="m-cell">M3</td>
           <td></td>
           <td></td>
-          <td class="has"><span class="dot">●</span>仮名乗り発表</td>
-          <td class="has"><span class="dot">●</span>合宿1泊2日</td>
+          <td class="has"><span class="dot">●</span>WS3 仮名乗り発表</td>
+          <td class="has"><span class="dot">●</span><b>合宿1泊2日（W1起点）</b></td>
           <td></td>
           <td>1回（卒業生）</td>
         </tr>
@@ -373,7 +386,7 @@ p.lead{font-family:var(--serif);font-size:1.03rem;color:var(--ink);font-weight:5
           <td></td>
           <td class="has"><span class="dot">●</span>越境 1-2日</td>
           <td></td>
-          <td><b>3回</b>（案B・+1）</td>
+          <td>2回</td>
         </tr>
         <tr>
           <td class="m-cell">M7</td>
@@ -382,7 +395,7 @@ p.lead{font-family:var(--serif);font-size:1.03rem;color:var(--ink);font-weight:5
           <td></td>
           <td class="has"><span class="dot">●</span>Lv.3本番 2週</td>
           <td></td>
-          <td><b>3回</b>（案B・+1）</td>
+          <td>2回</td>
         </tr>
         <tr>
           <td class="m-cell">M8</td>
@@ -396,88 +409,204 @@ p.lead{font-family:var(--serif);font-size:1.03rem;color:var(--ink);font-weight:5
         <tr class="total-ws">
           <td class="m-cell">合計</td>
           <td>1</td>
-          <td>7</td>
-          <td>2</td>
+          <td>6</td>
+          <td>3</td>
           <td>3</td>
           <td>1</td>
-          <td>11 → 13（+2）</td>
+          <td>11（11期同）</td>
         </tr>
       </tbody>
     </table>
   </div>
 </section>
 
-<!-- 3 CASES -->
+<!-- TIMELINE WITH TASKS -->
 <section>
   <div class="wrap">
-    <div class="sec-num blue">§ 03 ／ CASES</div>
-    <h2 class="sec-head blue">3案の俯瞰比較（ゲスト枠増の配置）</h2>
-    <p class="lead">ゲスト枠をどこに足すかで3つの案を提示。案B（バランス）を推奨します。</p>
+    <div class="sec-num teal">§ 03 ／ TIMELINE</div>
+    <h2 class="sec-head teal">時系列で取り組む課題（月別）</h2>
+    <p class="lead">各月に<b>問い</b>（受講生に渡すもの）と<b>取り組む課題</b>（実際にやること）をセットで並べます。★印は特別イベント。</p>
 
-    <table class="case-compare">
-      <thead>
-        <tr>
-          <th>観点</th>
-          <th class="a-col">案A ／ ミニマム</th>
-          <th class="b-col">案B ／ バランス<span class="rec-mark">推奨</span></th>
-          <th class="c-col">案C ／ P3重点</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <th>ゲスト講義数</th>
-          <td>11 → <b>12</b>（+1）</td>
-          <td class="b-col">11 → <b>13</b>（+2）</td>
-          <td>11 → <b>13</b>（+2）</td>
-        </tr>
-        <tr>
-          <th>追加枠の位置</th>
-          <td>M6（越境前）に1枠</td>
-          <td class="b-col"><b>M6</b>（越境前）＋<b>M7</b>（Lv.3送り出し）各1枠</td>
-          <td>M4（書き直し）＋M6（越境前）各1枠</td>
-        </tr>
-        <tr>
-          <th>狙い</th>
-          <td>越境の助走を1回分厚く</td>
-          <td class="b-col"><b>越境前と本番送り出しを両輪強化</b>（P3を厚く）</td>
-          <td>書き直しと越境の深化を両立</td>
-        </tr>
-        <tr>
-          <th>受講生負荷（年間）</th>
-          <td>約127-142h</td>
-          <td class="b-col">約136-153h（+8%）</td>
-          <td>約136-153h（P3偏重）</td>
-        </tr>
-        <tr>
-          <th>運営負荷</th>
-          <td>ほぼ現状維持</td>
-          <td class="b-col">中（ゲスト交渉+2件）</td>
-          <td>中（ゲスト交渉+2件・越境調整）</td>
-        </tr>
-        <tr>
-          <th>リスク</th>
-          <td>入口の揺らぎが弱いまま</td>
-          <td class="b-col">月単位の負荷は平準的</td>
-          <td>P1立ち上がりが相対的に薄い</td>
-        </tr>
-      </tbody>
-    </table>
+    <div class="timeline-cards">
+
+      <div class="tlcard p1">
+        <div class="tlcard-m">
+          <div class="tlcard-mnum">M1</div>
+          <div class="tlcard-phase">P1 自分</div>
+        </div>
+        <div>
+          <div class="tlcard-title">受け取る ／ 見つける①</div>
+          <div class="tlcard-q">いま、自分は何に揺れているか。</div>
+        </div>
+        <div class="tlcard-tasks">
+          <div class="tlcard-tasks-label">取り組む課題</div>
+          <ul>
+            <li class="event"><b>オープニングDay</b>で場に入る（身体ワーク）</li>
+            <li>日常のコンテキストを外す・旅の揺さぶりを身体で受ける</li>
+            <li>探究テーマの種を感知する／揺れノート</li>
+            <li>T1チームとの最初の対話</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tlcard p1">
+        <div class="tlcard-m">
+          <div class="tlcard-mnum">M2</div>
+          <div class="tlcard-phase">P1 自分</div>
+        </div>
+        <div>
+          <div class="tlcard-title">聴かれる ／ 見つける②</div>
+          <div class="tlcard-q">聴く・聴かれる往復で、自分の何が更新されたか。</div>
+        </div>
+        <div class="tlcard-tasks">
+          <div class="tlcard-tasks-label">取り組む課題</div>
+          <ul>
+            <li>聴く／聴かれるを往復する（15分傾聴ペアワーク）</li>
+            <li>受容の床をつくる</li>
+            <li class="event"><b>探究テーマ発表（WS2-2）</b>＝仮の探究を個人発表</li>
+            <li>仮の探究テーマを外に置く</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tlcard p2">
+        <div class="tlcard-m">
+          <div class="tlcard-mnum">M3</div>
+          <div class="tlcard-phase">P2 POOLO</div>
+        </div>
+        <div>
+          <div class="tlcard-title">名乗る ／ 合宿から始まる月</div>
+          <div class="tlcard-q">仮の輪郭を、どこに置くか。</div>
+        </div>
+        <div class="tlcard-tasks">
+          <div class="tlcard-tasks-label">取り組む課題（W1合宿から開始）</div>
+          <ul>
+            <li class="event"><b>W1 合宿 1泊2日</b>（WS4）／仲間の場で身体を置く</li>
+            <li>W2 合宿後の揺れを整理／ゲスト講義（卒業生）</li>
+            <li class="event"><b>W3 仮名乗り発表（WS3）</b>／仮の輪郭を外に置く</li>
+            <li>W4 T1→T2 切替／次期チームへの移行</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tlcard p2">
+        <div class="tlcard-m">
+          <div class="tlcard-mnum">M4</div>
+          <div class="tlcard-phase">P2 POOLO</div>
+        </div>
+        <div>
+          <div class="tlcard-title">書き直す ／ 仲間に届ける</div>
+          <div class="tlcard-q">合宿で揺れた自分を、どう書き直すか。</div>
+        </div>
+        <div class="tlcard-tasks">
+          <div class="tlcard-tasks-label">取り組む課題</div>
+          <ul>
+            <li>合宿の揺り戻しを語彙化（書き直しWS）</li>
+            <li>名乗りを書き直す／仮の輪郭を更新する</li>
+            <li>コンテンツ型プロト制作（書く／撮る／声）</li>
+            <li>T2チーム内で仲間に届ける（お披露目）</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tlcard p3">
+        <div class="tlcard-m">
+          <div class="tlcard-mnum">M5</div>
+          <div class="tlcard-phase">P3 社会</div>
+        </div>
+        <div>
+          <div class="tlcard-title">外へ一歩 ／ 外で試す</div>
+          <div class="tlcard-q">仮決めは、同期の外で何を連れて帰ってくるか。</div>
+        </div>
+        <div class="tlcard-tasks">
+          <div class="tlcard-tasks-label">取り組む課題</div>
+          <ul>
+            <li>仮決め宣言文120字を書く（宣言WS）</li>
+            <li class="event"><b>同期外1名に手渡し本番</b>（30-90分）</li>
+            <li>反応の振れ幅を身体で受ける</li>
+            <li>体験型プロト構想着手</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tlcard p3">
+        <div class="tlcard-m">
+          <div class="tlcard-mnum">M6</div>
+          <div class="tlcard-phase">P3 社会</div>
+        </div>
+        <div>
+          <div class="tlcard-title">越境して届ける</div>
+          <div class="tlcard-q">予測不能な他者に、自分の何が通じたか。</div>
+        </div>
+        <div class="tlcard-tasks">
+          <div class="tlcard-tasks-label">取り組む課題</div>
+          <ul>
+            <li>越境先の選定と持参品の準備</li>
+            <li class="event"><b>POOLO外越境本番 1-2日</b></li>
+            <li>越境先で対話の場を開く（1-3人）</li>
+            <li>越境振り返りWS／M7構想ラフ着手</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tlcard p3">
+        <div class="tlcard-m">
+          <div class="tlcard-mnum">M7</div>
+          <div class="tlcard-phase">P3 社会 ／ Lv.3</div>
+        </div>
+        <div>
+          <div class="tlcard-title">知らない人に届ける ／ Lv.3本番</div>
+          <div class="tlcard-q">知らない人の前に差し出して、何が返ってきたか。</div>
+        </div>
+        <div class="tlcard-tasks">
+          <div class="tlcard-tasks-label">取り組む課題</div>
+          <ul>
+            <li>差し出し準備（企画／場所／相手／形式）</li>
+            <li class="event"><b>Lv.3本番 2週間ウィンドウ</b>（分散型・自主企画）</li>
+            <li>受け手の生の反応を身体で浴びる</li>
+            <li>T2解散式／4か月の記憶を残す儀式</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tlcard p4">
+        <div class="tlcard-m">
+          <div class="tlcard-mnum">M8</div>
+          <div class="tlcard-phase">P4 振り返り</div>
+        </div>
+        <div>
+          <div class="tlcard-title">振り返り ／ 螺旋を持ち帰る</div>
+          <div class="tlcard-q">8か月で、自分のどの筋肉が残ったか。</div>
+        </div>
+        <div class="tlcard-tasks">
+          <div class="tlcard-tasks-label">取り組む課題</div>
+          <ul>
+            <li>T3チーム（新4人）で8か月の反応を交換</li>
+            <li>WS8 最終発表準備（完成形ではなく宿ったもの）</li>
+            <li class="event"><b>最終発表会</b>（受講生主語・半日）</li>
+            <li class="event"><b>卒業式</b>（焚き火式など・儀式）</li>
+            <li>次の誰かに渡す回路を個人選択</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
   </div>
 </section>
 
-<!-- MONTH MATRIX case B -->
-<section>
+<!-- MONTH MATRIX -->
+<section style="background:var(--bg-deep);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
   <div class="wrap">
     <div class="sec-num blue">§ 04 ／ MONTH MATRIX</div>
-    <h2 class="sec-head blue">案B 月別マトリクス（推奨）</h2>
-    <p class="lead">8か月 × 3層（運営／チームMTG／個人）で活動と時間の見通し。</p>
+    <h2 class="sec-head blue">月別マトリクス ／ 3層×時間見通し</h2>
+    <p class="lead">8か月 × 3層（運営／チームMTG／個人）で活動と時間の見通し。ゲスト講義は11期と同じ<b>11コマ</b>。</p>
 
     <table class="month-matrix">
       <thead>
         <tr>
           <th style="width:6%">月</th>
           <th style="width:28%">運営（ゲスト／WS／特別）</th>
-          <th style="width:22%">チームMTG（定例）</th>
+          <th style="width:22%">チームMTG</th>
           <th style="width:28%">個人</th>
           <th style="width:16%">月合計時間</th>
         </tr>
@@ -485,78 +614,77 @@ p.lead{font-family:var(--serif);font-size:1.03rem;color:var(--ink);font-weight:5
       <tbody>
         <tr class="p1-row">
           <td class="m-cell">M1<br><span class="unit">P1 自分</span></td>
-          <td>G×1（2h）<br>WS1-1 Open 3h／WS1-2 90分</td>
+          <td>G×1（2h）<br>Open 3h／WS1-2 90分</td>
           <td>T1定例×2<br><span class="unit">（各60分）</span></td>
           <td>揺れノート・旅記憶棚卸<br><span class="unit">（3-5h）</span></td>
           <td><span class="total">約10-12h</span></td>
         </tr>
         <tr class="p1-row">
           <td class="m-cell">M2<br><span class="unit">P1 自分</span></td>
-          <td>G×1（2h）<br>WS2-1 90分／WS2-2 120分</td>
+          <td>G×1（2h）<br>WS2-1 90分／<b>WS2-2 探究テーマ発表</b></td>
           <td>T1定例×2<br><span class="unit">（各60分）</span></td>
-          <td>15分傾聴ペアワーク<br><span class="unit">（4-5h）</span></td>
+          <td>15分傾聴ペア／テーマ発表準備<br><span class="unit">（4-5h）</span></td>
           <td><span class="total">約12h</span></td>
         </tr>
         <tr class="p2-row camp-row">
           <td class="m-cell">M3<br><span class="unit">P2 POOLO</span><br><b>合宿</b></td>
-          <td>G×1 <b>卒業生</b>（2h）<br>WS3 3h／<b>合宿1泊2日</b>（約20h）</td>
+          <td>W1：<b>合宿1泊2日</b>（約20h）<br>W2：G×1 卒業生<br>W3：WS3 仮名乗り発表</td>
           <td>T1→T2切替式<br><span class="unit">（90分）</span></td>
-          <td>仮名乗り120字・持参準備<br><span class="unit">（4-6h）</span></td>
+          <td>仮名乗り120字・合宿準備<br><span class="unit">（4-6h）</span></td>
           <td><span class="total">約33h</span></td>
         </tr>
         <tr class="p2-row">
           <td class="m-cell">M4<br><span class="unit">P2 POOLO</span></td>
-          <td>G×2（各2h）<br>WS4.5 書き直しWS 2h</td>
+          <td>G×2（各2h）<br>書き直しWS 2h</td>
           <td>T2定例×2<br><span class="unit">（60分／90分）</span></td>
           <td>コンテンツ型プロト<br><span class="unit">（6-8h）</span></td>
           <td><span class="total">約15h</span></td>
         </tr>
         <tr class="p3-row">
           <td class="m-cell">M5<br><span class="unit">P3 社会</span></td>
-          <td>G×2（各2h）<br>WS5 仮決め宣言 3h</td>
+          <td>G×2（各2h）<br>宣言WS 3h</td>
           <td>T2定例×2<br><span class="unit">（60分／90分）</span></td>
           <td>体験型・同期外1名手渡し<br><span class="unit">（5-7h）</span></td>
           <td><span class="total">約16h</span></td>
         </tr>
         <tr class="p3-row">
           <td class="m-cell">M6<br><span class="unit">P3 社会</span></td>
-          <td><b>G×2</b>（各2h）<br>WS6 越境振り返り 2h／<b>越境本番 1-2日</b></td>
+          <td>G×2（各2h）<br>WS6 越境振り返り／<b>越境本番 1-2日</b></td>
           <td>T2定例×2<br><span class="unit">（各60分）</span></td>
           <td>越境準備・振り返り<br><span class="unit">（10-18h）</span></td>
           <td><span class="total">約20-28h</span></td>
         </tr>
         <tr class="p3-row lv3-row">
           <td class="m-cell">M7<br><span class="unit">P3 社会</span><br><b>Lv.3</b></td>
-          <td><b>G×3</b>（既存2＋追加1）<br>WS7 差し出し準備 2h／<b>Lv.3本番 2週ウィンドウ</b></td>
-          <td>T2定例×2<br><span class="unit">（60分／90分）</span>＋<b>解散式半日</b></td>
+          <td>G×2（各2h）<br>WS7 差し出し準備／<b>Lv.3本番 2週</b></td>
+          <td>T2定例×2＋<b>解散式半日</b></td>
           <td>本番企画・実施・反応収集<br><span class="unit">（15-20h）</span></td>
-          <td><span class="total">約24-29h</span></td>
+          <td><span class="total">約22-27h</span></td>
         </tr>
         <tr class="p4-row">
           <td class="m-cell">M8<br><span class="unit">P4 振り返り</span></td>
-          <td><b>ゲスト不在</b><br>WS8 準備 2-2.5h／最終発表＋卒業式</td>
+          <td><b>ゲスト不在</b><br>WS8 準備／最終発表／卒業式</td>
           <td>T3定例×2<br><span class="unit">（各60分）</span></td>
           <td>8か月を1枚に畳む<br><span class="unit">（3-5h）</span></td>
           <td><span class="total">約10-12h</span></td>
         </tr>
         <tr class="total-row">
           <td class="m-cell">合計</td>
-          <td><b>ゲスト講義 13</b>（M1:1／M2:1／M3:1／M4:2／M5:2／M6:3／M7:3／M8:0）／WS・発表・特別 計14</td>
-          <td><b>T1×4 ／ T2×8＋解散式 ／ T3×2</b></td>
+          <td><b>ゲスト11</b>（M1:1/M2:1/M3:1/M4:2/M5:2/M6:2/M7:2）<br>WS6／発表3／特別3／卒業式1</td>
+          <td>T1×4 ／ T2×8＋解散式 ／ T3×2</td>
           <td>個人 50-74h</td>
-          <td><span class="total">約138-156h</span></td>
+          <td><span class="total">約138-155h</span></td>
         </tr>
       </tbody>
     </table>
   </div>
 </section>
 
-<!-- PHASE AGGREGATION -->
-<section style="background:var(--bg-deep);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+<!-- PHASE AGG -->
+<section>
   <div class="wrap">
     <div class="sec-num">§ 05 ／ PHASE</div>
-    <h2 class="sec-head">フェーズ別集計（案B）</h2>
-    <p class="lead">P1/P2/P3/P4 それぞれの接点数・個人負荷・合計負荷。<b>P3（M5-M7）が全体の約4割</b>を占める山型。</p>
+    <h2 class="sec-head">フェーズ別集計</h2>
 
     <div class="phase-agg">
       <div class="pacard p1">
@@ -564,30 +692,32 @@ p.lead{font-family:var(--serif);font-size:1.03rem;color:var(--ink);font-weight:5
         <h4>M1-M2（2か月）</h4>
         <div class="paitem"><span class="plbl">ゲスト講義</span><span class="pval">2回</span></div>
         <div class="paitem"><span class="plbl">オープニング</span><span class="pval">1回</span></div>
-        <div class="paitem"><span class="plbl">定例WS</span><span class="pval">3回</span></div>
+        <div class="paitem"><span class="plbl">定例WS</span><span class="pval">2回</span></div>
+        <div class="paitem"><span class="plbl">発表</span><span class="pval">1回（探究テーマ）</span></div>
         <div class="paitem"><span class="plbl">チームMTG</span><span class="pval">T1×4</span></div>
         <div class="paitem"><span class="plbl">個人</span><span class="pval">7-10h</span></div>
         <div class="patotal">約22-24h</div>
       </div>
       <div class="pacard p2">
         <div class="palabel">P2 POOLO</div>
-        <h4>M3-M4（2か月・合宿）</h4>
+        <h4>M3-M4（2か月）</h4>
         <div class="paitem"><span class="plbl">ゲスト講義</span><span class="pval">3回</span></div>
+        <div class="paitem"><span class="plbl">合宿</span><span class="pval">1回（W1起点）</span></div>
         <div class="paitem"><span class="plbl">発表</span><span class="pval">1回（仮名乗り）</span></div>
-        <div class="paitem"><span class="plbl">合宿</span><span class="pval">1回（1泊2日）</span></div>
         <div class="paitem"><span class="plbl">定例WS</span><span class="pval">1回</span></div>
+        <div class="paitem"><span class="plbl">チームMTG</span><span class="pval">切替＋T2×2</span></div>
         <div class="paitem"><span class="plbl">個人</span><span class="pval">10-14h</span></div>
         <div class="patotal">約48h</div>
       </div>
       <div class="pacard p3">
         <div class="palabel">P3 社会</div>
-        <h4>M5-M7（3か月・Lv.3）</h4>
-        <div class="paitem"><span class="plbl">ゲスト講義</span><span class="pval"><b>8回</b>（M5:2／M6:3／M7:3）</span></div>
-        <div class="paitem"><span class="plbl">越境／Lv.3</span><span class="pval">2回（本番）</span></div>
+        <h4>M5-M7（3か月）</h4>
+        <div class="paitem"><span class="plbl">ゲスト講義</span><span class="pval">6回</span></div>
+        <div class="paitem"><span class="plbl">越境／Lv.3</span><span class="pval">2回</span></div>
         <div class="paitem"><span class="plbl">定例WS</span><span class="pval">3回</span></div>
         <div class="paitem"><span class="plbl">チームMTG</span><span class="pval">T2×6＋解散式</span></div>
         <div class="paitem"><span class="plbl">個人</span><span class="pval">30-45h</span></div>
-        <div class="patotal">約60-73h</div>
+        <div class="patotal">約58-71h</div>
       </div>
       <div class="pacard p4">
         <div class="palabel">P4 振り返り</div>
@@ -604,47 +734,10 @@ p.lead{font-family:var(--serif);font-size:1.03rem;color:var(--ink);font-weight:5
   </div>
 </section>
 
-<!-- ADDED GUESTS -->
-<section>
-  <div class="wrap">
-    <div class="sec-num warm">§ 06 ／ ADDED GUESTS</div>
-    <h2 class="sec-head warm">追加ゲスト枠2枠の詳細（案B）</h2>
-    <p class="lead">M6（越境前）とM7（Lv.3送り出し）に各1枠を追加。M1は1コマ維持。<b>P2-P3寄りの強化</b>で、越境〜本番の縦糸を太くします。</p>
-
-    <div class="added-guests">
-      <div class="agcard">
-        <div class="agm">ADD 01 ／ M6 越境して届ける</div>
-        <h4>場の磁力 ／ 越境先の設計を学ぶ</h4>
-        <div class="agq"><b>月の問い</b>予測不能な他者に、自分の何が通じたか。</div>
-        <div class="agreason"><b>なぜ追加するか</b>：M6越境は個人負荷が最も重い（10-18h）。越境の前週に<b>磁場の作り方</b>を受け取ると、現場での揺さぶりの受け止めが変わる。既存1コマに追加で2コマ体制に。</div>
-        <div class="agcands">
-          <b>候補（3人）</b><br>
-          <strong>A</strong>田瀬理夫（プランタゴ／庭と風景・場の生態系）<br>
-          <strong>B</strong>尾道U2／ブルーボトル創業期の場づくりリーダー<br>
-          <strong>C</strong>西村佳哲（リビングワールド・M2移設案もあり）
-        </div>
-      </div>
-
-      <div class="agcard">
-        <div class="agm">ADD 02 ／ M7 Lv.3送り出し強化</div>
-        <h4>企画と実験の背中 ／ 本番前の勇気づけ</h4>
-        <div class="agq"><b>月の問い</b>知らない人の前に差し出して、何が返ってきたか。</div>
-        <div class="agreason"><b>なぜ追加するか</b>：M7は最重量月（22-27h）でLv.3本番。既存の阿部裕志型（企画・海士町）に加え、<b>実験的な背中を押す型</b>（既定レール外し）を置くことで、受講生の多様な向かい方を支える。本番直前の<b>送り出し2本立て</b>で、Lv.3到達の納得度が上がる。</div>
-        <div class="agcands">
-          <b>候補（3人）</b><br>
-          <strong>A</strong>若新雄純（プロデューサー／既定レール外しの実験を20年）<br>
-          <strong>B</strong>仲山進也（楽天大学／大企業内外を往復）<br>
-          <strong>C</strong>影山知明（贈与の論理／M5から縦糸並走案もあり）
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- 11TH DIFF -->
 <section style="background:var(--bg-deep);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
   <div class="wrap">
-    <div class="sec-num deep">§ 07 ／ DIFF</div>
+    <div class="sec-num deep">§ 06 ／ DIFF</div>
     <h2 class="sec-head deep">11期からの主な変更点</h2>
 
     <table class="diff-table">
@@ -653,52 +746,59 @@ p.lead{font-family:var(--serif);font-size:1.03rem;color:var(--ink);font-weight:5
           <th style="width:15%">項目</th>
           <th style="width:27%">11期</th>
           <th style="width:6%"></th>
-          <th class="new-col" style="width:27%">12期（案B）</th>
+          <th class="new-col" style="width:27%">12期</th>
           <th style="width:25%">影響</th>
         </tr>
       </thead>
       <tbody>
         <tr>
+          <th>ゲスト講義数</th>
+          <td>11</td>
+          <td class="arrow">＝</td>
+          <td class="new-col">11（同数維持）</td>
+          <td>総量は変えず、質と配置の見直しで質的改善</td>
+        </tr>
+        <tr>
           <th>合宿位置</th>
           <td>M4-W1</td>
           <td class="arrow">→</td>
-          <td class="new-col">M3</td>
-          <td>仮名乗り → 合宿が連続。螺旋が1回転早まる</td>
+          <td class="new-col"><b>M3-W1</b>（月の起点）</td>
+          <td>合宿から月が始まり、合宿後に発表・書き直しへ</td>
         </tr>
         <tr>
           <th>フェーズ区切り</th>
           <td>3-3-2</td>
           <td class="arrow">→</td>
           <td class="new-col">2-2-3-1</td>
-          <td>P3を厚く。越境〜贈与の時間を確保</td>
+          <td>P3を厚く・P4を独立月に</td>
+        </tr>
+        <tr>
+          <th>WS2-2の位置づけ</th>
+          <td>定例WS</td>
+          <td class="arrow">→</td>
+          <td class="new-col"><b>発表（探究テーマ発表）</b></td>
+          <td>個人発表として独立。M2に「外に置く」実践が1回増える</td>
         </tr>
         <tr>
           <th>M8ゲスト</th>
           <td>あり（1本）</td>
           <td class="arrow">→</td>
           <td class="new-col">不在</td>
-          <td>受講生の言葉で閉じる／運営負荷削減</td>
+          <td>受講生の言葉で閉じる</td>
         </tr>
         <tr>
           <th>T3チーム</th>
           <td>T1／T2のみ</td>
           <td class="arrow">→</td>
-          <td class="new-col">T3新設（M8・新鮮な組合せ）</td>
+          <td class="new-col">T3新設</td>
           <td>別の鏡で振り返る回路</td>
-        </tr>
-        <tr>
-          <th>ゲスト講義数</th>
-          <td>11</td>
-          <td class="arrow">→</td>
-          <td class="new-col">13（+2）</td>
-          <td>M6（越境前）とM7（Lv.3送り出し）に追加／M1は1コマ維持</td>
         </tr>
         <tr>
           <th>受講生年間負荷</th>
           <td>約125-140h</td>
           <td class="arrow">→</td>
-          <td class="new-col">約138-156h（+10%）</td>
-          <td>許容範囲・P4軽量化で相殺</td>
+          <td class="new-col">約138-155h（+10%）</td>
+          <td>探究テーマ発表・越境の厚みで微増</td>
         </tr>
       </tbody>
     </table>
@@ -708,41 +808,36 @@ p.lead{font-family:var(--serif);font-size:1.03rem;color:var(--ink);font-weight:5
 <!-- DECISION -->
 <section>
   <div class="wrap">
-    <div class="sec-num star">§ 08 ／ DECISION</div>
-    <h2 class="sec-head star">社長への判断論点（5つ）</h2>
-    <p class="lead">5点に判断が入れば、週別タイムライン詳細化・追加ゲスト交渉・合宿手配前倒しに進めます。</p>
+    <div class="sec-num star">§ 07 ／ DECISION</div>
+    <h2 class="sec-head star">社長への判断論点</h2>
+    <p class="lead">以下4点に判断が入れば、Phase 2（週別タイムライン詳細化）に進みます。</p>
 
     <div class="q-list">
       <div class="q-item">
-        <div class="q-num">Q 1 ／ 採用案</div>
-        <div class="q-body">A（ミニマム）／B（バランス・推奨）／C（P3重点）のどれを採用するか。</div>
-        <div class="q-note">11期で最も手応えが薄かった月がどこか（アンケート・運営ヒアリング）を踏まえて判断。デフォルトは<b>案B</b>。</div>
+        <div class="q-num">Q 1 ／ M3合宿の週配分</div>
+        <div class="q-body">M3は合宿から始める方向で確定。W1合宿／W2ゲスト／W3仮名乗り発表／W4余白でよいか。</div>
+        <div class="q-note">合宿を月の起点に置くことで、合宿で揺れた身体のまま<b>ゲスト（卒業生）→ 仮名乗り発表</b>の流れが作れます。W4の扱い（T2切替準備／余白／自主ワーク）は要検討。</div>
       </div>
       <div class="q-item">
-        <div class="q-num">Q 2 ／ 追加ゲストの型</div>
-        <div class="q-body">M1追加は「身体×哲学」／「日常×違和」のどちらか。M6追加は「場の磁力」／「対話の技術」のどちらか。</div>
-        <div class="q-note">12期参加者像（年齢・関心）と追加枠の質のマッチが判断基準。候補バイネームは§05に3人ずつ。</div>
+        <div class="q-num">Q 2 ／ WS2-2（探究テーマ発表）の形式</div>
+        <div class="q-body">個人発表の形式・時間・聴き方をどう設計するか。</div>
+        <div class="q-note">M2での「外に置く」最初の体験として重要な発表。<b>完成形ではなく仮置き</b>／評価しない／問いで返す、など原則の運営指針が必要。1人何分×何人／オンライン全員前 or 小グループ、の判断。</div>
       </div>
       <div class="q-item">
-        <div class="q-num">Q 3 ／ 合宿M3で確定か</div>
-        <div class="q-body">M3合宿で確定してよいか（既存M4から1か月前倒し）。</div>
-        <div class="q-note">会場手配は2か月前倒しが必要。参加者の入金サイクルとの整合も確認。</div>
+        <div class="q-num">Q 3 ／ ゲスト講義の配分確認</div>
+        <div class="q-body">仮置き配分（M1:1／M2:1／M3:1／M4:2／M5:2／M6:2／M7:2／M8:0＝11）でよいか。</div>
+        <div class="q-note">11期の実際の月別配分と異なる場合、シートでご共有いただければ修正します。現状は<b>P3（M5-M7）の厚さ</b>を維持する案。</div>
       </div>
       <div class="q-item">
-        <div class="q-num">Q 4 ／ チームMTG週次60分継続</div>
-        <div class="q-body">T1/T2定例の週次60-90分は現状維持でよいか。</div>
-        <div class="q-note">M6/M7の重月に90分固定へ増やすか、60分のまま受講生の自発性に委ねるか。11期アンケートの「T2定例の密度」への反応次第。</div>
-      </div>
-      <div class="q-item">
-        <div class="q-num">Q 5 ／ M8ゲスト不在の確定</div>
-        <div class="q-body">M8はゲスト不在で確定か。卒業生ゲストを置いて次期への接続を作る案もあり得る。</div>
-        <div class="q-note">卒業後のコミュニティ戦略（リピート・紹介）との整合。デフォルトは<b>不在（受講生主語で閉じる）</b>。</div>
+        <div class="q-num">Q 4 ／ 時系列×課題の粒度</div>
+        <div class="q-body">§03の月別タイムライン（問い＋取り組む課題）の粒度はこれでよいか。</div>
+        <div class="q-note">マーケ・LP向けにはこれで十分、運営・ファシリ向けには<b>さらに週別</b>に降ろす必要あり。Phase 2で週別タイムラインを作成します。</div>
       </div>
     </div>
 
     <div class="rec">
       <span class="rec-label">参謀長の推奨</span>
-      <b class="hl">案B（バランス）</b>× M1<b class="hl">1コマ維持</b>× M6追加は<b class="hl">田瀬理夫</b>（場の磁力）× M7追加は<b class="hl">若新雄純</b>（実験的な背中）× 合宿<b class="hl">M3確定</b>× 週次<b class="hl">60-90分継続</b>× M8<b class="hl">ゲスト不在維持</b>。P2-P3の越境〜Lv.3本番の縦糸を太くする配置です。判断後、Phase 2（月別詳細化）とゲスト交渉開始に進めます。
+      ゲスト講義<b class="hl">11コマ維持</b>×WS2-2を<b class="hl">探究テーマ発表</b>として独立×M3は<b class="hl">合宿W1起点</b>×時系列×課題を<b class="hl">月別タイムラインで可視化</b>。11期の総量を変えず、<b>配置と位置づけの見直し</b>で質的改善を図る設計です。
     </div>
   </div>
 </section>
@@ -755,7 +850,7 @@ p.lead{font-family:var(--serif);font-size:1.03rem;color:var(--ink);font-weight:5
     <a href="poolo-curriculum-shuka.html">shuka案</a>
     <a href="index.html">11期カリキュラム</a>
   </div>
-  <p>POOLO LIFE ／ 12期 活動内容設計 ／ 3層×4フェーズ×3案比較 ／ 2026-04-22</p>
+  <p>POOLO LIFE ／ 12期 活動内容設計 v4 ／ 時系列×3層×4フェーズ ／ 2026-04-22</p>
 </footer>
 
 </body>
