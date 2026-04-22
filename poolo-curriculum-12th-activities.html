@@ -158,11 +158,48 @@ p.lead{font-family:var(--serif);font-size:1.03rem;color:var(--ink);font-weight:5
 .footer a:hover{color:#fff;border-bottom-color:#fff}
 .footer p{color:rgba(255,255,255,0.6);font-size:0.72rem;margin-top:0.5rem;letter-spacing:0.1em}
 
+/* WS types */
+.ws-types{display:grid;grid-template-columns:repeat(5,1fr);gap:0.8rem;max-width:1120px;margin:1.5rem auto 0}
+.wstc{background:#fff;border:1px solid var(--line);border-top:3px solid var(--line);padding:1.2rem 1rem;border-radius:2px;display:flex;flex-direction:column;gap:0.5rem;min-height:250px;position:relative}
+.wstc.t1{border-top-color:var(--green)}
+.wstc.t2{border-top-color:var(--purple)}
+.wstc.t3{border-top-color:var(--star)}
+.wstc.t4{border-top-color:var(--warm)}
+.wstc.t5{border-top-color:var(--slate)}
+.wstc-num{position:absolute;top:-1px;right:10px;background:var(--deep);color:#fff;font-family:var(--serif);font-size:0.65rem;letter-spacing:0.2em;padding:0.2rem 0.5rem;font-weight:600;border-radius:0 0 2px 2px}
+.wstc-icon{font-size:1.5rem;text-align:center;margin-top:0.3rem}
+.wstc.t1 .wstc-icon{color:var(--green)}
+.wstc.t2 .wstc-icon{color:var(--purple)}
+.wstc.t3 .wstc-icon{color:var(--star)}
+.wstc.t4 .wstc-icon{color:var(--warm)}
+.wstc.t5 .wstc-icon{color:var(--slate)}
+.wstc h4{font-family:var(--serif);font-size:1rem;color:var(--ink);font-weight:600;text-align:center;margin-bottom:0.2rem}
+.wstc-count{font-size:0.7rem;color:var(--mute);text-align:center;letter-spacing:0.05em;padding:0.35rem 0.5rem;background:var(--bg-deep);border-radius:2px;line-height:1.5}
+.wstc-desc{font-size:0.75rem;color:var(--sub);line-height:1.8;flex:1}
+.wstc-desc b{color:var(--ink);font-weight:600}
+.wstc-time{font-family:var(--serif);font-size:0.8rem;color:var(--blue-deep);font-weight:600;text-align:center;padding:0.4rem;background:var(--blue-bg);border-radius:2px;margin-top:auto}
+
+.ws-types-matrix{width:100%;max-width:1120px;margin:1.8rem auto 0;border-collapse:collapse;background:#fff;border:1px solid var(--line);font-size:0.78rem}
+.ws-types-matrix thead th{background:var(--deep);color:#fff;font-family:var(--serif);font-weight:600;padding:0.8rem 0.6rem;text-align:center;letter-spacing:0.04em;font-size:0.75rem}
+.ws-types-matrix thead th.t1-col{background:var(--green)}
+.ws-types-matrix thead th.t2-col{background:var(--purple)}
+.ws-types-matrix thead th.t3-col{background:var(--star)}
+.ws-types-matrix thead th.t4-col{background:var(--warm)}
+.ws-types-matrix thead th.t5-col{background:var(--slate)}
+.ws-types-matrix tbody td{padding:0.7rem 0.5rem;color:var(--sub);border-bottom:1px solid var(--line);line-height:1.55;vertical-align:middle;text-align:center;font-size:0.73rem}
+.ws-types-matrix tbody td.m-cell{font-family:var(--serif);font-weight:700;color:var(--ink);background:var(--bg-deep);white-space:nowrap}
+.ws-types-matrix tbody td.has{background:#fff9ee;color:var(--ink);font-weight:500}
+.ws-types-matrix tbody td.has .dot{font-size:1.1rem;color:var(--warm);font-weight:700;display:block;line-height:1}
+.ws-types-matrix tbody tr.total-ws{background:var(--blue-bg)}
+.ws-types-matrix tbody tr.total-ws td{color:var(--blue-deep);font-weight:700;font-family:var(--serif);font-size:0.9rem}
+
 @media(max-width:860px){
   .layers-overview,.added-guests{grid-template-columns:1fr}
   .phase-agg{grid-template-columns:repeat(2,1fr)}
   .preview-title{font-size:1.3rem}
   .month-matrix{font-size:0.72rem}
+  .ws-types{grid-template-columns:repeat(2,1fr)}
+  .ws-types-matrix{font-size:0.7rem}
 }
 </style>
 </head>
@@ -173,7 +210,7 @@ p.lead{font-family:var(--serif);font-size:1.03rem;color:var(--ink);font-weight:5
     <span class="preview-tag">12TH ／ ACTIVITY DESIGN</span>
     <h1 class="preview-title">POOLO LIFE 12期 活動内容設計</h1>
     <div class="preview-sub">3層（運営／チームMTG／個人）× 4フェーズ × 3案比較</div>
-    <div class="preview-meta">今期（11期）振り返りベース ／ ゲスト枠 +2（11→13）／ 2026-04-22</div>
+    <div class="preview-meta">今期（11期）振り返りベース ／ ゲスト講義 9→11（+2）／ WSを5種類に分類 ／ 2026-04-22</div>
   </div>
 </header>
 
@@ -182,7 +219,7 @@ p.lead{font-family:var(--serif);font-size:1.03rem;color:var(--ink);font-weight:5
   <div class="wrap">
     <div class="objective">
       <span class="objective-label">このプレビューの目的</span>
-      12期の活動内容を<b>3層（固定日／チームMTG／個人）× 4フェーズ（P1-P4）× 時間見通し</b>で整理します。ゲスト枠を現状<b>11コマ（ゲスト講義7＋特別イベント内ゲスト出演4）→ 13コマ（＋2）</b>に拡張する前提で、<b>3案（A/B/C）を比較</b>します。推奨は案B（入口と越境前を両輪強化）。
+      12期の活動内容を<b>3層（固定日／チームMTG／個人）× 4フェーズ（P1-P4）× 時間見通し</b>で整理します。現状<b>ゲスト講義9コマ → 11コマ（+2）</b>に拡張する前提で、<b>3案（A/B/C）を比較</b>します。WSは<b>オープニング／定例／発表／特別イベント／卒業式の5種類</b>に分類。推奨は案B（入口と越境前を両輪強化）。
     </div>
   </div>
 </section>
@@ -229,10 +266,151 @@ p.lead{font-family:var(--serif);font-size:1.03rem;color:var(--ink);font-weight:5
   </div>
 </section>
 
-<!-- 3 CASES -->
+<!-- WS TYPES -->
 <section style="background:var(--bg-deep);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
   <div class="wrap">
-    <div class="sec-num blue">§ 02 ／ CASES</div>
+    <div class="sec-num">§ 02 ／ WS TYPES</div>
+    <h2 class="sec-head">WS／イベントの5種類分類（11期を踏襲）</h2>
+    <p class="lead">WSとイベントは<b>5種類</b>に分かれます。種類ごとに目的・頻度・時間が異なるため、分けて可視化します。</p>
+
+    <div class="ws-types">
+      <div class="wstc t1">
+        <div class="wstc-num">01</div>
+        <div class="wstc-icon">◆</div>
+        <h4>オープニング</h4>
+        <div class="wstc-count">1回<br>M1</div>
+        <div class="wstc-desc">開講日。<b>受講生全員が集まる最初の場</b>。自己紹介なしで身体ワークから入る特殊設計。</div>
+        <div class="wstc-time">3時間</div>
+      </div>
+      <div class="wstc t2">
+        <div class="wstc-num">02</div>
+        <div class="wstc-icon">●</div>
+        <h4>定例WS</h4>
+        <div class="wstc-count">7回<br>毎月1-2本</div>
+        <div class="wstc-desc">月ごとの学びのワーク。<b>問い×ペアワーク×対話</b>が基本構造。オンラインで実施。</div>
+        <div class="wstc-time">90-180分</div>
+      </div>
+      <div class="wstc t3">
+        <div class="wstc-num">03</div>
+        <div class="wstc-icon">▲</div>
+        <h4>発表</h4>
+        <div class="wstc-count">2回<br>M3・M8</div>
+        <div class="wstc-desc">仮名乗り発表（M3）と最終発表（M8）。<b>評価しない・整理しない</b>が原則。</div>
+        <div class="wstc-time">各3時間</div>
+      </div>
+      <div class="wstc t4">
+        <div class="wstc-num">04</div>
+        <div class="wstc-icon">★</div>
+        <h4>特別イベント</h4>
+        <div class="wstc-count">3回<br>合宿／越境／Lv.3</div>
+        <div class="wstc-desc"><b>身体を伴う非日常の場</b>。合宿1泊2日、越境1-2日、Lv.3本番は2週間ウィンドウの分散型。</div>
+        <div class="wstc-time">1泊〜2週間</div>
+      </div>
+      <div class="wstc t5">
+        <div class="wstc-num">05</div>
+        <div class="wstc-icon">◇</div>
+        <h4>卒業式</h4>
+        <div class="wstc-count">1回<br>M8末</div>
+        <div class="wstc-desc">8か月を閉じる<b>儀式</b>。焚き火式・詩の朗読など、評価ではなく身体で区切る場。</div>
+        <div class="wstc-time">半日</div>
+      </div>
+    </div>
+
+    <table class="ws-types-matrix">
+      <thead>
+        <tr>
+          <th style="width:9%">月</th>
+          <th class="t1-col">オープニング</th>
+          <th class="t2-col">定例WS</th>
+          <th class="t3-col">発表</th>
+          <th class="t4-col">特別イベント</th>
+          <th class="t5-col">卒業式</th>
+          <th style="width:14%">ゲスト講義（参考）</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="m-cell">M1</td>
+          <td class="has"><span class="dot">●</span>Open 3h</td>
+          <td class="has"><span class="dot">●</span>WS1-2 90分</td>
+          <td></td><td></td><td></td>
+          <td><b>2回</b>（案B・+1）</td>
+        </tr>
+        <tr>
+          <td class="m-cell">M2</td>
+          <td></td>
+          <td class="has"><span class="dot">● ●</span>WS2-1／WS2-2</td>
+          <td></td><td></td><td></td>
+          <td>1回</td>
+        </tr>
+        <tr>
+          <td class="m-cell">M3</td>
+          <td></td>
+          <td></td>
+          <td class="has"><span class="dot">●</span>仮名乗り発表</td>
+          <td class="has"><span class="dot">●</span>合宿1泊2日</td>
+          <td></td>
+          <td>1回（卒業生）</td>
+        </tr>
+        <tr>
+          <td class="m-cell">M4</td>
+          <td></td>
+          <td class="has"><span class="dot">●</span>書き直しWS</td>
+          <td></td><td></td><td></td>
+          <td>1回</td>
+        </tr>
+        <tr>
+          <td class="m-cell">M5</td>
+          <td></td>
+          <td class="has"><span class="dot">●</span>宣言WS</td>
+          <td></td><td></td><td></td>
+          <td>1回</td>
+        </tr>
+        <tr>
+          <td class="m-cell">M6</td>
+          <td></td>
+          <td class="has"><span class="dot">●</span>越境振り返り</td>
+          <td></td>
+          <td class="has"><span class="dot">●</span>越境 1-2日</td>
+          <td></td>
+          <td><b>2回</b>（案B・+1）</td>
+        </tr>
+        <tr>
+          <td class="m-cell">M7</td>
+          <td></td>
+          <td class="has"><span class="dot">●</span>差し出し準備</td>
+          <td></td>
+          <td class="has"><span class="dot">●</span>Lv.3本番 2週</td>
+          <td></td>
+          <td>1回</td>
+        </tr>
+        <tr>
+          <td class="m-cell">M8</td>
+          <td></td>
+          <td class="has"><span class="dot">●</span>WS8 準備</td>
+          <td class="has"><span class="dot">●</span>最終発表</td>
+          <td></td>
+          <td class="has"><span class="dot">●</span>卒業式</td>
+          <td>0（不在）</td>
+        </tr>
+        <tr class="total-ws">
+          <td class="m-cell">合計</td>
+          <td>1</td>
+          <td>7</td>
+          <td>2</td>
+          <td>3</td>
+          <td>1</td>
+          <td>9 → 11（+2）</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- 3 CASES -->
+<section>
+  <div class="wrap">
+    <div class="sec-num blue">§ 03 ／ CASES</div>
     <h2 class="sec-head blue">3案の俯瞰比較（ゲスト枠増の配置）</h2>
     <p class="lead">ゲスト枠をどこに足すかで3つの案を提示。案B（バランス）を推奨します。</p>
 
@@ -248,9 +426,9 @@ p.lead{font-family:var(--serif);font-size:1.03rem;color:var(--ink);font-weight:5
       <tbody>
         <tr>
           <th>ゲスト講義数</th>
-          <td>7 → <b>8</b>（+1）</td>
-          <td class="b-col">7 → <b>9</b>（+2）</td>
-          <td>7 → <b>9</b>（+2）</td>
+          <td>9 → <b>10</b>（+1）</td>
+          <td class="b-col">9 → <b>11</b>（+2）</td>
+          <td>9 → <b>11</b>（+2）</td>
         </tr>
         <tr>
           <th>追加枠の位置</th>
@@ -290,7 +468,7 @@ p.lead{font-family:var(--serif);font-size:1.03rem;color:var(--ink);font-weight:5
 <!-- MONTH MATRIX case B -->
 <section>
   <div class="wrap">
-    <div class="sec-num blue">§ 03 ／ MONTH MATRIX</div>
+    <div class="sec-num blue">§ 04 ／ MONTH MATRIX</div>
     <h2 class="sec-head blue">案B 月別マトリクス（推奨）</h2>
     <p class="lead">8か月 × 3層（運営／チームMTG／個人）で活動と時間の見通し。</p>
 
@@ -363,7 +541,7 @@ p.lead{font-family:var(--serif);font-size:1.03rem;color:var(--ink);font-weight:5
         </tr>
         <tr class="total-row">
           <td class="m-cell">合計</td>
-          <td><b>ゲスト 9</b>／WS 10／特別 7</td>
+          <td><b>ゲスト 11</b>／WS・発表・特別 計14</td>
           <td><b>T1×4 ／ T2×8＋解散式 ／ T3×2</b></td>
           <td>個人 50-74h</td>
           <td><span class="total">約136-153h</span></td>
@@ -376,7 +554,7 @@ p.lead{font-family:var(--serif);font-size:1.03rem;color:var(--ink);font-weight:5
 <!-- PHASE AGGREGATION -->
 <section style="background:var(--bg-deep);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
   <div class="wrap">
-    <div class="sec-num">§ 04 ／ PHASE</div>
+    <div class="sec-num">§ 05 ／ PHASE</div>
     <h2 class="sec-head">フェーズ別集計（案B）</h2>
     <p class="lead">P1/P2/P3/P4 それぞれの接点数・個人負荷・合計負荷。<b>P3（M5-M7）が全体の約4割</b>を占める山型。</p>
 
@@ -384,8 +562,9 @@ p.lead{font-family:var(--serif);font-size:1.03rem;color:var(--ink);font-weight:5
       <div class="pacard p1">
         <div class="palabel">P1 自分</div>
         <h4>M1-M2（2か月）</h4>
-        <div class="paitem"><span class="plbl">ゲスト</span><span class="pval">3回</span></div>
-        <div class="paitem"><span class="plbl">WS／特別</span><span class="pval">4回＋Open</span></div>
+        <div class="paitem"><span class="plbl">ゲスト講義</span><span class="pval">3回</span></div>
+        <div class="paitem"><span class="plbl">オープニング</span><span class="pval">1回</span></div>
+        <div class="paitem"><span class="plbl">定例WS</span><span class="pval">3回</span></div>
         <div class="paitem"><span class="plbl">チームMTG</span><span class="pval">T1×4</span></div>
         <div class="paitem"><span class="plbl">個人</span><span class="pval">7-10h</span></div>
         <div class="patotal">約24-26h</div>
@@ -393,17 +572,19 @@ p.lead{font-family:var(--serif);font-size:1.03rem;color:var(--ink);font-weight:5
       <div class="pacard p2">
         <div class="palabel">P2 POOLO</div>
         <h4>M3-M4（2か月・合宿）</h4>
-        <div class="paitem"><span class="plbl">ゲスト</span><span class="pval">2回</span></div>
-        <div class="paitem"><span class="plbl">WS／特別</span><span class="pval">3＋合宿</span></div>
-        <div class="paitem"><span class="plbl">チームMTG</span><span class="pval">切替＋T2×2</span></div>
+        <div class="paitem"><span class="plbl">ゲスト講義</span><span class="pval">2回</span></div>
+        <div class="paitem"><span class="plbl">発表</span><span class="pval">1回（仮名乗り）</span></div>
+        <div class="paitem"><span class="plbl">合宿</span><span class="pval">1回（1泊2日）</span></div>
+        <div class="paitem"><span class="plbl">定例WS</span><span class="pval">1回</span></div>
         <div class="paitem"><span class="plbl">個人</span><span class="pval">10-14h</span></div>
         <div class="patotal">約46h</div>
       </div>
       <div class="pacard p3">
         <div class="palabel">P3 社会</div>
         <h4>M5-M7（3か月・Lv.3）</h4>
-        <div class="paitem"><span class="plbl">ゲスト</span><span class="pval">4回</span></div>
-        <div class="paitem"><span class="plbl">WS／特別</span><span class="pval">3＋越境＋Lv.3</span></div>
+        <div class="paitem"><span class="plbl">ゲスト講義</span><span class="pval">4回</span></div>
+        <div class="paitem"><span class="plbl">越境／Lv.3</span><span class="pval">2回（本番）</span></div>
+        <div class="paitem"><span class="plbl">定例WS</span><span class="pval">3回</span></div>
         <div class="paitem"><span class="plbl">チームMTG</span><span class="pval">T2×6＋解散式</span></div>
         <div class="paitem"><span class="plbl">個人</span><span class="pval">30-45h</span></div>
         <div class="patotal">約56-69h</div>
@@ -412,7 +593,9 @@ p.lead{font-family:var(--serif);font-size:1.03rem;color:var(--ink);font-weight:5
         <div class="palabel">P4 振り返り</div>
         <h4>M8（1か月）</h4>
         <div class="paitem"><span class="plbl">ゲスト</span><span class="pval">0</span></div>
-        <div class="paitem"><span class="plbl">WS／特別</span><span class="pval">1＋発表＋卒業式</span></div>
+        <div class="paitem"><span class="plbl">最終発表</span><span class="pval">1回</span></div>
+        <div class="paitem"><span class="plbl">卒業式</span><span class="pval">1回</span></div>
+        <div class="paitem"><span class="plbl">定例WS</span><span class="pval">1回（準備）</span></div>
         <div class="paitem"><span class="plbl">チームMTG</span><span class="pval">T3×2</span></div>
         <div class="paitem"><span class="plbl">個人</span><span class="pval">3-5h</span></div>
         <div class="patotal">約10-12h</div>
@@ -424,7 +607,7 @@ p.lead{font-family:var(--serif);font-size:1.03rem;color:var(--ink);font-weight:5
 <!-- ADDED GUESTS -->
 <section>
   <div class="wrap">
-    <div class="sec-num warm">§ 05 ／ ADDED GUESTS</div>
+    <div class="sec-num warm">§ 06 ／ ADDED GUESTS</div>
     <h2 class="sec-head warm">追加ゲスト枠2枠の詳細（案B）</h2>
     <p class="lead">M1（入口）とM6（越境前）に各1枠を追加。どちらも<b>月の問いへの接続</b>と<b>候補バイネーム</b>を明示します。</p>
 
@@ -461,7 +644,7 @@ p.lead{font-family:var(--serif);font-size:1.03rem;color:var(--ink);font-weight:5
 <!-- 11TH DIFF -->
 <section style="background:var(--bg-deep);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
   <div class="wrap">
-    <div class="sec-num deep">§ 06 ／ DIFF</div>
+    <div class="sec-num deep">§ 07 ／ DIFF</div>
     <h2 class="sec-head deep">11期からの主な変更点</h2>
 
     <table class="diff-table">
@@ -505,17 +688,10 @@ p.lead{font-family:var(--serif);font-size:1.03rem;color:var(--ink);font-weight:5
         </tr>
         <tr>
           <th>ゲスト講義数</th>
-          <td>7</td>
+          <td>9</td>
           <td class="arrow">→</td>
-          <td class="new-col">9（+2）</td>
+          <td class="new-col">11（+2）</td>
           <td>M1とM6に追加／揺らぎの回数増</td>
-        </tr>
-        <tr>
-          <th>ゲスト関連総計</th>
-          <td>11（講義7＋特別4）</td>
-          <td class="arrow">→</td>
-          <td class="new-col">13（講義9＋特別4）</td>
-          <td>社長認識の総計ベース</td>
         </tr>
         <tr>
           <th>受講生年間負荷</th>
@@ -532,7 +708,7 @@ p.lead{font-family:var(--serif);font-size:1.03rem;color:var(--ink);font-weight:5
 <!-- DECISION -->
 <section>
   <div class="wrap">
-    <div class="sec-num star">§ 07 ／ DECISION</div>
+    <div class="sec-num star">§ 08 ／ DECISION</div>
     <h2 class="sec-head star">社長への判断論点（5つ）</h2>
     <p class="lead">5点に判断が入れば、週別タイムライン詳細化・追加ゲスト交渉・合宿手配前倒しに進めます。</p>
 
