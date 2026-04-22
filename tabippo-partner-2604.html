@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>【TABIPPOからのお知らせ】観光局・自治体・企業案件 パートナー募集</title>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#222;--sub:#4a4a4a;--mute:#7a7a7a;
+  --bg:#fafafa;--paper:#fff;--line:#e5e3dd;
+  --blue:#2466B0;--blue-deep:#1a4d87;
+  --warm:#C08457;--star:#B8860B;
+  --serif:'Shippori Mincho',serif;--sans:'Noto Sans JP',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--bg);color:var(--ink);line-height:1.95;font-weight:400;-webkit-font-smoothing:antialiased}
+
+.preview-bar{background:var(--ink);color:#fff;padding:0.7rem 1.5rem;text-align:center;font-size:0.72rem;letter-spacing:0.15em;position:sticky;top:0;z-index:20}
+.preview-bar b{color:#fffae1;font-weight:600;margin-right:0.4rem}
+
+.article{max-width:720px;margin:2.5rem auto;background:var(--paper);padding:3rem 3rem 4rem;box-shadow:0 2px 16px rgba(0,0,0,0.04);border-radius:4px}
+@media(max-width:640px){.article{margin:1rem;padding:2rem 1.4rem 3rem}}
+
+.kicker{font-family:var(--sans);font-size:0.72rem;letter-spacing:0.2em;color:var(--warm);font-weight:600;margin-bottom:0.8rem;text-transform:uppercase}
+.art-title{font-family:var(--serif);font-size:1.85rem;font-weight:600;letter-spacing:0.04em;line-height:1.55;margin-bottom:1rem;color:var(--ink)}
+.art-lead{font-family:var(--sans);font-size:0.94rem;color:var(--sub);line-height:2;padding:1.2rem 0 1.5rem;border-bottom:1px solid var(--line);margin-bottom:2rem}
+
+.body strong{font-weight:700;color:var(--ink)}
+.body p{margin:0 0 1.2rem;font-size:0.96rem;color:var(--sub);line-height:2}
+.body h2{font-family:var(--serif);font-size:1.3rem;font-weight:600;letter-spacing:0.05em;line-height:1.5;margin:2.8rem 0 1.4rem;padding-bottom:0.7rem;border-bottom:2px solid var(--ink);display:flex;align-items:baseline;gap:0.8rem}
+.body h2 .num{font-family:var(--sans);font-size:0.7rem;color:var(--warm);letter-spacing:0.2em;font-weight:600}
+
+.case-grid{display:grid;grid-template-columns:1fr;gap:0;margin:0.5rem 0 1rem;border-top:1px solid var(--line)}
+.case-grid .case{padding:0.85rem 0.4rem;border-bottom:1px solid var(--line);font-size:0.92rem;color:var(--sub);line-height:1.6;display:flex;gap:0.7rem;align-items:flex-start}
+.case-grid .case::before{content:'●';color:var(--warm);font-size:0.6rem;margin-top:0.55rem;flex-shrink:0}
+.case-grid .case b{color:var(--ink);font-weight:600;font-family:var(--serif);letter-spacing:0.02em}
+
+.tag-row{display:flex;flex-wrap:wrap;gap:0.5rem;margin:1rem 0 1.5rem}
+.tag{display:inline-block;font-size:0.72rem;color:var(--blue-deep);background:#eaf1f9;padding:0.35rem 0.8rem;border-radius:3px;letter-spacing:0.06em;font-weight:500}
+
+.fit-list{list-style:none;padding:0;margin:0.5rem 0 1.5rem}
+.fit-list li{padding:0.7rem 0 0.7rem 2rem;position:relative;font-size:0.95rem;color:var(--sub);line-height:1.7;border-bottom:1px dashed var(--line)}
+.fit-list li:last-child{border-bottom:none}
+.fit-list li::before{content:'✓';position:absolute;left:0.4rem;top:0.65rem;color:var(--warm);font-weight:700;font-size:1.05rem}
+
+.flow{margin:1rem 0 1.5rem}
+.flow-step{display:flex;gap:1rem;padding:1rem 0;border-bottom:1px solid var(--line);align-items:flex-start}
+.flow-step:last-child{border-bottom:none}
+.flow-step .n{font-family:var(--serif);font-size:1.4rem;color:var(--warm);font-weight:600;line-height:1;flex-shrink:0;width:1.8rem}
+.flow-step .t{font-size:0.93rem;color:var(--sub);line-height:1.85}
+.flow-step .t b{font-family:var(--serif);font-weight:600;color:var(--ink);display:block;margin-bottom:0.2rem;letter-spacing:0.03em}
+
+.note{background:#f5f3ed;padding:1rem 1.3rem;border-radius:4px;margin:1rem 0;font-size:0.85rem;color:var(--sub);line-height:1.85}
+.note p{margin:0;font-size:0.85rem}
+.note p+p{margin-top:0.4rem}
+
+.cta-block{margin:2.5rem 0 1rem;padding:2rem 1.6rem;background:linear-gradient(180deg,#fafaf6 0%,#f5f3ed 100%);border-radius:6px;text-align:center}
+.cta-block .cta-label{font-family:var(--serif);font-size:1.05rem;color:var(--ink);font-weight:600;letter-spacing:0.05em;margin-bottom:0.5rem}
+.cta-block .cta-sub{font-size:0.78rem;color:var(--mute);letter-spacing:0.08em;margin-bottom:1.2rem}
+.btn{display:inline-block;background:var(--blue);color:#fff !important;padding:1rem 2.4rem;font-size:0.92rem;letter-spacing:0.08em;font-weight:600;text-decoration:none;border-radius:4px;transition:background .2s;font-family:var(--sans)}
+.btn:hover{background:var(--blue-deep)}
+.btn.outline{background:#fff;color:var(--ink) !important;border:1px solid var(--line)}
+.btn.outline:hover{background:#f5f3ed}
+.btn-row{display:flex;gap:0.8rem;justify-content:center;flex-wrap:wrap;margin-top:0.5rem}
+
+.tail{margin-top:2.5rem;padding:1.4rem;border:1px solid var(--line);border-radius:4px;font-size:0.88rem;color:var(--sub);line-height:1.9;text-align:center}
+.tail b{color:var(--ink);font-family:var(--serif);font-weight:600}
+
+.footer-info{max-width:720px;margin:1rem auto 4rem;padding:0 3rem;font-size:0.7rem;color:var(--mute);text-align:center;letter-spacing:0.1em;line-height:1.9}
+</style>
+</head>
+<body>
+
+<div class="preview-bar">
+  <b>PREVIEW</b> TABIPPO案内 — POOLO生向け告知HTML
+</div>
+
+<article class="article">
+  <div class="kicker">From TABIPPO Sales</div>
+  <h1 class="art-title">観光局・自治体・企業案件で、<br>一緒に動いてくれるパートナーを募集します</h1>
+  <p class="art-lead">POOLO生の皆さん、こんにちは。TABIPPOセールスチームです。<br>観光局・自治体・企業との案件がどんどん拡大中で、一緒にプロジェクトを動かしてくれるPOOLO生のパートナーを広く募集しています。</p>
+
+  <div class="body">
+
+    <h2><span class="num">01</span>今動いている／検討中の案件</h2>
+    <p>PM／制作／コミュマネを中心に、現地イベント・モニターツアー・アンバサダー施策など、施策タイプも幅広くあります。</p>
+
+    <div class="case-grid">
+      <div class="case"><span><b>Canon</b> アンバサダーコミュマネ</span></div>
+      <div class="case"><span><b>JR東海ツアーズ</b> アンバサダーコミュマネ</span></div>
+      <div class="case"><span><b>セントレア</b>発 海外渡航プロモーション</span></div>
+      <div class="case"><span><b>タイ国政府観光庁 × TABIPPO</b> 現地イベント</span></div>
+      <div class="case"><span><b>愛知県／稲武エリア</b> モニターツアー</span></div>
+      <div class="case"><span><b>観光庁事業</b>（南房総／茅野／信州新町／倉敷／和歌山／天草／琴平／射水／矢板 など全国）</span></div>
+    </div>
+
+    <div class="tag-row">
+      <span class="tag">PM</span>
+      <span class="tag">制作</span>
+      <span class="tag">コミュマネ</span>
+      <span class="tag">現地イベント</span>
+      <span class="tag">モニターツアー</span>
+      <span class="tag">アンバサダー施策</span>
+    </div>
+
+    <h2><span class="num">02</span>こんな方におすすめ</h2>
+    <ul class="fit-list">
+      <li>旅・観光・マーケの仕事に関わってみたい</li>
+      <li>地域に深く関わってみたい／特定の地域を応援したい</li>
+      <li>自分のスキルを試したい・広げたい</li>
+      <li>TABIPPOのtoB事業のイメージを掴みたい</li>
+    </ul>
+
+    <h2><span class="num">03</span>登録後の流れ</h2>
+    <div class="flow">
+      <div class="flow-step">
+        <div class="n">1</div>
+        <div class="t"><b>応募フォームから登録</b>現時点での希望で問題なし、いつでも登録OKです。</div>
+      </div>
+      <div class="flow-step">
+        <div class="n">2</div>
+        <div class="t"><b>マッチする案件が出たタイミングでお声かけ</b>ご経験・ご志向にマッチする案件が出てきたタイミングで、担当者よりご連絡します。</div>
+      </div>
+      <div class="flow-step">
+        <div class="n">3</div>
+        <div class="t"><b>まずはカジュアル面談</b>いきなりお仕事が決まるわけではなく、ヒアリングからはじめます。</div>
+      </div>
+    </div>
+
+    <div class="note">
+      <p>※ 現時点で具体的に動ける案件がなくても問題ありません。</p>
+      <p>※ 質問はフォーム最後の欄から、もしくはDMでもOKです。</p>
+    </div>
+
+    <div class="cta-block">
+      <div class="cta-label">応募フォーム（POOLO生限定）</div>
+      <div class="cta-sub">登録後、マッチする案件が出たタイミングでご連絡します</div>
+      <div class="btn-row">
+        <a class="btn" href="https://forms.gle/qR7gwyLoV5m4spyX7" target="_blank" rel="noopener">フォームに登録する</a>
+        <a class="btn outline" href="https://drive.google.com/file/d/1bezxkwyl6IyKoTnY4tNyT7DwUQKyfwLi/view?usp=drive_link" target="_blank" rel="noopener">過去事例集を見る</a>
+      </div>
+    </div>
+
+    <div class="tail">
+      気になる方はぜひご登録ください。<br>
+      <b>TABIPPO セールスチーム</b>
+    </div>
+
+  </div>
+</article>
+
+<div class="footer-info">
+  TABIPPO × POOLO ／ Partner Recruitment Notice
+</div>
+
+</body>
+</html>
