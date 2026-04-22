@@ -117,14 +117,26 @@ section{padding:3rem 0}
 .legend .lg-mark.grad{color:var(--teal)}
 .legend .lg-mark.team{color:var(--slate)}
 
-/* Guest lecture list */
-.guest-table{width:100%;max-width:1040px;margin:1.5rem auto 0;border-collapse:collapse;background:#fff;border:1px solid var(--line);font-size:0.82rem}
-.guest-table thead th{background:var(--blue-deep);color:#fff;font-family:var(--serif);font-weight:600;padding:0.85rem;text-align:left;letter-spacing:0.04em;font-size:0.8rem}
-.guest-table tbody td{padding:0.75rem 0.85rem;color:var(--sub);border-bottom:1px solid var(--line);line-height:1.7}
-.guest-table tbody td.num{font-family:var(--serif);font-weight:700;color:var(--blue-deep);text-align:center;font-size:0.95rem;width:6%}
-.guest-table tbody td.dow-sat{font-family:var(--serif);font-weight:600;color:var(--warm-deep);background:var(--warm-bg);text-align:center;white-space:nowrap}
-.guest-table tbody td.dow-wed{font-family:var(--serif);font-weight:600;color:var(--blue-deep);background:var(--blue-bg);text-align:center;white-space:nowrap}
-.guest-table tbody td b{color:var(--ink);font-weight:700}
+/* Guest lecture cards */
+.guest-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;max-width:1140px;margin:1.5rem auto 0}
+.glc{background:#fff;border:1px solid var(--line);border-top:4px solid var(--warm);border-radius:2px;padding:1.2rem 1.1rem;display:flex;flex-direction:column;gap:0.6rem}
+.glc.wed{border-top-color:var(--blue)}
+.glc-head{display:flex;justify-content:space-between;align-items:baseline;padding-bottom:0.55rem;border-bottom:1px dashed var(--line)}
+.glc-num{font-family:var(--serif);font-size:1.3rem;font-weight:700;color:var(--warm-deep);line-height:1}
+.glc.wed .glc-num{color:var(--blue-deep)}
+.glc-dow{font-size:0.58rem;letter-spacing:0.25em;padding:0.2rem 0.5rem;border-radius:2px;font-weight:700}
+.glc-dow.sat{background:var(--warm-bg);color:var(--warm-deep)}
+.glc-dow.wed{background:var(--blue-bg);color:var(--blue-deep)}
+.glc-date{font-family:var(--serif);font-size:0.85rem;color:var(--ink);font-weight:700;letter-spacing:0.04em}
+.glc-time{font-size:0.68rem;color:var(--mute);letter-spacing:0.05em}
+.glc-theme{font-family:var(--serif);font-size:0.92rem;color:var(--ink);font-weight:700;line-height:1.55;letter-spacing:0.03em;padding:0.55rem 0.7rem;background:var(--bg-deep);border-radius:2px}
+.glc-cands-label{font-size:0.56rem;letter-spacing:0.28em;color:var(--mute);font-weight:600}
+.glc-cand{padding:0.5rem 0.6rem;background:#fff;border:1px solid var(--line);border-radius:2px;display:flex;flex-direction:column;gap:0.15rem}
+.glc-cand-head{display:flex;align-items:baseline;gap:0.35rem}
+.glc-cand-name{font-family:var(--serif);font-size:0.85rem;color:var(--ink);font-weight:700;letter-spacing:0.02em}
+.glc-cand-rank{color:var(--star);font-size:0.68rem;letter-spacing:0.02em;font-weight:600}
+.glc-cand-new{font-size:0.55rem;letter-spacing:0.12em;padding:0.1rem 0.35rem;border-radius:2px;background:var(--teal);color:#fff;font-weight:600;margin-left:auto}
+.glc-cand-role{font-size:0.7rem;color:var(--sub);line-height:1.6}
 
 /* Load summary */
 .load-wrap{max-width:1040px;margin:1.5rem auto 0}
@@ -244,93 +256,219 @@ section{padding:3rem 0}
     <div class="sec-num warm">§ 02 ／ GUEST LECTURES</div>
     <h2 class="sec-head">ゲスト講義 9コマ 日程（基本土曜／一部水曜）</h2>
 
-    <table class="guest-table">
-      <thead>
-        <tr>
-          <th style="width:6%">No.</th>
-          <th style="width:12%">月</th>
-          <th style="width:12%">日付</th>
-          <th style="width:8%">曜日</th>
-          <th style="width:14%">時間帯（目安）</th>
-          <th>テーマ</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td class="num">①</td>
-          <td>M1 W2</td>
-          <td>2026/08/22</td>
-          <td class="dow-sat">土</td>
-          <td>10:00-12:30</td>
-          <td>観光系・旅の揺さぶり（パッケージ・定例WS付き）</td>
-        </tr>
-        <tr>
-          <td class="num">②</td>
-          <td>M1 W4</td>
-          <td>2026/09/02</td>
-          <td class="dow-wed">水</td>
-          <td>20:00-22:00</td>
-          <td>旅と身体の思索（単独ゲスト講義2h）</td>
-        </tr>
-        <tr>
-          <td class="num">③</td>
-          <td>M2 W1</td>
-          <td>2026/09/12</td>
-          <td class="dow-sat">土</td>
-          <td>10:00-12:30</td>
-          <td>対話＆受容・哲学対話（パッケージ）</td>
-        </tr>
-        <tr>
-          <td class="num">④</td>
-          <td>M4 W1</td>
-          <td>2026/11/07</td>
-          <td class="dow-sat">土</td>
-          <td>10:00-12:30</td>
-          <td>言語化・書き直しの実演（パッケージ）</td>
-        </tr>
-        <tr>
-          <td class="num">⑤</td>
-          <td>M4 W3</td>
-          <td>2026/11/21</td>
-          <td class="dow-sat">土</td>
-          <td>10:00-12:30</td>
-          <td>コンテンツ型実演者（パッケージ）</td>
-        </tr>
-        <tr>
-          <td class="num">⑥</td>
-          <td>M5 W1</td>
-          <td>2026/12/05</td>
-          <td class="dow-sat">土</td>
-          <td>10:00-12:30</td>
-          <td>贈与・小商いの論理（パッケージ・隔週①）</td>
-        </tr>
-        <tr>
-          <td class="num">⑦</td>
-          <td>M5 W3</td>
-          <td>2026/12/19</td>
-          <td class="dow-sat">土</td>
-          <td>10:00-12:30</td>
-          <td>小さな差し出しの100回（パッケージ・隔週②）</td>
-        </tr>
-        <tr>
-          <td class="num">⑧</td>
-          <td>M6 W2</td>
-          <td>2027/01/09</td>
-          <td class="dow-sat">土</td>
-          <td>10:00-12:30</td>
-          <td>越境受け入れ側の眼／場の磁力（パッケージ）</td>
-        </tr>
-        <tr>
-          <td class="num">⑨</td>
-          <td>M7 W1</td>
-          <td>2027/01/30</td>
-          <td class="dow-sat">土</td>
-          <td>10:00-12:30</td>
-          <td>企画の実演・F=G×H（パッケージ）</td>
-        </tr>
-      </tbody>
-    </table>
-    <p style="font-size:0.78rem;color:var(--mute);margin:0.8rem auto 0;max-width:1040px;line-height:1.7">※ゲスト講義は土曜10-12時＋定例WS 12-12:30（パッケージは2.5h）。単独ゲスト（②）のみ水曜夜。時間帯は目安・ゲスト都合で調整可。</p>
+    <p class="lead">各講義日程ごとに<b>ゲスト候補3人</b>を提示。既存 index.html の候補に、新規提案（緑バッジ）を加えて補完しています。</p>
+
+    <div class="guest-cards">
+
+      <div class="glc">
+        <div class="glc-head">
+          <div><span class="glc-num">①</span></div>
+          <div class="glc-dow sat">土</div>
+        </div>
+        <div class="glc-date">2026/08/22（M1 W2・土）</div>
+        <div class="glc-time">10:00-12:30 ／ パッケージ</div>
+        <div class="glc-theme">観光系・旅の揺さぶり</div>
+        <div class="glc-cands-label">候補 3名</div>
+        <div class="glc-cand">
+          <div class="glc-cand-head"><span class="glc-cand-name">髙井典子</span><span class="glc-cand-rank">★★★</span></div>
+          <div class="glc-cand-role">神奈川大・教授／観光研究と体験の往復</div>
+        </div>
+        <div class="glc-cand">
+          <div class="glc-cand-head"><span class="glc-cand-name">石田ゆうすけ</span><span class="glc-cand-rank">★★</span></div>
+          <div class="glc-cand-role">自転車世界一周作家／体験主語の実演者</div>
+        </div>
+        <div class="glc-cand">
+          <div class="glc-cand-head"><span class="glc-cand-name">森田真生</span><span class="glc-cand-rank">★★</span></div>
+          <div class="glc-cand-role">独立研究者／旅と身体の思索</div>
+        </div>
+      </div>
+
+      <div class="glc wed">
+        <div class="glc-head">
+          <div><span class="glc-num">②</span></div>
+          <div class="glc-dow wed">水</div>
+        </div>
+        <div class="glc-date">2026/09/02（M1 W4・水）</div>
+        <div class="glc-time">20:00-22:00 ／ 単独ゲスト2h</div>
+        <div class="glc-theme">旅と身体の思索（単独・平日夜）</div>
+        <div class="glc-cands-label">候補 3名</div>
+        <div class="glc-cand">
+          <div class="glc-cand-head"><span class="glc-cand-name">森田真生</span><span class="glc-cand-rank">★★</span></div>
+          <div class="glc-cand-role">独立研究者／数学と身体の往復</div>
+        </div>
+        <div class="glc-cand">
+          <div class="glc-cand-head"><span class="glc-cand-name">鞍田崇</span><span class="glc-cand-new">新規</span></div>
+          <div class="glc-cand-role">民藝思想家／生活の美学と身体感覚</div>
+        </div>
+        <div class="glc-cand">
+          <div class="glc-cand-head"><span class="glc-cand-name">細川貂々</span><span class="glc-cand-new">新規</span></div>
+          <div class="glc-cand-role">エッセイ・マンガ家／日常の違和の書き手</div>
+        </div>
+      </div>
+
+      <div class="glc">
+        <div class="glc-head">
+          <div><span class="glc-num">③</span></div>
+          <div class="glc-dow sat">土</div>
+        </div>
+        <div class="glc-date">2026/09/12（M2 W1・土）</div>
+        <div class="glc-time">10:00-12:30 ／ パッケージ</div>
+        <div class="glc-theme">対話＆受容・哲学対話</div>
+        <div class="glc-cands-label">候補 3名</div>
+        <div class="glc-cand">
+          <div class="glc-cand-head"><span class="glc-cand-name">永井玲衣</span><span class="glc-cand-rank">★★★</span></div>
+          <div class="glc-cand-role">作家／哲学対話実践者（年80本）</div>
+        </div>
+        <div class="glc-cand">
+          <div class="glc-cand-head"><span class="glc-cand-name">尹雄大</span><span class="glc-cand-rank">★★</span></div>
+          <div class="glc-cand-role">インタビュアー／身体論／沈黙と呼吸</div>
+        </div>
+        <div class="glc-cand">
+          <div class="glc-cand-head"><span class="glc-cand-name">西村佳哲</span><span class="glc-cand-rank">★★</span></div>
+          <div class="glc-cand-role">リビングワールド／聴く仕事</div>
+        </div>
+      </div>
+
+      <div class="glc">
+        <div class="glc-head">
+          <div><span class="glc-num">④</span></div>
+          <div class="glc-dow sat">土</div>
+        </div>
+        <div class="glc-date">2026/11/07（M4 W1・土）</div>
+        <div class="glc-time">10:00-12:30 ／ パッケージ</div>
+        <div class="glc-theme">言語化・書き直しの実演</div>
+        <div class="glc-cands-label">候補 3名</div>
+        <div class="glc-cand">
+          <div class="glc-cand-head"><span class="glc-cand-name">最所あさみ</span><span class="glc-cand-rank">★★★</span></div>
+          <div class="glc-cand-role">独立後も書き換えながら続ける実演者</div>
+        </div>
+        <div class="glc-cand">
+          <div class="glc-cand-head"><span class="glc-cand-name">塩谷舞</span><span class="glc-cand-rank">★★</span></div>
+          <div class="glc-cand-role">文筆家／NY→帰国／揺り戻しの軌跡</div>
+        </div>
+        <div class="glc-cand">
+          <div class="glc-cand-head"><span class="glc-cand-name">成田吉彦（narumi）</span><span class="glc-cand-rank">★★</span></div>
+          <div class="glc-cand-role">編集者／独立メディア／仮説を捨てる連載</div>
+        </div>
+      </div>
+
+      <div class="glc">
+        <div class="glc-head">
+          <div><span class="glc-num">⑤</span></div>
+          <div class="glc-dow sat">土</div>
+        </div>
+        <div class="glc-date">2026/11/21（M4 W3・土）</div>
+        <div class="glc-time">10:00-12:30 ／ パッケージ</div>
+        <div class="glc-theme">コンテンツ型実演者</div>
+        <div class="glc-cands-label">候補 3名</div>
+        <div class="glc-cand">
+          <div class="glc-cand-head"><span class="glc-cand-name">古賀史健</span><span class="glc-cand-new">新規</span></div>
+          <div class="glc-cand-role">編集者・ライター／「嫌われる勇気」他／書く仕事の型</div>
+        </div>
+        <div class="glc-cand">
+          <div class="glc-cand-head"><span class="glc-cand-name">岸田奈美</span><span class="glc-cand-new">新規</span></div>
+          <div class="glc-cand-role">作家／noteで書き続ける実演者</div>
+        </div>
+        <div class="glc-cand">
+          <div class="glc-cand-head"><span class="glc-cand-name">幡野広志</span><span class="glc-cand-new">新規</span></div>
+          <div class="glc-cand-role">写真家・文筆家／写真と言葉を往復する実演</div>
+        </div>
+      </div>
+
+      <div class="glc">
+        <div class="glc-head">
+          <div><span class="glc-num">⑥</span></div>
+          <div class="glc-dow sat">土</div>
+        </div>
+        <div class="glc-date">2026/12/05（M5 W1・土）</div>
+        <div class="glc-time">10:00-12:30 ／ パッケージ（隔週①）</div>
+        <div class="glc-theme">贈与・小商いの論理</div>
+        <div class="glc-cands-label">候補 3名</div>
+        <div class="glc-cand">
+          <div class="glc-cand-head"><span class="glc-cand-name">影山知明</span><span class="glc-cand-rank">★★★</span></div>
+          <div class="glc-cand-role">クルミドコーヒー店主／15年以上贈与の論理</div>
+        </div>
+        <div class="glc-cand">
+          <div class="glc-cand-head"><span class="glc-cand-name">辻山良雄</span><span class="glc-cand-rank">★★</span></div>
+          <div class="glc-cand-role">Title店主／本という小さな差し出し</div>
+        </div>
+        <div class="glc-cand">
+          <div class="glc-cand-head"><span class="glc-cand-name">鳥居希</span><span class="glc-cand-rank">★★</span></div>
+          <div class="glc-cand-role">バリューブックス取締役／古本の再循環</div>
+        </div>
+      </div>
+
+      <div class="glc">
+        <div class="glc-head">
+          <div><span class="glc-num">⑦</span></div>
+          <div class="glc-dow sat">土</div>
+        </div>
+        <div class="glc-date">2026/12/19（M5 W3・土）</div>
+        <div class="glc-time">10:00-12:30 ／ パッケージ（隔週②）</div>
+        <div class="glc-theme">小さな差し出しの100回</div>
+        <div class="glc-cands-label">候補 3名</div>
+        <div class="glc-cand">
+          <div class="glc-cand-head"><span class="glc-cand-name">三品輝起</span><span class="glc-cand-new">新規</span></div>
+          <div class="glc-cand-role">fall（生活雑貨店）／小さな差し出しの積み重ね</div>
+        </div>
+        <div class="glc-cand">
+          <div class="glc-cand-head"><span class="glc-cand-name">青木純</span><span class="glc-cand-new">新規</span></div>
+          <div class="glc-cand-role">大家・まちづくり／場を贈り物として育てる</div>
+        </div>
+        <div class="glc-cand">
+          <div class="glc-cand-head"><span class="glc-cand-name">松浦弥太郎</span><span class="glc-cand-new">新規</span></div>
+          <div class="glc-cand-role">文筆家・元暮しの手帖編集長／小さく手渡す姿勢</div>
+        </div>
+      </div>
+
+      <div class="glc">
+        <div class="glc-head">
+          <div><span class="glc-num">⑧</span></div>
+          <div class="glc-dow sat">土</div>
+        </div>
+        <div class="glc-date">2027/01/09（M6 W2・土）</div>
+        <div class="glc-time">10:00-12:30 ／ パッケージ</div>
+        <div class="glc-theme">越境受け入れ側の眼／場の磁力</div>
+        <div class="glc-cands-label">候補 3名</div>
+        <div class="glc-cand">
+          <div class="glc-cand-head"><span class="glc-cand-name">林篤志</span><span class="glc-cand-rank">★★★</span></div>
+          <div class="glc-cand-role">Next Commons Lab／地方受け入れ10年以上</div>
+        </div>
+        <div class="glc-cand">
+          <div class="glc-cand-head"><span class="glc-cand-name">田瀬理夫</span><span class="glc-cand-rank">★★★</span></div>
+          <div class="glc-cand-role">プランタゴ／里山再生・長期で土地と関わる</div>
+        </div>
+        <div class="glc-cand">
+          <div class="glc-cand-head"><span class="glc-cand-name">西村佳哲</span><span class="glc-cand-rank">★★</span></div>
+          <div class="glc-cand-role">リビングワールド／M2との並走案も可能</div>
+        </div>
+      </div>
+
+      <div class="glc">
+        <div class="glc-head">
+          <div><span class="glc-num">⑨</span></div>
+          <div class="glc-dow sat">土</div>
+        </div>
+        <div class="glc-date">2027/01/30（M7 W1・土）</div>
+        <div class="glc-time">10:00-12:30 ／ パッケージ</div>
+        <div class="glc-theme">企画の実演・F=G×H</div>
+        <div class="glc-cands-label">候補 3名</div>
+        <div class="glc-cand">
+          <div class="glc-cand-head"><span class="glc-cand-name">阿部裕志</span><span class="glc-cand-rank">★★★</span></div>
+          <div class="glc-cand-role">巡の環／海士町／F=G×Hの典型実演者</div>
+        </div>
+        <div class="glc-cand">
+          <div class="glc-cand-head"><span class="glc-cand-name">若新雄純</span><span class="glc-cand-rank">★★★</span></div>
+          <div class="glc-cand-role">プロデューサー／既定レールを外した実験</div>
+        </div>
+        <div class="glc-cand">
+          <div class="glc-cand-head"><span class="glc-cand-name">仲山進也</span><span class="glc-cand-rank">★★</span></div>
+          <div class="glc-cand-role">仲山考材／楽天大学／大企業内外を往復</div>
+        </div>
+      </div>
+
+    </div>
+    <p style="font-size:0.78rem;color:var(--mute);margin:1.2rem auto 0;max-width:1140px;line-height:1.8">★★★＝第一候補／★★＝サブ候補（既存 index.html 準拠）／<span style="color:var(--teal);font-weight:600">新規</span>＝既存リストにない新規提案（同月で候補が重複するテーマのため補完）。時間帯は目安・ゲスト都合で調整可。</p>
   </div>
 </section>
 
