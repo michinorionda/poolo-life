@@ -49,13 +49,18 @@ p.lead{font-family:var(--serif);font-size:1.03rem;color:var(--ink);font-weight:5
 .objective-label{font-size:0.62rem;letter-spacing:0.3em;color:var(--blue-deep);font-family:var(--sans);font-weight:600;margin-bottom:0.5rem;display:block}
 
 /* New format explainer */
-.new-format{max-width:900px;margin:1.5rem auto 0;display:grid;grid-template-columns:60px 1fr 20px 1fr;gap:0.8rem;align-items:center;padding:1.3rem 1.5rem;background:#fff;border:1px solid var(--line);border-left:4px solid var(--warm);border-radius:2px}
-.nf-label{font-family:var(--serif);font-size:0.75rem;color:var(--warm-deep);font-weight:700;writing-mode:vertical-rl;text-orientation:mixed;letter-spacing:0.15em}
-.nf-old,.nf-new{background:var(--bg-deep);padding:0.8rem 1rem;border-radius:2px;font-size:0.82rem;line-height:1.75}
-.nf-old{opacity:0.7}
-.nf-old .nf-title,.nf-new .nf-title{font-family:var(--serif);font-weight:700;color:var(--ink);margin-bottom:0.2rem;font-size:0.85rem}
-.nf-new{background:var(--warm-bg);border-left:2px solid var(--warm)}
-.nf-arrow{text-align:center;font-family:var(--serif);font-size:1.5rem;color:var(--warm-deep);font-weight:700}
+.format-card{max-width:900px;margin:1.5rem auto 0;padding:1.5rem 1.8rem;background:#fff;border:1px solid var(--line);border-left:4px solid var(--warm);border-radius:2px}
+.format-card h4{font-family:var(--serif);font-size:1.1rem;color:var(--ink);font-weight:700;margin-bottom:0.6rem}
+.format-timeline{display:flex;align-items:stretch;gap:0;margin:1rem 0}
+.ft-block{padding:0.9rem 1.2rem;display:flex;flex-direction:column;gap:0.3rem;flex:1}
+.ft-block.guest{background:var(--blue-bg);color:var(--blue-deep);border-top-left-radius:3px;border-bottom-left-radius:3px;flex:3}
+.ft-block.plus{background:#fff;color:var(--warm);font-family:var(--serif);font-size:1.8rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex:0 0 30px}
+.ft-block.ws{background:var(--purple-bg);color:var(--purple-deep);border-top-right-radius:3px;border-bottom-right-radius:3px;flex:1}
+.ft-block .ft-label{font-size:0.58rem;letter-spacing:0.25em;font-weight:600;text-transform:uppercase}
+.ft-block .ft-main{font-family:var(--serif);font-weight:700;font-size:0.9rem;line-height:1.5;letter-spacing:0.02em}
+.ft-block .ft-time{font-family:var(--serif);font-size:1.1rem;font-weight:700}
+.format-card p{font-size:0.84rem;color:var(--sub);line-height:1.9;margin-top:0.5rem}
+.format-card p b{color:var(--ink);font-weight:700}
 
 /* Roadmap timeline */
 .roadmap{max-width:1140px;margin:1.5rem auto 0;display:flex;flex-direction:column;gap:0}
@@ -90,23 +95,24 @@ p.lead{font-family:var(--serif);font-size:1.03rem;color:var(--ink);font-weight:5
 .wcard-acts ul li{padding:0.1rem 0 0.1rem 0.9rem;position:relative}
 .wcard-acts ul li.ws::before{content:'●';color:var(--purple);position:absolute;left:0;font-size:0.7rem}
 .wcard-acts ul li.guest::before{content:'◎';color:var(--blue);position:absolute;left:0;font-size:0.8rem}
+.wcard-acts ul li.pkg::before{content:'◎●';color:var(--warm-deep);position:absolute;left:-2px;font-size:0.55rem;letter-spacing:-1px;font-weight:700}
 .wcard-acts ul li.camp::before{content:'★';color:var(--warm);position:absolute;left:0;font-size:0.8rem}
 .wcard-acts ul li.cross::before{content:'★';color:var(--warm);position:absolute;left:0;font-size:0.8rem}
 .wcard-acts ul li.lv3::before{content:'▲';color:var(--star);position:absolute;left:0;font-size:0.8rem}
 .wcard-acts ul li.pres::before{content:'▲';color:var(--star);position:absolute;left:0;font-size:0.8rem}
 .wcard-acts ul li.grad::before{content:'◇';color:var(--teal);position:absolute;left:0;font-size:0.8rem}
 .wcard-acts ul li.team::before{content:'◦';color:var(--slate);position:absolute;left:0;font-size:0.9rem}
-.wcard-acts ul li.mix::before{content:'●◎';color:var(--warm-deep);position:absolute;left:0;font-size:0.6rem;letter-spacing:-1px}
 .wcard-acts ul li b{color:var(--ink);font-weight:700}
 .wcard-personal{padding-top:0.4rem;border-top:1px dashed var(--line);font-size:0.7rem;color:var(--sub);line-height:1.65}
 .wcard-personal::before{content:'個人：';color:var(--green-deep);font-weight:600;font-size:0.65rem;letter-spacing:0.1em}
 
 /* Legend */
-.legend{max-width:900px;margin:1.5rem auto 0;padding:1rem 1.3rem;background:#fff;border:1px solid var(--line);border-radius:2px;display:flex;justify-content:center;gap:1.4rem;flex-wrap:wrap;font-size:0.74rem;color:var(--sub)}
+.legend{max-width:960px;margin:1.5rem auto 0;padding:1rem 1.3rem;background:#fff;border:1px solid var(--line);border-radius:2px;display:flex;justify-content:center;gap:1.4rem;flex-wrap:wrap;font-size:0.74rem;color:var(--sub)}
 .legend .lg-item{display:flex;align-items:center;gap:0.35rem}
 .legend .lg-mark{font-size:0.85rem;font-weight:700}
 .legend .lg-mark.ws{color:var(--purple)}
 .legend .lg-mark.guest{color:var(--blue)}
+.legend .lg-mark.pkg{color:var(--warm-deep);font-size:0.7rem;letter-spacing:-1px}
 .legend .lg-mark.event{color:var(--warm)}
 .legend .lg-mark.lv3{color:var(--star)}
 .legend .lg-mark.grad{color:var(--teal)}
@@ -149,9 +155,8 @@ p.lead{font-family:var(--serif);font-size:1.03rem;color:var(--ink);font-weight:5
 @media(max-width:860px){
   .weeks-grid{grid-template-columns:repeat(2,1fr)}
   .preview-title{font-size:1.3rem}
-  .new-format{grid-template-columns:1fr;gap:0.5rem}
-  .nf-label{writing-mode:horizontal-tb}
-  .nf-arrow{transform:rotate(90deg)}
+  .format-timeline{flex-direction:column}
+  .ft-block.plus{flex:0 0 auto;padding:0.3rem}
 }
 </style>
 </head>
@@ -159,10 +164,10 @@ p.lead{font-family:var(--serif);font-size:1.03rem;color:var(--ink);font-weight:5
 
 <header class="preview-header">
   <div class="wrap">
-    <span class="preview-tag">12TH ／ TIMELINE ROADMAP ／ v5</span>
+    <span class="preview-tag">12TH ／ TIMELINE ROADMAP ／ v6</span>
     <h1 class="preview-title">POOLO LIFE 12期 時系列ロードマップ</h1>
-    <div class="preview-sub">オープニングから卒業式まで ／ 全32週の一覧</div>
-    <div class="preview-meta">ゲスト講義11コマ維持 ／ 新・定例WS形式（30分＋ゲスト講師30分）／ M1-M2は合計20h目標</div>
+    <div class="preview-sub">オープニングから卒業式まで ／ 全32週</div>
+    <div class="preview-meta">ゲスト講義11コマ／新・2.5hパッケージ（ゲスト講義2h＋定例WS 30分）／月約2コマ</div>
   </div>
 </header>
 
@@ -171,7 +176,7 @@ p.lead{font-family:var(--serif);font-size:1.03rem;color:var(--ink);font-weight:5
   <div class="wrap">
     <div class="objective">
       <span class="objective-label">このバージョンの主な変更</span>
-      ゲスト講義のコマ数は増やさず<b>11コマ維持</b>。代わりに定例WSを<b>30分</b>に短縮し、その後に<b>ゲスト講師セクション（30分程度）</b>を続けて設置する新フォーマットを導入（定例WS60分パッケージ）。これで<b>ゲストに触れる機会は増える</b>がコマ数は増えません。M1-M2は合計<b>約20h</b>に収まる軽めの設計。全32週を<b>オープニングから卒業式まで時系列</b>で並べ、受講生が<b>今週の活動と課題が一目でわかる</b>ロードマップを提供します。
+      <b>ゲスト講義 2h の直後に定例WS 30分を続けて実施</b>する2.5時間のパッケージフォーマットを採用。ゲスト講義と定例WSを<b>同じ日・連続セッション</b>で一体化します。これにより月のゲスト講義／WSのコマ数は<b>大体2コマ</b>に収まり、ゲスト講義の学びを直後のWSで受け止め直せる設計。M1-M2は合計<b>約20h</b>の軽量設計。全32週を<b>オープニングから卒業式まで時系列</b>で並べ、受講生が<b>今週の活動と課題が一目でわかる</b>ロードマップを提供します。
     </div>
   </div>
 </section>
@@ -180,26 +185,28 @@ p.lead{font-family:var(--serif);font-size:1.03rem;color:var(--ink);font-weight:5
 <section>
   <div class="wrap">
     <div class="sec-num warm">§ 01 ／ NEW FORMAT</div>
-    <h2 class="sec-head warm">新・定例WS形式（60分パッケージ）</h2>
-    <p class="lead">従来の定例WS（90-120分）を<b>30分</b>に短縮し、直後に<b>ゲスト講師セクション（30分）</b>を連続で置きます。ゲスト講師がその場で受講生の反応に応える対話型の場。</p>
+    <h2 class="sec-head warm">新・2.5hパッケージ（ゲスト講義＋定例WS）</h2>
+    <p class="lead">1つのセッション内で<b>ゲスト講義を受けた直後に定例WS</b>を行う連続フォーマット。学びをその場で自分の言葉に変換する構造。</p>
 
-    <div class="new-format">
-      <div class="nf-label">FORMAT</div>
-      <div class="nf-old">
-        <div class="nf-title">11期 従来型</div>
-        定例WS 90-120分（単独）<br>
-        ゲスト講義は別日で独立120分
+    <div class="format-card">
+      <h4>1セッションのタイムライン</h4>
+      <div class="format-timeline">
+        <div class="ft-block guest">
+          <div class="ft-label">PART 1 ／ GUEST</div>
+          <div class="ft-main">ゲスト講義</div>
+          <div class="ft-time">2時間</div>
+        </div>
+        <div class="ft-block plus">＋</div>
+        <div class="ft-block ws">
+          <div class="ft-label">PART 2 ／ WS</div>
+          <div class="ft-main">定例WS</div>
+          <div class="ft-time">30分</div>
+        </div>
       </div>
-      <div class="nf-arrow">→</div>
-      <div class="nf-new">
-        <div class="nf-title">12期 新フォーマット</div>
-        定例WS <b>30分</b>（学びのコア）<br>
-        ＋ ゲスト講師セクション <b>30分</b>（対話）<br>
-        計 <b>60分パッケージ</b>
-      </div>
+      <p style="text-align:center;font-family:var(--serif);font-size:1.1rem;color:var(--warm-deep);font-weight:700;margin-top:0.5rem">= 2.5時間 連続1セッション</p>
+      <p><b>狙い</b>：ゲストの話を受けて<b>身体が熱いうちに</b>、自分の言葉で受け止める。講義だけで終わらせず、直後の30分WSで受講生同士の対話に落とす。1セッション＝ゲスト1名＋WS1本の完結型。</p>
+      <p><b>月あたりの数</b>：このパッケージが月<b>約2コマ</b>（M1・M2・M4・M5）。合宿月（M3）／越境月（M6）／Lv.3本番月（M7）は<b>1コマ</b>（イベント中心）、M8はゲスト不在で<b>0コマ</b>。8か月で<b>合計11コマ</b>。</p>
     </div>
-
-    <p style="max-width:900px;margin:1.2rem auto 0;font-size:0.85rem;color:var(--sub);line-height:1.95">※独立2時間の<b>ゲスト講義は従来通り月1-2本で維持</b>（新フォーマットのゲスト講師セクションは追加の短い登場枠）。定例WSが時短になる分、受講生の月負荷は軽くなる一方で、ゲストに触れる機会は<b>月2-3回</b>に増えます。</p>
   </div>
 </section>
 
@@ -207,9 +214,8 @@ p.lead{font-family:var(--serif);font-size:1.03rem;color:var(--ink);font-weight:5
 <section style="padding-top:1rem;padding-bottom:1rem">
   <div class="wrap">
     <div class="legend">
-      <div class="lg-item"><span class="lg-mark ws">●</span>定例WS</div>
-      <div class="lg-item"><span class="lg-mark guest">◎</span>ゲスト講義（独立120分）</div>
-      <div class="lg-item"><span class="lg-mark" style="color:var(--warm-deep)">●◎</span>新フォーマット（定例30分＋ゲスト30分）</div>
+      <div class="lg-item"><span class="lg-mark pkg">◎●</span>2.5hパッケージ（ゲスト2h＋定例WS30分）</div>
+      <div class="lg-item"><span class="lg-mark ws">●</span>単独WS</div>
       <div class="lg-item"><span class="lg-mark event">★</span>特別イベント（合宿／越境）</div>
       <div class="lg-item"><span class="lg-mark lv3">▲</span>発表／Lv.3本番</div>
       <div class="lg-item"><span class="lg-mark grad">◇</span>卒業式</div>
@@ -223,7 +229,7 @@ p.lead{font-family:var(--serif);font-size:1.03rem;color:var(--ink);font-weight:5
   <div class="wrap">
     <div class="sec-num teal">§ 02 ／ ROADMAP</div>
     <h2 class="sec-head teal">全32週タイムラインロードマップ</h2>
-    <p class="lead">受講生が<b>今週の活動と課題</b>を一目で把握できる時系列。月ごとに週カードで、運営の固定日／チームMTG／個人の課題をまとめています。</p>
+    <p class="lead">受講生が<b>今週の活動と課題</b>を一目で把握できる時系列。オープニングDayから卒業式まで、32週を月ごとに並べます。</p>
 
     <div class="roadmap">
 
@@ -249,30 +255,32 @@ p.lead{font-family:var(--serif);font-size:1.03rem;color:var(--ink);font-weight:5
                 <li class="team">T1初対話 30分</li>
               </ul>
             </div>
-            <div class="wcard-personal">揺れノート開始／旅記憶の棚卸ラフ</div>
+            <div class="wcard-personal">揺れノート開始／旅記憶棚卸ラフ</div>
           </div>
           <div class="wcard">
             <div class="wcard-head"><span class="wcard-w">W2</span><span class="wcard-wn">第2週</span></div>
-            <div class="wcard-h">ゲスト講義</div>
+            <div class="wcard-h">2.5hパッケージ①</div>
             <div class="wcard-acts">
               <div class="wcard-acts-label">運営＋チーム</div>
               <ul>
-                <li class="guest"><b>ゲスト講義① 2h</b>（旅と揺さぶり・観光系）</li>
-                <li class="team">T1定例 60分</li>
+                <li class="pkg"><b>ゲスト講義① 2h</b>（観光系）</li>
+                <li class="pkg"><b>定例WS1-2 30分</b>（揺れを旅記憶につなぐ）</li>
               </ul>
             </div>
             <div class="wcard-personal">ジャーナル週次／揺れた一語のメモ</div>
           </div>
           <div class="wcard">
             <div class="wcard-head"><span class="wcard-w">W3</span><span class="wcard-wn">第3週</span></div>
-            <div class="wcard-h">新定例WS 60分</div>
+            <div class="wcard-h">2.5hパッケージ②</div>
             <div class="wcard-acts">
               <div class="wcard-acts-label">運営＋チーム</div>
               <ul>
-                <li class="mix"><b>WS1-2 30分＋ゲスト講師30分</b>（揺れを旅記憶とつなぐ）</li>
+                <li class="pkg"><b>ゲスト講義② 2h</b>（旅と身体の思索）</li>
+                <li class="pkg"><b>定例WS 30分</b>（受講生の反応対話）</li>
+                <li class="team">T1定例 60分</li>
               </ul>
             </div>
-            <div class="wcard-personal">ジャーナル／仮の「探究テーマ候補」メモ</div>
+            <div class="wcard-personal">仮の「探究テーマ候補」メモ</div>
           </div>
           <div class="wcard">
             <div class="wcard-head"><span class="wcard-w">W4</span><span class="wcard-wn">第4週</span></div>
@@ -283,7 +291,7 @@ p.lead{font-family:var(--serif);font-size:1.03rem;color:var(--ink);font-weight:5
                 <li class="team">T1定例 60分</li>
               </ul>
             </div>
-            <div class="wcard-personal">月末レター／次月（テーマ発表）準備着手</div>
+            <div class="wcard-personal">月末レター／次月の発表準備着手</div>
           </div>
         </div>
       </div>
@@ -302,23 +310,25 @@ p.lead{font-family:var(--serif);font-size:1.03rem;color:var(--ink);font-weight:5
         <div class="weeks-grid">
           <div class="wcard">
             <div class="wcard-head"><span class="wcard-w">W1</span><span class="wcard-wn">第5週</span></div>
-            <div class="wcard-h">新定例WS 60分</div>
+            <div class="wcard-h">2.5hパッケージ③</div>
             <div class="wcard-acts">
               <div class="wcard-acts-label">運営＋チーム</div>
               <ul>
-                <li class="mix"><b>WS2-1 30分＋ゲスト講師30分</b>（聴く型）</li>
-                <li class="team">T1定例 30分</li>
+                <li class="pkg"><b>ゲスト講義③ 2h</b>（対話＆受容）</li>
+                <li class="pkg"><b>定例WS2-1 30分</b>（15分傾聴ペア）</li>
               </ul>
             </div>
             <div class="wcard-personal">傾聴ペア（同期1人×15分×2本）</div>
           </div>
           <div class="wcard">
             <div class="wcard-head"><span class="wcard-w">W2</span><span class="wcard-wn">第6週</span></div>
-            <div class="wcard-h">ゲスト講義</div>
+            <div class="wcard-h">2.5hパッケージ④</div>
             <div class="wcard-acts">
               <div class="wcard-acts-label">運営＋チーム</div>
               <ul>
-                <li class="guest"><b>ゲスト講義② 2h</b>（対話＆受容・哲学対話）</li>
+                <li class="pkg"><b>ゲスト講義④ 2h</b>（身体論・聴き方）</li>
+                <li class="pkg"><b>定例WS 30分</b>（仮のテーマを声に出す）</li>
+                <li class="team">T1定例 60分</li>
               </ul>
             </div>
             <div class="wcard-personal">探究テーマのラフ（仮の言葉）</div>
@@ -329,11 +339,11 @@ p.lead{font-family:var(--serif);font-size:1.03rem;color:var(--ink);font-weight:5
             <div class="wcard-acts">
               <div class="wcard-acts-label">運営＋チーム</div>
               <ul>
-                <li class="pres"><b>WS2-2 探究テーマ発表 2h</b>（個人発表・仮置き）</li>
+                <li class="pres"><b>WS2-2 探究テーマ発表 2h</b>（個人発表）</li>
                 <li class="team">T1定例 30分</li>
               </ul>
             </div>
-            <div class="wcard-personal">発表準備／発表後の反応メモ</div>
+            <div class="wcard-personal">発表準備／反応の記録</div>
           </div>
           <div class="wcard">
             <div class="wcard-head"><span class="wcard-w">W4</span><span class="wcard-wn">第8週</span></div>
@@ -375,12 +385,12 @@ p.lead{font-family:var(--serif);font-size:1.03rem;color:var(--ink);font-weight:5
           </div>
           <div class="wcard">
             <div class="wcard-head"><span class="wcard-w">W2</span><span class="wcard-wn">第10週</span></div>
-            <div class="wcard-h">合宿後＋ゲスト</div>
+            <div class="wcard-h">2.5hパッケージ⑤</div>
             <div class="wcard-acts">
               <div class="wcard-acts-label">運営＋チーム</div>
               <ul>
-                <li class="team">合宿後ふりかえり 60分</li>
-                <li class="guest"><b>ゲスト講義③ 2h</b>（卒業生・仮名乗りの先達）</li>
+                <li class="pkg"><b>ゲスト講義⑤ 2h</b>（卒業生・仮名乗りの先達）</li>
+                <li class="pkg"><b>定例WS 30分</b>（合宿ふりかえり）</li>
               </ul>
             </div>
             <div class="wcard-personal">仮名乗り120字ラフ×3バージョン</div>
@@ -395,7 +405,7 @@ p.lead{font-family:var(--serif);font-size:1.03rem;color:var(--ink);font-weight:5
                 <li class="team">T1定例 60分</li>
               </ul>
             </div>
-            <div class="wcard-personal">発表本番／反応の収集</div>
+            <div class="wcard-personal">発表本番／反応収集</div>
           </div>
           <div class="wcard">
             <div class="wcard-head"><span class="wcard-w">W4</span><span class="wcard-wn">第12週</span></div>
@@ -406,7 +416,7 @@ p.lead{font-family:var(--serif);font-size:1.03rem;color:var(--ink);font-weight:5
                 <li class="team">T1→T2切替式 90分（新チーム）</li>
               </ul>
             </div>
-            <div class="wcard-personal">月末レター／T2での自分の立ち位置ラフ</div>
+            <div class="wcard-personal">月末レター／T2での立ち位置ラフ</div>
           </div>
         </div>
       </div>
@@ -425,11 +435,12 @@ p.lead{font-family:var(--serif);font-size:1.03rem;color:var(--ink);font-weight:5
         <div class="weeks-grid">
           <div class="wcard">
             <div class="wcard-head"><span class="wcard-w">W1</span><span class="wcard-wn">第13週</span></div>
-            <div class="wcard-h">ゲスト講義</div>
+            <div class="wcard-h">2.5hパッケージ⑥</div>
             <div class="wcard-acts">
               <div class="wcard-acts-label">運営＋チーム</div>
               <ul>
-                <li class="guest"><b>ゲスト講義④ 2h</b>（言語化・書き直し）</li>
+                <li class="pkg"><b>ゲスト講義⑥ 2h</b>（言語化・書き直し）</li>
+                <li class="pkg"><b>定例WS 30分</b>（書き直しのお題）</li>
                 <li class="team">T2定例 60分</li>
               </ul>
             </div>
@@ -437,11 +448,10 @@ p.lead{font-family:var(--serif);font-size:1.03rem;color:var(--ink);font-weight:5
           </div>
           <div class="wcard">
             <div class="wcard-head"><span class="wcard-w">W2</span><span class="wcard-wn">第14週</span></div>
-            <div class="wcard-h">新定例WS 60分</div>
+            <div class="wcard-h">T2定例</div>
             <div class="wcard-acts">
               <div class="wcard-acts-label">運営＋チーム</div>
               <ul>
-                <li class="mix"><b>WS4.5 書き直し 30分＋ゲスト講師30分</b></li>
                 <li class="team">T2定例 60分</li>
               </ul>
             </div>
@@ -449,11 +459,12 @@ p.lead{font-family:var(--serif);font-size:1.03rem;color:var(--ink);font-weight:5
           </div>
           <div class="wcard">
             <div class="wcard-head"><span class="wcard-w">W3</span><span class="wcard-wn">第15週</span></div>
-            <div class="wcard-h">ゲスト講義</div>
+            <div class="wcard-h">2.5hパッケージ⑦</div>
             <div class="wcard-acts">
               <div class="wcard-acts-label">運営＋チーム</div>
               <ul>
-                <li class="guest"><b>ゲスト講義⑤ 2h</b>（コンテンツ型の実演者）</li>
+                <li class="pkg"><b>ゲスト講義⑦ 2h</b>（コンテンツ型実演者）</li>
+                <li class="pkg"><b>定例WS 30分</b>（プロト相談）</li>
                 <li class="team">T2定例 60分</li>
               </ul>
             </div>
@@ -461,7 +472,7 @@ p.lead{font-family:var(--serif);font-size:1.03rem;color:var(--ink);font-weight:5
           </div>
           <div class="wcard">
             <div class="wcard-head"><span class="wcard-w">W4</span><span class="wcard-wn">第16週</span></div>
-            <div class="wcard-h">T2チーム内お披露目</div>
+            <div class="wcard-h">T2お披露目</div>
             <div class="wcard-acts">
               <div class="wcard-acts-label">運営＋チーム</div>
               <ul>
@@ -487,23 +498,25 @@ p.lead{font-family:var(--serif);font-size:1.03rem;color:var(--ink);font-weight:5
         <div class="weeks-grid">
           <div class="wcard">
             <div class="wcard-head"><span class="wcard-w">W1</span><span class="wcard-wn">第17週</span></div>
-            <div class="wcard-h">ゲスト講義</div>
+            <div class="wcard-h">2.5hパッケージ⑧</div>
             <div class="wcard-acts">
               <div class="wcard-acts-label">運営＋チーム</div>
               <ul>
-                <li class="guest"><b>ゲスト講義⑥ 2h</b>（贈与・小商いの実演）</li>
+                <li class="pkg"><b>ゲスト講義⑧ 2h</b>（贈与・小商い）</li>
+                <li class="pkg"><b>定例WS5 30分</b>（宣言文ラフ）</li>
                 <li class="team">T2定例 60分</li>
               </ul>
             </div>
-            <div class="wcard-personal">宣言文120字ラフ／同期外の相手を1人選ぶ</div>
+            <div class="wcard-personal">宣言文120字ラフ／同期外の相手を選ぶ</div>
           </div>
           <div class="wcard">
             <div class="wcard-head"><span class="wcard-w">W2</span><span class="wcard-wn">第18週</span></div>
-            <div class="wcard-h">新定例WS 60分</div>
+            <div class="wcard-h">2.5hパッケージ⑨</div>
             <div class="wcard-acts">
               <div class="wcard-acts-label">運営＋チーム</div>
               <ul>
-                <li class="mix"><b>WS5 宣言 30分＋ゲスト講師30分</b></li>
+                <li class="pkg"><b>ゲスト講義⑨ 2h</b>（小さな差し出しの100回）</li>
+                <li class="pkg"><b>定例WS 30分</b>（手渡しシナリオ）</li>
                 <li class="team">T2定例 60分</li>
               </ul>
             </div>
@@ -511,11 +524,10 @@ p.lead{font-family:var(--serif);font-size:1.03rem;color:var(--ink);font-weight:5
           </div>
           <div class="wcard">
             <div class="wcard-head"><span class="wcard-w">W3</span><span class="wcard-wn">第19週</span></div>
-            <div class="wcard-h">ゲスト講義＋T2リハ</div>
+            <div class="wcard-h">T2内リハ</div>
             <div class="wcard-acts">
               <div class="wcard-acts-label">運営＋チーム</div>
               <ul>
-                <li class="guest"><b>ゲスト講義⑦ 2h</b>（小さな差し出しの100回）</li>
                 <li class="team">T2定例 90分（リハ15分×4人）</li>
               </ul>
             </div>
@@ -550,27 +562,27 @@ p.lead{font-family:var(--serif);font-size:1.03rem;color:var(--ink);font-weight:5
         <div class="weeks-grid">
           <div class="wcard">
             <div class="wcard-head"><span class="wcard-w">W1</span><span class="wcard-wn">第21週</span></div>
-            <div class="wcard-h">ゲスト講義（立ち会い）</div>
+            <div class="wcard-h">2.5hパッケージ⑩</div>
             <div class="wcard-acts">
               <div class="wcard-acts-label">運営＋チーム</div>
               <ul>
-                <li class="guest"><b>ゲスト講義⑧ 2h</b>（越境受け入れ側の眼）</li>
+                <li class="pkg"><b>ゲスト講義⑩ 2h</b>（越境受け入れ側の眼）</li>
+                <li class="pkg"><b>定例WS 30分</b>（越境準備）</li>
                 <li class="team">T2定例 60分</li>
               </ul>
             </div>
-            <div class="wcard-personal">越境先の選定</div>
+            <div class="wcard-personal">越境先の選定／対話テーマの準備</div>
           </div>
           <div class="wcard">
             <div class="wcard-head"><span class="wcard-w">W2</span><span class="wcard-wn">第22週</span></div>
-            <div class="wcard-h">新定例WS 60分</div>
+            <div class="wcard-h">越境準備</div>
             <div class="wcard-acts">
               <div class="wcard-acts-label">運営＋チーム</div>
               <ul>
-                <li class="mix"><b>越境準備 30分＋ゲスト講師30分</b>（場の磁力）</li>
-                <li class="team">T2定例 60分</li>
+                <li class="team">T2定例 60分（最終相談）</li>
               </ul>
             </div>
-            <div class="wcard-personal">持参品・対話テーマの準備</div>
+            <div class="wcard-personal">持参品の準備／越境先とのやり取り</div>
           </div>
           <div class="wcard event">
             <div class="wcard-head"><span class="wcard-w">W3</span><span class="wcard-wn">第23週</span></div>
@@ -578,7 +590,7 @@ p.lead{font-family:var(--serif);font-size:1.03rem;color:var(--ink);font-weight:5
             <div class="wcard-acts">
               <div class="wcard-acts-label">運営＋チーム</div>
               <ul>
-                <li class="camp"><b>POOLO外越境本番 1-2日</b>（現場訪問）</li>
+                <li class="camp"><b>POOLO外越境本番 1-2日</b></li>
               </ul>
             </div>
             <div class="wcard-personal">越境先で対話の場を開く（1-3人）</div>
@@ -612,11 +624,12 @@ p.lead{font-family:var(--serif);font-size:1.03rem;color:var(--ink);font-weight:5
         <div class="weeks-grid">
           <div class="wcard">
             <div class="wcard-head"><span class="wcard-w">W1</span><span class="wcard-wn">第25週</span></div>
-            <div class="wcard-h">ゲスト講義</div>
+            <div class="wcard-h">2.5hパッケージ⑪</div>
             <div class="wcard-acts">
               <div class="wcard-acts-label">運営＋チーム</div>
               <ul>
-                <li class="guest"><b>ゲスト講義⑨ 2h</b>（企画・F=G×Hの実演）</li>
+                <li class="pkg"><b>ゲスト講義⑪ 2h</b>（企画・F=G×H）</li>
+                <li class="pkg"><b>定例WS7 30分</b>（差し出し準備）</li>
                 <li class="team">T2定例 60分</li>
               </ul>
             </div>
@@ -624,11 +637,10 @@ p.lead{font-family:var(--serif);font-size:1.03rem;color:var(--ink);font-weight:5
           </div>
           <div class="wcard">
             <div class="wcard-head"><span class="wcard-w">W2</span><span class="wcard-wn">第26週</span></div>
-            <div class="wcard-h">新定例WS 60分＋企画相談</div>
+            <div class="wcard-h">企画最終相談</div>
             <div class="wcard-acts">
               <div class="wcard-acts-label">運営＋チーム</div>
               <ul>
-                <li class="mix"><b>WS7 差し出し準備 30分＋ゲスト講師30分</b></li>
                 <li class="team">T2定例 90分（企画最終相談）</li>
               </ul>
             </div>
@@ -641,7 +653,6 @@ p.lead{font-family:var(--serif);font-size:1.03rem;color:var(--ink);font-weight:5
               <div class="wcard-acts-label">運営＋チーム</div>
               <ul>
                 <li class="lv3"><b>Lv.3本番ウィンドウ開始</b>（分散型・自主企画）</li>
-                <li class="guest">ゲスト講義⑩ 2h（本番前の背中押し）</li>
               </ul>
             </div>
             <div class="wcard-personal">本番実施①（居住地・縁の土地・越境先）</div>
@@ -732,18 +743,18 @@ p.lead{font-family:var(--serif);font-size:1.03rem;color:var(--ink);font-weight:5
 <section>
   <div class="wrap">
     <div class="sec-num blue">§ 03 ／ LOAD</div>
-    <h2 class="sec-head blue">月別負荷の見通し</h2>
-    <p class="lead">M1-M2は合計<b>約20h</b>で目標達成。P3（M5-M7）で山型、M8で軽量化。</p>
+    <h2 class="sec-head blue">月別負荷とゲスト講義の見通し</h2>
+    <p class="lead">M1-M2は合計<b>約20h</b>。ゲスト講義は月<b>約2コマ</b>を基本に、合宿月・越境月・本番月は<b>1コマ</b>に抑える。</p>
 
     <div class="load-wrap">
       <table class="load-table">
         <thead>
           <tr>
-            <th style="width:8%">月</th>
-            <th style="width:16%">フェーズ</th>
+            <th style="width:7%">月</th>
+            <th style="width:15%">フェーズ</th>
             <th style="width:12%">ゲスト講義</th>
-            <th style="width:20%">主な活動</th>
-            <th style="width:20%">個人</th>
+            <th style="width:23%">主な活動</th>
+            <th style="width:22%">個人</th>
             <th style="width:12%">目標時間</th>
           </tr>
         </thead>
@@ -751,63 +762,63 @@ p.lead{font-family:var(--serif);font-size:1.03rem;color:var(--ink);font-weight:5
           <tr class="p1-row">
             <td class="m-cell">M1</td>
             <td>P1 自分</td>
-            <td>1回</td>
-            <td>Open 3h／新定例WS 60分</td>
-            <td>揺れノート・旅記憶棚卸</td>
+            <td><b>2コマ</b></td>
+            <td>Open 3h／2.5hパッケージ×2</td>
+            <td>揺れノート・探究テーマ候補</td>
             <td class="target-cell">約10h</td>
           </tr>
           <tr class="p1-row">
             <td class="m-cell">M2</td>
             <td>P1 自分</td>
-            <td>1回</td>
-            <td>新定例WS 60分／探究テーマ発表 2h</td>
+            <td><b>2コマ</b></td>
+            <td>2.5hパッケージ×2／探究テーマ発表 2h</td>
             <td>傾聴ペア・発表準備</td>
             <td class="target-cell">約10h</td>
           </tr>
           <tr class="p2-row">
             <td class="m-cell">M3</td>
             <td>P2 POOLO（合宿）</td>
-            <td>1回（卒業生）</td>
-            <td>合宿20h／仮名乗り発表 3h</td>
+            <td><b>1コマ</b>（卒業生）</td>
+            <td>合宿20h／2.5hパッケージ／仮名乗り発表 3h</td>
             <td>仮名乗り120字×3版</td>
             <td class="target-cell">約33h</td>
           </tr>
           <tr class="p2-row">
             <td class="m-cell">M4</td>
             <td>P2 POOLO</td>
-            <td>2回</td>
-            <td>新定例WS 60分／T2お披露目</td>
+            <td><b>2コマ</b></td>
+            <td>2.5hパッケージ×2／T2お披露目</td>
             <td>コンテンツ型プロト</td>
             <td class="target-cell">約15h</td>
           </tr>
           <tr class="p3-row">
             <td class="m-cell">M5</td>
             <td>P3 社会</td>
-            <td>2回</td>
-            <td>新定例WS 60分／手渡し本番</td>
+            <td><b>2コマ</b></td>
+            <td>2.5hパッケージ×2／手渡し本番</td>
             <td>宣言文・反応記録</td>
             <td class="target-cell">約16h</td>
           </tr>
           <tr class="p3-row">
             <td class="m-cell">M6</td>
             <td>P3 社会（越境）</td>
-            <td>1回</td>
-            <td>新定例WS 60分／越境本番 1-2日</td>
+            <td><b>1コマ</b></td>
+            <td>2.5hパッケージ／越境本番 1-2日／WS6</td>
             <td>越境準備・記録</td>
             <td class="target-cell">約22h</td>
           </tr>
           <tr class="p3-row">
             <td class="m-cell">M7</td>
             <td>P3 社会（Lv.3）</td>
-            <td>2回</td>
-            <td>新定例WS 60分／Lv.3本番2週／解散式</td>
+            <td><b>1コマ</b></td>
+            <td>2.5hパッケージ／Lv.3本番2週／解散式</td>
             <td>本番企画・実施</td>
             <td class="target-cell">約24h</td>
           </tr>
           <tr class="p4-row">
             <td class="m-cell">M8</td>
             <td>P4 振り返り</td>
-            <td>0</td>
+            <td><b>0</b></td>
             <td>振り返り対話2本／最終発表／卒業式</td>
             <td>8か月レター</td>
             <td class="target-cell">約11h</td>
@@ -815,14 +826,13 @@ p.lead{font-family:var(--serif);font-size:1.03rem;color:var(--ink);font-weight:5
           <tr class="total-row">
             <td class="m-cell">合計</td>
             <td>8か月</td>
-            <td><b>ゲスト講義 10</b></td>
-            <td>WS／発表／特別／卒業式</td>
+            <td><b>11コマ</b></td>
+            <td>2.5hパッケージ 11セット＋特別イベント</td>
             <td>—</td>
             <td class="target-cell"><b>約141h</b></td>
           </tr>
         </tbody>
       </table>
-      <p style="font-size:0.78rem;color:var(--mute);margin-top:0.8rem;line-height:1.75">※ゲスト講義10本＋合宿前ブリーフ時の卒業生ゲスト1本＝<b>計11本</b>（11期と同数）。さらに<b>新定例WS内のゲスト講師セクション6回</b>で、ゲストに触れる総機会は<b>月2-3回</b>と手厚く。</p>
     </div>
   </div>
 </section>
@@ -835,30 +845,30 @@ p.lead{font-family:var(--serif);font-size:1.03rem;color:var(--ink);font-weight:5
 
     <div class="q-list">
       <div class="q-item">
-        <div class="q-num">Q 1 ／ 新定例WS形式</div>
-        <div class="q-body">定例WS 30分＋ゲスト講師30分＝計60分のパッケージでよいか。</div>
-        <div class="q-note">ゲスト講師セクションの形式は「質疑応答型」／「短い語り＋対話型」／「受講生の発表に応答型」など複数パターンあり得ます。どの型を主にするか別途決定。</div>
+        <div class="q-num">Q 1 ／ 2.5hパッケージ形式</div>
+        <div class="q-body">ゲスト講義 2h →（休憩を挟むか）→ 定例WS 30分＝2.5時間1セッションでよいか。</div>
+        <div class="q-note">間の休憩有無・WSの目的（ゲストの話を受けた直後の対話型／個人書き出し型）を決める必要があります。<b>ゲストも30分残留</b>してWSに参加するかも論点。</div>
       </div>
       <div class="q-item">
-        <div class="q-num">Q 2 ／ 新定例WSのゲスト講師手配</div>
-        <div class="q-body">新定例WSのゲスト講師セクションは、<b>独立ゲスト講義の講師が続けて登場</b>するか、<b>別の短時間ゲスト</b>を呼ぶか。</div>
-        <div class="q-note">前者なら講師の拘束時間が増える（2h+30分）、後者なら別のゲストを6名手配する必要あり。運営工数と受講生への効果のバランス次第。</div>
+        <div class="q-num">Q 2 ／ ゲスト講義コマの月配分</div>
+        <div class="q-body">配分：M1:2 ／ M2:2 ／ M3:1（卒業生）／ M4:2 ／ M5:2 ／ M6:1 ／ M7:1 ／ M8:0 ＝ <b>計11コマ</b>。これでよいか。</div>
+        <div class="q-note">合宿・越境・Lv.3本番がある月（M3/M6/M7）は特別イベント優先で1コマに抑えています。11期実績の月配分と差があれば調整します。</div>
       </div>
       <div class="q-item">
-        <div class="q-num">Q 3 ／ ゲスト講義11コマの月配分</div>
-        <div class="q-body">今回のロードマップは<b>M1:1/M2:1/M3:1(卒業生)/M4:2/M5:2/M6:1/M7:2</b>＝10本＋合宿ゲスト1＝11本としました。これでよいか。</div>
-        <div class="q-note">11期実際の月別配分があればシートで共有ください、配分を合わせます。</div>
+        <div class="q-num">Q 3 ／ T1定例の頻度</div>
+        <div class="q-body">M1-M2のT1定例を<b>60分×月2回</b>でM1-M2計20h目標を達成。週1運用に戻すなら目標+2〜4h。</div>
+        <div class="q-note">入口フェーズの受容を深めるには隔週でも良い一方、11期が週1なら受講生体感に揺れが出る可能性。</div>
       </div>
       <div class="q-item">
-        <div class="q-num">Q 4 ／ T1定例の頻度</div>
-        <div class="q-body">M1-M2のT1定例を<b>60分×月2回（隔週）</b>にすることで目標20hを達成。11期は週1運用だった場合、受講生の物足りなさが出ないか。</div>
-        <div class="q-note">もし週1を維持するなら、M1-M2合計は約24hになります（目標+4h）。軽さ優先か濃密さ優先か。</div>
+        <div class="q-num">Q 4 ／ 時系列ロードマップの粒度</div>
+        <div class="q-body">§02の週カードの粒度（1週1カード＋個人課題1行）でよいか。</div>
+        <div class="q-note">LP・説明会・受講生向けスケジュール表としてそのまま使える形。<b>運営向けには週別詳細</b>（所要時間・ファシリ役割・問い）をPhase 2で展開します。</div>
       </div>
     </div>
 
     <div class="rec">
       <span class="rec-label">参謀長の推奨</span>
-      <b class="hl">新定例WS形式</b>（30分＋ゲスト講師30分）を採用し、<b class="hl">ゲスト講義11コマ</b>を維持。M1-M2は<b class="hl">合計20h</b>の軽量設計で入口の<b>受容</b>を守り、P3（M5-M7）で山を作る。受講生は<b class="hl">今週の活動と課題がロードマップで一目</b>でわかる。Phase 2（LP素材化・ゲスト交渉リスト）に進めます。
+      <b class="hl">2.5hパッケージ</b>（ゲスト2h＋定例WS30分）を採用し、ゲスト講義<b class="hl">11コマを月約2コマ</b>で配置。<b class="hl">M1-M2合計20h</b>の軽量設計で入口の受容を守り、P3で山を作る。受講生は<b class="hl">今週の活動と課題がロードマップで一目</b>でわかる。Phase 2（ゲスト交渉リスト・LP素材化）に進めます。
     </div>
   </div>
 </section>
@@ -871,7 +881,7 @@ p.lead{font-family:var(--serif);font-size:1.03rem;color:var(--ink);font-weight:5
     <a href="poolo-curriculum-shuka.html">shuka案</a>
     <a href="index.html">11期カリキュラム</a>
   </div>
-  <p>POOLO LIFE ／ 12期 時系列ロードマップ v5 ／ 全32週 ／ 2026-04-22</p>
+  <p>POOLO LIFE ／ 12期 時系列ロードマップ v6 ／ 2.5hパッケージ形式 ／ 2026-04-22</p>
 </footer>
 
 </body>
