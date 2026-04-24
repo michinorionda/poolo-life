@@ -12,7 +12,7 @@
   --green:#2D6A4F; --green-bg:#E9F5EE;
   --warm:#C08457; --warm-bg:#F7EDE2;
   --deep:#1F3A3D; --deep-bg:#DCE6E7;
-  --star:#B8860B;
+  --star:#B8860B; --star-bg:#FFF8E1;
   --serif:'Shippori Mincho',serif; --sans:'Noto Sans JP',sans-serif;
 }
 *{margin:0;padding:0;box-sizing:border-box}
@@ -25,23 +25,55 @@ body{font-family:var(--sans);background:var(--bg);color:var(--ink);line-height:1
 .intro{padding:3.5rem 0 2rem}
 .intro p{font-size:0.96rem;color:var(--sub);margin-bottom:1rem}
 .intro p.lead{font-family:var(--serif);font-size:1.05rem;color:var(--ink)}
-.cards{padding:2rem 0 5rem;display:grid;grid-template-columns:1fr;gap:1.2rem}
+
+/* Section headers */
+.sec-head{font-family:var(--serif);font-size:1.3rem;font-weight:600;letter-spacing:0.06em;margin-bottom:0.4rem;border-left:3px solid var(--green);padding-left:0.9rem}
+.sec-head.canonical{border-color:var(--star);color:var(--star)}
+.sec-head.usage{border-color:var(--green);color:var(--green)}
+.sec-head.tools{border-color:var(--warm);color:var(--warm)}
+.sec-sub{font-family:var(--serif);font-size:0.88rem;color:var(--sub);letter-spacing:0.06em;padding-left:1.1rem;margin-bottom:1.6rem;line-height:1.8}
+
+/* Canonical hero card */
+.canonical-section{padding:2rem 0 1rem}
+.card-canonical{display:block;text-decoration:none;color:inherit;background:linear-gradient(135deg,#FFF8E1 0%,#FDF4D6 100%);border:2px solid var(--star);padding:2.6rem 2.6rem;border-radius:4px;transition:all 0.22s;position:relative;margin-bottom:2rem;box-shadow:0 2px 12px rgba(184,134,11,0.08)}
+.card-canonical:hover{box-shadow:0 10px 32px rgba(184,134,11,0.2);transform:translateY(-3px)}
+.card-canonical .card-label{display:inline-block;font-size:0.62rem;letter-spacing:0.32em;font-weight:500;padding:0.3rem 0.8rem;border-radius:2px;margin-bottom:1rem;color:var(--star);background:#fff;border:1px solid var(--star)}
+.card-canonical .card-title{font-family:var(--serif);font-size:1.55rem;font-weight:700;letter-spacing:0.06em;margin-bottom:0.8rem;color:var(--ink);line-height:1.5}
+.card-canonical .card-subtext{font-family:var(--serif);font-size:1rem;color:var(--star);margin-bottom:1rem;font-weight:500;letter-spacing:0.05em;line-height:1.7}
+.card-canonical .card-desc{font-size:0.92rem;color:var(--sub);line-height:1.9;margin-bottom:1.2rem}
+.card-canonical .card-meta{font-size:0.74rem;color:var(--mute);letter-spacing:0.08em;padding-top:1rem;border-top:1px dashed rgba(184,134,11,0.4)}
+.card-canonical .card-arrow{position:absolute;top:2.3rem;right:2.3rem;font-family:var(--serif);font-size:1.7rem;color:var(--star);transition:all 0.22s}
+.card-canonical:hover .card-arrow{transform:translateX(5px)}
+
+/* Normal cards */
+.cards{padding:1rem 0 2rem;display:grid;grid-template-columns:1fr;gap:1.2rem}
 .card{display:block;text-decoration:none;color:inherit;background:#fff;border:1px solid var(--line);padding:2rem 2rem;border-radius:3px;transition:all 0.22s;position:relative}
-.card:hover{border-color:var(--green);transform:translateY(-2px);box-shadow:0 6px 24px rgba(45,106,79,0.08)}
+.card:hover{transform:translateY(-2px);box-shadow:0 6px 24px rgba(0,0,0,0.06)}
+.card.usage{border-left:3px solid var(--green)}
+.card.usage:hover{border-color:var(--green)}
+.card.usage .card-label{color:var(--green);background:var(--green-bg)}
+.card.tool{border-left:3px solid var(--warm)}
+.card.tool:hover{border-color:var(--warm)}
+.card.tool .card-label{color:var(--warm);background:var(--warm-bg)}
+
 .card-label{font-size:0.6rem;letter-spacing:0.3em;font-weight:500;margin-bottom:0.8rem;display:inline-block;padding:0.25rem 0.65rem;border-radius:2px}
-.card.vision .card-label{color:var(--green);background:var(--green-bg)}
-.card.public .card-label{color:var(--warm);background:var(--warm-bg)}
-.card.curriculum .card-label{color:var(--deep);background:var(--deep-bg)}
-.card-title{font-family:var(--serif);font-size:1.25rem;font-weight:600;letter-spacing:0.06em;margin-bottom:0.7rem;color:var(--ink)}
+.card-title{font-family:var(--serif);font-size:1.22rem;font-weight:600;letter-spacing:0.06em;margin-bottom:0.7rem;color:var(--ink)}
 .card-desc{font-size:0.88rem;color:var(--sub);line-height:1.85;margin-bottom:1rem}
 .card-meta{font-size:0.72rem;color:var(--mute);letter-spacing:0.08em;padding-top:0.9rem;border-top:1px dashed var(--line)}
 .card-arrow{position:absolute;top:2rem;right:2rem;font-family:var(--serif);font-size:1.4rem;color:var(--mute);transition:all 0.22s}
-.card:hover .card-arrow{color:var(--green);transform:translateX(3px)}
+.card:hover .card-arrow{color:var(--ink);transform:translateX(3px)}
+
 .note{background:var(--bg-deep);padding:1.3rem 1.5rem;border-left:3px solid var(--star);margin:1.5rem 0;font-size:0.88rem;color:var(--sub);border-radius:3px}
 .note b{color:var(--star)}
-.footer{background:var(--bg-deep);padding:2.5rem 0;border-top:1px solid var(--line);text-align:center;font-size:0.76rem;color:var(--mute);letter-spacing:0.08em}
-.sec-head{font-family:var(--serif);font-size:1.3rem;font-weight:600;letter-spacing:0.06em;margin-bottom:1.5rem;border-left:3px solid var(--green);padding-left:0.9rem}
-@media(max-width:680px){.title{font-size:1.5rem}.card{padding:1.5rem}.card-arrow{display:none}}
+.footer{background:var(--bg-deep);padding:2.5rem 0;border-top:1px solid var(--line);text-align:center;font-size:0.76rem;color:var(--mute);letter-spacing:0.08em;margin-top:3rem}
+
+@media(max-width:680px){
+  .title{font-size:1.5rem}
+  .card,.card-canonical{padding:1.5rem}
+  .card-arrow,.card-canonical .card-arrow{display:none}
+  .card-canonical .card-title{font-size:1.25rem}
+  .card-canonical .card-subtext{font-size:0.92rem}
+}
 </style>
 </head>
 <body>
@@ -57,84 +89,103 @@ body{font-family:var(--sans);background:var(--bg);color:var(--ink);line-height:1
 <section class="intro">
   <div class="wrap">
     <p class="lead">このページは、POOLOの世界観・思想・カリキュラム骨格をマーケターと共有するためのハブです。</p>
-    <p>発信の共通の起点（対外版）と、その背景にある内部設計（v5）、そして実際に回す8ヶ月カリキュラムの3点を並べています。LP・広告・SNS・説明会資料の立て付けを考える際の「原器」として参照ください。</p>
-    <div class="note"><b>読む順番の目安：</b>まず「対外版」で伝える言葉を掴み、背景の厚みを「内部設計 v5」で補強、実際の体験設計は「カリキュラム・ダッシュボード」を参照。</div>
+    <p>中心に置いているのは <b>POOLO未来デザイン v5</b>。ここから、対外向けの発信、バリュー構造、1枚で見せる道具、そして実行のカリキュラムが派生します。LP・広告・SNS・説明会資料の立て付けを考える際の「原器」として参照ください。</p>
+    <div class="note"><b>読み方の目安：</b>迷ったら<b>原典（未来デザイン v5）</b>に戻る。実務では「用途別」の対外版とカリキュラムを往復。伝える場面では「道具」から用途に合うものを選ぶ。</div>
   </div>
 </section>
 
+<!-- 原典 -->
+<section class="canonical-section">
+  <div class="wrap">
+    <h2 class="sec-head canonical">原典</h2>
+    <p class="sec-sub">全ての正本。他のドキュメントはここから派生する。</p>
+
+    <a href="future-design-v5-visual.html" class="card-canonical">
+      <span class="card-label">POOLO FUTURE DESIGN v5 — 原典</span>
+      <h3 class="card-title">POOLO未来デザイン v5 ／ 図解版</h3>
+      <p class="card-subtext">POOLO思想の正本。迷ったら、ここに戻る。</p>
+      <p class="card-desc">全16セクションを図・マトリクス・螺旋・タイムラインで可視化した最新図解版。ビジョン2層、Being×Doing（共にある＋共に旅する・問う・創る）、F=G×H、四象限、ターゲット4状態、変容のエンジン（螺旋SVG）、影響の循環図、8ヶ月タイムライン、差し出しの2軸（形×深さ）まで網羅。</p>
+      <div class="card-meta">2026-04 最新｜テキスト版：<a href="future-design-internal.html" style="color:var(--star)">future-design-internal.html</a></div>
+      <span class="card-arrow">→</span>
+    </a>
+  </div>
+</section>
+
+<!-- 用途別（実務で使う） -->
 <section class="wrap">
-  <h2 class="sec-head">共有ドキュメント</h2>
+  <h2 class="sec-head usage">用途別（実務で使う）</h2>
+  <p class="sec-sub">対外に伝える、実際に動かす。日々の業務で最も触れる2枚。</p>
 </section>
 
 <section class="cards wrap">
-  <a href="values.html" class="card vision" style="border-color:var(--star)">
-    <span class="card-label" style="color:var(--star);background:#F9F0D9">POOLO VALUES — バリュー</span>
-    <h3 class="card-title">POOLOのバリュー ／ 旅の学校の、在り方（2026.04.24 更新）</h3>
-    <p class="card-desc">Being（共にある）を土台に、旅のスタンス3つ（自己決定／自分ごと化／面白がる）が全期間を床のように支え、その上をDoing 3段階（共に旅する→問う→創る）が時系列で深化する。3層の積層構造。姉妹ページ「土台は、どこにある？（木の比喩）」で共にあるが根であることを可視化。</p>
-    <div class="card-meta">2026-04-24 v3更新｜全発信の原点｜関連：<a href="values-foundation.html" style="color:var(--star)">土台ミニ図</a></div>
-    <span class="card-arrow">→</span>
-  </a>
-
-  <a href="poolo-model.html" class="card vision" style="border-color:var(--warm)">
-    <span class="card-label" style="color:var(--warm);background:#F7EDE2">THE MODEL — 1枚で見る</span>
-    <h3 class="card-title">POOLOのモデル — 1枚で見る（2026.04.16 最新）</h3>
-    <p class="card-desc">全体像を1枚の構造図に統合。出発点（自分の中で何かが動き始める）→ 探究テーマ・実践（旅/問い/作る）の螺旋 × 仲間の引力場 → 到達点（想像もしなかった世界と自分）。下部に「探究テーマ×実践×場」の3要素カード＋「なぜ届くか」の4観点。</p>
-    <div class="card-meta">2026-04-16 作成｜まずこの1枚から始める</div>
-    <span class="card-arrow">→</span>
-  </a>
-
-  <a href="poolo-ripple.html" class="card vision" style="border-color:var(--warm)">
-    <span class="card-label" style="color:var(--warm);background:#F7EDE2">QUEST RIPPLE — 探究テーマの広がり</span>
-    <h3 class="card-title">探究テーマは、増え、広がる（2026.04.17 更新）</h3>
-    <p class="card-desc">探究テーマ（突き動かすもの）は一つで終わらない。3ステージで可視化：Stage1 ぼんやりした探究テーマひとつ → Stage2 複数の探究テーマが育ち響き合う → Stage3 他者に届き他者の探究テーマを生む。影響の循環（§14）の時間軸展開。</p>
-    <div class="card-meta">2026-04-17 更新｜1枚モデルと補完関係</div>
-    <span class="card-arrow">→</span>
-  </a>
-
-  <a href="poolo-spiral-theory.html" class="card vision" style="border-color:var(--deep)">
-    <span class="card-label" style="color:var(--deep);background:#DCE6E7">THE THEORY — 理論で読み解く</span>
-    <h3 class="card-title">なぜ、想像もしなかった世界の自分に出会い続けるのか（2026.04.17 最新）</h3>
-    <p class="card-desc">モデル図の姉妹ページ。POOLOの3要素（旅・問い・共創）がなぜ成立し、なぜ「出会い続ける」結果を生むのかを、既存理論13件（メルロ＝ポンティ／デューイ／SDT／ショーン／ヴィゴツキー／コルブ／メジロー／キーガン／ドゥルーズ 他）で裏打ちして解く読みもの。約13分・5,500字。</p>
-    <div class="card-meta">2026-04-17 作成｜動き出す/深まる/出会い続ける の3章構成</div>
-    <span class="card-arrow">→</span>
-  </a>
-
-  <a href="poolo-essence.html" class="card vision" style="border-color:var(--star)">
-    <span class="card-label" style="color:var(--star);background:#F9F0D9">ESSENCE — 核の1枚</span>
-    <h3 class="card-title">POOLO LIFE — 核の1枚（2026.04 最新）</h3>
-    <p class="card-desc">「なぜ変われるのか／どこへ到達するのか／なぜ可能なのか」の3つの問いに答える形で、探究テーマ（追いかけたいもの）と実践（旅・問い・作る）の相互更新ループ、8ヶ月の螺旋、到達点、裏側の5理論までを一望。</p>
-    <div class="card-meta">2026-04-15 作成｜壁打ちの結晶</div>
-    <span class="card-arrow">→</span>
-  </a>
-
-  <a href="future-design-public.html" class="card public">
-    <span class="card-label">PUBLIC PHILOSOPHY</span>
+  <a href="future-design-public.html" class="card usage">
+    <span class="card-label">PUBLIC PHILOSOPHY — 対外版</span>
     <h3 class="card-title">わたしたちが信じていること（対外版）</h3>
     <p class="card-desc">LP・広告・説明会資料すべての共通ベースとなる対外発信の原稿ドラフト。オープニング3案、ターゲット、8ヶ月の流れ、4つの姿勢、FAQまで。マーケター向けの一次リソース。</p>
     <div class="card-meta">作成：copywriter / 2026-04-14</div>
     <span class="card-arrow">→</span>
   </a>
 
-  <a href="future-design-v5-visual.html" class="card vision">
-    <span class="card-label">INTERNAL DESIGN v5 — 図解版</span>
-    <h3 class="card-title">POOLOの未来デザイン v5（図解版・2026.04）</h3>
-    <p class="card-desc">全16セクションを図・マトリクス・螺旋・タイムラインで可視化した最新図解版。ビジョン2層、Being×Doing、F=G×H、四象限、ターゲット4状態、変容のエンジン（螺旋SVG）、影響の循環図、8ヶ月タイムライン、差し出しの2軸（形×深さ）まで網羅。</p>
-    <div class="card-meta">推奨：全体像を掴むならまずこれ｜<a href="future-design-internal.html" style="color:var(--green)">テキスト版はこちら</a></div>
+  <a href="index.html" class="card usage">
+    <span class="card-label">CURRICULUM — 実行骨格</span>
+    <h3 class="card-title">POOLO LIFE 8ヶ月カリキュラム・マスターダッシュボード</h3>
+    <p class="card-desc">8ヶ月骨格の最新版。各月テーマ・ワーク粒度・ゲスト候補・FB型・ファシリ手引きまで。M4〜M7の最深部の詳細は別ページで掘り下げ。</p>
+    <div class="card-meta">関連：<a href="m4-m7.html" style="color:var(--green)">M4-M7詳細</a>／<a href="discussion.html" style="color:var(--green)">チーム論点（検討中）</a></div>
+    <span class="card-arrow">→</span>
+  </a>
+</section>
+
+<!-- 伝える道具（1枚で見せる） -->
+<section class="wrap">
+  <h2 class="sec-head tools">伝える道具（1枚で見せる）</h2>
+  <p class="sec-sub">場面に応じて選ぶ。バリュー（原点）、全体像、探究、理論の裏打ち。</p>
+</section>
+
+<section class="cards wrap">
+  <a href="values.html" class="card tool">
+    <span class="card-label">POOLO VALUES — バリュー</span>
+    <h3 class="card-title">POOLOのバリュー ／ 旅の学校の、在り方（2026.04.24 v3）</h3>
+    <p class="card-desc">Being（共にある）を土台に、旅のスタンス3つ（自己決定／自分ごと化／面白がる）が全期間を床のように支え、その上をDoing 3段階（共に旅する→問う→創る）が時系列で深化する。3層の積層構造。姉妹ページ「土台は、どこにある？（木の比喩）」で共にあるが根であることを可視化。</p>
+    <div class="card-meta">2026-04-24 v3｜全発信の原点｜関連：<a href="values-foundation.html" style="color:var(--warm)">土台ミニ図</a></div>
     <span class="card-arrow">→</span>
   </a>
 
-  <a href="index.html" class="card curriculum">
-    <span class="card-label">CURRICULUM</span>
-    <h3 class="card-title">POOLO LIFE 8ヶ月カリキュラム・マスターダッシュボード</h3>
-    <p class="card-desc">8ヶ月骨格の最新版。各月テーマ・ワーク粒度・ゲスト候補・FB型・ファシリ手引きまで。M4〜M7の最深部の詳細は別ページで掘り下げ。</p>
-    <div class="card-meta">関連：<a href="m4-m7.html" style="color:var(--deep)">M4-M7詳細</a>／<a href="discussion.html" style="color:var(--deep)">チーム論点（検討中）</a></div>
+  <a href="poolo-model.html" class="card tool">
+    <span class="card-label">THE MODEL — 1枚で見る</span>
+    <h3 class="card-title">POOLOのモデル — 1枚で見る（2026.04.16）</h3>
+    <p class="card-desc">全体像を1枚の構造図に統合。出発点（自分の中で何かが動き始める）→ 探究テーマ・実践（旅/問い/作る）の螺旋 × 仲間の引力場 → 到達点（想像もしなかった世界と自分）。下部に「探究テーマ×実践×場」の3要素カード＋「なぜ届くか」の4観点。</p>
+    <div class="card-meta">2026-04-16 作成｜まずこの1枚から始める</div>
+    <span class="card-arrow">→</span>
+  </a>
+
+  <a href="poolo-essence.html" class="card tool">
+    <span class="card-label">ESSENCE — 核の1枚</span>
+    <h3 class="card-title">POOLO LIFE — 核の1枚（2026.04）</h3>
+    <p class="card-desc">「なぜ変われるのか／どこへ到達するのか／なぜ可能なのか」の3つの問いに答える形で、探究テーマ（追いかけたいもの）と実践（旅・問い・作る）の相互更新ループ、8ヶ月の螺旋、到達点、裏側の5理論までを一望。</p>
+    <div class="card-meta">2026-04-15 作成｜壁打ちの結晶</div>
+    <span class="card-arrow">→</span>
+  </a>
+
+  <a href="poolo-ripple.html" class="card tool">
+    <span class="card-label">QUEST RIPPLE — 探究テーマの広がり</span>
+    <h3 class="card-title">探究テーマは、増え、広がる（2026.04.17）</h3>
+    <p class="card-desc">探究テーマ（突き動かすもの）は一つで終わらない。3ステージで可視化：Stage1 ぼんやりした探究テーマひとつ → Stage2 複数の探究テーマが育ち響き合う → Stage3 他者に届き他者の探究テーマを生む。影響の循環（§14）の時間軸展開。</p>
+    <div class="card-meta">2026-04-17 更新｜1枚モデルと補完関係</div>
+    <span class="card-arrow">→</span>
+  </a>
+
+  <a href="poolo-spiral-theory.html" class="card tool">
+    <span class="card-label">THE THEORY — 理論で読み解く</span>
+    <h3 class="card-title">なぜ、想像もしなかった世界の自分に出会い続けるのか（2026.04.17）</h3>
+    <p class="card-desc">モデル図の姉妹ページ。POOLOの3要素（旅・問い・共創）がなぜ成立し、なぜ「出会い続ける」結果を生むのかを、既存理論13件（メルロ＝ポンティ／デューイ／SDT／ショーン／ヴィゴツキー／コルブ／メジロー／キーガン／ドゥルーズ 他）で裏打ちして解く読みもの。約13分・5,500字。</p>
+    <div class="card-meta">2026-04-17 作成｜動き出す/深まる/出会い続ける の3章構成</div>
     <span class="card-arrow">→</span>
   </a>
 </section>
 
 <footer class="footer">
   <div class="wrap">
-    <p>POOLO LIFE｜Marketer Share Hub — 2026.04.24</p>
+    <p>POOLO LIFE｜Marketer Share Hub — 2026.04.24 v2（原典独立レイアウト）</p>
   </div>
 </footer>
 
