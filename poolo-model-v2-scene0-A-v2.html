@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>POOLO LIFE — SCENE 0 案A ver.2（三角図＋個別モデル図）</title>
+<title>POOLO LIFE — SCENE 0 案A ver.2（三角図＋各モデル個別図）</title>
 <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
@@ -29,7 +29,6 @@ body{font-family:var(--sans);background:var(--bg);color:var(--ink);line-height:1
 .h-sub{font-family:var(--serif);font-size:0.9rem;color:var(--sub);letter-spacing:0.08em}
 .back{display:inline-block;margin-top:1.3rem;font-size:0.78rem;color:var(--green);text-decoration:none;letter-spacing:0.1em;border-bottom:1px solid var(--green);padding-bottom:2px;margin-right:0.6rem}
 
-/* Predict */
 .predict{padding:3rem 0 2.5rem}
 .predict-lead{font-family:var(--serif);font-size:1.12rem;color:var(--ink);line-height:2;letter-spacing:0.05em;text-align:center;margin-bottom:2.3rem;font-weight:500}
 .voices{display:flex;flex-direction:column;gap:1rem;max-width:720px;margin:0 auto}
@@ -37,17 +36,14 @@ body{font-family:var(--sans);background:var(--bg);color:var(--ink);line-height:1
 .voice p{font-family:var(--serif);font-size:0.95rem;color:var(--ink);line-height:2;letter-spacing:0.04em;font-weight:400}
 .predict-close{text-align:center;font-family:var(--serif);font-size:0.95rem;color:var(--sub);line-height:2;margin-top:2rem;letter-spacing:0.05em}
 
-/* Question */
 .question{padding:2.8rem 0;background:var(--bg-deep);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
 .question p{max-width:680px;margin:0 auto;font-family:var(--serif);font-size:1.02rem;color:var(--ink);line-height:2.2;letter-spacing:0.05em;text-align:center;font-weight:500}
 .question p b{color:var(--star);font-weight:600}
 
-/* Conditions + Triangle */
 .conditions{padding:3rem 0 2rem}
 .cond-lead{text-align:center;font-family:var(--serif);font-size:1.15rem;color:var(--ink);letter-spacing:0.1em;margin-bottom:0.6rem;font-weight:600;line-height:1.8}
 .cond-lead-sub{text-align:center;font-family:var(--serif);font-size:0.82rem;color:var(--mute);letter-spacing:0.15em;margin-bottom:2.5rem}
 
-/* Triangle diagram */
 .tri-wrap{max-width:560px;margin:0 auto 3rem}
 .tri-svg{width:100%;height:auto;display:block}
 .tri-caption{text-align:center;font-family:var(--serif);font-size:0.78rem;color:var(--mute);letter-spacing:0.08em;margin-top:0.6rem}
@@ -64,9 +60,8 @@ body{font-family:var(--sans);background:var(--bg);color:var(--ink);line-height:1
 .cond-name{font-family:var(--serif);font-size:1.22rem;font-weight:600;color:var(--ink);margin-bottom:0.25rem;letter-spacing:0.06em}
 .cond-sub{font-family:var(--serif);font-size:0.85rem;color:var(--sub);margin-bottom:1.2rem;letter-spacing:0.04em}
 
-/* 各モデルの個別図 */
 .cond-fig{margin:0.4rem 0 1.4rem;padding:1.2rem;background:var(--bg);border-radius:3px;border:1px dashed var(--line)}
-.cond-fig svg{width:100%;height:auto;max-height:180px;display:block}
+.cond-fig svg{width:100%;height:auto;display:block}
 .cond-fig-cap{text-align:center;font-family:var(--serif);font-size:0.73rem;color:var(--mute);letter-spacing:0.1em;margin-top:0.5rem}
 
 .cond-body{font-size:0.88rem;color:var(--sub);line-height:2;font-weight:400}
@@ -141,18 +136,14 @@ body{font-family:var(--sans);background:var(--bg);color:var(--ink);line-height:1
     <p class="cond-lead">POOLOモデル</p>
     <p class="cond-lead-sub">想像を超える変化が起きるための、3つの必要条件</p>
 
-    <!-- 三角図（案G踏襲・中心を「想像を超える変化」に置換） -->
+    <!-- 三角図 -->
     <div class="tri-wrap">
       <svg class="tri-svg" viewBox="0 0 600 480" xmlns="http://www.w3.org/2000/svg">
-        <!-- 三角形のアウトライン -->
         <polygon points="300,80 130,370 470,370" fill="#fff" stroke="#1F3A3D" stroke-width="1.5" stroke-opacity="0.35" stroke-dasharray="4 4"/>
-
-        <!-- 3頂点の円 -->
         <circle cx="300" cy="80" r="42" fill="#B8860B" fill-opacity="0.18" stroke="#B8860B" stroke-width="2"/>
         <circle cx="130" cy="370" r="42" fill="#C08457" fill-opacity="0.18" stroke="#C08457" stroke-width="2"/>
         <circle cx="470" cy="370" r="42" fill="#2D6A4F" fill-opacity="0.18" stroke="#2D6A4F" stroke-width="2"/>
 
-        <!-- 頂点ラベル（外側） -->
         <text x="300" y="32" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="15" fill="#B8860B" font-weight="700" letter-spacing="3">関心探究型</text>
         <text x="300" y="50" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="10" fill="#B8860B" letter-spacing="1.5">目標を逆算しない歩き方</text>
 
@@ -160,14 +151,12 @@ body{font-family:var(--sans);background:var(--bg);color:var(--ink);line-height:1
         <text x="80" y="458" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="10" fill="#C08457" letter-spacing="1.5">未知を歓迎する身体</text>
 
         <text x="520" y="440" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="15" fill="#2D6A4F" font-weight="700" letter-spacing="3">変容エンジン</text>
-        <text x="520" y="458" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="10" fill="#2D6A4F" letter-spacing="1.5">外からの問いと反応の循環</text>
+        <text x="520" y="458" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="10" fill="#2D6A4F" letter-spacing="1.5">探究テーマと実践の循環</text>
 
-        <!-- 頂点の円内ラベル -->
         <text x="300" y="85" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="11" fill="#B8860B" font-weight="600">歩き方</text>
         <text x="130" y="375" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="11" fill="#C08457" font-weight="600">身体</text>
         <text x="470" y="375" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="11" fill="#2D6A4F" font-weight="600">循環</text>
 
-        <!-- 頂点から中央への矢印 -->
         <defs>
           <marker id="arrC" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
             <path d="M0,1 L8,5 L0,9 z" fill="#1F3A3D"/>
@@ -177,7 +166,6 @@ body{font-family:var(--sans);background:var(--bg);color:var(--ink);line-height:1
         <line x1="160" y1="355" x2="255" y2="258" stroke="#C08457" stroke-width="1.6" marker-end="url(#arrC)" opacity="0.7"/>
         <line x1="440" y1="355" x2="345" y2="258" stroke="#2D6A4F" stroke-width="1.6" marker-end="url(#arrC)" opacity="0.7"/>
 
-        <!-- 中央：想像を超える変化 -->
         <rect x="195" y="210" width="210" height="68" rx="3" fill="#fff" stroke="#1F3A3D" stroke-width="2"/>
         <text x="300" y="234" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="13" fill="#1F3A3D" font-weight="700" letter-spacing="3">想像を超える</text>
         <text x="300" y="254" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="13" fill="#1F3A3D" font-weight="700" letter-spacing="3">変化</text>
@@ -188,159 +176,200 @@ body{font-family:var(--sans);background:var(--bg);color:var(--ink);line-height:1
 
     <div class="cond-grid">
 
-      <!-- 旅のスタンス -->
-      <div class="cond warm">
-        <span class="cond-label">STANCE ／ 身体</span>
-        <div class="cond-name">旅のスタンス</div>
-        <div class="cond-sub">未知を歓迎する身体</div>
-
-        <!-- 個別図：開かれた器（3つのドットが器の中に） -->
-        <div class="cond-fig">
-          <svg viewBox="0 0 500 170" xmlns="http://www.w3.org/2000/svg">
-            <!-- 上から降ってくる未知（点線の粒） -->
-            <circle cx="170" cy="25" r="4" fill="#C08457" opacity="0.35"/>
-            <circle cx="230" cy="18" r="3" fill="#C08457" opacity="0.45"/>
-            <circle cx="290" cy="28" r="5" fill="#C08457" opacity="0.3"/>
-            <circle cx="350" cy="22" r="3.5" fill="#C08457" opacity="0.4"/>
-            <!-- 降下の点線 -->
-            <line x1="170" y1="35" x2="170" y2="75" stroke="#C08457" stroke-width="1" stroke-dasharray="2 3" opacity="0.5"/>
-            <line x1="230" y1="28" x2="230" y2="75" stroke="#C08457" stroke-width="1" stroke-dasharray="2 3" opacity="0.5"/>
-            <line x1="290" y1="38" x2="290" y2="75" stroke="#C08457" stroke-width="1" stroke-dasharray="2 3" opacity="0.5"/>
-            <line x1="350" y1="32" x2="350" y2="75" stroke="#C08457" stroke-width="1" stroke-dasharray="2 3" opacity="0.5"/>
-            <!-- 器（半円・上が開いている） -->
-            <path d="M 130 80 Q 130 160, 260 160 Q 390 160, 390 80" fill="#F7EDE2" stroke="#C08457" stroke-width="1.8" stroke-opacity="0.85"/>
-            <!-- 器の中の3つの柱（自己決定・自分ごと化・面白がる） -->
-            <circle cx="195" cy="115" r="12" fill="#C08457" fill-opacity="0.28" stroke="#C08457" stroke-width="1.3"/>
-            <text x="195" y="119" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="9" fill="#8B5A2B" font-weight="600">決</text>
-            <circle cx="260" cy="130" r="12" fill="#C08457" fill-opacity="0.28" stroke="#C08457" stroke-width="1.3"/>
-            <text x="260" y="134" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="9" fill="#8B5A2B" font-weight="600">事</text>
-            <circle cx="325" cy="115" r="12" fill="#C08457" fill-opacity="0.28" stroke="#C08457" stroke-width="1.3"/>
-            <text x="325" y="119" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="9" fill="#8B5A2B" font-weight="600">面</text>
-            <!-- ラベル -->
-            <text x="195" y="160" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="8" fill="#C08457" letter-spacing="0.5">自己決定</text>
-            <text x="260" y="177" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="8" fill="#C08457" letter-spacing="0.5">自分ごと化</text>
-            <text x="325" y="160" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="8" fill="#C08457" letter-spacing="0.5">面白がる</text>
-          </svg>
-          <p class="cond-fig-cap">未知を受け取る器＝3つのスタンスが身体に入った状態</p>
-        </div>
-
-        <p class="cond-body">旅は、知らない景色に身体ごと差し出す行為です。<b>自己決定し、自分ごと化し、面白がる</b>。この3つが身体に入ると、想像を超えたものが来たときに、受け取れる器ができる。</p>
-        <p class="cond-alone"><b>この層だけが一人歩きすると：</b>刺激で終わる旅サークルになります。</p>
-      </div>
-
-      <!-- 変容エンジン -->
-      <div class="cond green">
-        <span class="cond-label">ENGINE ／ 循環</span>
-        <div class="cond-name">変容エンジン</div>
-        <div class="cond-sub">外から問いと反応が返ってくる循環</div>
-
-        <!-- 個別図：差し出す↔返ってくる循環 -->
-        <div class="cond-fig">
-          <svg viewBox="0 0 500 180" xmlns="http://www.w3.org/2000/svg">
-            <!-- 中央：自分 -->
-            <circle cx="250" cy="90" r="30" fill="#E9F5EE" stroke="#2D6A4F" stroke-width="2"/>
-            <text x="250" y="95" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="12" fill="#2D6A4F" font-weight="700">自分</text>
-            <!-- 周囲：仲間4人 -->
-            <circle cx="90" cy="90" r="20" fill="#E9F5EE" stroke="#2D6A4F" stroke-width="1.5" opacity="0.85"/>
-            <text x="90" y="94" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="10" fill="#2D6A4F" font-weight="600">仲間</text>
-            <circle cx="410" cy="90" r="20" fill="#E9F5EE" stroke="#2D6A4F" stroke-width="1.5" opacity="0.85"/>
-            <text x="410" y="94" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="10" fill="#2D6A4F" font-weight="600">仲間</text>
-            <circle cx="170" cy="25" r="16" fill="#E9F5EE" stroke="#2D6A4F" stroke-width="1.5" opacity="0.8"/>
-            <text x="170" y="29" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="9" fill="#2D6A4F" font-weight="600">仲間</text>
-            <circle cx="330" cy="25" r="16" fill="#E9F5EE" stroke="#2D6A4F" stroke-width="1.5" opacity="0.8"/>
-            <text x="330" y="29" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="9" fill="#2D6A4F" font-weight="600">仲間</text>
-            <circle cx="170" cy="155" r="16" fill="#E9F5EE" stroke="#2D6A4F" stroke-width="1.5" opacity="0.8"/>
-            <text x="170" y="159" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="9" fill="#2D6A4F" font-weight="600">仲間</text>
-            <circle cx="330" cy="155" r="16" fill="#E9F5EE" stroke="#2D6A4F" stroke-width="1.5" opacity="0.8"/>
-            <text x="330" y="159" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="9" fill="#2D6A4F" font-weight="600">仲間</text>
-
-            <!-- 双方向矢印 -->
-            <defs>
-              <marker id="arrGO" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0,1 L6,4 L0,7 z" fill="#C08457"/></marker>
-              <marker id="arrGB" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0,1 L6,4 L0,7 z" fill="#2D6A4F"/></marker>
-            </defs>
-
-            <!-- 左：差し出す（自分→仲間）と返ってくる（仲間→自分）を上下に分けて -->
-            <path d="M 218 82 Q 160 70, 110 82" fill="none" stroke="#C08457" stroke-width="1.4" marker-end="url(#arrGO)"/>
-            <path d="M 110 100 Q 160 115, 218 100" fill="none" stroke="#2D6A4F" stroke-width="1.4" marker-end="url(#arrGB)"/>
-            <!-- 右 -->
-            <path d="M 282 82 Q 340 70, 390 82" fill="none" stroke="#C08457" stroke-width="1.4" marker-end="url(#arrGO)"/>
-            <path d="M 390 100 Q 340 115, 282 100" fill="none" stroke="#2D6A4F" stroke-width="1.4" marker-end="url(#arrGB)"/>
-            <!-- 上左 -->
-            <path d="M 232 65 Q 210 40, 182 32" fill="none" stroke="#C08457" stroke-width="1.2" marker-end="url(#arrGO)" opacity="0.8"/>
-            <path d="M 184 42 Q 215 55, 234 75" fill="none" stroke="#2D6A4F" stroke-width="1.2" marker-end="url(#arrGB)" opacity="0.8"/>
-            <!-- 上右 -->
-            <path d="M 268 65 Q 290 40, 318 32" fill="none" stroke="#C08457" stroke-width="1.2" marker-end="url(#arrGO)" opacity="0.8"/>
-            <path d="M 316 42 Q 285 55, 266 75" fill="none" stroke="#2D6A4F" stroke-width="1.2" marker-end="url(#arrGB)" opacity="0.8"/>
-            <!-- 下左 -->
-            <path d="M 232 115 Q 210 140, 182 148" fill="none" stroke="#C08457" stroke-width="1.2" marker-end="url(#arrGO)" opacity="0.8"/>
-            <path d="M 184 138 Q 215 125, 234 105" fill="none" stroke="#2D6A4F" stroke-width="1.2" marker-end="url(#arrGB)" opacity="0.8"/>
-            <!-- 下右 -->
-            <path d="M 268 115 Q 290 140, 318 148" fill="none" stroke="#C08457" stroke-width="1.2" marker-end="url(#arrGO)" opacity="0.8"/>
-            <path d="M 316 138 Q 285 125, 266 105" fill="none" stroke="#2D6A4F" stroke-width="1.2" marker-end="url(#arrGB)" opacity="0.8"/>
-
-            <!-- ラベル -->
-            <text x="35" y="50" font-family="'Noto Sans JP',sans-serif" font-size="9" fill="#C08457" font-weight="600">差し出す →</text>
-            <text x="35" y="138" font-family="'Noto Sans JP',sans-serif" font-size="9" fill="#2D6A4F" font-weight="600">← 返ってくる</text>
-          </svg>
-          <p class="cond-fig-cap">差し出す→反応が返る→また差し出す、の螺旋が回る</p>
-        </div>
-
-        <p class="cond-body">自分の中で考え続けても、想像の外には出られません。<b>仲間と差し出し、反応が返り、また差し出す</b>。その循環の中で、自分では思いつかない自分が立ち上がっていきます。</p>
-        <p class="cond-alone"><b>この層だけが一人歩きすると：</b>一対一のコーチングになります。</p>
-      </div>
-
-      <!-- 関心探究型 -->
+      <!-- 1. 関心探究型 -->
       <div class="cond star">
         <span class="cond-label">MODEL ／ 歩き方</span>
         <div class="cond-name">関心探究型</div>
         <div class="cond-sub">目標を逆算しない歩き方</div>
 
-        <!-- 個別図：逆算型（直線）と関心探究型（蛇行・複数の到達点） -->
+        <!-- 左右対比の図 -->
         <div class="cond-fig">
-          <svg viewBox="0 0 500 200" xmlns="http://www.w3.org/2000/svg">
-            <!-- 上半分：目標逆算型（直線） -->
-            <text x="30" y="28" font-family="'Shippori Mincho',serif" font-size="10" fill="#999" letter-spacing="2">目標を逆算する歩き方</text>
-            <circle cx="70" cy="50" r="6" fill="#999"/>
-            <text x="70" y="75" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="8" fill="#999">今</text>
-            <line x1="78" y1="50" x2="422" y2="50" stroke="#999" stroke-width="1.3" stroke-dasharray="5 3"/>
-            <circle cx="430" cy="50" r="8" fill="none" stroke="#999" stroke-width="1.5"/>
-            <text x="430" y="75" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="8" fill="#999">決めた到達点</text>
+          <svg viewBox="0 0 560 240" xmlns="http://www.w3.org/2000/svg">
+            <!-- 中央区切り線 -->
+            <line x1="280" y1="30" x2="280" y2="225" stroke="#e0ddd3" stroke-width="1" stroke-dasharray="3 3"/>
 
-            <!-- 区切り線 -->
-            <line x1="30" y1="98" x2="470" y2="98" stroke="#e0ddd3" stroke-width="1"/>
+            <!-- ===== 左：目標逆算型 ===== -->
+            <text x="140" y="28" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="11" fill="#999" letter-spacing="3" font-weight="600">目標を逆算する歩き方</text>
 
-            <!-- 下半分：関心探究型（蛇行、複数の到達点に枝分かれ） -->
-            <text x="30" y="120" font-family="'Shippori Mincho',serif" font-size="10" fill="#B8860B" letter-spacing="2" font-weight="600">関心探究型の歩き方</text>
-            <circle cx="70" cy="155" r="6" fill="#B8860B"/>
-            <text x="70" y="180" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="8" fill="#B8860B">今</text>
+            <!-- 今 -->
+            <circle cx="40" cy="135" r="7" fill="#999"/>
+            <text x="40" y="158" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="9" fill="#999">今</text>
 
-            <!-- 蛇行パス（3本に枝分かれ） -->
-            <path d="M 76 155 Q 130 140, 170 160 Q 220 178, 270 150 Q 310 132, 340 145 Q 380 158, 410 140" fill="none" stroke="#B8860B" stroke-width="1.8" stroke-linecap="round"/>
-            <!-- 枝分かれ1（上へ） -->
-            <path d="M 270 150 Q 310 120, 360 115" fill="none" stroke="#B8860B" stroke-width="1.3" stroke-linecap="round" opacity="0.7"/>
-            <!-- 枝分かれ2（下へ） -->
-            <path d="M 270 150 Q 310 180, 360 185" fill="none" stroke="#B8860B" stroke-width="1.3" stroke-linecap="round" opacity="0.7"/>
+            <!-- 直線の道 -->
+            <line x1="50" y1="135" x2="235" y2="135" stroke="#999" stroke-width="1.5" stroke-dasharray="5 3"/>
+
+            <!-- 決めた到達点 -->
+            <circle cx="245" cy="135" r="11" fill="none" stroke="#999" stroke-width="1.8"/>
+            <text x="245" y="160" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="9" fill="#999">決めた到達点</text>
+
+            <!-- 説明（下） -->
+            <text x="140" y="200" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="10" fill="#999" font-style="italic">想像の射程内に収まる</text>
+            <text x="140" y="217" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="10" fill="#999" font-style="italic">1つの到達点</text>
+
+            <!-- ===== 右：関心探究型 ===== -->
+            <text x="420" y="28" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="11" fill="#B8860B" letter-spacing="3" font-weight="700">関心探究型の歩き方</text>
+
+            <!-- 今 -->
+            <circle cx="310" cy="135" r="7" fill="#B8860B"/>
+            <text x="310" y="158" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="9" fill="#B8860B">今</text>
+
+            <!-- 蛇行するメインパス -->
+            <path d="M 320 135 Q 360 108, 395 128 Q 430 148, 465 122 Q 500 100, 530 115" fill="none" stroke="#B8860B" stroke-width="2" stroke-linecap="round"/>
+
+            <!-- 枝分かれ（上） -->
+            <path d="M 395 128 Q 430 85, 475 70" fill="none" stroke="#B8860B" stroke-width="1.4" stroke-linecap="round" opacity="0.7"/>
+
+            <!-- 枝分かれ（下） -->
+            <path d="M 465 122 Q 490 155, 520 170" fill="none" stroke="#B8860B" stroke-width="1.4" stroke-linecap="round" opacity="0.7"/>
+
+            <!-- 関心の揺れ（小さなドット） -->
+            <circle cx="360" cy="115" r="2.5" fill="#B8860B" opacity="0.5"/>
+            <circle cx="430" cy="140" r="2.5" fill="#B8860B" opacity="0.5"/>
+            <circle cx="500" cy="108" r="2.5" fill="#B8860B" opacity="0.5"/>
 
             <!-- 3つの到達点（想像を超えた） -->
-            <circle cx="415" cy="140" r="7" fill="#F9F0D9" stroke="#B8860B" stroke-width="1.8"/>
-            <circle cx="365" cy="115" r="6" fill="#F9F0D9" stroke="#B8860B" stroke-width="1.5" opacity="0.85"/>
-            <circle cx="365" cy="185" r="6" fill="#F9F0D9" stroke="#B8860B" stroke-width="1.5" opacity="0.85"/>
+            <circle cx="535" cy="115" r="10" fill="#F9F0D9" stroke="#B8860B" stroke-width="2"/>
+            <circle cx="481" cy="68" r="8" fill="#F9F0D9" stroke="#B8860B" stroke-width="1.8" opacity="0.9"/>
+            <circle cx="524" cy="172" r="8" fill="#F9F0D9" stroke="#B8860B" stroke-width="1.8" opacity="0.9"/>
 
-            <text x="450" y="144" font-family="'Noto Sans JP',sans-serif" font-size="8" fill="#B8860B">想像を</text>
-            <text x="450" y="156" font-family="'Noto Sans JP',sans-serif" font-size="8" fill="#B8860B">超えた</text>
-            <text x="450" y="168" font-family="'Noto Sans JP',sans-serif" font-size="8" fill="#B8860B">自分</text>
-
-            <!-- 小さな揺れ（関心の揺れ） -->
-            <circle cx="130" cy="138" r="2" fill="#B8860B" opacity="0.5"/>
-            <circle cx="220" cy="178" r="2" fill="#B8860B" opacity="0.5"/>
-            <circle cx="340" cy="132" r="2" fill="#B8860B" opacity="0.5"/>
+            <!-- 説明（下） -->
+            <text x="420" y="200" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="10" fill="#B8860B" font-style="italic">揺れながら届く</text>
+            <text x="420" y="217" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="10" fill="#B8860B" font-style="italic">想像を超えた複数の到達点</text>
           </svg>
-          <p class="cond-fig-cap">直線で達する1点 vs 揺れながら届く複数の到達点</p>
+          <p class="cond-fig-cap">直線で1点に届く vs 揺れながら複数の到達点に届く</p>
         </div>
 
         <p class="cond-body">「3年後にこうなる」と決めた時点で、想像の射程が固まります。<b>今、心が動くほうへ</b>。小さな反応を拾い続ける歩き方が、想像を超える場所へ連れていく。</p>
         <p class="cond-alone"><b>この層だけが一人歩きすると：</b>流れ続けるSNSのタイムラインになります。</p>
+      </div>
+
+      <!-- 2. 変容エンジン -->
+      <div class="cond green">
+        <span class="cond-label">ENGINE ／ 循環</span>
+        <div class="cond-name">変容エンジン</div>
+        <div class="cond-sub">探究テーマと実践が影響し合う双方向の循環</div>
+
+        <!-- 探究テーマ↔旅・問い・作る のループ図 -->
+        <div class="cond-fig">
+          <svg viewBox="0 0 560 320" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <marker id="arrEngO" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0,1 L7,4.5 L0,8 z" fill="#C08457"/></marker>
+              <marker id="arrEngI" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0,1 L7,4.5 L0,8 z" fill="#2D6A4F"/></marker>
+            </defs>
+
+            <!-- 上：探究テーマ -->
+            <ellipse cx="280" cy="70" rx="140" ry="50" fill="#F7EDE2" stroke="#C08457" stroke-width="1.5" stroke-dasharray="4 3"/>
+            <text x="280" y="55" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="10" fill="#C08457" letter-spacing="3" font-weight="500">QUEST</text>
+            <text x="280" y="78" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="17" fill="#1a1a1a" font-weight="700" letter-spacing="2">探究テーマ</text>
+            <text x="280" y="98" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="10" fill="#7a7a7a" letter-spacing="1">気になってしまうもの</text>
+
+            <!-- 下：3つの実践 -->
+            <!-- 旅 -->
+            <rect x="30" y="220" width="140" height="60" rx="3" fill="#E9F5EE" stroke="#2D6A4F" stroke-width="1.5"/>
+            <text x="100" y="240" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="9" fill="#2D6A4F" letter-spacing="3" font-weight="500">PRACTICE</text>
+            <text x="100" y="260" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="15" fill="#1a1a1a" font-weight="700" letter-spacing="2">旅</text>
+            <text x="100" y="275" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="9" fill="#5a5a5a">身体で飛び込む</text>
+
+            <!-- 問い -->
+            <rect x="210" y="220" width="140" height="60" rx="3" fill="#E9F5EE" stroke="#2D6A4F" stroke-width="1.5"/>
+            <text x="280" y="240" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="9" fill="#2D6A4F" letter-spacing="3" font-weight="500">PRACTICE</text>
+            <text x="280" y="260" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="15" fill="#1a1a1a" font-weight="700" letter-spacing="2">問い</text>
+            <text x="280" y="275" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="9" fill="#5a5a5a">自分の言葉にする</text>
+
+            <!-- 作る -->
+            <rect x="390" y="220" width="140" height="60" rx="3" fill="#E9F5EE" stroke="#2D6A4F" stroke-width="1.5"/>
+            <text x="460" y="240" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="9" fill="#2D6A4F" letter-spacing="3" font-weight="500">PRACTICE</text>
+            <text x="460" y="260" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="15" fill="#1a1a1a" font-weight="700" letter-spacing="2">作る</text>
+            <text x="460" y="275" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="9" fill="#5a5a5a">差し出してみる</text>
+
+            <!-- 矢印：探究テーマ ⇆ 旅 -->
+            <path d="M 190 115 Q 140 165, 95 215" fill="none" stroke="#C08457" stroke-width="1.6" marker-end="url(#arrEngO)"/>
+            <path d="M 118 217 Q 165 168, 215 120" fill="none" stroke="#2D6A4F" stroke-width="1.6" marker-end="url(#arrEngI)"/>
+
+            <!-- 矢印：探究テーマ ⇆ 問い -->
+            <path d="M 268 125 Q 263 170, 263 215" fill="none" stroke="#C08457" stroke-width="1.6" marker-end="url(#arrEngO)"/>
+            <path d="M 297 217 Q 297 170, 292 128" fill="none" stroke="#2D6A4F" stroke-width="1.6" marker-end="url(#arrEngI)"/>
+
+            <!-- 矢印：探究テーマ ⇆ 作る -->
+            <path d="M 370 115 Q 420 165, 465 215" fill="none" stroke="#C08457" stroke-width="1.6" marker-end="url(#arrEngO)"/>
+            <path d="M 442 217 Q 395 168, 345 120" fill="none" stroke="#2D6A4F" stroke-width="1.6" marker-end="url(#arrEngI)"/>
+
+            <!-- 凡例 -->
+            <g transform="translate(30, 155)">
+              <line x1="0" y1="0" x2="20" y2="0" stroke="#C08457" stroke-width="1.6" marker-end="url(#arrEngO)"/>
+              <text x="26" y="4" font-family="'Shippori Mincho',serif" font-size="10" fill="#C08457">押される</text>
+              <line x1="0" y1="18" x2="20" y2="18" stroke="#2D6A4F" stroke-width="1.6" marker-end="url(#arrEngI)"/>
+              <text x="26" y="22" font-family="'Shippori Mincho',serif" font-size="10" fill="#2D6A4F">更新される</text>
+            </g>
+          </svg>
+          <p class="cond-fig-cap">探究テーマが実践を押し、実践が探究テーマを更新する</p>
+        </div>
+
+        <p class="cond-body">最初の探究テーマは、ぼんやりでいい。<b>旅・問い・作る</b>という実践を、仲間と差し出し合いながら何周も回していくと、探究テーマが育ち、変わっていきます。この双方向の循環の中で、自分では思いつかない自分が立ち上がっていく。</p>
+        <p class="cond-alone"><b>この層だけが一人歩きすると：</b>一対一のコーチングになります。</p>
+      </div>
+
+      <!-- 3. 旅のスタンス -->
+      <div class="cond warm">
+        <span class="cond-label">STANCE ／ 身体</span>
+        <div class="cond-name">旅のスタンス</div>
+        <div class="cond-sub">未知を歓迎する身体</div>
+
+        <!-- 水平3円が重なる図（三角とは違う配置） -->
+        <div class="cond-fig">
+          <svg viewBox="0 0 560 260" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <radialGradient id="stGradA" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="#C08457" stop-opacity="0.35"/>
+                <stop offset="100%" stop-color="#C08457" stop-opacity="0.1"/>
+              </radialGradient>
+              <radialGradient id="stGradB" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="#C08457" stop-opacity="0.4"/>
+                <stop offset="100%" stop-color="#C08457" stop-opacity="0.12"/>
+              </radialGradient>
+              <radialGradient id="stGradC" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="#C08457" stop-opacity="0.35"/>
+                <stop offset="100%" stop-color="#C08457" stop-opacity="0.1"/>
+              </radialGradient>
+            </defs>
+
+            <!-- 上：降ってくる未知 -->
+            <text x="280" y="25" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="10" fill="#C08457" letter-spacing="3" font-weight="500">UNKNOWN ／ 未知</text>
+            <circle cx="180" cy="48" r="3" fill="#C08457" opacity="0.45"/>
+            <circle cx="240" cy="42" r="4" fill="#C08457" opacity="0.4"/>
+            <circle cx="300" cy="50" r="3.5" fill="#C08457" opacity="0.5"/>
+            <circle cx="360" cy="44" r="4" fill="#C08457" opacity="0.4"/>
+            <line x1="180" y1="55" x2="180" y2="82" stroke="#C08457" stroke-width="1" stroke-dasharray="2 3" opacity="0.5"/>
+            <line x1="240" y1="50" x2="240" y2="82" stroke="#C08457" stroke-width="1" stroke-dasharray="2 3" opacity="0.5"/>
+            <line x1="300" y1="58" x2="300" y2="82" stroke="#C08457" stroke-width="1" stroke-dasharray="2 3" opacity="0.5"/>
+            <line x1="360" y1="52" x2="360" y2="82" stroke="#C08457" stroke-width="1" stroke-dasharray="2 3" opacity="0.5"/>
+
+            <!-- 水平に並ぶ3つの円（重なる） -->
+            <circle cx="180" cy="160" r="70" fill="url(#stGradA)" stroke="#C08457" stroke-width="1.8" stroke-opacity="0.85"/>
+            <circle cx="280" cy="160" r="70" fill="url(#stGradB)" stroke="#C08457" stroke-width="1.8" stroke-opacity="0.85"/>
+            <circle cx="380" cy="160" r="70" fill="url(#stGradC)" stroke="#C08457" stroke-width="1.8" stroke-opacity="0.85"/>
+
+            <!-- 各円のラベル -->
+            <text x="150" y="147" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="13" fill="#8B5A2B" font-weight="700" letter-spacing="2">自己決定</text>
+            <text x="150" y="170" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="8" fill="#8B5A2B">自分で選ぶ</text>
+
+            <text x="280" y="147" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="13" fill="#8B5A2B" font-weight="700" letter-spacing="2">自分ごと化</text>
+            <text x="280" y="170" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="8" fill="#8B5A2B">引き受ける</text>
+
+            <text x="410" y="147" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="13" fill="#8B5A2B" font-weight="700" letter-spacing="2">面白がる</text>
+            <text x="410" y="170" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="8" fill="#8B5A2B">受け入れる</text>
+
+            <!-- 中央の重なり部分にラベル -->
+            <text x="280" y="218" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="11" fill="#5D3A1A" font-weight="700" letter-spacing="3">未知を受け取る身体</text>
+
+            <!-- 下部：説明 -->
+            <text x="280" y="248" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="10" fill="#C08457" font-style="italic">3つが重なって、はじめて器ができる</text>
+          </svg>
+          <p class="cond-fig-cap">3つのスタンスが重なる部分が「受け取れる身体」になる</p>
+        </div>
+
+        <p class="cond-body">旅は、知らない景色に身体ごと差し出す行為です。<b>自己決定し、自分ごと化し、面白がる</b>。この3つが身体に入ると、想像を超えたものが来たときに、受け取れる器ができる。</p>
+        <p class="cond-alone"><b>この層だけが一人歩きすると：</b>刺激で終わる旅サークルになります。</p>
       </div>
 
     </div>
@@ -368,7 +397,7 @@ body{font-family:var(--sans);background:var(--bg);color:var(--ink);line-height:1
     <a href="poolo-model-v2-preview.html">v2 本編プレビュー</a>
     <a href="poolo-model.html">本番モデル</a>
     <a href="index-share.html">共有ハブ</a>
-    <p>POOLO LIFE ／ SCENE 0 案A ver.2 プレビュー（2026-04-25）</p>
+    <p>POOLO LIFE ／ SCENE 0 案A ver.2 プレビュー（2026-04-25 更新）</p>
   </div>
 </footer>
 
