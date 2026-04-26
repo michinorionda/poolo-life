@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>POOLO 自己紹介の解体 サンプル10｜ラベルを外した先に残るもの</title>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#1a1a1a; --sub:#4a4a4a; --mute:#7a7a7a; --hint:#a8a8a8;
+  --bg:#faf9f6; --bg-deep:#f3f1ea; --card:#ffffff; --line:#e0ddd3;
+  --green:#2D6A4F; --green-bg:#E9F5EE;
+  --blue:#1B4A7A; --blue-bg:#E3EDF6;
+  --purple:#534AB7; --purple-bg:#ECEAF7;
+  --teal:#1A6B5A; --teal-bg:#DCEBE6;
+  --amber:#7A5500; --amber-bg:#F7EFD8;
+  --red:#8B3A2A; --red-bg:#F4E1DC;
+  --serif:'Shippori Mincho',serif; --sans:'Noto Sans JP',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--bg);color:var(--ink);line-height:1.95;font-weight:400;-webkit-font-smoothing:antialiased}
+.wrap{max-width:920px;margin:0 auto;padding:0 1.5rem}
+section{padding:3.5rem 0}
+
+.header{padding:5rem 0 3.5rem;background:linear-gradient(135deg,var(--bg-deep) 0%,var(--bg) 60%);border-bottom:1px solid var(--line);text-align:center}
+.sample-badge{display:inline-block;font-size:0.65rem;letter-spacing:0.4em;color:#fff;background:var(--amber);padding:0.45rem 1.4rem;border-radius:30px;font-weight:600;margin-bottom:1.5rem}
+.header-title{font-family:var(--serif);font-size:1.95rem;font-weight:600;letter-spacing:0.06em;line-height:1.7;color:var(--ink);margin-bottom:0.8rem}
+.header-sub{font-family:var(--serif);font-size:0.95rem;color:var(--sub);letter-spacing:0.05em;margin-bottom:1.5rem}
+
+.question-box{background:#fff;border:1px solid var(--line);border-left:3px solid var(--teal);padding:1.4rem 1.7rem;border-radius:3px;max-width:760px;margin:1.5rem auto 0;text-align:left}
+.question-box .lab{font-size:0.66rem;letter-spacing:0.25em;color:var(--teal);font-weight:600;margin-bottom:0.6rem}
+.question-box .main{font-family:var(--serif);font-size:1.08rem;color:var(--ink);line-height:2;font-weight:600;letter-spacing:0.04em;margin-bottom:0.7rem}
+.question-box .cond{font-size:0.85rem;color:var(--sub);line-height:1.9}
+.question-box .cond b{color:var(--ink);font-weight:600}
+
+.notice{background:var(--amber-bg);border-left:3px solid var(--amber);padding:1.4rem 1.6rem;border-radius:3px;margin:1.4rem auto 0;max-width:760px;text-align:left}
+.notice-label{font-size:0.66rem;letter-spacing:0.25em;color:var(--amber);font-weight:600;margin-bottom:0.6rem}
+.notice-main{font-family:var(--serif);font-size:0.95rem;color:var(--ink);line-height:1.95;font-weight:500;letter-spacing:0.03em}
+
+.intro{padding:3rem 0;border-bottom:1px solid var(--line)}
+.intro p.lead{font-family:var(--serif);font-size:1rem;color:var(--ink);font-weight:500;line-height:2.1;letter-spacing:0.04em;max-width:720px;margin:0 auto;text-align:center}
+
+.samples{padding:4rem 0}
+.sample-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(380px,1fr));gap:1rem}
+.sample-card{background:var(--card);border:1px solid var(--line);border-top:3px solid var(--green);padding:1.4rem 1.5rem 1.5rem;border-radius:3px;display:flex;flex-direction:column;gap:0.7rem}
+.sample-num{font-family:var(--serif);font-size:0.7rem;letter-spacing:0.25em;font-weight:600;color:var(--green)}
+.sample-text{font-family:var(--serif);font-size:0.98rem;color:var(--ink);line-height:2;font-weight:500;letter-spacing:0.02em}
+
+/* Color rotation per card index */
+.sample-card:nth-child(10n+1){border-top-color:var(--blue)} .sample-card:nth-child(10n+1) .sample-num{color:var(--blue)}
+.sample-card:nth-child(10n+2){border-top-color:var(--green)} .sample-card:nth-child(10n+2) .sample-num{color:var(--green)}
+.sample-card:nth-child(10n+3){border-top-color:var(--purple)} .sample-card:nth-child(10n+3) .sample-num{color:var(--purple)}
+.sample-card:nth-child(10n+4){border-top-color:var(--amber)} .sample-card:nth-child(10n+4) .sample-num{color:var(--amber)}
+.sample-card:nth-child(10n+5){border-top-color:var(--teal)} .sample-card:nth-child(10n+5) .sample-num{color:var(--teal)}
+.sample-card:nth-child(10n+6){border-top-color:var(--red)} .sample-card:nth-child(10n+6) .sample-num{color:var(--red)}
+.sample-card:nth-child(10n+7){border-top-color:var(--green)} .sample-card:nth-child(10n+7) .sample-num{color:var(--green)}
+.sample-card:nth-child(10n+8){border-top-color:var(--blue)} .sample-card:nth-child(10n+8) .sample-num{color:var(--blue)}
+.sample-card:nth-child(10n+9){border-top-color:var(--purple)} .sample-card:nth-child(10n+9) .sample-num{color:var(--purple)}
+.sample-card:nth-child(10n+10){border-top-color:var(--teal)} .sample-card:nth-child(10n+10) .sample-num{color:var(--teal)}
+
+.guide{padding:4rem 0;background:var(--bg-deep);border-top:1px solid var(--line)}
+.guide-head{text-align:center;margin-bottom:2.2rem}
+.guide-head .mark{font-family:var(--serif);font-size:0.7rem;letter-spacing:0.35em;color:var(--green);font-weight:600;margin-bottom:0.6rem;display:block}
+.guide-head h2{font-family:var(--serif);font-size:1.4rem;font-weight:600;letter-spacing:0.05em;color:var(--ink)}
+
+.guide-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;max-width:840px;margin:0 auto}
+.guide-card{background:#fff;border:1px solid var(--line);padding:1.4rem 1.6rem;border-radius:3px}
+.guide-card h3{font-family:var(--serif);font-size:1rem;color:var(--ink);font-weight:600;margin-bottom:0.8rem;letter-spacing:0.04em;padding-bottom:0.5rem;border-bottom:1px solid var(--line)}
+.guide-card ul{list-style:none}
+.guide-card li{padding:0.45rem 0 0.45rem 1.4rem;position:relative;font-size:0.86rem;color:var(--sub);line-height:1.85}
+.guide-card li::before{content:'—';position:absolute;left:0;color:var(--green);font-weight:600}
+
+.closing{padding:4.5rem 0 5.5rem;text-align:center}
+.closing-quote{font-family:var(--serif);font-size:1.05rem;color:var(--ink);line-height:2.1;letter-spacing:0.05em;font-weight:500;max-width:680px;margin:0 auto 1.3rem;padding:1.5rem 1.8rem;background:var(--bg-deep);border-left:3px solid var(--green);border-right:3px solid var(--green);text-align:left}
+.closing-meta{font-size:0.74rem;color:var(--mute);letter-spacing:0.1em;line-height:2}
+
+@media(max-width:720px){
+  .header-title{font-size:1.55rem}
+  .sample-grid{grid-template-columns:1fr}
+  .guide-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="wrap">
+    <span class="sample-badge">SAMPLE ／ 例示</span>
+    <h1 class="header-title">自己紹介の解体 サンプル10</h1>
+    <div class="header-sub">ラベルを外した先に残るもの</div>
+
+    <div class="question-box">
+      <div class="lab">QUESTION</div>
+      <div class="main">自己紹介をしてください。</div>
+      <div class="cond">ただし、<b>職業／出身地／育った場所／日常的によく使うラベル</b>（ママ・学生・起業家・◯◯部・◯◯系など）を取り除いて、それでもあなたに残ったもので説明してください。</div>
+    </div>
+
+    <div class="notice">
+      <div class="notice-label">この資料について</div>
+      <div class="notice-main">これは「あ、こういう粒度・こういう自由度で語っていいんだ」という手触りを伝えるためのサンプル集です。粒度も長さも自由で、揃える必要はありません。一字一句を真似する必要もありません。</div>
+    </div>
+  </div>
+</header>
+
+<section class="intro">
+  <div class="wrap">
+    <p class="lead">普段使っている社会的なラベルを一回脇に置いて、身体感覚・癖・反応・違和感・関係性で自分を語り直してみる。10案はその答え方の幅を見せるためのサンプルです。</p>
+  </div>
+</section>
+
+<section class="samples">
+  <div class="wrap">
+    <div class="sample-grid">
+      <div class="sample-card"><div class="sample-num">SAMPLE 01</div><div class="sample-text">朝、外の音より先に冷蔵庫の音が耳に入ってくる。そういう聴こえ方をする人間で、たぶん昔からそう。誰かと一緒にいる時間より、その後ひとりで反芻している時間のほうが長いかもしれません。</div></div>
+      <div class="sample-card"><div class="sample-num">SAMPLE 02</div><div class="sample-text">知らない街の知らない路地に入ると、なぜか足が軽くなる。逆に整いすぎた場所では息が浅くなる、そういう身体をしています。</div></div>
+      <div class="sample-card"><div class="sample-num">SAMPLE 03</div><div class="sample-text">喋るより、書いてから喋りたい人。一度文字にしてからじゃないと、自分の輪郭が掴めない感じがあります。</div></div>
+      <div class="sample-card"><div class="sample-num">SAMPLE 04</div><div class="sample-text">怒っているのか悲しんでいるのか、しばらく経たないと自分でも分からない時がある。後から気づくタイプ、と言えばいいのかもしれません。</div></div>
+      <div class="sample-card"><div class="sample-num">SAMPLE 05</div><div class="sample-text">人の話を聞いている最中に、別の人の話を思い出している。失礼かもしれないけれど、それで世界がつながって見える瞬間がいちばん好きです。</div></div>
+      <div class="sample-card"><div class="sample-num">SAMPLE 06</div><div class="sample-text">雨の匂いと、誰かが料理を始めた匂いに、ほぼ同じくらい反応する身体。季節が変わる手前の数日が、一年でいちばん落ち着かない。</div></div>
+      <div class="sample-card"><div class="sample-num">SAMPLE 07</div><div class="sample-text">計画を立てるのは好き、でも立てた瞬間に守りたくなくなる。その矛盾を抱えたまま、毎週同じことをやっています。</div></div>
+      <div class="sample-card"><div class="sample-num">SAMPLE 08</div><div class="sample-text">強い言葉に弱い。良い意味でも悪い意味でも、誰かが言い切った言葉に長く引きずられる人間で、たぶんそれは才能でも欠点でもなく、ただの癖。</div></div>
+      <div class="sample-card"><div class="sample-num">SAMPLE 09</div><div class="sample-text">ひとりでいる時間がないと枯れて、人といる時間が長すぎても枯れる。その細い境目を、ずっと探しながら生きている気がします。</div></div>
+      <div class="sample-card"><div class="sample-num">SAMPLE 10</div><div class="sample-text">「楽しかったね」で終わる集まりより、終わった後にひとりで散歩したくなる集まりに、ずっと呼ばれていたい。そういう関心の置き方をしている、と最近気づきました。</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="guide">
+  <div class="wrap">
+    <div class="guide-head">
+      <span class="mark">FOR FACILITATORS &amp; PARTICIPANTS</span>
+      <h2>このワークの読み解き</h2>
+    </div>
+    <div class="guide-grid">
+      <div class="guide-card">
+        <h3>このワークの狙い</h3>
+        <ul>
+          <li>普段使っているラベルを一度脇に置き、身体感覚・癖・反応・違和感で自分を語り直す体験の場</li>
+          <li>答え方の自由度は広く、1文でも、矛盾の同居でも、場面描写でも、なんでも構わない</li>
+          <li>言葉が出てこない沈黙も、立派な自己紹介の一部として扱う。無理に絞り出さなくていい</li>
+          <li>うまく言えなかった、という感想自体が、次の問いに進む一番良いスタート地点</li>
+        </ul>
+      </div>
+      <div class="guide-card">
+        <h3>ファシリの介入ポイント</h3>
+        <ul>
+          <li>「えっと、その、私は…」で詰まった人には、ラベルを外した先の「いま気になっていること」「最近よく目で追うもの」を一つだけ聞き返す</li>
+          <li>職業や肩書きを言いそうになった時は、優しく「そのお仕事の中で、自分が一番反応している瞬間って、どんな時ですか？」と差し戻す</li>
+          <li>短い人にも長い人にも「いまの一行、すごく聴かせてもらった感じがしました」と同じ強度で受け取る</li>
+          <li>沈黙が10秒以上続いたら、無理に言葉を求めず「いまは黙っていたい時間ですよね」と一度承認してから、次の人に回す選択肢を渡す</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="closing">
+  <div class="wrap">
+    <div class="closing-quote">
+      ここに並ぶ10案は、正解ではなくサンプルです。<br>
+      あなたの身体と、あなたの癖と、あなたの違和感のなかから、あなた自身の言葉で語ってください。<br><br>
+      ラベルを外した先に残るものは、誰にも代わりに語れない、あなたしか持っていない手触りです。
+    </div>
+    <div class="closing-meta">
+      POOLO 自己紹介の解体 サンプル10<br>
+      ワークでの一例として共有しています ／ 一字一句を真似する必要はありません
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
