@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>4/26 オンライン90分 ワーク内容3案｜自分自身が納得できる、30代の生き方を考える</title>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#1a1a1a; --sub:#4a4a4a; --mute:#7a7a7a; --hint:#a8a8a8;
+  --bg:#faf9f6; --bg-deep:#f3f1ea; --card:#ffffff; --line:#e0ddd3;
+  --green:#2D6A4F; --green-bg:#E9F5EE;
+  --blue:#1B4A7A; --blue-bg:#E3EDF6;
+  --purple:#534AB7; --purple-bg:#ECEAF7;
+  --teal:#1A6B5A; --teal-bg:#DCEBE6;
+  --amber:#7A5500; --amber-bg:#F7EFD8;
+  --red:#8B3A2A; --red-bg:#F4E1DC;
+  --serif:'Shippori Mincho',serif; --sans:'Noto Sans JP',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--bg);color:var(--ink);line-height:1.95;font-weight:400;-webkit-font-smoothing:antialiased}
+.wrap{max-width:920px;margin:0 auto;padding:0 1.5rem}
+section{padding:4rem 0}
+
+/* ===== Header ===== */
+.header{padding:5.5rem 0 4rem;background:linear-gradient(135deg,var(--bg-deep) 0%,var(--bg) 60%);border-bottom:1px solid var(--line);text-align:center}
+.header-mark{display:inline-block;font-size:0.62rem;letter-spacing:0.4em;color:var(--green);margin-bottom:1.6rem;font-weight:600;padding:0.4rem 1.1rem;border:1px solid var(--green);background:#fff}
+.header-title{font-family:var(--serif);font-size:1.95rem;font-weight:600;letter-spacing:0.06em;line-height:1.7;color:var(--ink);margin-bottom:1rem}
+.header-sub{font-family:var(--serif);font-size:0.95rem;color:var(--sub);letter-spacing:0.05em;margin-bottom:2rem}
+.header-meta{display:inline-flex;gap:1.5rem;flex-wrap:wrap;font-size:0.78rem;color:var(--mute);background:#fff;padding:0.9rem 1.6rem;border:1px solid var(--line);border-radius:3px;letter-spacing:0.06em}
+.header-meta b{color:var(--green);font-weight:600;margin-right:0.4rem;font-size:0.68rem;letter-spacing:0.18em}
+
+/* ===== Section common ===== */
+.sec-num{font-family:var(--serif);font-size:0.72rem;color:var(--green);letter-spacing:0.3em;margin-bottom:0.8rem;font-weight:600}
+.sec-head{font-family:var(--serif);font-size:1.5rem;font-weight:600;letter-spacing:0.05em;margin-bottom:1.8rem;color:var(--ink);line-height:1.6}
+.sec-head::before{content:'';display:inline-block;width:2.5rem;height:2px;background:currentColor;margin-right:0.8rem;vertical-align:middle;margin-bottom:0.35em}
+section.alt{background:var(--bg-deep)}
+p{font-size:0.94rem;color:var(--sub);margin-bottom:1rem}
+p.lead{font-family:var(--serif);font-size:1.02rem;color:var(--ink);font-weight:500;line-height:2}
+
+/* ===== Philosophy / objective ===== */
+.objective{background:var(--green-bg);border-left:3px solid var(--green);padding:1.4rem 1.6rem;border-radius:3px;margin:1.5rem 0}
+.objective .lab{font-size:0.66rem;letter-spacing:0.25em;color:var(--green);font-weight:600;margin-bottom:0.6rem}
+.objective .main{font-family:var(--serif);font-size:1.05rem;color:var(--ink);line-height:1.95;font-weight:500;letter-spacing:0.03em}
+
+.principle-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:0.8rem;margin:1.5rem 0}
+.principle-card{background:var(--card);border:1px solid var(--line);border-top:3px solid var(--teal);padding:1.1rem 1.2rem;border-radius:3px}
+.principle-card .num{font-family:var(--serif);font-size:0.7rem;color:var(--teal);letter-spacing:0.2em;font-weight:600;margin-bottom:0.4rem}
+.principle-card .title{font-family:var(--serif);font-size:1rem;color:var(--ink);font-weight:600;margin-bottom:0.4rem;letter-spacing:0.04em}
+.principle-card .desc{font-size:0.84rem;color:var(--sub);line-height:1.8}
+
+.rules{background:var(--card);border:1px solid var(--line);padding:1.4rem 1.6rem;border-radius:3px;margin:1.5rem 0}
+.rules-title{font-family:var(--serif);font-size:0.95rem;color:var(--ink);font-weight:600;margin-bottom:0.9rem;letter-spacing:0.05em;padding-bottom:0.6rem;border-bottom:1px solid var(--line)}
+.rules ul{list-style:none}
+.rules li{padding:0.4rem 0 0.4rem 1.4rem;position:relative;font-size:0.9rem;color:var(--sub);line-height:1.85}
+.rules li::before{content:'□';position:absolute;left:0;color:var(--green);font-weight:600}
+.rules li b{color:var(--ink);font-weight:600}
+
+/* ===== Case header ===== */
+.case-header{padding:3rem 0 2rem;text-align:center;border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-bottom:2.5rem}
+.case-mark{font-size:0.62rem;letter-spacing:0.4em;font-weight:600;margin-bottom:0.8rem}
+.case-title{font-family:var(--serif);font-size:1.55rem;font-weight:600;letter-spacing:0.05em;line-height:1.6;color:var(--ink);margin-bottom:0.4rem}
+.case-sub{font-family:var(--serif);font-size:0.92rem;color:var(--sub);letter-spacing:0.04em;font-weight:400}
+
+/* Color tokens for cases */
+.case-a .case-mark{color:var(--blue)}
+.case-a .case-header{background:linear-gradient(180deg,var(--blue-bg) 0%,var(--bg) 100%)}
+.case-a .sec-head{color:var(--blue)}
+.case-a .concept-box{border-left:3px solid var(--blue);background:var(--blue-bg)}
+.case-a .concept-box .lab{color:var(--blue)}
+
+.case-b .case-mark{color:var(--purple)}
+.case-b .case-header{background:linear-gradient(180deg,var(--purple-bg) 0%,var(--bg) 100%)}
+.case-b .sec-head{color:var(--purple)}
+.case-b .concept-box{border-left:3px solid var(--purple);background:var(--purple-bg)}
+.case-b .concept-box .lab{color:var(--purple)}
+
+.case-c .case-mark{color:var(--teal)}
+.case-c .case-header{background:linear-gradient(180deg,var(--teal-bg) 0%,var(--bg) 100%)}
+.case-c .sec-head{color:var(--teal)}
+.case-c .concept-box{border-left:3px solid var(--teal);background:var(--teal-bg)}
+.case-c .concept-box .lab{color:var(--teal)}
+
+/* ===== Concept box ===== */
+.concept-box{padding:1.4rem 1.6rem;border-radius:3px;margin:1.2rem 0 1.8rem}
+.concept-box .lab{font-size:0.66rem;letter-spacing:0.25em;font-weight:600;margin-bottom:0.6rem}
+.concept-box .main{font-family:var(--serif);font-size:1rem;color:var(--ink);line-height:1.95;font-weight:500;letter-spacing:0.03em}
+
+/* ===== Subhead ===== */
+.subhead{font-family:var(--serif);font-size:1.1rem;font-weight:600;color:var(--ink);margin:2rem 0 1rem;letter-spacing:0.04em;padding-bottom:0.5rem;border-bottom:1px solid var(--line)}
+
+/* ===== Outcome list ===== */
+.outcome{background:var(--card);border:1px solid var(--line);border-left:3px solid var(--amber);padding:1.1rem 1.3rem;border-radius:3px;margin:1rem 0 1.8rem}
+.outcome ul{list-style:none}
+.outcome li{padding:0.35rem 0 0.35rem 1.4rem;position:relative;font-size:0.88rem;color:var(--sub);line-height:1.85}
+.outcome li::before{content:'・';position:absolute;left:0.3rem;color:var(--amber);font-weight:600}
+
+/* ===== Timetable ===== */
+.timetable{width:100%;border-collapse:collapse;margin:1rem 0 2rem;background:var(--card);border:1px solid var(--line);border-radius:3px;overflow:hidden;font-size:0.86rem}
+.timetable thead{background:var(--green);color:#fff}
+.timetable thead th{padding:0.7rem 0.9rem;text-align:left;font-weight:600;letter-spacing:0.05em;font-size:0.78rem}
+.timetable tbody tr{border-bottom:1px solid var(--line)}
+.timetable tbody tr:last-child{border-bottom:none}
+.timetable tbody tr:hover{background:var(--green-bg)}
+.timetable td{padding:0.7rem 0.9rem;color:var(--sub);line-height:1.7;vertical-align:top}
+.timetable td:first-child{font-family:var(--serif);font-weight:600;color:var(--ink);width:80px;white-space:nowrap}
+.timetable td:nth-child(2){font-weight:500;color:var(--ink);width:200px}
+
+/* ===== Question card ===== */
+.question{background:var(--card);border:1px solid var(--line);border-radius:3px;margin:1.4rem 0;overflow:hidden}
+.question .q-head{padding:1rem 1.4rem;background:var(--bg-deep);border-bottom:1px solid var(--line)}
+.question .q-num{font-family:var(--serif);font-size:0.7rem;letter-spacing:0.25em;font-weight:600;color:var(--green);margin-bottom:0.4rem}
+.question .q-text{font-family:var(--serif);font-size:1.05rem;font-weight:600;color:var(--ink);line-height:1.85;letter-spacing:0.03em}
+.question .q-body{padding:1.1rem 1.4rem}
+.question .q-detail{font-size:0.88rem;color:var(--sub);line-height:1.95;margin-bottom:0.9rem}
+.question .q-effect{background:var(--bg);border-left:2px solid var(--amber);padding:0.7rem 1rem;font-size:0.85rem;color:var(--ink);line-height:1.85}
+.question .q-effect b{color:var(--amber);font-weight:600;letter-spacing:0.05em}
+
+.case-a .question .q-num{color:var(--blue)}
+.case-b .question .q-num{color:var(--purple)}
+.case-c .question .q-num{color:var(--teal)}
+
+/* ===== Facili table ===== */
+.facili{width:100%;border-collapse:collapse;margin:1rem 0 1.5rem;background:var(--card);border:1px solid var(--line);border-radius:3px;overflow:hidden;font-size:0.86rem}
+.facili thead{background:var(--bg-deep)}
+.facili thead th{padding:0.65rem 0.9rem;text-align:left;font-weight:600;letter-spacing:0.04em;font-size:0.78rem;color:var(--ink);border-bottom:1px solid var(--line)}
+.facili tbody tr{border-bottom:1px solid var(--line)}
+.facili tbody tr:last-child{border-bottom:none}
+.facili td{padding:0.7rem 0.9rem;color:var(--sub);line-height:1.7;vertical-align:top}
+.facili td:first-child{font-weight:500;color:var(--ink);width:38%}
+
+/* ===== Conduct list ===== */
+.conduct{background:var(--card);border:1px solid var(--line);padding:1.2rem 1.4rem;border-radius:3px;margin:1rem 0 1.8rem}
+.conduct ul{list-style:none}
+.conduct li{padding:0.4rem 0 0.4rem 1.4rem;position:relative;font-size:0.88rem;color:var(--sub);line-height:1.85}
+.conduct li::before{content:'—';position:absolute;left:0;color:var(--green);font-weight:600}
+
+/* ===== Footer ===== */
+.footer{background:var(--bg-deep);padding:4rem 0 5rem;text-align:center;border-top:1px solid var(--line)}
+.footer-quote{font-family:var(--serif);font-size:1.1rem;color:var(--ink);line-height:2.1;letter-spacing:0.05em;font-weight:500;max-width:640px;margin:0 auto 1.5rem;padding:1.4rem 1.6rem;background:#fff;border-left:3px solid var(--green);border-right:3px solid var(--green);text-align:left}
+.footer-meta{font-size:0.75rem;color:var(--mute);letter-spacing:0.1em;line-height:2}
+
+@media(max-width:720px){
+  .header-title{font-size:1.5rem}
+  .case-title{font-size:1.3rem}
+  .timetable td:nth-child(2){width:auto}
+  .timetable{font-size:0.8rem}
+  .timetable td{padding:0.55rem 0.6rem}
+  .facili{font-size:0.82rem}
+  .header-meta{flex-direction:column;gap:0.5rem;align-items:flex-start}
+}
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="wrap">
+    <span class="header-mark">ONLINE WORKSHOP / 90 MIN / 3 OPTIONS</span>
+    <h1 class="header-title">自分自身が納得できる、<br>30代の生き方を考える90分</h1>
+    <div class="header-sub">ワーク内容3案 ／ 設問と解説</div>
+    <div class="header-meta">
+      <span><b>DATE</b>2026.04.26（日）13:00-14:30</span>
+      <span><b>FORMAT</b>Zoom オンライン</span>
+      <span><b>SIZE</b>4-6名</span>
+      <span><b>FEE</b>無料</span>
+    </div>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <div class="sec-num">SECTION 01 / DESIGN PHILOSOPHY</div>
+    <h2 class="sec-head">このワークの設計思想</h2>
+
+    <p class="lead">仕事もキャリアも順調なのに、どこか違和感が残る。そんな30代に向けて、90分かけて「自分自身が納得できる生き方」の輪郭を仮置きする時間です。</p>
+
+    <div class="objective">
+      <div class="lab">CORE STANCE</div>
+      <div class="main">90分で答えは出しません。明日、書き直してもいい一行が、紙の上に残っていること。それがゴールです。</div>
+    </div>
+
+    <h3 class="subhead">5つの設計原則</h3>
+
+    <div class="principle-grid">
+      <div class="principle-card">
+        <div class="num">原則 01</div>
+        <div class="title">身体が先、言葉が後</div>
+        <div class="desc">概念ではなく、過去の選択や未来像を身体感覚から扱う。</div>
+      </div>
+      <div class="principle-card">
+        <div class="num">原則 02</div>
+        <div class="title">導きをしない</div>
+        <div class="desc">「30代はこう生きるべき」を一切示さない。鏡・問い・反応に徹する。</div>
+      </div>
+      <div class="principle-card">
+        <div class="num">原則 03</div>
+        <div class="title">目標を設定させない</div>
+        <div class="desc">5年後の目標を作らせない。関心の輪郭を仮置きするだけ。</div>
+      </div>
+      <div class="principle-card">
+        <div class="num">原則 04</div>
+        <div class="title">受容の床を敷く</div>
+        <div class="desc">4-6名というサイズを活かして、まず「そのままでいい」を場に置く。</div>
+      </div>
+      <div class="principle-card">
+        <div class="num">原則 05</div>
+        <div class="title">未完成を差し出す</div>
+        <div class="desc">90分で答えを出させない。仮置きで終わる。</div>
+      </div>
+    </div>
+
+    <h3 class="subhead">対話の3つのルール</h3>
+
+    <div class="rules">
+      <div class="rules-title">この場で、参加者全員に守ってもらうこと</div>
+      <ul>
+        <li><b>アドバイスしない</b>　解決策を提示しない。話している人は、答えを欲しがっていない場合がほとんど。</li>
+        <li><b>質問だけ返す</b>　要約・同調・代弁をしない。聴き手の役割は、問いを返して相手の話を深めること。</li>
+        <li><b>沈黙を埋めない</b>　沈黙は考えている時間として許す。15秒の沈黙は、誰かが言葉を選んでいる時間。</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CASE A ============ -->
+<section class="case-a alt">
+  <div class="case-header">
+    <div class="wrap">
+      <div class="case-mark">CASE A ／ 過去の自分軸</div>
+      <h2 class="case-title">あの時、何を選び、<br>何を選ばなかったか</h2>
+      <div class="case-sub">過去掘り返し型 ／ 30代までの選択の地層を、4-6名の証人の前で掘り起こす</div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="sec-num">CASE A / CONCEPT</div>
+    <h3 class="sec-head">コンセプト</h3>
+
+    <div class="concept-box">
+      <div class="lab">この案で目指すこと</div>
+      <div class="main">30代までに自分が下してきた選択と、捨ててきた選択肢の地層を、4-6名の証人の前で掘り起こす。無意識に追ってきた「社会的に正しい答え」の輪郭を可視化する。</div>
+    </div>
+
+    <h3 class="subhead">この案で起きること</h3>
+    <div class="outcome">
+      <ul>
+        <li>過去の具体的場面を、身体記憶から呼び戻す</li>
+        <li>「正解を選び続けた人ほど、選ばなかったものが分からなくなっている」という事実への直撃</li>
+        <li>一人の「20代でやめた何か」を5人が真剣に聴ける、少人数でしか掘れない深さ</li>
+      </ul>
+    </div>
+
+    <h3 class="subhead">90分タイムテーブル</h3>
+    <table class="timetable">
+      <thead><tr><th>時刻</th><th>ブロック</th><th>内容</th></tr></thead>
+      <tbody>
+        <tr><td>13:00</td><td>開会</td><td>入室確認・対話3ルールを共有</td></tr>
+        <tr><td>13:03</td><td>自己紹介の解体</td><td>名前と「今朝、最初に口にしたもの」を一人20秒（職業や所属は言わない）</td></tr>
+        <tr><td>13:08</td><td>今日の予告</td><td>90分の流れを共有／「答えは出しません、仮置きで終わります」を明言</td></tr>
+        <tr><td>13:11</td><td>問い① 個人ワーク</td><td>紙に3行で書く（無言5分）</td></tr>
+        <tr><td>13:16</td><td>問い① 全員円環</td><td>一人2分で語る／聴き手は質問だけ返す</td></tr>
+        <tr><td>13:28</td><td>余白</td><td>飲み物・カメラOFFして1分静止</td></tr>
+        <tr><td>13:30</td><td>問い② 個人ワーク</td><td>紙に書く（無言5分）</td></tr>
+        <tr><td>13:35</td><td>問い② 全員円環</td><td>一人2分で語る／聴き手は質問だけ</td></tr>
+        <tr><td>13:47</td><td>ペア対話</td><td>ブレイクアウト2人ペアで4分／質問だけ交換</td></tr>
+        <tr><td>13:51</td><td>問い③ 個人ワーク</td><td>紙に書く（無言6分）</td></tr>
+        <tr><td>13:57</td><td>問い③ 全員円環</td><td>一人2分で語る／聴き手は質問だけ</td></tr>
+        <tr><td>14:09</td><td>全員でひとこと</td><td>90分前の自分と比べて何が動いたかを一人20秒</td></tr>
+        <tr><td>14:12</td><td>仮置きの一行を書く</td><td>「私の探究テーマ（仮）」を一行（個人・5分）</td></tr>
+        <tr><td>14:17</td><td>静かな差し出し（任意）</td><td>希望者だけ音声で差し出す</td></tr>
+        <tr><td>14:23</td><td>クロージング</td><td>90分の体験を場に置いて終わる</td></tr>
+        <tr><td>14:30</td><td>終了</td><td></td></tr>
+      </tbody>
+    </table>
+
+    <h3 class="subhead">3つの問い</h3>
+
+    <div class="question">
+      <div class="q-head">
+        <div class="q-num">QUESTION 01</div>
+        <div class="q-text">20代の最初に、本気で迷って選んだことは何でしたか？</div>
+      </div>
+      <div class="q-body">
+        <div class="q-detail">仕事のことでも、関係のことでも、住む場所のことでも、何でも構いません。一つだけ、思い出してください。</div>
+        <div class="q-effect"><b>この問いで起きること</b>　身体記憶を呼び戻す。概念ではなく具体的な場面から始めることで、頭ではなく身体が動く。</div>
+      </div>
+    </div>
+
+    <div class="question">
+      <div class="q-head">
+        <div class="q-num">QUESTION 02</div>
+        <div class="q-text">その時、選ばなかった方の選択肢は、今どこにありますか？</div>
+      </div>
+      <div class="q-body">
+        <div class="q-detail">捨てたか、忘れたか、未練が残っているか、別の形で残っているか。場所を一行で。</div>
+        <div class="q-effect"><b>この問いで起きること</b>　選んだ道だけでなく、選ばなかった道の現在地を見ることで、自分の選択の輪郭が立体化する。</div>
+      </div>
+    </div>
+
+    <div class="question">
+      <div class="q-head">
+        <div class="q-num">QUESTION 03</div>
+        <div class="q-text">今、あなたが「順調だが違和感がある」のは、20代の選択の中で、何を選び続けてきたからだと思いますか？</div>
+      </div>
+      <div class="q-body">
+        <div class="q-detail">答えではなく、仮の輪郭で構いません。</div>
+        <div class="q-effect"><b>この問いで起きること</b>　違和感を「なんとなく」で終わらせず、自分が選び続けてきたパターンとして言葉にする。</div>
+      </div>
+    </div>
+
+    <h3 class="subhead">対話の進め方</h3>
+    <div class="conduct">
+      <ul>
+        <li>個人ワーク：全員円環：ペア＝1：2：1の比率（25分：50分：4分）</li>
+        <li>ブレイクアウトは1回だけ4分。ペアは深掘り装置として最小限</li>
+        <li>4-6人なら全員が一人の話を真剣に聴ける物理的余裕がある。だから円環対話を主軸に</li>
+        <li>過去を辿る個人ワーク時間は長め（5-6分）。短いと表面でしか出ない</li>
+      </ul>
+    </div>
+
+    <h3 class="subhead">ファシリの介入ポイント</h3>
+    <table class="facili">
+      <thead><tr><th>場面</th><th>介入</th></tr></thead>
+      <tbody>
+        <tr><td>個人ワーク中の沈黙</td><td>何もしない。タイマーだけ画面共有</td></tr>
+        <tr><td>円環対話で誰かが涙ぐむ・言葉が詰まる</td><td>「ゆっくりで大丈夫です」と一言だけ。代弁・要約しない</td></tr>
+        <tr><td>別の参加者がアドバイスを始めかける</td><td>「質問だけにしましょう」と優しく差し戻す</td></tr>
+        <tr><td>ある参加者の話に他全員が前のめりになった</td><td>「もう少し聴いてみたい人いますか」を一度だけ投げる</td></tr>
+        <tr><td>全体で2-3秒以上の沈黙</td><td>埋めない。15秒は待つ</td></tr>
+        <tr><td>終わり方の儀式</td><td>「今日のあなたの一行は、明日には書き直していいものです」と必ず添える</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============ CASE B ============ -->
+<section class="case-b">
+  <div class="case-header">
+    <div class="wrap">
+      <div class="case-mark">CASE B ／ 未来の自分軸</div>
+      <h2 class="case-title">5年後、10年後、<br>何を握って何を手放しているか</h2>
+      <div class="case-sub">未来解像型 ／ 肩書や年収ではなく、身体の感覚で未来を解像する</div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="sec-num">CASE B / CONCEPT</div>
+    <h3 class="sec-head">コンセプト</h3>
+
+    <div class="concept-box">
+      <div class="lab">この案で目指すこと</div>
+      <div class="main">5年後・10年後の納得できる姿を、肩書や年収ではなく身体の感覚（朝の起き方／週末の過ごし方／誰と話している瞬間）で解像度高く想像する。4-6名で互いの未来像から、自分の輪郭を浮かび上がらせる。</div>
+    </div>
+
+    <h3 class="subhead">この案で起きること</h3>
+    <div class="outcome">
+      <ul>
+        <li>「肩書ベースの未来像しか描けない」自分から抜け出す装置</li>
+        <li>5人の未来像を聴くと、自分の未来像の言葉づかいが借り物だったか、本物だったかが分かる</li>
+        <li>「目標」ではなく「仮置きの輪郭」として未来を扱う訓練</li>
+      </ul>
+    </div>
+
+    <h3 class="subhead">90分タイムテーブル</h3>
+    <table class="timetable">
+      <thead><tr><th>時刻</th><th>ブロック</th><th>内容</th></tr></thead>
+      <tbody>
+        <tr><td>13:00</td><td>開会</td><td>入室確認・対話3ルールを共有</td></tr>
+        <tr><td>13:03</td><td>自己紹介の解体</td><td>名前と「今朝、最初に口にしたもの」を20秒ずつ</td></tr>
+        <tr><td>13:08</td><td>今日の予告</td><td>「目標逆算ではなく、身体感覚で未来を辿ります」を明言</td></tr>
+        <tr><td>13:11</td><td>ウォームアップ「今朝の自分」</td><td>「今朝、起きた瞬間にどんな身体だったか」を一人20秒</td></tr>
+        <tr><td>13:14</td><td>問い① 個人ワーク</td><td>紙に書く（無言6分）。身体感覚だけで書く</td></tr>
+        <tr><td>13:20</td><td>問い① 全員円環</td><td>一人2分で語る／聴き手は質問だけ</td></tr>
+        <tr><td>13:32</td><td>余白</td><td>1分静止</td></tr>
+        <tr><td>13:33</td><td>問い② 個人ワーク</td><td>紙に書く（無言6分）</td></tr>
+        <tr><td>13:39</td><td>問い② 全員円環</td><td>一人2分で語る／聴き手は質問だけ</td></tr>
+        <tr><td>13:51</td><td>ペア対話</td><td>ブレイクアウト2人ペアで5分／互いの未来像で気づきを交換</td></tr>
+        <tr><td>13:56</td><td>問い③ 個人ワーク</td><td>紙に書く（無言5分）／「遠い理由」も一行</td></tr>
+        <tr><td>14:01</td><td>問い③ 全員円環</td><td>一人2分で語る／聴き手は質問だけ</td></tr>
+        <tr><td>14:13</td><td>仮置きの一行を書く</td><td>「私の探究テーマ（仮）」を一行（個人・5分）</td></tr>
+        <tr><td>14:18</td><td>静かな差し出し（任意）</td><td>希望者が一行を音声で差し出す</td></tr>
+        <tr><td>14:23</td><td>クロージング</td><td>90分の体験を場に置いて終わる</td></tr>
+        <tr><td>14:30</td><td>終了</td><td></td></tr>
+      </tbody>
+    </table>
+
+    <h3 class="subhead">3つの問い</h3>
+
+    <div class="question">
+      <div class="q-head">
+        <div class="q-num">QUESTION 01</div>
+        <div class="q-text">5年後の朝、あなたはどんな朝を迎えていますか？</div>
+      </div>
+      <div class="q-body">
+        <div class="q-detail">起きる時間、最初に口にするもの、最初に話す相手、窓から見える景色。肩書や年収や職業は書かないでください。身体だけで描いてください。</div>
+        <div class="q-effect"><b>この問いで起きること</b>　未来を概念や数字ではなく身体の場面で描くことで、本当に欲しい朝の輪郭が浮かぶ。</div>
+      </div>
+    </div>
+
+    <div class="question">
+      <div class="q-head">
+        <div class="q-num">QUESTION 02</div>
+        <div class="q-text">10年後の週末、あなたは誰と何をしていますか？</div>
+      </div>
+      <div class="q-body">
+        <div class="q-detail">場所、相手、話している内容を、できるだけ具体的に。実名でも、まだ知らない人でも、構いません。</div>
+        <div class="q-effect"><b>この問いで起きること</b>　仕事ではない時間で誰と何をしているかを描くことで、自分の納得の核が見える。</div>
+      </div>
+    </div>
+
+    <div class="question">
+      <div class="q-head">
+        <div class="q-num">QUESTION 03</div>
+        <div class="q-text">5年後・10年後の未来像のうち、今の自分が一番遠いと感じるのは何ですか？</div>
+      </div>
+      <div class="q-body">
+        <div class="q-detail">その遠さは、時間で埋まるものか、能力か、環境か、関係か、勇気か。一行で。</div>
+        <div class="q-effect"><b>この問いで起きること</b>　「遠さの正体」を見極めることで、漠然とした違和感が具体的な距離に変わる。</div>
+      </div>
+    </div>
+
+    <h3 class="subhead">対話の進め方</h3>
+    <div class="conduct">
+      <ul>
+        <li>個人ワーク：全員円環：ペア＝3：2：0.5の比率（個人ワーク時間が案Aより長め）</li>
+        <li>未来は描くのに時間がかかるため、個人ワークを長めに</li>
+        <li>ペアは1回5分。互いの未来像の比較で気づきを得る装置</li>
+        <li>4-6人の未来像を全員が聴くことで、自分の言葉が借り物か本物か分かる</li>
+      </ul>
+    </div>
+
+    <h3 class="subhead">ファシリの介入ポイント</h3>
+    <table class="facili">
+      <thead><tr><th>場面</th><th>介入</th></tr></thead>
+      <tbody>
+        <tr><td>抽象的な未来像（自由に生きていたい等）</td><td>「具体的にどんな朝ですか／週末ですか」と1回だけ深掘り</td></tr>
+        <tr><td>「目標」っぽい答え（年収◯◯万円達成等）</td><td>「それは身体でどう感じていますか」に置き換える</td></tr>
+        <tr><td>円環対話で誰かの未来像が他全員の心を動かした</td><td>「その話を聴いて、自分の未来像が動いた人いますか」を1度だけ</td></tr>
+        <tr><td>沈黙</td><td>15秒は待つ</td></tr>
+        <tr><td>終わり方の儀式</td><td>「未来像は明日書き直していい。むしろ書き直すことで関心が動く」と添える</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============ CASE C ============ -->
+<section class="case-c alt">
+  <div class="case-header">
+    <div class="wrap">
+      <div class="case-mark">CASE C ／ 他者の眼軸</div>
+      <h2 class="case-title">同世代の問いに、<br>自分が映る</h2>
+      <div class="case-sub">鏡の場型 ／ 他者の違和感の中に自分の輪郭が浮かび上がる、対話そのものが鏡になる</div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="sec-num">CASE C / CONCEPT</div>
+    <h3 class="sec-head">コンセプト</h3>
+
+    <div class="concept-box">
+      <div class="lab">この案で目指すこと</div>
+      <div class="main">自分の問いではなく、他5人の問いを起点にする。他者の違和感の中に自分の輪郭が浮かび上がる体験を、90分で完結させる。対話そのものが鏡になる。</div>
+    </div>
+
+    <h3 class="subhead">この案で起きること</h3>
+    <div class="outcome">
+      <ul>
+        <li>「答えは自分の中ではなく、自分と相手の間にある」を直接体感する</li>
+        <li>「同じ業界の同じ役職の人としか話していない」状態への直撃</li>
+        <li>4-6名は「他者の問いを全員で深掘りする」最小単位（3人だと多様性不足、10人だと深まらない）</li>
+      </ul>
+    </div>
+
+    <h3 class="subhead">90分タイムテーブル</h3>
+    <table class="timetable">
+      <thead><tr><th>時刻</th><th>ブロック</th><th>内容</th></tr></thead>
+      <tbody>
+        <tr><td>13:00</td><td>開会</td><td>入室確認・対話3ルールを共有／「今日は自分の問いより、他人の問いを扱います」を予告</td></tr>
+        <tr><td>13:03</td><td>自己紹介の解体</td><td>名前と「今朝、最初に口にしたもの」を20秒</td></tr>
+        <tr><td>13:08</td><td>今日の予告</td><td>「自分のことを話す時間より、他人の問いに反応する時間が長いです」を明言</td></tr>
+        <tr><td>13:11</td><td>問い① 個人ワーク</td><td>紙に書く（無言5分）／人に見せない前提で</td></tr>
+        <tr><td>13:16</td><td>問い① 順番に差し出す</td><td>一人30秒で違和感一行を差し出す（パスOK）</td></tr>
+        <tr><td>13:21</td><td>全員の違和感を眺める時間</td><td>チャットに貼られた違和感一覧を1分眺める／無言</td></tr>
+        <tr><td>13:22</td><td>問い② 個人ワーク</td><td>紙に書く（無言4分）／なぜそう感じたかも一行</td></tr>
+        <tr><td>13:26</td><td>問い② 円環</td><td>一人2分で「私はAさんのこの違和感に、自分が映りました」を語る</td></tr>
+        <tr><td>13:38</td><td>余白</td><td>1分静止</td></tr>
+        <tr><td>13:39</td><td>問い③ 個人ワーク</td><td>紙に書き直す（無言5分）</td></tr>
+        <tr><td>13:44</td><td>問い③ 円環</td><td>一人2分で「最初の違和感→書き直した違和感」を語る</td></tr>
+        <tr><td>13:56</td><td>ペア対話</td><td>ブレイクアウト2人ペアで5分／互いの「書き換わった違和感」で1問だけ質問交換</td></tr>
+        <tr><td>14:01</td><td>全体共有</td><td>ペアでもらった質問への自分の答えを30秒ずつ</td></tr>
+        <tr><td>14:05</td><td>全体での振り返り</td><td>90分前の最初の違和感と今の違和感を並べて、何が動いたかを一人30秒</td></tr>
+        <tr><td>14:10</td><td>仮置きの一行を書く</td><td>「私の探究テーマ（仮）」を一行（個人・5分）</td></tr>
+        <tr><td>14:15</td><td>静かな差し出し（任意）</td><td>希望者が一行を音声で差し出す</td></tr>
+        <tr><td>14:20</td><td>感謝の言葉一行</td><td>一人20秒で「今日の他の方々へ」一言ずつ</td></tr>
+        <tr><td>14:24</td><td>クロージング</td><td>90分の体験を場に置いて終わる</td></tr>
+        <tr><td>14:30</td><td>終了</td><td></td></tr>
+      </tbody>
+    </table>
+
+    <h3 class="subhead">3つの問い</h3>
+
+    <div class="question">
+      <div class="q-head">
+        <div class="q-num">QUESTION 01</div>
+        <div class="q-text">あなたが、誰にも言っていない違和感を一行で書いてください。</div>
+      </div>
+      <div class="q-body">
+        <div class="q-detail">後で差し出すかは、自分で決められます。今は、人に見せない前提で書いてください。</div>
+        <div class="q-effect"><b>この問いで起きること</b>　人に見せない前提で書くことで、本当の違和感が言葉になる。差し出すかどうかは自分で決められる安全装置がある。</div>
+      </div>
+    </div>
+
+    <div class="question">
+      <div class="q-head">
+        <div class="q-num">QUESTION 02</div>
+        <div class="q-text">他5人の違和感の中で、「これは、自分の中にもある」と一番強く感じたのは、誰のどの違和感ですか？</div>
+      </div>
+      <div class="q-body">
+        <div class="q-detail">なぜそう感じたかも一行で。</div>
+        <div class="q-effect"><b>この問いで起きること</b>　自分の話ではなく、他人の話に映った自分の輪郭を辿る体験。「あなたを選んでくれた人がいる」場が立ち上がる。</div>
+      </div>
+    </div>
+
+    <div class="question">
+      <div class="q-head">
+        <div class="q-num">QUESTION 03</div>
+        <div class="q-text">他5人の話を聴いて、最初に書いた自分の違和感は、どう書き換えたくなりましたか？</div>
+      </div>
+      <div class="q-body">
+        <div class="q-detail">書き換える前と書き換えた後を、両方残しておいてください。</div>
+        <div class="q-effect"><b>この問いで起きること</b>　他人の問いが触媒になって、自分の違和感の解像度が上がる。「答えは自分と相手の間にある」が体感に変わる。</div>
+      </div>
+    </div>
+
+    <h3 class="subhead">対話の進め方</h3>
+    <div class="conduct">
+      <ul>
+        <li>「他者の問いに自分が映る」体験は4-6名でしか起きない（3人だと多様性不足、10人だと全員の違和感を覚えていられない）</li>
+        <li>個人ワーク：全員円環：ペア＝2：3：0.5の比率（円環時間が最長）</li>
+        <li>チャットに違和感一覧を残して、4-6人なら全員の違和感を画面で同時に眺められる</li>
+        <li>「選ぶ・選ばれる」の組み合わせが、4-6人だとちょうど豊かに発生する</li>
+      </ul>
+    </div>
+
+    <h3 class="subhead">ファシリの介入ポイント</h3>
+    <table class="facili">
+      <thead><tr><th>場面</th><th>介入</th></tr></thead>
+      <tbody>
+        <tr><td>違和感を差し出すのをパスする人</td><td>何も言わない。パスを尊重。2巡目以降に自然に出てくることが多い</td></tr>
+        <tr><td>円環対話で参加者がアドバイスを始めかける</td><td>「今日は質問だけ、解釈だけにしましょう」と差し戻す</td></tr>
+        <tr><td>「私はAさんを選びました」が3票同じ人に集中</td><td>「Aさん、3人に映ってますね」と場に置くだけ。Aさんを称賛しない</td></tr>
+        <tr><td>沈黙</td><td>15秒は待つ</td></tr>
+        <tr><td>終わり方の儀式</td><td>「今日の5人は、今夜の鏡でした。明日の自分を作るのは、また別の鏡です」</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-quote">
+      3案いずれも、ブレイクアウトを最小限にして、全員円環対話を主軸に据えています。<br>
+      4-6名というサイズは、全員が一人の話を真剣に聴ける物理的余裕があり、心理的安全がプログラム化なしで立ち上がる、特別な大きさです。<br><br>
+      問いは、正解を出すために投げるのではなく、仮置きの輪郭を残すために投げかけます。90分が終わったとき、答えは出ていません。ただ、明日書き直してもいい一行が、紙の上に残っています。
+    </div>
+    <div class="footer-meta">
+      自分自身が納得できる、30代の生き方を考える90分<br>
+      2026.04.26（日）13:00-14:30 ／ Zoom ／ 4-6名 ／ 無料
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
