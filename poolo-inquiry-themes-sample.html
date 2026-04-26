@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>POOLO 探究テーマ サンプル50｜問いの形で、書き換える前提の一行</title>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#1a1a1a; --sub:#4a4a4a; --mute:#7a7a7a; --hint:#a8a8a8;
+  --bg:#faf9f6; --bg-deep:#f3f1ea; --card:#ffffff; --line:#e0ddd3;
+  --green:#2D6A4F; --green-bg:#E9F5EE;
+  --blue:#1B4A7A; --blue-bg:#E3EDF6;
+  --purple:#534AB7; --purple-bg:#ECEAF7;
+  --teal:#1A6B5A; --teal-bg:#DCEBE6;
+  --amber:#7A5500; --amber-bg:#F7EFD8;
+  --red:#8B3A2A; --red-bg:#F4E1DC;
+  --serif:'Shippori Mincho',serif; --sans:'Noto Sans JP',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--bg);color:var(--ink);line-height:1.95;font-weight:400;-webkit-font-smoothing:antialiased}
+.wrap{max-width:980px;margin:0 auto;padding:0 1.5rem}
+section{padding:3.5rem 0}
+
+.header{padding:5rem 0 3.5rem;background:linear-gradient(135deg,var(--bg-deep) 0%,var(--bg) 60%);border-bottom:1px solid var(--line);text-align:center}
+.sample-badge{display:inline-block;font-size:0.65rem;letter-spacing:0.4em;color:#fff;background:var(--amber);padding:0.45rem 1.4rem;border-radius:30px;font-weight:600;margin-bottom:1.5rem}
+.header-title{font-family:var(--serif);font-size:1.95rem;font-weight:600;letter-spacing:0.06em;line-height:1.7;color:var(--ink);margin-bottom:0.8rem}
+.header-sub{font-family:var(--serif);font-size:0.95rem;color:var(--sub);letter-spacing:0.05em;margin-bottom:1.5rem}
+.count-bar{display:inline-flex;gap:1.6rem;padding:0.7rem 1.6rem;background:#fff;border:1px solid var(--line);border-radius:3px;font-size:0.78rem;color:var(--mute);letter-spacing:0.08em}
+.count-bar b{color:var(--green);font-weight:600;font-family:var(--serif);font-size:0.85rem}
+
+.notice{background:var(--amber-bg);border-left:3px solid var(--amber);padding:1.4rem 1.6rem;border-radius:3px;margin:2rem auto 0;max-width:760px;text-align:left}
+.notice-label{font-size:0.66rem;letter-spacing:0.25em;color:var(--amber);font-weight:600;margin-bottom:0.6rem}
+.notice-main{font-family:var(--serif);font-size:0.98rem;color:var(--ink);line-height:1.95;font-weight:500;letter-spacing:0.03em}
+
+.intro{padding:3.5rem 0;border-bottom:1px solid var(--line)}
+.intro p.lead{font-family:var(--serif);font-size:1.05rem;color:var(--ink);font-weight:500;line-height:2.1;letter-spacing:0.04em;max-width:720px;margin:0 auto 1.2rem;text-align:center}
+.intro p.sub{font-size:0.9rem;color:var(--sub);line-height:2;max-width:680px;margin:0 auto;text-align:center}
+
+.cat{padding:3.5rem 0}
+.cat.alt{background:var(--bg-deep)}
+.cat-head{text-align:center;margin-bottom:2.5rem}
+.cat-mark{display:inline-block;font-family:var(--serif);font-size:0.7rem;letter-spacing:0.35em;font-weight:600;padding:0.35rem 1rem;border:1px solid currentColor;margin-bottom:0.8rem}
+.cat-title{font-family:var(--serif);font-size:1.4rem;font-weight:600;letter-spacing:0.05em;line-height:1.6;color:var(--ink)}
+.cat-sub{font-size:0.78rem;color:var(--mute);letter-spacing:0.1em;margin-top:0.4rem}
+
+.cat-a .cat-mark{color:var(--blue)} .cat-a .theme-card{border-top:3px solid var(--blue)} .cat-a .theme-num{color:var(--blue)}
+.cat-b .cat-mark{color:var(--green)} .cat-b .theme-card{border-top:3px solid var(--green)} .cat-b .theme-num{color:var(--green)}
+.cat-c .cat-mark{color:var(--red)} .cat-c .theme-card{border-top:3px solid var(--red)} .cat-c .theme-num{color:var(--red)}
+.cat-d .cat-mark{color:var(--amber)} .cat-d .theme-card{border-top:3px solid var(--amber)} .cat-d .theme-num{color:var(--amber)}
+.cat-e .cat-mark{color:var(--teal)} .cat-e .theme-card{border-top:3px solid var(--teal)} .cat-e .theme-num{color:var(--teal)}
+.cat-f .cat-mark{color:var(--purple)} .cat-f .theme-card{border-top:3px solid var(--purple)} .cat-f .theme-num{color:var(--purple)}
+.cat-g .cat-mark{color:var(--green)} .cat-g .theme-card{border-top:3px solid var(--green)} .cat-g .theme-num{color:var(--green)}
+.cat-h .cat-mark{color:var(--blue)} .cat-h .theme-card{border-top:3px solid var(--blue)} .cat-h .theme-num{color:var(--blue)}
+.cat-i .cat-mark{color:var(--amber)} .cat-i .theme-card{border-top:3px solid var(--amber)} .cat-i .theme-num{color:var(--amber)}
+
+.theme-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:0.9rem}
+.theme-card{background:var(--card);border:1px solid var(--line);padding:1.2rem 1.3rem 1.3rem;border-radius:3px;display:flex;flex-direction:column;gap:0.6rem;transition:transform .15s ease,box-shadow .15s ease}
+.theme-card:hover{transform:translateY(-2px);box-shadow:0 4px 14px rgba(0,0,0,0.05)}
+.theme-num{font-family:var(--serif);font-size:0.7rem;letter-spacing:0.25em;font-weight:600}
+.theme-text{font-family:var(--serif);font-size:0.96rem;color:var(--ink);line-height:1.85;font-weight:500;letter-spacing:0.02em}
+
+.closing{padding:5rem 0 6rem;background:var(--bg-deep);border-top:1px solid var(--line);text-align:center}
+.closing-quote{font-family:var(--serif);font-size:1.08rem;color:var(--ink);line-height:2.1;letter-spacing:0.05em;font-weight:500;max-width:680px;margin:0 auto 1.5rem;padding:1.5rem 1.8rem;background:#fff;border-left:3px solid var(--green);border-right:3px solid var(--green);text-align:left}
+.closing-meta{font-size:0.75rem;color:var(--mute);letter-spacing:0.1em;line-height:2}
+
+@media(max-width:720px){
+  .header-title{font-size:1.55rem}
+  .cat-title{font-size:1.2rem}
+  .theme-grid{grid-template-columns:1fr}
+  .count-bar{flex-direction:column;gap:0.3rem;text-align:left}
+}
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="wrap">
+    <span class="sample-badge">SAMPLE ／ 例示</span>
+    <h1 class="header-title">POOLO 探究テーマ サンプル50</h1>
+    <div class="header-sub">問いの形で、書き換える前提の一行</div>
+    <div class="count-bar">
+      <span><b>50</b> 問</span>
+      <span><b>9</b> カテゴリ</span>
+      <span>仕事 ／ 人間関係 ／ 家族 ／ 暮らし ／ 身体 ／ 創造 ／ 旅 ／ アイデンティティ ／ 違和感</span>
+    </div>
+
+    <div class="notice">
+      <div class="notice-label">この資料について</div>
+      <div class="notice-main">これは「探究テーマって、こういう問いの形・こういう粒度でいいんだ」という手触りを伝えるためのサンプル集です。正解集ではありません。一字一句を真似する必要はなく、自分の生活と違和感のなかから、自分の言葉で書き換えていく前提で置かれています。</div>
+    </div>
+  </div>
+</header>
+
+<section class="intro">
+  <div class="wrap">
+    <p class="lead">探究テーマは、3年後の私から逆算する目標ではなく、今の関心と違和感が交わる輪郭の一行。</p>
+    <p class="sub">ここでは50案すべてを問いの形で並べました。問いは答えを出すためではなく、自分の関心を仮置きするための入口。8ヶ月のなかで何度でも書き換える、未完成な仮置きの言葉として読んでください。</p>
+  </div>
+</section>
+
+<section class="cat cat-a">
+  <div class="wrap">
+    <div class="cat-head">
+      <span class="cat-mark">A</span>
+      <h2 class="cat-title">仕事・キャリア・働き方</h2>
+      <div class="cat-sub">6 questions</div>
+    </div>
+    <div class="theme-grid">
+      <div class="theme-card"><div class="theme-num">No. 01</div><div class="theme-text">やりたいことが見つからないのか、それとも見つけたものを差し出す勇気がないだけなのか？</div></div>
+      <div class="theme-card"><div class="theme-num">No. 02</div><div class="theme-text">評価される仕事と心が動く仕事のあいだで、私はどちらに足を置いているのだろう？</div></div>
+      <div class="theme-card"><div class="theme-num">No. 03</div><div class="theme-text">「ちゃんと働く」を一回ほどいたら、私はどんな仕事を編み直したくなるだろう？</div></div>
+      <div class="theme-card"><div class="theme-num">No. 04</div><div class="theme-text">名刺の肩書きを外したとき、何が残って、何を語りたくなるだろう？</div></div>
+      <div class="theme-card"><div class="theme-num">No. 05</div><div class="theme-text">器用にこなせるようになったのに、なぜ手応えが薄くなっていくのだろう？</div></div>
+      <div class="theme-card"><div class="theme-num">No. 06</div><div class="theme-text">働き方を変えたいのか、それとも働く理由を更新したいのか？</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="cat cat-b alt">
+  <div class="wrap">
+    <div class="cat-head">
+      <span class="cat-mark">B</span>
+      <h2 class="cat-title">人間関係・コミュニティ・友人</h2>
+      <div class="cat-sub">6 questions</div>
+    </div>
+    <div class="theme-grid">
+      <div class="theme-card"><div class="theme-num">No. 07</div><div class="theme-text">大人になってからの友達は、どうやってつくればいいのだろう？</div></div>
+      <div class="theme-card"><div class="theme-num">No. 08</div><div class="theme-text">安心できる人間関係と、揺さぶってくる人間関係を、どう同居させればいいだろう？</div></div>
+      <div class="theme-card"><div class="theme-num">No. 09</div><div class="theme-text">ひとりでいる時間と、誰かといる時間の、ちょうどいい比率はどこにあるのだろう？</div></div>
+      <div class="theme-card"><div class="theme-num">No. 10</div><div class="theme-text">「分かってもらえない」と感じたとき、私は何を分かってもらいたかったのだろう？</div></div>
+      <div class="theme-card"><div class="theme-num">No. 11</div><div class="theme-text">弱さを見せられる相手を増やしたいのか、強くあり続けたいのか？</div></div>
+      <div class="theme-card"><div class="theme-num">No. 12</div><div class="theme-text">仲良くなることと、深く知り合うことは、どこが違うのだろう？</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="cat cat-c">
+  <div class="wrap">
+    <div class="cat-head">
+      <span class="cat-mark">C</span>
+      <h2 class="cat-title">家族・パートナーシップ・親子</h2>
+      <div class="cat-sub">6 questions</div>
+    </div>
+    <div class="theme-grid">
+      <div class="theme-card"><div class="theme-num">No. 13</div><div class="theme-text">親に言えなかった言葉を、私はどうやって自分の手に取り戻せるだろう？</div></div>
+      <div class="theme-card"><div class="theme-num">No. 14</div><div class="theme-text">パートナーと一緒にいる未来と、ひとりで生きていく未来、両方を持ち歩いていいのだろうか？</div></div>
+      <div class="theme-card"><div class="theme-num">No. 15</div><div class="theme-text">結婚するかしないかではなく、誰とどんな日常を編みたいのだろう？</div></div>
+      <div class="theme-card"><div class="theme-num">No. 16</div><div class="theme-text">家族という単位を、血縁の外側に置いたら、どんな関係が見えてくるだろう？</div></div>
+      <div class="theme-card"><div class="theme-num">No. 17</div><div class="theme-text">子どもを持つ／持たないを、社会の声ではなく自分の身体で決めるには、何が要るだろう？</div></div>
+      <div class="theme-card"><div class="theme-num">No. 18</div><div class="theme-text">母から受け取ったもののうち、どれを置いていって、どれを連れていくのだろう？</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="cat cat-d alt">
+  <div class="wrap">
+    <div class="cat-head">
+      <span class="cat-mark">D</span>
+      <h2 class="cat-title">お金・暮らし・場所</h2>
+      <div class="cat-sub">6 questions</div>
+    </div>
+    <div class="theme-grid">
+      <div class="theme-card"><div class="theme-num">No. 19</div><div class="theme-text">お金の不安と、お金の使い方の好みは、本当に同じ話なのだろうか？</div></div>
+      <div class="theme-card"><div class="theme-num">No. 20</div><div class="theme-text">都会に住み続ける理由が薄れてきた、その薄さの正体は何だろう？</div></div>
+      <div class="theme-card"><div class="theme-num">No. 21</div><div class="theme-text">多拠点で暮らす自分と、根を張って暮らす自分、どちらも本当の私ではないだろうか？</div></div>
+      <div class="theme-card"><div class="theme-num">No. 22</div><div class="theme-text">必要なものより、ほしいものを少なく持つ暮らしは、私にできるだろうか？</div></div>
+      <div class="theme-card"><div class="theme-num">No. 23</div><div class="theme-text">給料が上がっても満ちない感じの、ほんとうの輪郭はどこにあるのだろう？</div></div>
+      <div class="theme-card"><div class="theme-num">No. 24</div><div class="theme-text">住む場所を選ぶことと、生き方を選ぶことは、いつから一緒になったのだろう？</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="cat cat-e">
+  <div class="wrap">
+    <div class="cat-head">
+      <span class="cat-mark">E</span>
+      <h2 class="cat-title">身体・健康・時間・老い</h2>
+      <div class="cat-sub">6 questions</div>
+    </div>
+    <div class="theme-grid">
+      <div class="theme-card"><div class="theme-num">No. 25</div><div class="theme-text">朝起きたときの身体の声を、どうすれば無視せずに聴けるだろう？</div></div>
+      <div class="theme-card"><div class="theme-num">No. 26</div><div class="theme-text">30代の身体で20代の働き方を続けている違和感は、どこから来ているのだろう？</div></div>
+      <div class="theme-card"><div class="theme-num">No. 27</div><div class="theme-text">老いることを怖がらずに、面白がる方法はあるのだろうか？</div></div>
+      <div class="theme-card"><div class="theme-num">No. 28</div><div class="theme-text">忙しさが板につくほど、私は何を失っているのだろう？</div></div>
+      <div class="theme-card"><div class="theme-num">No. 29</div><div class="theme-text">走る・歩く・立ち止まるのリズムを、私はどう自分の手に取り戻せるだろう？</div></div>
+      <div class="theme-card"><div class="theme-num">No. 30</div><div class="theme-text">健康のためではなく、機嫌のために身体を整える、それはどう始められるだろう？</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="cat cat-f alt">
+  <div class="wrap">
+    <div class="cat-head">
+      <span class="cat-mark">F</span>
+      <h2 class="cat-title">創造・表現・学び</h2>
+      <div class="cat-sub">5 questions</div>
+    </div>
+    <div class="theme-grid">
+      <div class="theme-card"><div class="theme-num">No. 31</div><div class="theme-text">書きたいのに書けない、撮りたいのに撮らない、その間にあるものは何だろう？</div></div>
+      <div class="theme-card"><div class="theme-num">No. 32</div><div class="theme-text">誰かに見せるためではなく、自分のために続ける表現を、どう持てばいいだろう？</div></div>
+      <div class="theme-card"><div class="theme-num">No. 33</div><div class="theme-text">学び直したいのか、それとも学び方そのものを更新したいのか？</div></div>
+      <div class="theme-card"><div class="theme-num">No. 34</div><div class="theme-text">真似から始める勇気と、真似から離れる勇気の、ちょうどいい順番はどこにあるだろう？</div></div>
+      <div class="theme-card"><div class="theme-num">No. 35</div><div class="theme-text">「うまく作れない」を入口にして、毎日少しずつ何を残せるだろう？</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="cat cat-g">
+  <div class="wrap">
+    <div class="cat-head">
+      <span class="cat-mark">G</span>
+      <h2 class="cat-title">旅・地域・自然</h2>
+      <div class="cat-sub">5 questions</div>
+    </div>
+    <div class="theme-grid">
+      <div class="theme-card"><div class="theme-num">No. 36</div><div class="theme-text">旅から帰ってきた後の自分は、どう変わって、どう戻るのだろう？</div></div>
+      <div class="theme-card"><div class="theme-num">No. 37</div><div class="theme-text">観光ではない旅、日常ではない暮らし、その間の三日間に何が起きるだろう？</div></div>
+      <div class="theme-card"><div class="theme-num">No. 38</div><div class="theme-text">海と山、どちらに呼ばれるかで、その時の自分が見えてくるのではないだろうか？</div></div>
+      <div class="theme-card"><div class="theme-num">No. 39</div><div class="theme-text">地域に関わるとは、消費者でも事業者でもない第三の立ち位置を持つことではないだろうか？</div></div>
+      <div class="theme-card"><div class="theme-num">No. 40</div><div class="theme-text">自然のなかで取り戻す感覚と、街でしか研がれない感覚を、私はどう行き来するだろう？</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="cat cat-h alt">
+  <div class="wrap">
+    <div class="cat-head">
+      <span class="cat-mark">H</span>
+      <h2 class="cat-title">アイデンティティ・自分とは</h2>
+      <div class="cat-sub">5 questions</div>
+    </div>
+    <div class="theme-grid">
+      <div class="theme-card"><div class="theme-num">No. 41</div><div class="theme-text">「私らしさ」という言葉に、私はいつから違和感を持ち始めたのだろう？</div></div>
+      <div class="theme-card"><div class="theme-num">No. 42</div><div class="theme-text">ひとりの私のなかに、いくつの私がいて、今いちばん声を出しているのはどの私だろう？</div></div>
+      <div class="theme-card"><div class="theme-num">No. 43</div><div class="theme-text">過去の自分が選ばなかった道のほうに、いまの関心が伸びているのではないだろうか？</div></div>
+      <div class="theme-card"><div class="theme-num">No. 44</div><div class="theme-text">強がりも甘えも外せないまま全部抱えて立っていて、それで構わないのではないか？</div></div>
+      <div class="theme-card"><div class="theme-num">No. 45</div><div class="theme-text">名前を持たない感情に、私はどんな仮の名前をつけていけばいいだろう？</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="cat cat-i">
+  <div class="wrap">
+    <div class="cat-head">
+      <span class="cat-mark">I</span>
+      <h2 class="cat-title">違和感の言葉化（カテゴリ横断）</h2>
+      <div class="cat-sub">5 questions</div>
+    </div>
+    <div class="theme-grid">
+      <div class="theme-card"><div class="theme-num">No. 46</div><div class="theme-text">ちゃんとしているのに、なぜか満たされない、その「なぜか」は何なのだろう？</div></div>
+      <div class="theme-card"><div class="theme-num">No. 47</div><div class="theme-text">楽しいはずなのに、終わると少し疲れている集まりが、なぜあるのだろう？</div></div>
+      <div class="theme-card"><div class="theme-num">No. 48</div><div class="theme-text">選んできたつもりが、選ばされてきただけ、ではないだろうか？</div></div>
+      <div class="theme-card"><div class="theme-num">No. 49</div><div class="theme-text">周りから見たら順調そうに見える、その「そう見える」と私の体感の落差は、どこから来るのだろう？</div></div>
+      <div class="theme-card"><div class="theme-num">No. 50</div><div class="theme-text">ほんとうに大事なものほど、まだ言葉になっていない、そんな予感を信じてもいいだろうか？</div></div>
+    </div>
+  </div>
+</section>
+
+<footer class="closing">
+  <div class="wrap">
+    <div class="closing-quote">
+      ここに並ぶ50問は、正解ではなくサンプルです。<br>
+      あなたの生活と違和感のなかから、あなたの言葉で書き換えてください。<br><br>
+      探究テーマは、書き換え続けるための一行。<br>
+      今日仮置きしたものが、明日には書き換わっていて構いません。
+    </div>
+    <div class="closing-meta">
+      POOLO 探究テーマ サンプル50（問いの形）<br>
+      ワークでの一例として共有しています ／ 一字一句を真似する必要はありません
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
