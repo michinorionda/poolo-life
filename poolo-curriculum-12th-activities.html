@@ -49,6 +49,27 @@ section{padding:3rem 0}
 .objective.warm b{color:var(--warm-deep)}
 .objective.warm .objective-label{color:var(--warm-deep)}
 .objective.warm .lead-line{font-size:1.05rem;color:var(--warm-deep);font-weight:700;display:block;margin-bottom:0.8rem;line-height:1.8}
+.layer-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin:1.6rem auto 0;max-width:1180px}
+.layer-card{background:#fff;border:1px solid var(--line);border-top:4px solid var(--blue);padding:1.3rem 1.1rem;border-radius:2px;display:flex;flex-direction:column;gap:0.55rem}
+.layer-card.l1{border-top-color:var(--green)}
+.layer-card.l2{border-top-color:var(--purple)}
+.layer-card.l3{border-top-color:var(--star)}
+.layer-card.l4{border-top-color:var(--slate)}
+.layer-num{font-family:var(--serif);font-size:0.68rem;letter-spacing:0.2em;font-weight:600}
+.layer-card.l1 .layer-num{color:var(--green-deep)}
+.layer-card.l2 .layer-num{color:var(--purple-deep)}
+.layer-card.l3 .layer-num{color:var(--star)}
+.layer-card.l4 .layer-num{color:var(--slate)}
+.layer-verb{font-family:var(--serif);font-size:1.45rem;font-weight:700;color:var(--ink);line-height:1.3}
+.layer-phase{font-size:0.66rem;color:var(--mute);font-weight:600;letter-spacing:0.06em}
+.layer-what{font-size:0.78rem;color:var(--ink);line-height:1.65;margin-top:0.3rem}
+.layer-what b{font-size:0.58rem;letter-spacing:0.15em;color:var(--blue-deep);display:block;margin-bottom:0.25rem;font-weight:600}
+.layer-trust{background:var(--warm-bg);color:var(--warm-deep);padding:0.45rem 0.6rem;font-size:0.8rem;font-weight:700;text-align:center;border-radius:2px;margin-top:0.3rem;font-family:var(--serif);letter-spacing:0.06em}
+.layer-faci{font-size:0.7rem;color:var(--sub);line-height:1.55;border-top:1px dashed var(--line);padding-top:0.55rem;margin-top:auto}
+.layer-faci b{font-size:0.58rem;letter-spacing:0.15em;color:var(--mute);font-weight:600;display:block;margin-bottom:0.25rem}
+.layer-bridge{max-width:1180px;margin:1.4rem auto 0;font-family:var(--serif);font-size:0.95rem;color:var(--sub);line-height:2;letter-spacing:0.04em;text-align:center;padding:0 1rem}
+.layer-bridge b{color:var(--warm-deep);font-weight:600}
+@media(max-width:860px){.layer-cards{grid-template-columns:repeat(2,1fr)}}
 .tagline-block{padding:3rem 0 2.4rem;text-align:center;background:linear-gradient(180deg,#faf9f6 0%,#f7ede2 100%);border-bottom:1px solid var(--line)}
 .tagline-line1{font-family:var(--serif);font-size:1.05rem;color:var(--warm-deep);letter-spacing:0.18em;margin:0 0 0.9rem 0;font-weight:500}
 .tagline-line2{font-family:var(--serif);font-size:1.55rem;color:var(--blue-deep);letter-spacing:0.08em;font-weight:600;line-height:1.8;margin:0}
@@ -208,6 +229,50 @@ section{padding:3rem 0}
       <span class="objective-label">★ 成長プロセスの前提</span>
       <span class="lead-line">外に出ると、当たり前が崩れて、自己決定・自分事化・受容のスイッチが入る。</span>
       POOLO LIFEの8か月は、この<b>スイッチを何度も入れ直す時間</b>です。仲間と差し出し合って磨き、知らない人の前で試す。その繰り返しのなかで、関心が「仮説」から「自分のもの」に変わっていきます。
+    </div>
+
+    <div class="sec-num warm" style="text-align:center;margin-top:2.4rem">§ 成長の4層 ／ GROWTH LAYERS</div>
+    <h2 class="sec-head" style="text-align:center">外 × 仲間の往復で、納得が4層深まる</h2>
+
+    <div class="layer-cards">
+      <div class="layer-card l1">
+        <div class="layer-num">1層 ／ P1（M1-M2）</div>
+        <div class="layer-verb">気づく</div>
+        <div class="layer-phase">自分の関心の発見</div>
+        <div class="layer-what"><b>WHAT KNOWN</b>自分の反応パターン（惹かれる／違和感）</div>
+        <div class="layer-trust">仮説の納得</div>
+        <div class="layer-faci"><b>FACILITATION</b>揺さぶる／放っておく</div>
+      </div>
+      <div class="layer-card l2">
+        <div class="layer-num">2層 ／ P2（M3-M4）</div>
+        <div class="layer-verb">言葉にする</div>
+        <div class="layer-phase">仲間の鏡で見える自分</div>
+        <div class="layer-what"><b>WHAT KNOWN</b>自分では気づけない、限界・癖・無自覚な前提</div>
+        <div class="layer-trust">関係の納得</div>
+        <div class="layer-faci"><b>FACILITATION</b>鏡を返す／問い返す</div>
+      </div>
+      <div class="layer-card l3">
+        <div class="layer-num">3層 ／ P3（M5-M7）</div>
+        <div class="layer-verb">確かめる</div>
+        <div class="layer-phase">外で試して受け取る</div>
+        <div class="layer-what"><b>WHAT KNOWN</b>知らない人に届いた／届かなかった事実</div>
+        <div class="layer-trust">社会への納得</div>
+        <div class="layer-faci"><b>FACILITATION</b>背中を押す／反応の言語化</div>
+      </div>
+      <div class="layer-card l4">
+        <div class="layer-num">4層 ／ P4（M8）</div>
+        <div class="layer-verb">持ち帰る</div>
+        <div class="layer-phase">自分の核として残る</div>
+        <div class="layer-what"><b>WHAT KNOWN</b>8か月で残った筋肉、卒業後に続く螺旋の起点</div>
+        <div class="layer-trust">自分への納得</div>
+        <div class="layer-faci"><b>FACILITATION</b>統合の問いを置く</div>
+      </div>
+    </div>
+
+    <div class="layer-bridge">
+      外に出るだけでは、体験は情報として通り過ぎる。<br>
+      <b>仲間（引力場）に持ち帰って言葉にする工程</b>があって、初めて意味として身体に残る。<br>
+      <b>外と仲間は両輪</b>。POOLO LIFEは、その往復を螺旋で回す8か月の設計。
     </div>
   </div>
 </section>
