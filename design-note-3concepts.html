@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>3概念のビジュアル — POOLO LIFE Design Note</title>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;600;700;800&family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #1a1a1a;
+  --sub: #5a5a5a;
+  --hint: #999;
+  --bg: #faf9f6;
+  --card: #ffffff;
+  --line: #e5e2db;
+  --green: #2D6A4F;
+  --green-bg: #E9F5EE;
+  --green-lt: #F4FAF6;
+  --purple: #534AB7;
+  --purple-bg: #EEEDFE;
+  --purple-lt: #F5F4FF;
+  --amber: #7A5500;
+  --amber-bg: #FFF6E6;
+  --amber-lt: #FFFCF2;
+  --red: #8B3A2A;
+  --red-bg: #FDF0EE;
+  --serif: 'Shippori Mincho', serif;
+  --sans: 'Noto Sans JP', sans-serif;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family: var(--sans); background: var(--bg); color: var(--ink); line-height: 2; -webkit-font-smoothing: antialiased; }
+.page { max-width: 1080px; margin: 0 auto; padding: 3rem 2rem 6rem; }
+
+.hdr { text-align: center; padding: 2rem 0; border-bottom: 2px solid var(--ink); margin-bottom: 2rem; }
+.hdr-tag { font-size:.62rem; font-weight:700; letter-spacing:.18em; color:var(--amber); margin-bottom:.6rem; }
+.hdr h1 { font-family:var(--serif); font-size:1.5rem; font-weight:800; line-height:1.6; margin-bottom:.5rem; }
+.hdr-sub { font-size:.78rem; color:var(--sub); font-weight:400; line-height:1.9; }
+.hdr-stage { display:inline-block; margin-top:1rem; padding:.4rem 1rem; background:var(--amber-bg); color:var(--amber); font-size:.65rem; font-weight:700; letter-spacing:.1em; border-radius:99px; }
+
+.quote { padding:1.6rem 1.8rem; margin:2rem 0; background:#fdfcf6; border-left:4px solid var(--amber); border-radius:0 6px 6px 0; }
+.quote-t { font-size:.6rem; font-weight:700; letter-spacing:.1em; color:var(--amber); margin-bottom:.5rem; }
+.quote p { font-family:var(--serif); font-size:.9rem; font-weight:600; line-height:1.9; color:var(--ink); }
+
+.sec { margin: 3rem 0 2.5rem; padding:1.8rem 2rem; background:var(--card); border:1px solid var(--line); border-radius:10px; }
+.sec-tag { display:inline-block; padding:.25rem .7rem; font-size:.6rem; font-weight:700; letter-spacing:.1em; border-radius:99px; margin-bottom:.8rem; }
+.sec-tag-a { background:var(--green-bg); color:var(--green); }
+.sec-tag-b { background:var(--purple-bg); color:var(--purple); }
+.sec h2 { font-family:var(--serif); font-size:1.2rem; font-weight:700; line-height:1.6; margin-bottom:.4rem; }
+.sec .sec-sub { font-size:.76rem; color:var(--sub); margin-bottom:1.2rem; }
+
+.fig { display:flex; justify-content:center; margin:1.5rem 0; }
+
+.legend { display:flex; flex-wrap:wrap; gap:1.5rem; justify-content:center; margin-top:1rem; padding:1rem; background:var(--bg); border-radius:6px; font-size:.7rem; }
+.legend-item { display:flex; align-items:center; gap:.4rem; }
+.legend-dot { width:14px; height:14px; border-radius:50%; flex-shrink:0; }
+.legend-dot.g { background:#2D6A4F; opacity:.4; }
+.legend-dot.h { background:#534AB7; opacity:.4; }
+.legend-dot.f { background:#fff; border:1.5px solid var(--ink); }
+.legend-dot.am { background:#FFF6E6; border:1.5px solid var(--amber); }
+.legend-dot.self { background:#1a1a1a; }
+.legend-dot.faint { background:#999; opacity:.3; }
+
+.read { padding:1.2rem 1.4rem; background:var(--bg); border-radius:8px; margin-top:1rem; }
+.read .read-t { font-family:var(--serif); font-size:.85rem; font-weight:700; margin-bottom:.5rem; }
+.read p { font-size:.76rem; line-height:2.1; margin-bottom:.5rem; }
+.read strong { font-weight:600; }
+
+.bridge { padding:1.4rem 1.6rem; margin:2rem 0; background:#F5F4FF; border:1px solid #c8c5ea; border-radius:8px; text-align:center; }
+.bridge p { font-family:var(--serif); font-size:.95rem; font-weight:700; line-height:1.85; color:var(--purple); }
+
+.examples { margin-top:1.5rem; padding:1.4rem 1.6rem; background:#fafaf6; border:1px solid var(--line); border-radius:8px; }
+.examples h4 { font-family:var(--serif); font-size:.85rem; font-weight:700; margin-bottom:.7rem; color:var(--ink); }
+.examples-row { display:flex; flex-wrap:wrap; gap:.5rem; margin-bottom:.6rem; }
+.tag { display:inline-block; padding:.3rem .7rem; font-size:.7rem; border-radius:99px; }
+.tag-main { background:var(--ink); color:#fff; font-weight:600; }
+.tag-other { background:#fff; border:1px solid var(--line); color:var(--sub); }
+.examples p { font-size:.7rem; line-height:1.85; color:var(--sub); margin-top:.6rem; }
+
+.next { margin-top:2.5rem; padding:1.8rem; background:#fdfcf6; border:2px dashed var(--amber); border-radius:8px; }
+.next h3 { font-family:var(--serif); font-size:1rem; font-weight:700; color:var(--amber); margin-bottom:.8rem; }
+.next ol { margin-left:1.4rem; }
+.next li { font-size:.78rem; line-height:2; margin-bottom:.5rem; }
+.next strong { font-weight:600; }
+
+.ftr { margin-top:2rem; padding-top:1rem; border-top:1px solid var(--line); font-size:.62rem; color:var(--hint); text-align:center; line-height:1.9; }
+
+@media (max-width:760px) {
+  .page { padding:1.5rem 1.2rem 4rem; }
+  .hdr h1 { font-size:1.2rem; }
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+<div class="hdr">
+  <div class="hdr-tag">POOLO LIFE — DESIGN NOTE</div>
+  <h1>3概念のビジュアル化。</h1>
+  <div class="hdr-sub">探究テーマ／豊かさ／想像もしなかった世界と自分と出会う。<br>3つの関係を、概念の基本構造と全体構造の2つの図で整理する。</div>
+</div>
+
+<!-- 用語の前提 -->
+<div class="quote" style="background:#F4FAF6; border-left-color:#2D6A4F;">
+  <div class="quote-t" style="color:#2D6A4F;">用語の前提</div>
+  <p style="font-size:.78rem; font-weight:400; line-height:2.1; color:#1a1a1a;">
+    POOLOで使う <strong>豊かさ</strong> の定義は、F = G × H。
+    <strong>G</strong> は自分の好き・得意（内的欲求）、
+    <strong>H</strong> は他者とのつながり。
+    豊かさは、この2つが噛み合った真ん中に立ち上がる状態を指す。
+  </p>
+</div>
+
+<!-- ============================================== -->
+<!-- 概念説明: CASE A 基本ベン図 -->
+<!-- ============================================== -->
+<div class="sec">
+  <div class="sec-tag sec-tag-a">CONCEPT ／ 概念の基本構造</div>
+  <h2>1つのテーマの中で、3概念がどう関係するか</h2>
+  <div class="sec-sub">どの1つのテーマを取り出しても、その中で起きていることは同じ構造。内的欲求と他者とのつながりがあり、その真ん中に豊かさが立ち上がり、橋渡しが起きるたびに円が広がっていく。</div>
+
+  <div class="fig">
+    <svg viewBox="0 0 700 480" width="100%" style="max-width:700px" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <radialGradient id="aura-CA" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#7A5500" stop-opacity="0.16"/>
+          <stop offset="100%" stop-color="#7A5500" stop-opacity="0"/>
+        </radialGradient>
+        <marker id="arr-CA" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="5" markerHeight="5" orient="auto">
+          <path d="M0 0 L8 5 L0 10 z" fill="#7A5500"/>
+        </marker>
+        <style>
+          .ts { font-family: 'Shippori Mincho', serif; }
+          .tn { font-family: 'Noto Sans JP', sans-serif; }
+        </style>
+      </defs>
+
+      <circle cx="350" cy="250" r="225" fill="url(#aura-CA)"/>
+
+      <g stroke="#7A5500" stroke-width="1" fill="none" marker-end="url(#arr-CA)" opacity="0.7">
+        <line x1="195" y1="180" x2="155" y2="145"/>
+        <line x1="505" y1="180" x2="545" y2="145"/>
+        <line x1="195" y1="320" x2="155" y2="355"/>
+        <line x1="505" y1="320" x2="545" y2="355"/>
+      </g>
+
+      <circle cx="270" cy="250" r="155" fill="none" stroke="#2D6A4F" stroke-width="0.7" stroke-dasharray="3,3" opacity="0.4"/>
+      <circle cx="430" cy="250" r="155" fill="none" stroke="#534AB7" stroke-width="0.7" stroke-dasharray="3,3" opacity="0.4"/>
+
+      <circle cx="270" cy="250" r="125" fill="#2D6A4F" fill-opacity="0.18" stroke="#2D6A4F" stroke-width="1.5"/>
+      <text x="190" y="180" class="tn" font-size="11" font-weight="700" fill="#2D6A4F">内的欲求</text>
+      <text x="190" y="195" class="tn" font-size="7.5" fill="#2D6A4F" opacity="0.75">自分の中から動いてしまうもの</text>
+
+      <circle cx="430" cy="250" r="125" fill="#534AB7" fill-opacity="0.18" stroke="#534AB7" stroke-width="1.5"/>
+      <text x="510" y="180" class="tn" font-size="11" font-weight="700" fill="#534AB7">他者とのつながり</text>
+      <text x="510" y="195" class="tn" font-size="7.5" fill="#534AB7" opacity="0.75">関係の中で巡るもの</text>
+
+      <ellipse cx="350" cy="250" rx="40" ry="72" fill="#fff" stroke="#1a1a1a" stroke-width="1.5"/>
+      <text x="350" y="248" text-anchor="middle" class="ts" font-size="13" font-weight="700" fill="#1a1a1a">豊かさ</text>
+      <text x="350" y="264" text-anchor="middle" class="tn" font-size="7" fill="#5a5a5a">真ん中</text>
+
+      <line x1="200" y1="250" x2="500" y2="250" stroke="#1a1a1a" stroke-width="1.4" stroke-dasharray="5,3" opacity="0.55"/>
+      <rect x="280" y="345" width="140" height="28" rx="5" fill="#fff" stroke="#1a1a1a" stroke-width="1.2"/>
+      <text x="350" y="358" text-anchor="middle" class="ts" font-size="11" font-weight="700" fill="#1a1a1a">探究テーマ</text>
+      <text x="350" y="370" text-anchor="middle" class="tn" font-size="7" fill="#5a5a5a">問い・橋渡し</text>
+
+      <text x="350" y="55" text-anchor="middle" class="ts" font-size="13" font-weight="700" fill="#7A5500">想像もしなかった世界と自分と出会う</text>
+      <text x="350" y="71" text-anchor="middle" class="tn" font-size="8" fill="#7A5500" opacity="0.85">＝ 内的欲求と他者の円そのものが広がる瞬間</text>
+
+      <text x="350" y="455" text-anchor="middle" class="tn" font-size="7.5" fill="#5a5a5a">問い・橋渡しを通るたびに、内的欲求も他者とのつながりも輪郭が押し広げられる</text>
+    </svg>
+  </div>
+
+  <div class="legend">
+    <div class="legend-item"><div class="legend-dot g"></div>内的欲求</div>
+    <div class="legend-item"><div class="legend-dot h"></div>他者とのつながり</div>
+    <div class="legend-item"><div class="legend-dot f"></div>豊かさ（真ん中）</div>
+    <div class="legend-item"><div class="legend-dot am"></div>境界拡張＝出会い</div>
+  </div>
+
+  <div class="read">
+    <div class="read-t">この図で説明する3概念の関係</div>
+    <p>1. <strong>豊かさ</strong>　内的欲求と他者とのつながりの真ん中。F = G × H の構造そのもの。ここは不変。</p>
+    <p>2. <strong>探究テーマ</strong>　その真ん中に向かっていくための問い・橋渡し。両方の円をつなぐ動き。</p>
+    <p>3. <strong>想像もしなかった世界と自分と出会う</strong>　橋渡しを通って真ん中に向かううちに、内的欲求の円も他者とのつながりの円も、そのものが広がっていく。出会いは、円の外側に新しい領域が増える現象として起きる。</p>
+  </div>
+</div>
+
+<!-- 連結ブリッジ -->
+<div class="bridge">
+  <p>この基本構造が、自分の中のいくつものテーマで同時に起きている。</p>
+</div>
+
+<!-- ============================================== -->
+<!-- 全体構造: いくつものテーマと放射 v0.6 -->
+<!-- ============================================== -->
+<div class="sec">
+  <div class="sec-tag sec-tag-b">WHOLE STRUCTURE ／ いくつものテーマと探究</div>
+  <h2>いくつものテーマと、つながっていく</h2>
+  <div class="sec-sub">中心に自分。そこから無数のテーマが伸びていく。図に名前をつけて描いている主要なものは例にすぎず、間にも・外にも・もっと向こうにも、内的欲求と他者とのつながりは続いていく。</div>
+
+  <div class="fig">
+    <svg viewBox="0 0 1000 1000" width="100%" style="max-width:1000px" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <radialGradient id="aura-radial-v6" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#7A5500" stop-opacity="0.16"/>
+          <stop offset="100%" stop-color="#7A5500" stop-opacity="0"/>
+        </radialGradient>
+        <marker id="arr-self-v6" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="5" markerHeight="5" orient="auto">
+          <path d="M0 0 L8 5 L0 10 z" fill="#1a1a1a"/>
+        </marker>
+        <marker id="arr-out-v6" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="5" markerHeight="5" orient="auto">
+          <path d="M0 0 L8 5 L0 10 z" fill="#7A5500"/>
+        </marker>
+        <style>
+          .ts { font-family: 'Shippori Mincho', serif; }
+          .tn { font-family: 'Noto Sans JP', sans-serif; }
+        </style>
+      </defs>
+
+      <!-- 背景の薄い同心円ガイド -->
+      <circle cx="500" cy="500" r="380" fill="none" stroke="#999" stroke-width="0.6" stroke-dasharray="3,4" opacity="0.25"/>
+      <circle cx="500" cy="500" r="220" fill="none" stroke="#999" stroke-width="0.6" stroke-dasharray="3,4" opacity="0.2"/>
+      <circle cx="500" cy="500" r="450" fill="none" stroke="#999" stroke-width="0.5" stroke-dasharray="2,5" opacity="0.18"/>
+
+      <!-- 主要5方向の探究テーマ放射線 -->
+      <line x1="500" y1="468" x2="500" y2="220" stroke="#1a1a1a" stroke-width="1.3" stroke-dasharray="6,3" opacity="0.5" marker-end="url(#arr-self-v6)"/>
+      <line x1="530" y1="490" x2="755" y2="408" stroke="#1a1a1a" stroke-width="1.3" stroke-dasharray="6,3" opacity="0.5" marker-end="url(#arr-self-v6)"/>
+      <line x1="519" y1="526" x2="675" y2="734" stroke="#1a1a1a" stroke-width="1.3" stroke-dasharray="6,3" opacity="0.5" marker-end="url(#arr-self-v6)"/>
+      <line x1="481" y1="526" x2="325" y2="734" stroke="#1a1a1a" stroke-width="1.3" stroke-dasharray="6,3" opacity="0.5" marker-end="url(#arr-self-v6)"/>
+      <line x1="470" y1="490" x2="245" y2="408" stroke="#1a1a1a" stroke-width="1.3" stroke-dasharray="6,3" opacity="0.5" marker-end="url(#arr-self-v6)"/>
+
+      <!-- 中間方向の薄い放射線（他のテーマがある暗示）-->
+      <g stroke="#1a1a1a" stroke-width="0.8" stroke-dasharray="2,5" opacity="0.25">
+        <line x1="525" y1="480" x2="715" y2="345"/>
+        <line x1="525" y1="520" x2="715" y2="655"/>
+        <line x1="500" y1="535" x2="500" y2="765"/>
+        <line x1="475" y1="520" x2="285" y2="655"/>
+        <line x1="475" y1="480" x2="285" y2="345"/>
+      </g>
+
+      <!-- ============ 中間ベン図1: 学びと暮らしの間 (725, 334), 角度約36.5° ============ -->
+      <!-- u=(0.804,-0.595), 緑(中心側)=(715,341), 紫(外側)=(735,327) -->
+      <g opacity="0.42">
+        <circle cx="715" cy="341" r="22" fill="#2D6A4F" fill-opacity="0.18" stroke="#2D6A4F" stroke-width="1"/>
+        <circle cx="735" cy="327" r="22" fill="#534AB7" fill-opacity="0.18" stroke="#534AB7" stroke-width="1"/>
+        <ellipse cx="725" cy="334" rx="14" ry="6" fill="#fff" stroke="#999" stroke-width="0.8" transform="rotate(126.5 725 334)"/>
+      </g>
+
+      <!-- ============ 中間ベン図2: 暮らしと関係の間 (725, 666), 角度約-36.5° ============ -->
+      <!-- u=(0.804,0.595), 緑=(715,659), 紫=(735,673) -->
+      <g opacity="0.42">
+        <circle cx="715" cy="659" r="22" fill="#2D6A4F" fill-opacity="0.18" stroke="#2D6A4F" stroke-width="1"/>
+        <circle cx="735" cy="673" r="22" fill="#534AB7" fill-opacity="0.18" stroke="#534AB7" stroke-width="1"/>
+        <ellipse cx="725" cy="666" rx="14" ry="6" fill="#fff" stroke="#999" stroke-width="0.8" transform="rotate(53.5 725 666)"/>
+      </g>
+
+      <!-- ============ 中間ベン図3: 関係と旅・場所の間 (500, 780), 角度-90° (真下) ============ -->
+      <!-- u=(0,1), 緑=(500,768), 紫=(500,792) -->
+      <g opacity="0.42">
+        <circle cx="500" cy="768" r="22" fill="#2D6A4F" fill-opacity="0.18" stroke="#2D6A4F" stroke-width="1"/>
+        <circle cx="500" cy="792" r="22" fill="#534AB7" fill-opacity="0.18" stroke="#534AB7" stroke-width="1"/>
+        <ellipse cx="500" cy="780" rx="14" ry="6" fill="#fff" stroke="#999" stroke-width="0.8"/>
+      </g>
+
+      <!-- ============ 中間ベン図4: 旅・場所と仕事の間 (275, 666), 角度-143.5° ============ -->
+      <!-- u=(-0.804,0.595), 緑=(285,659), 紫=(265,673) -->
+      <g opacity="0.42">
+        <circle cx="285" cy="659" r="22" fill="#2D6A4F" fill-opacity="0.18" stroke="#2D6A4F" stroke-width="1"/>
+        <circle cx="265" cy="673" r="22" fill="#534AB7" fill-opacity="0.18" stroke="#534AB7" stroke-width="1"/>
+        <ellipse cx="275" cy="666" rx="14" ry="6" fill="#fff" stroke="#999" stroke-width="0.8" transform="rotate(-53.5 275 666)"/>
+      </g>
+
+      <!-- ============ 中間ベン図5: 仕事と学びの間 (275, 334), 角度143.5° ============ -->
+      <!-- u=(-0.804,-0.595), 緑=(285,341), 紫=(265,327) -->
+      <g opacity="0.42">
+        <circle cx="285" cy="341" r="22" fill="#2D6A4F" fill-opacity="0.18" stroke="#2D6A4F" stroke-width="1"/>
+        <circle cx="265" cy="327" r="22" fill="#534AB7" fill-opacity="0.18" stroke="#534AB7" stroke-width="1"/>
+        <ellipse cx="275" cy="334" rx="14" ry="6" fill="#fff" stroke="#999" stroke-width="0.8" transform="rotate(-126.5 275 334)"/>
+      </g>
+
+      <!-- ============ 主要ベン図1: 学び (上, 放射方向 (0,-1)) ============ -->
+      <g>
+        <circle cx="500" cy="160" r="100" fill="url(#aura-radial-v6)"/>
+        <line x1="500" y1="100" x2="478" y2="78" stroke="#7A5500" stroke-width="0.9" marker-end="url(#arr-out-v6)" opacity="0.6"/>
+        <line x1="500" y1="100" x2="522" y2="78" stroke="#7A5500" stroke-width="0.9" marker-end="url(#arr-out-v6)" opacity="0.6"/>
+        <circle cx="500" cy="185" r="50" fill="none" stroke="#2D6A4F" stroke-width="0.6" stroke-dasharray="3,3" opacity="0.35"/>
+        <circle cx="500" cy="135" r="50" fill="none" stroke="#534AB7" stroke-width="0.6" stroke-dasharray="3,3" opacity="0.35"/>
+        <circle cx="500" cy="185" r="42" fill="#2D6A4F" fill-opacity="0.22" stroke="#2D6A4F" stroke-width="1.4"/>
+        <circle cx="500" cy="135" r="42" fill="#534AB7" fill-opacity="0.22" stroke="#534AB7" stroke-width="1.4"/>
+        <ellipse cx="500" cy="160" rx="26" ry="11" fill="#fff" stroke="#1a1a1a" stroke-width="1.3"/>
+        <text x="500" y="50" text-anchor="middle" class="ts" font-size="22" font-weight="700" fill="#1a1a1a">学び</text>
+        <text x="448" y="190" text-anchor="end" class="tn" font-size="7" fill="#2D6A4F" opacity="0.85">内的欲求</text>
+        <text x="552" y="135" class="tn" font-size="7" fill="#534AB7" opacity="0.85">他者</text>
+      </g>
+
+      <!-- ============ 主要ベン図2: 暮らし (上右) ============ -->
+      <g>
+        <circle cx="800" cy="395" r="100" fill="url(#aura-radial-v6)"/>
+        <line x1="857" y1="375" x2="887" y2="365" stroke="#7A5500" stroke-width="0.9" marker-end="url(#arr-out-v6)" opacity="0.6"/>
+        <line x1="841" y1="345" x2="858" y2="320" stroke="#7A5500" stroke-width="0.9" marker-end="url(#arr-out-v6)" opacity="0.6"/>
+        <circle cx="776" cy="403" r="50" fill="none" stroke="#2D6A4F" stroke-width="0.6" stroke-dasharray="3,3" opacity="0.35"/>
+        <circle cx="824" cy="387" r="50" fill="none" stroke="#534AB7" stroke-width="0.6" stroke-dasharray="3,3" opacity="0.35"/>
+        <circle cx="776" cy="403" r="42" fill="#2D6A4F" fill-opacity="0.22" stroke="#2D6A4F" stroke-width="1.4"/>
+        <circle cx="824" cy="387" r="42" fill="#534AB7" fill-opacity="0.22" stroke="#534AB7" stroke-width="1.4"/>
+        <ellipse cx="800" cy="395" rx="26" ry="11" fill="#fff" stroke="#1a1a1a" stroke-width="1.3" transform="rotate(71.6 800 395)"/>
+        <text x="900" y="320" text-anchor="middle" class="ts" font-size="22" font-weight="700" fill="#1a1a1a">暮らし</text>
+        <text x="730" y="436" class="tn" font-size="7" fill="#2D6A4F" opacity="0.85">内的欲求</text>
+        <text x="858" y="370" class="tn" font-size="7" fill="#534AB7" opacity="0.85">他者</text>
+      </g>
+
+      <!-- ============ 主要ベン図3: 関係 (下右) ============ -->
+      <g>
+        <circle cx="700" cy="745" r="100" fill="url(#aura-radial-v6)"/>
+        <line x1="753" y1="787" x2="775" y2="810" stroke="#7A5500" stroke-width="0.9" marker-end="url(#arr-out-v6)" opacity="0.6"/>
+        <line x1="730" y1="811" x2="745" y2="838" stroke="#7A5500" stroke-width="0.9" marker-end="url(#arr-out-v6)" opacity="0.6"/>
+        <circle cx="684" cy="726" r="50" fill="none" stroke="#2D6A4F" stroke-width="0.6" stroke-dasharray="3,3" opacity="0.35"/>
+        <circle cx="716" cy="764" r="50" fill="none" stroke="#534AB7" stroke-width="0.6" stroke-dasharray="3,3" opacity="0.35"/>
+        <circle cx="684" cy="726" r="42" fill="#2D6A4F" fill-opacity="0.22" stroke="#2D6A4F" stroke-width="1.4"/>
+        <circle cx="716" cy="764" r="42" fill="#534AB7" fill-opacity="0.22" stroke="#534AB7" stroke-width="1.4"/>
+        <ellipse cx="700" cy="745" rx="26" ry="11" fill="#fff" stroke="#1a1a1a" stroke-width="1.3" transform="rotate(139.9 700 745)"/>
+        <text x="800" y="855" text-anchor="middle" class="ts" font-size="22" font-weight="700" fill="#1a1a1a">関係</text>
+        <text x="638" y="722" text-anchor="end" class="tn" font-size="7" fill="#2D6A4F" opacity="0.85">内的欲求</text>
+        <text x="745" y="780" class="tn" font-size="7" fill="#534AB7" opacity="0.85">他者</text>
+      </g>
+
+      <!-- ============ 主要ベン図4: 旅・場所 (下左) ============ -->
+      <g>
+        <circle cx="300" cy="745" r="100" fill="url(#aura-radial-v6)"/>
+        <line x1="247" y1="787" x2="225" y2="810" stroke="#7A5500" stroke-width="0.9" marker-end="url(#arr-out-v6)" opacity="0.6"/>
+        <line x1="270" y1="811" x2="255" y2="838" stroke="#7A5500" stroke-width="0.9" marker-end="url(#arr-out-v6)" opacity="0.6"/>
+        <circle cx="316" cy="726" r="50" fill="none" stroke="#2D6A4F" stroke-width="0.6" stroke-dasharray="3,3" opacity="0.35"/>
+        <circle cx="284" cy="764" r="50" fill="none" stroke="#534AB7" stroke-width="0.6" stroke-dasharray="3,3" opacity="0.35"/>
+        <circle cx="316" cy="726" r="42" fill="#2D6A4F" fill-opacity="0.22" stroke="#2D6A4F" stroke-width="1.4"/>
+        <circle cx="284" cy="764" r="42" fill="#534AB7" fill-opacity="0.22" stroke="#534AB7" stroke-width="1.4"/>
+        <ellipse cx="300" cy="745" rx="26" ry="11" fill="#fff" stroke="#1a1a1a" stroke-width="1.3" transform="rotate(40 300 745)"/>
+        <text x="200" y="855" text-anchor="middle" class="ts" font-size="22" font-weight="700" fill="#1a1a1a">旅・場所</text>
+        <text x="362" y="722" class="tn" font-size="7" fill="#2D6A4F" opacity="0.85">内的欲求</text>
+        <text x="252" y="780" text-anchor="end" class="tn" font-size="7" fill="#534AB7" opacity="0.85">他者</text>
+      </g>
+
+      <!-- ============ 主要ベン図5: 仕事 (上左) ============ -->
+      <g>
+        <circle cx="200" cy="395" r="100" fill="url(#aura-radial-v6)"/>
+        <line x1="143" y1="375" x2="113" y2="365" stroke="#7A5500" stroke-width="0.9" marker-end="url(#arr-out-v6)" opacity="0.6"/>
+        <line x1="159" y1="345" x2="142" y2="320" stroke="#7A5500" stroke-width="0.9" marker-end="url(#arr-out-v6)" opacity="0.6"/>
+        <circle cx="224" cy="403" r="50" fill="none" stroke="#2D6A4F" stroke-width="0.6" stroke-dasharray="3,3" opacity="0.35"/>
+        <circle cx="176" cy="387" r="50" fill="none" stroke="#534AB7" stroke-width="0.6" stroke-dasharray="3,3" opacity="0.35"/>
+        <circle cx="224" cy="403" r="42" fill="#2D6A4F" fill-opacity="0.22" stroke="#2D6A4F" stroke-width="1.4"/>
+        <circle cx="176" cy="387" r="42" fill="#534AB7" fill-opacity="0.22" stroke="#534AB7" stroke-width="1.4"/>
+        <ellipse cx="200" cy="395" rx="26" ry="11" fill="#fff" stroke="#1a1a1a" stroke-width="1.3" transform="rotate(-71.6 200 395)"/>
+        <text x="100" y="320" text-anchor="middle" class="ts" font-size="22" font-weight="700" fill="#1a1a1a">仕事</text>
+        <text x="270" y="436" class="tn" font-size="7" fill="#2D6A4F" opacity="0.85">内的欲求</text>
+        <text x="142" y="370" text-anchor="end" class="tn" font-size="7" fill="#534AB7" opacity="0.85">他者</text>
+      </g>
+
+      <!-- 外周のドット（さらに他のテーマ、もっと外にもある暗示）-->
+      <g fill="#999" opacity="0.4">
+        <circle cx="500" cy="20" r="2"/>
+        <circle cx="600" cy="30" r="2"/>
+        <circle cx="400" cy="30" r="2"/>
+        <circle cx="700" cy="60" r="2"/>
+        <circle cx="300" cy="60" r="2"/>
+        <circle cx="850" cy="120" r="2"/>
+        <circle cx="150" cy="120" r="2"/>
+        <circle cx="940" cy="250" r="2"/>
+        <circle cx="60" cy="250" r="2"/>
+        <circle cx="980" cy="430" r="2"/>
+        <circle cx="20" cy="430" r="2"/>
+        <circle cx="975" cy="585" r="2"/>
+        <circle cx="25" cy="585" r="2"/>
+        <circle cx="900" cy="780" r="2"/>
+        <circle cx="100" cy="780" r="2"/>
+        <circle cx="800" cy="880" r="2"/>
+        <circle cx="200" cy="880" r="2"/>
+        <circle cx="650" cy="900" r="2"/>
+        <circle cx="350" cy="900" r="2"/>
+        <circle cx="500" cy="910" r="2"/>
+      </g>
+
+      <!-- 中心: 自分 -->
+      <circle cx="500" cy="500" r="42" fill="#1a1a1a"/>
+      <text x="500" y="497" text-anchor="middle" class="ts" font-size="14" font-weight="700" fill="#fff">自分</text>
+      <text x="500" y="513" text-anchor="middle" class="tn" font-size="6.5" fill="#fff" opacity="0.75">内的欲求と他者と</text>
+      <text x="500" y="524" text-anchor="middle" class="tn" font-size="6.5" fill="#fff" opacity="0.75">つながる起点</text>
+
+      <!-- 探究テーマのラベル -->
+      <rect x="380" y="935" width="240" height="48" rx="6" fill="#fff" stroke="#1a1a1a" stroke-width="1.3"/>
+      <text x="500" y="954" text-anchor="middle" class="ts" font-size="13" font-weight="700" fill="#1a1a1a">探究テーマ</text>
+      <text x="500" y="971" text-anchor="middle" class="tn" font-size="8" fill="#5a5a5a">いくつものテーマへつながっていく問い</text>
+
+      <!-- 出会いのラベル（右上）-->
+      <text x="970" y="40" text-anchor="end" class="ts" font-size="11" font-weight="700" fill="#7A5500">想像もしなかった出会い</text>
+      <text x="970" y="56" text-anchor="end" class="tn" font-size="7.5" fill="#7A5500" opacity="0.85">＝ 各ベン図の円が広がる瞬間（境界拡張）</text>
+
+      <!-- 主要は例の注記（左上）-->
+      <text x="30" y="40" class="tn" font-size="10" font-weight="600" fill="#5a5a5a">主要に描いているのは例（5つ）</text>
+      <text x="30" y="55" class="tn" font-size="7.5" fill="#999">薄いベン図と外周のドットは、まだ名前のついていないテーマの暗示</text>
+    </svg>
+  </div>
+
+  <div class="legend">
+    <div class="legend-item"><div class="legend-dot self"></div>自分（中心）</div>
+    <div class="legend-item"><div class="legend-dot g"></div>内的欲求（緑・中心側）</div>
+    <div class="legend-item"><div class="legend-dot h"></div>他者とのつながり（紫・外側）</div>
+    <div class="legend-item"><div class="legend-dot f"></div>豊かさ（重なり）</div>
+    <div class="legend-item"><div class="legend-dot am"></div>境界拡張＝出会い</div>
+    <div class="legend-item"><div class="legend-dot faint"></div>まだ名前のないテーマ（無数）</div>
+  </div>
+
+  <!-- 他のテーマの例 -->
+  <div class="examples">
+    <h4>テーマは無数にある（一例として）</h4>
+    <div class="examples-row">
+      <span class="tag tag-main">仕事</span>
+      <span class="tag tag-main">暮らし</span>
+      <span class="tag tag-main">関係</span>
+      <span class="tag tag-main">学び</span>
+      <span class="tag tag-main">旅・場所</span>
+    </div>
+    <div class="examples-row">
+      <span class="tag tag-other">お金</span>
+      <span class="tag tag-other">健康</span>
+      <span class="tag tag-other">家族</span>
+      <span class="tag tag-other">創造</span>
+      <span class="tag tag-other">身体</span>
+      <span class="tag tag-other">時間</span>
+      <span class="tag tag-other">言葉</span>
+      <span class="tag tag-other">自然</span>
+      <span class="tag tag-other">食</span>
+      <span class="tag tag-other">表現</span>
+      <span class="tag tag-other">遊び</span>
+      <span class="tag tag-other">休息</span>
+      <span class="tag tag-other">物語</span>
+      <span class="tag tag-other">場づくり</span>
+      <span class="tag tag-other">…</span>
+    </div>
+    <p>主要に描いた5つは「いま掘っているもの」の例にすぎない。自分の中にはもっとたくさんのテーマがあり、これから立ち上がるテーマもある。図に描かれていない領域こそ、これから出会うものが住んでいる場所。</p>
+  </div>
+
+  <div class="read">
+    <div class="read-t">この図で読めるストーリー</div>
+    <p>真ん中に「自分」がいる。そこから無数のテーマが伸びていく。いま自分が掘っているのは、たとえば仕事・暮らし・関係・学び・旅と場所のような領域。<strong>けれど、それは例にすぎない</strong>。間にも、外にも、まだ名前のついていないテーマがいくつも控えている。</p>
+    <p>探究テーマは、自分から各テーマへ <strong>つながっていく動き</strong>。問いを立て、関わり、差し出し、反応を受け取る。掘り進めるほど、内的欲求の円も他者の円も広がっていく。</p>
+    <p>各ベン図の重なりに、そのテーマの<strong>豊かさ</strong>が立ち上がる。広がった先に、想像もしなかった世界と自分が立ち上がる。<strong>そして、まだ名前のないテーマからも、いつか出会いが立ち上がる</strong>。</p>
+  </div>
+</div>
+
+<div class="ftr">
+  POOLO LIFE Design Note ／ 3概念のビジュアル化
+</div>
+
+</div>
+</body>
+</html>
