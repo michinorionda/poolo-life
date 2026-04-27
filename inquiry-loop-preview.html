@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>豊かさの中央循環 — 探究の往復｜v5プレビュー</title>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#1a1a1a; --sub:#4a4a4a; --mute:#7a7a7a; --hint:#a8a8a8;
+  --bg:#faf9f6; --bg-deep:#f3f1ea; --line:#e0ddd3;
+  --green:#2D6A4F; --green-bg:#E9F5EE;
+  --warm:#C08457; --warm-bg:#F7EDE2;
+  --deep:#1F3A3D; --deep-bg:#DCE6E7;
+  --star:#B8860B; --star-bg:#F9F0D9;
+  --serif:'Shippori Mincho',serif; --sans:'Noto Sans JP',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--bg);color:var(--ink);line-height:1.95;font-weight:300;-webkit-font-smoothing:antialiased}
+.wrap{max-width:980px;margin:0 auto;padding:0 1.5rem}
+section{padding:3.5rem 0}
+
+.header{padding:5rem 0 3rem;background:linear-gradient(135deg,var(--bg-deep) 0%,var(--bg) 60%);border-bottom:1px solid var(--line);text-align:center}
+.header-mark{display:inline-block;font-size:0.6rem;letter-spacing:0.4em;color:var(--green);margin-bottom:1.6rem;font-weight:500;padding:0.35rem 1.1rem;border:1px solid var(--green);background:#fff}
+.header-title{font-family:var(--serif);font-size:2rem;font-weight:600;letter-spacing:0.08em;line-height:1.7;color:var(--ink);margin-bottom:0.6rem}
+.header-sub{font-family:var(--serif);font-size:0.95rem;color:var(--sub);letter-spacing:0.06em}
+
+.intro-quote{font-family:var(--serif);font-size:1.1rem;font-weight:500;letter-spacing:0.06em;line-height:1.95;color:var(--ink);max-width:720px;margin:2rem auto 0;padding:1.4rem 1.6rem;background:var(--star-bg);border-left:3px solid var(--star);text-align:left}
+
+.sec-num{font-family:var(--serif);font-size:0.75rem;color:var(--green);letter-spacing:0.3em;margin-bottom:0.8rem;font-weight:500}
+.sec-head{font-family:var(--serif);font-size:1.4rem;font-weight:600;letter-spacing:0.06em;margin-bottom:1.6rem;color:var(--ink);line-height:1.6}
+.sec-head::before{content:'';display:inline-block;width:3rem;height:2px;background:var(--green);margin-right:0.8rem;vertical-align:middle;margin-bottom:0.35em}
+p{font-size:0.94rem;color:var(--sub);margin-bottom:1rem}
+p.lead{font-family:var(--serif);font-size:1rem;color:var(--ink);font-weight:500}
+section.alt{background:var(--bg-deep)}
+
+.venn-wrap{max-width:680px;margin:1.5rem auto}
+.venn-svg{width:100%;height:auto;display:block}
+
+.case-tag{display:inline-block;font-family:var(--serif);font-size:0.7rem;letter-spacing:0.3em;color:var(--warm);border:1px solid var(--warm);padding:0.3rem 0.9rem;margin-bottom:0.8rem;background:#fff}
+.case-name{font-family:var(--serif);font-size:1.25rem;font-weight:600;color:var(--ink);margin-bottom:0.6rem;letter-spacing:0.05em}
+.case-tagline{font-family:var(--serif);font-size:0.95rem;color:var(--sub);margin-bottom:1.2rem;line-height:1.85}
+
+.case-meta{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:0.8rem;margin-top:1.5rem}
+.case-meta-item{background:#fff;border:1px solid var(--line);border-radius:3px;padding:0.9rem 1.1rem;font-size:0.82rem;color:var(--sub);line-height:1.8}
+.case-meta-item b{display:block;font-family:var(--serif);font-size:0.62rem;letter-spacing:0.22em;color:var(--green);font-weight:500;margin-bottom:0.35rem}
+
+.compare{margin-top:2rem;background:#fff;border:1px solid var(--line);border-radius:3px;overflow:hidden}
+.compare table{width:100%;border-collapse:collapse;font-size:0.85rem}
+.compare th,.compare td{padding:0.85rem 1rem;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+.compare th{background:var(--bg-deep);font-family:var(--serif);font-weight:500;color:var(--ink);letter-spacing:0.05em;font-size:0.82rem}
+.compare td{color:var(--sub);line-height:1.75}
+.compare tr:last-child td{border-bottom:none}
+.compare .recommend{background:var(--star-bg)}
+.compare .recommend td:first-child{color:var(--star);font-weight:600}
+
+.callout{background:var(--warm-bg);border-left:3px solid var(--warm);padding:1.1rem 1.3rem;margin:1.4rem 0;font-size:0.9rem;color:var(--ink)}
+.callout b{color:var(--warm);font-weight:600}
+
+.note{font-family:var(--serif);font-size:0.78rem;color:var(--mute);text-align:center;letter-spacing:0.08em;margin-top:1rem;line-height:1.9}
+
+.footer{background:var(--deep);color:rgba(255,255,255,0.7);padding:3rem 0;text-align:center;font-size:0.78rem;letter-spacing:0.08em}
+.footer b{color:#fff;font-family:var(--serif);font-weight:500}
+
+@keyframes spin { from{transform:rotate(0)} to{transform:rotate(360deg)} }
+.rotor{transform-origin:280px 180px;animation:spin 18s linear infinite}
+@keyframes flow { from{stroke-dashoffset:0} to{stroke-dashoffset:-200} }
+.flow{stroke-dasharray:6 4;animation:flow 6s linear infinite}
+@keyframes pulse { 0%,100%{opacity:0.55} 50%{opacity:1} }
+.pulse{animation:pulse 3s ease-in-out infinite}
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="wrap">
+    <span class="header-mark">FUTURE DESIGN v5 / PREVIEW</span>
+    <h1 class="header-title">豊かさの中央循環<br>—— 探究の往復</h1>
+    <p class="header-sub">F = G × H の重なりを、点ではなく軌跡で描く</p>
+    <div class="intro-quote">
+      豊かさ（F）は、GとHの重なりに立ち上がる。<br>
+      けれど重なりは静止画ではなく、放っておけばズレていく。<br>
+      重なりを更新し続ける動きを、ここでは<b>「探究の往復」</b>と呼ぶ。<br>
+      問い（探究テーマ）を携え、それを差し出し続けることで、GとHは互いを更新しあう。
+    </div>
+  </div>
+</header>
+
+<!-- 案A -->
+<section id="caseA">
+  <div class="wrap">
+    <span class="case-tag">CASE A</span>
+    <div class="sec-num">§ ベン図中央 ／ 案A</div>
+    <h2 class="case-name">8の字の往復</h2>
+    <p class="case-tagline">GとHを行き来する軌跡そのものを、中央に8の字で描く。豊かさは「ある状態」ではなく「動き続ける軌跡」として可視化される。</p>
+
+    <div class="venn-wrap">
+      <svg class="venn-svg" viewBox="0 0 560 360" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <radialGradient id="gA" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#2D6A4F" stop-opacity="0.15"/>
+            <stop offset="100%" stop-color="#2D6A4F" stop-opacity="0.06"/>
+          </radialGradient>
+          <radialGradient id="hA" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#C08457" stop-opacity="0.15"/>
+            <stop offset="100%" stop-color="#C08457" stop-opacity="0.06"/>
+          </radialGradient>
+          <marker id="arrA" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M0,0 L10,5 L0,10 z" fill="#B8860B"/>
+          </marker>
+        </defs>
+
+        <circle cx="210" cy="180" r="130" fill="url(#gA)" stroke="#2D6A4F" stroke-width="1.5" stroke-opacity="0.5"/>
+        <circle cx="350" cy="180" r="130" fill="url(#hA)" stroke="#C08457" stroke-width="1.5" stroke-opacity="0.5"/>
+
+        <text x="115" y="40" font-family="'Shippori Mincho',serif" font-size="22" fill="#2D6A4F" font-weight="700">G</text>
+        <text x="115" y="62" font-family="'Shippori Mincho',serif" font-size="11" fill="#2D6A4F" font-weight="500">内的充足</text>
+        <text x="430" y="40" font-family="'Shippori Mincho',serif" font-size="22" fill="#C08457" font-weight="700">H</text>
+        <text x="430" y="62" font-family="'Shippori Mincho',serif" font-size="11" fill="#C08457" font-weight="500">つながり</text>
+
+        <!-- 8の字往復 -->
+        <path class="flow" d="M 250 180 C 250 120, 200 120, 200 180 C 200 240, 250 240, 280 180 C 310 120, 360 120, 360 180 C 360 240, 310 240, 280 180 Z"
+              fill="none" stroke="#B8860B" stroke-width="2.2" marker-mid="url(#arrA)"/>
+
+        <text x="280" y="178" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="15" fill="#B8860B" font-weight="700">F</text>
+        <text x="280" y="196" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="10" fill="#B8860B" font-weight="500">探究の往復</text>
+
+        <text x="280" y="320" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="20" fill="#1a1a1a" font-weight="600">F = G × H</text>
+        <text x="280" y="345" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="11" fill="#7a7a7a" letter-spacing="2">重なりは、止まらない8の字として保たれる</text>
+      </svg>
+    </div>
+
+    <div class="case-meta">
+      <div class="case-meta-item"><b>強み</b>GとHの非対称な往復（内→外→内→外）が、線の流れで直感的に伝わる。</div>
+      <div class="case-meta-item"><b>弱み</b>線が中央を貫くため、Fの「重なり領域」のラベル可読性がやや下がる。</div>
+      <div class="case-meta-item"><b>接続</b>POOLO 4動作（引き出す→言語化→差し出す→反応）の個人内ループ版。</div>
+    </div>
+  </div>
+</section>
+
+<!-- 案B -->
+<section id="caseB" class="alt">
+  <div class="wrap">
+    <span class="case-tag">CASE B</span>
+    <div class="sec-num">§ ベン図中央 ／ 案B</div>
+    <h2 class="case-name">中央に小さな循環矢印</h2>
+    <p class="case-tagline">中心に「探究テーマ」の点を置き、その周りを「差し出しの往復」が回り続ける。テーマ＝静、往復＝動の二層構造。</p>
+
+    <div class="venn-wrap">
+      <svg class="venn-svg" viewBox="0 0 560 360" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <radialGradient id="gB" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#2D6A4F" stop-opacity="0.15"/>
+            <stop offset="100%" stop-color="#2D6A4F" stop-opacity="0.06"/>
+          </radialGradient>
+          <radialGradient id="hB" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#C08457" stop-opacity="0.15"/>
+            <stop offset="100%" stop-color="#C08457" stop-opacity="0.06"/>
+          </radialGradient>
+          <marker id="arrB" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="5" markerHeight="5" orient="auto">
+            <path d="M0,0 L10,5 L0,10 z" fill="#B8860B"/>
+          </marker>
+        </defs>
+
+        <circle cx="210" cy="180" r="130" fill="url(#gB)" stroke="#2D6A4F" stroke-width="1.5" stroke-opacity="0.5"/>
+        <circle cx="350" cy="180" r="130" fill="url(#hB)" stroke="#C08457" stroke-width="1.5" stroke-opacity="0.5"/>
+
+        <text x="115" y="40" font-family="'Shippori Mincho',serif" font-size="22" fill="#2D6A4F" font-weight="700">G</text>
+        <text x="115" y="62" font-family="'Shippori Mincho',serif" font-size="11" fill="#2D6A4F" font-weight="500">内的充足</text>
+        <text x="430" y="40" font-family="'Shippori Mincho',serif" font-size="22" fill="#C08457" font-weight="700">H</text>
+        <text x="430" y="62" font-family="'Shippori Mincho',serif" font-size="11" fill="#C08457" font-weight="500">つながり</text>
+
+        <!-- Fの土台 -->
+        <rect x="233" y="135" width="94" height="90" fill="#FDF8ED" stroke="#B8860B" stroke-width="1.2" stroke-opacity="0.6" rx="3"/>
+
+        <!-- 中央の循環矢印（回転） -->
+        <g class="rotor">
+          <circle cx="280" cy="180" r="32" fill="none" stroke="#B8860B" stroke-width="2" stroke-dasharray="40 18" marker-end="url(#arrB)"/>
+        </g>
+
+        <!-- 中心の点（探究テーマ） -->
+        <circle cx="280" cy="180" r="6" fill="#B8860B"/>
+        <text x="280" y="156" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="9" fill="#B8860B" font-weight="600">探究テーマ</text>
+        <text x="280" y="218" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="9" fill="#B8860B" font-weight="500">差し出しの往復</text>
+
+        <text x="280" y="320" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="20" fill="#1a1a1a" font-weight="600">F = G × H</text>
+        <text x="280" y="345" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="11" fill="#7a7a7a" letter-spacing="2">中心にテーマ、周回に差し出し</text>
+      </svg>
+    </div>
+
+    <div class="case-meta">
+      <div class="case-meta-item"><b>強み</b>テーマ（核）と実践（動）の二層が一目で分かれる。介入設計が立てやすい。</div>
+      <div class="case-meta-item"><b>弱み</b>循環がGとH内部の動きと切れて見える。中央だけで完結する印象。</div>
+      <div class="case-meta-item"><b>接続</b>関心探究型（テーマを持つ人）と差し出しの軸（Lv.1〜Lv.3）の接続点。</div>
+    </div>
+  </div>
+</section>
+
+<!-- 案C -->
+<section id="caseC">
+  <div class="wrap">
+    <span class="case-tag">CASE C</span>
+    <div class="sec-num">§ ベン図中央 ／ 案C</div>
+    <h2 class="case-name">螺旋（うずまき）</h2>
+    <p class="case-tagline">中央から外へ広がる螺旋として描く。往復が回るたびに、GもHも更新され、重なりそのものが少しずつ大きく・深くなる。</p>
+
+    <div class="venn-wrap">
+      <svg class="venn-svg" viewBox="0 0 560 360" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <radialGradient id="gC" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#2D6A4F" stop-opacity="0.15"/>
+            <stop offset="100%" stop-color="#2D6A4F" stop-opacity="0.06"/>
+          </radialGradient>
+          <radialGradient id="hC" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#C08457" stop-opacity="0.15"/>
+            <stop offset="100%" stop-color="#C08457" stop-opacity="0.06"/>
+          </radialGradient>
+          <marker id="arrC" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+            <path d="M0,0 L10,5 L0,10 z" fill="#B8860B"/>
+          </marker>
+        </defs>
+
+        <circle cx="210" cy="180" r="130" fill="url(#gC)" stroke="#2D6A4F" stroke-width="1.5" stroke-opacity="0.5"/>
+        <circle cx="350" cy="180" r="130" fill="url(#hC)" stroke="#C08457" stroke-width="1.5" stroke-opacity="0.5"/>
+
+        <text x="115" y="40" font-family="'Shippori Mincho',serif" font-size="22" fill="#2D6A4F" font-weight="700">G</text>
+        <text x="115" y="62" font-family="'Shippori Mincho',serif" font-size="11" fill="#2D6A4F" font-weight="500">内的充足</text>
+        <text x="430" y="40" font-family="'Shippori Mincho',serif" font-size="22" fill="#C08457" font-weight="700">H</text>
+        <text x="430" y="62" font-family="'Shippori Mincho',serif" font-size="11" fill="#C08457" font-weight="500">つながり</text>
+
+        <!-- 螺旋（中心から外へ） -->
+        <path class="flow" d="M 280 180
+          m 0 -4
+          a 4 4 0 1 1 0.1 0
+          m 4 4
+          a 12 12 0 1 1 -0.1 0
+          m 12 4
+          a 24 24 0 1 1 -0.1 0
+          m 24 4
+          a 38 38 0 1 1 -0.1 0"
+          fill="none" stroke="#B8860B" stroke-width="2.2" marker-end="url(#arrC)"/>
+
+        <text x="280" y="116" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="11" fill="#B8860B" font-weight="600">F ／ 探究の往復</text>
+        <text x="280" y="248" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="9" fill="#1a1a1a">回るたびに、GもHも更新される</text>
+
+        <text x="280" y="320" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="20" fill="#1a1a1a" font-weight="600">F = G × H</text>
+        <text x="280" y="345" text-anchor="middle" font-family="'Shippori Mincho',serif" font-size="11" fill="#7a7a7a" letter-spacing="2">重なりは、螺旋として深まり広がる</text>
+      </svg>
+    </div>
+
+    <div class="case-meta">
+      <div class="case-meta-item"><b>強み</b>「持続」ではなく「更新が回り続ける」を最も正確に表現。成長4層モデルと整合。</div>
+      <div class="case-meta-item"><b>弱み</b>螺旋形状はSVGで奇麗に描くのが難しい。視認性は他案より弱い。</div>
+      <div class="case-meta-item"><b>接続</b>引力場（予測不能な軌道）／成長4層（往復で深まる）／影響の循環、すべてに直結。</div>
+    </div>
+  </div>
+</section>
+
+<!-- 比較・推奨 -->
+<section class="alt">
+  <div class="wrap">
+    <div class="sec-num">§ 比較</div>
+    <h2 class="sec-head">3案トレードオフ</h2>
+
+    <div class="compare">
+      <table>
+        <thead>
+          <tr><th style="width:14%">案</th><th style="width:22%">表現</th><th>強み</th><th>弱み</th><th style="width:14%">推奨度</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><b>A</b><br>8の字の往復</td>
+            <td>中央を貫く8の字</td>
+            <td>GとHを行き来する流れが直感的</td>
+            <td>Fラベルの可読性がやや低下</td>
+            <td>○</td>
+          </tr>
+          <tr class="recommend">
+            <td><b>C</b><br>螺旋</td>
+            <td>中心から外へ広がる螺旋</td>
+            <td>「更新が回り続ける」を最も正確に表現／既存POOLO思想全体と整合</td>
+            <td>SVG描画の精度が要る</td>
+            <td>◎ 推奨</td>
+          </tr>
+          <tr>
+            <td><b>B</b><br>循環矢印</td>
+            <td>中心点＋回転矢印</td>
+            <td>テーマ（核）と実践（動）の二層が明快</td>
+            <td>循環がG・H外部と切れて見える</td>
+            <td>○</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout">
+      <b>vision-curatorの判断：案C推奨。</b>「持続」を「更新が回り続ける」に書き換えられる点が最大。Fは固定された到達点ではなく、新しい世界（G更新）と新しい人（H更新）が螺旋で深まり続ける、という既存記述とそのまま接続する。
+    </div>
+
+    <p class="note">※ 案A・Cの軌跡は流れのアニメーション付き、案Bは中心の循環が回転します（ブラウザで確認）。</p>
+  </div>
+</section>
+
+<!-- 補助：概念名候補 -->
+<section>
+  <div class="wrap">
+    <div class="sec-num">§ 命名候補</div>
+    <h2 class="sec-head">「探究の往復」を骨格に、説明展開で身体性を加える</h2>
+
+    <div class="case-meta" style="grid-template-columns:repeat(auto-fit,minmax(240px,1fr))">
+      <div class="case-meta-item"><b>骨格名 ／ 推奨</b>探究の往復（たんきゅうのおうふく）<br>内で問い、外で試し、また内に戻る。止めないことが重なりを保つ。</div>
+      <div class="case-meta-item"><b>展開案 ／ LP・説明会用</b>問いを携えて、差し出し続ける<br>身体性を残した動詞展開。本文で使う。</div>
+      <div class="case-meta-item"><b>差替案 ／ Lv.3直結</b>差し出しの往復<br>既存語彙「差し出しの軸」と地続き。実装側の言葉。</div>
+    </div>
+
+    <div class="callout" style="background:var(--green-bg);border-left-color:var(--green)">
+      <b style="color:var(--green)">回避した語：</b>「持続エンジン」「装置」「メカニズム」「定着」「鍛錬」（機械語・固定化・勤勉主義の語感はPOOLO語感ルールに抵触するため）。
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="wrap">
+    <p><b>POOLOの未来デザイン v5</b> ／ 中央循環プレビュー</p>
+    <p style="margin-top:0.5rem">3案から選択 → 本図に統合 → §03差し替え</p>
+  </div>
+</footer>
+
+</body>
+</html>
