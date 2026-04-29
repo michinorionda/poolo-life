@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>北海道の真ん中で、自分のこれからを、しずかに置きなおす。｜POOLO × School for Life Compath 東川3日間</title>
+<meta name="description" content="2026年8月21日から23日、北海道東川町。森を歩いて、町の人と対話して、自分のこれからを聴きにいく3日間。POOLOとSchool for Life Compathが共催します。">
+<meta property="og:title" content="POOLO × School for Life Compath 東川3日間">
+<meta property="og:description" content="北海道の真ん中で、自分のこれからを、しずかに置きなおす。2026年8月21日から23日、北海道東川町。">
+<meta property="og:type" content="website">
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #1a1a1a;
+  --sub: #4a4a4a;
+  --mute: #7a7a7a;
+  --hint: #a8a8a8;
+  --bg: #faf9f6;
+  --bg-deep: #f3f1ea;
+  --line: #e0ddd3;
+  --green: #2D6A4F;
+  --green-lt: #F4FAF6;
+  --green-bg: #E9F5EE;
+  --serif: 'Shippori Mincho', serif;
+  --sans: 'Noto Sans JP', sans-serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--sans);
+  background: var(--bg);
+  color: var(--ink);
+  line-height: 2;
+  -webkit-font-smoothing: antialiased;
+  font-weight: 300;
+}
+img { max-width: 100%; height: auto; display: block; }
+
+/* ========== Layout ========== */
+.wrap { max-width: 760px; margin: 0 auto; padding: 0 1.5rem; }
+.wrap-wide { max-width: 1040px; margin: 0 auto; padding: 0 1.5rem; }
+section { padding: 7rem 0; position: relative; }
+
+/* ========== Rule / Divider ========== */
+.rule { text-align: center; color: var(--hint); font-size: 0.7rem; letter-spacing: 0.3em; margin: 3rem 0; }
+.rule::before { content: "—"; }
+
+/* ========== Hero ========== */
+.hero {
+  position: relative;
+  min-height: 96vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 4rem 1.5rem 5rem;
+  background: linear-gradient(rgba(26, 26, 26, 0.30), rgba(26, 26, 26, 0.45)), url('images/img_11.jpeg') center/cover no-repeat;
+  text-align: center;
+  color: #fff;
+}
+.hero-mark { font-size: 0.65rem; letter-spacing: 0.4em; color: #e8e5db; margin-bottom: 3rem; font-weight: 500; }
+.hero-catch {
+  font-family: var(--serif);
+  font-size: 2.2rem;
+  font-weight: 600;
+  line-height: 2;
+  letter-spacing: 0.1em;
+  color: #fff;
+  margin-bottom: 2.5rem;
+  max-width: 720px;
+}
+.hero-sub {
+  font-family: var(--serif);
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 2.4;
+  color: #e8e5db;
+  margin-bottom: 3rem;
+  letter-spacing: 0.06em;
+  max-width: 580px;
+}
+.hero-meta {
+  font-family: var(--serif);
+  font-size: 0.95rem;
+  color: #f0ede2;
+  letter-spacing: 0.18em;
+  margin-bottom: 0.5rem;
+}
+.hero-loc { font-size: 0.78rem; color: #c8c4b8; letter-spacing: 0.15em; margin-bottom: 3rem; }
+.hero-ctas { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+/* ========== Buttons ========== */
+.btn {
+  display: inline-block;
+  padding: 1rem 2.8rem;
+  font-size: 0.82rem;
+  letter-spacing: 0.18em;
+  text-decoration: none;
+  border-radius: 2px;
+  transition: all 0.3s;
+  font-weight: 500;
+  font-family: var(--sans);
+}
+.btn-primary {
+  background: var(--green);
+  color: #fff;
+  border: 1px solid var(--green);
+}
+.btn-primary:hover { background: #1f5640; transform: translateY(-1px); }
+.btn-ghost {
+  background: transparent;
+  color: #fff;
+  border: 1px solid #e8e5db;
+}
+.btn-ghost:hover { background: rgba(255,255,255,0.1); }
+.btn-ghost-dark {
+  background: transparent;
+  color: var(--ink);
+  border: 1px solid var(--line);
+}
+.btn-ghost-dark:hover { border-color: var(--ink); }
+
+/* ========== Section Title ========== */
+.sec-label { font-size: 0.62rem; letter-spacing: 0.35em; color: var(--green); text-align: center; margin-bottom: 1.5rem; font-weight: 500; }
+.sec-head {
+  font-family: var(--serif);
+  font-size: 1.45rem;
+  font-weight: 600;
+  text-align: center;
+  line-height: 1.9;
+  letter-spacing: 0.08em;
+  margin-bottom: 3rem;
+  color: var(--ink);
+}
+
+/* ========== Lead ========== */
+.lead {
+  font-family: var(--serif);
+  font-size: 1rem;
+  line-height: 2.4;
+  color: var(--sub);
+  text-align: center;
+  letter-spacing: 0.06em;
+  max-width: 640px;
+  margin: 0 auto;
+}
+.lead p { margin-bottom: 1.6rem; }
+.lead p:last-child { margin-bottom: 0; }
+
+/* ========== Image Block ========== */
+.img-block { margin: 4rem auto 0; max-width: 880px; }
+.img-block img { width: 100%; }
+.img-cap { text-align: center; font-size: 0.72rem; color: var(--mute); letter-spacing: 0.08em; margin-top: 1rem; font-family: var(--serif); }
+
+/* ========== Day Card ========== */
+.day-container { padding: 6rem 0; }
+.day-container.alt { background: var(--bg-deep); }
+.day-container.greenlt { background: var(--green-lt); }
+.day-num { text-align: center; font-family: var(--serif); font-size: 0.75rem; letter-spacing: 0.4em; color: var(--green); font-weight: 600; margin-bottom: 1.5rem; }
+.day-head {
+  font-family: var(--serif);
+  font-size: 1.45rem;
+  font-weight: 600;
+  text-align: center;
+  line-height: 1.9;
+  letter-spacing: 0.08em;
+  margin-bottom: 1.8rem;
+  color: var(--ink);
+}
+.day-lead {
+  font-family: var(--serif);
+  font-size: 0.95rem;
+  line-height: 2.3;
+  color: var(--sub);
+  text-align: center;
+  letter-spacing: 0.05em;
+  max-width: 580px;
+  margin: 0 auto 3rem;
+}
+.day-img { max-width: 720px; margin: 0 auto 3rem; }
+.day-img img { width: 100%; border-radius: 2px; }
+
+/* ========== Timetable ========== */
+.tt-list { margin: 2rem auto; max-width: 600px; }
+.tt-row { display: flex; align-items: baseline; padding: 1.4rem 0; border-bottom: 1px dashed var(--line); gap: 2rem; }
+.tt-row:last-child { border-bottom: none; }
+.tt-time { font-family: var(--serif); font-size: 0.95rem; font-weight: 600; color: var(--green); min-width: 72px; letter-spacing: 0.05em; }
+.tt-title { font-family: var(--serif); font-size: 1rem; font-weight: 600; margin-bottom: 0.3rem; letter-spacing: 0.05em; color: var(--ink); }
+.tt-desc { font-size: 0.82rem; color: var(--mute); letter-spacing: 0.03em; font-weight: 300; line-height: 1.95; }
+
+/* ========== Guest ========== */
+.guest-container { background: var(--bg-deep); padding: 7rem 0; }
+.guest-list { max-width: 880px; margin: 3rem auto 0; }
+.guest-card {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 3rem;
+  align-items: start;
+  padding: 3rem 0;
+  border-bottom: 1px solid var(--line);
+}
+.guest-card:last-child { border-bottom: none; }
+.guest-photo { width: 220px; height: 220px; overflow: hidden; border-radius: 2px; background: var(--line); }
+.guest-photo img { width: 100%; height: 100%; object-fit: cover; }
+.guest-name { font-family: var(--serif); font-size: 1.25rem; font-weight: 600; letter-spacing: 0.08em; margin-bottom: 0.4rem; color: var(--ink); }
+.guest-role { font-size: 0.78rem; color: var(--green); letter-spacing: 0.12em; margin-bottom: 1.5rem; font-weight: 500; }
+.guest-text {
+  font-family: var(--serif);
+  font-size: 0.95rem;
+  line-height: 2.3;
+  color: var(--sub);
+  letter-spacing: 0.05em;
+}
+.guest-text p { margin-bottom: 1.2rem; }
+.guest-text p:last-child { margin-bottom: 0; }
+
+/* ========== For whom ========== */
+.fw-container { padding: 7rem 0; background: var(--green-lt); }
+.fw-list { max-width: 600px; margin: 2rem auto 0; }
+.fw-item {
+  font-family: var(--serif);
+  font-size: 1rem;
+  line-height: 2.2;
+  color: var(--sub);
+  padding: 1.4rem 0 1.4rem 2rem;
+  position: relative;
+  letter-spacing: 0.05em;
+  border-bottom: 1px dashed var(--line);
+}
+.fw-item:last-child { border-bottom: none; }
+.fw-item::before { content: "◇"; position: absolute; left: 0.3rem; color: var(--green); font-size: 0.85rem; top: 1.5rem; }
+
+/* ========== Gallery ========== */
+.gallery-container { padding: 6rem 0; background: var(--bg); }
+.gallery-grid {
+  max-width: 1040px;
+  margin: 3rem auto 0;
+  padding: 0 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+.gallery-grid img { width: 100%; height: 220px; object-fit: cover; border-radius: 2px; }
+.gallery-grid .span2 { grid-column: span 2; }
+
+/* ========== Info ========== */
+.info-container { padding: 7rem 0; background: var(--bg-deep); }
+.info-table { max-width: 620px; margin: 2rem auto; }
+.info-row {
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  gap: 2rem;
+  padding: 1.4rem 0;
+  border-bottom: 1px solid var(--line);
+  align-items: start;
+}
+.info-row:last-child { border-bottom: none; }
+.info-label { font-family: var(--serif); font-size: 0.85rem; font-weight: 600; color: var(--green); letter-spacing: 0.1em; }
+.info-value { font-size: 0.88rem; line-height: 2; color: var(--ink); letter-spacing: 0.03em; }
+.info-value .sub { font-size: 0.78rem; color: var(--mute); display: block; margin-top: 0.4rem; line-height: 1.95; }
+.info-list { margin: 0.4rem 0 0 1rem; padding: 0; }
+.info-list li { font-size: 0.82rem; color: var(--sub); margin: 0.2rem 0; line-height: 1.9; list-style-type: square; }
+.info-note {
+  text-align: center;
+  margin-top: 3rem;
+  font-size: 0.78rem;
+  color: var(--mute);
+  line-height: 2.2;
+  letter-spacing: 0.04em;
+  font-family: var(--serif);
+}
+
+/* ========== Final CTA ========== */
+.cta-final {
+  text-align: center;
+  padding: 8rem 1.5rem;
+  background: linear-gradient(to bottom, var(--bg) 0%, var(--bg-deep) 100%);
+}
+.cta-text {
+  font-family: var(--serif);
+  font-size: 1.15rem;
+  line-height: 2.5;
+  color: var(--ink);
+  margin-bottom: 3rem;
+  letter-spacing: 0.08em;
+  font-weight: 500;
+  max-width: 640px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.cta-pre {
+  font-family: var(--serif);
+  font-size: 0.95rem;
+  color: var(--sub);
+  margin-bottom: 2rem;
+  letter-spacing: 0.06em;
+  line-height: 2.2;
+}
+.cta-note { font-size: 0.72rem; color: var(--mute); margin-top: 1.5rem; letter-spacing: 0.06em; }
+
+/* ========== Co-host / Footer ========== */
+.cohost {
+  padding: 6rem 1.5rem;
+  background: var(--ink);
+  color: #e8e5db;
+  text-align: center;
+}
+.cohost-lead {
+  font-family: var(--serif);
+  font-size: 0.95rem;
+  line-height: 2.4;
+  margin: 0 auto 3rem;
+  color: #c8c4b8;
+  letter-spacing: 0.06em;
+  max-width: 580px;
+}
+.cohost-logos {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4rem;
+  flex-wrap: wrap;
+  margin-bottom: 3rem;
+}
+.cohost-block { text-align: center; }
+.cohost-img { width: 140px; height: 140px; margin: 0 auto 1rem; background: #faf9f6; border-radius: 50%; overflow: hidden; display: flex; align-items: center; justify-content: center; padding: 1rem; }
+.cohost-img img { max-width: 100%; max-height: 100%; object-fit: contain; }
+.cohost-name { font-family: var(--serif); font-size: 1rem; font-weight: 600; letter-spacing: 0.18em; color: #fff; margin-bottom: 0.3rem; }
+.cohost-role { font-size: 0.72rem; color: #a8a498; letter-spacing: 0.15em; }
+.cohost-poolo {
+  width: 140px; height: 140px;
+  border-radius: 50%;
+  background: #faf9f6;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--serif); font-weight: 700; font-size: 1.3rem;
+  color: var(--ink); letter-spacing: 0.2em;
+  margin: 0 auto 1rem;
+}
+
+.footer { padding: 3rem 1.5rem; text-align: center; font-size: 0.7rem; color: var(--hint); letter-spacing: 0.1em; background: var(--ink); border-top: 1px solid #333; }
+.footer a { color: var(--hint); text-decoration: none; border-bottom: 1px solid #333; }
+.footer a:hover { color: #e8e5db; }
+
+/* ========== Responsive ========== */
+@media (max-width: 760px) {
+  section, .day-container, .info-container, .guest-container, .fw-container, .gallery-container { padding: 5rem 0; }
+  .hero { min-height: 88vh; padding: 3rem 1rem 4rem; }
+  .hero-catch { font-size: 1.5rem; letter-spacing: 0.06em; line-height: 2.1; }
+  .hero-sub { font-size: 0.92rem; }
+  .hero-meta { font-size: 0.85rem; letter-spacing: 0.12em; }
+  .sec-head, .day-head { font-size: 1.2rem; letter-spacing: 0.05em; }
+  .lead, .day-lead { font-size: 0.92rem; }
+  .tt-row { gap: 1rem; flex-wrap: wrap; }
+  .tt-time { min-width: 60px; font-size: 0.88rem; }
+  .tt-desc { font-size: 0.78rem; }
+  .guest-card { grid-template-columns: 1fr; gap: 1.5rem; padding: 2.5rem 0; }
+  .guest-photo { width: 160px; height: 160px; margin: 0 auto; }
+  .guest-name { text-align: center; font-size: 1.15rem; }
+  .guest-role { text-align: center; }
+  .guest-text { font-size: 0.9rem; }
+  .info-row { grid-template-columns: 86px 1fr; gap: 1rem; }
+  .info-value { font-size: 0.84rem; }
+  .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 0.6rem; }
+  .gallery-grid img { height: 140px; }
+  .gallery-grid .span2 { grid-column: span 2; }
+  .cta-text { font-size: 1rem; letter-spacing: 0.05em; }
+  .btn { padding: 0.9rem 2rem; font-size: 0.78rem; }
+  .hero-ctas { flex-direction: column; align-items: center; }
+  .cohost-logos { gap: 2rem; }
+  .img-block { padding: 0 1rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- ═════════════ 1. HERO ═════════════ -->
+<section class="hero">
+  <div class="hero-mark">POOLO × SCHOOL FOR LIFE COMPATH</div>
+  <h1 class="hero-catch">
+    北海道の真ん中で、<br>自分のこれからを、<br>しずかに置きなおす。
+  </h1>
+  <p class="hero-sub">
+    仕事も、暮らしも、ひととおりこなせるようになった。<br>
+    それでも、ふと立ち止まりたくなる夜があります。<br>
+    東川町の3日間で、あなたの内側にある問いを、<br>ゆっくり聴きにいきませんか。
+  </p>
+  <p class="hero-meta">2026.08.21 fri ─ 08.23 sun</p>
+  <p class="hero-loc">HOKKAIDO HIGASHIKAWA</p>
+  <div class="hero-ctas">
+    <a href="#cta" class="btn btn-primary">3日間の詳細を見る／申し込む</a>
+    <a href="#info" class="btn btn-ghost">開催概要</a>
+  </div>
+</section>
+
+<!-- ═════════════ 2. WHY HIGASHIKAWA ═════════════ -->
+<section>
+  <div class="wrap">
+    <div class="sec-label">WHY HIGASHIKAWA</div>
+    <h2 class="sec-head">なぜ、東川町なのか。</h2>
+    <div class="lead">
+      <p>北海道のほぼ真ん中、大雪山の麓に東川町があります。</p>
+      <p>人口およそ8,400人の小さな町。上下水道はなく、すべての家庭が地下水で暮らしています。写真の町を名乗り、家具をつくり、移住者と元からの住民がゆるやかに混ざり合う。「東川スタイル」と呼ばれる暮らしの作法が、町の風景の中に静かに息づいています。</p>
+      <p>ここでは、自然がいつでも近くにあります。森を歩けば、自分の歩幅が戻ってきます。町の人の言葉に触れれば、生き方の選択肢がひとつ増えます。</p>
+      <p>3日間、あなたはこの町の一員のように過ごします。誰かのストーリーを聞き、自分のストーリーを話し、また聞く。その往復のなかで、これからの自分の輪郭を、すこしずつ描き直していきませんか。</p>
+    </div>
+  </div>
+  <div class="img-block">
+    <img src="images/img_02.png" alt="東川町 School for Life Compath 校舎の外景">
+  </div>
+</section>
+
+<!-- ═════════════ 3. RHYTHM ═════════════ -->
+<section style="background: var(--green-lt);">
+  <div class="wrap">
+    <div class="sec-label">3 DAYS RHYTHM</div>
+    <h2 class="sec-head">3日間のリズム</h2>
+    <div class="lead">
+      <p>1日目は、町と自然に身体を慣らす。<br>2日目は、町の人の言葉に出会い、自分の中にひらく。<br>3日目は、感じたことを綴じて、また日常へ持ち帰る。</p>
+      <p>無理に何かを掴もうとしないリズムで、3日間がゆっくり進みます。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════════ 4. DAY 1 ═════════════ -->
+<div class="day-container">
+  <div class="wrap">
+    <div class="day-num">DAY 1 ／ 8.21 FRI</div>
+    <h2 class="day-head">東川にグラウンディングする</h2>
+    <p class="day-lead">
+      旭川空港に降り立った瞬間から、空気が変わります。<br>
+      森を歩き、夜は皆で台所に立つ。<br>
+      明日からの土台を、身体でつくる1日です。
+    </p>
+    <div class="day-img"><img src="images/img_01.jpeg" alt="町の人と参加者で料理を囲む夜の風景"></div>
+    <div class="tt-list">
+      <div class="tt-row">
+        <div class="tt-time">14:00</div>
+        <div>
+          <div class="tt-title">集合・イントロダクション</div>
+          <div class="tt-desc">旭川空港、もしくは東川町せんとぴゅあに集合。Compathが日本でフォルケホイスコーレ（北欧発祥の、人生を問い直すための全寮制の学校）を始めるなら、ここしかないと一目惚れした町の話から、ゆっくりはじめます。</div>
+        </div>
+      </div>
+      <div class="tt-row">
+        <div class="tt-time">15:00</div>
+        <div>
+          <div class="tt-title">森のMEISHI</div>
+          <div class="tt-desc">肩書きを脇に置いて、自然と人工物を組み合わせて自分を表現する名刺をつくります。お互いの近況に、ゆっくり耳を傾けます。</div>
+        </div>
+      </div>
+      <div class="tt-row">
+        <div class="tt-time">16:00</div>
+        <div>
+          <div class="tt-title">東川町メンバーとの対話</div>
+          <div class="tt-desc">町に住む人たちは、なぜここを選び、どんな仕事と暮らしを編んでいるのか。一人ずつインタビューしていく時間です。</div>
+        </div>
+      </div>
+      <div class="tt-row">
+        <div class="tt-time">17:00</div>
+        <div>
+          <div class="tt-title">みんなで料理&夕食</div>
+          <div class="tt-desc">鹿肉など東川ならではの食材を一緒に料理し、町の人たちと食卓を囲みます。移住の理由や暮らしの手触りを、ゆっくり聴く時間です。</div>
+        </div>
+      </div>
+      <div class="tt-row">
+        <div class="tt-time">19:30</div>
+        <div>
+          <div class="tt-title">リフレクションワーク</div>
+          <div class="tt-desc">ジャーナリング（書きながら自分に問う時間）と、NVC（互いの願いを聴き合う対話法）を使って、1日を振り返ります。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═════════════ 5. DAY 2 ═════════════ -->
+<div class="day-container alt">
+  <div class="wrap">
+    <div class="day-num">DAY 2 ／ 8.22 SAT</div>
+    <h2 class="day-head">対話して、世界を広げる</h2>
+    <p class="day-lead">
+      町に生きる二人のゲストの話を、ゆっくり聴きます。<br>
+      本屋の店主と、森のガイド。<br>
+      それぞれの選び方が、あなたの選択肢を広げていきます。
+    </p>
+    <div class="day-img"><img src="images/img_10.png" alt="付箋を使った対話ワークの様子"></div>
+    <div class="tt-list">
+      <div class="tt-row">
+        <div class="tt-time">9:00</div>
+        <div>
+          <div class="tt-title">朝の会・今の自分を表現する</div>
+          <div class="tt-desc">手で作って、五感をひらく制作の時間。上手い下手の評価をせず、対話型鑑賞で互いを深く知ります。</div>
+        </div>
+      </div>
+      <div class="tt-row">
+        <div class="tt-time">10:00</div>
+        <div>
+          <div class="tt-title">ゲストインタビュー① 畠田大詩さん</div>
+          <div class="tt-desc">本屋「積日」店主／フリー編集者。本屋という場をひらく時間で、対話のワークショップも予定しています。</div>
+        </div>
+      </div>
+      <div class="tt-row">
+        <div class="tt-time">14:00</div>
+        <div>
+          <div class="tt-title">余白時間・町を探索</div>
+          <div class="tt-desc">カフェや木工工房、文化施設をめぐったり、町を出て森や川辺を歩いたり。自分のペースで町と過ごす時間です。</div>
+        </div>
+      </div>
+      <div class="tt-row">
+        <div class="tt-time">17:30</div>
+        <div>
+          <div class="tt-title">ポットラックパーティー</div>
+          <div class="tt-desc">余白時間に出会ったお土産と、その日の話を持ち寄って、夕食を囲みます。</div>
+        </div>
+      </div>
+      <div class="tt-row">
+        <div class="tt-time">19:30</div>
+        <div>
+          <div class="tt-title">ゲスト② 鳥羽晃一さんと夜の森林浴</div>
+          <div class="tt-desc">ガイドオフィス風主宰／ネイチャーガイド。暗闇のなかで五感をひらく、夜の森を歩きます。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═════════════ 6. GUESTS ═════════════ -->
+<div class="guest-container">
+  <div class="wrap-wide">
+    <div class="sec-label">GUESTS</div>
+    <h2 class="sec-head">町に生きる、二人の話を聴く。</h2>
+    <div class="guest-list">
+      <div class="guest-card">
+        <div class="guest-photo"><img src="images/img_07.jpeg" alt="畠田大詩さん"></div>
+        <div>
+          <div class="guest-name">畠田 大詩さん</div>
+          <div class="guest-role">本屋 積日 店主／フリー編集者</div>
+          <div class="guest-text">
+            <p>東川町で本屋「積日（せきじつ）」を営みながら、編集者として町の言葉を紡いできた畠田さん。</p>
+            <p>本を選ぶこと、町を編むこと、人の声を聞くこと。ジャンルの違いにみえる仕事を、畠田さんは同じ温度でつないでいます。</p>
+            <p>なぜ東川を選んだのか。本屋という場所を、どんなふうに町にひらいているのか。ゆっくりと、畠田さんの選び方の手触りを聴かせてもらう時間です。</p>
+          </div>
+        </div>
+      </div>
+      <div class="guest-card">
+        <div class="guest-photo"><img src="images/img_09.png" alt="鳥羽晃一さん"></div>
+        <div>
+          <div class="guest-name">鳥羽 晃一さん</div>
+          <div class="guest-role">ガイドオフィス風 主宰／ネイチャーガイド</div>
+          <div class="guest-text">
+            <p>大雪山の森を、20年以上歩き続けてきた鳥羽さん。ネイチャーガイドとして、季節ごとの森の表情を、たくさんの人に手渡してきました。</p>
+            <p>夜の森に入ると、視覚が少しだけ閉じて、聴覚と皮膚が起きてきます。鳥羽さんに案内されながら歩く森林浴で、自然の中に「いる」という感覚が、身体の奥でゆっくり目をさましていきます。</p>
+            <p>言葉ではなく、夜の森が、あなたに何かを返してくれる時間です。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═════════════ 7. DAY 3 ═════════════ -->
+<div class="day-container greenlt">
+  <div class="wrap">
+    <div class="day-num">DAY 3 ／ 8.23 SUN</div>
+    <h2 class="day-head">綴じて、新たな世界に踏み出す</h2>
+    <p class="day-lead">
+      書く時間と、話す時間。<br>
+      3日間で揺らいだものを、自分の言葉で綴じてから、<br>
+      12時に町を出ます。
+    </p>
+    <div class="day-img"><img src="images/img_13.png" alt="草地で静かにジャーナリングをする参加者"></div>
+    <div class="tt-list">
+      <div class="tt-row">
+        <div class="tt-time">9:00</div>
+        <div>
+          <div class="tt-title">リフレクション＆対話</div>
+          <div class="tt-desc">3日間のラップアップ。ゆっくりジャーナリングを重ねながら、感じたこと、起こしたい一歩を仲間と話します。</div>
+        </div>
+      </div>
+      <div class="tt-row">
+        <div class="tt-time">12:00</div>
+        <div>
+          <div class="tt-title">解散</div>
+          <div class="tt-desc">町を出る前にランチを共にできる14:30以降のフライト便がおすすめです。乗継のある方は、13:00台便でも送迎いたします。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═════════════ 8. FOR WHOM ═════════════ -->
+<div class="fw-container">
+  <div class="wrap">
+    <div class="sec-label">FOR WHOM</div>
+    <h2 class="sec-head">こんな方へ。</h2>
+    <div class="fw-list">
+      <div class="fw-item">仕事も暮らしも、こなせるけれど、何か満ちない人</div>
+      <div class="fw-item">これからの生き方を、誰かと一緒に問い直したい人</div>
+      <div class="fw-item">自然と町の時間に、いちど身体を預けてみたい人</div>
+      <div class="fw-item">答えを急がず、問いのまま持ち帰ることに価値を感じる人</div>
+      <div class="fw-item">一人で考えるのに、すこし行き詰まっている人</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═════════════ 9. GALLERY ═════════════ -->
+<div class="gallery-container">
+  <div class="sec-label">SCENES</div>
+  <h2 class="sec-head">3日間の景色。</h2>
+  <div class="gallery-grid">
+    <img src="images/img_05.png" alt="校舎内のカフェスペース、窓から田園を望む">
+    <img src="images/img_08.png" alt="校舎内の広間でのワーク風景">
+    <img src="images/img_04.png" alt="食卓を囲む参加者と町の人たち">
+    <img src="images/img_12.png" class="span2" alt="東川の食材で仕立てた一皿">
+  </div>
+</div>
+
+<!-- ═════════════ 10. INFO ═════════════ -->
+<div class="info-container" id="info">
+  <div class="wrap">
+    <div class="sec-label">INFORMATION</div>
+    <h2 class="sec-head">開催概要</h2>
+    <div class="info-table">
+      <div class="info-row">
+        <div class="info-label">日程</div>
+        <div class="info-value">2026年8月21日（金）〜 8月23日（日）<span class="sub">2泊3日</span></div>
+      </div>
+      <div class="info-row">
+        <div class="info-label">会場</div>
+        <div class="info-value">School for Life Compath 校舎<span class="sub">〒071-1464 北海道上川郡東川町進化台781-6</span></div>
+      </div>
+      <div class="info-row">
+        <div class="info-label">集合</div>
+        <div class="info-value">8月21日（金）14:00<span class="sub">旭川空港、または東川町せんとぴゅあ</span></div>
+      </div>
+      <div class="info-row">
+        <div class="info-label">参加費</div>
+        <div class="info-value">59,800円（税込）
+          <span class="sub">含まれるもの</span>
+          <ul class="info-list">
+            <li>2泊分の宿泊費</li>
+            <li>1日目の夕食、2日目の朝・昼・夕食、3日目の朝食</li>
+            <li>プログラム費用（Compathの体験ワーク・セッション）</li>
+            <li>全体のコーディネート費用</li>
+          </ul>
+          <span class="sub">含まれないもの</span>
+          <ul class="info-list">
+            <li>東川町までの旅費・交通費</li>
+          </ul>
+        </div>
+      </div>
+      <div class="info-row">
+        <div class="info-label">定員</div>
+        <div class="info-value">少人数（先着順）<span class="sub">定員に達し次第、締切前でも受付を終了します</span></div>
+      </div>
+      <div class="info-row">
+        <div class="info-label">申込締切</div>
+        <div class="info-value">2026年7月23日（金）12:00</div>
+      </div>
+      <div class="info-row">
+        <div class="info-label">主催</div>
+        <div class="info-value">POOLO（CODOLI）／School for Life Compath</div>
+      </div>
+    </div>
+    <p class="info-note">
+      ※集合時間に間に合うフライト目安／ANA・AIRDO 12:45旭川着、JAL 13:50旭川着<br>
+      ※最終日の解散後フライト目安／JETSTAR 14:45発、ANA・AIRDO 14:30発、JAL 13:15・16:20発
+    </p>
+  </div>
+</div>
+
+<!-- ═════════════ 11. FINAL CTA ═════════════ -->
+<section class="cta-final" id="cta">
+  <p class="cta-pre">定員に限りがあります。<br>気持ちが動いたら、申込ページへ進んでみてください。</p>
+  <p class="cta-text">
+    豊かさは、自分の内側と、<br>
+    誰かとのあいだの、ちょうど真ん中にある。<br>
+    その真ん中を、東川の3日間で、<br>すこしだけ確かめにいきませんか。
+  </p>
+  <a href="#" class="btn btn-primary">3日間の詳細を見る／申し込む</a>
+  <p class="cta-note">※申込フォームURLは後日掲載いたします</p>
+</section>
+
+<!-- ═════════════ 12. CO-HOST ═════════════ -->
+<div class="cohost">
+  <p class="cohost-lead">
+    答えを持ち帰る旅ではありません。<br>
+    問いを携えて、また日常に戻る。<br>
+    そういう3日間を、二つのチームで共に設計します。
+  </p>
+  <div class="cohost-logos">
+    <div class="cohost-block">
+      <div class="cohost-poolo">POOLO</div>
+      <div class="cohost-name">POOLO</div>
+      <div class="cohost-role">主催／CODOLI</div>
+    </div>
+    <div class="cohost-block">
+      <div class="cohost-img"><img src="images/img_06.jpeg" alt="School for Life Compath ロゴ"></div>
+      <div class="cohost-name">COMPATH</div>
+      <div class="cohost-role">共催／SCHOOL FOR LIFE</div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer">
+  © POOLO × School for Life Compath ／ HIGASHIKAWA 3 DAYS 2026
+</footer>
+
+</body>
+</html>
