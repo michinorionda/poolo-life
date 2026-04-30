@@ -1,0 +1,2750 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>POOLO LIFE LP ワイヤーフレーム（SP版）v4</title>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700&family=Noto+Serif+JP:wght@400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1a1a;
+    --ink-mid: #4a4a4a;
+    --ink-light: #888;
+    --line: #e5e0d8;
+    --bg: #faf8f4;
+    --bg-card: #ffffff;
+    --accent: #2a6b5b;
+    --accent-light: #e8f0ed;
+    --warm: #c8644e;
+    --paper: #f4efe6;
+    --dark: #1a2620;
+    --highlight: #c89b3c;
+    --gold: #B08A3A;
+    --sub-blue: #1B4A7A;
+    --sub-purple: #534AB7;
+    --serif: 'Shippori Mincho', 'Noto Serif JP', serif;
+    --sans: 'Noto Sans JP', sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: var(--sans);
+    background: #2a2a2a;
+    min-height: 100vh;
+    padding: 48px 20px;
+    line-height: 1.8;
+  }
+  .page-title {
+    color: #fff;
+    text-align: center;
+    font-family: var(--serif);
+    font-size: 20px;
+    margin-bottom: 8px;
+    letter-spacing: 0.1em;
+  }
+  .page-sub {
+    color: rgba(255,255,255,0.5);
+    text-align: center;
+    font-size: 12px;
+    margin-bottom: 40px;
+    letter-spacing: 0.15em;
+  }
+
+  /* Phone frame */
+  .phone-frame {
+    width: 390px;
+    margin: 0 auto;
+    background: #111;
+    border-radius: 44px;
+    padding: 12px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    position: relative;
+  }
+  .phone-notch {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 28px;
+    background: #111;
+    border-radius: 0 0 18px 18px;
+    z-index: 10;
+  }
+  .phone-screen {
+    width: 100%;
+    height: 800px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    border-radius: 32px;
+    background: var(--bg);
+    color: var(--ink);
+    font-size: 14px;
+  }
+  .phone-screen::-webkit-scrollbar { width: 6px; }
+  .phone-screen::-webkit-scrollbar-track { background: #f0f0f0; }
+  .phone-screen::-webkit-scrollbar-thumb { background: #ccc; border-radius: 3px; }
+
+  /* Wireframe helpers */
+  .wf-note {
+    background: #fff8dc;
+    border-left: 3px solid var(--highlight);
+    padding: 8px 10px;
+    font-size: 10px;
+    color: #7a5a00;
+    margin: 0 16px 14px;
+    border-radius: 2px;
+    line-height: 1.7;
+  }
+  .wf-note strong { color: #5a4200; }
+  .wf-section-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--ink);
+    color: white;
+    font-size: 9px;
+    letter-spacing: 0.15em;
+    padding: 3px 8px;
+    margin-bottom: 12px;
+    font-weight: 500;
+  }
+  .wf-section-label.gold { background: var(--gold); }
+  .wf-section-label.warm { background: var(--warm); }
+  .wf-section-label .icon-star { font-size: 11px; }
+  .wf-section-label .icon-tri { font-size: 10px; }
+
+  .wf-figure-placeholder {
+    background: repeating-linear-gradient(45deg, #eeeae3, #eeeae3 8px, #e5e0d8 8px, #e5e0d8 16px);
+    border: 2px dashed #b8b0a0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #8a8470;
+    font-size: 10px;
+    text-align: center;
+    padding: 16px;
+    line-height: 1.6;
+  }
+  .wf-photo-placeholder {
+    background: repeating-linear-gradient(90deg, #e8e4dc, #e8e4dc 10px, #ddd7cb 10px, #ddd7cb 20px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #7a7465;
+    font-size: 10px;
+    text-align: center;
+    padding: 12px;
+    line-height: 1.5;
+  }
+
+  /* SVG figure container */
+  .svg-figure {
+    width: 100%;
+    max-width: 100%;
+    margin: 16px 0 4px;
+    display: block;
+  }
+  .svg-figure svg {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  /* Photo (real) */
+  .lp-photo {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+  }
+
+  /* "Coming soon" placeholder block */
+  .coming-soon-block {
+    margin-top: 22px;
+    padding: 32px 22px;
+    background: linear-gradient(180deg, #1f2a25 0%, #142019 100%);
+    color: rgba(255,255,255,0.85);
+    border: 1.5px dashed rgba(255,255,255,0.35);
+    text-align: center;
+    border-radius: 4px;
+  }
+  .coming-soon-label {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    color: var(--highlight);
+    margin-bottom: 12px;
+  }
+  .coming-soon-text {
+    font-family: var(--serif);
+    font-size: 13px;
+    line-height: 2;
+    color: rgba(255,255,255,0.85);
+  }
+
+  /* Internal-jargon callout */
+  .jargon-box {
+    background: var(--paper);
+    border-left: 2px solid var(--accent);
+    padding: 8px 12px;
+    margin: 12px 0;
+    font-size: 11px;
+    line-height: 1.75;
+    color: var(--ink-mid);
+  }
+  .jargon-box strong {
+    color: var(--accent);
+    font-weight: 600;
+    margin-right: 4px;
+  }
+
+  /* AI letter badge (A/B/C/...) */
+  .letter-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: var(--accent-light);
+    color: var(--accent);
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 12px;
+    letter-spacing: 0;
+    margin-right: 6px;
+  }
+  .letter-badge.gold {
+    background: rgba(176,138,58,0.15);
+    color: var(--gold);
+  }
+  .important-pill {
+    display: inline-block;
+    background: var(--gold);
+    color: white;
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    padding: 2px 7px;
+    border-radius: 10px;
+    margin-left: 6px;
+    font-weight: 600;
+  }
+
+  /* Sticky header */
+  .sp-header {
+    position: sticky;
+    top: 0;
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line);
+    padding: 10px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 50;
+  }
+  .sp-header .logo {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 0.1em;
+  }
+  .sp-header-right { display: flex; align-items: center; gap: 10px; }
+  .sp-header .cta {
+    background: var(--accent);
+    color: white;
+    padding: 7px 14px;
+    font-size: 10px;
+    font-weight: 600;
+    border-radius: 2px;
+    text-decoration: none;
+  }
+  .sp-hamburger {
+    width: 28px; height: 28px;
+    display: flex; flex-direction: column;
+    justify-content: center; align-items: center;
+    gap: 5px; cursor: pointer; background: transparent;
+    border: none; padding: 0;
+  }
+  .sp-hamburger span {
+    display: block; width: 20px; height: 1.5px;
+    background: var(--ink);
+  }
+  .sp-drawer {
+    position: absolute;
+    top: 52px; right: 0; left: 0;
+    background: white;
+    border-bottom: 1px solid var(--line);
+    padding: 8px 0;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+    display: none;
+    z-index: 49;
+  }
+  .sp-drawer.is-open { display: block; }
+  .sp-drawer a {
+    display: block; padding: 12px 20px;
+    font-family: var(--serif); font-size: 13px;
+    color: var(--ink); text-decoration: none;
+    border-bottom: 1px solid var(--line);
+  }
+  .sp-drawer a:last-child { border-bottom: none; }
+
+  /* Section padding */
+  .sp-section { padding: 48px 16px; }
+  .sp-section.tight { padding: 40px 16px; }
+  .sp-section-eyebrow {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    color: var(--accent);
+    text-align: center;
+    margin-bottom: 6px;
+  }
+  .sp-section-title {
+    font-family: var(--serif);
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1.65;
+    text-align: center;
+    margin-bottom: 14px;
+  }
+  .sp-section-title em {
+    font-style: normal;
+    color: var(--accent);
+  }
+  .sp-section-lead {
+    font-family: var(--serif);
+    text-align: center;
+    font-size: 12px;
+    line-height: 1.95;
+    color: var(--ink-mid);
+    margin-bottom: 24px;
+  }
+  .sp-section-sub {
+    font-family: var(--serif);
+    font-size: 13px;
+    text-align: center;
+    color: var(--ink-mid);
+    margin-bottom: 18px;
+    line-height: 1.85;
+  }
+
+  /* ===== SHARED QUESTION (KV → WHAT bridge) ===== */
+  .sp-shared-question {
+    background: var(--paper);
+    padding: 56px 20px 64px;
+    position: relative;
+  }
+  .sp-sq-body {
+    margin: 24px auto 32px;
+    max-width: 320px;
+  }
+  .sp-sq-body p {
+    font-family: var(--serif);
+    font-size: 13px;
+    line-height: 2.05;
+    color: var(--ink-mid);
+    text-align: center;
+    margin-bottom: 18px;
+    letter-spacing: 0.02em;
+  }
+  .sp-sq-body p.lead-pair {
+    color: var(--ink);
+    font-weight: 500;
+  }
+  .sp-sq-divider {
+    width: 32px;
+    height: 1px;
+    background: var(--accent);
+    margin: 28px auto;
+    opacity: 0.6;
+  }
+  .sp-sq-callback {
+    background: white;
+    border: 1px solid var(--line);
+    border-top: 3px solid var(--accent);
+    padding: 32px 22px 28px;
+    margin: 32px auto 0;
+    max-width: 320px;
+    text-align: center;
+    position: relative;
+  }
+  .sp-sq-prompt {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    font-family: var(--serif);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.4em;
+    color: var(--accent);
+    margin-bottom: 18px;
+    text-transform: none;
+  }
+  .sp-sq-prompt::before,
+  .sp-sq-prompt::after {
+    content: '';
+    width: 24px;
+    height: 1px;
+    background: var(--accent);
+    opacity: 0.7;
+  }
+  .sp-sq-question {
+    font-family: var(--serif);
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.85;
+    color: var(--ink);
+    letter-spacing: 0.03em;
+  }
+  .sp-sq-question em {
+    font-style: normal;
+    color: var(--accent);
+  }
+
+  /* ===== Quest × Practice × Field 3-card frame (06 ACTIVITY top) ===== */
+  .sp-quest-frame {
+    margin: 0 auto 36px;
+    max-width: 360px;
+  }
+  .sp-quest-frame-title {
+    text-align: center;
+    font-family: var(--serif);
+    font-size: 17px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    color: var(--ink);
+    margin-bottom: 8px;
+  }
+  .sp-quest-frame-title .x-mark {
+    color: var(--ink-light);
+    margin: 0 6px;
+    font-weight: 400;
+  }
+  .sp-quest-frame-sub {
+    text-align: center;
+    font-family: var(--serif);
+    font-size: 12px;
+    color: var(--ink-mid);
+    letter-spacing: 0.08em;
+    margin-bottom: 28px;
+  }
+  .sp-quest-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  .sp-quest-card {
+    background: white;
+    border: 1px solid var(--line);
+    border-top: 3px solid var(--ink);
+    padding: 22px 20px 22px;
+    text-align: center;
+    position: relative;
+  }
+  .sp-quest-card.qcard-quest { border-top-color: var(--warm); }
+  .sp-quest-card.qcard-practice { border-top-color: var(--accent); }
+  .sp-quest-card.qcard-field { border-top-color: var(--dark); }
+  .sp-quest-card-eyebrow {
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: var(--ink-mid);
+  }
+  .sp-quest-card.qcard-quest .sp-quest-card-eyebrow { color: var(--warm); }
+  .sp-quest-card.qcard-practice .sp-quest-card-eyebrow { color: var(--accent); }
+  .sp-quest-card.qcard-field .sp-quest-card-eyebrow { color: var(--dark); }
+  .sp-quest-card-eyebrow .em-dash {
+    margin: 0 4px;
+    opacity: 0.6;
+  }
+  .sp-quest-card-title {
+    font-family: var(--serif);
+    font-size: 19px;
+    font-weight: 600;
+    line-height: 1.5;
+    margin-bottom: 4px;
+    color: var(--ink);
+  }
+  .sp-quest-card-sub {
+    font-size: 11px;
+    color: var(--ink-mid);
+    margin-bottom: 14px;
+    letter-spacing: 0.05em;
+  }
+  .sp-quest-card-body {
+    font-size: 12px;
+    line-height: 1.95;
+    text-align: left;
+    color: var(--ink-mid);
+  }
+  .sp-quest-card-body strong {
+    color: var(--ink);
+    font-weight: 600;
+  }
+  .sp-quest-x {
+    text-align: center;
+    font-family: var(--serif);
+    font-size: 16px;
+    color: var(--ink-light);
+    padding: 10px 0;
+    letter-spacing: 0.15em;
+  }
+  .sp-quest-bridge {
+    text-align: center;
+    font-family: var(--serif);
+    font-size: 12px;
+    color: var(--ink-mid);
+    margin: 0 0 20px;
+    line-height: 1.85;
+  }
+
+  /* ===== 01 KV (実画像取り込み版 / マガジンカバー) ===== */
+  .sp-kv {
+    position: relative;
+    min-height: auto;
+    background: #1FA8B8;
+    overflow: hidden;
+    display: block;
+    padding: 0;
+  }
+  .sp-kv-cover-img {
+    width: 100%;
+    display: block;
+    line-height: 0;
+  }
+  .sp-kv-cover-img img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  .sp-kv-cover-cta {
+    background: #1FA8B8;
+    padding: 24px 22px 32px;
+    text-align: center;
+  }
+  .sp-kv-cover-cta .sp-kv-cta {
+    margin: 0 auto;
+  }
+  .sp-kv-cover .wf-section-label {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    z-index: 9;
+    background: rgba(0,0,0,0.55);
+  }
+  .sp-kv-bg { display: none; }
+  .sp-kv-tag {
+    position: absolute;
+    top: 60px; left: 12px;
+    background: rgba(0,0,0,0.4);
+    color: white;
+    font-size: 9px;
+    padding: 3px 8px;
+    letter-spacing: 0.08em;
+    border-radius: 2px;
+    z-index: 9;
+  }
+  .sp-kv-overlay { display: none; }
+
+  /* 写真コラージュ（左上に散らす）*/
+  .sp-kv-collage {
+    position: absolute;
+    top: 24px;
+    left: -8px;
+    width: 220px;
+    height: 460px;
+    z-index: 1;
+    pointer-events: none;
+  }
+  .sp-kv-collage .kv-photo {
+    position: absolute;
+    border: 4px solid white;
+    box-shadow: 0 6px 14px rgba(0,0,0,0.18);
+    object-fit: cover;
+    background: white;
+  }
+  .sp-kv-collage .kv-photo-1 { top: 4px;   left: 26px; width: 144px; height: 102px; transform: rotate(-7deg); }
+  .sp-kv-collage .kv-photo-2 { top: 84px;  left: -8px; width: 110px; height: 80px; transform: rotate(4deg); }
+  .sp-kv-collage .kv-photo-3 { top: 230px; left: -4px; width: 134px; height: 94px; transform: rotate(-4deg); }
+  .sp-kv-collage .kv-photo-4 { top: 270px; left: -4px; width: 110px; height: 100px; transform: rotate(6deg); }
+  .sp-kv-collage .kv-photo-5 { top: 460px; left: -8px; width: 124px; height: 96px; transform: rotate(-3deg); }
+
+  /* ヒーローポートレート（右側、下方）*/
+  .sp-kv-hero {
+    position: absolute;
+    right: -16px;
+    bottom: 0;
+    width: 270px;
+    height: 480px;
+    z-index: 2;
+    overflow: hidden;
+  }
+  .sp-kv-hero img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+  }
+
+  /* POOLO LIFE ロゴ（右上） */
+  .sp-kv-logo {
+    position: absolute;
+    top: 26px;
+    right: 24px;
+    z-index: 5;
+    text-align: center;
+    color: white;
+  }
+  .sp-kv-logo-eyebrow {
+    font-family: var(--sans);
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.3em;
+    margin-bottom: -4px;
+    margin-right: -0.3em;
+  }
+  .sp-kv-logo-main {
+    font-family: var(--serif);
+    font-size: 72px;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    line-height: 0.95;
+  }
+
+  /* 大ヘッドライン（中央上、黄色ブラケット枠 / 漢字強調）*/
+  .sp-kv-bold-headline {
+    position: absolute;
+    top: 230px;
+    left: 16px;
+    z-index: 6;
+    color: white;
+    font-family: var(--serif);
+    font-weight: 800;
+    line-height: 1.0;
+    letter-spacing: 0.02em;
+    width: 320px;
+  }
+  .sp-kv-bold-headline .kv-bold-line {
+    display: inline-block;
+    font-size: 22px;
+    padding: 10px 16px 12px;
+    position: relative;
+    background: transparent;
+    border: 3px solid #FFE54B;
+    margin: 0;
+  }
+  .sp-kv-bold-headline .kv-bold-line.line-1 {
+    border-bottom: none;
+    padding-bottom: 6px;
+  }
+  .sp-kv-bold-headline .kv-bold-line.line-2 {
+    border-top: none;
+    padding-top: 6px;
+    margin-top: 0;
+    margin-left: 18px;
+  }
+  .sp-kv-bold-headline .kv-emph {
+    font-size: 1.5em;
+    font-weight: 900;
+    letter-spacing: 0;
+  }
+  .sp-kv-bold-headline br { line-height: 0; }
+
+  /* インナー（テキスト、CTAなど・KV下部）*/
+  .sp-kv-inner {
+    position: relative;
+    z-index: 7;
+    padding: 660px 22px 40px;
+    text-align: center;
+    color: white;
+    width: 100%;
+  }
+  .sp-kv-inner .wf-section-label {
+    background: rgba(0,0,0,0.5);
+    margin-bottom: 14px;
+  }
+  .sp-kv-category {
+    font-family: var(--serif);
+    font-size: 12px;
+    color: rgba(255,255,255,0.95);
+    letter-spacing: 0.06em;
+    margin-bottom: 14px;
+    line-height: 1.75;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.25);
+  }
+  .sp-kv-poem {
+    font-family: var(--serif);
+    font-size: 12px;
+    color: rgba(255,255,255,0.9);
+    line-height: 1.95;
+    margin-bottom: 14px;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.25);
+  }
+  .sp-kv-poem em {
+    font-style: normal;
+    color: #FFE54B;
+    font-weight: 600;
+  }
+  .sp-kv-sub {
+    font-family: var(--serif);
+    font-size: 12px;
+    color: rgba(255,255,255,0.95);
+    letter-spacing: 0.05em;
+    margin-bottom: 22px;
+    line-height: 1.85;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.25);
+  }
+  .sp-kv-cta {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    background: white;
+    color: #1FA8B8;
+    padding: 15px;
+    font-size: 13px;
+    font-weight: 700;
+    border-radius: 3px;
+    text-decoration: none;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.18);
+    align-items: center;
+  }
+  .sp-kv-cta .sub {
+    font-size: 9px;
+    font-weight: 500;
+    opacity: 0.7;
+    letter-spacing: 0.08em;
+    color: #1FA8B8;
+  }
+  .sp-kv-sublink {
+    display: block;
+    margin-top: 12px;
+    font-size: 11px;
+    color: rgba(255,255,255,0.95);
+    text-decoration: underline;
+  }
+  .sp-kv-date-badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.18);
+    border: 1px solid rgba(255,255,255,0.45);
+    color: rgba(255,255,255,0.95);
+    font-family: var(--serif);
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    padding: 4px 10px;
+    margin-bottom: 14px;
+  }
+
+  /* コースピル・バッジ（左下、黄色塗り） */
+  .sp-kv-course-badge {
+    position: absolute;
+    bottom: 200px;
+    left: 14px;
+    width: 88px;
+    height: 88px;
+    background: #FFE54B;
+    border-radius: 50%;
+    z-index: 8;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-family: var(--serif);
+    color: #1a3a3a;
+    font-weight: 700;
+    line-height: 1.25;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.16);
+  }
+  .sp-kv-course-badge .kv-cb-row {
+    font-size: 12px;
+    letter-spacing: 0.04em;
+  }
+  .sp-kv-course-badge .kv-cb-divider {
+    display: block;
+    width: 28px;
+    height: 1px;
+    background: #1a3a3a;
+    margin: 4px 0;
+  }
+  .sp-kv-course-badge .kv-cb-small {
+    font-size: 9px;
+    letter-spacing: 0.16em;
+  }
+
+  /* ===== 02 WHAT ===== */
+  .sp-what { background: white; }
+  .sp-what-verbs {
+    font-family: var(--serif);
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--accent);
+    text-align: center;
+    margin: 28px 0 26px;
+    letter-spacing: 0.12em;
+    line-height: 1.5;
+  }
+  .sp-what-keys {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 8px;
+    margin-top: 24px;
+  }
+  .sp-what-key {
+    background: var(--paper);
+    padding: 14px 10px;
+    text-align: center;
+    border-top: 2px solid var(--accent);
+  }
+  .sp-what-key-label {
+    font-family: var(--serif);
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+  .sp-what-key-en {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 9px;
+    color: var(--accent);
+    letter-spacing: 0.18em;
+  }
+  .sp-what-mini {
+    margin-top: 22px;
+  }
+  .sp-what-mini img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+  }
+  .sp-what-line {
+    text-align: center;
+    font-family: var(--serif);
+    font-size: 14px;
+    line-height: 1.85;
+    margin-top: 22px;
+    color: var(--ink);
+  }
+  .sp-what-line strong { color: var(--accent); font-weight: 600; }
+  .sp-what-time {
+    margin-top: 28px;
+    padding: 18px 18px;
+    background: var(--paper);
+    border-left: 3px solid var(--accent);
+    font-size: 12px;
+    line-height: 1.95;
+    color: var(--ink);
+  }
+  .sp-what-time-label {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 10px;
+    color: var(--accent);
+    letter-spacing: 0.18em;
+    margin-bottom: 6px;
+  }
+  .sp-what-time-title {
+    font-family: var(--serif);
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    line-height: 1.6;
+  }
+
+  /* ===== 03 FOR-YOU ===== */
+  .sp-foryou { background: var(--bg); }
+  .sp-foryou-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 22px;
+  }
+  .sp-foryou-card {
+    background: var(--paper);
+    padding: 18px 18px;
+    border-left: 3px solid var(--warm);
+  }
+  .sp-foryou-tag {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 10px;
+    color: var(--warm);
+    letter-spacing: 0.18em;
+    margin-bottom: 6px;
+  }
+  .sp-foryou-quote {
+    font-family: var(--serif);
+    font-size: 14px;
+    line-height: 1.9;
+    margin-bottom: 8px;
+    font-weight: 500;
+  }
+  .sp-foryou-note {
+    font-size: 11px;
+    color: var(--ink-mid);
+    line-height: 1.75;
+  }
+
+  /* ===== 06 OUTCOME (旧v3 OUTCOMEを復元) ===== */
+  .sp-outcome { background: var(--bg); }
+  .sp-outcome-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 24px;
+  }
+  .sp-outcome-card {
+    background: white;
+    border: 1px solid var(--line);
+    padding: 18px 18px;
+  }
+  .sp-outcome-num {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    color: var(--accent);
+    margin-bottom: 4px;
+  }
+  .sp-outcome-title {
+    font-family: var(--serif);
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 14px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--line);
+  }
+  .sp-outcome-ba {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+  .sp-outcome-label {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    margin-bottom: 4px;
+  }
+  .sp-outcome-before .sp-outcome-label { color: var(--ink-light); }
+  .sp-outcome-after .sp-outcome-label { color: var(--accent); }
+  .sp-outcome-before-text { font-size: 12px; color: var(--ink-light); line-height: 1.7; }
+  .sp-outcome-after-text { font-size: 12px; color: var(--ink); font-weight: 500; line-height: 1.7; }
+  .sp-outcome-after-text .sp-outcome-example {
+    display: block;
+    font-size: 10px;
+    color: var(--accent);
+    margin-top: 6px;
+    font-style: italic;
+    font-weight: 400;
+  }
+  .sp-outcome-arrow {
+    text-align: center;
+    font-family: var(--serif);
+    font-size: 14px;
+    color: var(--accent);
+    margin: 2px 0;
+  }
+
+  /* ===== 06 VOICE (v3から復元) ===== */
+  .sp-voice { background: white; }
+  .sp-voice-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-top: 24px;
+  }
+  .sp-voice-card {
+    background: var(--bg);
+    padding: 18px 18px;
+    border: 1px solid var(--line);
+  }
+  .sp-voice-header {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 14px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--line);
+  }
+  .sp-voice-photo {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .sp-voice-period {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 10px;
+    color: var(--accent);
+    margin-bottom: 1px;
+  }
+  .sp-voice-name {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 13px;
+  }
+  .sp-voice-tag {
+    font-size: 10px;
+    color: var(--ink-light);
+    margin-top: 1px;
+  }
+  .sp-voice-quote-title {
+    font-family: var(--serif);
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.7;
+    margin-bottom: 10px;
+  }
+  .sp-voice-change {
+    font-size: 11px;
+    color: var(--ink-light);
+    line-height: 1.7;
+    padding-top: 10px;
+    border-top: 1px dashed var(--line);
+  }
+
+  /* ===== 03 PHILOSOPHY (旧05) ===== */
+  .sp-philosophy { background: var(--bg); }
+  .sp-philo-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-top: 22px;
+  }
+  .sp-philo-card {
+    background: white;
+    border: 1px solid var(--line);
+    padding: 20px 18px;
+  }
+  .sp-philo-head {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--line);
+  }
+  .sp-philo-head-text {
+    font-family: var(--serif);
+    font-size: 9px;
+    color: var(--accent);
+    letter-spacing: 0.2em;
+  }
+  .sp-philo-title {
+    font-family: var(--serif);
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    line-height: 1.6;
+  }
+  .sp-philo-sum {
+    font-size: 12px;
+    color: var(--ink-mid);
+    line-height: 1.85;
+    margin-bottom: 12px;
+  }
+  .sp-philo-mini {
+    margin-top: 10px;
+  }
+  .sp-philo-trio {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 6px;
+    margin-top: 12px;
+  }
+  .sp-philo-trio-item {
+    background: var(--paper);
+    padding: 10px 6px;
+    text-align: center;
+    font-family: var(--serif);
+    font-size: 11px;
+    line-height: 1.5;
+    border-top: 2px solid var(--accent);
+  }
+  .sp-philo-trio-item span {
+    display: block;
+    font-style: italic;
+    font-size: 9px;
+    color: var(--accent);
+    letter-spacing: 0.15em;
+    margin-bottom: 2px;
+  }
+  .sp-philo-compare {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin-top: 10px;
+  }
+  .sp-philo-compare-col {
+    padding: 10px 10px;
+    border: 1px solid var(--line);
+  }
+  .sp-philo-compare-col.left {
+    background: rgba(27,74,122,0.05);
+    border-left: 2px solid var(--sub-blue);
+  }
+  .sp-philo-compare-col.right {
+    background: var(--accent-light);
+    border-left: 2px solid var(--accent);
+  }
+  .sp-philo-compare-label {
+    font-family: var(--serif);
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    margin-bottom: 4px;
+    font-weight: 600;
+  }
+  .sp-philo-compare-col.left .sp-philo-compare-label { color: var(--sub-blue); }
+  .sp-philo-compare-col.right .sp-philo-compare-label { color: var(--accent); }
+  .sp-philo-compare-text {
+    font-size: 10.5px;
+    line-height: 1.7;
+    color: var(--ink-mid);
+  }
+
+  /* ===== 06 ACTIVITY ===== */
+  .sp-activity { background: white; }
+  .sp-activity-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-top: 22px;
+  }
+  .sp-activity-item {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    overflow: hidden;
+  }
+  .sp-activity-image { height: 130px; overflow: hidden; }
+  .sp-activity-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .sp-activity-body { padding: 18px 18px; }
+  .sp-activity-num {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 10px;
+    color: var(--accent);
+    letter-spacing: 0.2em;
+    margin-bottom: 6px;
+  }
+  .sp-activity-title {
+    font-family: var(--serif);
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    line-height: 1.6;
+  }
+  .sp-activity-text {
+    font-size: 12px;
+    color: var(--ink-mid);
+    line-height: 1.85;
+  }
+  .sp-activity-guests {
+    margin-top: 22px;
+    padding: 16px;
+    background: white;
+    border: 1px dashed var(--line);
+  }
+  .sp-activity-guests-label {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 10px;
+    color: var(--accent);
+    letter-spacing: 0.18em;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  .sp-guest-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+  }
+  .sp-guest-photo {
+    height: 70px;
+    margin-bottom: 5px;
+  }
+  .sp-guest-name {
+    font-family: var(--serif);
+    font-size: 10.5px;
+    font-weight: 600;
+    text-align: center;
+    line-height: 1.4;
+  }
+  .sp-guest-title {
+    font-size: 9px;
+    color: var(--ink-light);
+    text-align: center;
+    line-height: 1.5;
+    margin-top: 2px;
+  }
+
+  /* ===== 07 SHAKE ===== */
+  .sp-shake { background: var(--bg); }
+  .sp-shake-flow {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 22px;
+  }
+  .sp-shake-step {
+    background: white;
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--accent);
+    padding: 14px 16px;
+  }
+  .sp-shake-step-label {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 10px;
+    color: var(--accent);
+    letter-spacing: 0.18em;
+    margin-bottom: 4px;
+  }
+  .sp-shake-step-title {
+    font-family: var(--serif);
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+  .sp-shake-step-text {
+    font-size: 11px;
+    color: var(--ink-mid);
+    line-height: 1.75;
+  }
+  .sp-shake-arrow {
+    text-align: center;
+    color: var(--accent);
+    font-size: 12px;
+  }
+  .sp-shake-quote {
+    margin-top: 22px;
+    padding: 16px 18px;
+    background: white;
+    border-left: 2px solid var(--warm);
+    font-family: var(--serif);
+    font-size: 13px;
+    line-height: 1.9;
+    color: var(--ink);
+  }
+  .sp-shake-quote-name {
+    margin-top: 8px;
+    font-style: italic;
+    font-size: 10px;
+    color: var(--ink-light);
+    letter-spacing: 0.1em;
+  }
+
+  /* ===== 08 SPIRAL ===== */
+  .sp-spiral { background: white; }
+  .sp-spiral-figure {
+    margin-top: 22px;
+  }
+  .sp-spiral-phases {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 6px;
+    margin-top: 18px;
+  }
+  .sp-spiral-phase {
+    background: var(--paper);
+    padding: 10px 8px;
+    text-align: center;
+    border-top: 2px solid var(--accent);
+  }
+  .sp-spiral-phase-label {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 9px;
+    color: var(--accent);
+    letter-spacing: 0.15em;
+    margin-bottom: 3px;
+  }
+  .sp-spiral-phase-text {
+    font-family: var(--serif);
+    font-size: 11px;
+    line-height: 1.5;
+  }
+  .sp-spiral-highlight {
+    margin-top: 22px;
+    padding: 16px 18px;
+    background: var(--accent-light);
+    border-left: 2px solid var(--accent);
+    font-family: var(--serif);
+    font-size: 13.5px;
+    line-height: 1.9;
+    text-align: center;
+  }
+
+  /* ===== 09 LENS ===== */
+  .sp-lens { background: var(--bg); }
+  .sp-lens-figure-head {
+    margin: 24px 0 12px;
+    padding: 0 4px;
+  }
+  .sp-lens-figure-title {
+    font-family: var(--serif);
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    line-height: 1.5;
+  }
+  .sp-lens-figure-title::before {
+    content: '';
+    width: 24px;
+    height: 1px;
+    background: var(--accent);
+    flex: 0 0 auto;
+  }
+  .sp-lens-figure-sub {
+    font-family: var(--serif);
+    font-size: 11px;
+    color: var(--ink-mid);
+    margin-left: 34px;
+    line-height: 1.7;
+  }
+  .sp-lens-2layer {
+    margin: 4px auto 20px;
+    max-width: 100%;
+  }
+  .sp-lens-photo {
+    margin-top: 22px;
+  }
+  .sp-lens-photo img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+  }
+  .sp-lens-flow {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 22px;
+  }
+  .sp-lens-step {
+    background: white;
+    border: 1px solid var(--line);
+    padding: 14px 16px;
+    text-align: center;
+  }
+  .sp-lens-step-label {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 9px;
+    color: var(--accent);
+    letter-spacing: 0.18em;
+    margin-bottom: 4px;
+  }
+  .sp-lens-step-title {
+    font-family: var(--serif);
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+  .sp-lens-step-text {
+    font-size: 11px;
+    color: var(--ink-mid);
+    line-height: 1.7;
+  }
+  .sp-lens-arrow {
+    text-align: center;
+    color: var(--accent);
+    font-size: 12px;
+  }
+  .sp-lens-voice {
+    margin-top: 22px;
+    padding: 14px 16px;
+    background: var(--paper);
+    border-left: 2px solid var(--accent);
+    font-family: var(--serif);
+    font-size: 12px;
+    line-height: 1.85;
+  }
+
+  /* ===== 10 MODEL Important ===== */
+  .sp-model { background: white; border-top: 4px solid var(--gold); border-bottom: 4px solid var(--gold); }
+  .sp-model-venn {
+    margin-top: 22px;
+  }
+  .sp-model-axes {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 22px;
+  }
+  .sp-model-axis {
+    background: var(--paper);
+    padding: 14px 16px;
+    border-left: 3px solid var(--gold);
+  }
+  .sp-model-axis-label {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 10px;
+    color: var(--gold);
+    letter-spacing: 0.18em;
+    margin-bottom: 4px;
+  }
+  .sp-model-axis-title {
+    font-family: var(--serif);
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+  .sp-model-axis-text {
+    font-size: 11px;
+    color: var(--ink-mid);
+    line-height: 1.75;
+  }
+  .sp-model-conclusion {
+    text-align: center;
+    font-family: var(--serif);
+    font-size: 13.5px;
+    margin-top: 22px;
+    color: var(--ink);
+    line-height: 1.9;
+  }
+  .sp-model-conclusion strong { color: var(--gold); font-weight: 600; }
+
+  /* ===== 11 VALUES Important ===== */
+  .sp-values { background: var(--bg); border-top: 4px solid var(--gold); border-bottom: 4px solid var(--gold); }
+  .sp-values-tree {
+    margin-top: 22px;
+  }
+  .sp-values-layers {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 22px;
+  }
+  .sp-values-layer {
+    background: white;
+    padding: 16px 18px;
+    border: 1px solid var(--line);
+  }
+  .sp-values-layer.root { border-left: 4px solid var(--sub-purple); }
+  .sp-values-layer.trunk { border-left: 4px solid var(--accent); }
+  .sp-values-layer.branch { border-left: 4px solid var(--gold); }
+  .sp-values-layer-label {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    margin-bottom: 4px;
+  }
+  .sp-values-layer.root .sp-values-layer-label { color: var(--sub-purple); }
+  .sp-values-layer.trunk .sp-values-layer-label { color: var(--accent); }
+  .sp-values-layer.branch .sp-values-layer-label { color: var(--gold); }
+  .sp-values-layer-title {
+    font-family: var(--serif);
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+  .sp-values-layer-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 8px;
+  }
+  .sp-values-pill {
+    font-family: var(--serif);
+    font-size: 11px;
+    padding: 4px 10px;
+    background: var(--paper);
+    border-radius: 14px;
+    color: var(--ink);
+  }
+  .sp-values-layer-text {
+    font-size: 11px;
+    color: var(--ink-mid);
+    line-height: 1.8;
+    margin-top: 4px;
+  }
+
+  /* ===== 12 EXPERIENCE ===== */
+  .sp-experience { background: white; }
+  .sp-experience-photo {
+    margin-top: 18px;
+  }
+  .sp-experience-photo img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+  }
+  .sp-experience-wrap {
+    background: var(--paper);
+    padding: 22px 18px;
+    margin-top: 20px;
+  }
+  .sp-experience-title {
+    font-family: var(--serif);
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 16px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--line);
+  }
+  .sp-experience-row {
+    display: grid;
+    grid-template-columns: 76px 1fr;
+    gap: 12px;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .sp-experience-row:last-child { border-bottom: none; }
+  .sp-experience-date {
+    font-family: var(--serif);
+    font-size: 12.5px;
+    font-weight: 600;
+    color: var(--accent);
+    text-align: right;
+    line-height: 1.4;
+  }
+  .sp-experience-date span {
+    display: block;
+    font-size: 9px;
+    color: var(--ink-light);
+    letter-spacing: 0.1em;
+    margin-top: 2px;
+    font-weight: 400;
+  }
+  .sp-experience-activity {
+    font-size: 12.5px;
+    font-weight: 600;
+    margin-bottom: 3px;
+    line-height: 1.5;
+  }
+  .sp-experience-desc {
+    font-size: 10.5px;
+    color: var(--ink-light);
+    line-height: 1.65;
+  }
+  .sp-experience-cta {
+    display: block;
+    margin-top: 18px;
+    background: var(--accent);
+    color: white;
+    text-align: center;
+    padding: 14px;
+    font-size: 13px;
+    font-weight: 700;
+    border-radius: 3px;
+    text-decoration: none;
+    box-shadow: 0 4px 14px rgba(42,107,91,0.25);
+  }
+
+  /* ===== 13 PRICE ===== */
+  .sp-price { background: var(--bg); }
+  .sp-price-card {
+    background: white;
+    padding: 24px 20px;
+    margin-top: 20px;
+    border: 1px solid var(--line);
+    text-align: center;
+  }
+  .sp-price-amount {
+    font-family: var(--serif);
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+  .sp-price-amount span {
+    font-size: 13px;
+    font-weight: 500;
+    margin-left: 3px;
+  }
+  .sp-price-note {
+    font-size: 11px;
+    color: var(--ink-mid);
+    line-height: 1.85;
+    margin-bottom: 18px;
+  }
+  .sp-price-tentative {
+    font-size: 10.5px;
+    color: #7a5a00;
+    background: #fff8dc;
+    border: 1px solid #ead892;
+    padding: 8px 10px;
+    margin: 12px auto 0;
+    line-height: 1.7;
+    border-radius: 2px;
+    text-align: left;
+  }
+  .sp-price-toggle {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
+    margin: 18px 0;
+  }
+  .sp-price-toggle-btn {
+    padding: 8px;
+    font-family: var(--serif);
+    font-size: 11px;
+    border: 1px solid var(--line);
+    background: var(--paper);
+    color: var(--ink-mid);
+  }
+  .sp-price-toggle-btn.is-active {
+    background: var(--accent);
+    color: white;
+    border-color: var(--accent);
+  }
+  .sp-price-includes {
+    text-align: left;
+    margin-top: 18px;
+    padding-top: 18px;
+    border-top: 1px solid var(--line);
+  }
+  .sp-price-includes-label {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 10px;
+    color: var(--accent);
+    letter-spacing: 0.15em;
+    margin-bottom: 8px;
+  }
+  .sp-price-includes ul {
+    list-style: none;
+    font-size: 11.5px;
+    color: var(--ink-mid);
+    line-height: 1.85;
+  }
+  .sp-price-includes li::before {
+    content: "・";
+    color: var(--accent);
+    margin-right: 4px;
+  }
+
+  /* ===== 14 FAQ ===== */
+  .sp-faq { background: white; }
+  .sp-faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 22px;
+  }
+  .sp-faq-item {
+    background: var(--bg);
+    border: 1px solid var(--line);
+    padding: 14px 16px;
+  }
+  .sp-faq-q {
+    font-family: var(--serif);
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    line-height: 1.65;
+  }
+  .sp-faq-q::before { content: "Q. "; color: var(--accent); }
+  .sp-faq-a {
+    font-size: 11px;
+    color: var(--ink-mid);
+    line-height: 1.9;
+    padding-left: 16px;
+  }
+  .sp-faq-footer {
+    text-align: center;
+    margin-top: 18px;
+    font-size: 11px;
+  }
+  .sp-faq-footer a { color: var(--accent); }
+
+  /* Fixed bottom CTA */
+  .sp-fixed-cta-bar {
+    position: sticky;
+    bottom: 0;
+    background: rgba(255,255,255,0.97);
+    backdrop-filter: blur(10px);
+    border-top: 1px solid var(--line);
+    box-shadow: 0 -4px 16px rgba(0,0,0,0.08);
+    padding: 10px 12px;
+    z-index: 40;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .sp-fixed-cta-text { flex: 1; }
+  .sp-fixed-cta-label {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 9px;
+    color: var(--accent);
+    letter-spacing: 0.15em;
+    margin-bottom: 1px;
+  }
+  .sp-fixed-cta-title {
+    font-family: var(--serif);
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--ink);
+    line-height: 1.4;
+  }
+  .sp-fixed-cta-btn {
+    background: var(--accent);
+    color: white;
+    padding: 10px 18px;
+    font-size: 11px;
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: 3px;
+    flex-shrink: 0;
+    box-shadow: 0 3px 10px rgba(42,107,91,0.3);
+    text-align: center;
+  }
+
+  /* Footer */
+  .sp-footer {
+    background: #0f1613;
+    color: rgba(255,255,255,0.5);
+    padding: 24px 16px 32px;
+    text-align: center;
+    font-size: 10px;
+    line-height: 1.8;
+  }
+  .sp-footer a { color: rgba(255,255,255,0.7); text-decoration: none; }
+</style>
+</head>
+<body>
+
+<h1 class="page-title">POOLO LIFE LP / SP Wireframe v4</h1>
+<p class="page-sub">SMARTPHONE VIEW / 14 SECTIONS / A-I MODEL</p>
+
+<div class="phone-frame">
+  <div class="phone-notch"></div>
+  <div class="phone-screen">
+
+    <!-- Sticky header -->
+    <div class="sp-header">
+      <div class="logo">POOLO LIFE</div>
+      <div class="sp-header-right">
+        <a href="#experience" class="cta">体験会に申込</a>
+        <button class="sp-hamburger" aria-label="メニュー">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+
+    <div class="sp-drawer">
+      <a href="#what">POOLO LIFE とは</a>
+      <a href="#foryou">こんな方へ</a>
+      <a href="#philosophy">3つの前提</a>
+      <a href="#activity">活動内容</a>
+      <a href="#model">探究モデル</a>
+      <a href="#values">バリュー</a>
+      <a href="#price">料金</a>
+      <a href="#faq">FAQ</a>
+    </div>
+
+    <!-- 01 / KV (実画像取り込み版) -->
+    <section class="sp-kv sp-kv-cover" id="kv">
+      <span class="wf-section-label">01 / KV</span>
+
+      <!-- マガジンカバー画像（POOLO LIFE デザインモック）-->
+      <div class="sp-kv-cover-img">
+        <img src="poolo-kv-cover.png" alt="POOLO LIFE — 想像もしなかった、世界と自分へ。" loading="eager">
+      </div>
+
+      <!-- CTA（画像下部に小さく配置）-->
+      <div class="sp-kv-cover-cta">
+        <a href="#experience" class="sp-kv-cta">
+          <span>体験会に申し込む（無料）</span>
+          <span class="sub">月複数回開催 / オンライン・オフライン</span>
+        </a>
+        <a href="#" class="sp-kv-sublink">LINEで先に話を聞いてみる</a>
+      </div>
+    </section>
+
+    <div class="wf-note"><strong>wf-note / 01 KV：</strong>実画像取り込み版（マガジンカバー）。社長提供の `poolo-kv-cover.png` をそのまま埋め込み。「POOLO LIFE」ロゴ＋写真コラージュ＋ヒーローポートレート＋黄色ブラケット枠ヘッドライン「想像もしなかった、／世界と自分へ。」＋黄色のライフデザインコース・ピルバッジが画像内に内包。下部に CTA「体験会に申し込む（無料）」とサブリンク（LINE）を配置。コーディング着手時は画像を分解して HTML/CSS/SVG に再構築する想定（テキスト選択可・SEO対応のため）。注意：KVのみ刷新で他セクションは既存トーンのまま、要トーン整合検討。</div>
+
+    <!-- SHARED QUESTION (KV → WHAT bridge) -->
+    <section class="sp-section sp-shared-question" id="shared-question">
+      <span class="wf-section-label">SHARED QUESTION</span>
+      <div class="wf-note"><strong>wf-note / SHARED QUESTION：</strong>KVのサブコピー「どこまで遠くへ行きますか？」を「再び問う。」のエコーで返す情緒ブリッジ。Type01「変えたい」とType02「このままでいいか」を先取りで拾い、E SHAKE／F SPIRAL の伏線を張る。「揺さぶる」は旅と仲間を主語にする（運営側主語にしない）。</div>
+
+      <p class="sp-section-eyebrow">SHARED QUESTION</p>
+      <h2 class="sp-section-title">あなたの好奇心と、<br><em>今を揺さぶる勇気</em>を問う。</h2>
+
+      <div class="sp-sq-body">
+        <p class="lead-pair">「いま、何かを変えたい」と思う人。<br>「まあ、このままでいいか」と思う人。</p>
+        <p>どちらにも共通するのは、<br>どこか満たされない気持ち。</p>
+        <p>家と職場を往復する日常。<br>なんとなく過ぎていく毎日に大きな不満はないけれど、<br>どこか物足りない。</p>
+        <div class="sp-sq-divider"></div>
+        <p>そんな「今」を、<br>「旅」と「仲間」は揺さぶってくれる。</p>
+        <p>旅は、当たり前を超えるきっかけになり、<br>1人ではたどり着けない場所も、<br>仲間となら行ける。</p>
+      </div>
+
+      <div class="sp-sq-callback">
+        <p class="sp-sq-prompt">再 び 問 う</p>
+        <p class="sp-sq-question">あなたは、ここで出会う仲間と<br><em>どこまで遠くへ</em>行きますか？</p>
+      </div>
+    </section>
+
+    <!-- 02 / WHAT -->
+    <section class="sp-section sp-what" id="what">
+      <span class="wf-section-label">02 / WHAT</span>
+      <div class="wf-note"><strong>wf-note / 02 WHAT：</strong>POOLO親ブランド紹介。コンセプト「旅と人生をつなぐ、大人の学び」／3動詞「旅する、問う、創る。」を独立配置で強調（serif 18px・accent色・字間広め）／「これらの実践を仲間と繰り返し、想像もしなかった世界と自分に、出会いにいく」でKVヘッドラインへエコー／実績段落「2019年・卒業生1,100人超・全国/世界から集まるオンラインスクール」を最後に配置。eyebrowは about POOLO。</div>
+
+      <p class="sp-section-eyebrow">about POOLO</p>
+      <h2 class="sp-section-title">あたらしい<br><em>旅の学校</em>、<br>POOLO（ポーロ）</h2>
+      <p class="sp-section-sub">コンセプトは、<br>旅と人生をつなぐ、大人の学び。</p>
+
+      <p class="sp-what-verbs">旅する、問う、創る。</p>
+
+      <p class="sp-section-lead">
+        これらの実践を仲間と繰り返し<br>
+        <strong>想像もしなかった世界と自分</strong>に、<br>
+        出会いにいくことを目指します。
+      </p>
+
+      <p class="sp-section-lead">
+        2019年に始まり、卒業生は<strong>1,100人超</strong>。<br>
+        全国、世界から参加者が集まる<br>
+        <strong>オンラインスクール</strong>です。
+      </p>
+
+      <div class="sp-what-mini">
+        <img src="https://picsum.photos/seed/poolo-what-school/600/360" alt="50人の仲間がオフラインで集まる場面" loading="lazy">
+      </div>
+
+      <div class="sp-what-keys">
+        <div class="sp-what-key">
+          <div class="sp-what-key-label">旅</div>
+          <div class="sp-what-key-en">TRAVEL</div>
+        </div>
+        <div class="sp-what-key">
+          <div class="sp-what-key-label">問い</div>
+          <div class="sp-what-key-en">QUESTION</div>
+        </div>
+        <div class="sp-what-key">
+          <div class="sp-what-key-label">共創</div>
+          <div class="sp-what-key-en">CO-CREATION</div>
+        </div>
+      </div>
+
+      <p class="sp-what-line">
+        旅と、問いと、共創。<br>
+        この3つが重なるところに、<strong>POOLO LIFE の8ヶ月</strong>があります。
+      </p>
+
+      <div class="sp-what-time">
+        <div class="sp-what-time-label">TIME DESIGN</div>
+        <div class="sp-what-time-title">働きながら参加できる、時間の設計。</div>
+        <p>
+          活動はオンラインを主軸に組まれていて、月に数回のライブセッションと、いつでも見返せる録画があります。オフラインで集まるのは月1〜2回ほど。週の目安は、ご自身のペースに合わせて2〜4時間ほど。録画があるので、当日参加できない回も後追いできます。<br>
+          仲間と一緒に、自分のリズムで歩いていける8ヶ月になるよう、運営チームから招待していきます。
+        </p>
+      </div>
+    </section>
+
+    <!-- 03 / PHILOSOPHY -->
+    <section class="sp-section sp-philosophy" id="philosophy">
+      <span class="wf-section-label">03 / PHILOSOPHY <span class="icon-tri">▼</span></span>
+      <div class="wf-note"><strong>wf-note / 03 PHILOSOPHY：</strong>H2を「欲求が動き出す／3つのPOOLOモデル」に変更（前提→モデルへ。能動的・モチベーション主体の言い回し）。A・B・Cを3カードで予告。Bの順序は社長承認Q1で「自己決定→自分ごと化→面白がる」。BカードH3は「動き出すための、3つの姿勢」（旧「床のように支える3つのスタンス」がAI比喩感ありで差替。H2の"動き出す"と呼応）。Cの「関心探究型」は補足ボックス。eyebrowを three POOLO models に更新。lead内の「前提」も「3つのモデル」に表記合わせ。</div>
+
+      <p class="sp-section-eyebrow">three POOLO models</p>
+      <h2 class="sp-section-title">欲求が動き出す<br><em>3つのPOOLOモデル</em></h2>
+      <p class="sp-section-lead">
+        学び方も、姿勢も、設計図も、<br>
+        ふつうの学校とは少しちがいます。<br>
+        その3つのモデルを、お伝えします。
+      </p>
+
+      <div class="sp-philo-list">
+
+        <div class="sp-philo-card">
+          <div class="sp-philo-head">
+            <span class="letter-badge">A</span>
+            <span class="sp-philo-head-text">LEARNING MODEL ／ 学びのモデル</span>
+          </div>
+          <h3 class="sp-philo-title">探究テーマから、<br>旅・問い・共創がはじまる。</h3>
+          <p class="sp-philo-sum">
+            心が動いてしまうもの（探究テーマ）を起点に、旅で揺さぶられ、問いで磨かれ、共創でかたちになる。これがPOOLOの学び方です。
+          </p>
+          <div class="jargon-box">
+            <strong>探究テーマ：</strong>今、気になってしまうもの。意志で選ぶより前に、心が動いてしまうもの。POOLO LIFEでは、これを8ヶ月かけて見つけ、磨いていきます。
+          </div>
+          <div class="sp-philo-mini svg-figure">
+            <svg viewBox="0 0 320 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="探究テーマを中心に、旅・問い・共創の3方向に動線が広がる図">
+              <defs>
+                <marker id="arrow-a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#2a6b5b"/>
+                </marker>
+              </defs>
+              <!-- 双方向矢印 -->
+              <line x1="160" y1="100" x2="60" y2="50" stroke="#2a6b5b" stroke-width="1.5" marker-end="url(#arrow-a)" marker-start="url(#arrow-a)"/>
+              <line x1="160" y1="100" x2="260" y2="50" stroke="#2a6b5b" stroke-width="1.5" marker-end="url(#arrow-a)" marker-start="url(#arrow-a)"/>
+              <line x1="160" y1="100" x2="160" y2="180" stroke="#2a6b5b" stroke-width="1.5" marker-end="url(#arrow-a)" marker-start="url(#arrow-a)"/>
+              <!-- 中心：探究テーマ -->
+              <circle cx="160" cy="100" r="40" fill="#2a6b5b" opacity="0.9"/>
+              <text x="160" y="98" font-family="'Shippori Mincho', serif" font-size="11" fill="#fff" text-anchor="middle">探究</text>
+              <text x="160" y="112" font-family="'Shippori Mincho', serif" font-size="11" fill="#fff" text-anchor="middle">テーマ</text>
+              <!-- 旅 -->
+              <circle cx="60" cy="40" r="26" fill="#e8f0ed" stroke="#2a6b5b" stroke-width="1"/>
+              <text x="60" y="44" font-family="'Shippori Mincho', serif" font-size="12" fill="#2a6b5b" text-anchor="middle">旅</text>
+              <!-- 問い -->
+              <circle cx="260" cy="40" r="26" fill="#e8e9f5" stroke="#534AB7" stroke-width="1"/>
+              <text x="260" y="44" font-family="'Shippori Mincho', serif" font-size="12" fill="#534AB7" text-anchor="middle">問い</text>
+              <!-- 共創 -->
+              <circle cx="160" cy="180" r="26" fill="#f5e9d8" stroke="#B08A3A" stroke-width="1"/>
+              <text x="160" y="184" font-family="'Shippori Mincho', serif" font-size="12" fill="#B08A3A" text-anchor="middle">共創</text>
+            </svg>
+          </div>
+        </div>
+
+        <div class="sp-philo-card">
+          <div class="sp-philo-head">
+            <span class="letter-badge">B</span>
+            <span class="sp-philo-head-text">STANCE ／ 旅のスタンス</span>
+          </div>
+          <h3 class="sp-philo-title">動き出すための、<br>3つの姿勢。</h3>
+          <p class="sp-philo-sum">
+            POOLO LIFE の8ヶ月、すべての活動の下で動き続ける3つの姿勢です。3つは時期で切り替わるのではなく、いつも一緒にあって、立ち戻れる足場になります。
+          </p>
+          <div class="sp-philo-trio">
+            <div class="sp-philo-trio-item"><span>01</span>自己決定</div>
+            <div class="sp-philo-trio-item"><span>02</span>自分ごと化</div>
+            <div class="sp-philo-trio-item"><span>03</span>面白がる</div>
+          </div>
+        </div>
+
+        <div class="sp-philo-card">
+          <div class="sp-philo-head">
+            <span class="letter-badge">C</span>
+            <span class="sp-philo-head-text">APPROACH ／ 人生設計のアプローチ</span>
+          </div>
+          <h3 class="sp-philo-title">目標から逆算しない、<br>関心から探究する。</h3>
+          <p class="sp-philo-sum">
+            3年後の自分から逆算して今を設計するやり方ではなく、今、心が動いてしまうものから次の一歩を選んでいくやり方。POOLOはこちら側の場所です。
+          </p>
+          <div class="jargon-box">
+            <strong>関心探究型：</strong>目標から逆算するのではなく、今、心が動いていることを起点に進める姿勢。POOLOはこの姿勢の人が一定数集まることで、一人では届かない場所まで運ばれていきます。
+          </div>
+          <div class="sp-philo-mini svg-figure">
+            <svg viewBox="0 0 320 220" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="目標逆算型と関心探究型の対比図">
+              <!-- 左：目標逆算型 -->
+              <text x="80" y="20" font-family="'Shippori Mincho', serif" font-size="10" fill="#888" text-anchor="middle" font-style="italic">目標逆算型</text>
+              <line x1="30" y1="60" x2="130" y2="60" stroke="#888" stroke-width="1" stroke-dasharray="3 2"/>
+              <circle cx="30" cy="60" r="4" fill="#888"/>
+              <polygon points="125,55 135,60 125,65" fill="#888"/>
+              <text x="30" y="80" font-family="'Shippori Mincho', serif" font-size="9" fill="#888" text-anchor="middle">今</text>
+              <text x="135" y="80" font-family="'Shippori Mincho', serif" font-size="9" fill="#888" text-anchor="middle">3年後</text>
+              <text x="80" y="105" font-family="'Shippori Mincho', serif" font-size="9" fill="#888" text-anchor="middle">直線で到達</text>
+
+              <!-- 区切り -->
+              <line x1="160" y1="20" x2="160" y2="200" stroke="#e5e0d8" stroke-width="1"/>
+
+              <!-- 右：関心探究型 -->
+              <text x="240" y="20" font-family="'Shippori Mincho', serif" font-size="11" fill="#2a6b5b" text-anchor="middle" font-style="italic" font-weight="600">関心探究型</text>
+              <path d="M 200 60 Q 225 50, 240 65 T 280 70 Q 260 90, 245 100 T 215 110 Q 245 130, 240 145 T 270 160" stroke="#2a6b5b" stroke-width="2" fill="none" stroke-linecap="round"/>
+              <circle cx="200" cy="60" r="4" fill="#2a6b5b"/>
+              <circle cx="270" cy="160" r="6" fill="#2a6b5b"/>
+              <text x="200" y="50" font-family="'Shippori Mincho', serif" font-size="9" fill="#2a6b5b" text-anchor="middle">今</text>
+              <text x="240" y="180" font-family="'Shippori Mincho', serif" font-size="9" fill="#2a6b5b" text-anchor="middle">心が動くものから</text>
+              <text x="240" y="194" font-family="'Shippori Mincho', serif" font-size="9" fill="#2a6b5b" text-anchor="middle">次の一歩へ</text>
+            </svg>
+          </div>
+          <div class="sp-philo-compare">
+            <div class="sp-philo-compare-col left">
+              <div class="sp-philo-compare-label">目標逆算型</div>
+              <p class="sp-philo-compare-text">3年後の像を決め、そこから今を設計する。明快さ・効率重視。</p>
+            </div>
+            <div class="sp-philo-compare-col right">
+              <div class="sp-philo-compare-label">関心探究型</div>
+              <p class="sp-philo-compare-text">今、気になることを差し出して、関係の中で次が立ち上がる。</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 04 / ACTIVITY -->
+    <section class="sp-section sp-activity" id="activity">
+      <span class="wf-section-label"><span class="icon-tri">▼</span> 04 / ACTIVITY</span>
+      <div class="wf-note"><strong>wf-note / 04 ACTIVITY：</strong>D=活動内容（v3のFEATURE+GUEST+CURRICULUM活動部分を統合）。H2を「ここから、どう動いていくのか」（質問型）に変更し、3カード「探究テーマ×実践×場」と6活動が回答として続く構造へ。Lv.3の用語補足ボックスを活動6の初出箇所に必ず挿入。機械比喩は使わない。6枚の活動写真をPicsumで挿入（C2）。</div>
+
+      <p class="sp-section-eyebrow">activity</p>
+      <h2 class="sp-section-title">
+        <span class="letter-badge">D</span><br>
+        ここから、<br><em>どう動いていくのか</em>
+      </h2>
+      <p class="sp-section-lead">
+        探究テーマ、実践、場。<br>
+        この3つが揃って、はじめて動き始める。
+      </p>
+
+      <!-- 3-card frame: 探究テーマ × 実践 × 場 -->
+      <div class="sp-quest-frame">
+        <p class="sp-quest-frame-title">探究テーマ <span class="x-mark">×</span> 実践 <span class="x-mark">×</span> 場</p>
+        <p class="sp-quest-frame-sub">この3つが揃って、はじめて動き始める</p>
+
+        <div class="sp-quest-cards">
+          <div class="sp-quest-card qcard-quest">
+            <div class="sp-quest-card-eyebrow">QUEST <span class="em-dash">─</span> なぜ動くか</div>
+            <div class="sp-quest-card-title">探究テーマ</div>
+            <div class="sp-quest-card-sub">気になってしまうもの</div>
+            <p class="sp-quest-card-body">
+              「3年後こうなりたい」ではなく、<strong>今どうしても気になってしまうもの</strong>。設定するものではなく、先にそこにあるもの。最初はぼんやりでいい。実践を回すうちに輪郭が出てくる。
+            </p>
+          </div>
+
+          <div class="sp-quest-x">×</div>
+
+          <div class="sp-quest-card qcard-practice">
+            <div class="sp-quest-card-eyebrow">PRACTICE <span class="em-dash">─</span> どう動くか</div>
+            <div class="sp-quest-card-title">実践</div>
+            <div class="sp-quest-card-sub">旅 ・ 問い ・ 作る</div>
+            <p class="sp-quest-card-body">
+              身体で飛び込む（旅）→ 自分の言葉にする（問い）→ 差し出してみる（作る）。<strong>反応が返って、また旅へ。</strong>
+            </p>
+          </div>
+
+          <div class="sp-quest-x">×</div>
+
+          <div class="sp-quest-card qcard-field">
+            <div class="sp-quest-card-eyebrow">FIELD <span class="em-dash">─</span> どこで動くか</div>
+            <div class="sp-quest-card-title">場</div>
+            <div class="sp-quest-card-sub">50人 × 8ヶ月</div>
+            <p class="sp-quest-card-body">
+              関心探究型の仲間が集まる場。各人の追いかけたいものが、<strong>互いの引力として干渉し合う</strong>。
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p class="sp-quest-bridge">この場で、具体的にやることは6つ。</p>
+
+      <div class="sp-activity-list">
+
+        <div class="sp-activity-item">
+          <div class="sp-activity-image">
+            <img src="https://picsum.photos/seed/poolo-activity-01/400/240" alt="旅・道中の風景" loading="lazy">
+          </div>
+          <div class="sp-activity-body">
+            <div class="sp-activity-num">ACTIVITY 01</div>
+            <h3 class="sp-activity-title">旅。場所と時間を変えにいく。</h3>
+            <p class="sp-activity-text">8ヶ月で複数回、いつもの場所から離れる。</p>
+          </div>
+        </div>
+
+        <div class="sp-activity-item">
+          <div class="sp-activity-image">
+            <img src="https://picsum.photos/seed/poolo-activity-02/400/240" alt="旅後の対話の場面" loading="lazy">
+          </div>
+          <div class="sp-activity-body">
+            <div class="sp-activity-num">ACTIVITY 02</div>
+            <h3 class="sp-activity-title">旅をひらく。視点を持ち帰る。</h3>
+            <p class="sp-activity-text">旅で動いた心を、仲間と分かち合う。</p>
+          </div>
+        </div>
+
+        <div class="sp-activity-item">
+          <div class="sp-activity-image">
+            <img src="https://picsum.photos/seed/poolo-activity-03/400/240" alt="ゲストセッションの場面" loading="lazy">
+          </div>
+          <div class="sp-activity-body">
+            <div class="sp-activity-num">ACTIVITY 03</div>
+            <h3 class="sp-activity-title">ゲストの問いに、揺さぶられる。</h3>
+            <p class="sp-activity-text">月1回、生き方を編んでいる方を招く。前提を揺さぶってもらう時間。</p>
+
+            <div class="sp-activity-guests">
+              <div class="sp-activity-guests-label">PAST &amp; UPCOMING GUESTS</div>
+              <div class="sp-guest-grid">
+                <div>
+                  <div class="sp-guest-photo wf-photo-placeholder">G1</div>
+                  <div class="sp-guest-name">[ゲスト01／仮]</div>
+                  <div class="sp-guest-title">[肩書き／仮]</div>
+                </div>
+                <div>
+                  <div class="sp-guest-photo wf-photo-placeholder">G2</div>
+                  <div class="sp-guest-name">[ゲスト02／仮]</div>
+                  <div class="sp-guest-title">[肩書き／仮]</div>
+                </div>
+                <div>
+                  <div class="sp-guest-photo wf-photo-placeholder">G3</div>
+                  <div class="sp-guest-name">[ゲスト03／仮]</div>
+                  <div class="sp-guest-title">[肩書き／仮]</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="sp-activity-item">
+          <div class="sp-activity-image">
+            <img src="https://picsum.photos/seed/poolo-activity-04/400/240" alt="問いのワークの場面" loading="lazy">
+          </div>
+          <div class="sp-activity-body">
+            <div class="sp-activity-num">ACTIVITY 04</div>
+            <h3 class="sp-activity-title">問いをくぐらせて、磨く。</h3>
+            <p class="sp-activity-text">探究テーマを、ファシリと仲間の問いに何度もくぐらせる。</p>
+          </div>
+        </div>
+
+        <div class="sp-activity-item">
+          <div class="sp-activity-image">
+            <img src="https://picsum.photos/seed/poolo-activity-05/400/240" alt="仲間に差し出す実験の場面" loading="lazy">
+          </div>
+          <div class="sp-activity-body">
+            <div class="sp-activity-num">ACTIVITY 05</div>
+            <h3 class="sp-activity-title">仲間に、小さく差し出してみる。</h3>
+            <p class="sp-activity-text">磨いた探究テーマを、まず仲間に差し出して反応を浴びる。</p>
+          </div>
+        </div>
+
+        <div class="sp-activity-item">
+          <div class="sp-activity-image">
+            <img src="https://picsum.photos/seed/poolo-activity-06/400/240" alt="知らない人に差し出す場面" loading="lazy">
+          </div>
+          <div class="sp-activity-body">
+            <div class="sp-activity-num">ACTIVITY 06</div>
+            <h3 class="sp-activity-title">知らない人に、届くところまで。</h3>
+            <p class="sp-activity-text">終盤は、仲間の外側へ。知らない誰かに届く瞬間まで伴走する。</p>
+
+            <div class="jargon-box">
+              <strong>Lv.3：</strong>知らない人に向けて、自分の探究テーマを差し出す段階。POOLO LIFE では、この段階を8ヶ月の到達ラインに置いています。
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 05 / OUTCOME (旧v3 OUTCOMEを復元) -->
+    <section class="sp-section sp-outcome" id="outcome">
+      <span class="wf-section-label warm"><span class="icon-star">★</span> 05 / OUTCOME</span>
+      <div class="wf-note"><strong>wf-note / 05 OUTCOME：</strong>v3 OUTCOMEを復元（旧TRANSFORM＝準備中ボックスを廃止し、社長判断で差し替え）。卒業生によく見られる4つのパターン（自己理解の解像度／動き始めの早さ／人間関係の質／世界の見え方）をBefore/Afterで提示。実例を1点ずつ添える形式。</div>
+
+      <p class="sp-section-eyebrow">outcome</p>
+      <h2 class="sp-section-title">
+        8ヶ月で、<em>こんな変化</em>が<br>起きています。
+      </h2>
+      <p class="sp-section-lead">
+        卒業生によく見られる<br>4つのパターンをご紹介。
+      </p>
+
+      <div class="sp-outcome-list">
+        <div class="sp-outcome-card">
+          <div class="sp-outcome-num">CHANGE 01</div>
+          <div class="sp-outcome-title">自己理解の解像度</div>
+          <div class="sp-outcome-ba">
+            <div class="sp-outcome-before">
+              <div class="sp-outcome-label">BEFORE</div>
+              <div class="sp-outcome-before-text">「自分って、結局何がしたいんだろう」</div>
+            </div>
+            <div class="sp-outcome-arrow">↓</div>
+            <div class="sp-outcome-after">
+              <div class="sp-outcome-label">AFTER</div>
+              <div class="sp-outcome-after-text">「気になってしまうもの」の輪郭が自分で語れる<span class="sp-outcome-example">例：「旅と教育をかけ合わせたい」と言語化できた</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="sp-outcome-card">
+          <div class="sp-outcome-num">CHANGE 02</div>
+          <div class="sp-outcome-title">動き始めの早さ</div>
+          <div class="sp-outcome-ba">
+            <div class="sp-outcome-before">
+              <div class="sp-outcome-label">BEFORE</div>
+              <div class="sp-outcome-before-text">「いつかやりたい」が膨らむだけ</div>
+            </div>
+            <div class="sp-outcome-arrow">↓</div>
+            <div class="sp-outcome-after">
+              <div class="sp-outcome-label">AFTER</div>
+              <div class="sp-outcome-after-text">小さく試して、反応を受け取って、次に進む<span class="sp-outcome-example">例：仲間と読書イベントを企画、30人が参加</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="sp-outcome-card">
+          <div class="sp-outcome-num">CHANGE 03</div>
+          <div class="sp-outcome-title">人間関係の質</div>
+          <div class="sp-outcome-ba">
+            <div class="sp-outcome-before">
+              <div class="sp-outcome-label">BEFORE</div>
+              <div class="sp-outcome-before-text">会社の外に、本音で話せる人が少ない</div>
+            </div>
+            <div class="sp-outcome-arrow">↓</div>
+            <div class="sp-outcome-after">
+              <div class="sp-outcome-label">AFTER</div>
+              <div class="sp-outcome-after-text">業界も価値観も違う仲間と「未完成」を交換できる<span class="sp-outcome-example">例：卒業後も月1で集まるコミュニティが生まれた</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="sp-outcome-card">
+          <div class="sp-outcome-num">CHANGE 04</div>
+          <div class="sp-outcome-title">世界の見え方</div>
+          <div class="sp-outcome-ba">
+            <div class="sp-outcome-before">
+              <div class="sp-outcome-label">BEFORE</div>
+              <div class="sp-outcome-before-text">「想像通りの未来」に向かって逆算</div>
+            </div>
+            <div class="sp-outcome-arrow">↓</div>
+            <div class="sp-outcome-after">
+              <div class="sp-outcome-label">AFTER</div>
+              <div class="sp-outcome-after-text">「想像もしなかった自分」に出会い続ける毎日<span class="sp-outcome-example">例：海がある町への移住を実現</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 06 / VOICE (v3 VOICEを復元・社長判断による差し替え) -->
+    <section class="sp-section sp-voice" id="voice">
+      <span class="wf-section-label">06 / VOICE</span>
+      <div class="wf-note"><strong>wf-note / 06 VOICE：</strong>v3 VOICEを復元（社長判断による差し替え）。OUTCOMEの後ろに配置し、4変化パターン（OUTCOME）から具体卒業生の語り（VOICE）への流れを構成。卒業生4名のBefore/Afterと一言コメント。写真・氏名・所属の公開可否は運営チームで確認予定（実在の卒業生情報に差し替えてから公開）。SHAKE/SPIRAL削除に伴いHTMLを縮小。</div>
+
+      <p class="sp-section-eyebrow">graduates' voice</p>
+      <h2 class="sp-section-title">卒業生が語る、<br><em>8ヶ月の変化</em>。</h2>
+
+      <div class="sp-voice-list">
+        <div class="sp-voice-card">
+          <div class="sp-voice-header">
+            <div class="sp-voice-photo wf-photo-placeholder"></div>
+            <div>
+              <div class="sp-voice-period">POOLO LIFE 7期</div>
+              <div class="sp-voice-name">◯◯さん（30代・会社員）</div>
+              <div class="sp-voice-tag">旅をしながら働く選択へ</div>
+            </div>
+          </div>
+          <h3 class="sp-voice-quote-title">「フリーランスとして独立。<br>最初のピースは仲間との対話で。」</h3>
+          <p class="sp-voice-change">
+            Before：仕事一辺倒で余白のない日々<br>
+            After：フリーランス独立、拠点を移しながら働く
+          </p>
+        </div>
+
+        <div class="sp-voice-card">
+          <div class="sp-voice-header">
+            <div class="sp-voice-photo wf-photo-placeholder"></div>
+            <div>
+              <div class="sp-voice-period">POOLO LIFE 8期</div>
+              <div class="sp-voice-name">◯◯さん（20代・編集者）</div>
+              <div class="sp-voice-tag">自分の問いを持った日</div>
+            </div>
+          </div>
+          <h3 class="sp-voice-quote-title">「ありのままの自分を出していい。<br>その一言がすべてを変えた。」</h3>
+          <p class="sp-voice-change">
+            Before：評価を気にして言葉を選ぶ癖<br>
+            After：違和感を対話の起点にできる
+          </p>
+        </div>
+
+        <div class="sp-voice-card">
+          <div class="sp-voice-header">
+            <div class="sp-voice-photo wf-photo-placeholder"></div>
+            <div>
+              <div class="sp-voice-period">POOLO LIFE 9期</div>
+              <div class="sp-voice-name">◯◯さん（30代・マーケター）</div>
+              <div class="sp-voice-tag">海のある町への移住</div>
+            </div>
+          </div>
+          <h3 class="sp-voice-quote-title">「海のある町へ移住した。<br>仕事も人生の一部として楽しめる。」</h3>
+          <p class="sp-voice-change">
+            Before：都内でのキャリア一本道<br>
+            After：海辺の町へ移住、リモートで働く
+          </p>
+        </div>
+
+        <div class="sp-voice-card">
+          <div class="sp-voice-header">
+            <div class="sp-voice-photo wf-photo-placeholder"></div>
+            <div>
+              <div class="sp-voice-period">POOLO LIFE 10期</div>
+              <div class="sp-voice-name">◯◯さん（20代・デザイナー）</div>
+              <div class="sp-voice-tag">歩いて日本一周を開始</div>
+            </div>
+          </div>
+          <h3 class="sp-voice-quote-title">「歩いて日本一周を始めた。<br>本気で語れる仲間がいる場所。」</h3>
+          <p class="sp-voice-change">
+            Before：「このままでは終われない」焦り<br>
+            After：歩いて日本一周プロジェクト開始
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 07 / LENS -->
+    <section class="sp-section sp-lens" id="lens">
+      <span class="wf-section-label"><span class="icon-tri">▼</span> 07 / LENS</span>
+      <div class="wf-note"><strong>wf-note / 07 LENS：</strong>G=旅の眼差しが探究テーマへ。「眼差し」「視点」「持ち帰る」など身体的な語彙で。豊かさ軸（内的欲求と他者とのつながりの真ん中）を1文添える（残置強推奨）。SVGは2層同心円（中心=旅レンズ／第1層=延長線上4テーマ／第2層=越境4テーマ）に差し替え。50人の仲間を通じて越境テーマに届く構造を視覚化。</div>
+
+      <p class="sp-section-eyebrow">lens</p>
+      <h2 class="sp-section-title">
+        <span class="letter-badge">G</span><br>
+        旅で開いた<em>眼差し</em>が、<br>社会との接点になる。
+      </h2>
+      <p class="sp-section-lead">
+        旅は、行って終わるものではないと思っています。<br>
+        旅で開いた眼差しは、日常に戻ったあとも、<br>自分の手元に残り続けます。<br>
+        そしてそれは、自分の探究テーマと社会をつなぐ、細い線になっていきます。
+      </p>
+
+      <div class="sp-lens-photo">
+        <img src="https://picsum.photos/seed/poolo-lens-view/600/400" alt="旅から戻ってからの視点を表す風景" loading="lazy">
+      </div>
+
+      <div class="sp-lens-figure-head">
+        <h3 class="sp-lens-figure-title">想像もしなかった世界に、出会いにいく</h3>
+        <p class="sp-lens-figure-sub">旅というレンズを通して、参加者同士でテーマを探究する。2層構造で広がっていきます。</p>
+      </div>
+
+      <div class="svg-figure sp-lens-2layer">
+        <svg viewBox="0 0 540 540" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="旅をレンズとした2層構造のテーマ探究図。第1層は延長線上の4テーマ、第2層は越境の4テーマ。">
+          <!-- 外輪：第2層 越境（dashed） -->
+          <circle cx="270" cy="270" r="240" fill="none" stroke="#cccccc" stroke-width="1" stroke-dasharray="3,3"/>
+          <!-- 内輪：第1層 延長線上（dashed） -->
+          <circle cx="270" cy="270" r="125" fill="none" stroke="#cccccc" stroke-width="1" stroke-dasharray="3,3"/>
+
+          <!-- レイヤーラベル -->
+          <text x="55" y="90" font-family="'Shippori Mincho', serif" font-size="11" fill="#9a9a9a" font-style="italic">第2層 ─ 越境</text>
+          <text x="125" y="195" font-family="'Shippori Mincho', serif" font-size="11" fill="#2a6b5b" font-style="italic">第1層 ─ 延長線上</text>
+
+          <!-- 中心：旅（レンズ） -->
+          <circle cx="270" cy="270" r="55" fill="#ffffff" stroke="#B08A3A" stroke-width="2"/>
+          <text x="270" y="261" font-family="'Shippori Mincho', serif" font-size="24" fill="#B08A3A" text-anchor="middle" font-weight="600">旅</text>
+          <text x="270" y="282" font-family="'Shippori Mincho', serif" font-size="9" fill="#B08A3A" text-anchor="middle" letter-spacing="0.2em">（レンズ）</text>
+          <text x="270" y="300" font-family="'Noto Sans JP', sans-serif" font-size="8" fill="#7a7a7a" text-anchor="middle">どのテーマも</text>
+          <text x="270" y="312" font-family="'Noto Sans JP', sans-serif" font-size="8" fill="#7a7a7a" text-anchor="middle">自分ごとに</text>
+
+          <!-- 第2層 ボックス（越境）-->
+          <!-- 社会の仕組み（top） -->
+          <g transform="translate(215 25)">
+            <rect width="110" height="50" fill="#e8f0ed" stroke="#7faa9e" stroke-width="1"/>
+            <text x="55" y="22" font-family="'Shippori Mincho', serif" font-size="13" fill="#1f5045" text-anchor="middle" font-weight="600">社会の仕組み</text>
+            <text x="55" y="38" font-family="'Noto Sans JP', sans-serif" font-size="9" fill="#6a7a76" text-anchor="middle">教育・探究</text>
+          </g>
+          <!-- 経済と表現（left） -->
+          <g transform="translate(15 215)">
+            <rect width="135" height="50" fill="#e8f0ed" stroke="#7faa9e" stroke-width="1"/>
+            <text x="67.5" y="22" font-family="'Shippori Mincho', serif" font-size="13" fill="#1f5045" text-anchor="middle" font-weight="600">経済と表現</text>
+            <text x="67.5" y="38" font-family="'Noto Sans JP', sans-serif" font-size="9" fill="#6a7a76" text-anchor="middle">マーケ・お金・エンタメ</text>
+          </g>
+          <!-- 暮らし（bottom-left） -->
+          <g transform="translate(50 400)">
+            <rect width="145" height="50" fill="#e8f0ed" stroke="#7faa9e" stroke-width="1"/>
+            <text x="72.5" y="22" font-family="'Shippori Mincho', serif" font-size="13" fill="#1f5045" text-anchor="middle" font-weight="600">暮らし</text>
+            <text x="72.5" y="38" font-family="'Noto Sans JP', sans-serif" font-size="9" fill="#6a7a76" text-anchor="middle">食・農・環境・ウェルネス</text>
+          </g>
+          <!-- 社会に届ける（bottom-right） -->
+          <g transform="translate(345 400)">
+            <rect width="145" height="50" fill="#e8f0ed" stroke="#7faa9e" stroke-width="1"/>
+            <text x="72.5" y="22" font-family="'Shippori Mincho', serif" font-size="13" fill="#1f5045" text-anchor="middle" font-weight="600">社会に届ける</text>
+            <text x="72.5" y="38" font-family="'Noto Sans JP', sans-serif" font-size="9" fill="#6a7a76" text-anchor="middle">ソーシャル・まちづくり</text>
+          </g>
+
+          <!-- 第1層 ボックス（延長線上）-->
+          <!-- 旅そのもの（top） -->
+          <g transform="translate(215 120)">
+            <rect width="110" height="50" fill="#e8f0ed" stroke="#7faa9e" stroke-width="1"/>
+            <text x="55" y="22" font-family="'Shippori Mincho', serif" font-size="13" fill="#1f5045" text-anchor="middle" font-weight="600">旅そのもの</text>
+            <text x="55" y="38" font-family="'Noto Sans JP', sans-serif" font-size="9" fill="#6a7a76" text-anchor="middle">ふるさと・観光・地域</text>
+          </g>
+          <!-- つくり・表し（right） -->
+          <g transform="translate(325 190)">
+            <rect width="115" height="50" fill="#e8f0ed" stroke="#7faa9e" stroke-width="1"/>
+            <text x="57.5" y="22" font-family="'Shippori Mincho', serif" font-size="13" fill="#1f5045" text-anchor="middle" font-weight="600">つくり・表し</text>
+            <text x="57.5" y="38" font-family="'Noto Sans JP', sans-serif" font-size="9" fill="#6a7a76" text-anchor="middle">アート・ものづくり</text>
+          </g>
+          <!-- つながり（right-bottom） -->
+          <g transform="translate(320 295)">
+            <rect width="115" height="50" fill="#e8f0ed" stroke="#7faa9e" stroke-width="1"/>
+            <text x="57.5" y="22" font-family="'Shippori Mincho', serif" font-size="13" fill="#1f5045" text-anchor="middle" font-weight="600">つながり</text>
+            <text x="57.5" y="38" font-family="'Noto Sans JP', sans-serif" font-size="9" fill="#6a7a76" text-anchor="middle">コミュニティ・幸せ</text>
+          </g>
+          <!-- 生き方（left-bottom） -->
+          <g transform="translate(110 310)">
+            <rect width="115" height="50" fill="#e8f0ed" stroke="#7faa9e" stroke-width="1"/>
+            <text x="57.5" y="22" font-family="'Shippori Mincho', serif" font-size="13" fill="#1f5045" text-anchor="middle" font-weight="600">生き方</text>
+            <text x="57.5" y="38" font-family="'Noto Sans JP', sans-serif" font-size="9" fill="#6a7a76" text-anchor="middle">人生・キャリア・仕事</text>
+          </g>
+
+          <!-- 下部キャプション -->
+          <text x="270" y="515" font-family="'Shippori Mincho', serif" font-size="10" fill="#9a9a9a" text-anchor="middle" font-style="italic">50人の仲間を通じて、一人では出会わなかったテーマに届く</text>
+        </svg>
+      </div>
+
+      <div class="sp-lens-flow">
+        <div class="sp-lens-step">
+          <div class="sp-lens-step-label">01 ／ TRAVEL</div>
+          <div class="sp-lens-step-title">旅の中で、眼差しが開く</div>
+          <p class="sp-lens-step-text">場所と時間を変えると、自分の中の見え方が少しずつ変わります。</p>
+        </div>
+        <div class="sp-lens-arrow">↓</div>
+        <div class="sp-lens-step">
+          <div class="sp-lens-step-label">02 ／ THEME</div>
+          <div class="sp-lens-step-title">眼差しが、探究テーマを照らす</div>
+          <p class="sp-lens-step-text">旅で得た視点で、自分の好きや違和感を見直すと、探究テーマがくっきりしてきます。</p>
+        </div>
+        <div class="sp-lens-arrow">↓</div>
+        <div class="sp-lens-step">
+          <div class="sp-lens-step-label">03 ／ SOCIETY</div>
+          <div class="sp-lens-step-title">探究テーマが、社会との接点になる</div>
+          <p class="sp-lens-step-text">磨いた探究テーマは、誰かの困りごとや、まだ言葉になっていない欲求と、自然と重なり合います。</p>
+        </div>
+      </div>
+
+      <div class="sp-lens-voice">
+        旅で開いた眼差しが、自分の探究テーマを照らし、それが社会と重なる。<br>
+        この重なりの真ん中のところに、<strong>豊かさと呼ばれるもの</strong>が立ち上がってくると思っています。
+      </div>
+    </section>
+
+    <!-- 08 / MODEL Important -->
+    <section class="sp-section sp-model" id="model">
+      <span class="wf-section-label gold"><span class="icon-tri">▼</span> 08 / MODEL <span class="important-pill">FOUNDATION</span></span>
+      <div class="wf-note"><strong>wf-note / 08 MODEL：</strong>H=探究モデル。社長承認Q2「3つの噛み合わせ」を採用。AXIS 01をA再掲（学びのモデル）に修正（A1／program-architect 4.3）。これでH=A×B×Cの統合公式が成立。SVGベン図を追加（C1-6）。</div>
+
+      <p class="sp-section-eyebrow">core model</p>
+      <h2 class="sp-section-title">
+        <span class="letter-badge gold">H</span><br>
+        POOLO LIFE が成立する、<br><em>3つの噛み合わせ</em>。
+      </h2>
+      <p class="sp-section-lead">
+        旅・問い・共創は、それだけでは機能しないと思っています。<br>
+        学びのモデル、旅のスタンス、関心探究の型。<br>
+        この3つが噛み合うところに、POOLO LIFE の体験が生まれます。
+      </p>
+
+      <div class="sp-model-venn svg-figure">
+        <svg viewBox="0 0 320 280" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A学びのモデル、B旅のスタンス、C関心探究の型の3軸ベン図">
+          <!-- A: 学びのモデル -->
+          <circle cx="120" cy="110" r="78" fill="#2a6b5b" opacity="0.28"/>
+          <text x="80" y="80" font-family="'Shippori Mincho', serif" font-size="11" fill="#1f5045" font-weight="600">A 学びのモデル</text>
+          <text x="80" y="94" font-family="'Shippori Mincho', serif" font-size="9" fill="#1f5045">探究テーマ→旅・問い・共創</text>
+
+          <!-- B: 旅のスタンス -->
+          <circle cx="200" cy="110" r="78" fill="#1B4A7A" opacity="0.28"/>
+          <text x="240" y="80" font-family="'Shippori Mincho', serif" font-size="11" fill="#143a60" font-weight="600" text-anchor="middle">B 旅のスタンス</text>
+          <text x="240" y="94" font-family="'Shippori Mincho', serif" font-size="9" fill="#143a60" text-anchor="middle">自己決定／自分ごと化／面白がる</text>
+
+          <!-- C: 関心探究の型 -->
+          <circle cx="160" cy="180" r="78" fill="#B08A3A" opacity="0.32"/>
+          <text x="160" y="248" font-family="'Shippori Mincho', serif" font-size="11" fill="#7a5e22" font-weight="600" text-anchor="middle">C 関心探究の型</text>
+          <text x="160" y="262" font-family="'Shippori Mincho', serif" font-size="9" fill="#7a5e22" text-anchor="middle">関心起点で進む人の集まり</text>
+
+          <!-- 中心の重なり -->
+          <text x="160" y="142" font-family="'Shippori Mincho', serif" font-size="11" fill="#1a1a1a" text-anchor="middle" font-weight="700">POOLO LIFE</text>
+          <text x="160" y="158" font-family="'Shippori Mincho', serif" font-size="9" fill="#1a1a1a" text-anchor="middle">が成立する場所</text>
+        </svg>
+      </div>
+
+      <div class="sp-model-axes">
+        <div class="sp-model-axis">
+          <div class="sp-model-axis-label">AXIS 01 ／ 学びのモデル（A 再掲）</div>
+          <div class="sp-model-axis-title">探究テーマ → 旅 ／ 問い ／ 共創</div>
+          <p class="sp-model-axis-text">心が動いてしまうものを起点に、旅で揺さぶられ、問いで磨かれ、共創でかたちになる。POOLOの学びの素材そのもの。A PHILOSOPHYで紹介したモデル。</p>
+        </div>
+        <div class="sp-model-axis">
+          <div class="sp-model-axis-label">AXIS 02 ／ 旅のスタンス（B 再掲）</div>
+          <div class="sp-model-axis-title">自己決定／自分ごと化／面白がる</div>
+          <p class="sp-model-axis-text">8ヶ月をくぐる土台となる、3つの姿勢。旅・問い・共創のすべてに通底する立ち戻り場所。B PHILOSOPHYで紹介した姿勢。</p>
+        </div>
+        <div class="sp-model-axis">
+          <div class="sp-model-axis-label">AXIS 03 ／ 関心探究の型（C 再掲）</div>
+          <div class="sp-model-axis-title">目標逆算ではなく、関心起点</div>
+          <p class="sp-model-axis-text">関心探究型の人が一定数集まることで、引力場が立ち上がる前提条件。C PHILOSOPHYで対比した型。</p>
+
+          <div class="jargon-box">
+            <strong>引力場：</strong>関心探究型の人が一定数集まると、一人では届かない場所まで運ばれていく場の働き。POOLOは50人規模だから、この力が立ちます。
+          </div>
+        </div>
+      </div>
+
+      <p class="sp-model-conclusion">
+        この3つが噛み合うとき、<br><strong>旅は消費から文化に戻り</strong>、<br>探究テーマは社会との接点になっていきます。
+      </p>
+    </section>
+
+    <!-- 09 / VALUES Important -->
+    <section class="sp-section sp-values" id="values">
+      <span class="wf-section-label gold"><span class="icon-tri">▼</span> 09 / VALUES <span class="important-pill">FOUNDATION</span></span>
+      <div class="wf-note"><strong>wf-note / 09 VALUES：</strong>I=バリュー樹図。社長承認Q3「3つの体験の深まり方」、Q6で樹図。BE-ING／共創の補足ボックス必須。枝の深まり方の説明に重心移動の具体（序盤=旅・中盤=問い・終盤=共創）を追加（A5／program-architect 4.4）。SVG樹図を追加（C1-7）。</div>
+
+      <p class="sp-section-eyebrow">values</p>
+      <h2 class="sp-section-title">
+        <span class="letter-badge gold">I</span><br>
+        根があって、幹があって、<br><em>枝が伸びる</em>。<br>POOLOのバリュー。
+      </h2>
+      <p class="sp-section-lead">
+        そのままでいい、を土台に。<br>
+        共に旅して、問うて、創る。<br>
+        POOLO LIFE の在り方を、樹のかたちで描いてみます。
+      </p>
+
+      <div class="sp-values-tree svg-figure">
+        <svg viewBox="0 0 320 380" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="POOLOのバリュー樹図。根：BE-ING／幹：旅のスタンス／枝：3つの動詞">
+          <!-- 枝（上部） -->
+          <line x1="160" y1="140" x2="80" y2="60" stroke="#B08A3A" stroke-width="3" stroke-linecap="round"/>
+          <line x1="160" y1="140" x2="160" y2="40" stroke="#B08A3A" stroke-width="3" stroke-linecap="round"/>
+          <line x1="160" y1="140" x2="240" y2="60" stroke="#B08A3A" stroke-width="3" stroke-linecap="round"/>
+          <!-- 葉（簡略） -->
+          <ellipse cx="80" cy="55" rx="38" ry="20" fill="#cfe5d8" opacity="0.85"/>
+          <ellipse cx="160" cy="35" rx="38" ry="20" fill="#cfe5d8" opacity="0.85"/>
+          <ellipse cx="240" cy="55" rx="38" ry="20" fill="#cfe5d8" opacity="0.85"/>
+          <text x="80" y="58" font-family="'Shippori Mincho', serif" font-size="10" fill="#1f5045" text-anchor="middle" font-weight="600">共に旅する</text>
+          <text x="160" y="38" font-family="'Shippori Mincho', serif" font-size="10" fill="#1f5045" text-anchor="middle" font-weight="600">共に問う</text>
+          <text x="240" y="58" font-family="'Shippori Mincho', serif" font-size="10" fill="#1f5045" text-anchor="middle" font-weight="600">共に創る</text>
+
+          <!-- 幹 -->
+          <rect x="148" y="140" width="24" height="120" fill="#2a6b5b"/>
+          <text x="160" y="180" font-family="'Shippori Mincho', serif" font-size="9" fill="#fff" text-anchor="middle" font-weight="600">自己</text>
+          <text x="160" y="194" font-family="'Shippori Mincho', serif" font-size="9" fill="#fff" text-anchor="middle" font-weight="600">決定</text>
+          <text x="160" y="214" font-family="'Shippori Mincho', serif" font-size="9" fill="#fff" text-anchor="middle" font-weight="600">自分</text>
+          <text x="160" y="228" font-family="'Shippori Mincho', serif" font-size="9" fill="#fff" text-anchor="middle" font-weight="600">ごと化</text>
+          <text x="160" y="248" font-family="'Shippori Mincho', serif" font-size="9" fill="#fff" text-anchor="middle" font-weight="600">面白がる</text>
+
+          <!-- 地面 -->
+          <line x1="20" y1="265" x2="300" y2="265" stroke="#7a5a30" stroke-width="1.5" stroke-dasharray="4 3"/>
+
+          <!-- 根 -->
+          <path d="M 160 260 Q 110 290, 80 340" stroke="#5a3a18" stroke-width="3" fill="none" stroke-linecap="round"/>
+          <path d="M 160 260 Q 160 310, 160 360" stroke="#5a3a18" stroke-width="3" fill="none" stroke-linecap="round"/>
+          <path d="M 160 260 Q 210 290, 240 340" stroke="#5a3a18" stroke-width="3" fill="none" stroke-linecap="round"/>
+
+          <!-- 根のラベル -->
+          <text x="160" y="375" font-family="'Shippori Mincho', serif" font-size="11" fill="#5a3a18" text-anchor="middle" font-weight="700">BE-ING ／ 共にある</text>
+        </svg>
+      </div>
+
+      <div class="sp-values-layers">
+
+        <div class="sp-values-layer root">
+          <div class="sp-values-layer-label">ROOT ／ 根</div>
+          <div class="sp-values-layer-title">BE-ING ／ 共にある</div>
+          <p class="sp-values-layer-text">成果や役割の前に、ただ共にいられる土台。すべての活動の前提になる、POOLOの根っこです。</p>
+          <div class="jargon-box">
+            <strong>BE-ING：</strong>共にある。成果や役割の前に、ただ共にいられる土台。POOLO LIFE が、すべての活動の前に置く前提です。
+          </div>
+        </div>
+
+        <div class="sp-values-layer trunk">
+          <div class="sp-values-layer-label">TRUNK ／ 幹</div>
+          <div class="sp-values-layer-title">旅のスタンス（B 再掲）</div>
+          <div class="sp-values-layer-items">
+            <span class="sp-values-pill">自己決定</span>
+            <span class="sp-values-pill">自分ごと化</span>
+            <span class="sp-values-pill">面白がる</span>
+          </div>
+          <p class="sp-values-layer-text">B PHILOSOPHY で紹介した3つの姿勢が、樹の幹として根と枝をつないでいます。</p>
+        </div>
+
+        <div class="sp-values-layer branch">
+          <div class="sp-values-layer-label">BRANCH ／ 枝</div>
+          <div class="sp-values-layer-title">3つの体験の深まり方</div>
+          <div class="sp-values-layer-items">
+            <span class="sp-values-pill">共に旅する</span>
+            <span class="sp-values-pill">共に問う</span>
+            <span class="sp-values-pill">共に創る</span>
+          </div>
+          <p class="sp-values-layer-text">序盤は旅、中盤は問い、終盤は共創に重心が移っていきます。3つはずっと並走しますが、配合比が変わります。8ヶ月の中で、重心が少しずつ移っていく感じです。</p>
+          <div class="jargon-box">
+            <strong>共創：</strong>誰かに教わるのでも、ひとりで創るのでもなく、関係の中から立ち上がってくる創造。POOLO LIFE 終盤の、深まり方の中心になります。
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 10 / EXPERIENCE -->
+    <section class="sp-section sp-experience" id="experience">
+      <span class="wf-section-label">10 / EXPERIENCE</span>
+      <div class="wf-note"><strong>wf-note / 10 EXPERIENCE：</strong>「体験会／ワークショップ」表記に統一。月複数回開催の枠を直近3〜5件リスト化。CTAは申込フォームへ。体験会の場の写真をPicsumで挿入（C2）。</div>
+
+      <p class="sp-section-eyebrow">come and meet us</p>
+      <h2 class="sp-section-title">まずは、<br><em>体験会で会いませんか</em>。</h2>
+      <p class="sp-section-lead">
+        いきなり申し込むのは、ちょっと重い。<br>
+        そう思う方のために、月に何度か、<br>
+        体験会とワークショップを開いています。<br>
+        オンライン1時間から参加できます。
+      </p>
+
+      <div class="sp-experience-photo">
+        <img src="https://picsum.photos/seed/poolo-experience/600/360" alt="体験会の場の風景" loading="lazy">
+      </div>
+
+      <div class="sp-experience-wrap">
+        <div class="sp-experience-title">直近の体験会・ワークショップ</div>
+
+        <div class="sp-experience-row">
+          <div class="sp-experience-date">5/8<span>木 20:00-21:00</span></div>
+          <div>
+            <div class="sp-experience-activity">POOLO LIFE 体験会（オンライン）</div>
+            <div class="sp-experience-desc">運営チームと卒業生に、ふだん聞きにくいことを聞いてみる時間。</div>
+          </div>
+        </div>
+
+        <div class="sp-experience-row">
+          <div class="sp-experience-date">5/15<span>木 20:00-21:30</span></div>
+          <div>
+            <div class="sp-experience-activity">「探究テーマってなに？」ワークショップ</div>
+            <div class="sp-experience-desc">自分の中にある気になることを、一緒に言葉にしていくミニワーク。</div>
+          </div>
+        </div>
+
+        <div class="sp-experience-row">
+          <div class="sp-experience-date">5/22<span>木 20:00-21:00</span></div>
+          <div>
+            <div class="sp-experience-activity">12期生説明会（オンライン）</div>
+            <div class="sp-experience-desc">8ヶ月の流れ・参加費・申込までの段取りを、丁寧にお話しします。</div>
+          </div>
+        </div>
+
+        <div class="sp-experience-row">
+          <div class="sp-experience-date">5/29<span>木 19:00-21:00</span></div>
+          <div>
+            <div class="sp-experience-activity">体験会（オフライン／東京）</div>
+            <div class="sp-experience-desc">co-ba恵比寿にて。3つの問いをめぐる対話。会場参加15-20名。</div>
+          </div>
+        </div>
+
+        <a href="#" class="sp-experience-cta">体験会・ワークショップに申し込む</a>
+      </div>
+    </section>
+
+    <!-- 11 / PRICE -->
+    <section class="sp-section sp-price" id="price">
+      <span class="wf-section-label">11 / PRICE</span>
+      <div class="wf-note"><strong>wf-note / 11 PRICE：</strong>マーケ責任者人件費の費目内訳は絶対に出さない。総額のみ。分割は申込月レート×1.03倍ルール。早期割の枠は確定後に差し込む。早期割TODOプレースホルダーは削除（B3）。仮注記を明示。</div>
+
+      <p class="sp-section-eyebrow">price</p>
+      <h2 class="sp-section-title">8ヶ月の<br><em>参加費</em>。</h2>
+      <p class="sp-section-lead">
+        旅（複数回）、ゲストセッション、<br>
+        ワーク、伴走チームの時間、<br>
+        すべてを含んだ8ヶ月分です。
+      </p>
+
+      <div class="sp-price-card">
+        <div class="sp-price-amount">¥185,000<span>（税込）</span></div>
+        <p class="sp-price-note">8ヶ月分／一括払い<br>分割払いの場合は、申込月レートに基づいて月額をご案内します。</p>
+
+        <div class="sp-price-tentative">
+          ※金額・分割条件は確定前の仮表示です。finance-ops 確定後に更新します。
+        </div>
+
+        <div class="sp-price-toggle">
+          <div class="sp-price-toggle-btn is-active">一括払い</div>
+          <div class="sp-price-toggle-btn">分割払い</div>
+        </div>
+
+        <div class="sp-price-includes">
+          <div class="sp-price-includes-label">INCLUDES</div>
+          <ul>
+            <li>オフライン旅（8ヶ月で複数回）</li>
+            <li>毎月のゲストセッション</li>
+            <li>問いと探究テーマのワーク（オンライン主軸）</li>
+            <li>運営チームと卒業生の伴走</li>
+            <li>仲間と差し出すための場づくりサポート</li>
+            <li>各種オフラインイベントへの参加権</li>
+          </ul>
+        </div>
+
+        <div class="sp-price-includes">
+          <div class="sp-price-includes-label">NOT INCLUDED</div>
+          <ul>
+            <li>旅先までの交通費・宿泊費（一部企画を除く）</li>
+            <li>個別の物品購入</li>
+          </ul>
+        </div>
+
+        <!-- EARLY BIRD: 確定後に差し込み（運営確定待ちのため非表示） -->
+      </div>
+    </section>
+
+    <!-- 12 / FAQ -->
+    <section class="sp-section sp-faq" id="faq">
+      <span class="wf-section-label">12 / FAQ</span>
+      <div class="wf-note"><strong>wf-note / 12 FAQ：</strong>説明会・申込までの障害を取り除く。アコーディオン6〜10問。働きながら参加可否、年齢、オンライン主軸の頻度、オフラインの距離、支払い方法、キャンセル等を網羅。</div>
+
+      <p class="sp-section-eyebrow">faq</p>
+      <h2 class="sp-section-title">よくある質問。</h2>
+
+      <div class="sp-faq-list">
+
+        <div class="sp-faq-item">
+          <div class="sp-faq-q">働きながら参加できますか？</div>
+          <p class="sp-faq-a">参加者の多くが、お仕事を続けながら参加されています。オンラインの活動は平日夜・週末を中心に組まれていて、録画も残るので、当日参加できない回も後追いできます。</p>
+        </div>
+
+        <div class="sp-faq-item">
+          <div class="sp-faq-q">年齢の幅はどれくらいですか？</div>
+          <p class="sp-faq-a">20代後半から40代の方が中心です。ただ、年代で分かれる場ではないので、気になる方は体験会で運営チームに直接ご相談ください。</p>
+        </div>
+
+        <div class="sp-faq-item">
+          <div class="sp-faq-q">オンラインだけでも参加できますか？</div>
+          <p class="sp-faq-a">基本はオンラインを軸にしています。オフラインの旅やイベントは、参加できる範囲で大丈夫です。1回も来られなくても、8ヶ月を成立させる組み立てをしています。</p>
+        </div>
+
+        <div class="sp-faq-item">
+          <div class="sp-faq-q">オフラインはどこで開催されますか？</div>
+          <p class="sp-faq-a">東京近郊が中心ですが、旅は国内のさまざまな場所に出かけます。地方在住の方も、これまでに多数参加いただいています。</p>
+        </div>
+
+        <div class="sp-faq-item">
+          <div class="sp-faq-q">支払い方法は？</div>
+          <p class="sp-faq-a">一括払いと分割払いをご用意しています。分割払いは、申込月のレートに基づいて月額をご案内します。詳細は体験会または個別相談で。</p>
+        </div>
+
+        <div class="sp-faq-item">
+          <div class="sp-faq-q">途中で続けられなくなった場合は？</div>
+          <p class="sp-faq-a">ご事情によっては、休会・スライド参加もご相談いただけます。キャンセルポリシーの詳細は申込前にお渡しします。</p>
+        </div>
+
+        <div class="sp-faq-item">
+          <div class="sp-faq-q">「自分探し」とは違うのですか？</div>
+          <p class="sp-faq-a">少し違うと思っています。POOLO LIFE は「自分探し」ではなく「自分試し」の場です。すでに自分の中にある気になることを、関係の中で差し出して、確かめていく8ヶ月です。</p>
+        </div>
+
+        <div class="sp-faq-item">
+          <div class="sp-faq-q">どんな人が運営しているのですか？</div>
+          <p class="sp-faq-a">POOLO卒業生も含む運営チームが、8ヶ月を伴走します。教える側・教わる側というよりは、一緒にくぐっていく関係性です。</p>
+        </div>
+
+      </div>
+
+      <div class="sp-faq-footer">
+        他に気になることがあれば、<a href="#experience">体験会</a>または<a href="#">LINE</a>でお気軽に。
+      </div>
+    </section>
+
+    <!-- Fixed bottom CTA -->
+    <div class="sp-fixed-cta-bar">
+      <div class="sp-fixed-cta-text">
+        <div class="sp-fixed-cta-label">NEXT STEP</div>
+        <div class="sp-fixed-cta-title">まずは体験会で会いませんか</div>
+      </div>
+      <a href="#experience" class="sp-fixed-cta-btn">体験会に申込</a>
+    </div>
+
+    <!-- Footer -->
+    <footer class="sp-footer">
+      <p>POOLO LIFE / 運営：CODOLI 株式会社</p>
+      <p style="margin-top:6px;"><a href="#">運営会社</a> ／ <a href="#">プライバシーポリシー</a> ／ <a href="#">特商法表記</a></p>
+      <p style="margin-top:10px;">&copy; CODOLI Inc.</p>
+    </footer>
+
+  </div>
+</div>
+
+</body>
+</html>
