@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>運営タイムテーブル｜わたしが大切にしたい、旅とは、豊かさとは、仕事とは｜2026.05.02 co-ba恵比寿</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --serif:'Shippori Mincho',serif; --sans:'Noto Sans JP',sans-serif;
+  --ink:#1a1a1a; --sub:#4a4a4a; --mute:#7a7a7a; --hint:#a8a8a8;
+  --bg:#faf9f6; --bg-deep:#f3f1ea; --line:#e0ddd3;
+  --green:#2D6A4F; --green-lt:#F4FAF6; --green-bg:#E9F5EE;
+  --warm:#C08457; --warm-bg:#F7EDE2;
+  --deep:#1F3A3D; --deep-bg:#DCE6E7;
+  --star:#B8860B; --star-bg:#F9F0D9;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{font-family:var(--sans);background:var(--bg);color:var(--ink);line-height:1.85;font-weight:300;-webkit-font-smoothing:antialiased}
+.wrap{max-width:920px;margin:0 auto;padding:0 1.4rem}
+
+.header{padding:5rem 0 3.5rem;background:linear-gradient(135deg,var(--bg-deep) 0%,var(--bg) 60%);border-bottom:1px solid var(--line);text-align:center}
+.header-mark{display:inline-block;font-size:0.6rem;letter-spacing:0.4em;color:var(--green);margin-bottom:1.6rem;font-weight:500;padding:0.35rem 1.1rem;border:1px solid var(--green);background:#fff}
+.header-kicker{font-family:var(--serif);font-size:0.85rem;color:var(--mute);letter-spacing:0.18em;margin-bottom:0.8rem}
+.header-title{font-family:var(--serif);font-size:1.8rem;font-weight:600;letter-spacing:0.06em;line-height:1.7;color:var(--ink);margin:0 auto 1.1rem;max-width:760px}
+.header-sub{font-family:var(--serif);font-size:0.95rem;color:var(--sub);letter-spacing:0.06em;margin-bottom:0.4rem}
+.header-date{font-family:var(--serif);font-size:1rem;color:var(--green);letter-spacing:0.18em;font-weight:500;margin-top:1.2rem}
+
+.meta{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:0.6rem;max-width:780px;margin:2.2rem auto 0;padding:0 1rem}
+.meta-item{background:#fff;border:1px solid var(--line);padding:0.85rem 0.9rem;text-align:left}
+.meta-item b{display:block;font-size:0.6rem;letter-spacing:0.22em;color:var(--mute);font-weight:500;margin-bottom:0.35rem;font-family:var(--sans)}
+.meta-item span{font-family:var(--serif);font-size:0.95rem;color:var(--ink);font-weight:500;letter-spacing:0.04em}
+
+section{padding:3.5rem 0;border-bottom:1px solid var(--line)}
+section.alt{background:var(--bg-deep)}
+.sec-num{font-family:var(--serif);font-size:0.72rem;color:var(--green);letter-spacing:0.3em;margin-bottom:0.7rem;font-weight:500}
+.sec-head{font-family:var(--serif);font-size:1.35rem;font-weight:600;letter-spacing:0.06em;margin-bottom:1.8rem;color:var(--ink);line-height:1.6}
+.sec-head::before{content:'';display:inline-block;width:2.4rem;height:2px;background:var(--green);margin-right:0.7rem;vertical-align:middle;margin-bottom:0.35em}
+
+.tt{width:100%;border-collapse:separate;border-spacing:0;background:#fff;border:1px solid var(--line)}
+.tt thead th{background:var(--deep);color:#fff;font-family:var(--serif);font-weight:500;letter-spacing:0.12em;font-size:0.78rem;padding:0.95rem 1rem;text-align:left;border-bottom:1px solid var(--deep)}
+.tt tbody td{padding:1rem 1rem;border-bottom:1px solid var(--line);vertical-align:top;font-size:0.93rem;line-height:1.7}
+.tt tbody tr:last-child td{border-bottom:none}
+.tt tbody tr.is-prep td{background:var(--bg-deep)}
+.tt tbody tr.is-q td{background:var(--green-lt)}
+.tt tbody tr.is-break td{background:var(--warm-bg)}
+.tt tbody tr.is-close td{background:var(--star-bg)}
+.tt tbody tr.is-after td{background:#fff;color:var(--sub)}
+.tt .col-time{width:11rem;font-family:var(--serif);font-weight:600;letter-spacing:0.04em;color:var(--ink);white-space:nowrap}
+.tt .col-label{width:13rem;font-family:var(--serif);font-weight:500;color:var(--ink)}
+.tt .col-content{color:var(--sub)}
+.tt .col-content b{color:var(--ink);font-weight:500;font-family:var(--serif);letter-spacing:0.02em}
+
+.legend{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:0.5rem;margin-top:1rem}
+.legend-chip{display:flex;align-items:center;gap:0.6rem;padding:0.5rem 0.8rem;background:#fff;border:1px solid var(--line);font-size:0.78rem;color:var(--sub)}
+.legend-swatch{width:0.9rem;height:0.9rem;border:1px solid var(--line);flex-shrink:0}
+.sw-prep{background:var(--bg-deep)}
+.sw-q{background:var(--green-lt)}
+.sw-break{background:var(--warm-bg)}
+.sw-close{background:var(--star-bg)}
+.sw-after{background:#fff}
+
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:0.8rem;margin-top:1.2rem}
+.card{background:#fff;border:1px solid var(--line);padding:1.2rem 1.3rem}
+.card .role{font-family:var(--serif);font-size:0.65rem;letter-spacing:0.22em;color:var(--green);margin-bottom:0.5rem;font-weight:500}
+.card .name{font-family:var(--serif);font-size:1.05rem;font-weight:600;letter-spacing:0.04em;margin-bottom:0.6rem;color:var(--ink)}
+.card .desc{font-size:0.85rem;color:var(--sub);line-height:1.75}
+
+.q-flow{background:#fff;border:1px solid var(--line);padding:1.2rem 1.3rem;display:grid;grid-template-columns:repeat(4,1fr);gap:0.4rem;align-items:stretch}
+.q-step{padding:0.9rem 0.7rem;text-align:center;background:var(--green-bg);border:1px solid var(--green);border-radius:2px}
+.q-step .min{font-family:var(--serif);font-size:0.65rem;letter-spacing:0.2em;color:var(--green);margin-bottom:0.3rem;font-weight:500}
+.q-step .lbl{font-family:var(--serif);font-size:0.92rem;color:var(--ink);font-weight:500;letter-spacing:0.03em}
+
+.rules{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:0.5rem}
+.rules li{background:#fff;border:1px solid var(--line);border-left:3px solid var(--warm);padding:0.85rem 1rem;font-family:var(--serif);font-size:0.92rem;color:var(--ink);letter-spacing:0.03em}
+.rules li b{display:block;font-size:0.6rem;color:var(--warm);letter-spacing:0.2em;font-family:var(--sans);font-weight:500;margin-bottom:0.3rem}
+
+.note{font-size:0.82rem;color:var(--mute);margin-top:1rem;line-height:1.8}
+
+.footer{padding:2.5rem 0 3.5rem;text-align:center;font-size:0.75rem;color:var(--mute);letter-spacing:0.12em}
+.footer .doc{font-family:var(--serif);color:var(--sub);font-size:0.85rem;margin-bottom:0.5rem;letter-spacing:0.08em}
+
+@media(max-width:680px){
+  .header{padding:3.5rem 0 2.5rem}
+  .header-title{font-size:1.4rem}
+  .tt thead{display:none}
+  .tt tbody td{display:block;border-bottom:none;padding:0.4rem 1rem}
+  .tt tbody tr{display:block;border-bottom:1px solid var(--line);padding:0.6rem 0}
+  .tt .col-time{width:auto;color:var(--green)}
+  .tt .col-label{width:auto}
+  .q-flow{grid-template-columns:repeat(2,1fr)}
+}
+@media print{
+  body{background:#fff}
+  section{padding:1.6rem 0;break-inside:avoid}
+  .header{padding:2rem 0 1.5rem}
+  .tt tbody td{padding:0.5rem 0.7rem;font-size:0.85rem}
+  .footer{padding:1rem 0}
+}
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="wrap">
+    <span class="header-mark">OPERATION TIMETABLE</span>
+    <div class="header-kicker">運営側タイムテーブル</div>
+    <h1 class="header-title">わたしが大切にしたい、<br>旅とは、豊かさとは、仕事とは</h1>
+    <div class="header-sub">想像もしなかった世界と自分と、出会いに。</div>
+    <div class="header-date">2026.05.02&ensp;SAT&ensp;15:00 — 18:00</div>
+
+    <div class="meta">
+      <div class="meta-item"><b>日時</b><span>2026年5月2日（土）<br>15:00 — 18:00（受付14:45）</span></div>
+      <div class="meta-item"><b>会場</b><span>co-ba恵比寿<br>恵比寿駅徒歩5分</span></div>
+      <div class="meta-item"><b>定員</b><span>15 — 20名</span></div>
+      <div class="meta-item"><b>参加費</b><span>3,500円（税込）</span></div>
+    </div>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <div class="sec-num">TIMETABLE</div>
+    <h2 class="sec-head">当日の進行</h2>
+
+    <table class="tt">
+      <thead>
+        <tr>
+          <th class="col-time">時間</th>
+          <th class="col-label">概要</th>
+          <th class="col-content">コンテンツ</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="is-prep">
+          <td class="col-time">14:00 —</td>
+          <td class="col-label">—</td>
+          <td class="col-content">会場入り</td>
+        </tr>
+        <tr class="is-prep">
+          <td class="col-time">14:30 — 14:45</td>
+          <td class="col-label">—</td>
+          <td class="col-content">受付準備、誘導サイン</td>
+        </tr>
+        <tr class="is-prep">
+          <td class="col-time">14:45 — 15:00</td>
+          <td class="col-label">受付・着席</td>
+          <td class="col-content">受付</td>
+        </tr>
+        <tr>
+          <td class="col-time">15:00 — 15:15</td>
+          <td class="col-label">オープニング</td>
+          <td class="col-content">アイスブレイク・チェックイン</td>
+        </tr>
+        <tr class="is-q">
+          <td class="col-time">15:15 — 15:55</td>
+          <td class="col-label">問い① 旅（40分）</td>
+          <td class="col-content"><b>想起5／言語化10／対話15／書き直し10。</b>タイムキープ別担当</td>
+        </tr>
+        <tr class="is-break">
+          <td class="col-time">15:55 — 16:05</td>
+          <td class="col-label">休憩＆席替え（10分）</td>
+          <td class="col-content">席替え</td>
+        </tr>
+        <tr class="is-q">
+          <td class="col-time">16:05 — 16:45</td>
+          <td class="col-label">問い② 豊かさ（40分）</td>
+          <td class="col-content"><b>想起5／言語化10／対話15／書き直し10。</b>タイムキープ別担当</td>
+        </tr>
+        <tr class="is-break">
+          <td class="col-time">16:45 — 16:55</td>
+          <td class="col-label">休憩＆席替え（10分）</td>
+          <td class="col-content">席替え</td>
+        </tr>
+        <tr class="is-q">
+          <td class="col-time">16:55 — 17:35</td>
+          <td class="col-label">問い③ 仕事（40分）</td>
+          <td class="col-content"><b>想起5／言語化10／対話15／書き直し10。</b>タイムキープ別担当</td>
+        </tr>
+        <tr class="is-close">
+          <td class="col-time">17:35 — 17:55</td>
+          <td class="col-label">クロージング（20分）</td>
+          <td class="col-content">感想共有、POOLO LIFE 12期案内</td>
+        </tr>
+        <tr class="is-close">
+          <td class="col-time">17:55 — 18:00</td>
+          <td class="col-label">退出案内</td>
+          <td class="col-content">懇親会案内、写真撮影</td>
+        </tr>
+        <tr class="is-after">
+          <td class="col-time">18:00 — 18:15</td>
+          <td class="col-label">—</td>
+          <td class="col-content">原状回復・忘れ物確認</td>
+        </tr>
+        <tr class="is-after">
+          <td class="col-time">18:30 —</td>
+          <td class="col-label">懇親会</td>
+          <td class="col-content">希望者で近隣店舗へ</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="legend">
+      <div class="legend-chip"><span class="legend-swatch sw-prep"></span>準備・受付</div>
+      <div class="legend-chip"><span class="legend-swatch sw-q"></span>問い（本編）</div>
+      <div class="legend-chip"><span class="legend-swatch sw-break"></span>休憩・席替え</div>
+      <div class="legend-chip"><span class="legend-swatch sw-close"></span>クロージング</div>
+      <div class="legend-chip"><span class="legend-swatch sw-after"></span>終了後</div>
+    </div>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="wrap">
+    <div class="sec-num">SESSION FORMAT</div>
+    <h2 class="sec-head">問い40分の内訳（共通）</h2>
+
+    <div class="q-flow">
+      <div class="q-step">
+        <div class="min">5 MIN</div>
+        <div class="lbl">原体験を想起</div>
+      </div>
+      <div class="q-step">
+        <div class="min">10 MIN</div>
+        <div class="lbl">個人で言語化</div>
+      </div>
+      <div class="q-step">
+        <div class="min">15 MIN</div>
+        <div class="lbl">3人組で対話</div>
+      </div>
+      <div class="q-step">
+        <div class="min">10 MIN</div>
+        <div class="lbl">書き直し</div>
+      </div>
+    </div>
+
+    <div class="note">3問とも同じフォーマットで進行。タイムキープは進行担当とは別ロールが握る。</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-num">DIALOGUE RULES</div>
+    <h2 class="sec-head">対話の5ルール（参加者へ提示）</h2>
+
+    <ul class="rules">
+      <li><b>RULE 01</b>アドバイスしない</li>
+      <li><b>RULE 02</b>要約しない、まとめない</li>
+      <li><b>RULE 03</b>質問だけを返す</li>
+      <li><b>RULE 04</b>沈黙を埋めない</li>
+      <li><b>RULE 05</b>メモを取らない</li>
+    </ul>
+
+    <div class="note">運営側もこの5ルールを守る。沈黙が出ても言葉で埋めない。</div>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="wrap">
+    <div class="sec-num">OPERATION ROLES</div>
+    <h2 class="sec-head">運営チームの役割</h2>
+
+    <div class="cards">
+      <div class="card">
+        <div class="role">ROLE 01</div>
+        <div class="name">メイン進行</div>
+        <div class="desc">問いの導入、対話5ルールの提示、書き直し前の一言。3問の流れを通して場の温度を保つ。</div>
+      </div>
+      <div class="card">
+        <div class="role">ROLE 02</div>
+        <div class="name">タイム＆席替え</div>
+        <div class="desc">5／10／15／10の節目をベルで合図。席替えの組み合わせを最大化（全員と1度は当たる方向）。</div>
+      </div>
+      <div class="card">
+        <div class="role">ROLE 03</div>
+        <div class="name">受付＆記録</div>
+        <div class="desc">名札・参加費・LINE登録チェック、写真（顔出し可否確認）、当日の気づきをログ化。</div>
+      </div>
+    </div>
+
+    <div class="note">最低3名体制。可能なら記録専任をもう1名。後日のヒアリング示唆の素材として活用。</div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="doc">運営タイムテーブル｜2026.05.02 co-ba恵比寿</div>
+    <div>POOLO（株式会社TABIPPO）</div>
+  </div>
+</footer>
+
+</body>
+</html>
