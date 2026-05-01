@@ -342,6 +342,20 @@ section { padding: 7rem 0; position: relative; }
   margin-top: 0.8rem;
   padding: 0 0.5rem;
 }
+.cohost-link {
+  display: inline-block;
+  margin-top: 1.4rem;
+  font-family: var(--serif);
+  font-size: 0.82rem;
+  color: #c8c4b8;
+  text-decoration: none;
+  border-bottom: 1px solid #4a4a48;
+  letter-spacing: 0.06em;
+  padding-bottom: 0.25rem;
+  transition: color 0.3s, border-bottom-color 0.3s;
+}
+.cohost-link:hover { color: #fff; border-bottom-color: #fff; }
+.cohost-link::after { content: " ↗"; font-size: 0.75rem; }
 .cohost-poolo {
   width: 130px; height: 130px;
   border-radius: 50%;
@@ -706,6 +720,7 @@ section { padding: 7rem 0; position: relative; }
       <div class="cohost-poolo">POOLO</div>
       <div class="cohost-name">POOLO</div>
       <div class="cohost-role">主催／CODOLI</div>
+      <a href="https://tabippo.net/poolo/" target="_blank" rel="noopener" class="cohost-link">POOLO 公式サイト</a>
     </div>
     <div class="cohost-block">
       <div class="cohost-img"><img src="images/img_06.jpeg" alt="School for Life Compath ロゴ"></div>
