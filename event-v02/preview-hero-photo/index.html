@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>サムネイル写真 比較プレビュー｜POOLO 3つの問い vol.02</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Noto+Sans+JP:wght@300;400;500;600;700&family=Shippori+Mincho+B1:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #FFFFFF;
+  --bg-soft: #FFFCF6;
+  --bg-warm: #FBF7EE;
+  --main: #2D3E36;
+  --main-soft: #4A5A52;
+  --accent: #1B99B7;
+  --accent-deep: #157A98;
+  --accent-light: #B8E0EB;
+  --cta: #1B99B7;
+  --cta-deep: #157A98;
+  --sub: #7A9E8A;
+  --sub-light: #B8D0C2;
+  --text: #2A2A2A;
+  --text-soft: #5A5A5A;
+  --text-light: #7A7A7A;
+  --line: #EAE5DC;
+  --line-light: #F2EDE3;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: #F5F1E8;
+  font-family: 'Shippori Mincho B1', serif;
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 16px;
+  line-height: 1.9;
+  letter-spacing: 0.04em;
+  font-weight: 400;
+  padding: 60px 0 120px;
+}
+
+.page-head {
+  max-width: 928px;
+  margin: 0 auto 30px;
+  padding: 0 24px;
+}
+.page-head .eyebrow {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 13px;
+  letter-spacing: 0.3em;
+  color: var(--cta);
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+.page-head h1 {
+  font-family: 'Shippori Mincho B1', serif;
+  font-size: 24px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  color: var(--main);
+  line-height: 1.7;
+  margin-bottom: 10px;
+}
+.page-head p {
+  font-size: 14px;
+  color: var(--text-soft);
+  line-height: 1.8;
+  letter-spacing: 0.04em;
+}
+
+.guide {
+  max-width: 928px;
+  margin: 0 auto 50px;
+  padding: 22px 28px;
+  background: #FFFFFF;
+  border: 1px solid #E5E0D5;
+  border-radius: 4px;
+}
+.guide h2 {
+  font-family: 'Shippori Mincho B1', serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--main);
+  letter-spacing: 0.08em;
+  margin-bottom: 10px;
+}
+.guide p {
+  font-size: 13px;
+  color: var(--text-soft);
+  line-height: 1.85;
+  letter-spacing: 0.04em;
+}
+
+.variant-block {
+  max-width: 928px;
+  margin: 0 auto 70px;
+  padding: 0 24px;
+}
+.variant-label {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  margin-bottom: 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #D9D3C5;
+}
+.variant-label .num {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 15px;
+  letter-spacing: 0.25em;
+  color: var(--cta);
+  text-transform: uppercase;
+}
+.variant-label .name {
+  font-family: 'Shippori Mincho B1', serif;
+  font-size: 17px;
+  font-weight: 500;
+  color: var(--main);
+  letter-spacing: 0.06em;
+}
+.variant-label .desc {
+  font-size: 12.5px;
+  color: var(--text-soft);
+  letter-spacing: 0.04em;
+  margin-left: auto;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+}
+
+/* ===== Hero（イベント本体と同一構造） ===== */
+.hero {
+  display: grid;
+  grid-template-columns: 5fr 6fr;
+  background: var(--bg-soft);
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  position: relative;
+  overflow: hidden;
+}
+.hero-photo {
+  background-size: cover;
+  background-position: center;
+  filter: saturate(0.9) sepia(0.08) brightness(1.02);
+}
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-soft);
+  position: relative;
+  overflow: hidden;
+}
+.hero-content-inner {
+  flex: 1;
+  padding: 36px 40px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+}
+.hero-vertical {
+  position: absolute;
+  right: 12px;
+  top: 0; bottom: 0;
+  writing-mode: vertical-rl;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 16px;
+  letter-spacing: 0.4em;
+  color: rgba(45,62,54,0.09);
+  font-weight: 700;
+  font-style: italic;
+  display: flex;
+  align-items: center;
+  pointer-events: none;
+  z-index: 1;
+  text-transform: uppercase;
+}
+.hero-tag {
+  display: inline-block;
+  align-self: flex-start;
+  background: var(--cta);
+  color: #fff;
+  padding: 8px 16px;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  margin-bottom: 18px;
+  border-radius: 2px;
+}
+.hero-title-lead {
+  font-family: 'Shippori Mincho B1', serif;
+  font-size: 18px;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  line-height: 1.6;
+  margin-bottom: 14px;
+  color: var(--main);
+}
+.hero-title {
+  font-family: 'Shippori Mincho B1', serif;
+  font-size: 36px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  line-height: 1.55;
+  color: var(--main);
+  margin-bottom: 0;
+}
+.hero-title .em { color: var(--cta); font-weight: 600; }
+.hero-title .line { display: block; }
+.hero-date {
+  margin-top: 22px;
+  padding: 10px 0;
+  border-top: 2px solid var(--cta);
+  border-bottom: 2px solid var(--cta);
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: var(--main);
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.hero-date .small {
+  font-size: 11px;
+  color: var(--text-soft);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+}
+.hero-date .place {
+  font-size: 13px;
+  color: var(--text);
+  font-weight: 500;
+  margin-left: 4px;
+}
+.hero-band {
+  background: var(--main);
+  color: #fff;
+  padding: 14px 40px;
+  font-family: 'Shippori Mincho B1', serif;
+  font-size: 15px;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  line-height: 1.7;
+}
+
+/* ===== 写真バリエーション ===== */
+.photo--current { background-image: url('../images/03_kominka_dialogue.jpg'); }
+.photo--a { background-image: url('../images/05_garden_talk.jpg'); }
+.photo--b { background-image: url('../images/06_event_dialogue.jpg'); }
+.photo--c { background-image: url('../images/09_dialogue_blue.jpg'); }
+.photo--d { background-image: url('../images/10_venue_talk.jpg'); }
+.photo--e { background-image: url('../images/11_laughing_group.jpg'); }
+.photo--f { background-image: url('../images/01_poolo_community.jpg'); }
+.photo--g { background-image: url('../images/12_poolo_keyvisual.jpg'); }
+
+/* 同梱写真の単独サムネ（参考用、フィルタ前） */
+.thumb-strip {
+  max-width: 928px;
+  margin: 80px auto 0;
+  padding: 0 24px;
+}
+.thumb-strip h2 {
+  font-family: 'Shippori Mincho B1', serif;
+  font-size: 14px;
+  color: var(--main);
+  letter-spacing: 0.08em;
+  margin-bottom: 14px;
+  font-weight: 600;
+}
+.thumb-strip-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+.thumb-strip-item {
+  aspect-ratio: 1 / 1;
+  background-size: cover;
+  background-position: center;
+  border-radius: 3px;
+  position: relative;
+}
+.thumb-strip-item::after {
+  content: attr(data-label);
+  position: absolute;
+  left: 8px; bottom: 8px;
+  background: rgba(0,0,0,0.55);
+  color: #fff;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  padding: 3px 8px;
+  border-radius: 2px;
+}
+
+@media (max-width: 720px) {
+  body { padding: 30px 0 60px; }
+  .page-head h1 { font-size: 19px; }
+  .variant-block { margin-bottom: 50px; }
+  .variant-label { flex-wrap: wrap; }
+  .variant-label .desc { width: 100%; margin-left: 0; margin-top: 4px; }
+  .hero { aspect-ratio: auto; grid-template-columns: 1fr; }
+  .hero-photo { aspect-ratio: 16/10; }
+  .hero-vertical { display: none; }
+  .hero-content-inner { padding: 18px 18px 14px; }
+  .hero-tag { font-size: 10px; padding: 5px 12px; margin-bottom: 10px; }
+  .hero-title-lead { font-size: 13px; margin-bottom: 8px; }
+  .hero-title { font-size: 21px; line-height: 1.5; }
+  .hero-date { font-size: 13px; padding: 7px 0; gap: 8px; margin-top: 12px; }
+  .hero-date .small { font-size: 10px; }
+  .hero-band { padding: 9px 18px; font-size: 11.5px; }
+  .thumb-strip-grid { grid-template-columns: repeat(2, 1fr); }
+}
+</style>
+</head>
+<body>
+
+<div class="page-head">
+  <div class="eyebrow">Preview &nbsp;/&nbsp; Hero Photo Variants</div>
+  <h1>サムネイル写真　候補比較</h1>
+  <p>サムネ左半分の写真を、既存ライブラリから8パターンで差し替えてみました。タイトル・日付・キャッチ帯は共通です。お好みの方向を選んでください。</p>
+</div>
+
+<div class="guide">
+  <h2>共通の処理</h2>
+  <p>全カット同じフィルタ（saturate 0.9 / sepia 0.08 / brightness 1.02）で薄いセピアをかけ、本文クリーム背景と馴染ませています。フィルタ前の素のサムネは最下部に並べました。</p>
+</div>
+
+<!-- 現状 -->
+<div class="variant-block">
+  <div class="variant-label">
+    <span class="num">00</span>
+    <span class="name">現状：03_kominka_dialogue</span>
+    <span class="desc">old folk house dialogue</span>
+  </div>
+  <section class="hero">
+    <div class="hero-photo photo--current"></div>
+    <div class="hero-content">
+      <div class="hero-vertical">MEETUP &amp; WORKSHOP vol.02</div>
+      <div class="hero-content-inner">
+        <span class="hero-tag">対話＆ワークショップ vol.02</span>
+        <p class="hero-title-lead">わたしが大切にしたい</p>
+        <h1 class="hero-title">
+          <span class="line"><span class="em">自分</span>、とは？</span>
+          <span class="line"><span class="em">仲間</span>、とは？</span>
+          <span class="line"><span class="em">世界</span>、とは？</span>
+        </h1>
+        <div class="hero-date">
+          <span>X/XX <span class="small">(土)</span></span>
+          <span>15:00〜18:00</span>
+          <span class="place">@恵比寿</span>
+        </div>
+      </div>
+      <div class="hero-band">仲間と「関係のなかの自分」を、ことばにする時間。</div>
+    </div>
+  </section>
+</div>
+
+<!-- 案A -->
+<div class="variant-block">
+  <div class="variant-label">
+    <span class="num">A</span>
+    <span class="name">案A：05_garden_talk</span>
+    <span class="desc">garden talk</span>
+  </div>
+  <section class="hero">
+    <div class="hero-photo photo--a"></div>
+    <div class="hero-content">
+      <div class="hero-vertical">MEETUP &amp; WORKSHOP vol.02</div>
+      <div class="hero-content-inner">
+        <span class="hero-tag">対話＆ワークショップ vol.02</span>
+        <p class="hero-title-lead">わたしが大切にしたい</p>
+        <h1 class="hero-title">
+          <span class="line"><span class="em">自分</span>、とは？</span>
+          <span class="line"><span class="em">仲間</span>、とは？</span>
+          <span class="line"><span class="em">世界</span>、とは？</span>
+        </h1>
+        <div class="hero-date">
+          <span>X/XX <span class="small">(土)</span></span>
+          <span>15:00〜18:00</span>
+          <span class="place">@恵比寿</span>
+        </div>
+      </div>
+      <div class="hero-band">仲間と「関係のなかの自分」を、ことばにする時間。</div>
+    </div>
+  </section>
+</div>
+
+<!-- 案B -->
+<div class="variant-block">
+  <div class="variant-label">
+    <span class="num">B</span>
+    <span class="name">案B：06_event_dialogue</span>
+    <span class="desc">event dialogue</span>
+  </div>
+  <section class="hero">
+    <div class="hero-photo photo--b"></div>
+    <div class="hero-content">
+      <div class="hero-vertical">MEETUP &amp; WORKSHOP vol.02</div>
+      <div class="hero-content-inner">
+        <span class="hero-tag">対話＆ワークショップ vol.02</span>
+        <p class="hero-title-lead">わたしが大切にしたい</p>
+        <h1 class="hero-title">
+          <span class="line"><span class="em">自分</span>、とは？</span>
+          <span class="line"><span class="em">仲間</span>、とは？</span>
+          <span class="line"><span class="em">世界</span>、とは？</span>
+        </h1>
+        <div class="hero-date">
+          <span>X/XX <span class="small">(土)</span></span>
+          <span>15:00〜18:00</span>
+          <span class="place">@恵比寿</span>
+        </div>
+      </div>
+      <div class="hero-band">仲間と「関係のなかの自分」を、ことばにする時間。</div>
+    </div>
+  </section>
+</div>
+
+<!-- 案C -->
+<div class="variant-block">
+  <div class="variant-label">
+    <span class="num">C</span>
+    <span class="name">案C：09_dialogue_blue</span>
+    <span class="desc">blue room dialogue</span>
+  </div>
+  <section class="hero">
+    <div class="hero-photo photo--c"></div>
+    <div class="hero-content">
+      <div class="hero-vertical">MEETUP &amp; WORKSHOP vol.02</div>
+      <div class="hero-content-inner">
+        <span class="hero-tag">対話＆ワークショップ vol.02</span>
+        <p class="hero-title-lead">わたしが大切にしたい</p>
+        <h1 class="hero-title">
+          <span class="line"><span class="em">自分</span>、とは？</span>
+          <span class="line"><span class="em">仲間</span>、とは？</span>
+          <span class="line"><span class="em">世界</span>、とは？</span>
+        </h1>
+        <div class="hero-date">
+          <span>X/XX <span class="small">(土)</span></span>
+          <span>15:00〜18:00</span>
+          <span class="place">@恵比寿</span>
+        </div>
+      </div>
+      <div class="hero-band">仲間と「関係のなかの自分」を、ことばにする時間。</div>
+    </div>
+  </section>
+</div>
+
+<!-- 案D -->
+<div class="variant-block">
+  <div class="variant-label">
+    <span class="num">D</span>
+    <span class="name">案D：10_venue_talk</span>
+    <span class="desc">venue talk</span>
+  </div>
+  <section class="hero">
+    <div class="hero-photo photo--d"></div>
+    <div class="hero-content">
+      <div class="hero-vertical">MEETUP &amp; WORKSHOP vol.02</div>
+      <div class="hero-content-inner">
+        <span class="hero-tag">対話＆ワークショップ vol.02</span>
+        <p class="hero-title-lead">わたしが大切にしたい</p>
+        <h1 class="hero-title">
+          <span class="line"><span class="em">自分</span>、とは？</span>
+          <span class="line"><span class="em">仲間</span>、とは？</span>
+          <span class="line"><span class="em">世界</span>、とは？</span>
+        </h1>
+        <div class="hero-date">
+          <span>X/XX <span class="small">(土)</span></span>
+          <span>15:00〜18:00</span>
+          <span class="place">@恵比寿</span>
+        </div>
+      </div>
+      <div class="hero-band">仲間と「関係のなかの自分」を、ことばにする時間。</div>
+    </div>
+  </section>
+</div>
+
+<!-- 案E -->
+<div class="variant-block">
+  <div class="variant-label">
+    <span class="num">E</span>
+    <span class="name">案E：11_laughing_group</span>
+    <span class="desc">laughing group</span>
+  </div>
+  <section class="hero">
+    <div class="hero-photo photo--e"></div>
+    <div class="hero-content">
+      <div class="hero-vertical">MEETUP &amp; WORKSHOP vol.02</div>
+      <div class="hero-content-inner">
+        <span class="hero-tag">対話＆ワークショップ vol.02</span>
+        <p class="hero-title-lead">わたしが大切にしたい</p>
+        <h1 class="hero-title">
+          <span class="line"><span class="em">自分</span>、とは？</span>
+          <span class="line"><span class="em">仲間</span>、とは？</span>
+          <span class="line"><span class="em">世界</span>、とは？</span>
+        </h1>
+        <div class="hero-date">
+          <span>X/XX <span class="small">(土)</span></span>
+          <span>15:00〜18:00</span>
+          <span class="place">@恵比寿</span>
+        </div>
+      </div>
+      <div class="hero-band">仲間と「関係のなかの自分」を、ことばにする時間。</div>
+    </div>
+  </section>
+</div>
+
+<!-- 案F -->
+<div class="variant-block">
+  <div class="variant-label">
+    <span class="num">F</span>
+    <span class="name">案F：01_poolo_community</span>
+    <span class="desc">poolo community</span>
+  </div>
+  <section class="hero">
+    <div class="hero-photo photo--f"></div>
+    <div class="hero-content">
+      <div class="hero-vertical">MEETUP &amp; WORKSHOP vol.02</div>
+      <div class="hero-content-inner">
+        <span class="hero-tag">対話＆ワークショップ vol.02</span>
+        <p class="hero-title-lead">わたしが大切にしたい</p>
+        <h1 class="hero-title">
+          <span class="line"><span class="em">自分</span>、とは？</span>
+          <span class="line"><span class="em">仲間</span>、とは？</span>
+          <span class="line"><span class="em">世界</span>、とは？</span>
+        </h1>
+        <div class="hero-date">
+          <span>X/XX <span class="small">(土)</span></span>
+          <span>15:00〜18:00</span>
+          <span class="place">@恵比寿</span>
+        </div>
+      </div>
+      <div class="hero-band">仲間と「関係のなかの自分」を、ことばにする時間。</div>
+    </div>
+  </section>
+</div>
+
+<!-- 案G -->
+<div class="variant-block">
+  <div class="variant-label">
+    <span class="num">G</span>
+    <span class="name">案G：12_poolo_keyvisual</span>
+    <span class="desc">poolo keyvisual</span>
+  </div>
+  <section class="hero">
+    <div class="hero-photo photo--g"></div>
+    <div class="hero-content">
+      <div class="hero-vertical">MEETUP &amp; WORKSHOP vol.02</div>
+      <div class="hero-content-inner">
+        <span class="hero-tag">対話＆ワークショップ vol.02</span>
+        <p class="hero-title-lead">わたしが大切にしたい</p>
+        <h1 class="hero-title">
+          <span class="line"><span class="em">自分</span>、とは？</span>
+          <span class="line"><span class="em">仲間</span>、とは？</span>
+          <span class="line"><span class="em">世界</span>、とは？</span>
+        </h1>
+        <div class="hero-date">
+          <span>X/XX <span class="small">(土)</span></span>
+          <span>15:00〜18:00</span>
+          <span class="place">@恵比寿</span>
+        </div>
+      </div>
+      <div class="hero-band">仲間と「関係のなかの自分」を、ことばにする時間。</div>
+    </div>
+  </section>
+</div>
+
+<!-- フィルタ前の素材一覧 -->
+<div class="thumb-strip">
+  <h2>素材一覧（フィルタ前）</h2>
+  <div class="thumb-strip-grid">
+    <div class="thumb-strip-item" data-label="00 / current" style="background-image:url('../images/03_kominka_dialogue.jpg');"></div>
+    <div class="thumb-strip-item" data-label="A" style="background-image:url('../images/05_garden_talk.jpg');"></div>
+    <div class="thumb-strip-item" data-label="B" style="background-image:url('../images/06_event_dialogue.jpg');"></div>
+    <div class="thumb-strip-item" data-label="C" style="background-image:url('../images/09_dialogue_blue.jpg');"></div>
+    <div class="thumb-strip-item" data-label="D" style="background-image:url('../images/10_venue_talk.jpg');"></div>
+    <div class="thumb-strip-item" data-label="E" style="background-image:url('../images/11_laughing_group.jpg');"></div>
+    <div class="thumb-strip-item" data-label="F" style="background-image:url('../images/01_poolo_community.jpg');"></div>
+    <div class="thumb-strip-item" data-label="G" style="background-image:url('../images/12_poolo_keyvisual.jpg');"></div>
+  </div>
+</div>
+
+</body>
+</html>
