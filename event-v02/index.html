@@ -957,10 +957,12 @@ a:hover { opacity: 0.7; }
 }
 
 .footer-org img {
-  height: 38px;
   width: auto;
   display: block;
 }
+
+.footer-org img[src*="poolo_logo"] { height: 38px; }
+.footer-org img[src*="tabippo_logo"] { height: 60px; }
 
 .footer-org a {
   display: inline-flex;
@@ -1088,9 +1090,10 @@ a:hover { opacity: 0.7; }
   .closing-text { font-size: 14.5px; }
   .closing-q { font-size: 16px; }
 
-  .footer-org { gap: 24px; }
-  .footer-org img { height: 28px; }
-  .footer-org-divider { height: 24px; }
+  .footer-org { gap: 20px; }
+  .footer-org img[src*="poolo_logo"] { height: 26px; }
+  .footer-org img[src*="tabippo_logo"] { height: 42px; }
+  .footer-org-divider { height: 28px; }
 }
 </style>
 </head>
