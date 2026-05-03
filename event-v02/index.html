@@ -247,6 +247,65 @@ a:hover { opacity: 0.7; }
   padding: 80px 24px 0;
 }
 
+/* ===== Event summary (サムネ直後のイベント情報サマリー) ===== */
+.event-summary {
+  background: var(--bg-soft);
+  border-top: 1px solid var(--line-light);
+  border-bottom: 1px solid var(--line-light);
+  padding: 40px 24px;
+  margin: 32px auto 0;
+  max-width: 928px;
+}
+
+.event-summary-inner {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.event-summary-list {
+  display: grid;
+  gap: 0;
+}
+
+.event-summary-row {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  gap: 24px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--line-light);
+  align-items: baseline;
+}
+
+.event-summary-row:last-child { border-bottom: none; }
+
+.event-summary-row dt {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  color: var(--cta);
+  margin: 0;
+}
+
+.event-summary-row dd {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 14.5px;
+  line-height: 1.75;
+  color: var(--text);
+  letter-spacing: 0.04em;
+  margin: 0;
+  font-weight: 400;
+}
+
+.event-summary-row dd .small {
+  font-size: 12.5px;
+  color: var(--text-light);
+  display: block;
+  margin-top: 3px;
+  letter-spacing: 0.04em;
+  line-height: 1.6;
+}
+
 /* ===== Hero (composite banner — 16:9 / 記事幅で表示) ===== */
 .hero {
   display: grid;
@@ -944,6 +1003,11 @@ a:hover { opacity: 0.7; }
   .eyebrow { font-size: 12px; letter-spacing: 0.25em; margin-bottom: 22px; }
 
   .article-top { padding: 60px 14px 0; margin-top: 50px; }
+  .event-summary { padding: 28px 18px; margin-top: 18px; }
+  .event-summary-row { grid-template-columns: 80px 1fr; gap: 14px; padding: 10px 0; }
+  .event-summary-row dt { font-size: 11px; letter-spacing: 0.12em; }
+  .event-summary-row dd { font-size: 13px; }
+  .event-summary-row dd .small { font-size: 11.5px; }
   /* スマホでも横長16:9を維持（PCと同じレイアウト・サイズダウン） */
   .hero-vertical { display: none; }
   .hero-content-inner { padding: 14px 14px 10px; }
@@ -1060,6 +1124,39 @@ a:hover { opacity: 0.7; }
     </div>
   </section>
 </div>
+
+
+<!-- ===== EVENT SUMMARY（サムネ直後のイベント情報・01セクションの前） ===== -->
+<section class="event-summary">
+  <div class="event-summary-inner">
+    <dl class="event-summary-list">
+      <div class="event-summary-row">
+        <dt>日時</dt>
+        <dd>2026年X月XX日（土）15:00〜18:00<span class="small">受付開始 14:45</span></dd>
+      </div>
+      <div class="event-summary-row">
+        <dt>会場</dt>
+        <dd>co-ba 恵比寿<span class="small">東京都渋谷区恵比寿西1丁目</span></dd>
+      </div>
+      <div class="event-summary-row">
+        <dt>定員</dt>
+        <dd>15〜20名（先着順）</dd>
+      </div>
+      <div class="event-summary-row">
+        <dt>参加費</dt>
+        <dd>3,500円（一般・学生 同額）</dd>
+      </div>
+      <div class="event-summary-row">
+        <dt>アクセス</dt>
+        <dd>JR・東京メトロ恵比寿駅 徒歩約5分</dd>
+      </div>
+      <div class="event-summary-row">
+        <dt>主催</dt>
+        <dd>POOLO 運営チーム（株式会社TABIPPO ／ 株式会社CODOLI）</dd>
+      </div>
+    </dl>
+  </div>
+</section>
 
 
 <!-- ===== INTRO ===== -->
