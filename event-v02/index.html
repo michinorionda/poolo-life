@@ -252,7 +252,7 @@ a:hover { opacity: 0.7; }
   background: var(--bg);
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
-  padding: 22px 24px;
+  padding: 32px 28px;
   margin: 24px auto 0;
   max-width: 928px;
 }
@@ -265,16 +265,16 @@ a:hover { opacity: 0.7; }
 .event-summary-list {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  column-gap: 32px;
+  column-gap: 48px;
   row-gap: 0;
 }
 
 .event-summary-row {
   display: grid;
-  grid-template-columns: 64px 1fr;
-  gap: 12px;
-  padding: 8px 0;
-  align-items: baseline;
+  grid-template-columns: 72px 1fr;
+  gap: 16px;
+  padding: 14px 0;
+  align-items: center;
   border-top: 1px solid var(--line-light);
 }
 
@@ -287,17 +287,18 @@ a:hover { opacity: 0.7; }
   font-family: 'Shippori Mincho B1', serif;
   font-size: 11px;
   font-weight: 600;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.18em;
   color: var(--cta);
   margin: 0;
+  line-height: 1.5;
 }
 
 .event-summary-row dd {
   font-family: 'Shippori Mincho B1', serif;
-  font-size: 13.5px;
-  line-height: 1.65;
+  font-size: 14px;
+  line-height: 1.75;
   color: var(--text);
-  letter-spacing: 0.04em;
+  letter-spacing: 0.06em;
   margin: 0;
   font-weight: 400;
 }
@@ -1079,12 +1080,12 @@ a:hover { opacity: 0.7; }
   .eyebrow { font-size: 12px; letter-spacing: 0.25em; margin-bottom: 22px; }
 
   .article-top { padding: 60px 14px 0; margin-top: 50px; }
-  .event-summary { padding: 16px 18px; margin-top: 16px; }
+  .event-summary { padding: 22px 20px; margin-top: 16px; }
   .event-summary-list { grid-template-columns: 1fr; column-gap: 0; }
-  .event-summary-row { grid-template-columns: 60px 1fr; gap: 10px; padding: 8px 0; }
+  .event-summary-row { grid-template-columns: 64px 1fr; gap: 14px; padding: 11px 0; }
   .event-summary-row:nth-child(2) { border-top: 1px solid var(--line-light); }
-  .event-summary-row dt { font-size: 10.5px; letter-spacing: 0.12em; }
-  .event-summary-row dd { font-size: 12.5px; line-height: 1.6; }
+  .event-summary-row dt { font-size: 10.5px; letter-spacing: 0.14em; }
+  .event-summary-row dd { font-size: 13px; line-height: 1.7; letter-spacing: 0.05em; }
   .event-summary-row dd .small { font-size: 11px; display: block; margin-left: 0; margin-top: 2px; }
   /* スマホでも横長16:9を維持（PCと同じレイアウト・サイズダウン） */
   .hero-vertical { display: none; }
@@ -1214,11 +1215,11 @@ a:hover { opacity: 0.7; }
     <dl class="event-summary-list">
       <div class="event-summary-row">
         <dt>日時</dt>
-        <dd>2026年X月XX日（土）15:00〜18:00<span class="small">受付開始 14:45</span></dd>
+        <dd>2026年X月XX日（土）15:00〜18:00</dd>
       </div>
       <div class="event-summary-row">
         <dt>会場</dt>
-        <dd>co-ba 恵比寿<span class="small">東京都渋谷区恵比寿西1丁目</span></dd>
+        <dd>co-ba 恵比寿</dd>
       </div>
       <div class="event-summary-row">
         <dt>定員</dt>
