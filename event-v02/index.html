@@ -90,7 +90,27 @@ a:hover { opacity: 0.7; }
   letter-spacing: 0.12em;
   color: var(--text-soft);
   font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
 }
+
+.header-nav-link[target="_blank"]::after {
+  content: '';
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin-left: 1px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%237A7A7A' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M7 17 L17 7'/%3E%3Cpath d='M9 7 L17 7 L17 15'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  flex-shrink: 0;
+  opacity: 0.75;
+  transition: opacity 0.2s ease;
+}
+
+.header-nav-link:hover { color: var(--main); }
+.header-nav-link:hover::after { opacity: 1; }
 
 .header-cta {
   background: var(--cta);
