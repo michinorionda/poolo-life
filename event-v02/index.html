@@ -710,38 +710,77 @@ a:hover { opacity: 0.7; }
   color: var(--text-soft);
 }
 
-/* ===== Worksheet preview ===== */
-.worksheet-card {
-  display: grid;
-  grid-template-columns: 200px 1fr;
-  gap: 40px;
-  align-items: center;
-  margin-top: 16px;
-  padding: 8px 0;
+/* ===== Worksheet preview (横スライダー) ===== */
+.worksheet-slider {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  gap: 18px;
+  padding: 8px 4px 24px;
+  margin: 16px 0 0;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: var(--line) transparent;
 }
 
-.worksheet-thumb {
+.worksheet-slider::-webkit-scrollbar { height: 6px; }
+.worksheet-slider::-webkit-scrollbar-track { background: transparent; }
+.worksheet-slider::-webkit-scrollbar-thumb { background: var(--line); border-radius: 3px; }
+
+.worksheet-slide {
+  flex: 0 0 auto;
+  scroll-snap-align: start;
+  width: 280px;
+  background: #fff;
   border: 1px solid var(--line);
+  box-shadow: 0 2px 12px rgba(45,62,54,0.06);
+}
+
+.worksheet-slide img {
+  width: 100%;
+  height: auto;
   display: block;
   filter: brightness(1.02);
 }
 
-.worksheet-content h3 {
-  font-family: 'Shippori Mincho B1', serif;
-  font-size: 17px;
-  font-weight: 500;
-  letter-spacing: 0.06em;
-  color: var(--main);
-  margin-bottom: 14px;
+.worksheet-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 24px;
+  padding-top: 18px;
+  border-top: 1px solid var(--line-light);
 }
 
-.worksheet-content p {
-  font-size: 14.5px;
-  line-height: 1.95;
+.worksheet-meta-text {
+  font-size: 13px;
   letter-spacing: 0.04em;
   color: var(--text-soft);
-  margin-bottom: 22px;
+  line-height: 1.7;
 }
+
+.worksheet-meta-text small {
+  display: block;
+  font-size: 11.5px;
+  color: var(--text-light);
+  margin-top: 4px;
+}
+
+.worksheet-slider-hint {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  color: var(--text-light);
+  margin-top: 8px;
+  display: block;
+  text-align: right;
+}
+
+.worksheet-slider-hint::before { content: '← '; }
+.worksheet-slider-hint::after { content: ' →'; }
 
 /* ===== For whom ===== */
 .target-wrap { background: var(--bg-soft); }
@@ -1067,8 +1106,9 @@ a:hover { opacity: 0.7; }
   .rule-title { font-size: 15px; }
   .rule-note { font-size: 13px; }
 
-  .worksheet-card { grid-template-columns: 1fr; gap: 24px; }
-  .worksheet-thumb { max-width: 200px; }
+  .worksheet-slider { gap: 12px; padding: 4px 4px 20px; }
+  .worksheet-slide { width: 220px; }
+  .worksheet-meta { gap: 16px; }
 
   .target-item { font-size: 14px; padding: 18px 0 18px 22px; }
   .target-item::before { top: 30px; }
@@ -1364,16 +1404,18 @@ a:hover { opacity: 0.7; }
   <div class="section section-narrow">
     <h2 class="section-title" data-num="05">当日のワークシート、少しだけ見てみる。</h2>
     <p class="section-lead">当日お渡しするワークシートをご覧いただけます。問いの構造、3つの角度、対話のお作法。3時間でどんな時間を過ごすのかが、ページをめくると伝わります。</p>
-    <div class="worksheet-card">
-      <a href="worksheet.pdf" target="_blank" rel="noopener">
-        <img src="worksheet-thumb.png" alt="ワークシート 表紙プレビュー" class="worksheet-thumb">
-      </a>
-      <div class="worksheet-content">
-        <h3>POOLO 3つの問い ワークシート</h3>
-        <p>全7ページ／A4縦／表紙、対話のお作法、各問いのワーク、ふりかえり。</p>
-        <p>※デザインは第一回のものを参考掲載。第二回の問いに合わせて差し替えます。</p>
-        <a href="worksheet.pdf" target="_blank" rel="noopener" class="btn-link">PDFで見る</a>
+    <div class="worksheet-slider" tabindex="0" aria-label="ワークシート プレビュー">
+      <div class="worksheet-slide"><img src="images/worksheet_p1.jpg" alt="ワークシート 表紙"></div>
+      <div class="worksheet-slide"><img src="images/worksheet_p2.jpg" alt="ワークシート 自己紹介ページ"></div>
+      <div class="worksheet-slide"><img src="images/worksheet_p3.jpg" alt="ワークシート 終わりに"></div>
+    </div>
+    <span class="worksheet-slider-hint">slide</span>
+    <div class="worksheet-meta">
+      <div class="worksheet-meta-text">
+        全7ページ／A4縦
+        <small>※デザインは第一回のものを参考掲載。第二回の問いに合わせて差し替えます。</small>
       </div>
+      <a href="worksheet.pdf" target="_blank" rel="noopener" class="btn-link">PDF全体を見る</a>
     </div>
   </div>
 </section>
