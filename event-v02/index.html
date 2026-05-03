@@ -864,14 +864,32 @@ a:hover { opacity: 0.7; }
 }
 
 .footer-org {
-  margin-bottom: 22px;
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 36px;
+  flex-wrap: wrap;
 }
 
 .footer-org img {
   height: 38px;
   width: auto;
   display: block;
-  margin: 0 auto;
+}
+
+.footer-org a {
+  display: inline-flex;
+  align-items: center;
+  transition: opacity 0.2s ease;
+}
+
+.footer-org a:hover { opacity: 0.7; }
+
+.footer-org-divider {
+  width: 1px;
+  height: 32px;
+  background: rgba(45,62,54,0.18);
 }
 
 .footer-text {
@@ -969,7 +987,9 @@ a:hover { opacity: 0.7; }
   .closing-text { font-size: 14.5px; }
   .closing-q { font-size: 16px; }
 
-  .footer-org img { height: 32px; }
+  .footer-org { gap: 24px; }
+  .footer-org img { height: 28px; }
+  .footer-org-divider { height: 24px; }
 }
 </style>
 </head>
@@ -984,8 +1004,8 @@ a:hover { opacity: 0.7; }
 <header class="header">
   <a href="#top" class="header-logo"><img src="images/poolo_logo.png" alt="POOLO あたらしい旅の学校"></a>
   <div class="header-nav">
-    <a href="https://tabippo.net/" class="header-nav-link" target="_blank" rel="noopener">TABIPPO.net</a>
-    <a href="https://tabippo.net/poolo/" class="header-nav-link" target="_blank" rel="noopener">POOLO</a>
+    <a href="https://tabippo.net/" class="header-nav-link" target="_blank" rel="noopener">TABIPPO.netとは？</a>
+    <a href="https://tabippo.net/poolo/" class="header-nav-link" target="_blank" rel="noopener">POOLOとは？</a>
     <a href="#apply" class="header-cta">申し込む</a>
   </div>
 </header>
@@ -1398,7 +1418,11 @@ a:hover { opacity: 0.7; }
 
 <!-- ===== FOOTER ===== -->
 <footer class="footer">
-  <div class="footer-org"><img src="images/poolo_logo.png" alt="POOLO あたらしい旅の学校"></div>
+  <div class="footer-org">
+    <a href="https://tabippo.net/poolo/" target="_blank" rel="noopener"><img src="images/poolo_logo.png" alt="POOLO あたらしい旅の学校"></a>
+    <span class="footer-org-divider" aria-hidden="true"></span>
+    <a href="https://tabippo.net/" target="_blank" rel="noopener"><img src="images/tabippo_logo.png" alt="TABIPPO"></a>
+  </div>
   <div class="footer-text">
     旅と教育の学び場 ／ 株式会社TABIPPO ／ 株式会社CODOLI<br>
     POOLO 3つの問い vol.02「わたしと、仲間と、世界と。」
