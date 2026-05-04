@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>POOLO LIFE LP ワイヤーフレーム（SP版）v5｜テキストチェック用</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --brand:#1B99B7;
+    --brand-deep:#157A98;
+    --brand-pale:#B8E0EB;
+    --brand-mist:#EBF6FA;
+    --ink:#1a1a1a;
+    --ink-mid:#4a4a4a;
+    --ink-light:#8a8a8a;
+    --line:#e2e6ea;
+    --bg:#f5f7fa;
+    --card:#ffffff;
+    --warn:#c4582d;
+    --sans:'Noto Sans JP',-apple-system,'Hiragino Kaku Gothic ProN',sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:var(--sans);background:#1f2226;min-height:100vh;padding:40px 16px 80px;line-height:1.75;color:#fff}
+
+  /* Top meta */
+  .meta{max-width:880px;margin:0 auto 32px;color:#cfd5dc}
+  .meta h1{font-size:18px;letter-spacing:.06em;font-weight:700;margin-bottom:6px}
+  .meta p{font-size:12px;line-height:1.8;color:#9aa3ac}
+  .meta a{color:#7fcadc;text-decoration:underline}
+  .legend{display:flex;gap:14px;flex-wrap:wrap;margin-top:14px;font-size:11px;color:#9aa3ac}
+  .legend span{display:inline-flex;align-items:center;gap:6px}
+  .legend i{display:inline-block;width:10px;height:10px;border-radius:2px}
+
+  /* Phone frame */
+  .stage{display:flex;justify-content:center;gap:24px;flex-wrap:wrap}
+  .phone{width:390px;background:#0d0f12;border-radius:42px;padding:10px;box-shadow:0 20px 60px rgba(0,0,0,.5);position:relative}
+  .phone::before{content:"";position:absolute;top:18px;left:50%;transform:translateX(-50%);width:118px;height:26px;background:#0d0f12;border-radius:0 0 16px 16px;z-index:5}
+  .screen{width:100%;height:840px;overflow:auto;border-radius:32px;background:var(--bg);color:var(--ink);font-size:13.5px;letter-spacing:.01em}
+  .screen::-webkit-scrollbar{width:6px}
+  .screen::-webkit-scrollbar-thumb{background:#bdc3c7;border-radius:3px}
+
+  /* Section system */
+  .sect{background:var(--card);margin:0 0 14px;border:1px solid var(--line);border-radius:8px;overflow:hidden}
+  .sect:first-child{margin-top:0;border-radius:0 0 8px 8px;border-top:none}
+  .sect-head{display:flex;align-items:center;gap:8px;padding:8px 12px;background:var(--brand-mist);border-bottom:1px solid var(--line)}
+  .sect-no{font-size:10px;font-weight:700;color:var(--brand-deep);letter-spacing:.05em;background:#fff;border:1px solid var(--brand-pale);padding:2px 7px;border-radius:99px}
+  .sect-name{font-size:11px;font-weight:700;color:var(--brand-deep);letter-spacing:.08em}
+  .sect-body{padding:14px 14px 18px}
+
+  /* Element row */
+  .row{display:flex;gap:8px;align-items:flex-start;margin-bottom:10px}
+  .row:last-child{margin-bottom:0}
+  .no{flex-shrink:0;font-size:9.5px;font-weight:700;color:var(--brand-deep);background:var(--brand-mist);border:1px solid var(--brand-pale);padding:1px 5px 1px;border-radius:3px;margin-top:2px;min-width:22px;text-align:center;font-family:'SF Mono','Menlo',monospace}
+  .no.warn{color:#fff;background:var(--warn);border-color:var(--warn)}
+  .txt{flex:1;min-width:0}
+
+  /* Typography roles */
+  .h1{font-size:22px;font-weight:900;line-height:1.45;color:var(--ink);letter-spacing:.01em}
+  .h2{font-size:18px;font-weight:700;color:var(--ink);line-height:1.5}
+  .h3{font-size:14px;font-weight:700;color:var(--ink)}
+  .label{font-size:10px;font-weight:700;color:var(--brand);letter-spacing:.18em}
+  .p{font-size:13px;line-height:1.85;color:var(--ink-mid)}
+  .p-sm{font-size:12px;line-height:1.8;color:var(--ink-mid)}
+  .quote{font-size:15px;font-weight:700;color:var(--brand-deep);line-height:1.6;padding:10px 12px;background:var(--brand-mist);border-left:3px solid var(--brand);border-radius:0 4px 4px 0}
+  .meta-small{font-size:11px;color:var(--ink-light)}
+
+  /* List items */
+  .li{display:flex;gap:6px;align-items:flex-start;padding:4px 0;font-size:12.5px;color:var(--ink-mid);line-height:1.7}
+  .li::before{content:"";flex-shrink:0;width:5px;height:5px;border-radius:99px;background:var(--brand);margin-top:8px}
+
+  /* Image placeholders */
+  .img{background:repeating-linear-gradient(45deg,#eef2f5,#eef2f5 6px,#e3e8ed 6px,#e3e8ed 12px);border:1px dashed #b9c1c8;border-radius:4px;display:flex;align-items:center;justify-content:center;color:#7a8590;font-size:11px;letter-spacing:.05em;text-align:center;padding:12px}
+  .img.kv{height:200px}
+  .img.thumb{height:88px;font-size:10px}
+  .img.guest{height:120px}
+  .img.media{height:60px}
+
+  /* CTA */
+  .cta{display:block;text-align:center;padding:14px 16px;background:var(--brand);color:#fff;font-weight:700;border-radius:6px;font-size:13.5px;margin:6px 0;letter-spacing:.04em;box-shadow:0 4px 10px rgba(27,153,183,.25)}
+  .cta.secondary{background:#fff;color:var(--brand-deep);border:2px solid var(--brand)}
+
+  /* Voice card */
+  .voice{background:var(--brand-mist);border:1px solid var(--brand-pale);border-radius:6px;padding:12px;margin-top:10px}
+  .voice .ba{display:flex;gap:8px;margin-top:8px;font-size:12px;align-items:flex-start}
+  .voice .ba-tag{flex-shrink:0;font-size:9px;font-weight:700;color:var(--brand-deep);background:#fff;border:1px solid var(--brand-pale);padding:2px 6px;border-radius:99px;letter-spacing:.1em}
+
+  /* Schedule */
+  .sch-row{display:grid;grid-template-columns:50px 1fr;gap:10px;padding:9px 0;border-bottom:1px solid var(--line);font-size:12px}
+  .sch-row:last-child{border:none}
+  .sch-date{font-weight:700;color:var(--brand-deep);font-size:11.5px}
+  .sch-title{color:var(--ink-mid);line-height:1.6}
+
+  /* FAQ */
+  .faq-q{display:flex;gap:8px;align-items:flex-start;font-weight:700;font-size:13px;color:var(--ink);padding:10px 0 6px;border-top:1px solid var(--line)}
+  .faq-q::before{content:"Q.";color:var(--brand);font-weight:900;flex-shrink:0}
+  .faq-a{display:flex;gap:8px;align-items:flex-start;font-size:12px;color:var(--ink-mid);line-height:1.85;padding:0 0 12px}
+  .faq-a::before{content:"A.";color:var(--ink-light);font-weight:900;flex-shrink:0}
+  .faq-cat{display:inline-block;font-size:11px;font-weight:700;color:var(--brand-deep);background:var(--brand-mist);padding:4px 10px;border-radius:99px;margin:14px 0 4px;letter-spacing:.06em}
+
+  /* Other course card */
+  .course{background:#fff;border:1px solid var(--line);border-radius:6px;padding:12px;margin-bottom:10px}
+  .course .ttl{font-size:13.5px;font-weight:700;color:var(--ink);margin-bottom:6px;line-height:1.5}
+  .course .dsc{font-size:12px;color:var(--ink-mid);line-height:1.7;margin-bottom:8px}
+
+  /* Footer */
+  .ftr{background:#1B2A33;color:#cfd6dc;padding:24px 16px;text-align:center;font-size:11.5px;line-height:1.9}
+  .ftr .lg{font-size:18px;font-weight:900;letter-spacing:.2em;color:#fff;margin-bottom:6px}
+  .ftr .nv{margin:14px 0;font-size:11px;color:#9aa3ac}
+  .ftr .cp{margin-top:14px;font-size:10px;color:#7a838c;letter-spacing:.05em}
+
+  /* Banner */
+  .ban{background:var(--brand-deep);color:#fff;padding:8px 12px;text-align:center;font-size:11.5px;font-weight:700;letter-spacing:.04em}
+
+  /* Header */
+  .hdr{display:flex;justify-content:space-between;align-items:center;padding:12px 14px;background:#fff;border-bottom:1px solid var(--line)}
+  .hdr .lg{font-size:14px;font-weight:900;color:var(--brand);letter-spacing:.18em}
+  .hdr .mn{width:22px;height:14px;background:linear-gradient(to bottom,var(--ink) 0,var(--ink) 2px,transparent 2px,transparent 6px,var(--ink) 6px,var(--ink) 8px,transparent 8px,transparent 12px,var(--ink) 12px,var(--ink) 14px)}
+
+  /* Note for unverified text */
+  .pending{color:var(--warn);font-style:italic;font-size:11.5px;background:#fef4ee;padding:6px 8px;border-radius:3px;border:1px dashed var(--warn)}
+
+  @media (max-width:520px){
+    body{padding:24px 8px 60px}
+    .phone{width:100%;max-width:390px}
+  }
+</style>
+</head>
+<body>
+
+<div class="meta">
+  <h1>POOLO LIFE LP ワイヤーフレーム（SP版）v5</h1>
+  <p>
+    現行 <a href="https://tabippo.net/poolo/course/life/" target="_blank">tabippo.net/poolo/course/life/</a> を踏襲したスマホ版ワイヤーです。<br>
+    各テキストブロック頭の番号は <a href="https://docs.google.com/spreadsheets/d/1argRmUTuLxrwZqNWDjQ3fqc4eD7lfd90CuuHSmTXNMo" target="_blank">改訂台帳のNo.</a> と一致しています。気になる箇所はその No. の行に修正案を書き込んでください。
+  </p>
+  <div class="legend">
+    <span><i style="background:#EBF6FA;border:1px solid #B8E0EB"></i>セクションヘッダ</span>
+    <span><i style="background:#EBF6FA;border:1px solid #B8E0EB"></i>台帳No.（青）</span>
+    <span><i style="background:#c4582d"></i>原文未転記＝要追記</span>
+    <span><i style="background:#1B99B7"></i>CTA</span>
+  </div>
+</div>
+
+<div class="stage">
+
+<!-- ============================== PHONE ============================== -->
+<div class="phone"><div class="screen">
+
+  <!-- HEADER -->
+  <div class="hdr">
+    <div class="lg">POOLO</div>
+    <div class="mn"></div>
+  </div>
+
+  <!-- BANNER -->
+  <div class="ban">
+    <span class="no" style="background:#fff;color:var(--brand-deep);border:none;margin-right:6px;">3</span>
+    11期生募集中！公式LINEで最新情報をお届け！
+  </div>
+
+  <!-- FV -->
+  <div class="sect">
+    <div class="sect-head"><span class="sect-no">No.1–4</span><span class="sect-name">FIRST VIEW</span></div>
+    <div class="sect-body">
+      <div class="img kv">［メインビジュアル／旅と仲間の写真］</div>
+      <div class="row" style="margin-top:14px"><span class="no">4</span><div class="txt"><div class="h1">あなたの好奇心と、<br>今を揺さぶる勇気を問う。</div></div></div>
+      <div class="row"><span class="no">2</span><div class="txt"><div class="meta-small">旅で世界を、もっと素敵に。</div></div></div>
+    </div>
+  </div>
+
+  <!-- SHARED QUESTION -->
+  <div class="sect">
+    <div class="sect-head"><span class="sect-no">No.5–9</span><span class="sect-name">SHARED QUESTION</span></div>
+    <div class="sect-body">
+      <div class="row"><span class="no">5</span><div class="txt"><div class="label">SHARED QUESTION</div></div></div>
+      <div class="row"><span class="no">6</span><div class="txt"><div class="p">「いま、何かを変えたい」と思う人。「まあ、このままでいいか」と思う人。どちらにも共通するのは、どこか満たされない気持ち。</div></div></div>
+      <div class="row"><span class="no">7</span><div class="txt"><div class="p">家と職場を往復する日常。なんとなく過ぎていく毎日に大きな不満はないけれど、どこか物足りない。</div></div></div>
+      <div class="row"><span class="no">8</span><div class="txt"><div class="p">そんな「今」を、「旅」と「仲間」は揺さぶってくれる。旅は、当たり前を超えるきっかけになり、1人ではたどり着けない場所も、仲間となら行ける。</div></div></div>
+      <div class="row"><span class="no">9</span><div class="txt"><div class="quote">「あなたは、ここで出会う仲間とどこまで遠くへ行きますか？」</div></div></div>
+    </div>
+  </div>
+
+  <!-- WHAT'S POOLO -->
+  <div class="sect">
+    <div class="sect-head"><span class="sect-no">No.10–18</span><span class="sect-name">WHAT'S POOLO</span></div>
+    <div class="sect-body">
+      <div class="row"><span class="no">10</span><div class="txt"><div class="label">WHAT'S POOLO</div></div></div>
+      <div class="row"><span class="no">11</span><div class="txt"><div class="h2">旅と人生をつなぐ、<br>大人の学校</div></div></div>
+      <div class="row"><span class="no">12</span><div class="txt"><div class="p">POOLOは「旅をテーマに学ぶオンラインスクール」です。2019年に開校、世界中を旅する20-30代が全国から集まり、現在1,000名以上が参加するコミュニティとなっています。</div></div></div>
+      <div class="img thumb" style="margin:10px 0">［POOLOコミュニティ写真］</div>
+      <div class="li"><span class="no" style="margin-top:4px">13</span><span>旅と教育をテーマにした新しい形の学校</span></div>
+      <div class="li"><span class="no" style="margin-top:4px">14</span><span>参加者は、旅が好きな20代・30代が中心</span></div>
+      <div class="li"><span class="no" style="margin-top:4px">15</span><span>オンライン開催のため全国・海外から参加可能</span></div>
+      <div class="li"><span class="no" style="margin-top:4px">16</span><span>全4コース、好きな専門コースを選べる</span></div>
+      <div class="li"><span class="no" style="margin-top:4px">17</span><span>仲間と共創するコミュニティで、学びと探求が加速</span></div>
+      <div class="li"><span class="no" style="margin-top:4px">18</span><span>主体的に活動するアクティブラーニング</span></div>
+    </div>
+  </div>
+
+  <!-- ABOUT LIFE COURSE -->
+  <div class="sect">
+    <div class="sect-head"><span class="sect-no">No.19–34</span><span class="sect-name">ABOUT LIFE COURSE</span></div>
+    <div class="sect-body">
+      <div class="row"><span class="no">19</span><div class="txt"><div class="label">ABOUT LIFE COURSE</div></div></div>
+      <div class="row"><span class="no">20</span><div class="txt"><div class="h2">旅と仲間を通して、<br>人生と社会を自由探究する</div></div></div>
+      <div class="row"><span class="no">21</span><div class="txt"><div class="p">POOLO LIFEは、旅をテーマにした多様な講義やワーク、毎期50-70名集まる旅好き仲間との対話を通して自分を揺さぶり、人生と社会を自由探求する8ヶ月のコースです。自分の人生で大事にする価値観を言語化し、社会を揺さぶる企画を具体的に形にしていきます。</div></div></div>
+
+      <div class="h3" style="margin:18px 0 8px">こんな人におすすめ</div>
+      <div class="li"><span class="no" style="margin-top:4px">22</span><span>旅が好きで、これからも旅を楽しみたい人</span></div>
+      <div class="li"><span class="no" style="margin-top:4px">23</span><span>旅好きな仲間を増やしたいと考えている人</span></div>
+      <div class="li"><span class="no" style="margin-top:4px">24</span><span>仲間と一緒に旅を語り、深掘りをしたい人</span></div>
+      <div class="li"><span class="no" style="margin-top:4px">25</span><span>平凡な日常から抜け出し、新たな視野を広げたい人</span></div>
+      <div class="li"><span class="no" style="margin-top:4px">26</span><span>生き方や働き方を考え、人生の指針を定めたい人</span></div>
+      <div class="li"><span class="no" style="margin-top:4px">27</span><span>一緒に新しいチャレンジができる仲間がほしい人</span></div>
+      <div class="li"><span class="no" style="margin-top:4px">28</span><span>自分らしい価値観を確かめ、主体的に進みたい人</span></div>
+
+      <div class="h3" style="margin:18px 0 8px">このコースで得られるもの</div>
+      <div class="li"><span class="no" style="margin-top:4px">29</span><span>旅の視点を通して人生の学びと探求に繋げる力</span></div>
+      <div class="li"><span class="no" style="margin-top:4px">30</span><span>大人になっても本音で語れる一生の仲間とコミュニティ</span></div>
+      <div class="li"><span class="no" style="margin-top:4px">31</span><span>旅の原体験や人生を紐解き、強みと好きを自己理解する力</span></div>
+      <div class="li"><span class="no" style="margin-top:4px">32</span><span>より豊かな旅を実践する力</span></div>
+      <div class="li"><span class="no" style="margin-top:4px">33</span><span>自分を揺さぶり、自分らしく生きる自己ビジョン</span></div>
+      <div class="li"><span class="no" style="margin-top:4px">34</span><span>自分軸で判断できる自己決定力と、挑戦へ一歩踏み出す勇気</span></div>
+    </div>
+  </div>
+
+  <!-- 学べること -->
+  <div class="sect">
+    <div class="sect-head"><span class="sect-no">No.35–67</span><span class="sect-name">ライフデザインコースで学べること</span></div>
+    <div class="sect-body">
+      <div class="row"><span class="no">35</span><div class="txt"><div class="h2">ライフデザインコースで学べること</div></div></div>
+      <div class="p-sm" style="color:var(--ink-light);font-size:11px;margin-bottom:8px">※下記16テーマ。各テーマは「見出し（奇数No.）」＋「説明（偶数No.）」の2行構成。</div>
+
+      <div class="row" style="margin-top:10px"><span class="no">36</span><div class="txt"><div class="h3">ライフデザイン</div></div></div>
+      <div class="row"><span class="no">37</span><div class="txt"><div class="p-sm">自己理解を深めながら旅の経験を深掘り、ライフデザインの指針を定める</div></div></div>
+
+      <div class="row"><span class="no">38</span><div class="txt"><div class="h3">自己ビジョン</div></div></div>
+      <div class="row"><span class="no">39</span><div class="txt"><div class="p-sm">自分の理想に向かうために自己ビジョンを設定する</div></div></div>
+
+      <div class="row"><span class="no">40</span><div class="txt"><div class="h3">キャリアデザイン</div></div></div>
+      <div class="row"><span class="no">41</span><div class="txt"><div class="p-sm">仕事や働き方について考えて、キャリアとしての方向性を具体化する</div></div></div>
+
+      <div class="row"><span class="no">42</span><div class="txt"><div class="h3">ウェルビーイング</div></div></div>
+      <div class="row"><span class="no">43</span><div class="txt"><div class="p-sm">自分自身の豊かさと向き合い、幸せな状態を言語化する</div></div></div>
+
+      <div class="row"><span class="no">44</span><div class="txt"><div class="h3">暮らし・日常</div></div></div>
+      <div class="row"><span class="no">45</span><div class="txt"><div class="p-sm">日常としての生活やライフスタイルのあり方を考える</div></div></div>
+
+      <div class="row"><span class="no">46</span><div class="txt"><div class="h3">メタ認知</div></div></div>
+      <div class="row"><span class="no">47</span><div class="txt"><div class="p-sm">自己理解を深めるために、メタ認知する力を磨く</div></div></div>
+
+      <div class="row"><span class="no">48</span><div class="txt"><div class="h3">自律・自由</div></div></div>
+      <div class="row"><span class="no">49</span><div class="txt"><div class="p-sm">人生を通して自律して学び、探求する力を身につける</div></div></div>
+
+      <div class="row"><span class="no">50</span><div class="txt"><div class="h3">サステナビリティ</div></div></div>
+      <div class="row"><span class="no">51</span><div class="txt"><div class="p-sm">経済・社会・環境な視点から持続可能なバランスを考える</div></div></div>
+
+      <div class="row"><span class="no">52</span><div class="txt"><div class="h3">強み・スキル</div></div></div>
+      <div class="row"><span class="no">53</span><div class="txt"><div class="p-sm">得意なことや、熱をもてる好きなことを発見して強みを伸ばす</div></div></div>
+
+      <div class="row"><span class="no">54</span><div class="txt"><div class="h3">コミュニティデザイン</div></div></div>
+      <div class="row"><span class="no">55</span><div class="txt"><div class="p-sm">心理的安全性の高い自律したコミュニティのあり方を実践する</div></div></div>
+
+      <div class="row"><span class="no">56</span><div class="txt"><div class="h3">旅の価値</div></div></div>
+      <div class="row"><span class="no">57</span><div class="txt"><div class="p-sm">旅を様々な側面から探求して、旅が持つ価値を深堀りする</div></div></div>
+
+      <div class="row"><span class="no">58</span><div class="txt"><div class="h3">あたらしい旅</div></div></div>
+      <div class="row"><span class="no">59</span><div class="txt"><div class="p-sm">時代が変化する中で生まれたあたらしい旅のあり方を学ぶ</div></div></div>
+
+      <div class="row"><span class="no">60</span><div class="txt"><div class="h3">マインドセット</div></div></div>
+      <div class="row"><span class="no">61</span><div class="txt"><div class="p-sm">人生の土台となる思考法や価値観をマインドとしてセットする</div></div></div>
+
+      <div class="row"><span class="no">62</span><div class="txt"><div class="h3">多様性</div></div></div>
+      <div class="row"><span class="no">63</span><div class="txt"><div class="p-sm">多様な価値観や生き方を受け入れて、当たり前をリセットする</div></div></div>
+
+      <div class="row"><span class="no">64</span><div class="txt"><div class="h3">共創力</div></div></div>
+      <div class="row"><span class="no">65</span><div class="txt"><div class="p-sm">自分の強みを生かした仲間との共創を、チームで実践する</div></div></div>
+
+      <div class="row"><span class="no">66</span><div class="txt"><div class="h3">対話力</div></div></div>
+      <div class="row"><span class="no">67</span><div class="txt"><div class="p-sm">自分だけではなく、他者を理解するための対話力を身につける</div></div></div>
+    </div>
+  </div>
+
+  <!-- VOICE -->
+  <div class="sect">
+    <div class="sect-head"><span class="sect-no">No.68–85</span><span class="sect-name">VOICE</span></div>
+    <div class="sect-body">
+      <div class="row"><span class="no">68</span><div class="txt"><div class="label">VOICE</div></div></div>
+      <div class="row"><span class="no">69</span><div class="txt"><div class="h2">理想のライフデザインをみつけた<br>POOLO LIFE参加者たちの声をご紹介</div></div></div>
+
+      <div class="voice">
+        <div class="img thumb">［参加者写真1］</div>
+        <div class="row" style="margin-top:8px"><span class="no">70</span><div class="txt"><div class="meta-small">りょーちん（東京都／28歳）</div></div></div>
+        <div class="row"><span class="no">71</span><div class="txt"><div class="h3">海がある町への移住という夢が実現！自分のやりたいを後押ししてくれる大切な仲間と出会えた。</div></div></div>
+        <div class="ba"><span class="ba-tag">BEFORE</span><span class="no">72</span><span>自分の夢の実現に向けて何から始めたらいいか分からず、何を基準に選択して、行動すれば曖昧でした。</span></div>
+        <div class="ba"><span class="ba-tag">AFTER</span><span class="no warn">73</span><span class="pending">原文未転記。本ページから AFTER 全文を転記要</span></div>
+      </div>
+
+      <div class="voice">
+        <div class="img thumb">［参加者写真2］</div>
+        <div class="row" style="margin-top:8px"><span class="no">74</span><div class="txt"><div class="meta-small">まいこ（神奈川県／28歳）</div></div></div>
+        <div class="row"><span class="no">75</span><div class="txt"><div class="h3">卒業後にやりたい夢が見つかって、起業を決意。人生の可能性を広げてくれる最大の自己投資でした！</div></div></div>
+        <div class="ba"><span class="ba-tag">BEFORE</span><span class="no">76</span><span>社会人3年目、人生迷子になっていました。</span></div>
+        <div class="ba"><span class="ba-tag">AFTER</span><span class="no warn">77</span><span class="pending">原文未転記。本ページから AFTER 全文を転記要</span></div>
+      </div>
+
+      <div class="voice">
+        <div class="img thumb">［参加者写真3］</div>
+        <div class="row" style="margin-top:8px"><span class="no">78</span><div class="txt"><div class="meta-small">ごりぷ（長崎県／30歳）</div></div></div>
+        <div class="row"><span class="no">79</span><div class="txt"><div class="h3">熱気のあるコミュニティの中で、やりたいことが明確に。夫婦で世界一周の旅に出ることを決意！</div></div></div>
+        <div class="ba"><span class="ba-tag">BEFORE</span><span class="no">80</span><span>結婚生活や日々の暮らしには満足していたけど、自分の実現したいビジョンやライフスタイルに対する解像度が低かった。</span></div>
+        <div class="ba"><span class="ba-tag">AFTER</span><span class="no warn">81</span><span class="pending">原文未転記。本ページから AFTER 全文を転記要</span></div>
+      </div>
+
+      <div class="voice">
+        <div class="img thumb">［参加者写真4］</div>
+        <div class="row" style="margin-top:8px"><span class="no">82</span><div class="txt"><div class="meta-small">ゆま（宮城県／25歳）</div></div></div>
+        <div class="row"><span class="no">83</span><div class="txt"><div class="h3">フリーランスとして独立して、キャリアチェンジを実現！青春を共に駆け抜けた同級生のような存在が出来た。</div></div></div>
+        <div class="ba"><span class="ba-tag">BEFORE</span><span class="no">84</span><span>公務員として働きながら、今後のキャリアに悩みが。</span></div>
+        <div class="ba"><span class="ba-tag">AFTER</span><span class="no warn">85</span><span class="pending">原文未転記。本ページから AFTER 全文を転記要</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MEDIA -->
+  <div class="sect">
+    <div class="sect-head"><span class="sect-no">No.86–87</span><span class="sect-name">MEDIA</span></div>
+    <div class="sect-body">
+      <div class="row"><span class="no">86</span><div class="txt"><div class="label">MEDIA</div></div></div>
+      <div class="row"><span class="no">87</span><div class="txt"><div class="p">雑誌やテレビなど多くのメディアでTABIPPOやPOOLOが紹介されました</div></div></div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:8px">
+        <div class="img media">media1</div><div class="img media">media2</div><div class="img media">media3</div>
+        <div class="img media">media4</div><div class="img media">media5</div><div class="img media">media6</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA1 -->
+  <div class="sect">
+    <div class="sect-head"><span class="sect-no">No.88–93</span><span class="sect-name">CTA1（無料相談）</span></div>
+    <div class="sect-body">
+      <div class="row"><span class="no">88</span><div class="txt"><div class="h2">まずはお気軽に無料相談へ</div></div></div>
+      <div class="li"><span class="no" style="margin-top:4px">89</span><span>明確な受講目的が定まっていない</span></div>
+      <div class="li"><span class="no" style="margin-top:4px">90</span><span>漠然と将来について不安</span></div>
+      <div class="li"><span class="no" style="margin-top:4px">91</span><span>変わりたいけど、何からすればいいかわからない</span></div>
+      <div class="row" style="margin-top:10px"><span class="no">92</span><div class="txt"><div class="p-sm">POOLOの詳しい内容についてや、過去の受講生の事例などをご説明させていただき、そもそもPOOLOに合っているか、受講すべきかについて、お気軽に相談しながらお話いたします。</div></div></div>
+      <div class="row"><span class="no">93</span><div class="txt" style="width:100%"><a class="cta">11期生募集中！ LINEに登録して無料相談をする</a></div></div>
+    </div>
+  </div>
+
+  <!-- FEATURE -->
+  <div class="sect">
+    <div class="sect-head"><span class="sect-no">No.94–103</span><span class="sect-name">FEATURE</span></div>
+    <div class="sect-body">
+      <div class="row"><span class="no">94</span><div class="txt"><div class="label">FEATURE</div></div></div>
+      <div class="row"><span class="no">95</span><div class="txt"><div class="h2">POOLO LIFEコースならではの<br>4つの魅力をご紹介</div></div></div>
+
+      <div style="margin-top:14px;padding-top:14px;border-top:1px solid var(--line)">
+        <div class="row"><span class="no">96</span><div class="txt"><div class="h3">豪華な講師陣による講義と、余白が多いプログラムで活動する8ヶ月間のプロジェクト</div></div></div>
+        <div class="row"><span class="no">97</span><div class="txt"><div class="p-sm">旅の経験が豊富であり、様々な分野でトップランナーとして活躍する総勢10名の豪華な講師陣による講義に加え、ワークや課題などの、運営が用意した必修プロジェクトがあります。加えて、参加者が主体的に企画する自主プロジェクトが、毎期多く誕生します。あえて余白が多いプログラムになっているため、どう活用するかは参加者のみなさん次第です。</div></div></div>
+      </div>
+
+      <div style="margin-top:14px;padding-top:14px;border-top:1px solid var(--line)">
+        <div class="row"><span class="no">98</span><div class="txt"><div class="h3">旅をテーマに学ぶオリジナルカリキュラムで、旅と人生を自由探求</div></div></div>
+        <div class="row"><span class="no">99</span><div class="txt"><div class="p-sm">プログラムで活用するのは、旅の会社TABIPPOと観光と教育の専門会社CODOLIの想いとノウハウで作り込んだ、特別カリキュラムです。ライフデザイン・マインド・強みを軸として、誰でも学ぶことができる学習モデルとなっています。旅と人生を、自由に探求していきましょう。</div></div></div>
+      </div>
+
+      <div style="margin-top:14px;padding-top:14px;border-top:1px solid var(--line)">
+        <div class="row"><span class="no">100</span><div class="txt"><div class="h3">主体的に動くプロジェクトによる、一生モノの仲間とコミュニティ</div></div></div>
+        <div class="row"><span class="no">101</span><div class="txt"><div class="p-sm">主体性をベースとした活動を共にすることで、大人になってからも本音で語ることができる「一生付き合いたい仲間」ができます。旅が好きという共通点はあれど、参加者はユニークな個性を持った人ばかり。お互いを否定せず、尊重し、それぞれのチャレンジを後押しできる仲間とは、卒業後も定期的に集まり、居心地の良いコミュニティを形成できるでしょう。</div></div></div>
+      </div>
+
+      <div style="margin-top:14px;padding-top:14px;border-top:1px solid var(--line)">
+        <div class="row"><span class="no">102</span><div class="txt"><div class="h3">フラットでオープンなコミュニケーションを行い、一人ひとりと向き合う満足度の高いサポート体制</div></div></div>
+        <div class="row"><span class="no">103</span><div class="txt"><div class="p-sm">満足度の高いコミュニティを実現するために、サポート体制を厚くしています。運営メンバーとして、養成講座で学んだコミュニティマネージャーが参加者3-5名を担当し、みなさんの活動を並走サポートします。毎回の講義ごとにアンケートを取り、参加者の声を元に運営体制を改善する取り組みも実施。フラットでオープンなコミュニケーションを心掛け、一人ひとりと向き合う満足度の高いサポート体制となっています。</div></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA2 (繰返) -->
+  <div class="sect">
+    <div class="sect-head"><span class="sect-no">No.104</span><span class="sect-name">CTA2（無料相談・繰返）</span></div>
+    <div class="sect-body">
+      <div class="row"><span class="no">104</span><div class="txt" style="width:100%"><div class="p-sm" style="margin-bottom:8px;color:var(--ink-light)">※CTA1と同一構造／2回目の出現</div><a class="cta">11期生募集中！ LINEに登録して無料相談をする</a></div></div>
+    </div>
+  </div>
+
+  <!-- GUEST -->
+  <div class="sect">
+    <div class="sect-head"><span class="sect-no">No.105–137</span><span class="sect-name">GUEST</span></div>
+    <div class="sect-body">
+      <div class="row"><span class="no">105</span><div class="txt"><div class="label">GUEST</div></div></div>
+      <div class="p-sm" style="color:var(--ink-light);font-size:11px;margin:4px 0 12px">※16名分。No.偶数=肩書き／No.奇数（106以降）=紹介文。下記は構造のみ表示、紹介文の長文は台帳から要転記。</div>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+        <div><div class="img guest">東出昌大</div><div class="row" style="margin-top:6px"><span class="no">106</span><div class="txt"><div class="p-sm" style="font-weight:700;font-size:11.5px;line-height:1.5">東出昌大<br><span style="color:var(--ink-light);font-weight:400">LIFE11期 俳優</span></div></div></div></div>
+        <div><div class="img guest">木本梨絵</div><div class="row" style="margin-top:6px"><span class="no">108</span><div class="txt"><div class="p-sm" style="font-weight:700;font-size:11.5px;line-height:1.5">木本梨絵<br><span style="color:var(--ink-light);font-weight:400">LIFE11期 クリエイティブディレクター</span></div></div></div></div>
+        <div><div class="img guest">佐野貴</div><div class="row" style="margin-top:6px"><span class="no">110</span><div class="txt"><div class="p-sm" style="font-weight:700;font-size:11.5px;line-height:1.5">佐野貴<br><span style="color:var(--ink-light);font-weight:400">LIFE11期 株式会社TALENT 代表</span></div></div></div></div>
+        <div><div class="img guest">石山アンジュ</div><div class="row" style="margin-top:6px"><span class="no">112</span><div class="txt"><div class="p-sm" style="font-weight:700;font-size:11.5px;line-height:1.5">石山アンジュ<br><span style="color:var(--ink-light);font-weight:400">LIFE11期 シェアリングエコノミー協会代表理事</span></div></div></div></div>
+        <div><div class="img guest">最所あさみ</div><div class="row" style="margin-top:6px"><span class="no">114</span><div class="txt"><div class="p-sm" style="font-weight:700;font-size:11.5px;line-height:1.5">最所あさみ<br><span style="color:var(--ink-light);font-weight:400">LIFE11期 リテールフューチャリスト</span></div></div></div></div>
+        <div><div class="img guest">永井玲衣</div><div class="row" style="margin-top:6px"><span class="no">116</span><div class="txt"><div class="p-sm" style="font-weight:700;font-size:11.5px;line-height:1.5">永井玲衣<br><span style="color:var(--ink-light);font-weight:400">LIFE11期 作家</span></div></div></div></div>
+        <div><div class="img guest">安斎勇樹</div><div class="row" style="margin-top:6px"><span class="no">118</span><div class="txt"><div class="p-sm" style="font-weight:700;font-size:11.5px;line-height:1.5">安斎勇樹<br><span style="color:var(--ink-light);font-weight:400">LIFE11期 MIMIGURI Co-CEO</span></div></div></div></div>
+        <div><div class="img guest">髙井典子</div><div class="row" style="margin-top:6px"><span class="no">120</span><div class="txt"><div class="p-sm" style="font-weight:700;font-size:11.5px;line-height:1.5">髙井典子<br><span style="color:var(--ink-light);font-weight:400">LIFE11期 神奈川大学教授</span></div></div></div></div>
+        <div><div class="img guest">清水直哉</div><div class="row" style="margin-top:6px"><span class="no">122</span><div class="txt"><div class="p-sm" style="font-weight:700;font-size:11.5px;line-height:1.5">清水直哉<br><span style="color:var(--ink-light);font-weight:400">LIFE11期 TABIPPO代表</span></div></div></div></div>
+        <div><div class="img guest">三宅香帆</div><div class="row" style="margin-top:6px"><span class="no">124</span><div class="txt"><div class="p-sm" style="font-weight:700;font-size:11.5px;line-height:1.5">三宅香帆<br><span style="color:var(--ink-light);font-weight:400">LIFE 過去 文芸評論家</span></div></div></div></div>
+        <div><div class="img guest">四角大輔</div><div class="row" style="margin-top:6px"><span class="no">126</span><div class="txt"><div class="p-sm" style="font-weight:700;font-size:11.5px;line-height:1.5">四角大輔<br><span style="color:var(--ink-light);font-weight:400">LIFE 過去 作家／森の生活者</span></div></div></div></div>
+        <div><div class="img guest">乙武洋匡</div><div class="row" style="margin-top:6px"><span class="no">128</span><div class="txt"><div class="p-sm" style="font-weight:700;font-size:11.5px;line-height:1.5">乙武洋匡<br><span style="color:var(--ink-light);font-weight:400">LIFE 過去 作家</span></div></div></div></div>
+        <div><div class="img guest">遠山正道</div><div class="row" style="margin-top:6px"><span class="no">130</span><div class="txt"><div class="p-sm" style="font-weight:700;font-size:11.5px;line-height:1.5">遠山正道<br><span style="color:var(--ink-light);font-weight:400">LIFE 過去 スマイルズ代表</span></div></div></div></div>
+        <div><div class="img guest">山口周</div><div class="row" style="margin-top:6px"><span class="no">132</span><div class="txt"><div class="p-sm" style="font-weight:700;font-size:11.5px;line-height:1.5">山口周<br><span style="color:var(--ink-light);font-weight:400">LIFE 過去 独立研究者・著作家</span></div></div></div></div>
+        <div><div class="img guest">八木仁平</div><div class="row" style="margin-top:6px"><span class="no">134</span><div class="txt"><div class="p-sm" style="font-weight:700;font-size:11.5px;line-height:1.5">八木仁平<br><span style="color:var(--ink-light);font-weight:400">LIFE 過去 自己理解メソッド開発者</span></div></div></div></div>
+        <div><div class="img guest">前野隆司</div><div class="row" style="margin-top:6px"><span class="no">136</span><div class="txt"><div class="p-sm" style="font-weight:700;font-size:11.5px;line-height:1.5">前野隆司<br><span style="color:var(--ink-light);font-weight:400">LIFE 過去 慶應義塾大学教授</span></div></div></div></div>
+      </div>
+      <div class="pending" style="margin-top:14px">紹介文（No.107・109・111・113・115・117・119・121・123・125・127・129・131・133・135・137）は本ページから原文転記要</div>
+    </div>
+  </div>
+
+  <!-- CURRICULUM -->
+  <div class="sect">
+    <div class="sect-head"><span class="sect-no">No.138–158</span><span class="sect-name">CURRICULUM</span></div>
+    <div class="sect-body">
+      <div class="row"><span class="no">138</span><div class="txt"><div class="label">CURRICULUM</div></div></div>
+      <div class="row"><span class="no">139</span><div class="txt"><div class="p">月ごとに学習内容やテーマが変化。8ヶ月間で人生をアップデートすることを目指します。</div></div></div>
+
+      <div class="row" style="margin-top:14px"><span class="no">140</span><div class="txt"><div class="h3">POOLO LIFE 行動指針<br>「共に学び、共に遊び、共に創る」</div></div></div>
+
+      <div style="margin-top:8px">
+        <div class="li"><span class="no" style="margin-top:4px">141</span><span>自己と他者との対話を通して、多様な価値観を理解する</span></div>
+        <div class="li"><span class="no" style="margin-top:4px">142</span><span>受け身ではなく自律して動き、まずは小さくやってみる</span></div>
+        <div class="li"><span class="no" style="margin-top:4px">143</span><span>利他な精神で仲間を応援して、チームで共創する</span></div>
+        <div class="li"><span class="no" style="margin-top:4px">144</span><span>フラットでオープンな関係で、本音で語り合う</span></div>
+        <div class="li"><span class="no" style="margin-top:4px">145</span><span>旅という共通点を大切にして、探求と好奇心でたのしむ</span></div>
+      </div>
+
+      <div class="h3" style="margin:18px 0 8px;color:var(--brand-deep)">必修プロジェクト</div>
+      <div class="row"><span class="no">146</span><div class="txt"><div class="h3">豪華な講師陣によるオンライン講義だけでなく、学びや絆を深めるワーク・合宿</div></div></div>
+      <div class="row"><span class="no">147</span><div class="txt"><div class="p-sm">豪華講師陣によるオンライン講義は、毎回約2-3時間。様々な分野で活躍するゲスト講師に、直接質問することができます。ワークショップも設計されているため、学びの深い時間となります。また、カリキュラムの途中には、神奈川県・湘南にて1泊2日の合宿があります。オフラインで合宿することで、学びや仲間との絆が深まります。</div></div></div>
+
+      <div class="row" style="margin-top:10px"><span class="no">148</span><div class="txt"><div class="h3">繋がりを深めるチーム活動</div></div></div>
+      <div class="row"><span class="no">149</span><div class="txt"><div class="p-sm">POOLOは、個人ワークだけでなく、チーム活動を重視します。タームごとに興味関心が近い4-5名のチームに分かれて活動に取り組み、繋がりを深めます。各チームには、活動をサポートするコミュニティマネージャーがつくため、安心して活動ができます。</div></div></div>
+
+      <div class="row" style="margin-top:10px"><span class="no">150</span><div class="txt"><div class="h3">アウトプットする機会や実践の場を提供</div></div></div>
+      <div class="row"><span class="no">151</span><div class="txt"><div class="p-sm">POOLOには、一方的なインプットという学びの形は存在しません。学んだことを深掘り、チームで実践・発表をするなど、アウトプットの場が多数あります。常にインプット・アウトプットのサイクルを回すことで、学びと自由探求が加速します。</div></div></div>
+
+      <div class="h3" style="margin:18px 0 8px;color:var(--brand-deep)">自主企画など</div>
+      <div class="row"><span class="no">152</span><div class="txt"><div class="h3">コミュニティを活かした自由な部活動やサークル活動</div></div></div>
+      <div class="row"><span class="no warn">153</span><div class="txt"><div class="pending">原文の説明を転記要</div></div></div>
+
+      <div class="row" style="margin-top:10px"><span class="no">154</span><div class="txt"><div class="h3">参加者が自主開催するイベントや勉強会・分科会の開催</div></div></div>
+      <div class="row"><span class="no warn">155</span><div class="txt"><div class="pending">原文の説明を転記要</div></div></div>
+
+      <div class="row" style="margin-top:10px"><span class="no">156</span><div class="txt"><div class="h3">人を訪れる旅や、やりたいを実現する「あたらしい旅」の実践</div></div></div>
+      <div class="row"><span class="no warn">157</span><div class="txt"><div class="pending">原文の説明を転記要</div></div></div>
+
+      <div class="row" style="margin-top:14px"><span class="no">158</span><div class="txt"><div class="p-sm" style="font-size:11px;color:var(--ink-light);background:#f8f9fa;padding:10px;border-radius:4px;line-height:1.7">過去自主プロジェクト：#1on1セッション #仕事もくもく会 #海の家での参加者BBQ #関西エリアでのPOOLOオフ会 #漫画・アニメ部 #クラフトビール部 #サーフィン部 #登山部 #地方創生部 #旅ビジネス部 #SNSマーケティング勉強会 #フリーランススキルシェア会 #100リスト会</div></div></div>
+    </div>
+  </div>
+
+  <!-- SCHEDULE -->
+  <div class="sect">
+    <div class="sect-head"><span class="sect-no">No.159–178</span><span class="sect-name">SCHEDULE</span></div>
+    <div class="sect-body">
+      <div class="row"><span class="no">159</span><div class="txt"><div class="label">SCHEDULE</div></div></div>
+
+      <div style="margin-top:8px">
+        <div class="sch-row"><div class="sch-date"><span class="no">160</span><br>3/14 土</div><div class="sch-title">10:00-13:00／あなたの人生観が変わる、探究と揺さぶりの世界へようこそ｜キックオフ</div></div>
+        <div class="sch-row"><div class="sch-date"><span class="no">161</span><br>4/2 木</div><div class="sch-title">20:00-22:00／「揺さぶり力」とは何か？旅が持つ効用を学術的に理解する｜高井典子</div></div>
+        <div class="sch-row"><div class="sch-date"><span class="no">162</span><br>4/11 土</div><div class="sch-title">10:00-12:00／思考を深めるための「言語化」の実践論を学ぶ｜最所あさみ</div></div>
+        <div class="sch-row"><div class="sch-date"><span class="no">163</span><br>4/25 土</div><div class="sch-title">10:00-12:00／人生を豊かにする「才能」の見つけ方と活かし方｜佐野貴</div></div>
+        <div class="sch-row"><div class="sch-date"><span class="no">164</span><br>5/9 土</div><div class="sch-title">10:00-12:00／世界の見え方が変わる「哲学対話」の極意を学ぶ｜永井玲衣</div></div>
+        <div class="sch-row"><div class="sch-date"><span class="no">165</span><br>5/23 土</div><div class="sch-title">10:00-13:00／人生の軸となる「探究テーマ」を発表する｜個人発表</div></div>
+        <div class="sch-row"><div class="sch-date"><span class="no">166</span><br>6/6 土</div><div class="sch-title">12:00-／POOLO LIFE 合宿｜DAY1</div></div>
+        <div class="sch-row"><div class="sch-date"><span class="no">167</span><br>6/7 日</div><div class="sch-title">-12:00／POOLO LIFE 合宿｜DAY2</div></div>
+        <div class="sch-row"><div class="sch-date"><span class="no">168</span><br>6/20 土</div><div class="sch-title">10:00-12:00／旅の価値を活かした「プロデュース術」を学ぶ｜清水直哉</div></div>
+        <div class="sch-row"><div class="sch-date"><span class="no">169</span><br>7/15 水</div><div class="sch-title">20:00-22:00／シェアリングエコノミーから学ぶ、「新しい価値」のつくり方｜石山アンジュ</div></div>
+        <div class="sch-row"><div class="sch-date"><span class="no">170</span><br>7/29 水</div><div class="sch-title">20:00-22:00／旅の経験をキャリアにいかす。「冒険的世界観」の歩み方｜安斎勇樹</div></div>
+        <div class="sch-row"><div class="sch-date"><span class="no">171</span><br>8/1 土</div><div class="sch-title">10:00-12:00／メンタリング</div></div>
+        <div class="sch-row"><div class="sch-date"><span class="no">172</span><br>8/19 水</div><div class="sch-title">20:00-22:00／「わたしの世界観」がうまれるマインドセットと思考法を学ぶ｜木本梨絵</div></div>
+        <div class="sch-row"><div class="sch-date"><span class="no">173</span><br>9/5 土</div><div class="sch-title">10:00-12:00／俳優 東出さんの人生探究相談会｜東出昌大</div></div>
+        <div class="sch-row"><div class="sch-date"><span class="no">174</span><br>9/26 土</div><div class="sch-title">10:00-13:00／社会を揺さぶる「共創活動」を発表する｜チーム発表</div></div>
+        <div class="sch-row"><div class="sch-date"><span class="no">175</span><br>10/10 土</div><div class="sch-title">10:00-12:00／POOLO WORK</div></div>
+        <div class="sch-row"><div class="sch-date"><span class="no">176</span><br>10/24 土</div><div class="sch-title">10:00-13:00／社会への揺さぶり・自己探究の道筋を発表するPOOLO LIFE 最終発表会｜個人発表</div></div>
+        <div class="sch-row"><div class="sch-date"><span class="no">177</span><br>10/31 土</div><div class="sch-title">10:00-12:00／メンバーで創り上げるここだけの卒業式</div></div>
+      </div>
+
+      <div class="row" style="margin-top:10px"><span class="no">178</span><div class="txt"><div class="meta-small">※講師の都合により、日程及び講義タイトルの変更の可能性がありますので、ご了承ください。</div></div></div>
+    </div>
+  </div>
+
+  <!-- FLOW -->
+  <div class="sect">
+    <div class="sect-head"><span class="sect-no">No.179–185</span><span class="sect-name">FLOW</span></div>
+    <div class="sect-body">
+      <div class="row"><span class="no">179</span><div class="txt"><div class="label">FLOW</div></div></div>
+      <div style="margin-top:8px">
+        <div class="li"><span class="no" style="margin-top:4px">180</span><span>1. 募集開始</span></div>
+        <div class="li"><span class="no" style="margin-top:4px">181</span><span>2. 個別相談会（任意）</span></div>
+        <div class="li"><span class="no" style="margin-top:4px">182</span><span>3. 申し込み</span></div>
+        <div class="li"><span class="no" style="margin-top:4px">183</span><span>4. 参加費の支払い（申し込みから7日以内）</span></div>
+        <div class="li"><span class="no" style="margin-top:4px">184</span><span>5. 事前準備</span></div>
+        <div class="li"><span class="no" style="margin-top:4px">185</span><span>6. コース開始（キックオフ／初回オンライン講義）</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PRICE -->
+  <div class="sect">
+    <div class="sect-head"><span class="sect-no">No.186–199</span><span class="sect-name">PRICE</span></div>
+    <div class="sect-body">
+      <div class="row"><span class="no">186</span><div class="txt"><div class="label">PRICE</div></div></div>
+      <div class="row"><span class="no">187</span><div class="txt"><div class="h3">ライフデザインコース POOLO LIFE</div></div></div>
+      <div class="row"><span class="no">188</span><div class="txt"><div class="h1" style="font-size:24px;color:var(--brand-deep)">参加費 165,000円<span style="font-size:13px;font-weight:400;color:var(--ink-mid)">（税込）</span></div></div></div>
+      <div class="row"><span class="no">189</span><div class="txt"><div class="meta-small" style="color:var(--warn)">※合宿参加費として25,000円（税込）が別途かかります。</div></div></div>
+
+      <div class="h3" style="margin:14px 0 6px">含まれるもの</div>
+      <div class="li"><span class="no" style="margin-top:4px">190</span><span>全16回のオンライン講義</span></div>
+      <div class="li"><span class="no" style="margin-top:4px">191</span><span>ゲスト講師が登壇する10回の特別講義</span></div>
+      <div class="li"><span class="no" style="margin-top:4px">192</span><span>講義のアーカイブ動画視聴し放題</span></div>
+      <div class="li"><span class="no" style="margin-top:4px">193</span><span>限定Slackと限定LINEグループへの招待</span></div>
+      <div class="li"><span class="no" style="margin-top:4px">194</span><span>オリジナルカリキュラム＆専用ワークシート</span></div>
+      <div class="li"><span class="no" style="margin-top:4px">195</span><span>個人ワーク課題＆チーム課題</span></div>
+      <div class="li"><span class="no" style="margin-top:4px">196</span><span>コミュニティマネージャーによる活動サポート</span></div>
+      <div class="li"><span class="no" style="margin-top:4px">197</span><span>有志での自主プロジェクト</span></div>
+      <div class="li"><span class="no" style="margin-top:4px">198</span><span>TABIPPO特別ツアーに限定＆先行案内</span></div>
+
+      <div class="row" style="margin-top:14px"><span class="no">199</span><div class="txt" style="width:100%"><a class="cta">POOLO11期に申込む</a></div></div>
+    </div>
+  </div>
+
+  <!-- NEWS -->
+  <div class="sect">
+    <div class="sect-head"><span class="sect-no">No.200–205</span><span class="sect-name">NEWS</span></div>
+    <div class="sect-body">
+      <div class="row"><span class="no">200</span><div class="txt"><div class="label">NEWS</div></div></div>
+      <div style="margin-top:6px">
+        <div class="li"><span class="no" style="margin-top:4px">201</span><span><span class="meta-small">2026/04/20｜イベント</span><br>【4/28＠zoom】自分自身が納得できる、30代の生き方を考える90分</span></div>
+        <div class="li"><span class="no" style="margin-top:4px">202</span><span><span class="meta-small">2026/04/20｜イベント</span><br>【4/27＠zoom】自分自身が納得できる、30代の生き方を考える90分</span></div>
+        <div class="li"><span class="no" style="margin-top:4px">203</span><span><span class="meta-small">2026/04/19｜イベント</span><br>【4/26＠zoom】自分自身が納得できる、30代の生き方を考える90分</span></div>
+        <div class="li"><span class="no" style="margin-top:4px">204</span><span><span class="meta-small">2026/04/18｜イベント</span><br>【5/2＠恵比寿】わたしが大切にしたい「旅とは、豊かさとは、仕事とは？」をじっくりと考える</span></div>
+        <div class="li"><span class="no" style="margin-top:4px">205</span><span><span class="meta-small">2026/02/20｜イベント</span><br>【2/22＠恵比寿】30代、このままでいいのか？ キャリアの違和感を言語化するワークショップ</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FAQ -->
+  <div class="sect">
+    <div class="sect-head"><span class="sect-no">No.206–247</span><span class="sect-name">FAQ</span></div>
+    <div class="sect-body">
+      <div class="row"><span class="no">206</span><div class="txt"><div class="label">FAQ</div></div></div>
+
+      <div class="faq-cat"><span class="no">207</span> 参加方法について</div>
+      <div class="faq-q"><span class="no">208</span><span>参加費の入金はいつまでに行う必要がありますか？</span></div>
+      <div class="faq-a"><span class="no">209</span><span>授業料を支払って参加確定となります。先着順となっていますので、お早めにお支払いいただくことをオススメしています。</span></div>
+      <div class="faq-q"><span class="no">210</span><span>支払いは、どのような方法がありますか？</span></div>
+      <div class="faq-a"><span class="no">211</span><span>クレジットカード支払いと、銀行口座への振り込みにて対応しています。支払い手数料の兼ね合いにより、受講料の金額が上がりますが、クレジットカードでの分割支払いにも対応いたしますので、ご希望の場合はLINEにてお問い合わせ下さい。</span></div>
+      <div class="faq-q"><span class="no">212</span><span>まだ学生ですが、参加することができますか？</span></div>
+      <div class="faq-a"><span class="no">213</span><span>はい、学生の方もPOOLOに参加して頂くことが可能です。割合としては、全体の中でも各期で数名ではありますが、大学生を中心として実際にたくさんの学生にも参加して頂いています。</span></div>
+      <div class="faq-q"><span class="no">214</span><span>複数のコースに参加が可能ですか？同じコースに再度参加することはできますか？</span></div>
+      <div class="faq-a"><span class="no">215</span><span>はい、POOLOでは1つではなく複数のコースに参加して頂くことが可能です。実際に、ライフデザインコース・POOLO LIFEに参加した方が、卒業後にそのままトラベルクリエイターコース・POOLO JOBやローカルコーディネーターコース・POOLO LOCALなどに参加することはとても多いです。また、同じコースを2回以上参加することも可能です。特に、ライフデザインコース・POOLO LIFEに関しては、人生における悩みや決断にあわせて、2回以上参加されている方がたくさんいます。</span></div>
+      <div class="faq-q"><span class="no">216</span><span>参加上の注意はありますか？</span></div>
+      <div class="faq-a"><span class="no">217</span><span>マルチネットワークや、反社の活動、執拗な勧誘が発覚した場合は退会になります。返金対応もございませんので、ご了承下さい。</span></div>
+      <div class="faq-q"><span class="no">218</span><span>プログラム参加費以外に発生する費用はありますか？</span></div>
+      <div class="faq-a"><span class="no">219</span><span>課題図書の購入費用、その他イベント講義以外のサークル活動・オフ会などでの会費は別途参加者の各自負担となります。また、POOLO LIFE10期における合宿費（交通費・宿泊費など）も自費負担とさせて頂いています。</span></div>
+      <div class="faq-q"><span class="no">220</span><span>参加は先着順ですか？定員が埋まることがありますか？</span></div>
+      <div class="faq-a"><span class="no">221</span><span>POOLOへの参加は参加費を支払って頂いた方から先着順となります。まずは申し込みをして頂きまして、その後は運営からの案内に沿って参加費をお支払いください。参加費をお支払い頂いた方は、POOLOへの参加を確定とさせて頂きます。また、募集期によっては定員が埋まるケースもありますので、あまり直前ではなく余裕をもった申し込みをお願い致します。</span></div>
+      <div class="faq-q"><span class="no">222</span><span>誰でも参加可能ですか？審査や選考がありますか？</span></div>
+      <div class="faq-a"><span class="no">223</span><span>POOLOには誰でも参加することが出来ます。参加に際して、審査や選考などはありません。多様性を大切にしているため、内容に共感して下さった方や想いをもっている方は広く受け入れたいと考えています。また、旅の経験についても条件などは設定していませんので「旅が好き！」という方だけではなく、これからもっと「旅をしたい！」と考えている方でも、参加していただける内容となっています。</span></div>
+
+      <div class="faq-cat"><span class="no">224</span> プログラム内容について</div>
+      <div class="faq-q"><span class="no">225</span><span>自主プロジェクトの部活動やサークルについて</span></div>
+      <div class="faq-a"><span class="no">226</span><span>自主プロジェクトは、参加者のみなさまで、主体的に自由に作って頂く活動となっています。POOLOでは、余白の中で主体的に活動をしていくカリキュラム設計となっているため、毎期様々なプロジェクトが誕生します。過去には、読書・ライティング・英会話・地方創生・起業などをテーマにしたものから、ランニング・サーフィン・クラフトビールなどカジュアルなものまで、多様な自主プロジェクトが生まれています。</span></div>
+      <div class="faq-q"><span class="no">227</span><span>POOLO LIFEの活動期間中は、忙しいですか？</span></div>
+      <div class="faq-a"><span class="no">228</span><span>ライフデザインコース・POOLO LIFEの活動期間は8ヶ月ですが、期間内での忙しさや活動量は、参加するみなさんが自分で決めることが出来ます。運営としては、講義には基本的にすべて参加をして頂くということをお願いしています（講義は約2週間に1度、毎回2-3時間の予定）。また、提示される課題は、量が多くて毎日が大変ということにはなりません。ただし、余白の中で主体的に活動するPOOLOにおいては、参加者が自ら考える自主プロジェクトという活動が存在しています。この自主プロジェクトをどれだけ企画するか、参加するかなどはみなさん次第です。</span></div>
+      <div class="faq-q"><span class="no">229</span><span>講義はオンラインですか？</span></div>
+      <div class="faq-a"><span class="no">230</span><span>講義は全てオンラインで行います。ただし、POOLO LIFE「合宿」は、東京にてオフラインで行います。（合宿に参加することでその後の活動がスムーズとなり、参加をなるべくお願いしています。）オンライン講義は、原則カメラをオンにして顔出しでの参加をお願いしており、チャットでコメントや質問をしながら進めるインタラクティブな形式です。講師による「講義」・参加者が手を動かす「ワークショップ」・参加者の「発表会」の3種類あり、ゲスト講義では、ゲストに直接質問も可能です。</span></div>
+      <div class="faq-q"><span class="no">231</span><span>Slackでのコミュニケーションはどんなイメージでしょうか？</span></div>
+      <div class="faq-a"><span class="no">232</span><span>雑談や交流などのコミュニケーションの他にも、特定の分野についてのディスカッションやイベントなど、様々なチャンネルが立ち上がります。チャンネルは、ルールに則りみなさんが自由に作成できます。</span></div>
+      <div class="faq-q"><span class="no">233</span><span>講義をあとからアーカイブ視聴することはできますか？</span></div>
+      <div class="faq-a"><span class="no">234</span><span>はい。出来ます。講義は全てアーカイブ動画が保存されて、参加者限定でいつでも視聴ができるようになります。欠席した際や復習するタイミングでぜひご活用ください。</span></div>
+      <div class="faq-q"><span class="no">235</span><span>期間中はすべての講義に参加する必要がありますか？</span></div>
+      <div class="faq-a"><span class="no">236</span><span>できるかぎり全ての講義に参加してもらうことを前提として考えていますが、事情による欠席は2回までとさせて頂いております（POOLO LIFE10期のオフライン合宿を含む）。ただし、どうしても参加ができない事情などによって3回以上の欠席をしてしまう予定の場合に関しては、事前に運営メンバーまでご相談ください。</span></div>
+
+      <div class="faq-cat"><span class="no">237</span> その他について</div>
+      <div class="faq-q"><span class="no">238</span><span>POOLOのキャンセル料について</span></div>
+      <div class="faq-a"><span class="no">239</span><span>申し込み後に、参加費のお支払いをして頂きますが、参加費お支払い日より5日以内のキャンセルでしたら、キャンセル料は0%として受講料は全額返金をさせて頂きます。但し、お支払い後5日以内であってもコースが開始をした初回の講義日程以後は返金には応じかねます。プログラム内容を十分にご確認の上、お申込み下さいませ。キャンセル後は手続きを行った上で、オンライングループ等からの登録解除を行わせていただきます。</span></div>
+      <div class="faq-q"><span class="no">240</span><span>途中で退会した場合の返金はありますか？</span></div>
+      <div class="faq-a"><span class="no">241</span><span>大変申し訳ありませんが、コース開始後に退会となった場合には参加費の返金はございません。プログラム内容を十分にご確認の上、お申込み下さいませ。退会後は手続きを行った上で、オンライングループなどからの登録解除を行わせて頂きます。</span></div>
+      <div class="faq-q"><span class="no">242</span><span>チーム以外にも交流することはできますか？</span></div>
+      <div class="faq-a"><span class="no">243</span><span>チーム以外の交流は、もちろん可能です。参加者が自主的に作れる部活動やサークルや勉強会・地元会・同世代会など、新しいグループが多く誕生するため、様々な方と交流可能です。</span></div>
+      <div class="faq-q"><span class="no">244</span><span>POOLOの参加者属性について教えてください</span></div>
+      <div class="faq-a"><span class="no">245</span><span>社会人がほとんどで、20代・30代が中心となり、男女比率はやや女性の方が多いです。全員の共通点は「旅が好き」ということで、海外を何十カ国も旅した人や、日本にある数多くの地域を訪れた人などが集まっています。働く業界や職種なども多種多様で、一般企業や公務員として働いている人だけなく、フリーランスや経営者なども多いのが特徴です。</span></div>
+      <div class="faq-q"><span class="no">246</span><span>POOLOは大学ですか？オンラインスクールですか？イベントですか？オンラインサロンですか？</span></div>
+      <div class="faq-a"><span class="no">247</span><span>POOLOは「あたらしい旅の学校」ですが、学校教育法上で定められた正規の学校ではなく、株式会社TABIPPOが「旅好きが大人になってからも学ぶ場所をつくりたい」という想いを込めてつくった「旅をテーマに学ぶオンラインスクール」です。コンセプトを「旅と人生をつなぐ、大人の学校」として、旅と教育をテーマにしてあたらしい形の学校づくりに挑戦しています。学校とはいえ、校舎もなく、単位もなく、管理してくれる先生もいません。そこにあるのはPOOLOとしての理念と、そこに集う仲間の想いです。具体的には、コース参加費をお支払い頂いた方にPOOLO生として参加して頂きまして、単発のイベントではなくコースごとに決められている期間でさまざまな活動を行います。コースの中にどのような活動があるのかは、WEBサイトを御覧ください。</span></div>
+    </div>
+  </div>
+
+  <!-- CTA3 -->
+  <div class="sect">
+    <div class="sect-head"><span class="sect-no">No.248–249</span><span class="sect-name">CTA3（無料相談）</span></div>
+    <div class="sect-body">
+      <div class="row"><span class="no">248</span><div class="txt"><div class="h2">気になることはLINEで何でも答えます！</div></div></div>
+      <div class="row"><span class="no">249</span><div class="txt" style="width:100%"><a class="cta">無料相談する</a></div></div>
+    </div>
+  </div>
+
+  <!-- OTHER COURSES -->
+  <div class="sect">
+    <div class="sect-head"><span class="sect-no">No.250–260</span><span class="sect-name">OTHER COURSES</span></div>
+    <div class="sect-body">
+      <div class="row"><span class="no">250</span><div class="txt"><div class="label">OTHER COURSES</div></div></div>
+      <div class="row"><span class="no">251</span><div class="txt"><div class="p">他のコースが気になる方は以下をチェック！</div></div></div>
+
+      <div class="course" style="margin-top:10px">
+        <div class="img thumb" style="margin-bottom:8px">［POOLO NEXT KV］</div>
+        <div class="row"><span class="no">252</span><div class="txt"><div class="ttl">未来の観光をアップデートする次世代リーダーコース（POOLO NEXT）</div></div></div>
+        <div class="row"><span class="no">253</span><div class="txt"><div class="dsc">2030年の観光業界を担うリーダーを輩出するコースです。世界や地域の最前線で活躍する講師の講座とメンタリングを通じて、マインドとスキルをブラッシュアップ。次のステージに向けたリーダー戦略を練り直します。活動期間は3ヶ月、人数は約15-25名。</div></div></div>
+        <div class="row"><span class="no">254</span><div class="txt" style="width:100%"><a class="cta secondary" style="font-size:12px;padding:10px">詳細を見る</a></div></div>
+      </div>
+
+      <div class="course">
+        <div class="img thumb" style="margin-bottom:8px">［POOLO JOB KV］</div>
+        <div class="row"><span class="no">255</span><div class="txt"><div class="ttl">旅を仕事の1つにするトラベルクリエイターコース（POOLO JOB）</div></div></div>
+        <div class="row"><span class="no">256</span><div class="txt"><div class="dsc">旅先の経験をコンテンツ化する力と、SNS発信力を磨くコースです。トラベルクリエイターの講師から、ライティング・写真・SNSブランディングについて学び、編集者による添削サポートを通じてスキルアップ。活動期間は3ヶ月、人数は25-50名。</div></div></div>
+        <div class="row"><span class="no">257</span><div class="txt" style="width:100%"><a class="cta secondary" style="font-size:12px;padding:10px">詳細を見る</a></div></div>
+      </div>
+
+      <div class="course">
+        <div class="img thumb" style="margin-bottom:8px">［POOLO LOCAL KV］</div>
+        <div class="row"><span class="no">258</span><div class="txt"><div class="ttl">地域×実現する力をつけるローカルコーディネーターコース（POOLO LOCAL）</div></div></div>
+        <div class="row"><span class="no">259</span><div class="txt"><div class="dsc">地域を舞台に、色んな人を巻き込みながら、プロジェクトを実現する力をつけるコースです。地域内外を巻き込むハブとなる「ローカルコーディネーター」として必要なマインドやスキルを、理論と実践を通して学びます。活動期間は6ヶ月・人数は30-50名。</div></div></div>
+        <div class="row"><span class="no">260</span><div class="txt" style="width:100%"><a class="cta secondary" style="font-size:12px;padding:10px">詳細を見る</a></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SUPPORTERS -->
+  <div class="sect">
+    <div class="sect-head"><span class="sect-no">No.261–264</span><span class="sect-name">SUPPORTERS</span></div>
+    <div class="sect-body">
+      <div class="row"><span class="no">261</span><div class="txt"><div class="label">SUPPORTERS</div></div></div>
+      <div class="row"><span class="no">262</span><div class="txt"><div class="p">POOLOが実現したい社会は我々だけでは決して成し遂げられません。企業、講師、受講生、卒業生など多くの方々と共創することで実現を目指しています。</div></div></div>
+
+      <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-top:10px">
+        <div class="img thumb">ハワイ州観光局</div>
+        <div class="img thumb">サポーター2</div>
+        <div class="img thumb">サポーター3</div>
+        <div class="img thumb">サポーター4</div>
+      </div>
+
+      <div class="row" style="margin-top:10px"><span class="no">263</span><div class="txt"><div class="p-sm">ハワイ州政府から委託を請け、日本市場におけるハワイの観光促進活動を実施しています。日本人旅行者のハワイへの誘致活動を目的とし、旅行業界向けのセールス活動、企業や修学旅行などのグループ旅行のＭＩＣＥ事業促進、広告、広報、イベントプロモーションなどの日本市場におけるマーケティング活動などの業務を行っている他、ハワイ州政府やハワイ関連企業と協力して日本とハワイの交流を深める活動も担っています。</div></div></div>
+      <div class="row"><span class="no">264</span><div class="txt" style="width:100%"><a class="cta secondary" style="font-size:12px;padding:10px">もっとみる</a></div></div>
+    </div>
+  </div>
+
+  <!-- CTA4 -->
+  <div class="sect">
+    <div class="sect-head"><span class="sect-no">No.265</span><span class="sect-name">CTA4（無料相談・最終）</span></div>
+    <div class="sect-body">
+      <div class="row"><span class="no">265</span><div class="txt" style="width:100%"><div class="p-sm" style="margin-bottom:8px;color:var(--ink-light)">※CTA1と同一構造／最終出現</div><a class="cta">11期生募集中！ LINEに登録して無料相談をする</a></div></div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="ftr">
+    <div class="row" style="justify-content:center"><span class="no" style="background:#fff;color:var(--brand-deep);border:none">266</span></div>
+    <div class="lg">POOLO</div>
+    <div class="row" style="justify-content:center;margin-top:6px"><span class="no" style="background:#fff;color:var(--brand-deep);border:none">267</span></div>
+    <div>あたらしい旅の学校<br>「旅と人生をつなぐ、大人の学び」</div>
+    <div class="nv"><span class="no" style="background:#fff;color:var(--brand-deep);border:none">268</span><br>TOP　/　POOLO LIFE　/　POOLO NEXT　/　POOLO JOB　/　POOLO LOCAL　/　ENTRY</div>
+    <div style="margin-top:10px"><span class="no" style="background:#fff;color:var(--brand-deep);border:none">269</span><br>会社情報　/　利用規約　/　プライバシーポリシー　/　お問い合わせ</div>
+    <div class="cp"><span class="no" style="background:#fff;color:var(--brand-deep);border:none">270</span> Copyright POOLO All Rights Reserved.</div>
+  </div>
+
+</div></div>
+<!-- ============================== /PHONE ============================== -->
+
+</div>
+
+</body>
+</html>
