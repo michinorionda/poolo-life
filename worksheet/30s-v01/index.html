@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ワークシート｜30代の生き方シリーズvol.01</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Noto+Sans+JP:wght@300;400;500;600;700&family=Shippori+Mincho+B1:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F8F6F0;
+  --bg-soft: #FFFCF6;
+  --bg-warm: #FBF7EE;
+  --white: #FFFFFF;
+  --main: #2D3E36;
+  --main-soft: #4A5A52;
+  --accent: #1B99B7;
+  --accent-deep: #157A98;
+  --accent-light: #B8E0EB;
+  --sub: #7A9E8A;
+  --text: #2A2A2A;
+  --text-soft: #5A5A5A;
+  --text-light: #7A7A7A;
+  --line: #EAE5DC;
+  --line-light: #F2EDE3;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  font-family: 'Noto Sans JP', sans-serif;
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  font-size: 14.5px;
+  line-height: 1.85;
+  letter-spacing: 0.04em;
+}
+button { cursor: pointer; font-family: inherit; }
+input, textarea { font-family: inherit; color: inherit; }
+textarea { resize: vertical; }
+
+/* ===== Top hero ===== */
+.hero {
+  background: var(--main);
+  color: var(--bg-soft);
+  padding: 28px 0;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  border-bottom: 1px solid rgba(255,252,246,0.12);
+}
+.hero-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 28px;
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: 32px;
+  align-items: center;
+}
+.hero-brand .eyebrow {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 12px;
+  letter-spacing: 0.3em;
+  color: var(--accent-light);
+  text-transform: uppercase;
+  margin-bottom: 6px;
+  display: block;
+}
+.hero-brand h1 {
+  font-family: 'Shippori Mincho B1', serif;
+  font-size: 19px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  color: var(--bg-soft);
+  line-height: 1.5;
+}
+.hero-brand .meta {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 12.5px;
+  letter-spacing: 0.18em;
+  color: var(--accent-light);
+  margin-top: 6px;
+}
+.hero-participant {
+  background: rgba(255,252,246,0.08);
+  border: 1px solid rgba(255,252,246,0.2);
+  border-radius: 4px;
+  padding: 14px 18px;
+}
+.hero-participant label {
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  color: var(--accent-light);
+  font-weight: 500;
+  display: block;
+  margin-bottom: 6px;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  text-transform: uppercase;
+}
+.hero-participant input {
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(255,252,246,0.4);
+  color: var(--bg-soft);
+  font-family: 'Shippori Mincho B1', serif;
+  font-size: 15px;
+  padding: 6px 0;
+  outline: none;
+  letter-spacing: 0.04em;
+}
+.hero-participant input:focus {
+  border-bottom-color: var(--accent-light);
+}
+.hero-participant input::placeholder {
+  color: rgba(255,252,246,0.4);
+}
+.hero-status {
+  font-size: 11px;
+  margin-top: 8px;
+  color: var(--accent-light);
+  letter-spacing: 0.06em;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.hero-status::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--text-light);
+  display: inline-block;
+}
+.hero-status.is-ready::before { background: #6FB37F; }
+.hero-status.is-syncing::before { background: var(--accent-light); animation: pulse 1.2s infinite; }
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+/* ===== Main layout ===== */
+main {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 36px 28px 120px;
+}
+
+.intro {
+  background: var(--bg-soft);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 22px 26px;
+  margin-bottom: 36px;
+  font-size: 13.5px;
+  color: var(--text-soft);
+  line-height: 1.85;
+}
+.intro strong { color: var(--main); }
+
+/* ===== Section ===== */
+.section {
+  margin-bottom: 56px;
+}
+.section-header {
+  display: flex;
+  align-items: baseline;
+  gap: 18px;
+  padding-bottom: 14px;
+  margin-bottom: 22px;
+  border-bottom: 2px solid var(--main);
+}
+.section-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-weight: 600;
+  font-size: 26px;
+  color: var(--accent);
+  letter-spacing: 0.1em;
+}
+.section-title {
+  font-family: 'Shippori Mincho B1', serif;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--main);
+}
+.section-time {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  color: var(--sub);
+  margin-left: auto;
+  text-transform: uppercase;
+}
+
+/* ===== Question card ===== */
+.question {
+  margin-bottom: 32px;
+}
+.q-text {
+  background: var(--accent);
+  color: var(--white);
+  padding: 14px 22px;
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  line-height: 1.65;
+  border-radius: 4px 4px 0 0;
+}
+.q-helper {
+  background: var(--bg-soft);
+  color: var(--text-soft);
+  padding: 8px 22px;
+  font-size: 12px;
+  font-style: italic;
+  border-left: 1px solid var(--line);
+  border-right: 1px solid var(--line);
+  letter-spacing: 0.04em;
+}
+
+.q-grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 0;
+  border: 1px solid var(--line);
+  border-top: none;
+  border-radius: 0 0 4px 4px;
+  background: var(--white);
+}
+.cell {
+  padding: 18px 22px;
+}
+.cell.own {
+  background: var(--bg-soft);
+  border-right: 1px solid var(--line);
+}
+.cell.own-label {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  color: var(--accent);
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.cell.own textarea {
+  width: 100%;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  padding: 12px 14px;
+  font-size: 14px;
+  line-height: 1.85;
+  letter-spacing: 0.04em;
+  color: var(--text);
+  min-height: 120px;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+.cell.own textarea:focus {
+  border-color: var(--accent);
+}
+.cell.own textarea::placeholder {
+  color: var(--text-light);
+}
+.cell.own textarea:disabled {
+  background: var(--bg-warm);
+  cursor: not-allowed;
+}
+.cell.own .save-status {
+  font-size: 11px;
+  color: var(--text-light);
+  margin-top: 6px;
+  letter-spacing: 0.04em;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+}
+.cell.own .save-status.is-saving { color: var(--accent); }
+.cell.own .save-status.is-saved { color: var(--sub); }
+.cell.own .save-status.is-error { color: #C97B5C; }
+
+.cell.others {
+  padding: 14px 22px;
+}
+.others-label {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  color: var(--main);
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--line-light);
+}
+.others-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+.other-card {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  padding: 10px 14px;
+  font-size: 13px;
+  line-height: 1.75;
+  position: relative;
+  min-height: 80px;
+}
+.other-card .other-name {
+  font-family: 'Shippori Mincho B1', serif;
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--main);
+  margin-bottom: 6px;
+  letter-spacing: 0.04em;
+  padding-bottom: 4px;
+  border-bottom: 1px solid var(--line-light);
+}
+.other-card .other-text {
+  color: var(--text);
+  font-size: 12.5px;
+  line-height: 1.8;
+  letter-spacing: 0.03em;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+.other-card.is-empty {
+  background: transparent;
+  border-style: dashed;
+  border-color: var(--line);
+  color: var(--text-light);
+}
+.other-card.is-empty .other-text {
+  color: var(--text-light);
+  font-style: italic;
+  font-size: 11.5px;
+}
+
+/* ===== Footer ===== */
+footer {
+  text-align: center;
+  padding: 40px 28px 0;
+  font-size: 11.5px;
+  color: var(--text-light);
+  letter-spacing: 0.06em;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+}
+
+/* ===== Mobile ===== */
+@media (max-width: 900px) {
+  .hero-inner { grid-template-columns: 1fr; gap: 18px; padding: 0 18px; }
+  .hero-brand h1 { font-size: 16px; }
+  main { padding: 24px 18px 80px; }
+  .section-header { flex-wrap: wrap; gap: 10px; padding-bottom: 10px; }
+  .section-time { margin-left: 0; width: 100%; }
+  .section-title { font-size: 15px; }
+  .q-text { font-size: 14px; padding: 12px 16px; }
+  .q-grid { grid-template-columns: 1fr; }
+  .cell.own { border-right: none; border-bottom: 1px solid var(--line); }
+  .cell { padding: 14px 16px; }
+  .others-list { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-brand">
+      <span class="eyebrow">30代の生き方シリーズvol.01 &nbsp;·&nbsp; Online Worksheet</span>
+      <h1>自分自身が納得できる、30代の生き方を考える90分。</h1>
+      <div class="meta">2026.05.05 (TUE) &nbsp;·&nbsp; 13:00–14:30 &nbsp;·&nbsp; @Zoom</div>
+    </div>
+    <div class="hero-participant">
+      <label>あなたのニックネーム＠今いる場所</label>
+      <input id="nickname" placeholder="例：はるか@東京" autocomplete="off">
+      <div class="hero-status" id="status">ニックネームを入れてください</div>
+    </div>
+  </div>
+</div>
+
+<main>
+  <div class="intro">
+    <p>このワークシートは、当日90分のあいだに <strong>あなた自身が書く欄</strong> と、<strong>他の参加者の回答が並んで見える欄</strong> で構成されています。完璧に書こうとせず、いま思い浮かんだことを、そのまま置いてみてください。</p>
+  </div>
+
+  <div id="sections"></div>
+</main>
+
+<footer>
+  <p>POOLO &nbsp;·&nbsp; 30代の生き方シリーズ vol.01 &nbsp;·&nbsp; 2026.05.05</p>
+</footer>
+
+<script>
+// ============================================
+// CONFIG
+// ============================================
+const WEBAPP_URL = 'PLACEHOLDER_WEBAPP_URL'; // 後で差し替える
+const SESSION_ID = '30s-v01-2026-05-05';
+const POLL_INTERVAL_MS = 5000;
+const SAVE_DEBOUNCE_MS = 1500;
+
+// ============================================
+// QUESTIONS（既存シートの問いセットを踏襲）
+// ============================================
+const SECTIONS = [
+  {
+    id: 'sec1',
+    num: '01',
+    title: 'アイスブレイク',
+    time: '10 min',
+    questions: [
+      { id: 'q01', text: 'この1週間で、嬉しかったこと、ご機嫌だったことはありますか？' },
+      { id: 'q02', text: '最近、なぜかハマっていることは何ですか？' },
+    ],
+  },
+  {
+    id: 'sec2',
+    num: '02',
+    title: '今日のあなたについて',
+    time: '10 min',
+    questions: [
+      { id: 'q03', text: '今日参加したきっかけは？　どんなことを期待してますか？　何が起こったら嬉しいですか？' },
+      { id: 'q04', text: '自己紹介をお願いします！　ただし、職業、出身地、育った場所、日常的によく使うラベルを取り除いて、あなたに残ったもので説明してください。', helper: '難しいと思います！うまく書こうとしないでOKです。' },
+      { id: 'q05', text: '自分を揺さぶった旅／体験はなんですか？（記憶に残っている体験はなんですか？）' },
+    ],
+  },
+  {
+    id: 'sec3',
+    num: '03',
+    title: '違和感をことばに',
+    time: '30 min',
+    questions: [
+      { id: 'q06', text: '自分のこれからのキャリア・生き方を考える上での、違和感、もやもやはどんなものですか？', helper: 'うまく言葉にしなくてもOKなので言語化してみてください。このシーンのときに、違和感があったみたいなことでもOKです。' },
+      { id: 'q07', text: '20代で、本気で迷って選んだことは何でしたか？', helper: '仕事のことでも、人間関係のことでも、住む場所のことでも、何でも構いません。一つだけ書いてみて下さい。' },
+      { id: 'q08', text: '今、あなたが仮に「順調だが違和感がある」のは、20代の選択の中で、何を選び続けてきたからだと思いますか？' },
+    ],
+  },
+  {
+    id: 'sec4',
+    num: '04',
+    title: '探究テーマを見つける',
+    time: '15 min',
+    questions: [
+      { id: 'q09', text: '過去に、自分がやっていて納得度もあり、結果として誰かに少しでも貢献できたかも？　という経験は何ですか？' },
+      { id: 'q10', text: '最近のあなたの掘り下げてみたい欲求を教えてください。', helper: 'POOLOではこれを探究テーマとよびます。「〜とは何か？」みたいな問いの形式で作ってみてください。仕事でも、趣味でも、なんでも自由です。' },
+      { id: 'q11', text: 'その欲求はどんな体験から生まれましたか？' },
+    ],
+  },
+  {
+    id: 'sec5',
+    num: '05',
+    title: 'クロージング',
+    time: '5 min',
+    questions: [
+      { id: 'q12', text: '今日、受け取ったことは何ですか？' },
+      { id: 'q13', text: 'うまく言語化できていなくても、もっと深めてみたいことや、テーマは何かありそうですか？' },
+    ],
+  },
+];
+
+// ============================================
+// STATE
+// ============================================
+let nickname = '';
+let allResponses = [];
+const saveTimers = {};
+
+// ============================================
+// LOCAL STORAGE：ニックネーム永続化
+// ============================================
+function loadNickname() {
+  const saved = localStorage.getItem('30s-v01-nickname');
+  if (saved) {
+    document.getElementById('nickname').value = saved;
+    nickname = saved;
+    updateStatus('ready');
+  }
+}
+function saveNickname(name) {
+  localStorage.setItem('30s-v01-nickname', name);
+}
+
+// ============================================
+// RENDER：セクションと問いを描画
+// ============================================
+function renderSections() {
+  const container = document.getElementById('sections');
+  container.innerHTML = '';
+
+  for (const section of SECTIONS) {
+    const sec = document.createElement('section');
+    sec.className = 'section';
+    sec.dataset.sectionId = section.id;
+
+    sec.innerHTML = `
+      <div class="section-header">
+        <span class="section-num">${section.num}</span>
+        <h2 class="section-title">${section.title}</h2>
+        <span class="section-time">${section.time}</span>
+      </div>
+    `;
+
+    for (const q of section.questions) {
+      const card = document.createElement('article');
+      card.className = 'question';
+      card.dataset.qid = q.id;
+      const helperHtml = q.helper ? `<div class="q-helper">${q.helper}</div>` : '';
+      card.innerHTML = `
+        <div class="q-text">${q.text}</div>
+        ${helperHtml}
+        <div class="q-grid">
+          <div class="cell own">
+            <div class="own-label">Your Answer</div>
+            <textarea data-qid="${q.id}" placeholder="自由に書いてください" disabled></textarea>
+            <div class="save-status" data-qid="${q.id}"></div>
+          </div>
+          <div class="cell others">
+            <div class="others-label">Others</div>
+            <div class="others-list" data-qid="${q.id}"></div>
+          </div>
+        </div>
+      `;
+      sec.appendChild(card);
+    }
+
+    container.appendChild(sec);
+  }
+
+  // テキストエリアにイベントハンドラ
+  document.querySelectorAll('textarea[data-qid]').forEach(textarea => {
+    textarea.addEventListener('input', () => {
+      const qid = textarea.dataset.qid;
+      scheduleSave(qid, textarea.value);
+    });
+  });
+}
+
+// ============================================
+// 自分の回答を保存（デバウンス）
+// ============================================
+function scheduleSave(qid, text) {
+  if (!nickname) return;
+  if (saveTimers[qid]) clearTimeout(saveTimers[qid]);
+  setSaveStatus(qid, 'saving', '保存中…');
+  saveTimers[qid] = setTimeout(() => {
+    saveAnswer(qid, text);
+  }, SAVE_DEBOUNCE_MS);
+}
+
+async function saveAnswer(qid, text) {
+  if (WEBAPP_URL.startsWith('PLACEHOLDER')) {
+    setSaveStatus(qid, 'error', '⚠️ Web App未接続');
+    return;
+  }
+  try {
+    const body = new URLSearchParams({
+      participant_name: nickname,
+      question_id: qid,
+      answer_text: text,
+      session_id: SESSION_ID,
+    });
+    const res = await fetch(WEBAPP_URL, { method: 'POST', body });
+    const json = await res.json();
+    if (json.ok) {
+      setSaveStatus(qid, 'saved', `保存しました ${formatTime(new Date())}`);
+    } else {
+      setSaveStatus(qid, 'error', `保存失敗: ${json.error || 'unknown'}`);
+    }
+  } catch (err) {
+    setSaveStatus(qid, 'error', `保存失敗: ${err.message}`);
+  }
+}
+
+function setSaveStatus(qid, kind, message) {
+  const el = document.querySelector(`.save-status[data-qid="${qid}"]`);
+  if (!el) return;
+  el.textContent = message;
+  el.className = `save-status is-${kind}`;
+}
+
+function formatTime(d) {
+  return `${String(d.getHours()).padStart(2,'0')}:${String(d.getMinutes()).padStart(2,'0')}:${String(d.getSeconds()).padStart(2,'0')}`;
+}
+
+// ============================================
+// 全員の回答を取得して描画
+// ============================================
+async function fetchAndRenderResponses() {
+  if (WEBAPP_URL.startsWith('PLACEHOLDER')) return;
+  try {
+    updateSyncIndicator(true);
+    const res = await fetch(WEBAPP_URL + '?action=list&_=' + Date.now(), {
+      method: 'GET',
+      cache: 'no-store',
+    });
+    const json = await res.json();
+    if (!json.ok) throw new Error(json.error || 'list failed');
+    allResponses = json.responses;
+    renderOthers();
+    syncOwnAnswers();
+  } catch (err) {
+    console.error(err);
+  } finally {
+    updateSyncIndicator(false);
+  }
+}
+
+// 自分の最新回答をテキストエリアに反映（タブ復帰時など）
+function syncOwnAnswers() {
+  if (!nickname) return;
+  const myLatest = {};
+  for (const r of allResponses) {
+    if (r.participant_name === nickname && r.session_id === SESSION_ID) {
+      const prev = myLatest[r.question_id];
+      if (!prev || new Date(r.timestamp) > new Date(prev.timestamp)) {
+        myLatest[r.question_id] = r;
+      }
+    }
+  }
+  for (const qid of Object.keys(myLatest)) {
+    const ta = document.querySelector(`textarea[data-qid="${qid}"]`);
+    if (ta && document.activeElement !== ta && !ta.value) {
+      ta.value = myLatest[qid].answer_text;
+    }
+  }
+}
+
+// 他の人の最新回答を描画
+function renderOthers() {
+  // (participant, qid) ごとに最新の1件
+  const latest = {};
+  for (const r of allResponses) {
+    if (r.session_id !== SESSION_ID) continue;
+    const key = `${r.participant_name}__${r.question_id}`;
+    const prev = latest[key];
+    if (!prev || new Date(r.timestamp) > new Date(prev.timestamp)) {
+      latest[key] = r;
+    }
+  }
+  // qid -> [responses]
+  const byQid = {};
+  for (const key of Object.keys(latest)) {
+    const r = latest[key];
+    if (r.participant_name === nickname) continue; // 自分の分は表示しない
+    if (!byQid[r.question_id]) byQid[r.question_id] = [];
+    byQid[r.question_id].push(r);
+  }
+
+  // 各questionに描画
+  document.querySelectorAll('.others-list').forEach(list => {
+    const qid = list.dataset.qid;
+    const items = byQid[qid] || [];
+    if (items.length === 0) {
+      list.innerHTML = `<div class="other-card is-empty"><div class="other-text">まだ誰も書いていません</div></div>`;
+      return;
+    }
+    list.innerHTML = items
+      .sort((a, b) => a.participant_name.localeCompare(b.participant_name, 'ja'))
+      .map(r => `
+        <div class="other-card">
+          <div class="other-name">${escapeHtml(r.participant_name)}</div>
+          <div class="other-text">${escapeHtml(r.answer_text || '（空欄）')}</div>
+        </div>
+      `).join('');
+  });
+}
+
+function escapeHtml(s) {
+  return String(s)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
+
+function updateSyncIndicator(syncing) {
+  const status = document.getElementById('status');
+  if (!nickname) return;
+  if (syncing) {
+    status.classList.add('is-syncing');
+  } else {
+    status.classList.remove('is-syncing');
+  }
+}
+
+function updateStatus(state) {
+  const status = document.getElementById('status');
+  if (state === 'ready') {
+    status.textContent = `準備完了：${nickname}`;
+    status.className = 'hero-status is-ready';
+    document.querySelectorAll('textarea').forEach(ta => ta.disabled = false);
+  } else {
+    status.textContent = 'ニックネームを入れてください';
+    status.className = 'hero-status';
+    document.querySelectorAll('textarea').forEach(ta => ta.disabled = true);
+  }
+}
+
+// ============================================
+// ニックネーム入力
+// ============================================
+document.getElementById('nickname').addEventListener('change', e => {
+  const name = e.target.value.trim();
+  if (name) {
+    nickname = name;
+    saveNickname(name);
+    updateStatus('ready');
+    fetchAndRenderResponses();
+  } else {
+    nickname = '';
+    updateStatus('empty');
+  }
+});
+
+document.getElementById('nickname').addEventListener('blur', e => {
+  const name = e.target.value.trim();
+  if (name && name !== nickname) {
+    nickname = name;
+    saveNickname(name);
+    updateStatus('ready');
+    fetchAndRenderResponses();
+  }
+});
+
+// ============================================
+// 起動
+// ============================================
+renderSections();
+loadNickname();
+if (nickname) fetchAndRenderResponses();
+setInterval(fetchAndRenderResponses, POLL_INTERVAL_MS);
+</script>
+
+</body>
+</html>
