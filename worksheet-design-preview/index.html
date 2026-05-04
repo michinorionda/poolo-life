@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ワークシート デザイン3案比較プレビュー｜30代の生き方シリーズ</title>
+<title>ワークシート デザイン4案比較プレビュー｜30代の生き方シリーズ</title>
 <meta name="robots" content="noindex">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Noto+Sans+JP:wght@300;400;500;600;700&family=Shippori+Mincho+B1:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Noto+Sans+JP:wght@300;400;500;600;700;800&family=Shippori+Mincho+B1:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
@@ -72,14 +72,14 @@ body {
 
 .variant-block {
   max-width: 1200px;
-  margin: 0 auto 60px;
+  margin: 0 auto 70px;
   padding: 0 24px;
 }
 .variant-label {
   display: flex;
   align-items: baseline;
   gap: 16px;
-  margin-bottom: 14px;
+  margin-bottom: 8px;
   padding-bottom: 12px;
   border-bottom: 2px solid #2D3E36;
 }
@@ -105,6 +105,13 @@ body {
   margin-left: auto;
   font-family: 'Cormorant Garamond', serif;
   font-style: italic;
+}
+.variant-pitch {
+  font-size: 13px;
+  color: #4A5A52;
+  margin-bottom: 16px;
+  line-height: 1.85;
+  letter-spacing: 0.04em;
 }
 
 /* ===== Sheet-like grid (common) ===== */
@@ -134,8 +141,8 @@ body {
   text-align: center;
   align-items: center;
   justify-content: center;
-  min-height: 56px;
-  font-size: 12.5px;
+  min-height: 60px;
+  font-size: 13px;
 }
 .cell.label {
   font-style: italic;
@@ -156,92 +163,40 @@ body {
   min-height: 56px;
 }
 
-/* ===== A: ミニマル =====================================================*/
-.sheet.A {
-  border-color: #D9D3C5;
-  background: #FFFFFF;
+/* ===== Section band (full-width row) ===== */
+.section-band {
+  grid-column: 1 / -1;
+  padding: 16px 22px;
+  border-bottom: 1px solid;
 }
-.sheet.A .cell {
-  border-right-color: #D9D3C5;
-  border-bottom-color: #D9D3C5;
-  background: #FFFFFF;
-  font-family: 'Noto Sans JP', sans-serif;
-  color: #2A2A2A;
+.section-band-flex {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
 }
-.sheet.A .cell.header {
-  background: #2D3E36;
-  color: #FFFCF6;
-  font-family: 'Shippori Mincho B1', serif;
-  font-size: 13px;
-}
-.sheet.A .cell.question {
-  background: #F2EDE3;
-  color: #2D3E36;
-  font-family: 'Shippori Mincho B1', serif;
-}
-.sheet.A .cell.hashtag {
-  color: #1B99B7;
-  background: #FAFAF7;
-}
-.sheet.A .cell.answer {
-  background: #FAFAF7;
-}
-.sheet.A .cell.helper {
-  color: #7A7A7A;
-  background: #FFFFFF;
+.section-band-num {
   font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
 }
-.sheet.A .cell.label {
-  background: #FFFFFF;
-  color: #7A7A7A;
+.section-band-title {
+  font-family: 'Shippori Mincho B1', serif;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
 }
-.sheet.A .cell.empty {
-  background: #FFFFFF;
+.section-band-en {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 13px;
+  letter-spacing: 0.25em;
+  margin-left: auto;
+  text-transform: uppercase;
 }
 
-/* ===== B: 暖色和紙 =====================================================*/
-.sheet.B {
-  border-color: #C9B89E;
-  background: #FBF7EE;
-}
-.sheet.B .cell {
-  border-right-color: #C9B89E;
-  border-bottom-color: #C9B89E;
-  background: #FBF7EE;
-  font-family: 'Shippori Mincho B1', serif;
-  color: #2A2A2A;
-}
-.sheet.B .cell.header {
-  background: #3D2B1F;
-  color: #FBF7EE;
-  font-family: 'Shippori Mincho B1', serif;
-  font-size: 13px;
-}
-.sheet.B .cell.question {
-  background: #EFE5D2;
-  color: #3D2B1F;
-}
-.sheet.B .cell.hashtag {
-  color: #C97B5C;
-  background: #FFFFFF;
-}
-.sheet.B .cell.answer {
-  background: #FFFFFF;
-}
-.sheet.B .cell.helper {
-  color: #8B7E68;
-  background: #FBF7EE;
-  font-family: 'Cormorant Garamond', serif;
-}
-.sheet.B .cell.label {
-  background: #FBF7EE;
-  color: #8B7E68;
-}
-.sheet.B .cell.empty {
-  background: #FBF7EE;
-}
-
-/* ===== C: 高コントラスト雑誌風 =========================================*/
+/* ============== C: Baseline (高コントラスト雑誌風) ====================*/
 .sheet.C {
   border-color: #2D3E36;
   background: #F8F6F0;
@@ -254,42 +209,284 @@ body {
   color: #2A2A2A;
   font-size: 12px;
   line-height: 1.7;
-  min-height: 64px;
 }
 .sheet.C .cell.header {
   background: #2D3E36;
   color: #FFFFFF;
-  font-family: 'Noto Sans JP', sans-serif;
   font-size: 15px;
   letter-spacing: 0.04em;
-  min-height: 64px;
 }
 .sheet.C .cell.question {
   background: #1B99B7;
   color: #FFFFFF;
   font-size: 14.5px;
   font-weight: 600;
-  letter-spacing: 0.02em;
 }
 .sheet.C .cell.hashtag {
   color: #157A98;
   background: #FFFFFF;
   font-weight: 700;
 }
-.sheet.C .cell.answer {
-  background: #FFFFFF;
-}
+.sheet.C .cell.answer { background: #FFFFFF; }
 .sheet.C .cell.helper {
   color: #5A5A5A;
   background: #F8F6F0;
   font-family: 'Cormorant Garamond', serif;
 }
-.sheet.C .cell.label {
-  background: #F8F6F0;
-  color: #5A5A5A;
+.sheet.C .cell.label { background: #F8F6F0; color: #5A5A5A; }
+.sheet.C .cell.empty { background: #F8F6F0; }
+
+/* ============== D: ジャーナル・ナンバード =============================*/
+.sheet.D {
+  border-color: #2D3E36;
+  background: #FFFFFF;
 }
-.sheet.C .cell.empty {
-  background: #F8F6F0;
+.sheet.D .cell {
+  border-right-color: #B8D0C2;
+  border-bottom-color: #B8D0C2;
+  background: #FFFFFF;
+  font-family: 'Noto Sans JP', sans-serif;
+  color: #2A2A2A;
+  font-size: 12px;
+  line-height: 1.7;
+  min-height: 60px;
+}
+.sheet.D .cell.header {
+  background: #2D3E36;
+  color: #FFFCF6;
+  font-family: 'Shippori Mincho B1', serif;
+  font-size: 14px;
+  letter-spacing: 0.06em;
+}
+.sheet.D .cell.question {
+  background: #E8F4F8;
+  color: #2D3E36;
+  font-family: 'Shippori Mincho B1', serif;
+  font-size: 13.5px;
+  font-weight: 600;
+  border-left: 3px solid #1B99B7;
+}
+.sheet.D .cell.hashtag {
+  color: #1B99B7;
+  background: #FFFFFF;
+  font-weight: 700;
+}
+.sheet.D .cell.answer { background: #FFFFFF; }
+.sheet.D .cell.helper {
+  color: #7A9E8A;
+  background: #FFFFFF;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+}
+.sheet.D .cell.label { background: #FFFFFF; color: #7A9E8A; }
+.sheet.D .cell.empty { background: #FFFFFF; }
+.sheet.D .section-band {
+  background: #2D3E36;
+  color: #FFFCF6;
+  border-bottom-color: #2D3E36;
+}
+.sheet.D .section-band-num { color: #B8E0EB; }
+.sheet.D .section-band-title { color: #FFFCF6; }
+.sheet.D .section-band-en { color: #B8E0EB; opacity: 0.8; }
+
+/* ============== E: ビッグタイポ ========================================*/
+.sheet.E {
+  border-color: #EAE5DC;
+  background: #FBF7EE;
+}
+.sheet.E .cell {
+  border-right-color: #EAE5DC;
+  border-bottom-color: #EAE5DC;
+  background: #FBF7EE;
+  font-family: 'Shippori Mincho B1', serif;
+  color: #2A2A2A;
+  font-size: 12px;
+  line-height: 1.85;
+  min-height: 64px;
+}
+.sheet.E .cell.header {
+  background: #2D3E36;
+  color: #FFFCF6;
+  font-family: 'Shippori Mincho B1', serif;
+  font-size: 14px;
+  letter-spacing: 0.06em;
+}
+.sheet.E .cell.question {
+  background: #FBF7EE;
+  color: #2D3E36;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  line-height: 1.75;
+}
+.sheet.E .cell.question::before {
+  content: '— ';
+  color: #1B99B7;
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 500;
+}
+.sheet.E .cell.hashtag {
+  color: #1B99B7;
+  background: #FFFFFF;
+  font-family: 'Noto Sans JP', sans-serif;
+  font-weight: 600;
+  font-size: 12px;
+}
+.sheet.E .cell.answer {
+  background: #FFFFFF;
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 11.5px;
+}
+.sheet.E .cell.helper {
+  color: #7A9E8A;
+  background: #FBF7EE;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+}
+.sheet.E .cell.label {
+  background: #FBF7EE;
+  color: #7A9E8A;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 12px;
+}
+.sheet.E .cell.empty { background: #FBF7EE; }
+.sheet.E .section-band {
+  background: #FBF7EE;
+  color: #2D3E36;
+  border-bottom: 2px solid #2D3E36;
+  padding: 22px 22px 14px;
+}
+.sheet.E .section-band-num {
+  color: #1B99B7;
+  font-size: 26px;
+}
+.sheet.E .section-band-title {
+  font-size: 17px;
+  letter-spacing: 0.1em;
+}
+.sheet.E .section-band-en { color: #7A9E8A; }
+
+/* ============== F: セクション・ブロック ================================*/
+.sheet.F {
+  border-color: #D9D3C5;
+  background: #FFFFFF;
+}
+.sheet.F .cell {
+  border-right-color: rgba(45,62,54,0.15);
+  border-bottom-color: rgba(45,62,54,0.15);
+  font-family: 'Noto Sans JP', sans-serif;
+  color: #2A2A2A;
+  font-size: 12px;
+  line-height: 1.7;
+  min-height: 60px;
+}
+.sheet.F .cell.header {
+  background: #2D3E36;
+  color: #FFFCF6;
+  font-family: 'Shippori Mincho B1', serif;
+  font-size: 14px;
+  letter-spacing: 0.06em;
+}
+.sheet.F .section-band {
+  padding: 18px 22px;
+  border-bottom: 1px solid #2D3E36;
+}
+/* Section 1 — warm cream block */
+.sheet.F .section-1 .section-band {
+  background: #2D3E36;
+  color: #FFFCF6;
+}
+.sheet.F .section-1 .section-band-num { color: #C97B5C; }
+.sheet.F .section-1 .section-band-en { color: #B8D0C2; opacity: 0.85; }
+.sheet.F .section-1 .cell { background: #FBF7EE; }
+.sheet.F .section-1 .cell.question {
+  background: #F0E8D4;
+  color: #2D3E36;
+  font-family: 'Shippori Mincho B1', serif;
+  font-weight: 600;
+  font-size: 13px;
+}
+.sheet.F .section-1 .cell.answer { background: #FFFFFF; }
+.sheet.F .section-1 .cell.hashtag {
+  background: #FFFFFF;
+  color: #C97B5C;
+  font-weight: 700;
+}
+.sheet.F .section-1 .cell.helper {
+  background: #FBF7EE;
+  color: #7A6A50;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+}
+.sheet.F .section-1 .cell.label { background: #FBF7EE; color: #7A6A50; }
+.sheet.F .section-1 .cell.empty { background: #FBF7EE; }
+
+/* Section 2 — sage block */
+.sheet.F .section-2 .section-band {
+  background: #2D3E36;
+  color: #FFFCF6;
+}
+.sheet.F .section-2 .section-band-num { color: #B8E0EB; }
+.sheet.F .section-2 .section-band-en { color: #B8D0C2; opacity: 0.85; }
+.sheet.F .section-2 .cell { background: #ECF1ED; }
+.sheet.F .section-2 .cell.question {
+  background: #D9E3DC;
+  color: #2D3E36;
+  font-family: 'Shippori Mincho B1', serif;
+  font-weight: 600;
+  font-size: 13px;
+}
+.sheet.F .section-2 .cell.answer { background: #FFFFFF; }
+.sheet.F .section-2 .cell.hashtag {
+  background: #FFFFFF;
+  color: #1B99B7;
+  font-weight: 700;
+}
+.sheet.F .section-2 .cell.helper {
+  background: #ECF1ED;
+  color: #5A6A5E;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+}
+.sheet.F .section-2 .cell.label { background: #ECF1ED; color: #5A6A5E; }
+.sheet.F .section-2 .cell.empty { background: #ECF1ED; }
+
+/* Section 3 — pale blue block */
+.sheet.F .section-3 .section-band {
+  background: #2D3E36;
+  color: #FFFCF6;
+}
+.sheet.F .section-3 .section-band-num { color: #B8E0EB; }
+.sheet.F .section-3 .section-band-en { color: #B8E0EB; opacity: 0.85; }
+.sheet.F .section-3 .cell { background: #EAF3F6; }
+.sheet.F .section-3 .cell.question {
+  background: #1B99B7;
+  color: #FFFFFF;
+  font-weight: 600;
+  font-size: 13px;
+}
+.sheet.F .section-3 .cell.answer { background: #FFFFFF; }
+.sheet.F .section-3 .cell.hashtag {
+  background: #FFFFFF;
+  color: #157A98;
+  font-weight: 700;
+}
+.sheet.F .section-3 .cell.helper {
+  background: #EAF3F6;
+  color: #4A6E7A;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+}
+.sheet.F .section-3 .cell.label { background: #EAF3F6; color: #4A6E7A; }
+.sheet.F .section-3 .cell.empty { background: #EAF3F6; }
+
+.sheet.F .section-band-num {
+  font-size: 22px;
 }
 
 /* ===== Recommendation block ===== */
@@ -316,6 +513,7 @@ body {
   line-height: 1.9;
   margin-bottom: 10px;
 }
+.recommend strong { color: #1B99B7; }
 .recommend code {
   font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
   background: #F2EDE3;
@@ -330,7 +528,6 @@ body {
   .sheet .cell { padding: 8px 10px; min-height: 48px; }
   .sheet .cell:nth-child(5n) { border-right: 1px solid; }
   .sheet .cell:nth-child(4n) { border-right: none; }
-  .sheet .cell:nth-child(n+15):nth-child(-n+15) { display: none; }
   .page-head h1 { font-size: 19px; }
   .recommend { padding: 24px 22px; }
 }
@@ -339,159 +536,27 @@ body {
 <body>
 
 <div class="page-head">
-  <div class="eyebrow">Worksheet Design Preview</div>
-  <h1>ワークシート デザイン3案比較</h1>
-  <p>5/5（火）13:00開催「30代の生き方シリーズ vol.01」のZoom当日に使うワークシートのデザイン案を、実際のスプレッドシートに反映する前にHTMLで再現したものです。実シートの代表的な行（参加者ヘッダー／問い／回答／ハッシュタグ／補助テキスト）をそれぞれの案で描画しています。</p>
+  <div class="eyebrow">Worksheet Design Preview &nbsp;/&nbsp; iteration 2</div>
+  <h1>ワークシート デザイン4案比較<br>（やりたくなる版）</h1>
+  <p>5/5（火）開催「30代の生き方シリーズvol.01」のワークシート。前回案Cを「最低限のベースライン」と位置づけ、それを超える3パターン（D／E／F）を追加しました。同じカラーパレット（深緑×POOLOブルー×クリーム）の中で、レイアウトとタイポの扱いを変えて性格の違いを出しています。</p>
   <div class="page-nav">
-    <a href="#A">案A：静謐ミニマル</a>
-    <a href="#B">案B：暖色和紙</a>
-    <a href="#C">案C：高コントラスト雑誌風</a>
+    <a href="#C">C：ベースライン</a>
+    <a href="#D">D：ジャーナル・ナンバード</a>
+    <a href="#E">E：ビッグタイポ</a>
+    <a href="#F">F：セクション・ブロック</a>
     <a href="#recommend">おすすめ</a>
   </div>
 </div>
 
 
-<!-- ===== 案A：静謐ミニマル ===== -->
-<div class="variant-block" id="A">
-  <div class="variant-label">
-    <span class="num">A</span>
-    <span class="name">静謐ミニマル</span>
-    <span class="desc">white base / deep green accent</span>
-  </div>
-  <div class="sheet A">
-    <!-- header row -->
-    <div class="cell header empty"></div>
-    <div class="cell header empty"></div>
-    <div class="cell header">haruka@東京</div>
-    <div class="cell header">中嶋 美羽@仙台</div>
-    <div class="cell header">じょん@横須賀</div>
-
-    <!-- helper row -->
-    <div class="cell empty"></div>
-    <div class="cell helper">目安：記入10分＋対話8分</div>
-    <div class="cell empty"></div>
-    <div class="cell empty"></div>
-    <div class="cell empty"></div>
-
-    <!-- question 1 -->
-    <div class="cell label">①</div>
-    <div class="cell label">アイスブレイク</div>
-    <div class="cell question">この1週間で、嬉しかったこと、ご機嫌だったことはありますか？</div>
-    <div class="cell question">この1週間で、嬉しかったこと、ご機嫌だったことはありますか？</div>
-    <div class="cell question">この1週間で、嬉しかったこと、ご機嫌だったことはありますか？</div>
-
-    <!-- answer 1 -->
-    <div class="cell empty"></div>
-    <div class="cell empty"></div>
-    <div class="cell answer">・ネイルサロンに行って、爪が綺麗になったこと
-・五島列島へ行くチケットが取れたこと</div>
-    <div class="cell answer">仕事上で苦手な人とうまく過ごせたこと
-旅行の予定を考えたこと</div>
-    <div class="cell empty"></div>
-
-    <!-- question 2 -->
-    <div class="cell label">②</div>
-    <div class="cell label">最近</div>
-    <div class="cell question">最近、なぜかハマっていることは何ですか？</div>
-    <div class="cell question">最近、なぜかハマっていることは何ですか？</div>
-    <div class="cell question">最近、なぜかハマっていることは何ですか？</div>
-
-    <!-- answer 2 (hashtag) -->
-    <div class="cell empty"></div>
-    <div class="cell empty"></div>
-    <div class="cell hashtag">#韓国ドラマ
-#久しぶりの再開</div>
-    <div class="cell hashtag">#コナン映画
-#自己理解の時間</div>
-    <div class="cell empty"></div>
-
-    <!-- question 3 -->
-    <div class="cell label">③</div>
-    <div class="cell label">違和感</div>
-    <div class="cell question">自分のこれからのキャリア・生き方を考える上での、違和感、もやもやはどんなものですか？</div>
-    <div class="cell question">自分のこれからのキャリア・生き方を考える上での、違和感、もやもやはどんなものですか？</div>
-    <div class="cell question">自分のこれからのキャリア・生き方を考える上での、違和感、もやもやはどんなものですか？</div>
-
-    <!-- answer 3 -->
-    <div class="cell empty"></div>
-    <div class="cell empty"></div>
-    <div class="cell answer">このままの生活なら、お金には困らない。けど気持ち的に満足できていない。心がすり減っている感じ。</div>
-    <div class="cell answer">自分の気持ちで何がしたいかわからない。今やる仕事関連は全部受動的。心と結びついていない感じがしんどい。</div>
-    <div class="cell empty"></div>
-  </div>
-</div>
-
-
-<!-- ===== 案B：暖色和紙 ===== -->
-<div class="variant-block" id="B">
-  <div class="variant-label">
-    <span class="num">B</span>
-    <span class="name">暖色和紙</span>
-    <span class="desc">cream base / brown &amp; terracotta</span>
-  </div>
-  <div class="sheet B">
-    <div class="cell header empty"></div>
-    <div class="cell header empty"></div>
-    <div class="cell header">haruka@東京</div>
-    <div class="cell header">中嶋 美羽@仙台</div>
-    <div class="cell header">じょん@横須賀</div>
-
-    <div class="cell empty"></div>
-    <div class="cell helper">目安：記入10分＋対話8分</div>
-    <div class="cell empty"></div>
-    <div class="cell empty"></div>
-    <div class="cell empty"></div>
-
-    <div class="cell label">①</div>
-    <div class="cell label">アイスブレイク</div>
-    <div class="cell question">この1週間で、嬉しかったこと、ご機嫌だったことはありますか？</div>
-    <div class="cell question">この1週間で、嬉しかったこと、ご機嫌だったことはありますか？</div>
-    <div class="cell question">この1週間で、嬉しかったこと、ご機嫌だったことはありますか？</div>
-
-    <div class="cell empty"></div>
-    <div class="cell empty"></div>
-    <div class="cell answer">・ネイルサロンに行って、爪が綺麗になったこと
-・五島列島へ行くチケットが取れたこと</div>
-    <div class="cell answer">仕事上で苦手な人とうまく過ごせたこと
-旅行の予定を考えたこと</div>
-    <div class="cell empty"></div>
-
-    <div class="cell label">②</div>
-    <div class="cell label">最近</div>
-    <div class="cell question">最近、なぜかハマっていることは何ですか？</div>
-    <div class="cell question">最近、なぜかハマっていることは何ですか？</div>
-    <div class="cell question">最近、なぜかハマっていることは何ですか？</div>
-
-    <div class="cell empty"></div>
-    <div class="cell empty"></div>
-    <div class="cell hashtag">#韓国ドラマ
-#久しぶりの再開</div>
-    <div class="cell hashtag">#コナン映画
-#自己理解の時間</div>
-    <div class="cell empty"></div>
-
-    <div class="cell label">③</div>
-    <div class="cell label">違和感</div>
-    <div class="cell question">自分のこれからのキャリア・生き方を考える上での、違和感、もやもやはどんなものですか？</div>
-    <div class="cell question">自分のこれからのキャリア・生き方を考える上での、違和感、もやもやはどんなものですか？</div>
-    <div class="cell question">自分のこれからのキャリア・生き方を考える上での、違和感、もやもやはどんなものですか？</div>
-
-    <div class="cell empty"></div>
-    <div class="cell empty"></div>
-    <div class="cell answer">このままの生活なら、お金には困らない。けど気持ち的に満足できていない。心がすり減っている感じ。</div>
-    <div class="cell answer">自分の気持ちで何がしたいかわからない。今やる仕事関連は全部受動的。心と結びついていない感じがしんどい。</div>
-    <div class="cell empty"></div>
-  </div>
-</div>
-
-
-<!-- ===== 案C：高コントラスト雑誌風 ===== -->
+<!-- ===== C: ベースライン ===== -->
 <div class="variant-block" id="C">
   <div class="variant-label">
     <span class="num">C</span>
-    <span class="name">高コントラスト雑誌風</span>
+    <span class="name">高コントラスト雑誌風（ベースライン）</span>
     <span class="desc">white &amp; deep green &amp; POOLO blue</span>
   </div>
+  <p class="variant-pitch">前回案。問い行をPOOLOブルーで強調するシンプルな構成。最低限の「やりたくなる」ライン。</p>
   <div class="sheet C">
     <div class="cell header empty"></div>
     <div class="cell header empty"></div>
@@ -518,9 +583,55 @@ body {
     <div class="cell answer">仕事上で苦手な人とうまく過ごせたこと
 旅行の予定を考えたこと</div>
     <div class="cell empty"></div>
+  </div>
+</div>
 
-    <div class="cell label">②</div>
-    <div class="cell label">最近</div>
+
+<!-- ===== D: ジャーナル・ナンバード ===== -->
+<div class="variant-block" id="D">
+  <div class="variant-label">
+    <span class="num">D</span>
+    <span class="name">ジャーナル・ナンバード</span>
+    <span class="desc">editorial / numbered chapters</span>
+  </div>
+  <p class="variant-pitch">章立てを明確に。各セクションを深緑の帯＋イタリック数字で区切り、雑誌のチャプター扉のようにする。問いセルは淡いブルー＋左に細いPOOLOブルーの罫線。書く欄は純白で「白紙の余白に書き込む」感覚を強める。</p>
+  <div class="sheet D">
+    <div class="cell header empty"></div>
+    <div class="cell header empty"></div>
+    <div class="cell header">haruka@東京</div>
+    <div class="cell header">中嶋 美羽@仙台</div>
+    <div class="cell header">じょん@横須賀</div>
+
+    <div class="section-band">
+      <div class="section-band-flex">
+        <span class="section-band-num">01</span>
+        <span class="section-band-title">アイスブレイク</span>
+        <span class="section-band-en">Warming up · 10 min</span>
+      </div>
+    </div>
+
+    <div class="cell empty"></div>
+    <div class="cell helper">記入10分＋対話8分</div>
+    <div class="cell empty"></div>
+    <div class="cell empty"></div>
+    <div class="cell empty"></div>
+
+    <div class="cell label">Q.01</div>
+    <div class="cell label">この一週間</div>
+    <div class="cell question">この1週間で、嬉しかったこと、ご機嫌だったことはありますか？</div>
+    <div class="cell question">この1週間で、嬉しかったこと、ご機嫌だったことはありますか？</div>
+    <div class="cell question">この1週間で、嬉しかったこと、ご機嫌だったことはありますか？</div>
+
+    <div class="cell empty"></div>
+    <div class="cell empty"></div>
+    <div class="cell answer">・ネイルサロンに行って、爪が綺麗になったこと
+・五島列島へ行くチケットが取れたこと</div>
+    <div class="cell answer">仕事上で苦手な人とうまく過ごせたこと
+旅行の予定を考えたこと</div>
+    <div class="cell empty"></div>
+
+    <div class="cell label">Q.02</div>
+    <div class="cell label">最近のハマり</div>
     <div class="cell question">最近、なぜかハマっていることは何ですか？</div>
     <div class="cell question">最近、なぜかハマっていることは何ですか？</div>
     <div class="cell question">最近、なぜかハマっていることは何ですか？</div>
@@ -533,7 +644,15 @@ body {
 #自己理解の時間</div>
     <div class="cell empty"></div>
 
-    <div class="cell label">③</div>
+    <div class="section-band">
+      <div class="section-band-flex">
+        <span class="section-band-num">02</span>
+        <span class="section-band-title">違和感を、ことばに</span>
+        <span class="section-band-en">Articulate the friction · 30 min</span>
+      </div>
+    </div>
+
+    <div class="cell label">Q.03</div>
     <div class="cell label">違和感</div>
     <div class="cell question">自分のこれからのキャリア・生き方を考える上での、違和感、もやもやはどんなものですか？</div>
     <div class="cell question">自分のこれからのキャリア・生き方を考える上での、違和感、もやもやはどんなものですか？</div>
@@ -548,13 +667,190 @@ body {
 </div>
 
 
+<!-- ===== E: ビッグタイポ ===== -->
+<div class="variant-block" id="E">
+  <div class="variant-label">
+    <span class="num">E</span>
+    <span class="name">ビッグタイポ</span>
+    <span class="desc">spacious / oversized questions</span>
+  </div>
+  <p class="variant-pitch">問いを画面で一番大きく見せる。Shippori Mincho 16pt＋エムダッシュ装飾で「言葉の重み」を立てる。背景は全体クリーム、書く欄だけ純白に抜く。書く前に**問いをじっくり読む時間**ができる。</p>
+  <div class="sheet E">
+    <div class="cell header empty"></div>
+    <div class="cell header empty"></div>
+    <div class="cell header">haruka@東京</div>
+    <div class="cell header">中嶋 美羽@仙台</div>
+    <div class="cell header">じょん@横須賀</div>
+
+    <div class="section-band">
+      <div class="section-band-flex">
+        <span class="section-band-num">01</span>
+        <span class="section-band-title">アイスブレイク</span>
+        <span class="section-band-en">Warming up · 10 min</span>
+      </div>
+    </div>
+
+    <div class="cell empty"></div>
+    <div class="cell helper">記入10分＋対話8分</div>
+    <div class="cell empty"></div>
+    <div class="cell empty"></div>
+    <div class="cell empty"></div>
+
+    <div class="cell label">i</div>
+    <div class="cell label">この一週間</div>
+    <div class="cell question">この1週間で、嬉しかったこと、ご機嫌だったことはありますか？</div>
+    <div class="cell question">この1週間で、嬉しかったこと、ご機嫌だったことはありますか？</div>
+    <div class="cell question">この1週間で、嬉しかったこと、ご機嫌だったことはありますか？</div>
+
+    <div class="cell empty"></div>
+    <div class="cell empty"></div>
+    <div class="cell answer">・ネイルサロンに行って、爪が綺麗になったこと
+・五島列島へ行くチケットが取れたこと</div>
+    <div class="cell answer">仕事上で苦手な人とうまく過ごせたこと
+旅行の予定を考えたこと</div>
+    <div class="cell empty"></div>
+
+    <div class="cell label">ii</div>
+    <div class="cell label">最近のハマり</div>
+    <div class="cell question">最近、なぜかハマっていることは何ですか？</div>
+    <div class="cell question">最近、なぜかハマっていることは何ですか？</div>
+    <div class="cell question">最近、なぜかハマっていることは何ですか？</div>
+
+    <div class="cell empty"></div>
+    <div class="cell empty"></div>
+    <div class="cell hashtag">#韓国ドラマ
+#久しぶりの再開</div>
+    <div class="cell hashtag">#コナン映画
+#自己理解の時間</div>
+    <div class="cell empty"></div>
+
+    <div class="section-band">
+      <div class="section-band-flex">
+        <span class="section-band-num">02</span>
+        <span class="section-band-title">違和感を、ことばに</span>
+        <span class="section-band-en">Articulate the friction · 30 min</span>
+      </div>
+    </div>
+
+    <div class="cell label">iii</div>
+    <div class="cell label">違和感</div>
+    <div class="cell question">自分のこれからのキャリア・生き方を考える上での、違和感、もやもやはどんなものですか？</div>
+    <div class="cell question">自分のこれからのキャリア・生き方を考える上での、違和感、もやもやはどんなものですか？</div>
+    <div class="cell question">自分のこれからのキャリア・生き方を考える上での、違和感、もやもやはどんなものですか？</div>
+
+    <div class="cell empty"></div>
+    <div class="cell empty"></div>
+    <div class="cell answer">このままの生活なら、お金には困らない。けど気持ち的に満足できていない。心がすり減っている感じ。</div>
+    <div class="cell answer">自分の気持ちで何がしたいかわからない。今やる仕事関連は全部受動的。心と結びついていない感じがしんどい。</div>
+    <div class="cell empty"></div>
+  </div>
+</div>
+
+
+<!-- ===== F: セクション・ブロック ===== -->
+<div class="variant-block" id="F">
+  <div class="variant-label">
+    <span class="num">F</span>
+    <span class="name">セクション・ブロック</span>
+    <span class="desc">chaptered with color zones</span>
+  </div>
+  <p class="variant-pitch">セクションごとに**背景色を変える**。クリーム→セージ→淡ブルーと、深まりに従って色温度が変わる。「いま自分はどのチャプターにいるか」が一目で分かり、進捗感が生まれる。POOLOバリュー（旅・対話・問い）の3層構造とも視覚的に呼応。</p>
+  <div class="sheet F">
+    <div class="cell header empty"></div>
+    <div class="cell header empty"></div>
+    <div class="cell header">haruka@東京</div>
+    <div class="cell header">中嶋 美羽@仙台</div>
+    <div class="cell header">じょん@横須賀</div>
+
+    <!-- Section 1 -->
+    <div class="section-1" style="display: contents;">
+      <div class="section-band">
+        <div class="section-band-flex">
+          <span class="section-band-num">01</span>
+          <span class="section-band-title">アイスブレイク</span>
+          <span class="section-band-en">Warming up</span>
+        </div>
+      </div>
+
+      <div class="cell empty"></div>
+      <div class="cell helper">記入10分＋対話8分</div>
+      <div class="cell empty"></div>
+      <div class="cell empty"></div>
+      <div class="cell empty"></div>
+
+      <div class="cell label">Q.01</div>
+      <div class="cell label">この一週間</div>
+      <div class="cell question">この1週間で、嬉しかったこと、ご機嫌だったことはありますか？</div>
+      <div class="cell question">この1週間で、嬉しかったこと、ご機嫌だったことはありますか？</div>
+      <div class="cell question">この1週間で、嬉しかったこと、ご機嫌だったことはありますか？</div>
+
+      <div class="cell empty"></div>
+      <div class="cell empty"></div>
+      <div class="cell answer">・ネイルサロンに行って、爪が綺麗になったこと
+・五島列島へ行くチケットが取れたこと</div>
+      <div class="cell answer">仕事上で苦手な人とうまく過ごせたこと
+旅行の予定を考えたこと</div>
+      <div class="cell empty"></div>
+    </div>
+
+    <!-- Section 2 -->
+    <div class="section-2" style="display: contents;">
+      <div class="section-band">
+        <div class="section-band-flex">
+          <span class="section-band-num">02</span>
+          <span class="section-band-title">違和感を、ことばに</span>
+          <span class="section-band-en">Articulate the friction</span>
+        </div>
+      </div>
+
+      <div class="cell label">Q.02</div>
+      <div class="cell label">最近のハマり</div>
+      <div class="cell question">最近、なぜかハマっていることは何ですか？</div>
+      <div class="cell question">最近、なぜかハマっていることは何ですか？</div>
+      <div class="cell question">最近、なぜかハマっていることは何ですか？</div>
+
+      <div class="cell empty"></div>
+      <div class="cell empty"></div>
+      <div class="cell hashtag">#韓国ドラマ
+#久しぶりの再開</div>
+      <div class="cell hashtag">#コナン映画
+#自己理解の時間</div>
+      <div class="cell empty"></div>
+    </div>
+
+    <!-- Section 3 -->
+    <div class="section-3" style="display: contents;">
+      <div class="section-band">
+        <div class="section-band-flex">
+          <span class="section-band-num">03</span>
+          <span class="section-band-title">これから、何を選ぶ？</span>
+          <span class="section-band-en">What to choose next</span>
+        </div>
+      </div>
+
+      <div class="cell label">Q.03</div>
+      <div class="cell label">違和感</div>
+      <div class="cell question">自分のこれからのキャリア・生き方を考える上での、違和感、もやもやはどんなものですか？</div>
+      <div class="cell question">自分のこれからのキャリア・生き方を考える上での、違和感、もやもやはどんなものですか？</div>
+      <div class="cell question">自分のこれからのキャリア・生き方を考える上での、違和感、もやもやはどんなものですか？</div>
+
+      <div class="cell empty"></div>
+      <div class="cell empty"></div>
+      <div class="cell answer">このままの生活なら、お金には困らない。けど気持ち的に満足できていない。心がすり減っている感じ。</div>
+      <div class="cell answer">自分の気持ちで何がしたいかわからない。今やる仕事関連は全部受動的。心と結びついていない感じがしんどい。</div>
+      <div class="cell empty"></div>
+    </div>
+  </div>
+</div>
+
+
 <!-- ===== Recommendation ===== -->
 <div class="recommend" id="recommend">
-  <h2>おすすめ：案C（高コントラスト雑誌風）</h2>
-  <p><strong>理由</strong>：90分のオンラインイベント中、参加者は画面越しにシートを見ながら書きます。Zoom画面と並べたときに「どこに何を書くか」が瞬時に分かることが最優先。問い行を <strong>POOLOブルーの帯＋白文字</strong>で立てる案Cが一番見つけやすく、書く欄（白カード）との対比も明確です。</p>
-  <p><strong>案Aの強み</strong>：余白がきれいで上品。準備時間が長くじっくり書く対面ワークショップに合う。</p>
-  <p><strong>案Bの強み</strong>：温かみがあり、書き込みたくなる雰囲気。和紙のような質感。手帳的な親しみで、後から見返しやすい。</p>
-  <p>選んだら、Apps Scriptで <code>applyChosenA()</code> / <code>applyChosenB()</code> / <code>applyChosenC()</code> を実行（現在開いているタブに適用）、または <code>applyChosenToAllTabs('C')</code> で全タブに一括適用できます。</p>
+  <h2>3案の選び方</h2>
+  <p><strong>D：ジャーナル・ナンバード</strong>　雑誌の章立てが好きな人向け。「いま何章をやっているか」がはっきり分かる。LP（event-30s-v01）と最も世界観が一致し、参加者の事前期待と一貫する。</p>
+  <p><strong>E：ビッグタイポ</strong>　問いを大事に扱いたい人向け。書く前に問いをじっくり読む時間が生まれる。回答の量よりも「どう向き合ったか」を重視する設計。LIFEイベント全般に流用しやすい。</p>
+  <p><strong>F：セクション・ブロック</strong>　進捗の可視化を重視する人向け。色が変わることで「深まっていく感じ」が体感できる。3つのセクションがある回には特に効果的。情報量が多めなので、慣れていない参加者には少し賑やか。</p>
+  <p>選んだら、Apps Scriptで <code>applyChosenD()</code> / <code>applyChosenE()</code> / <code>applyChosenF()</code> を実行（GASも併せて更新する必要があるので、選択後にこちらで対応します）。</p>
 </div>
 
 </body>
