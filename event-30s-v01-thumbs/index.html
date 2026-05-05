@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>30s Life vol.01｜サムネ案プレビュー v2</title>
+<title>30s Life vol.01｜編集型 あしらい5案</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Shippori+Mincho:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Shippori+Mincho:wght@400;500;600;700&family=Cormorant+Garamond:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
   :root{
     --brand-blue:#1B99B7;
@@ -16,6 +16,7 @@
     --sage:#9DAE94;
     --terracotta:#C97C5D;
     --offwhite:#F5F1EA;
+    --paper:#FBF8F2;
     --ink:#1A1A1A;
     --gray:#6B6B6B;
   }
@@ -27,305 +28,207 @@
     line-height:1.7;
     padding:60px 24px 120px;
   }
-  .wrap{max-width:960px;margin:0 auto}
+  .wrap{max-width:980px;margin:0 auto}
+
   .hero{margin-bottom:64px}
   .hero h1{
     font-family:'Shippori Mincho',serif;
-    font-size:32px;
-    font-weight:600;
-    margin-bottom:12px;
-    letter-spacing:0.02em;
+    font-size:32px;font-weight:600;
+    margin-bottom:12px;letter-spacing:0.02em;
   }
   .hero p{color:var(--gray);font-size:14px}
   .hero .meta{
-    margin-top:16px;
-    padding:14px 18px;
-    background:#fff;
+    margin-top:16px;padding:14px 18px;background:#fff;
     border-left:3px solid var(--brand-blue);
-    font-size:13px;
-    color:#444;
+    font-size:13px;color:#444;
   }
+
   .case{margin-bottom:80px}
   .case-head{
-    display:flex;
-    align-items:baseline;
-    gap:16px;
-    margin-bottom:14px;
-    padding-bottom:12px;
+    display:flex;align-items:baseline;gap:16px;
+    margin-bottom:14px;padding-bottom:12px;
     border-bottom:1px solid #E5E5E0;
   }
   .case-id{
     font-family:'Shippori Mincho',serif;
-    font-size:24px;
-    font-weight:600;
-    color:var(--brand-blue);
+    font-size:24px;font-weight:600;color:var(--brand-blue);
   }
   .case-title{font-size:18px;font-weight:500}
   .case-note{font-size:13px;color:var(--gray);margin-bottom:18px}
 
-  /* サムネ共通 OGP比率 1200x630 */
+  /* OGP比率 1200x630 */
   .thumb{
     width:100%;
     aspect-ratio:1200/630;
-    border-radius:4px;
-    overflow:hidden;
+    border-radius:4px;overflow:hidden;
     box-shadow:0 8px 32px rgba(0,0,0,0.10);
     position:relative;
     container-type:inline-size;
-  }
-
-  /* 共通: メタ情報 */
-  .ev-theme{
-    font-family:'Shippori Mincho',serif;
-    letter-spacing:0.06em;
-  }
-  .ev-date{
-    font-family:'Noto Sans JP',sans-serif;
-    letter-spacing:0.18em;
-    font-weight:500;
-  }
-  .ev-tag{
-    font-family:'Noto Sans JP',sans-serif;
-    letter-spacing:0.3em;
-    font-weight:500;
-  }
-
-  /* ==================================== */
-  /* 案A: 内心スナイパー型 写真フル+暗転 */
-  /* ==================================== */
-  .thumb-a{
-    background-image:url('../event-30s-v01/images/05_garden_talk.jpg');
-    background-size:cover;
-    background-position:center;
-  }
-  .thumb-a::before{
-    content:"";position:absolute;inset:0;
-    background:linear-gradient(135deg,rgba(27,153,183,0.85) 0%,rgba(21,122,152,0.92) 100%);
-  }
-  .thumb-a .body{
-    position:relative;z-index:1;
-    height:100%;
-    display:flex;flex-direction:column;justify-content:center;align-items:center;
-    text-align:center;color:#fff;padding:6%;
-  }
-  .thumb-a .tag{
-    font-size:1.2cqw;letter-spacing:0.4em;font-weight:500;
-    margin-bottom:3.5cqh;opacity:0.9;
-    border:1px solid rgba(255,255,255,0.5);padding:0.8cqh 1.8cqw;
-  }
-  .thumb-a .main{
-    font-family:'Shippori Mincho',serif;
-    font-size:6cqw;font-weight:500;
-    letter-spacing:0.06em;line-height:1.4;
-    margin-bottom:4cqh;
-  }
-  .thumb-a .theme{
-    font-family:'Shippori Mincho',serif;
-    font-size:1.7cqw;letter-spacing:0.1em;
-    opacity:0.95;margin-bottom:3cqh;
-  }
-  .thumb-a .date{
-    font-size:1.4cqw;letter-spacing:0.25em;
-    border-top:1px solid rgba(255,255,255,0.4);
-    padding-top:2cqh;
-  }
-
-  /* ==================================== */
-  /* 案B: 物差し否定型 写真+深緑カラム */
-  /* ==================================== */
-  .thumb-b{
     display:flex;
   }
-  .thumb-b .img{
-    width:42%;
-    background-image:url('../event-30s-v01/images/09_dialogue_blue.jpg');
-    background-size:cover;
-    background-position:center;
-    position:relative;
-  }
-  .thumb-b .img::after{
-    content:"";position:absolute;inset:0;
-    background:linear-gradient(90deg,transparent 60%,var(--deep-green) 100%);
-  }
-  .thumb-b .col{
-    width:58%;
-    background:var(--deep-green);
-    color:#fff;
-    padding:6% 5%;
-    display:flex;flex-direction:column;justify-content:center;
-    position:relative;
-  }
-  .thumb-b .col::before{
-    content:"";position:absolute;
-    left:0;top:18%;bottom:18%;width:2px;background:var(--terracotta);
-  }
-  .thumb-b .tag{
-    font-size:1cqw;letter-spacing:0.4em;color:var(--terracotta);
-    margin-bottom:2.5cqh;font-weight:500;
-  }
-  .thumb-b .main{
-    font-family:'Shippori Mincho',serif;
-    font-size:3.4cqw;font-weight:500;
-    line-height:1.6;letter-spacing:0.04em;
-    margin-bottom:3cqh;
-  }
-  .thumb-b .theme{
-    font-family:'Shippori Mincho',serif;
-    font-size:1.4cqw;color:#D4C8B5;
-    letter-spacing:0.08em;line-height:1.7;
-    margin-bottom:3cqh;
-    padding-top:2cqh;border-top:1px solid rgba(255,255,255,0.15);
-  }
-  .thumb-b .date{
-    font-size:1.2cqw;letter-spacing:0.25em;color:#B8C4B8;
-  }
 
-  /* ==================================== */
-  /* 案C: 写真上+セージ帯 雑誌型 */
-  /* ==================================== */
-  .thumb-c{
-    display:flex;flex-direction:column;
-  }
-  .thumb-c .img{
-    height:62%;
-    background-image:url('../event-30s-v01/images/12_poolo_keyvisual.jpg');
-    background-size:cover;
-    background-position:center;
-    position:relative;
-  }
-  .thumb-c .img .overlay-text{
-    position:absolute;left:5%;bottom:7%;
-    font-family:'Shippori Mincho',serif;
-    font-size:6cqw;font-weight:600;
-    color:#fff;letter-spacing:0.08em;
-    text-shadow:0 2px 20px rgba(0,0,0,0.3);
-  }
-  .thumb-c .band{
-    height:38%;
-    background:var(--offwhite);
-    color:var(--deep-green);
-    padding:3.5cqh 5%;
-    display:flex;flex-direction:column;justify-content:center;
-    position:relative;
-  }
-  .thumb-c .band::before{
-    content:"";position:absolute;
-    top:0;left:5%;right:5%;height:1px;background:var(--terracotta);opacity:0.5;
-  }
-  .thumb-c .theme{
-    font-family:'Shippori Mincho',serif;
-    font-size:2.2cqw;font-weight:500;
-    letter-spacing:0.08em;margin-bottom:2cqh;
-  }
-  .thumb-c .meta-row{
-    display:flex;gap:3cqw;align-items:center;
-    font-size:1.2cqw;letter-spacing:0.25em;
-    color:var(--brand-blue-deep);font-weight:500;
-  }
-  .thumb-c .meta-row .dot{color:var(--terracotta)}
-
-  /* ==================================== */
-  /* 案D: 自己受容 海×明るいオーバーレイ */
-  /* ==================================== */
-  .thumb-d{
-    background-image:url('../event-30s-v01/images/04_seaside.jpg');
-    background-size:cover;
-    background-position:center;
-  }
-  .thumb-d::before{
-    content:"";position:absolute;inset:0;
-    background:linear-gradient(180deg,rgba(245,241,234,0.55) 0%,rgba(245,241,234,0.92) 70%,rgba(245,241,234,0.96) 100%);
-  }
-  .thumb-d .body{
-    position:relative;z-index:1;
-    height:100%;
-    display:flex;flex-direction:column;justify-content:center;
-    padding:6% 7%;
-    color:var(--deep-green);
-  }
-  .thumb-d .tag{
-    font-size:1.1cqw;letter-spacing:0.4em;
-    color:var(--brand-blue-deep);font-weight:500;
-    margin-bottom:3cqh;
-  }
-  .thumb-d .main{
-    font-family:'Shippori Mincho',serif;
-    font-size:4.6cqw;font-weight:500;
-    line-height:1.5;letter-spacing:0.05em;
-    margin-bottom:3.5cqh;
-    max-width:80%;
-  }
-  .thumb-d .theme{
-    font-family:'Shippori Mincho',serif;
-    font-size:1.5cqw;letter-spacing:0.1em;
-    color:#3A4A3E;line-height:1.7;
-    margin-bottom:3cqh;
-    max-width:70%;
-  }
-  .thumb-d .date{
-    display:inline-block;
-    font-size:1.3cqw;letter-spacing:0.25em;
-    color:var(--brand-blue-deep);font-weight:500;
-    padding-top:2cqh;border-top:1px solid rgba(31,58,46,0.25);
-    width:fit-content;
-  }
-  .thumb-d .circle{
-    position:absolute;top:8%;right:8%;
-    width:5cqw;height:5cqw;border-radius:50%;
-    background:var(--terracotta);opacity:0.85;z-index:1;
-  }
-
-  /* ==================================== */
-  /* 案E: 編集型 写真半分+白テキスト半分 */
-  /* ==================================== */
-  .thumb-e{
-    display:flex;background:#fff;
-  }
-  .thumb-e .img{
+  .thumb .img{
     width:50%;
-    background-image:url('../event-30s-v01/images/06_event_dialogue.jpg');
+    background-image:url('../event-30s-v01/images/01_542.jpg');
     background-size:cover;
-    background-position:center;
+    background-position:center 35%;
   }
-  .thumb-e .col{
+  .thumb .col{
     width:50%;
-    padding:6% 5.5%;
+    padding:6.5% 5.5%;
     display:flex;flex-direction:column;justify-content:center;
     color:var(--ink);
     position:relative;
+    background:#fff;
   }
-  .thumb-e .tag-row{
-    display:flex;align-items:center;gap:1cqw;
-    font-size:0.95cqw;letter-spacing:0.35em;
+
+  /* 共通テキスト */
+  .col .tag{
+    font-family:'Cormorant Garamond',serif;
+    font-size:1.3cqw;letter-spacing:0.35em;
     color:var(--brand-blue);font-weight:500;
-    margin-bottom:3cqh;
+    margin-bottom:3.5cqh;
   }
-  .thumb-e .tag-row::before{
-    content:"";display:block;width:2.5cqw;height:1px;background:var(--brand-blue);
-  }
-  .thumb-e .main{
+  .col .main{
     font-family:'Shippori Mincho',serif;
     font-size:3.6cqw;font-weight:500;
     line-height:1.55;letter-spacing:0.05em;
-    margin-bottom:3cqh;
+    margin-bottom:3.2cqh;
     color:var(--deep-green);
   }
-  .thumb-e .theme{
+  .col .theme{
     font-family:'Shippori Mincho',serif;
-    font-size:1.35cqw;letter-spacing:0.08em;
-    color:#444;line-height:1.8;
-    padding-top:2cqh;border-top:1px solid #E0DCD0;
-    margin-bottom:2.5cqh;
+    font-size:1.3cqw;letter-spacing:0.08em;
+    color:#444;line-height:1.85;
+    margin-bottom:2.8cqh;
   }
-  .thumb-e .date{
+  .col .date{
     font-size:1.1cqw;letter-spacing:0.22em;
     color:var(--brand-blue-deep);font-weight:500;
   }
-  .thumb-e .date strong{font-size:1.4cqw;font-weight:600;letter-spacing:0.15em}
+  .col .date strong{
+    font-family:'Cormorant Garamond',serif;
+    font-size:1.6cqw;font-weight:600;letter-spacing:0.1em;
+    margin-right:0.8cqw;
+  }
 
-  /* ==================================== */
+  /* ====================================== */
+  /* E1: ミニマル罫線 上下細罫＋左縦線      */
+  /* ====================================== */
+  .e1 .col::before{
+    content:"";position:absolute;
+    top:6%;bottom:6%;left:6%;
+    width:1px;background:var(--terracotta);opacity:0.6;
+  }
+  .e1 .col .frame-top,
+  .e1 .col .frame-bot{
+    position:absolute;left:9%;right:6%;height:1px;
+    background:#D8D0C0;
+  }
+  .e1 .col .frame-top{top:6%}
+  .e1 .col .frame-bot{bottom:6%}
+  .e1 .col{padding-left:9%}
+  .e1 .col .theme{padding-top:2cqh;border-top:1px solid #EAE3D2}
+
+  /* ====================================== */
+  /* E2: コーナーフレーム L字罫4隅          */
+  /* ====================================== */
+  .e2 .col{padding:7% 6%}
+  .e2 .col .corner{
+    position:absolute;width:3.5cqw;height:3.5cqw;
+    border-color:var(--deep-green);
+  }
+  .e2 .col .corner.tl{top:5%;left:5%;border-top:1px solid;border-left:1px solid}
+  .e2 .col .corner.tr{top:5%;right:5%;border-top:1px solid;border-right:1px solid}
+  .e2 .col .corner.bl{bottom:5%;left:5%;border-bottom:1px solid;border-left:1px solid}
+  .e2 .col .corner.br{bottom:5%;right:5%;border-bottom:1px solid;border-right:1px solid}
+  .e2 .col .dot{
+    position:absolute;top:5%;left:50%;transform:translate(-50%,-50%);
+    width:1.2cqw;height:1.2cqw;border-radius:50%;
+    background:var(--terracotta);
+  }
+
+  /* ====================================== */
+  /* E3: 大きなVol.01ナンバー（背景的）     */
+  /* ====================================== */
+  .e3 .col{padding:6% 5.5% 6% 6%}
+  .e3 .col .bignum{
+    position:absolute;top:4%;right:4%;
+    font-family:'Cormorant Garamond',serif;
+    font-size:11cqw;font-weight:300;
+    color:var(--brand-blue-pale);
+    line-height:1;letter-spacing:-0.02em;
+    opacity:0.55;
+    pointer-events:none;
+    z-index:0;
+  }
+  .e3 .col > *:not(.bignum){position:relative;z-index:1}
+  .e3 .col .tag{margin-bottom:3cqh}
+  .e3 .col .theme{
+    padding-top:2cqh;
+    border-top:1px solid #E0DCD0;
+  }
+
+  /* ====================================== */
+  /* E4: 縦三点リーダー＋細い水平線         */
+  /* ====================================== */
+  .e4 .col{padding:7% 6% 7% 11%}
+  .e4 .col .leaders{
+    position:absolute;left:5.5%;top:25%;bottom:25%;
+    display:flex;flex-direction:column;justify-content:space-between;
+    align-items:center;
+  }
+  .e4 .col .leaders span{
+    width:0.6cqw;height:0.6cqw;border-radius:50%;
+    background:var(--terracotta);opacity:0.7;
+  }
+  .e4 .col .hr{
+    position:absolute;left:11%;right:6%;
+    height:1px;background:#E0DCD0;
+  }
+  .e4 .col .hr.top{top:8%}
+  .e4 .col .hr.bot{bottom:8%}
+  .e4 .col .tag{
+    margin-bottom:2.5cqh;
+    color:var(--deep-green);
+  }
+
+  /* ====================================== */
+  /* E5: ナンバリングプレート＋繊細な罫     */
+  /* ====================================== */
+  .e5 .col{padding:7% 6%}
+  .e5 .col .plate{
+    position:absolute;top:6%;right:6%;
+    border:1px solid var(--deep-green);
+    padding:0.8cqh 1.4cqw;
+    font-family:'Cormorant Garamond',serif;
+    font-size:1cqw;letter-spacing:0.3em;
+    color:var(--deep-green);
+    text-transform:uppercase;
+    font-weight:500;
+  }
+  .e5 .col .signature{
+    position:absolute;bottom:5%;left:6%;
+    font-family:'Shippori Mincho',serif;
+    font-size:0.95cqw;letter-spacing:0.4em;
+    color:var(--terracotta);
+    border-top:1px solid var(--terracotta);
+    padding-top:1cqh;
+  }
+  .e5 .col .tag{
+    color:var(--deep-green);
+    border-left:2px solid var(--terracotta);
+    padding-left:0.8cqw;
+    margin-bottom:3cqh;
+  }
+  .e5 .col .theme{
+    padding-top:2cqh;
+    border-top:1px solid #E0DCD0;
+  }
+
+  /* ====================================== */
   /* 比較表 */
-  /* ==================================== */
+  /* ====================================== */
   .compare{margin-top:80px;padding-top:48px;border-top:1px solid #E5E5E0}
   .compare h2{font-family:'Shippori Mincho',serif;font-size:22px;font-weight:600;margin-bottom:24px}
   table{width:100%;border-collapse:collapse;background:#fff;font-size:13px}
@@ -335,7 +238,8 @@
 
   .footnote{
     margin-top:40px;padding:20px 24px;background:#fff;
-    border-left:3px solid var(--terracotta);font-size:13px;color:#444;
+    border-left:3px solid var(--terracotta);
+    font-size:13px;color:#444;
   }
   .footnote strong{color:var(--deep-green)}
 </style>
@@ -344,150 +248,159 @@
 <div class="wrap">
 
 <header class="hero">
-  <h1>30s Life vol.01｜サムネ案プレビュー v2</h1>
-  <p>写真使用版・日付＆テーマ入り｜OGP比率1200×630</p>
+  <h1>30s Life vol.01｜編集型 あしらい5案</h1>
+  <p>写真：01_542（海辺を歩く男性3人）｜OGP比率1200×630</p>
   <div class="meta">
-    元LP: <a href="../event-30s-v01/" style="color:var(--brand-blue)">event-30s-v01</a>｜既存LPで実績のあるPOOLO写真を活用。各案で写真の使い方（フル/サイドバイサイド/上下分割/オーバーレイ強度）を変えています。
+    元LP: <a href="../event-30s-v01/" style="color:var(--brand-blue)">event-30s-v01</a>｜E案（編集型・写真半分＋白テキスト半分）をベースに、あしらいだけ5パターンに振っています。コピー・テーマ・日付は固定。
   </div>
 </header>
 
-<!-- 案A -->
+<!-- E1 -->
 <section class="case">
   <div class="case-head">
-    <span class="case-id">A</span>
-    <span class="case-title">内心スナイパー型｜ブランドブルーで全面オーバーレイ</span>
+    <span class="case-id">E1</span>
+    <span class="case-title">ミニマル罫線｜左縦線（テラコッタ）＋上下罫</span>
   </div>
-  <p class="case-note">写真の上にPOOLOブランドブルーを濃くかぶせ、独白を一行で大きく置く。POOLOらしさ＋強い視線止め。</p>
-  <div class="thumb thumb-a">
-    <div class="body">
-      <div class="tag">POOLO 30s LIFE  vol.01</div>
-      <div class="main">これで、合ってるんだっけ。</div>
-      <div class="theme">自分自身が納得できる、30代の生き方を考える90分</div>
-      <div class="date">2026.5.5 TUE 13:00–14:30 / ZOOM</div>
-    </div>
-  </div>
-</section>
-
-<!-- 案B -->
-<section class="case">
-  <div class="case-head">
-    <span class="case-id">B</span>
-    <span class="case-title">物差し否定型｜サイドバイサイド（写真×深緑）</span>
-  </div>
-  <p class="case-note">左に対話写真、右に深緑カラムでテキストを集約。雑誌の見開き感、情報量を整理しやすい。</p>
-  <div class="thumb thumb-b">
+  <p class="case-note">最も静か。引き算のtabippo基準。コピーが主役で、罫線が誌面を引き締める役。</p>
+  <div class="thumb e1">
     <div class="img"></div>
     <div class="col">
-      <div class="tag">POOLO 30s LIFE  vol.01</div>
-      <div class="main">市場価値で、自分を測るのに<br>疲れた人へ。</div>
-      <div class="theme">自分自身が納得できる、<br>30代の生き方を考える90分。</div>
-      <div class="date">2026.5.5 TUE 13:00 / ZOOM</div>
-    </div>
-  </div>
-</section>
-
-<!-- 案C -->
-<section class="case">
-  <div class="case-head">
-    <span class="case-id">C</span>
-    <span class="case-title">反転キーワード型｜写真上＋オフホワイト帯</span>
-  </div>
-  <p class="case-note">写真エリアにコピーを乗せ、下帯にテーマと日付を整理。既存LPのキービジュアルとも整合する。</p>
-  <div class="thumb thumb-c">
-    <div class="img">
-      <div class="overlay-text">正解より、納得。</div>
-    </div>
-    <div class="band">
-      <div class="theme">自分自身が納得できる、30代の生き方を考える90分。</div>
-      <div class="meta-row">
-        <span>2026.5.5 TUE</span>
-        <span class="dot">●</span>
-        <span>13:00–14:30</span>
-        <span class="dot">●</span>
-        <span>ZOOM</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- 案D -->
-<section class="case">
-  <div class="case-head">
-    <span class="case-id">D</span>
-    <span class="case-title">自己受容型｜海写真×淡いオフホワイトオーバーレイ</span>
-  </div>
-  <p class="case-note">海辺写真をうっすら透かし、内省的な落ち着きを出す。「外の物差しから降りる」気分にハマる構図。</p>
-  <div class="thumb thumb-d">
-    <div class="circle"></div>
-    <div class="body">
-      <div class="tag">POOLO 30s LIFE  vol.01</div>
-      <div class="main">自分の中に、<br>もう手がかりはある。</div>
-      <div class="theme">自分自身が納得できる、30代の生き方を考える90分。</div>
-      <div class="date">2026.5.5 TUE 13:00 / ZOOM</div>
-    </div>
-  </div>
-</section>
-
-<!-- 案E -->
-<section class="case">
-  <div class="case-head">
-    <span class="case-id">E</span>
-    <span class="case-title">編集型｜写真半分＋白テキストカラム</span>
-  </div>
-  <p class="case-note">雑誌の特集ページのような構成。情報の階層が一番きれいに整理される。LP動線とも親和性◎。</p>
-  <div class="thumb thumb-e">
-    <div class="img"></div>
-    <div class="col">
-      <div class="tag-row">POOLO 30s LIFE  vol.01</div>
+      <span class="frame-top"></span>
+      <span class="frame-bot"></span>
+      <div class="tag">POOLO 30s LIFE  |  vol.01</div>
       <div class="main">90分、自分のことばを<br>取りもどす。</div>
       <div class="theme">自分自身が納得できる、<br>30代の生き方を考える90分。</div>
-      <div class="date"><strong>2026.5.5 TUE</strong>　13:00–14:30　ZOOM</div>
+      <div class="date"><strong>2026.5.5 TUE</strong>13:00–14:30　ZOOM</div>
+    </div>
+  </div>
+</section>
+
+<!-- E2 -->
+<section class="case">
+  <div class="case-head">
+    <span class="case-id">E2</span>
+    <span class="case-title">コーナーフレーム｜4隅L字罫＋テラコッタの一点</span>
+  </div>
+  <p class="case-note">クラシックな冊子の扉ページ感。額装されたような落ち着き、上中央の朱点で視線を一段締める。</p>
+  <div class="thumb e2">
+    <div class="img"></div>
+    <div class="col">
+      <span class="corner tl"></span>
+      <span class="corner tr"></span>
+      <span class="corner bl"></span>
+      <span class="corner br"></span>
+      <span class="dot"></span>
+      <div class="tag">POOLO 30s LIFE  |  vol.01</div>
+      <div class="main">90分、自分のことばを<br>取りもどす。</div>
+      <div class="theme">自分自身が納得できる、<br>30代の生き方を考える90分。</div>
+      <div class="date"><strong>2026.5.5 TUE</strong>13:00–14:30　ZOOM</div>
+    </div>
+  </div>
+</section>
+
+<!-- E3 -->
+<section class="case">
+  <div class="case-head">
+    <span class="case-id">E3</span>
+    <span class="case-title">大ナンバリング｜淡いブルーで「01」が背景に浮かぶ</span>
+  </div>
+  <p class="case-note">vol.01をデザイン要素として大きく。シリーズものとしての存在感、「これから続く感」を伝えやすい。</p>
+  <div class="thumb e3">
+    <div class="img"></div>
+    <div class="col">
+      <div class="bignum">01</div>
+      <div class="tag">POOLO 30s LIFE  |  VOL. 01</div>
+      <div class="main">90分、自分のことばを<br>取りもどす。</div>
+      <div class="theme">自分自身が納得できる、<br>30代の生き方を考える90分。</div>
+      <div class="date"><strong>2026.5.5 TUE</strong>13:00–14:30　ZOOM</div>
+    </div>
+  </div>
+</section>
+
+<!-- E4 -->
+<section class="case">
+  <div class="case-head">
+    <span class="case-id">E4</span>
+    <span class="case-title">縦リーダー｜左に三点ドット＋上下細罫</span>
+  </div>
+  <p class="case-note">余白に縦のリズム。テキストエリアに動きが入って、写真とのつながりが滑らかに。</p>
+  <div class="thumb e4">
+    <div class="img"></div>
+    <div class="col">
+      <span class="hr top"></span>
+      <span class="hr bot"></span>
+      <div class="leaders"><span></span><span></span><span></span><span></span><span></span></div>
+      <div class="tag">POOLO 30s LIFE  |  vol.01</div>
+      <div class="main">90分、自分のことばを<br>取りもどす。</div>
+      <div class="theme">自分自身が納得できる、<br>30代の生き方を考える90分。</div>
+      <div class="date"><strong>2026.5.5 TUE</strong>13:00–14:30　ZOOM</div>
+    </div>
+  </div>
+</section>
+
+<!-- E5 -->
+<section class="case">
+  <div class="case-head">
+    <span class="case-id">E5</span>
+    <span class="case-title">ナンバリングプレート｜右上に小さな額＋左下サイン</span>
+  </div>
+  <p class="case-note">図録・展示の解説プレート風。情報量が多くても上品にまとまる、最も編集色が強い案。</p>
+  <div class="thumb e5">
+    <div class="img"></div>
+    <div class="col">
+      <div class="plate">No. 01 / 30s LIFE</div>
+      <div class="tag">POOLO 30s LIFE</div>
+      <div class="main">90分、自分のことばを<br>取りもどす。</div>
+      <div class="theme">自分自身が納得できる、<br>30代の生き方を考える90分。</div>
+      <div class="date"><strong>2026.5.5 TUE</strong>13:00–14:30　ZOOM</div>
+      <div class="signature">A DIALOGUE FOR 30s</div>
     </div>
   </div>
 </section>
 
 <section class="compare">
-  <h2>トレードオフ早見表</h2>
+  <h2>あしらい早見表</h2>
   <table>
     <thead>
       <tr>
-        <th>案</th><th>方向性</th><th>使用写真</th>
-        <th class="center">ひき</th><th class="center">情報整理</th><th>主な強み／リスク</th>
+        <th>案</th><th>あしらい</th>
+        <th class="center">静けさ</th><th class="center">編集感</th><th class="center">シリーズ展開しやすさ</th>
+        <th>こんな時に強い</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td><strong>A</strong></td><td>内心スナイパー</td><td>05_garden_talk</td>
-        <td class="center">◎</td><td class="center">◯</td>
-        <td>瞬発力最強。ただし抽象度高め。</td>
+        <td><strong>E1</strong></td><td>左縦線＋上下罫</td>
+        <td class="center">◎</td><td class="center">◯</td><td class="center">◎</td>
+        <td>tabippoトンマナ最強。SNSタイムラインで上品に止める。</td>
       </tr>
       <tr>
-        <td><strong>B</strong></td><td>物差し否定</td><td>09_dialogue_blue</td>
-        <td class="center">◯</td><td class="center">◎</td>
-        <td>市場価値疲労層を直撃。深緑が落ち着き。</td>
+        <td><strong>E2</strong></td><td>4隅コーナー罫＋朱点</td>
+        <td class="center">◯</td><td class="center">◎</td><td class="center">◯</td>
+        <td>クラシック・額装感。Peatixで信頼感を出したい時。</td>
       </tr>
       <tr>
-        <td><strong>C</strong></td><td>反転キーワード</td><td>12_poolo_keyvisual</td>
-        <td class="center">◎</td><td class="center">◯</td>
-        <td>4文字×4文字で視認1秒。POOLOキービジュ活用で世界観統一。</td>
+        <td><strong>E3</strong></td><td>大ナンバリング「01」</td>
+        <td class="center">◯</td><td class="center">◎</td><td class="center">◎◎</td>
+        <td>vol.02、vol.03と続けるシリーズ前提なら最有力。</td>
       </tr>
       <tr>
-        <td><strong>D</strong></td><td>自己受容</td><td>04_seaside</td>
-        <td class="center">◯</td><td class="center">◎</td>
-        <td>疲れた30代に最も休息感。緊急性は弱め。</td>
+        <td><strong>E4</strong></td><td>縦三点ドット＋細罫</td>
+        <td class="center">◎</td><td class="center">◯</td><td class="center">◯</td>
+        <td>柔らかな動き。女性層・内省層への親和性。</td>
       </tr>
       <tr>
-        <td><strong>E</strong></td><td>編集型</td><td>06_event_dialogue</td>
-        <td class="center">◯</td><td class="center">◎◎</td>
-        <td>情報量最多でも整って見える。雑誌特集風。</td>
+        <td><strong>E5</strong></td><td>ナンバプレート＋サイン</td>
+        <td class="center">◯</td><td class="center">◎◎</td><td class="center">◎</td>
+        <td>図録的・知的。「考える時間」のブランド感を最大化。</td>
       </tr>
     </tbody>
   </table>
 </section>
 
 <div class="footnote">
-  <strong>推奨A／C／Eの3点でA/Bテスト。</strong><br>
-  Aで「ひきの瞬発力」、Cで「世界観の統一感」、Eで「情報の整理度」。視線を止めるA、滞在を生むC、申込に近いEで役割分担できます。BとDは、配信先（リテンション層／新規層）に合わせて差し込み枠として。
+  <strong>推奨E1かE3。</strong><br>
+  シリーズ前提（vol.02以降を計画中）ならE3。1本完結＋静けさ重視ならE1。E2／E5は冊子・知的バナーとして単発の引き締めに使えますが、SNSスクロールでの瞬発力はE1／E3が上です。
 </div>
 
 </div>
