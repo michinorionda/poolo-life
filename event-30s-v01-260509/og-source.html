@@ -26,11 +26,27 @@
   .content {
     background: #FFFCF6;
     position: relative;
-    padding: 56px 60px 48px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    padding: 0;
     overflow: hidden;
+  }
+  .tag-pos {
+    position: absolute;
+    top: 60px;
+    left: 60px;
+    right: 60px;
+  }
+  .main-block {
+    position: absolute;
+    top: 50%;
+    left: 60px;
+    right: 60px;
+    transform: translateY(-50%);
+  }
+  .date-pos {
+    position: absolute;
+    bottom: 80px;
+    left: 60px;
+    right: 60px;
   }
   .vertical {
     position: absolute;
@@ -55,7 +71,7 @@
     font-size: 16px;
     font-weight: 500;
     letter-spacing: 0.12em;
-    margin-bottom: 26px;
+    margin-bottom: 0;
     border-radius: 2px;
     font-family: 'Shippori Mincho B1', serif;
   }
@@ -77,21 +93,22 @@
   .title .em { color: #1B99B7; font-weight: 600; }
   .title .line { display: block; }
   .date {
-    margin-top: 32px;
+    margin-top: 0;
     padding: 14px 0;
     border-top: 2px solid #1B99B7;
     border-bottom: 2px solid #1B99B7;
-    font-size: 22px;
+    font-size: 19px;
     font-weight: 600;
-    letter-spacing: 0.06em;
+    letter-spacing: 0.04em;
     color: #2D3E36;
     display: flex;
     align-items: baseline;
-    gap: 14px;
-    flex-wrap: wrap;
+    gap: 12px;
+    flex-wrap: nowrap;
+    white-space: nowrap;
   }
-  .date .small { font-size: 14px; color: #5A5A5A; font-weight: 500; }
-  .date .place { font-size: 16px; color: #2A2A2A; font-weight: 500; margin-left: 6px; }
+  .date .small { font-size: 13px; color: #5A5A5A; font-weight: 500; }
+  .date .place { font-size: 15px; color: #2A2A2A; font-weight: 500; margin-left: 4px; }
 </style>
 </head>
 <body>
@@ -99,16 +116,20 @@
     <div class="photo"></div>
     <div class="content">
       <div class="vertical">ONLINE DIALOGUE vol.01</div>
-      <span class="tag">30代の生き方シリーズvol.01</span>
-      <p class="title-lead">自分自身が納得できる、</p>
-      <h1 class="title">
-        <span class="line"><span class="em">30代の生き方</span>を</span>
-        <span class="line"><span class="em">「問い直す」</span>90分。</span>
-      </h1>
-      <div class="date">
-        <span>5/9 <span class="small">(土)</span></span>
-        <span>13:00〜14:30</span>
-        <span class="place">@Zoom</span>
+      <div class="tag-pos"><span class="tag">30代の生き方シリーズvol.01</span></div>
+      <div class="main-block">
+        <p class="title-lead">自分自身が納得できる、</p>
+        <h1 class="title">
+          <span class="line"><span class="em">30代の生き方</span>を</span>
+          <span class="line"><span class="em">「問い直す」</span>90分。</span>
+        </h1>
+      </div>
+      <div class="date-pos">
+        <div class="date">
+          <span>5/9 <span class="small">(土)</span></span>
+          <span>13:00〜14:30</span>
+          <span class="place">@Zoom</span>
+        </div>
       </div>
     </div>
   </div>
