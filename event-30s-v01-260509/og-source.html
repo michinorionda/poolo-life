@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Shippori+Mincho+B1:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body {
+    width: 1200px; height: 630px;
+    background: #FFFCF6;
+    font-family: 'Shippori Mincho B1', serif;
+    overflow: hidden;
+  }
+  .hero {
+    width: 1200px; height: 630px;
+    display: grid;
+    grid-template-columns: 5fr 6fr;
+  }
+  .photo, .content { height: 630px; }
+  .photo {
+    background-image: url('images/01_542.jpg');
+    background-size: cover;
+    background-position: center;
+    filter: saturate(0.92) sepia(0.06) brightness(1.02);
+  }
+  .content {
+    background: #FFFCF6;
+    position: relative;
+    padding: 56px 60px 48px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+  }
+  .vertical {
+    position: absolute;
+    right: 20px;
+    top: 0; bottom: 0;
+    writing-mode: vertical-rl;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    letter-spacing: 0.4em;
+    color: rgba(45,62,54,0.09);
+    font-weight: 700;
+    font-style: italic;
+    display: flex;
+    align-items: center;
+    text-transform: uppercase;
+  }
+  .tag {
+    align-self: flex-start;
+    background: #1B99B7;
+    color: #fff;
+    padding: 10px 22px;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    margin-bottom: 26px;
+    border-radius: 2px;
+    font-family: 'Shippori Mincho B1', serif;
+  }
+  .title-lead {
+    font-size: 24px;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    line-height: 1.6;
+    margin-bottom: 18px;
+    color: #2D3E36;
+  }
+  .title {
+    font-size: 48px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    line-height: 1.5;
+    color: #2D3E36;
+  }
+  .title .em { color: #1B99B7; font-weight: 600; }
+  .title .line { display: block; }
+  .date {
+    margin-top: 32px;
+    padding: 14px 0;
+    border-top: 2px solid #1B99B7;
+    border-bottom: 2px solid #1B99B7;
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    color: #2D3E36;
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+  .date .small { font-size: 14px; color: #5A5A5A; font-weight: 500; }
+  .date .place { font-size: 16px; color: #2A2A2A; font-weight: 500; margin-left: 6px; }
+</style>
+</head>
+<body>
+  <div class="hero">
+    <div class="photo"></div>
+    <div class="content">
+      <div class="vertical">ONLINE DIALOGUE vol.01</div>
+      <span class="tag">30代の生き方シリーズvol.01</span>
+      <p class="title-lead">自分自身が納得できる、</p>
+      <h1 class="title">
+        <span class="line"><span class="em">30代の生き方</span>を</span>
+        <span class="line"><span class="em">「問い直す」</span>90分。</span>
+      </h1>
+      <div class="date">
+        <span>5/9 <span class="small">(土)</span></span>
+        <span>13:00〜14:30</span>
+        <span class="place">@Zoom</span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
