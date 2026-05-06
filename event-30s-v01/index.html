@@ -1362,6 +1362,55 @@ a:hover { opacity: 0.7; }
   .apply-step-title { font-size: 14px; }
   .theme-main p { font-size: 14.5px; line-height: 1.9; }
 }
+
+/* ===== 当日のワーク（抜粋）===== */
+.worksheet-questions {
+  list-style: none;
+  padding: 0;
+  margin: 28px 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.wq-card {
+  background: var(--bg-soft);
+  border-left: 3px solid var(--accent);
+  padding: 22px 26px;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 22px;
+  align-items: start;
+}
+.wq-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--accent);
+  letter-spacing: 0.08em;
+  font-style: italic;
+  white-space: nowrap;
+}
+.wq-text {
+  font-family: 'Shippori Mincho B1', serif;
+  font-size: 17px;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  line-height: 1.75;
+  color: var(--main);
+  margin-bottom: 8px;
+}
+.wq-helper {
+  font-size: 13.5px;
+  line-height: 1.85;
+  color: var(--text-soft);
+  letter-spacing: 0.03em;
+}
+@media (max-width: 640px) {
+  .wq-card { padding: 18px 20px; gap: 14px; }
+  .wq-num { font-size: 17px; }
+  .wq-text { font-size: 15px; line-height: 1.75; }
+  .wq-helper { font-size: 12.5px; }
+}
 </style>
 </head>
 <body>
@@ -1529,6 +1578,37 @@ a:hover { opacity: 0.7; }
         </div>
       </li>
     </ul>
+  </div>
+</section>
+
+
+<!-- ===== 当日のワーク（抜粋）===== -->
+<section id="worksheet-glimpse">
+  <div class="section section-narrow">
+    <h2 class="section-title">当日、こんな問いと向き合います</h2>
+    <p class="section-lead">3つの問い（一部抜粋）。当日は計13問のワークシートに、自分のペースで書き込みながら進めます。</p>
+    <ol class="worksheet-questions">
+      <li class="wq-card">
+        <div class="wq-num">Q.06</div>
+        <div>
+          <div class="wq-text">自分のこれからのキャリア・生き方を考える上での、違和感、もやもやはどんなものですか？</div>
+          <div class="wq-helper">うまく言葉にしなくてもOKなので言語化してみてください。このシーンのときに、違和感があったみたいなことでもOKです。</div>
+        </div>
+      </li>
+      <li class="wq-card">
+        <div class="wq-num">Q.07</div>
+        <div>
+          <div class="wq-text">20代で、本気で迷って選んだことは何でしたか？</div>
+          <div class="wq-helper">仕事のことでも、人間関係のことでも、住む場所のことでも、何でも構いません。一つだけ書いてみて下さい。</div>
+        </div>
+      </li>
+      <li class="wq-card">
+        <div class="wq-num">Q.09</div>
+        <div>
+          <div class="wq-text">過去に、自分がやっていて納得度もあり、結果として誰かに少しでも貢献できたかも？　という経験は何ですか？</div>
+        </div>
+      </li>
+    </ol>
   </div>
 </section>
 
