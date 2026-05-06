@@ -568,7 +568,16 @@
   .past-guests {
     list-style: none;
     font-size: 14px;
+    max-height: 320px;
+    overflow-y: auto;
+    border: 1px solid var(--c-line);
+    border-radius: 6px;
+    padding: 4px 18px;
   }
+  .past-guests::-webkit-scrollbar { width: 6px; }
+  .past-guests::-webkit-scrollbar-track { background: var(--c-base-deep); border-radius: 3px; }
+  .past-guests::-webkit-scrollbar-thumb { background: var(--c-blue-pale); border-radius: 3px; }
+  .past-guests::-webkit-scrollbar-thumb:hover { background: var(--c-blue); }
   .past-guests li {
     padding: 10px 0;
     border-bottom: 1px dashed var(--c-line);
@@ -1007,9 +1016,45 @@
   <div class="container">
     <h2 class="section-title">過去にご出演いただいたゲスト</h2>
     <ul class="past-guests">
-      <li>山口 周<span class="role">独立研究者／著作家／パブリックスピーカー</span></li>
-      <li>前野 隆司<span class="role">慶應義塾大学大学院システムデザイン・マネジメント研究科 教授</span></li>
-      <li>熊平 美香<span class="role">昭和女子大学キャリアカレッジ学院長／一般社団法人21世紀学び研究所</span></li>
+      <li>山口 周<span class="role">独立研究者/著作家/パブリックスピーカー</span></li>
+      <li>前野 隆司<span class="role">慶應義塾大学大学院システムデザイン・マネジメント研究科教授</span></li>
+      <li>熊平 美香<span class="role">昭和女子大学キャリアカレッジ学院長/一般社団法人21世紀学び研究所代表理事</span></li>
+      <li>青木 優<span class="role">MATCHA 代表取締役</span></li>
+      <li>中村 朱美<span class="role">佰食屋 / 株式会社minitts 代表取締役</span></li>
+      <li>小柳津 林太郎<span class="role">Ghost 代表取締役</span></li>
+      <li>西井 敏恭<span class="role">オイシックスドット大地 CMT / シンクロ 代表取締役</span></li>
+      <li>山中 大介<span class="role">ヤマガタデザイン株式会社 代表取締役</span></li>
+      <li>山崎 亮<span class="role">studio-L代表/関西学院大学建築学部教授/コミュニティデザイナー</span></li>
+      <li>江藤 誠晃<span class="role">BUZZPORT 代表取締役</span></li>
+      <li>徳谷 柿次郎<span class="role">Huuuu代表取締役 / ジモコロ編集長</span></li>
+      <li>吉原 ゴウ<span class="role">LIG 代表</span></li>
+      <li>YOPPY<span class="role">6curry ブランドデザイナー</span></li>
+      <li>いいたか ゆうた<span class="role">ホットリンク CMO</span></li>
+      <li>古性 のち<span class="role">BRIGHTLOGG取締役</span></li>
+      <li>倉貫 義人<span class="role">ソニックガーデン 代表取締役</span></li>
+      <li>武井 浩三<span class="role">社会活動家/社会システムデザイナー</span></li>
+      <li>清水 直哉<span class="role">TABIPPO 代表取締役</span></li>
+      <li>河野 リエ<span class="role">アフリカ布ブランド「RAHA KENYA」代表</span></li>
+      <li>河野 邦彦<span class="role">AMOEBAX Founder&amp;CEO</span></li>
+      <li>鮫島 卓<span class="role">駒沢女子大学 観光文化学類 准教授 / 帝京大学 経済学部 兼任講師</span></li>
+      <li>太田 英基<span class="role">スクールウィズ 代表取締役</span></li>
+      <li>5時こーじ<span class="role">朝渋代表/Morning labo 取締役</span></li>
+      <li>小池 あやか<span class="role">SHE.inc PRブランディングマネージャー</span></li>
+      <li>伊佐 知美<span class="role">編集者</span></li>
+      <li>大瀬良 亮<span class="role">KabuK Style Co-CEO／Producer</span></li>
+      <li>東松 寛文<span class="role">リーマントラベラー</span></li>
+      <li>もりゆか<span class="role">6curry ブランドプロデューサー</span></li>
+      <li>佐藤 陽俊<span class="role">スクールウィズ 執行役員 CMO</span></li>
+      <li>坂東 孝浩<span class="role">手放す経営ラボラトリー所長</span></li>
+      <li>三川 夏代<span class="role">デジタルマーケティング/編集/コミュニケーション企画</span></li>
+      <li>小林 邦宏<span class="role">フリーランス商社マン</span></li>
+      <li>吉田 ちか<span class="role">バイリンガール</span></li>
+      <li>辻 愛沙子<span class="role">株式会社arca CEO / Creative Director</span></li>
+      <li>牧野 圭太<span class="role">DE 共同代表/プランナー</span></li>
+      <li>嘉村 賢州<span class="role">東京工業大学リーダーシップ教育院 特任准教授</span></li>
+      <li>前野 マドカ<span class="role">ウェルビーイングスクールFOLKE代表</span></li>
+      <li>遠山 正道<span class="role">株式会社スマイルズ 代表取締役社長</span></li>
+      <li>阿部 広太郎<span class="role">「企画でメシを食っていく」主宰</span></li>
     </ul>
     <p class="lead" style="margin-top: 16px; font-size: 13px; color: var(--c-text-soft);">
       ※他、各期で多数の方々にご登壇いただいております。
