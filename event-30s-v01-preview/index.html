@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>30s Life vol.01｜ワーク見せ方 3案プレビュー</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Shippori+Mincho:wght@400;500;600;700&family=Cormorant+Garamond:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg-soft:#FFFCF6;
+  --main:#2D3E36;
+  --accent:#1B99B7;
+  --terracotta:#C97C5D;
+  --line:#EAE5DC;
+  --text:#2A2A2A;
+  --text-soft:#5A5A5A;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Noto Sans JP',sans-serif;background:#FAFAF8;color:var(--text);line-height:1.7;padding:60px 24px 100px}
+.wrap{max-width:880px;margin:0 auto}
+h1{font-family:'Shippori Mincho',serif;font-size:30px;font-weight:600;letter-spacing:0.04em;color:var(--main);margin-bottom:14px}
+.lead{color:var(--text-soft);font-size:14.5px;margin-bottom:48px}
+.cards{display:grid;grid-template-columns:1fr;gap:20px}
+.card{background:#fff;border:1px solid var(--line);border-radius:6px;padding:28px 32px;text-decoration:none;color:inherit;transition:box-shadow .2s ease, transform .2s ease;display:block}
+.card:hover{box-shadow:0 8px 32px rgba(45,62,54,0.08);transform:translateY(-2px)}
+.card-head{display:flex;align-items:baseline;gap:14px;margin-bottom:12px;padding-bottom:12px;border-bottom:1px solid var(--line)}
+.card-id{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:600;color:var(--accent);font-style:italic;line-height:1}
+.card-title{font-family:'Shippori Mincho',serif;font-size:19px;font-weight:500;color:var(--main);letter-spacing:0.04em}
+.card-desc{font-size:14px;line-height:1.85;color:var(--text-soft);margin-bottom:14px}
+.card-meta{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:14px}
+.tag{display:inline-block;padding:3px 10px;font-size:11px;letter-spacing:0.12em;border-radius:2px;font-weight:500}
+.tag.strong{background:var(--accent);color:#fff}
+.tag.soft{background:#F5F0E5;color:var(--main)}
+.tag.warn{background:#F4E4DC;color:var(--terracotta)}
+.card-link{font-family:'Cormorant Garamond',serif;font-size:13px;letter-spacing:0.18em;color:var(--accent);font-weight:600}
+.card-link::after{content:' →';margin-left:2px}
+.section-anchor{margin-top:48px;padding:18px 22px;background:#fff;border-left:3px solid var(--terracotta);font-size:13px;color:#444;line-height:1.85}
+.section-anchor strong{color:var(--main)}
+.section-anchor a{color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<h1>ワークの見せ方 3案プレビュー</h1>
+<p class="lead">元LP（30s Life vol.01）に「ワークのイメージ」を組み込む3案。各案、本物のLPを丸ごと複製して該当箇所だけ差し替えてあるので、前後の文脈ごと比較できます。<br>確認したら、選んだ案を本番LPに反映します。</p>
+
+<div class="cards">
+
+  <a class="card" href="../event-30s-v01-preview-a/#worksheet-glimpse">
+    <div class="card-head">
+      <span class="card-id">A</span>
+      <span class="card-title">問い抜粋カード型｜新セクション追加</span>
+    </div>
+    <div class="card-desc">「90分の流れ」の直後に、新セクション「当日、こんな問いと向き合います」を追加。ワークシートから強度の高い3問をカード型で抜粋し、各問いにヒント文も併記。</div>
+    <div class="card-meta">
+      <span class="tag strong">問いの強度◎</span>
+      <span class="tag soft">読み物として完結</span>
+      <span class="tag soft">最も推奨</span>
+    </div>
+    <span class="card-link">A案を見る</span>
+  </a>
+
+  <a class="card" href="../event-30s-v01-preview-b/#schedule">
+    <div class="card-head">
+      <span class="card-id">B</span>
+      <span class="card-title">フロー織り込み型｜既存「90分の流れ」を拡張</span>
+    </div>
+    <div class="card-desc">既存セクション「90分の流れ」の各時間帯に、その時間帯で扱う代表問いを1行ずつ織り込み。新セクションを増やさない最小変更。フローと問いがセットで頭に入る。</div>
+    <div class="card-meta">
+      <span class="tag strong">最小変更</span>
+      <span class="tag soft">フロー理解◎</span>
+      <span class="tag warn">個別問いの強度△</span>
+    </div>
+    <span class="card-link">B案を見る</span>
+  </a>
+
+  <a class="card" href="../event-30s-v01-preview-c/#worksheet-glimpse-c">
+    <div class="card-head">
+      <span class="card-id">C</span>
+      <span class="card-title">画面プレビュー＋問い抜粋｜A案＋ビジュアル</span>
+    </div>
+    <div class="card-desc">A案の構成に、ワークシート画面そのものをiframeで埋め込んだミニプレビューを追加。「ちゃんと用意されている」感が伝わり、安心材料になる。</div>
+    <div class="card-meta">
+      <span class="tag strong">視覚的に最強</span>
+      <span class="tag soft">体験プレビュー</span>
+      <span class="tag warn">空欄フォーム表示の違和感あり</span>
+    </div>
+    <span class="card-link">C案を見る</span>
+  </a>
+
+</div>
+
+<div class="section-anchor">
+  <strong>各案ページの該当箇所へジャンプ</strong><br>
+  リンクをクリックすると、各案の元LP複製版を「03 90分の流れ」付近で開きます。前後のセクション（02 イベントで向き合うこと／04 対話のルール）との文脈もそのまま見られます。
+</div>
+
+<div class="section-anchor" style="border-color:var(--accent);margin-top:18px">
+  <strong>参考：本物のワークシート</strong><br>
+  <a href="../worksheet/30s-v01/?v=2" target="_blank" rel="noopener">https://michinorionda.github.io/poolo-life/worksheet/30s-v01/?v=2</a><br>
+  全13問のワークシート本体。各案で抜粋元としています。
+</div>
+
+</div>
+</body>
+</html>
