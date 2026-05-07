@@ -438,6 +438,27 @@ a:hover { opacity: 0.7; }
 
 .hero-title .line { display: block; }
 
+.hero-flourish {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 22px;
+}
+.hero-flourish-line {
+  display: block;
+  flex: 0 0 32px;
+  height: 1px;
+  background: var(--cta);
+  opacity: 0.7;
+}
+.hero-flourish-mark {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  color: var(--text-soft);
+}
+
 .hero-date {
   margin-top: auto;
   padding: 10px 0;
@@ -1143,6 +1164,9 @@ a:hover { opacity: 0.7; }
   .hero-vertical { display: none; }
   .hero-content-inner { padding: 14px 14px 10px; }
   .hero-tag { font-size: 9px; padding: 4px 10px; margin-top: 24px; margin-bottom: 8px; letter-spacing: 0.08em; }
+  .hero-flourish { margin-top: 12px; gap: 8px; }
+  .hero-flourish-line { flex: 0 0 22px; }
+  .hero-flourish-mark { font-size: 9.5px; letter-spacing: 0.16em; }
   .hero-title-lead { font-size: 11px; margin-bottom: 6px; letter-spacing: 0.04em; line-height: 1.4; }
   .hero-title { font-size: 17px; letter-spacing: 0.04em; line-height: 1.45; }
   .hero-date { font-size: 11px; padding: 5px 0; gap: 6px; margin-top: auto; border-width: 1px; }
@@ -1510,6 +1534,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <span class="line"><span class="em">30代の生き方</span>を</span>
           <span class="line"><span class="em">「問い直す」</span>90分。</span>
         </h1>
+        <div class="hero-flourish" aria-hidden="true">
+          <span class="hero-flourish-line"></span>
+          <span class="hero-flourish-mark">対話・内省・好奇心</span>
+        </div>
         <div class="hero-date">
           <span>5/9 <span class="small">(土)</span></span>
           <span>13:00〜14:30</span>
