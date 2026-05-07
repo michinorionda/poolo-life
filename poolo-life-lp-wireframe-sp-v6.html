@@ -81,7 +81,7 @@
   .voice .ba{display:flex;gap:8px;margin-top:8px;font-size:12px;align-items:flex-start}
   .voice .ba-tag{flex-shrink:0;font-size:9px;font-weight:700;color:var(--brand-deep);background:#fff;border:1px solid var(--brand-pale);padding:2px 6px;border-radius:99px;letter-spacing:.1em}
 
-  .sch-row{display:grid;grid-template-columns:50px 1fr;gap:10px;padding:9px 0;border-bottom:1px solid var(--line);font-size:12px}
+  .sch-row{display:grid;grid-template-columns:78px 1fr;gap:10px;padding:9px 0;border-bottom:1px solid var(--line);font-size:12px}
   .sch-row:last-child{border:none}
   .sch-date{font-weight:700;color:var(--brand-deep);font-size:11.5px}
   .sch-title{color:var(--ink-mid);line-height:1.6}
@@ -708,23 +708,27 @@
     <div class="sect-body">
       <div class="row"><span class="no">159</span><div class="txt"><div class="label">SCHEDULE</div></div></div>
       <div class="placeholder" style="margin:8px 0;background:#fef3c7;border-color:#d97706;color:#7a4a00">
-        📌 12期日程は確定情報を反映予定。下記は構造プレビュー（タイトルは12期確定済、日付はTBD）
+        📌 表構造を<strong>日付 × ゲスト講義内容</strong>に整理。日付は12期確定後に流し込み（下記はプレースホルダー）
       </div>
       <div style="margin-top:8px">
-        <div class="sch-row"><div class="sch-date">M1<br>初回</div><div class="sch-title">キックオフ｜あなたの人生観が変わる、探究と揺さぶりの世界へようこそ</div></div>
-        <div class="sch-row"><div class="sch-date">M1</div><div class="sch-title">観光研究30年の研究者が、自分の身体に残った旅の一瞬を語る夜｜髙井典子</div></div>
-        <div class="sch-row"><div class="sch-date">M2</div><div class="sch-title">才能発見1万人のインタビュアーと、つい時間を使ってしまう関心の手前を聴く夜｜佐野貴</div></div>
-        <div class="sch-row"><div class="sch-date">M3</div><div class="sch-title">リテール・フューチャリスト最所あさみが、未完成のまま差し出してきた10年を語る夜｜最所あさみ</div></div>
-        <div class="sch-row"><div class="sch-date">M3末</div><div class="sch-title">人生の軸となる「探究テーマ」を発表する｜個人発表</div></div>
-        <div class="sch-row"><div class="sch-date">M4初</div><div class="sch-title">「コミュニティの価値」を体感する POOLO LIFE 合宿｜DAY1-2</div></div>
-        <div class="sch-row"><div class="sch-date">M4</div><div class="sch-title">『さみしくてごめん』の哲学者が、合宿の後の名前のない感情を聴く夜｜永井玲衣</div></div>
-        <div class="sch-row"><div class="sch-date">M5</div><div class="sch-title">Huuuu代表徳谷柿次郎が、とりあえず動いてきた最初の100回の中身を語る夜｜徳谷柿次郎</div></div>
-        <div class="sch-row"><div class="sch-date">M6</div><div class="sch-title">越境キャリア3名鼎談 ― 場・橋・道具を編んできた3つの作法｜小池＋加藤＋根岸</div></div>
-        <div class="sch-row"><div class="sch-date">M7</div><div class="sch-title">マザーハウス代表山口絵理子が、知らない人に届けた20年の地層を語る夜｜山口絵理子</div></div>
-        <div class="sch-row"><div class="sch-date">M7末</div><div class="sch-title">社会を揺さぶる「共創活動」を発表する｜チーム発表</div></div>
-        <div class="sch-row"><div class="sch-date">M8</div><div class="sch-title">地球の歩き方社長新井邦弘が、コロナ後・AI時代の旅の意味を編み直す現在地を語る夜｜新井邦弘</div></div>
-        <div class="sch-row"><div class="sch-date">M8末</div><div class="sch-title">POOLO LIFE 最終発表会｜個人発表</div></div>
-        <div class="sch-row"><div class="sch-date">最終</div><div class="sch-title">メンバーで創り上げるここだけの卒業式</div></div>
+        <div style="display:grid;grid-template-columns:78px 1fr;gap:10px;padding:8px 0 6px;border-bottom:2px solid var(--brand-pale);font-size:10.5px;font-weight:700;color:var(--brand-deep);letter-spacing:.06em">
+          <div>日付</div>
+          <div>ゲスト講義内容</div>
+        </div>
+        <div class="sch-row"><div class="sch-date">2026/XX/XX</div><div class="sch-title">キックオフ「あなたの人生観が変わる、探究と揺さぶりの世界へようこそ」</div></div>
+        <div class="sch-row"><div class="sch-date">2026/XX/XX</div><div class="sch-title">観光研究30年の研究者が、自分の身体に残った旅の一瞬を語る夜｜髙井典子</div></div>
+        <div class="sch-row"><div class="sch-date">2026/XX/XX</div><div class="sch-title">才能発見1万人のインタビュアーと、つい時間を使ってしまう関心の手前を聴く夜｜佐野貴</div></div>
+        <div class="sch-row"><div class="sch-date">2026/XX/XX</div><div class="sch-title">リテール・フューチャリスト最所あさみが、未完成のまま差し出してきた10年を語る夜｜最所あさみ</div></div>
+        <div class="sch-row"><div class="sch-date">2026/XX/XX</div><div class="sch-title">個人発表「探究テーマ」</div></div>
+        <div class="sch-row"><div class="sch-date">2026/XX/XX</div><div class="sch-title">POOLO LIFE 合宿（DAY1-2）「コミュニティの価値」を体感する</div></div>
+        <div class="sch-row"><div class="sch-date">2026/XX/XX</div><div class="sch-title">『さみしくてごめん』の哲学者が、合宿の後の名前のない感情を聴く夜｜永井玲衣</div></div>
+        <div class="sch-row"><div class="sch-date">2026/XX/XX</div><div class="sch-title">Huuuu代表徳谷柿次郎が、とりあえず動いてきた最初の100回の中身を語る夜｜徳谷柿次郎</div></div>
+        <div class="sch-row"><div class="sch-date">2026/XX/XX</div><div class="sch-title">越境キャリア3名鼎談 ― 場・橋・道具を編んできた3つの作法｜小池＋加藤＋根岸</div></div>
+        <div class="sch-row"><div class="sch-date">2026/XX/XX</div><div class="sch-title">マザーハウス代表山口絵理子が、知らない人に届けた20年の地層を語る夜｜山口絵理子</div></div>
+        <div class="sch-row"><div class="sch-date">2026/XX/XX</div><div class="sch-title">チーム発表「共創活動」</div></div>
+        <div class="sch-row"><div class="sch-date">2026/XX/XX</div><div class="sch-title">地球の歩き方社長新井邦弘が、コロナ後・AI時代の旅の意味を編み直す現在地を語る夜｜新井邦弘</div></div>
+        <div class="sch-row"><div class="sch-date">2026/XX/XX</div><div class="sch-title">POOLO LIFE 最終発表会</div></div>
+        <div class="sch-row"><div class="sch-date">2026/XX/XX</div><div class="sch-title">メンバーで創り上げるここだけの卒業式</div></div>
       </div>
 
       <div class="row" style="margin-top:10px"><span class="no">178</span><div class="txt"><div class="meta-small">※講師の都合により、日程及び講義タイトルの変更の可能性がありますので、ご了承ください。</div></div></div>
