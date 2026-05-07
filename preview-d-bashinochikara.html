@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>D. 場の力 ／ 3案プレビュー</title>
+<title>D. 3つが揃って動き始める ／ プレビュー</title>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&display=swap" rel="stylesheet">
 <style>
   :root{
@@ -27,9 +27,11 @@
   .meta h1{font-size:18px;letter-spacing:.06em;font-weight:700;margin-bottom:6px}
   .meta p{font-size:12px;line-height:1.8;color:#9aa3ac}
   .meta a{color:#7fcadc;text-decoration:underline}
+  .meta .core{margin-top:12px;padding:12px 14px;background:#1a3340;border-left:3px solid #7fcadc;border-radius:4px;color:#cfe5ec;font-size:13px;line-height:1.8}
+  .meta .core b{color:#fff}
 
   .stage{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;align-items:flex-start}
-  .col{width:380px;display:flex;flex-direction:column;gap:8px}
+  .col{width:400px;display:flex;flex-direction:column;gap:8px}
   .col-head{padding:10px 14px;background:#2a2f36;border:1px solid #3a4148;border-radius:8px 8px 0 0;color:#fff}
   .col-head .tag{display:inline-block;font-size:10px;font-weight:700;background:var(--brand);color:#fff;padding:3px 10px;border-radius:99px;letter-spacing:.06em;margin-bottom:6px}
   .col-head .ttl{font-size:14px;font-weight:700;line-height:1.5}
@@ -43,137 +45,143 @@
   .sect-name{font-size:11px;font-weight:700;color:var(--brand-deep);letter-spacing:.08em}
 
   .feature-label{font-size:9.5px;font-weight:700;color:var(--brand);letter-spacing:.18em;margin-bottom:8px}
-  .h3{font-size:14px;font-weight:700;color:var(--ink);line-height:1.5;margin-bottom:10px}
-  .p-sm{font-size:12px;line-height:1.85;color:var(--ink-mid)}
+  .h3{font-size:15px;font-weight:700;color:var(--ink);line-height:1.5;margin-bottom:10px}
+  .p-sm{font-size:12.5px;line-height:1.85;color:var(--ink-mid)}
 
-  .visual{margin:14px 0 4px;padding:14px 10px;background:#fff;border:1.5px dashed #b9c1c8;border-radius:6px}
-  .pill-large{display:inline-block;background:var(--brand-pale);color:var(--brand-deep);font-size:11px;font-weight:700;padding:8px 18px;border-radius:99px;border:2px solid var(--brand-deep)}
-  .pill-mid{background:var(--brand-mist);border:1px solid var(--brand-pale);border-radius:4px;padding:5px 9px;font-size:10px;font-weight:700;color:var(--brand-deep)}
+  .visual{margin:14px 0 4px;padding:18px 12px 16px;background:#fff;border:1.5px dashed #b9c1c8;border-radius:6px}
+
+  .pill-elem{display:inline-block;background:var(--brand-mist);border:1.5px solid var(--brand);border-radius:8px;padding:9px 6px;font-size:10.5px;font-weight:700;color:var(--brand-deep);line-height:1.4;text-align:center;width:100%}
+  .pill-elem .sub{display:block;font-size:9px;color:var(--ink-mid);font-weight:500;margin-top:3px}
+  .x{color:var(--brand);font-size:18px;font-weight:900;text-align:center;line-height:1}
+  .eq{color:var(--brand-deep);font-size:18px;font-weight:900;text-align:center;line-height:1}
+
+  .center-cap{text-align:center;margin-top:14px;font-size:13px;font-weight:900;color:var(--brand-deep);background:linear-gradient(180deg,var(--brand-pale) 0%,var(--brand-mist) 100%);padding:12px;border-radius:6px;letter-spacing:.04em}
+
+  /* Venn風 */
+  .venn{position:relative;width:100%;height:200px;margin:0 auto}
+  .venn .c{position:absolute;width:120px;height:120px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;text-align:center;line-height:1.4;mix-blend-mode:multiply}
+  .venn .c1{background:rgba(27,153,183,.45);color:#0a4a5a;left:50%;transform:translateX(-50%);top:0}
+  .venn .c2{background:rgba(184,224,235,.85);color:#0a4a5a;left:18%;top:70px}
+  .venn .c3{background:rgba(21,122,152,.45);color:#0a4a5a;right:18%;top:70px}
+  .venn .core-label{position:absolute;left:50%;top:115px;transform:translate(-50%,-50%);font-size:11px;font-weight:900;color:var(--brand-deep);background:#fff;padding:4px 10px;border-radius:99px;border:1.5px solid var(--brand-deep);white-space:nowrap;z-index:5}
 
   .tradeoff{max-width:1200px;margin:40px auto 0;background:#2a2f36;border-radius:10px;padding:20px 24px;color:#cfd5dc}
   .tradeoff h2{font-size:14px;color:#fff;margin-bottom:12px;letter-spacing:.06em}
   .tradeoff table{width:100%;border-collapse:collapse;font-size:11.5px}
-  .tradeoff th,.tradeoff td{padding:8px 10px;border-bottom:1px solid #3a4148;text-align:left;line-height:1.6}
+  .tradeoff th,.tradeoff td{padding:8px 10px;border-bottom:1px solid #3a4148;text-align:left;line-height:1.6;vertical-align:top}
   .tradeoff th{color:#fff;font-weight:700;background:#1f2226}
-  .tradeoff td:first-child{color:#9aa3ac}
+  .tradeoff td:first-child{color:#9aa3ac;width:140px}
   .tradeoff .rec{color:#7fcadc;font-weight:700;margin-top:14px;font-size:12px;line-height:1.7}
+
+  .rename{max-width:1200px;margin:24px auto 0;background:#2a2f36;border-radius:10px;padding:18px 24px;color:#cfd5dc}
+  .rename h2{font-size:14px;color:#fff;margin-bottom:10px;letter-spacing:.06em}
+  .rename ul{list-style:none;padding:0;font-size:12px;line-height:1.9}
+  .rename ul li{padding:4px 0;border-bottom:1px dashed #3a4148}
+  .rename ul li b{color:#fff;margin-right:8px}
+  .rename ul li:last-child{border:none}
 
   @media (max-width:1280px){
     .stage{flex-direction:column;align-items:center}
-    .col{width:100%;max-width:480px}
+    .col{width:100%;max-width:520px}
   }
 </style>
 </head>
 <body>
 
 <div class="meta">
-  <h1>D. 場の力 ／ 3案プレビュー</h1>
+  <h1>D. ／ 「3つが揃って、はじめて動き始める」プレビュー（再案）</h1>
   <p>
-    poolo-model「探究テーマ × 実践 × 場」の3要素フレームをD. 場の力に持ち込んだ3案を、v7ワイヤーフレーム同等のスタイルで並べて比較。<br>
+    前回3案は方向違い。社長が表現したいのは下記コア。<br>
     参照：<a href="https://michinorionda.github.io/poolo-life/poolo-model.html" target="_blank">poolo-model.html</a> ／ 現行：<a href="https://michinorionda.github.io/poolo-life/poolo-life-lp-wireframe-sp-v7.html" target="_blank">v7</a>
   </p>
+  <div class="core">
+    <b>探究テーマ × 実践 × 場</b><br>
+    この3つが揃って、はじめて動き始める。
+  </div>
 </div>
 
 <div class="stage">
 
-  <!-- ============ 案A ============ -->
+  <!-- ============ 案X：欠如から入る ============ -->
   <div class="col">
     <div class="col-head">
-      <span class="tag">案A</span>
-      <div class="ttl">3要素の連動を素直に書く</div>
-      <div class="sub">poolo-model忠実度◎／引力・分岐・到達拡張すべてカバー</div>
+      <span class="tag">案X</span>
+      <div class="ttl">欠如→完成（強い・身体感覚）</div>
+      <div class="sub">3つが揃わないと何が起きないかから入って、揃うと動き出す手触りを残す</div>
     </div>
     <div class="card">
       <div class="sect-head"><span class="sect-no">No.102–103</span><span class="sect-name">FEATURE D</span></div>
       <div class="card-inner">
-        <div class="feature-label">D. 場の力</div>
-        <div class="h3">仲間の引力で、<br>軌道が曲がる8か月</div>
-        <div class="p-sm">探究テーマも、実践（旅・問い・共創）も、一人で進めれば同じ軌道をなぞります。けれど、関心探究型の50-70名が集まる場に差し出した瞬間、互いの引力が干渉し合い、ルートが複数に分岐する。同じテーマでも、誰の引力に触れるかで、立ち現れる自分は一人ひとり違う。さらに4人×3回の伴走チームで、その軌道を深く確かめ合う8か月です。</div>
+        <div class="feature-label">D. 3つの掛け算</div>
+        <div class="h3">3つが揃って、<br>はじめて動き始める</div>
+        <div class="p-sm">探究テーマだけ持っていても、輪郭はぼんやりしたまま。実践（旅・問い・共創）だけ繰り返しても、軌道は曲がりません。場だけあっても、何を持って行けばいいか分からない。3つが揃って、はじめて動き始めます。POOLO LIFEは、関心探究型の50-70名が集まる場で、探究テーマと実践を結び、8か月かけて軌道を動かしていきます。</div>
         <div class="visual">
-          <div style="text-align:center;margin-bottom:10px">
-            <div class="pill-large">引力場（50-70名）</div>
+          <div class="venn">
+            <div class="c c1">探究テーマ</div>
+            <div class="c c2">実践<br><span style="font-weight:400;font-size:10px">旅・問い・共創</span></div>
+            <div class="c c3">場<br><span style="font-weight:400;font-size:10px">50-70名</span></div>
+            <div class="core-label">動き始める</div>
           </div>
-          <div style="display:flex;justify-content:center;gap:6px;align-items:center;flex-wrap:wrap">
-            <div class="pill-mid">4人</div>
-            <div style="color:var(--brand);font-size:12px;font-weight:700">×</div>
-            <div class="pill-mid">3回組み換え</div>
-            <div style="color:var(--ink-light);font-size:10px">の伴走チーム</div>
-          </div>
+          <div class="center-cap">3つが重なるところに、軌道が立ち上がる</div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- ============ 案B ============ -->
+  <!-- ============ 案Y：式として正面から書く ============ -->
   <div class="col">
     <div class="col-head">
-      <span class="tag">案B</span>
-      <div class="ttl">場を「探究テーマ × 実践」の触媒として書く</div>
-      <div class="sub">3要素の関係性が明示／触媒メタファーで分かりやすい</div>
+      <span class="tag">案Y</span>
+      <div class="ttl">方程式（端正・LP映え）</div>
+      <div class="sub">3要素の式として正面から書く。視覚的にも強い</div>
     </div>
     <div class="card">
       <div class="sect-head"><span class="sect-no">No.102–103</span><span class="sect-name">FEATURE D</span></div>
       <div class="card-inner">
-        <div class="feature-label">D. 場の力</div>
-        <div class="h3">場が、探究テーマと<br>実践をつなぐ</div>
-        <div class="p-sm">探究テーマは、最初はぼんやりとそこにある。実践（旅・問い・共創）は、差し出して反応を聴いて、また差し出すサイクル。この2つを繋ぎ、加速させるのが場の力です。関心探究型の50-70名が引力場を生み、4人×3回の伴走チームが軌道を確かめる。一人では届かなかった場所まで、仲間と運ばれていく8か月になります。</div>
+        <div class="feature-label">D. 3つの掛け算</div>
+        <div class="h3">探究テーマ × 実践 × 場、<br>3つが揃って動き始める</div>
+        <div class="p-sm">気になってしまう探究テーマ。それを差し出す実践（旅・問い・共創）。受け止めて、引力で動かしてくれる場（50-70名の関心探究型と、4人×3回の伴走チーム）。POOLO LIFEは、この3つが揃ってはじめて動き始めるという考えに立っています。</div>
         <div class="visual">
-          <div style="display:grid;grid-template-columns:1fr auto 1fr;gap:6px;align-items:center;text-align:center">
-            <div class="pill-mid">探究テーマ</div>
-            <div style="color:var(--brand);font-size:14px;font-weight:700">×</div>
-            <div class="pill-mid">実践</div>
+          <div style="display:grid;grid-template-columns:1fr 14px 1fr 14px 1fr;gap:6px;align-items:center">
+            <div class="pill-elem">探究テーマ<span class="sub">気になってしまうもの</span></div>
+            <div class="x">×</div>
+            <div class="pill-elem">実践<span class="sub">旅・問い・共創</span></div>
+            <div class="x">×</div>
+            <div class="pill-elem">場<span class="sub">50-70名／4×3</span></div>
           </div>
-          <div style="text-align:center;font-size:10px;color:var(--ink-light);margin:8px 0 6px">↓ 場で繋がる</div>
-          <div style="text-align:center">
-            <div class="pill-large">引力場（50-70名）＋4人×3回</div>
-          </div>
+          <div style="text-align:center;margin:14px 0 6px;color:var(--brand-deep);font-size:18px;font-weight:900">↓</div>
+          <div class="center-cap">動き始める</div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- ============ 案C ============ -->
-  <div class="col">
-    <div class="col-head">
-      <span class="tag">案C</span>
-      <div class="ttl">シンプル・LP配置向き（短文）</div>
-      <div class="sub">短くて収まるが、変化の手触りはやや薄い</div>
-    </div>
-    <div class="card">
-      <div class="sect-head"><span class="sect-no">No.102–103</span><span class="sect-name">FEATURE D</span></div>
-      <div class="card-inner">
-        <div class="feature-label">D. 場の力</div>
-        <div class="h3">50-70名の引力場と、<br>4人×3回の伴走チーム</div>
-        <div class="p-sm">あなたの探究テーマも、旅・問い・共創の実践も、場に差し出した瞬間に動き出します。互いの引力で軌道が曲がり、同じテーマから違うルートが分岐していく。一人では辿り着けない場所まで、関心探究型の50-70名と4人×3回の伴走チームが連れていきます。</div>
-        <div class="visual">
-          <div style="text-align:center;margin-bottom:10px">
-            <div class="pill-large">引力場（50-70名）</div>
-          </div>
-          <div style="display:flex;justify-content:center;gap:6px;align-items:center;flex-wrap:wrap">
-            <div class="pill-mid">4人</div>
-            <div style="color:var(--brand);font-size:12px;font-weight:700">×</div>
-            <div class="pill-mid">3回組み換え</div>
-            <div style="color:var(--ink-light);font-size:10px">の伴走チーム</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+</div>
 
+<div class="rename">
+  <h2>D. の見出し（小タイトル）改題候補</h2>
+  <ul>
+    <li><b>D. 3つの掛け算</b>　— 上記2案で採用中。シンプルで意図が伝わる</li>
+    <li><b>D. 動き始める仕組み</b>　— メタファー薄めで実利的</li>
+    <li><b>D. 場の力</b>（現行維持）　— ただし本文で「場だけでは動かない」と言うので、見出しと本文がやや矛盾</li>
+    <li><b>D. 3つで動く</b>　— 最短。ただし抽象的</li>
+  </ul>
 </div>
 
 <div class="tradeoff">
   <h2>トレードオフ</h2>
   <table>
-    <tr><th>軸</th><th>案A</th><th>案B</th><th>案C</th></tr>
-    <tr><td>poolo-model 忠実度</td><td>◎ 引力・分岐・到達拡張すべて</td><td>○ 触媒メタファーに寄せて整理</td><td>△ 端折りあり</td></tr>
-    <tr><td>3要素の関係性</td><td>並列</td><td>場＝触媒の関係が明示</td><td>並列</td></tr>
-    <tr><td>LP配置上の収まり</td><td>やや長め</td><td>中</td><td>短くて収まる</td></tr>
-    <tr><td>変化の手触り</td><td>「軌道が曲がる」がやや抽象</td><td>触媒イメージで掴みやすい</td><td>情報量少なく印象薄い</td></tr>
+    <tr><th>軸</th><th>案X（欠如→完成）</th><th>案Y（方程式）</th></tr>
+    <tr><td>意図の伝達</td><td>3つの必要性が身体感覚で分かる</td><td>3要素が一目で分かる</td></tr>
+    <tr><td>本文の長さ</td><td>やや長め（4文）</td><td>短め（3文）</td></tr>
+    <tr><td>ビジュアル</td><td>ベン図（重なりの中心に「動き始める」）</td><td>横式（× × × → 動き始める）</td></tr>
+    <tr><td>LPでの読まれ方</td><td>読み手を引き込む（読み込ませる）</td><td>視覚で掴ませる（速読向き）</td></tr>
+    <tr><td>社長の螺旋言語との相性</td><td>◎ 「軌道を動かす」が継承</td><td>○ 端正だがやや冷たい</td></tr>
   </table>
   <div class="rec">
-    推奨：案A。引力・分岐・到達拡張をそのまま継承でき、A〜D全体の中でDだけが「場の機能」を立体化できる。<br>
-    決定後、v7のD. 場の力ブロック（見出し・本文・図解）を差し替えてpushします。
+    推奨：案X。社長が表現したい「揃ってはじめて動く」の身体感覚は、欠如→完成の語りでこそ立ち上がる。<br>
+    案Yはタイトル横の「探究テーマ × 実践 × 場」という式を、Xのベン図の上に小さく添える形で吸収すれば、両取りも可能。<br>
+    決定後、v7のD. ブロック（見出し・本文・ビジュアル）を差し替えてpushします。
   </div>
 </div>
 
