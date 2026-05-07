@@ -141,15 +141,16 @@ a:hover { opacity: 0.7; }
   background: var(--cta);
   color: #fff;
   font-family: 'Noto Sans JP', sans-serif;
-  font-size: 12px;
-  font-weight: 500;
-  letter-spacing: 0.15em;
-  padding: 10px 22px;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  padding: 14px 32px;
   border-radius: 4px;
-  transition: background 0.2s ease;
+  box-shadow: 0 2px 10px rgba(27, 153, 183, 0.25);
+  transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.header-cta:hover { background: var(--cta-deep); color: #fff; opacity: 1; }
+.header-cta:hover { background: var(--cta-deep); color: #fff; opacity: 1; transform: translateY(-1px); box-shadow: 0 4px 14px rgba(27, 153, 183, 0.35); }
 
 /* ===== Layout ===== */
 .section {
@@ -1117,9 +1118,9 @@ a:hover { opacity: 0.7; }
     height: 7px;
   }
   .header-cta {
-    padding: 6px 10px;
-    font-size: 10px;
-    letter-spacing: 0.04em;
+    padding: 10px 18px;
+    font-size: 12px;
+    letter-spacing: 0.1em;
     white-space: nowrap;
   }
 
@@ -1480,7 +1481,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <header class="header">
   <a href="#top" class="header-logo"><img src="images/poolo_logo.png" alt="POOLO あたらしい旅の学校"></a>
   <div class="header-nav">
-    <a href="https://tabippo.net/" class="header-nav-link" target="_blank" rel="noopener">TABIPPO.netとは？</a>
     <a href="https://tabippo.net/poolo/" class="header-nav-link" target="_blank" rel="noopener">POOLOとは？</a>
     <a href="https://liff.line.me/2004689256-jVradzOV/landing?follow=%40801pdwhq&lp=BU2AAm&liff_id=2004689256-jVradzOV" target="_blank" rel="noopener" class="header-cta">申し込む</a>
   </div>
