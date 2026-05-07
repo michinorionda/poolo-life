@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>D. 場の力 ／ 3案プレビュー</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --brand:#1B99B7;
+    --brand-deep:#157A98;
+    --brand-pale:#B8E0EB;
+    --brand-mist:#EBF6FA;
+    --ink:#1a1a1a;
+    --ink-mid:#4a4a4a;
+    --ink-light:#8a8a8a;
+    --line:#e2e6ea;
+    --bg:#f5f7fa;
+    --card:#ffffff;
+    --warn:#c4582d;
+    --sans:'Noto Sans JP',-apple-system,'Hiragino Kaku Gothic ProN',sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:var(--sans);background:#1f2226;min-height:100vh;padding:40px 16px 80px;line-height:1.75;color:#fff}
+
+  .meta{max-width:1200px;margin:0 auto 32px;color:#cfd5dc}
+  .meta h1{font-size:18px;letter-spacing:.06em;font-weight:700;margin-bottom:6px}
+  .meta p{font-size:12px;line-height:1.8;color:#9aa3ac}
+  .meta a{color:#7fcadc;text-decoration:underline}
+
+  .stage{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;align-items:flex-start}
+  .col{width:380px;display:flex;flex-direction:column;gap:8px}
+  .col-head{padding:10px 14px;background:#2a2f36;border:1px solid #3a4148;border-radius:8px 8px 0 0;color:#fff}
+  .col-head .tag{display:inline-block;font-size:10px;font-weight:700;background:var(--brand);color:#fff;padding:3px 10px;border-radius:99px;letter-spacing:.06em;margin-bottom:6px}
+  .col-head .ttl{font-size:14px;font-weight:700;line-height:1.5}
+  .col-head .sub{font-size:11px;color:#9aa3ac;margin-top:4px;line-height:1.6}
+
+  .card{background:#fff;border-radius:0 0 8px 8px;border:1px solid var(--line);border-top:none;color:var(--ink);overflow:hidden}
+  .card-inner{padding:16px 14px 18px}
+
+  .sect-head{display:flex;align-items:center;gap:8px;padding:8px 12px;background:var(--brand-mist);border-bottom:1px solid var(--line);flex-wrap:wrap}
+  .sect-no{font-size:10px;font-weight:700;color:var(--brand-deep);letter-spacing:.05em;background:#fff;border:1px solid var(--brand-pale);padding:2px 7px;border-radius:99px}
+  .sect-name{font-size:11px;font-weight:700;color:var(--brand-deep);letter-spacing:.08em}
+
+  .feature-label{font-size:9.5px;font-weight:700;color:var(--brand);letter-spacing:.18em;margin-bottom:8px}
+  .h3{font-size:14px;font-weight:700;color:var(--ink);line-height:1.5;margin-bottom:10px}
+  .p-sm{font-size:12px;line-height:1.85;color:var(--ink-mid)}
+
+  .visual{margin:14px 0 4px;padding:14px 10px;background:#fff;border:1.5px dashed #b9c1c8;border-radius:6px}
+  .pill-large{display:inline-block;background:var(--brand-pale);color:var(--brand-deep);font-size:11px;font-weight:700;padding:8px 18px;border-radius:99px;border:2px solid var(--brand-deep)}
+  .pill-mid{background:var(--brand-mist);border:1px solid var(--brand-pale);border-radius:4px;padding:5px 9px;font-size:10px;font-weight:700;color:var(--brand-deep)}
+
+  .tradeoff{max-width:1200px;margin:40px auto 0;background:#2a2f36;border-radius:10px;padding:20px 24px;color:#cfd5dc}
+  .tradeoff h2{font-size:14px;color:#fff;margin-bottom:12px;letter-spacing:.06em}
+  .tradeoff table{width:100%;border-collapse:collapse;font-size:11.5px}
+  .tradeoff th,.tradeoff td{padding:8px 10px;border-bottom:1px solid #3a4148;text-align:left;line-height:1.6}
+  .tradeoff th{color:#fff;font-weight:700;background:#1f2226}
+  .tradeoff td:first-child{color:#9aa3ac}
+  .tradeoff .rec{color:#7fcadc;font-weight:700;margin-top:14px;font-size:12px;line-height:1.7}
+
+  @media (max-width:1280px){
+    .stage{flex-direction:column;align-items:center}
+    .col{width:100%;max-width:480px}
+  }
+</style>
+</head>
+<body>
+
+<div class="meta">
+  <h1>D. 場の力 ／ 3案プレビュー</h1>
+  <p>
+    poolo-model「探究テーマ × 実践 × 場」の3要素フレームをD. 場の力に持ち込んだ3案を、v7ワイヤーフレーム同等のスタイルで並べて比較。<br>
+    参照：<a href="https://michinorionda.github.io/poolo-life/poolo-model.html" target="_blank">poolo-model.html</a> ／ 現行：<a href="https://michinorionda.github.io/poolo-life/poolo-life-lp-wireframe-sp-v7.html" target="_blank">v7</a>
+  </p>
+</div>
+
+<div class="stage">
+
+  <!-- ============ 案A ============ -->
+  <div class="col">
+    <div class="col-head">
+      <span class="tag">案A</span>
+      <div class="ttl">3要素の連動を素直に書く</div>
+      <div class="sub">poolo-model忠実度◎／引力・分岐・到達拡張すべてカバー</div>
+    </div>
+    <div class="card">
+      <div class="sect-head"><span class="sect-no">No.102–103</span><span class="sect-name">FEATURE D</span></div>
+      <div class="card-inner">
+        <div class="feature-label">D. 場の力</div>
+        <div class="h3">仲間の引力で、<br>軌道が曲がる8か月</div>
+        <div class="p-sm">探究テーマも、実践（旅・問い・共創）も、一人で進めれば同じ軌道をなぞります。けれど、関心探究型の50-70名が集まる場に差し出した瞬間、互いの引力が干渉し合い、ルートが複数に分岐する。同じテーマでも、誰の引力に触れるかで、立ち現れる自分は一人ひとり違う。さらに4人×3回の伴走チームで、その軌道を深く確かめ合う8か月です。</div>
+        <div class="visual">
+          <div style="text-align:center;margin-bottom:10px">
+            <div class="pill-large">引力場（50-70名）</div>
+          </div>
+          <div style="display:flex;justify-content:center;gap:6px;align-items:center;flex-wrap:wrap">
+            <div class="pill-mid">4人</div>
+            <div style="color:var(--brand);font-size:12px;font-weight:700">×</div>
+            <div class="pill-mid">3回組み換え</div>
+            <div style="color:var(--ink-light);font-size:10px">の伴走チーム</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ 案B ============ -->
+  <div class="col">
+    <div class="col-head">
+      <span class="tag">案B</span>
+      <div class="ttl">場を「探究テーマ × 実践」の触媒として書く</div>
+      <div class="sub">3要素の関係性が明示／触媒メタファーで分かりやすい</div>
+    </div>
+    <div class="card">
+      <div class="sect-head"><span class="sect-no">No.102–103</span><span class="sect-name">FEATURE D</span></div>
+      <div class="card-inner">
+        <div class="feature-label">D. 場の力</div>
+        <div class="h3">場が、探究テーマと<br>実践をつなぐ</div>
+        <div class="p-sm">探究テーマは、最初はぼんやりとそこにある。実践（旅・問い・共創）は、差し出して反応を聴いて、また差し出すサイクル。この2つを繋ぎ、加速させるのが場の力です。関心探究型の50-70名が引力場を生み、4人×3回の伴走チームが軌道を確かめる。一人では届かなかった場所まで、仲間と運ばれていく8か月になります。</div>
+        <div class="visual">
+          <div style="display:grid;grid-template-columns:1fr auto 1fr;gap:6px;align-items:center;text-align:center">
+            <div class="pill-mid">探究テーマ</div>
+            <div style="color:var(--brand);font-size:14px;font-weight:700">×</div>
+            <div class="pill-mid">実践</div>
+          </div>
+          <div style="text-align:center;font-size:10px;color:var(--ink-light);margin:8px 0 6px">↓ 場で繋がる</div>
+          <div style="text-align:center">
+            <div class="pill-large">引力場（50-70名）＋4人×3回</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ 案C ============ -->
+  <div class="col">
+    <div class="col-head">
+      <span class="tag">案C</span>
+      <div class="ttl">シンプル・LP配置向き（短文）</div>
+      <div class="sub">短くて収まるが、変化の手触りはやや薄い</div>
+    </div>
+    <div class="card">
+      <div class="sect-head"><span class="sect-no">No.102–103</span><span class="sect-name">FEATURE D</span></div>
+      <div class="card-inner">
+        <div class="feature-label">D. 場の力</div>
+        <div class="h3">50-70名の引力場と、<br>4人×3回の伴走チーム</div>
+        <div class="p-sm">あなたの探究テーマも、旅・問い・共創の実践も、場に差し出した瞬間に動き出します。互いの引力で軌道が曲がり、同じテーマから違うルートが分岐していく。一人では辿り着けない場所まで、関心探究型の50-70名と4人×3回の伴走チームが連れていきます。</div>
+        <div class="visual">
+          <div style="text-align:center;margin-bottom:10px">
+            <div class="pill-large">引力場（50-70名）</div>
+          </div>
+          <div style="display:flex;justify-content:center;gap:6px;align-items:center;flex-wrap:wrap">
+            <div class="pill-mid">4人</div>
+            <div style="color:var(--brand);font-size:12px;font-weight:700">×</div>
+            <div class="pill-mid">3回組み換え</div>
+            <div style="color:var(--ink-light);font-size:10px">の伴走チーム</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="tradeoff">
+  <h2>トレードオフ</h2>
+  <table>
+    <tr><th>軸</th><th>案A</th><th>案B</th><th>案C</th></tr>
+    <tr><td>poolo-model 忠実度</td><td>◎ 引力・分岐・到達拡張すべて</td><td>○ 触媒メタファーに寄せて整理</td><td>△ 端折りあり</td></tr>
+    <tr><td>3要素の関係性</td><td>並列</td><td>場＝触媒の関係が明示</td><td>並列</td></tr>
+    <tr><td>LP配置上の収まり</td><td>やや長め</td><td>中</td><td>短くて収まる</td></tr>
+    <tr><td>変化の手触り</td><td>「軌道が曲がる」がやや抽象</td><td>触媒イメージで掴みやすい</td><td>情報量少なく印象薄い</td></tr>
+  </table>
+  <div class="rec">
+    推奨：案A。引力・分岐・到達拡張をそのまま継承でき、A〜D全体の中でDだけが「場の機能」を立体化できる。<br>
+    決定後、v7のD. 場の力ブロック（見出し・本文・図解）を差し替えてpushします。
+  </div>
+</div>
+
+</body>
+</html>
