@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hero Flourish 比較プレビュー｜POOLO 30s Life vol.01</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Noto+Sans+JP:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #FFFFFF;
+  --bg-soft: #FFFCF6;
+  --bg-warm: #FBF7EE;
+  --main: #2D3E36;
+  --cta: #1B99B7;
+  --cta-deep: #157A98;
+  --sub: #7A9E8A;
+  --text: #2A2A2A;
+  --text-soft: #5A5A5A;
+  --text-light: #7A7A7A;
+  --line: #EAE5DC;
+  --line-light: #F2EDE3;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  background: #F8F5EF;
+  font-family: 'Noto Sans JP', sans-serif;
+  color: var(--text);
+  font-size: 16px;
+  line-height: 1.9;
+  letter-spacing: 0.04em;
+  padding: 60px 24px 120px;
+}
+.preview-header {
+  max-width: 928px;
+  margin: 0 auto 48px;
+  text-align: center;
+}
+.preview-header h1 {
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: var(--main);
+  margin-bottom: 10px;
+}
+.preview-header p {
+  font-size: 13px;
+  color: var(--text-soft);
+  letter-spacing: 0.05em;
+}
+.variant-block {
+  max-width: 928px;
+  margin: 0 auto 56px;
+}
+.variant-label {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 14px;
+  padding-left: 4px;
+}
+.variant-label-tag {
+  background: var(--main);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  padding: 5px 12px;
+  border-radius: 2px;
+}
+.variant-label-name {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--main);
+  letter-spacing: 0.06em;
+}
+.variant-label-note {
+  font-size: 12px;
+  color: var(--text-light);
+  margin-left: auto;
+  letter-spacing: 0.05em;
+}
+
+/* ===== Hero (mirror from main page) ===== */
+.hero {
+  display: grid;
+  grid-template-columns: 5fr 6fr;
+  background: var(--bg-soft);
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  position: relative;
+  overflow: hidden;
+}
+.hero-photo {
+  background-image: url('../event-30s-v01-260509/images/01_542.jpg');
+  background-size: cover;
+  background-position: center;
+  filter: saturate(0.92) sepia(0.06) brightness(1.02);
+}
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-soft);
+  position: relative;
+  overflow: hidden;
+}
+.hero-content-inner {
+  flex: 1;
+  padding: 32px 40px 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  position: relative;
+  z-index: 2;
+}
+.hero-vertical {
+  position: absolute;
+  right: 12px;
+  top: 0;
+  bottom: 0;
+  writing-mode: vertical-rl;
+  font-size: 16px;
+  letter-spacing: 0.4em;
+  color: rgba(45,62,54,0.09);
+  font-weight: 700;
+  font-style: italic;
+  display: flex;
+  align-items: center;
+  pointer-events: none;
+  z-index: 1;
+  text-transform: uppercase;
+}
+.hero-tag {
+  display: inline-block;
+  align-self: flex-start;
+  background: var(--cta);
+  color: #fff;
+  padding: 8px 16px;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  margin-top: 56px;
+  margin-bottom: 18px;
+  border-radius: 2px;
+}
+.hero-title-lead {
+  font-size: 18px;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  line-height: 1.6;
+  margin-bottom: 14px;
+  color: var(--main);
+}
+.hero-title {
+  font-size: 36px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  line-height: 1.55;
+  color: var(--main);
+}
+.hero-title .em { color: var(--cta); font-weight: 600; }
+.hero-title .line { display: block; }
+
+/* Flourish base */
+.hero-flourish {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 22px;
+}
+.hero-flourish-line {
+  display: block;
+  flex: 0 0 32px;
+  height: 1px;
+  background: var(--cta);
+  opacity: 0.7;
+}
+.hero-flourish-mark {
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  color: var(--text-soft);
+}
+.hero-flourish-mark.is-en {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 14px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.hero-date {
+  margin-top: auto;
+  padding: 10px 0;
+  border-top: 2px solid var(--cta);
+  border-bottom: 2px solid var(--cta);
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: var(--main);
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.hero-date .small {
+  font-size: 11px;
+  color: var(--text-soft);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+}
+.hero-date .place {
+  font-size: 13px;
+  color: var(--text);
+  font-weight: 500;
+  margin-left: 4px;
+}
+
+/* C: line only (no text) */
+.variant-c .hero-flourish-mark { display: none; }
+.variant-c .hero-flourish-line { flex: 0 0 56px; }
+
+@media (max-width: 768px) {
+  body { padding: 30px 12px 80px; }
+  .preview-header h1 { font-size: 18px; }
+  .variant-block { margin-bottom: 36px; }
+  .variant-label-note { display: none; }
+  .hero-content-inner { padding: 14px 14px 10px; }
+  .hero-tag { font-size: 9px; padding: 4px 10px; margin-top: 24px; margin-bottom: 8px; letter-spacing: 0.08em; }
+  .hero-title-lead { font-size: 11px; margin-bottom: 6px; letter-spacing: 0.04em; line-height: 1.4; }
+  .hero-title { font-size: 17px; letter-spacing: 0.04em; line-height: 1.45; }
+  .hero-flourish { margin-top: 12px; gap: 8px; }
+  .hero-flourish-line { flex: 0 0 22px; }
+  .hero-flourish-mark { font-size: 9.5px; letter-spacing: 0.16em; }
+  .hero-flourish-mark.is-en { font-size: 11px; letter-spacing: 0.14em; }
+  .variant-c .hero-flourish-line { flex: 0 0 36px; }
+  .hero-date { font-size: 11px; padding: 5px 0; gap: 6px; border-width: 1px; }
+  .hero-date .small { font-size: 9px; }
+  .hero-date .place { font-size: 9.5px; }
+  .hero-vertical { font-size: 11px; right: 6px; }
+}
+</style>
+</head>
+<body>
+
+<header class="preview-header">
+  <h1>Hero Flourish 4案 比較</h1>
+  <p>「問い直す」90分。の下に入れるあしらいの比較</p>
+</header>
+
+<!-- ===== A: 現状（対話・内省・好奇心） ===== -->
+<div class="variant-block variant-a">
+  <div class="variant-label">
+    <span class="variant-label-tag">A</span>
+    <span class="variant-label-name">対話・内省・好奇心</span>
+    <span class="variant-label-note">現状採用 ／ 3キーワードで世界観をにじませる</span>
+  </div>
+  <section class="hero">
+    <div class="hero-photo"></div>
+    <div class="hero-content">
+      <div class="hero-vertical">ONLINE DIALOGUE vol.01</div>
+      <div class="hero-content-inner">
+        <span class="hero-tag">30代の生き方シリーズvol.01</span>
+        <p class="hero-title-lead">自分自身が納得できる、</p>
+        <h1 class="hero-title">
+          <span class="line"><span class="em">30代の生き方</span>を</span>
+          <span class="line"><span class="em">「問い直す」</span>90分。</span>
+        </h1>
+        <div class="hero-flourish" aria-hidden="true">
+          <span class="hero-flourish-line"></span>
+          <span class="hero-flourish-mark">対話・内省・好奇心</span>
+        </div>
+        <div class="hero-date">
+          <span>5/9 <span class="small">(土)</span></span>
+          <span>13:00〜14:30</span>
+          <span class="place">@Zoom</span>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ===== B: 英字シンプル ===== -->
+<div class="variant-block variant-b">
+  <div class="variant-label">
+    <span class="variant-label-tag">B</span>
+    <span class="variant-label-name">Online Dialogue · 90 min</span>
+    <span class="variant-label-note">英字Cormorant ／ 編集デザイン感が強い</span>
+  </div>
+  <section class="hero">
+    <div class="hero-photo"></div>
+    <div class="hero-content">
+      <div class="hero-vertical">ONLINE DIALOGUE vol.01</div>
+      <div class="hero-content-inner">
+        <span class="hero-tag">30代の生き方シリーズvol.01</span>
+        <p class="hero-title-lead">自分自身が納得できる、</p>
+        <h1 class="hero-title">
+          <span class="line"><span class="em">30代の生き方</span>を</span>
+          <span class="line"><span class="em">「問い直す」</span>90分。</span>
+        </h1>
+        <div class="hero-flourish" aria-hidden="true">
+          <span class="hero-flourish-line"></span>
+          <span class="hero-flourish-mark is-en">Online Dialogue · 90 min</span>
+        </div>
+        <div class="hero-date">
+          <span>5/9 <span class="small">(土)</span></span>
+          <span>13:00〜14:30</span>
+          <span class="place">@Zoom</span>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ===== C: 線のみ ===== -->
+<div class="variant-block variant-c">
+  <div class="variant-label">
+    <span class="variant-label-tag">C</span>
+    <span class="variant-label-name">線のみ（テキストなし）</span>
+    <span class="variant-label-note">最小限 ／ タイトルを締めるだけ</span>
+  </div>
+  <section class="hero">
+    <div class="hero-photo"></div>
+    <div class="hero-content">
+      <div class="hero-vertical">ONLINE DIALOGUE vol.01</div>
+      <div class="hero-content-inner">
+        <span class="hero-tag">30代の生き方シリーズvol.01</span>
+        <p class="hero-title-lead">自分自身が納得できる、</p>
+        <h1 class="hero-title">
+          <span class="line"><span class="em">30代の生き方</span>を</span>
+          <span class="line"><span class="em">「問い直す」</span>90分。</span>
+        </h1>
+        <div class="hero-flourish" aria-hidden="true">
+          <span class="hero-flourish-line"></span>
+          <span class="hero-flourish-mark">対話・内省・好奇心</span>
+        </div>
+        <div class="hero-date">
+          <span>5/9 <span class="small">(土)</span></span>
+          <span>13:00〜14:30</span>
+          <span class="place">@Zoom</span>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ===== D: シリーズ刻印 ===== -->
+<div class="variant-block variant-d">
+  <div class="variant-label">
+    <span class="variant-label-tag">D</span>
+    <span class="variant-label-name">Vol.01 / 30s Life Series</span>
+    <span class="variant-label-note">英字 ／ シリーズ刻印感</span>
+  </div>
+  <section class="hero">
+    <div class="hero-photo"></div>
+    <div class="hero-content">
+      <div class="hero-vertical">ONLINE DIALOGUE vol.01</div>
+      <div class="hero-content-inner">
+        <span class="hero-tag">30代の生き方シリーズvol.01</span>
+        <p class="hero-title-lead">自分自身が納得できる、</p>
+        <h1 class="hero-title">
+          <span class="line"><span class="em">30代の生き方</span>を</span>
+          <span class="line"><span class="em">「問い直す」</span>90分。</span>
+        </h1>
+        <div class="hero-flourish" aria-hidden="true">
+          <span class="hero-flourish-line"></span>
+          <span class="hero-flourish-mark is-en">Vol.01 / 30s Life Series</span>
+        </div>
+        <div class="hero-date">
+          <span>5/9 <span class="small">(土)</span></span>
+          <span>13:00〜14:30</span>
+          <span class="place">@Zoom</span>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+</body>
+</html>
