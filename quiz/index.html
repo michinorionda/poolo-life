@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta name="googlebot" content="noindex, nofollow, noarchive">
+<title>POOLO LIFE 12期 メンバークイズ</title>
+<style>
+  :root {
+    --brand: #1B99B7;
+    --brand-deep: #157A98;
+    --brand-pale: #B8E0EB;
+    --terra: #C97B5C;
+    --sage: #9CAF88;
+    --ink: #2A3439;
+    --paper: #FAF7F2;
+    --mute: #6B7378;
+    --line: #E5DFD3;
+    --ok: #5BA776;
+    --ng: #C4655B;
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: "Noto Sans JP", -apple-system, BlinkMacSystemFont, "Hiragino Kaku Gothic ProN", sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    margin: 0;
+    padding: 24px 16px;
+    line-height: 1.7;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; }
+  header { text-align: center; margin-bottom: 32px; }
+  h1 {
+    font-family: "Shippori Mincho", "Yu Mincho", serif;
+    font-size: 28px;
+    margin: 0 0 8px;
+    color: var(--brand-deep);
+    letter-spacing: 0.05em;
+  }
+  .subtitle { color: var(--mute); font-size: 13px; margin: 0; }
+  .modes {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+  }
+  .mode-btn {
+    background: white;
+    border: 1.5px solid var(--line);
+    color: var(--mute);
+    padding: 10px 16px;
+    border-radius: 999px;
+    font-size: 13px;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: inherit;
+  }
+  .mode-btn:hover { border-color: var(--brand); color: var(--brand); }
+  .mode-btn.active {
+    background: var(--brand);
+    color: white;
+    border-color: var(--brand);
+  }
+  .stats {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: white;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 12px 20px;
+    margin-bottom: 16px;
+    font-size: 13px;
+    color: var(--mute);
+  }
+  .stat-item strong { color: var(--ink); font-size: 16px; }
+  .accuracy { color: var(--brand-deep); }
+  .card {
+    background: white;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 28px 24px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+  }
+  .question-label {
+    color: var(--terra);
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    font-weight: 600;
+    margin-bottom: 12px;
+  }
+  .question-body {
+    font-size: 17px;
+    margin-bottom: 24px;
+    padding: 18px 20px;
+    background: var(--paper);
+    border-left: 3px solid var(--brand);
+    border-radius: 0 8px 8px 0;
+    line-height: 1.8;
+  }
+  .hint-row { margin: 4px 0; }
+  .hint-key {
+    display: inline-block;
+    color: var(--mute);
+    font-size: 12px;
+    width: 88px;
+    vertical-align: top;
+  }
+  .hint-val { font-size: 15px; color: var(--ink); }
+  .options {
+    display: grid;
+    gap: 10px;
+  }
+  .option {
+    background: white;
+    border: 1.5px solid var(--line);
+    border-radius: 10px;
+    padding: 14px 18px;
+    text-align: left;
+    cursor: pointer;
+    font-size: 15px;
+    color: var(--ink);
+    transition: all 0.15s;
+    font-family: inherit;
+  }
+  .option:hover:not(:disabled) {
+    border-color: var(--brand);
+    background: #F4FAFC;
+  }
+  .option:disabled { cursor: default; }
+  .option.correct {
+    border-color: var(--ok);
+    background: #EBF6F0;
+    color: var(--ok);
+    font-weight: 600;
+  }
+  .option.wrong {
+    border-color: var(--ng);
+    background: #FAEEEC;
+    color: var(--ng);
+  }
+  .option.dim { opacity: 0.5; }
+  .feedback {
+    margin-top: 20px;
+    padding: 16px 18px;
+    border-radius: 10px;
+    background: var(--paper);
+    font-size: 14px;
+    border: 1px dashed var(--line);
+  }
+  .feedback.show { display: block; }
+  .feedback h3 {
+    margin: 0 0 8px;
+    font-size: 14px;
+    color: var(--brand-deep);
+  }
+  .feedback-row {
+    display: flex;
+    gap: 12px;
+    font-size: 13px;
+    margin: 3px 0;
+  }
+  .feedback-key { color: var(--mute); min-width: 80px; }
+  .feedback-val { color: var(--ink); flex: 1; }
+  .next-btn {
+    margin-top: 16px;
+    width: 100%;
+    background: var(--brand);
+    color: white;
+    border: none;
+    padding: 14px;
+    border-radius: 10px;
+    font-size: 15px;
+    cursor: pointer;
+    font-family: inherit;
+    font-weight: 600;
+  }
+  .next-btn:hover { background: var(--brand-deep); }
+  .reset-btn {
+    background: none;
+    border: none;
+    color: var(--mute);
+    font-size: 12px;
+    cursor: pointer;
+    text-decoration: underline;
+    font-family: inherit;
+  }
+  .badge {
+    display: inline-block;
+    background: var(--sage);
+    color: white;
+    font-size: 10px;
+    padding: 2px 8px;
+    border-radius: 999px;
+    margin-left: 6px;
+    vertical-align: middle;
+  }
+  @media (max-width: 480px) {
+    h1 { font-size: 22px; }
+    .card { padding: 20px 16px; }
+    .question-body { font-size: 15px; padding: 14px 16px; }
+  }
+  .gate {
+    position: fixed; inset: 0;
+    background: var(--paper);
+    display: flex; align-items: center; justify-content: center;
+    z-index: 100;
+    padding: 20px;
+  }
+  .gate-card {
+    background: white;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 40px 28px;
+    max-width: 380px;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.04);
+  }
+  .gate-title {
+    font-family: "Shippori Mincho", serif;
+    font-size: 20px;
+    color: var(--brand-deep);
+    margin: 0 0 8px;
+  }
+  .gate-sub { color: var(--mute); font-size: 12px; margin: 0 0 24px; }
+  .gate-input {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1.5px solid var(--line);
+    border-radius: 8px;
+    font-size: 15px;
+    font-family: inherit;
+    margin-bottom: 12px;
+  }
+  .gate-input:focus { outline: none; border-color: var(--brand); }
+  .gate-btn {
+    width: 100%;
+    background: var(--brand);
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: inherit;
+  }
+  .gate-btn:hover { background: var(--brand-deep); }
+  .gate-err { color: var(--ng); font-size: 12px; min-height: 16px; margin: 8px 0 0; }
+</style>
+</head>
+<body>
+<div class="gate" id="gate">
+  <div class="gate-card">
+    <h2 class="gate-title">POOLO LIFE 12期</h2>
+    <p class="gate-sub">合言葉を入力してください</p>
+    <input type="password" class="gate-input" id="pwInput" placeholder="合言葉" autocomplete="off">
+    <button class="gate-btn" id="pwBtn">入る</button>
+    <p class="gate-err" id="pwErr"></p>
+  </div>
+</div>
+<div class="wrap" id="main" style="display:none">
+  <header>
+    <h1>POOLO LIFE 12期 メンバークイズ</h1>
+    <p class="subtitle">名前と特徴を覚える練習。プロフィールから人物を当てる形式。</p>
+  </header>
+
+  <div class="modes">
+    <button class="mode-btn active" data-mode="profile">プロフィール → 人物</button>
+    <button class="mode-btn" data-mode="nick2name">あだ名 → 本名</button>
+    <button class="mode-btn" data-mode="name2nick">本名 → あだ名</button>
+    <button class="mode-btn" data-mode="mix">ミックス</button>
+  </div>
+
+  <div class="stats">
+    <div class="stat-item">出題 <strong id="total">0</strong></div>
+    <div class="stat-item">正解 <strong id="correct">0</strong></div>
+    <div class="stat-item accuracy">正答率 <strong id="rate">—</strong></div>
+    <button class="reset-btn" onclick="resetStats()">リセット</button>
+  </div>
+
+  <div class="card" id="card"></div>
+</div>
+
+<script>
+const PW_HASH = "b55dddc18cc93bfe11c93c4c066d02569b8ad0dc75f723dca125be250bb3f979";
+async function sha256(s) {
+  const buf = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(s));
+  return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2,"0")).join("");
+}
+async function tryPw() {
+  const v = document.getElementById("pwInput").value;
+  const err = document.getElementById("pwErr");
+  if (!v) { err.textContent = "合言葉を入れてください"; return; }
+  const h = await sha256(v);
+  if (h === PW_HASH) {
+    sessionStorage.setItem("poolo12_unlocked", "1");
+    document.getElementById("gate").style.display = "none";
+    document.getElementById("main").style.display = "block";
+    next();
+  } else {
+    err.textContent = "違うみたい";
+  }
+}
+document.getElementById("pwBtn").addEventListener("click", tryPw);
+document.getElementById("pwInput").addEventListener("keydown", e => { if (e.key === "Enter") tryPw(); });
+if (sessionStorage.getItem("poolo12_unlocked") === "1") {
+  document.getElementById("gate").style.display = "none";
+  document.getElementById("main").style.display = "block";
+}
+
+const PEOPLE = [
+  {n:"荒川 大知",fu:"アラカワ ダイチ",nk:"だいち",res:"埼玉",home:"埼玉",mbti:"INFJ 提唱者",pers:"穏やか／気になったことをすぐ調べる",hob:"スポーツ・音楽・観戦・読書",theme:"社会的インフラ(コミュニティの場)の重要性を問い直す",team:"A",ctry:4},
+  {n:"今岡 雅喜",fu:"イマオカ マサキ",nk:"まさき",res:"神奈川",home:"神奈川",mbti:"INFP 仲介者",pers:"フットワーク軽め／好奇心旺盛",hob:"旅・観戦・スポーツ・アウトドア",theme:"旅がもたらす効能、旅から得られる経験・価値観",team:"A",ctry:9},
+  {n:"大舘 ゆかり",fu:"オオダテ ユカリ",nk:"だてお",res:"大阪",home:"東京",mbti:"ENFP 運動家",pers:"元気／明るい／行動力がある",hob:"旅・スポーツ・音楽・アウトドア",theme:"",team:"A",ctry:2},
+  {n:"樋口 明希",fu:"ヒグチ アキ",nk:"ぐってぃー",res:"大阪",home:"大阪",mbti:"ISFJ 擁護者",pers:"明るい／責任感強め／時々大胆",hob:"旅・スポーツ・音楽",theme:"",team:"A",ctry:16},
+  {n:"片野 翔太",fu:"カタノ ショウタ",nk:"かったー",res:"東京",home:"群馬",mbti:"ISFP 冒険家",pers:"宇宙人／直感型／内向的",hob:"スポーツ・読書・推し活",theme:"",team:"B",ctry:2},
+  {n:"高田 かおり",fu:"タカダ カオリ",nk:"かおり／かおちゃん",res:"新潟",home:"ベトナム",mbti:"ISTP 巨匠",pers:"フットワーク軽い／マイペース／好奇心旺盛",hob:"旅・フィットネス・音楽・語学",theme:"",team:"B",ctry:16},
+  {n:"佐藤 帆夏",fu:"サトウ ホノカ",nk:"ほのちゃん",res:"東京",home:"山形",mbti:"ENFP 運動家",pers:"フっ軽／好奇心旺盛／行動力",hob:"旅・漫画・エンタメ",theme:"",team:"B",ctry:10},
+  {n:"阿部 結珠",fu:"アベ ユズ",nk:"よーず",res:"陸",home:"長野",mbti:"ENFP 運動家",pers:"フットワーク軽い／ポジティブ／聞き役",hob:"スポーツ・旅・カラオケ・ボードゲーム",theme:"旅の経験を働き方にどう活かすか?→自己開示",team:"C",ctry:28},
+  {n:"辰巳 勝洋",fu:"タツミ カツヒロ",nk:"たっつん／ひろ",res:"福岡",home:"千葉",mbti:"INFP 仲介者",pers:"真面目だけど実は適当・空気は読める",hob:"旅・音楽・エンタメ・サウナ",theme:"",team:"C",ctry:6},
+  {n:"福井 晃平",fu:"フクイ コウヘイ",nk:"kohei",res:"兵庫(加古川)",home:"兵庫(西宮)",mbti:"ISTJ 管理者",pers:"フッ軽／結構適当な性格",hob:"海外サッカー観戦／アウトドア",theme:"",team:"C",ctry:10},
+  {n:"杉田 颯斗",fu:"スギタ ハヤト",nk:"おすぎ",res:"東京",home:"埼玉",mbti:"INFJ 提唱者",pers:"好奇心／心配性／穏やか",hob:"音楽・漫画・モルック",theme:"",team:"D",ctry:1},
+  {n:"松本 航己",fu:"マツモト コウキ",nk:"こうき",res:"東京",home:"東京",mbti:"ISFJ 擁護者",pers:"穏やか／内省的／好奇心旺盛",hob:"旅・音楽・漫画・語学(英・西・韓)",theme:"",team:"D",ctry:25},
+  {n:"三浦 妃加利",fu:"ミウラ ヒカリ",nk:"ひかりん／ひかちゃん",res:"大阪",home:"東京",mbti:"ESFP エンターテイナー",pers:"喜怒哀楽／超絶素直／自由奔放／ザ・猫",hob:"旅・歌・手話・おしゃべり",theme:"嫌われない個性の出し方／寂しいとは?",team:"D",ctry:10},
+  {n:"早田 一貴",fu:"ワサダ カズキ",nk:"わらび",res:"京都(宇治)",home:"京都(宇治)",mbti:"ENFP 運動家",pers:"フっ軽／好奇心旺盛／硬軟自在／迷ったら行動",hob:"旅・温泉・食巡り・映画",theme:"",team:"D",ctry:1},
+  {n:"Kana",fu:"カナ",nk:"Kana",res:"千葉",home:"千葉(市川)",mbti:"ENFP 運動家",pers:"個性的／外交的／超ポジティブ／アウトドア派",hob:"読書(月10冊)・映画(週1)・交流",theme:"ワクワクを追求したらどうなる?冒険と不安の対比",team:"E",ctry:7},
+  {n:"成田 彩花",fu:"ナリタ アヤカ",nk:"ふじこ",res:"山梨(丹波山村)",home:"北海道(江別)",mbti:"ENFP 運動家",pers:"フットワーク軽め／自然大好き",hob:"野宿旅・無人島キャンプ・焚火・農業・狩猟",theme:"武士道×安心感は両立するのか",team:"E",ctry:50},
+  {n:"仁木 良流歩",fu:"ニキ ラルフ",nk:"らるふ",res:"福島",home:"兵庫",mbti:"ENFP 運動家",pers:"まじめ／やってみたいことたくさん",hob:"旅・語学・アウトドア・まちづくり",theme:"",team:"E",ctry:0},
+  {n:"あんぴこ",fu:"アンピコ",nk:"あんぴこ",res:"神奈川",home:"愛知(西尾)",mbti:"ENTP 討論者",pers:"元気／大学生／休学予定",hob:"旅(東南アジア)",theme:"",team:"E",ctry:9},
+  {n:"野村 佳希",fu:"ノムラ ヨシキ",nk:"よっしー",res:"奈良",home:"奈良",mbti:"INFJ 提唱者",pers:"穏やか／内省的／聞き役／バランサー",hob:"一人旅・自然・お笑い・読書・ラジオ・ギター",theme:"",team:"F",ctry:7},
+  {n:"岡山 奨",fu:"オカヤマ ススム",nk:"おかちゃん",res:"兵庫(三田)",home:"愛知(名古屋)",mbti:"ENTJ 指揮官",pers:"落ち着いている／面倒見がよい／好奇心旺盛",hob:"旅(カメラ)・植物栽培・料理・筋トレ",theme:"",team:"F",ctry:2},
+  {n:"河合 美都貴",fu:"カワイ ミヅキ",nk:"づっきー",res:"奈良",home:"大阪",mbti:"INFP 仲介者",pers:"マイペース／直感で動く／のんびり",hob:"旅・グルメ・歌・ネイル・猫・温泉",theme:"",team:"F",ctry:14},
+  {n:"伊藤 拓海",fu:"イトウ タクミ",nk:"たっくん",res:"三重",home:"三重",mbti:"ISTP 巨匠",pers:"マイペース",hob:"読書(日課)・映画・山・音楽",theme:"",team:"F",ctry:5},
+  {n:"岡田 勘一",fu:"オカダ カンイチ",nk:"かにち",res:"千葉(多古町)",home:"千葉(多古町)",mbti:"INFP 仲介者",pers:"好奇心旺盛／内向的／めんどくさがり",hob:"ローカルグルメ旅・キャンプ・サウナ・英語/タイ語",theme:"実際の旅で受けるインスピレーションが創作物に与える影響",team:"G",ctry:27},
+  {n:"浅野 紘毅",fu:"アサノ ヒロキ",nk:"あのっち",res:"東京(世田谷)",home:"愛知(春日井)",mbti:"ENFJ 主人公",pers:"行動力お化け",hob:"読書・テニス",theme:"大人が学び挑戦し続ける社会は、子どもに何を残せるのか?",team:"G",ctry:1},
+  {n:"池井 将",fu:"イケイ ショウ",nk:"じょん",res:"神奈川",home:"大阪",mbti:"",pers:"",hob:"スポーツ・旅・観戦・漫画／欧州サッカー・ワイン・温泉",theme:"",team:"G",ctry:25},
+  {n:"山田 理沙",fu:"ヤマダ リサ",nk:"リサさん／リサちゃん",res:"東京(目黒)",home:"熊本",mbti:"ENFP 運動家",pers:"好奇心旺盛／自由人／クールに見えて情熱的",hob:"旅・映画・読書・フィットネス・観戦・投資",theme:"人生100年時代を自分の力で生き抜くこと",team:"G",ctry:22},
+  {n:"木村 伊吹",fu:"キムラ イブキ",nk:"いぶくん",res:"岐阜(中津川)",home:"岐阜(可児)",mbti:"ISFJ 擁護者",pers:"穏やか／マイペース／繊細",hob:"プロ野球(日ハム/中日)・一人旅・サウナ",theme:"フリーランスは自分に向いているのか／発信する勇気",team:"H",ctry:8},
+  {n:"米山 侑希",fu:"ヨネヤマ ユウキ",nk:"よね",res:"静岡",home:"静岡",mbti:"INFJ 提唱者",pers:"直感型／マイペース",hob:"一人旅・朝活ランニング・邦ロック・ラジオ",theme:"旅の深さ",team:"H",ctry:1},
+  {n:"小川 玲奈",fu:"オガワ レナ",nk:"れな",res:"岐阜",home:"岐阜",mbti:"INFJ 提唱者",pers:"マイペース／内向的／好奇心旺盛",hob:"旅",theme:"",team:"H",ctry:4},
+  {n:"赤井 純華",fu:"アカイ スミカ",nk:"すみちゃん／すみすみ",res:"北海道",home:"北海道",mbti:"ENFP 運動家",pers:"人懐こい／笑上戸／前向き／ダイレクト",hob:"アウトドア・フェス・焚き火・ウクレレ・スノボ",theme:"",team:"H",ctry:12},
+  {n:"鎌野 勇雅",fu:"カマノ ユウガ",nk:"ゆうが",res:"名古屋(熱田)",home:"福岡(糟屋郡)",mbti:"INTP 論理学者",pers:"自由人／気分屋／フットワーク軽め",hob:"旅",theme:"",team:"I",ctry:16},
+  {n:"玉島 悠成",fu:"タマシマ ユウセイ",nk:"たまちゃん",res:"大阪(吹田)",home:"兵庫(姫路)",mbti:"ENFP 運動家",pers:"基本的に穏やか／優柔不断",hob:"インドア・料理・デジタルアート",theme:"エゴの育成",team:"I",ctry:2},
+  {n:"池野 莉麻",fu:"イケノ リマ",nk:"りま／りまこ",res:"長野(松川町)",home:"長野(豊丘村)",mbti:"ENFJ 主人公",pers:"ご縁で生きる／感情100%／美味しいもの命",hob:"料理・ベース/サックス/エレクトーン・温泉",theme:"美味しいごはんと音楽と笑顔が共通言語の世界",team:"I",ctry:5},
+  {n:"星 萌恵佳",fu:"ホシ モエカ",nk:"moeka",res:"千葉(船橋)",home:"東京(世田谷)",mbti:"ENFP 運動家",pers:"マイペース／ポジティブ／面倒見がいい",hob:"旅・サウナ・ランニング・読書・カメラ",theme:"",team:"I",ctry:9},
+  {n:"近田 優美奈",fu:"チカダ ユミナ",nk:"ちかっちゃん／なーゆみ",res:"東京",home:"兵庫",mbti:"ENFP 運動家",pers:"笑わせたい／ロマンチスト／本質",hob:"フットサル・話すこと",theme:"この人生でとり組みたいこと",team:"J",ctry:11},
+  {n:"池田 竜旺",fu:"イケダ リュウオウ",nk:"りゅうおう",res:"東京",home:"和歌山",mbti:"ENTP 討論者",pers:"内省／学習欲強め",hob:"スポーツ・旅・音楽・読書・漫画",theme:"義理と人情／コミュニティへの帰属性／ビジョンかキャリアか",team:"J",ctry:28},
+  {n:"加藤 沙弥",fu:"カトウ サヤ",nk:"さや／さやぽ／かとさや",res:"東京",home:"愛知",mbti:"ENFP 運動家",pers:"直観優位／好奇心旺盛／内省的",hob:"読書(小説/エッセイ)・音楽(フェス)・旅",theme:"",team:"J",ctry:17},
+  {n:"麻衣",fu:"マイ",nk:"mai",res:"東京",home:"東京(文京区)",mbti:"ENFP 運動家",pers:"大雑把／好奇心／行動力",hob:"ホットヨガ・旅・カフェ巡り",theme:"フォルケフォイスコーレに行きたい",team:"J",ctry:0},
+  {n:"川口 真莉恵",fu:"カワグチ マリエ",nk:"まりえってぃ",res:"神奈川",home:"神奈川",mbti:"ENFP 運動家",pers:"好奇心旺盛／深く考えがち／自由人",hob:"散歩・ジャーナリング・占い・なにわ男子",theme:"",team:"K",ctry:11},
+  {n:"丸山 桃子",fu:"マルヤマ モモコ",nk:"まるもも",res:"新潟",home:"新潟",mbti:"ENFP 運動家",pers:"好奇心旺盛／フッ軽／穏やか",hob:"旅・温泉・御朱印・キャンプ・日本酒",theme:"",team:"K",ctry:4},
+  {n:"岩瀬 仁成",fu:"イワセ ヒトナリ",nk:"ヒトナリ／ナリ",res:"栃木",home:"栃木",mbti:"ENFJ 主人公",pers:"戦略家／好奇心旺盛／心配性／人情肌",hob:"映画・ゲーム・筋トレ・写真・ツーリング",theme:"",team:"K",ctry:1},
+  {n:"坂本 奈津子",fu:"サカモト ナツコ",nk:"なつこ",res:"神奈川(横浜)",home:"大阪",mbti:"ENFP 運動家",pers:"好奇心旺盛／深く考える",hob:"お笑い鑑賞(M-1/KOC)・アカペラ9年",theme:"",team:"K",ctry:6},
+  {n:"久保田 紗生",fu:"クボタ サキ",nk:"サリー",res:"大阪／台湾",home:"大阪(門真)",mbti:"INFP 仲介者",pers:"頭は研究者／心は天使と悪魔／ド直感",hob:"感情ヒーリング・曼荼羅アート・楽曲制作・中国語",theme:"自分と他者と地球と宇宙を愛する",team:"L",ctry:2},
+  {n:"斎藤 王丸",fu:"サイトウ キミマル",nk:"きみちゃん",res:"茨城",home:"茨城",mbti:"INFP 仲介者",pers:"周りに合わせるけど芯はある／青い炎",hob:"島旅・野球・ピラティス・キャンプ・食養生",theme:"発信するときの内なる葛藤はなぜ生じるのか",team:"L",ctry:2},
+  {n:"Insook Tatchawin",fu:"インスク タチャウィン",nk:"ピース",res:"東京",home:"タイ(バンコク)",mbti:"INTJ 建築家",pers:"心配性／考え深い／好奇心あり／自由好き",hob:"スキー・銭湯・バドミントン・サイクリング・登山",theme:"",team:"L",ctry:18},
+  {n:"新 朱華",fu:"シン シュカ",nk:"シュカ",res:"香川(高松)",home:"大阪",mbti:"ENFP 運動家",pers:"好奇心旺盛／めんどくさがり",hob:"自然旅・サンセットアタック・散歩・DIY・育児",theme:"自己中心的利他な社会を実現するには?",team:"運営",ctry:25,staff:true},
+  {n:"日高 遥奈",fu:"ヒダカ ハルナ",nk:"ハルナ",res:"東京(練馬)",home:"東京(練馬)",mbti:"ENFP 運動家",pers:"ポジティブ／素直／好奇心旺盛",hob:"旅・ネイチャースポーツ・ダイビング・スキー",theme:"個の発掘発揮が実現されるコミュニティの作り方",team:"運営",ctry:0,staff:true},
+  {n:"福留 大地",fu:"フクドメ ダイチ",nk:"だいち(運営)",res:"大阪",home:"鹿児島",mbti:"INFP 仲介者",pers:"繊細／ビビり／優しい／秘めた情熱家",hob:"一人旅・音楽・温泉・サウナ・自然",theme:"コミュニティマネージャー統括とは?",team:"運営",ctry:3,staff:true},
+  {n:"角 柚葉",fu:"スミ ユズハ",nk:"ゆず",res:"東京(大田)",home:"鹿児島",mbti:"ESTJ 幹部",pers:"好奇心旺盛／ポジティブ／迷ったらやって後悔",hob:"sup・BBQ・美味しいご飯とお酒",theme:"敷かれたレールを外れるのは邪道?",team:"運営",ctry:9,staff:true},
+  {n:"長田 涼",fu:"ナガタ リョウ",nk:"ながちゃん",res:"広島(鞆の浦)",home:"京都",mbti:"INFP 仲介者",pers:"好奇心旺盛／内省しがち／迷うなら行動",hob:"漫画(ブルージャイアント等)・テニス・ローカル旅",theme:"好奇心を発揮することが当たり前になる社会",team:"運営",ctry:3,staff:true},
+  {n:"岩下 瑞夏",fu:"イワシタ ミズカ",nk:"みず",res:"東京",home:"神奈川",mbti:"INFJ 提唱者",pers:"好奇心旺盛／繊細／内省しがち／内向型",hob:"読み書き・写真・日本酒/焼酎/ワイン/珈琲",theme:"",team:"運営",ctry:3,staff:true}
+];
+
+let mode = "profile";
+let currentQ = null;
+let answered = false;
+let total = 0;
+let correct = 0;
+
+const card = document.getElementById("card");
+const totalEl = document.getElementById("total");
+const correctEl = document.getElementById("correct");
+const rateEl = document.getElementById("rate");
+
+document.querySelectorAll(".mode-btn").forEach(b => {
+  b.addEventListener("click", () => {
+    document.querySelectorAll(".mode-btn").forEach(x => x.classList.remove("active"));
+    b.classList.add("active");
+    mode = b.dataset.mode;
+    next();
+  });
+});
+
+function pick(arr, n) {
+  const c = [...arr];
+  const out = [];
+  while (out.length < n && c.length) {
+    out.push(c.splice(Math.floor(Math.random() * c.length), 1)[0]);
+  }
+  return out;
+}
+
+function makeQuestion() {
+  let actual = mode === "mix" ? ["profile","nick2name","name2nick"][Math.floor(Math.random()*3)] : mode;
+  const ans = PEOPLE[Math.floor(Math.random() * PEOPLE.length)];
+  const others = pick(PEOPLE.filter(p => p !== ans), 3);
+  const choices = pick([ans, ...others], 4);
+
+  if (actual === "profile") {
+    const hints = [];
+    if (ans.res) hints.push({k:"居住地", v:ans.res});
+    if (ans.home && ans.home !== ans.res) hints.push({k:"出身地", v:ans.home});
+    if (ans.mbti) hints.push({k:"MBTI", v:ans.mbti});
+    if (ans.pers) hints.push({k:"性格", v:ans.pers});
+    if (ans.hob) hints.push({k:"趣味", v:ans.hob});
+    if (ans.theme) hints.push({k:"探究テーマ", v:ans.theme});
+    if (ans.ctry) hints.push({k:"行った国数", v:ans.ctry + "ヶ国"});
+    return {
+      type: "profile",
+      label: "この人は誰?",
+      body: hints,
+      choices: choices.map(c => c.n + "（" + c.nk + "）"),
+      answerIdx: choices.indexOf(ans),
+      ans
+    };
+  } else if (actual === "nick2name") {
+    return {
+      type: "nick2name",
+      label: "このあだ名の本名は?",
+      body: [{k:"あだ名", v:ans.nk}],
+      choices: choices.map(c => c.n),
+      answerIdx: choices.indexOf(ans),
+      ans
+    };
+  } else {
+    return {
+      type: "name2nick",
+      label: "この人のあだ名は?",
+      body: [{k:"本名", v:ans.n + (ans.fu ? "（" + ans.fu + "）" : "")}],
+      choices: choices.map(c => c.nk),
+      answerIdx: choices.indexOf(ans),
+      ans
+    };
+  }
+}
+
+function render() {
+  const q = currentQ;
+  const hints = q.body.map(h =>
+    `<div class="hint-row"><span class="hint-key">${h.k}</span><span class="hint-val">${h.v}</span></div>`
+  ).join("");
+  const opts = q.choices.map((c, i) =>
+    `<button class="option" data-i="${i}">${c}</button>`
+  ).join("");
+  card.innerHTML = `
+    <div class="question-label">${q.label}</div>
+    <div class="question-body">${hints}</div>
+    <div class="options">${opts}</div>
+    <div class="feedback" id="fb" style="display:none"></div>
+  `;
+  card.querySelectorAll(".option").forEach(b => {
+    b.addEventListener("click", () => choose(parseInt(b.dataset.i)));
+  });
+  answered = false;
+}
+
+function choose(i) {
+  if (answered) return;
+  answered = true;
+  total++;
+  const right = i === currentQ.answerIdx;
+  if (right) correct++;
+  updateStats();
+
+  const opts = card.querySelectorAll(".option");
+  opts.forEach((b, idx) => {
+    b.disabled = true;
+    if (idx === currentQ.answerIdx) b.classList.add("correct");
+    else if (idx === i) b.classList.add("wrong");
+    else b.classList.add("dim");
+  });
+
+  const a = currentQ.ans;
+  const fb = document.getElementById("fb");
+  fb.style.display = "block";
+  fb.innerHTML = `
+    <h3>${right ? "正解!" : "残念..."} ${a.n}（${a.nk}）<span class="badge">${a.team}</span></h3>
+    <div class="feedback-row"><span class="feedback-key">居住／出身</span><span class="feedback-val">${a.res} / ${a.home}</span></div>
+    ${a.mbti ? `<div class="feedback-row"><span class="feedback-key">MBTI</span><span class="feedback-val">${a.mbti}</span></div>` : ""}
+    ${a.pers ? `<div class="feedback-row"><span class="feedback-key">性格</span><span class="feedback-val">${a.pers}</span></div>` : ""}
+    ${a.hob ? `<div class="feedback-row"><span class="feedback-key">趣味</span><span class="feedback-val">${a.hob}</span></div>` : ""}
+    ${a.theme ? `<div class="feedback-row"><span class="feedback-key">探究テーマ</span><span class="feedback-val">${a.theme}</span></div>` : ""}
+    <button class="next-btn" onclick="next()">次の問題 →</button>
+  `;
+}
+
+function next() {
+  currentQ = makeQuestion();
+  render();
+}
+
+function updateStats() {
+  totalEl.textContent = total;
+  correctEl.textContent = correct;
+  rateEl.textContent = total ? Math.round(correct / total * 100) + "%" : "—";
+}
+
+function resetStats() {
+  total = 0; correct = 0;
+  updateStats();
+  next();
+}
+
+if (sessionStorage.getItem("poolo12_unlocked") === "1") next();
+</script>
+</body>
+</html>
