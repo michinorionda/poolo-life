@@ -89,44 +89,30 @@ section { padding: 7rem 0; position: relative; }
 }
 .hero-ogp-ctas { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
 
-/* Urgency strip */
+/* Urgency strip (typography-only) */
 .urgency-strip {
   display: inline-flex;
   align-items: center;
-  gap: 0.9rem;
-  padding: 0.7rem 1.5rem;
-  background: var(--terra);
-  color: #fff;
+  gap: 1.2rem;
   font-family: var(--sans);
-  font-size: 0.72rem;
-  letter-spacing: 0.16em;
+  font-size: 0.74rem;
+  letter-spacing: 0.18em;
+  color: var(--terra);
   font-weight: 500;
   margin-bottom: 2.2rem;
-  border-radius: 2px;
   flex-wrap: wrap;
   justify-content: center;
-  box-shadow: 0 4px 14px rgba(217, 119, 88, 0.22);
 }
-.urgency-strip .us-dot {
-  display: inline-block;
-  width: 6px; height: 6px;
-  border-radius: 50%;
-  background: #fff;
-  margin-right: 0.5rem;
-  vertical-align: middle;
-  animation: us-pulse 1.8s ease-in-out infinite;
+.urgency-strip .us-sep {
+  color: var(--terra-line);
+  font-weight: 300;
+  letter-spacing: 0;
 }
-@keyframes us-pulse {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.45; transform: scale(0.7); }
-}
-.urgency-strip .us-sep { opacity: 0.45; font-weight: 300; }
 @media (max-width: 760px) {
   .urgency-strip {
-    font-size: 0.64rem;
-    padding: 0.55rem 1rem;
-    letter-spacing: 0.1em;
-    gap: 0.6rem;
+    font-size: 0.66rem;
+    letter-spacing: 0.12em;
+    gap: 0.7rem;
     margin-bottom: 1.6rem;
   }
 }
@@ -672,7 +658,7 @@ section { padding: 7rem 0; position: relative; }
   <p class="hero-ogp-meta">2026.08.21 fri ─ 08.23 sun</p>
   <p class="hero-ogp-loc">HOKKAIDO HIGASHIKAWA</p>
   <div class="urgency-strip">
-    <span><span class="us-dot"></span>定員16名・先着順</span>
+    <span>定員16名・先着順</span>
     <span class="us-sep">／</span>
     <span>申込締切 2026.07.23 fri</span>
   </div>
