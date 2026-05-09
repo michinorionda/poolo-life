@@ -1,0 +1,1105 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>POOLO LIFE11期リフレクション統合分析</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;600;700;800&family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --green:#2D6A4F;
+  --blue:#1B4A7A;
+  --purple:#534AB7;
+  --teal:#1A6B5A;
+  --amber:#7A5500;
+  --red:#8B3A2A;
+  --poolo-blue:#1B99B7;
+  --poolo-blue-deep:#157A98;
+  --poolo-blue-pale:#B8E0EB;
+  --ink:#1a1a1a;
+  --sub:#5a5a5a;
+  --hint:#999;
+  --bg:#faf9f6;
+  --card:#ffffff;
+  --line:#e5e2db;
+  --serif:'Shippori Mincho', serif;
+  --sans:'Noto Sans JP', sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-weight:400;line-height:1.8;-webkit-font-smoothing:antialiased}
+body{font-size:15px}
+
+/* ゲート */
+#gate{position:fixed;inset:0;background:var(--bg);z-index:1000;display:flex;align-items:center;justify-content:center;padding:24px}
+.gate-card{max-width:440px;width:100%;background:var(--card);border:1px solid var(--line);border-top:3px solid var(--poolo-blue);padding:48px 36px;text-align:center}
+.gate-tag{font-family:var(--sans);font-size:11px;letter-spacing:0.18em;color:var(--poolo-blue-deep);font-weight:600;text-transform:uppercase;margin-bottom:18px}
+.gate-title{font-family:var(--serif);font-size:24px;font-weight:700;color:var(--ink);line-height:1.5;margin-bottom:12px}
+.gate-sub{font-size:13px;color:var(--sub);line-height:1.7;margin-bottom:32px}
+.gate-input{width:100%;padding:14px 16px;font-family:var(--sans);font-size:15px;border:1px solid var(--line);background:var(--bg);color:var(--ink);outline:none;text-align:center;letter-spacing:0.05em}
+.gate-input:focus{border-color:var(--poolo-blue)}
+.gate-btn{margin-top:12px;width:100%;padding:13px;font-family:var(--sans);font-size:14px;font-weight:600;background:var(--poolo-blue);color:#fff;border:none;cursor:pointer;letter-spacing:0.08em;transition:background 0.2s}
+.gate-btn:hover{background:var(--poolo-blue-deep)}
+.gate-error{margin-top:14px;font-size:12px;color:var(--red);display:none}
+.gate-note{margin-top:24px;padding-top:20px;border-top:1px solid var(--line);font-size:11px;color:var(--hint);line-height:1.6}
+
+/* メイン */
+#main{display:none;max-width:1040px;margin:0 auto;padding:48px 28px 80px}
+
+/* ヘッダー */
+.header{text-align:center;padding:32px 0 40px;border-bottom:2px solid var(--green);margin-bottom:48px}
+.header-tag{display:inline-block;font-size:11px;letter-spacing:0.18em;color:var(--green);font-weight:600;text-transform:uppercase;background:rgba(45,106,79,0.08);padding:6px 14px;margin-bottom:18px}
+h1{font-family:var(--serif);font-size:32px;font-weight:700;color:var(--ink);line-height:1.4;margin-bottom:14px}
+.header-sub{font-size:14px;color:var(--sub);line-height:1.7;max-width:680px;margin:0 auto}
+.header-meta{margin-top:18px;font-size:12px;color:var(--hint);letter-spacing:0.05em}
+
+/* サマリカード */
+.objective{background:linear-gradient(135deg, rgba(27,153,183,0.06), rgba(45,106,79,0.04));border-left:4px solid var(--poolo-blue);padding:28px 32px;margin-bottom:48px}
+.objective-label{font-size:11px;letter-spacing:0.16em;color:var(--poolo-blue-deep);font-weight:600;text-transform:uppercase;margin-bottom:12px}
+.objective-title{font-family:var(--serif);font-size:18px;font-weight:600;color:var(--ink);margin-bottom:14px;line-height:1.5}
+.objective p{font-size:14px;color:var(--ink);line-height:1.85;margin-bottom:8px}
+.objective p:last-child{margin-bottom:0}
+
+/* タブ */
+.tabs{display:flex;border-bottom:2px solid var(--line);margin-bottom:40px;gap:0}
+.tab{flex:1;padding:16px 20px;background:none;border:none;font-family:var(--serif);font-size:16px;font-weight:600;color:var(--sub);cursor:pointer;border-bottom:3px solid transparent;margin-bottom:-2px;transition:all 0.2s;text-align:center}
+.tab:hover{color:var(--ink)}
+.tab.active{color:var(--poolo-blue-deep);border-bottom-color:var(--poolo-blue)}
+.tab-num{display:block;font-family:var(--sans);font-size:10px;letter-spacing:0.16em;color:var(--hint);font-weight:500;margin-bottom:4px;text-transform:uppercase}
+.tab.active .tab-num{color:var(--poolo-blue-deep)}
+
+.tab-content{display:none}
+.tab-content.active{display:block}
+
+/* パート */
+.part{margin-bottom:56px}
+.part-head{margin-bottom:28px;padding-left:14px;border-left:3px solid currentColor}
+.part-num{font-family:var(--sans);font-size:11px;letter-spacing:0.18em;font-weight:600;text-transform:uppercase;display:block;margin-bottom:6px}
+.part-title{font-family:var(--serif);font-size:24px;font-weight:700;line-height:1.4;color:var(--ink)}
+.part-desc{margin-top:8px;font-size:13px;color:var(--sub);line-height:1.7}
+
+/* セクション */
+.section{margin-bottom:36px}
+.sec-tag{display:inline-block;font-size:10px;letter-spacing:0.16em;font-weight:600;text-transform:uppercase;padding:4px 10px;margin-bottom:12px;border-radius:2px}
+.sec-tag.green{background:rgba(45,106,79,0.1);color:var(--green)}
+.sec-tag.blue{background:rgba(27,74,122,0.1);color:var(--blue)}
+.sec-tag.purple{background:rgba(83,74,183,0.1);color:var(--purple)}
+.sec-tag.teal{background:rgba(26,107,90,0.1);color:var(--teal)}
+.sec-tag.amber{background:rgba(122,85,0,0.1);color:var(--amber)}
+.sec-tag.red{background:rgba(139,58,42,0.1);color:var(--red)}
+
+h2{font-family:var(--serif);font-size:20px;font-weight:700;color:var(--ink);line-height:1.5;margin-bottom:14px;padding-bottom:8px;border-bottom:1px solid var(--line)}
+h3{font-family:var(--serif);font-size:17px;font-weight:600;color:var(--ink);line-height:1.5;margin:24px 0 12px}
+h4{font-family:var(--sans);font-size:14px;font-weight:600;color:var(--sub);margin:16px 0 8px;letter-spacing:0.02em}
+
+.section p{margin-bottom:12px;color:var(--ink)}
+.section ul,.section ol{margin:8px 0 14px 22px}
+.section li{margin-bottom:6px;line-height:1.85}
+
+/* ハイライト系 */
+.hl{padding:20px 24px;margin:18px 0;border-radius:2px}
+.hl-green{background:rgba(45,106,79,0.06);border-left:4px solid var(--green)}
+.hl-blue{background:rgba(27,74,122,0.06);border-left:4px solid var(--blue)}
+.hl-purple{background:rgba(83,74,183,0.06);border-left:4px solid var(--purple)}
+.hl-teal{background:rgba(26,107,90,0.06);border-left:4px solid var(--teal)}
+.hl-amber{background:rgba(122,85,0,0.06);border-left:4px solid var(--amber)}
+.hl-red{background:rgba(139,58,42,0.06);border-left:4px solid var(--red)}
+.hl-poolo{background:rgba(27,153,183,0.06);border-left:4px solid var(--poolo-blue)}
+.hl-label{font-size:11px;letter-spacing:0.16em;font-weight:600;text-transform:uppercase;margin-bottom:10px;display:block}
+.hl-green .hl-label{color:var(--green)}
+.hl-blue .hl-label{color:var(--blue)}
+.hl-purple .hl-label{color:var(--purple)}
+.hl-teal .hl-label{color:var(--teal)}
+.hl-amber .hl-label{color:var(--amber)}
+.hl-red .hl-label{color:var(--red)}
+.hl-poolo .hl-label{color:var(--poolo-blue-deep)}
+.hl-main{font-family:var(--serif);font-size:16px;font-weight:600;line-height:1.7;color:var(--ink)}
+
+/* 引用 */
+.quote{padding:16px 22px;background:#fff;border:1px solid var(--line);border-left:3px solid var(--poolo-blue-pale);margin:14px 0;font-size:14.5px;line-height:1.85;color:var(--ink)}
+.quote-attr{display:block;margin-top:10px;font-size:12px;color:var(--sub);font-weight:500}
+
+/* ボイスカード */
+.voice{background:var(--card);border:1px solid var(--line);border-top:3px solid var(--poolo-blue);padding:24px 28px;margin-bottom:20px}
+.voice-head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:14px;flex-wrap:wrap;gap:8px}
+.voice-name{font-family:var(--serif);font-size:17px;font-weight:600;color:var(--ink)}
+.voice-meta{font-size:11px;color:var(--hint);letter-spacing:0.04em}
+.voice-tags{display:flex;gap:6px;margin-top:8px;flex-wrap:wrap}
+.voice-tag{font-size:10px;padding:3px 9px;background:rgba(27,153,183,0.1);color:var(--poolo-blue-deep);border-radius:10px;font-weight:500}
+.voice-quote{font-size:14.5px;line-height:1.9;color:var(--ink);padding:14px 0;border-top:1px dashed var(--line);border-bottom:1px dashed var(--line);margin:14px 0}
+.voice-why{font-size:13px;color:var(--sub);line-height:1.75}
+.voice-why strong{color:var(--ink);font-weight:600}
+
+/* テーブル */
+table{width:100%;border-collapse:collapse;margin:18px 0;font-size:13.5px;background:#fff;border:1px solid var(--line)}
+thead{background:rgba(45,106,79,0.08)}
+th{font-family:var(--sans);font-weight:600;color:var(--green);padding:12px 14px;text-align:left;border-bottom:2px solid var(--green);font-size:12.5px;letter-spacing:0.02em;line-height:1.5}
+td{padding:11px 14px;border-bottom:1px solid var(--line);line-height:1.65;vertical-align:top}
+tbody tr:hover{background:rgba(45,106,79,0.03)}
+.tbl-blue thead{background:rgba(27,74,122,0.08)}
+.tbl-blue th{color:var(--blue);border-bottom-color:var(--blue)}
+.tbl-blue tbody tr:hover{background:rgba(27,74,122,0.03)}
+.tbl-purple thead{background:rgba(83,74,183,0.08)}
+.tbl-purple th{color:var(--purple);border-bottom-color:var(--purple)}
+.tbl-purple tbody tr:hover{background:rgba(83,74,183,0.03)}
+.num{font-variant-numeric:tabular-nums;font-feature-settings:"tnum"}
+.up{color:var(--green);font-weight:600}
+.down{color:var(--red);font-weight:600}
+.flat{color:var(--sub)}
+
+/* チームスコア表のハイライト */
+.tier-high{background:rgba(45,106,79,0.05)}
+.tier-low{background:rgba(139,58,42,0.05)}
+
+/* グリッド */
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:18px 0}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:18px 0}
+@media(max-width:720px){.grid-2,.grid-3{grid-template-columns:1fr}}
+
+.card{background:#fff;border:1px solid var(--line);border-top:4px solid var(--green);padding:20px 22px}
+.card-blue{border-top-color:var(--blue)}
+.card-purple{border-top-color:var(--purple)}
+.card-teal{border-top-color:var(--teal)}
+.card-amber{border-top-color:var(--amber)}
+.card-red{border-top-color:var(--red)}
+.card-poolo{border-top-color:var(--poolo-blue)}
+.card-title{font-family:var(--serif);font-size:15px;font-weight:600;margin-bottom:10px;color:var(--ink);line-height:1.5}
+.card p{font-size:13px;color:var(--sub);line-height:1.75;margin-bottom:6px}
+
+/* スター評価 */
+.stars{color:var(--amber);letter-spacing:0.05em;font-size:13px}
+
+/* 軸チェック */
+.axes{display:flex;gap:12px;flex-wrap:wrap;margin:14px 0 24px}
+.axis{font-size:12px;padding:6px 12px;background:rgba(45,106,79,0.08);color:var(--green);border-radius:14px;font-weight:500}
+.axis::before{content:"✓ ";font-weight:700}
+
+/* 仮説 */
+.hypothesis{background:#fff;border:1px solid var(--line);padding:20px 24px;margin-bottom:14px;border-left:4px solid var(--sub)}
+.hypothesis.rec{border-left-color:var(--green);background:rgba(45,106,79,0.04)}
+.hypothesis-name{font-family:var(--serif);font-size:15px;font-weight:700;margin-bottom:8px;color:var(--ink)}
+.hypothesis-name .label{display:inline-block;font-family:var(--sans);font-size:10px;font-weight:600;letter-spacing:0.12em;padding:2px 8px;background:rgba(45,106,79,0.15);color:var(--green);margin-left:8px;border-radius:2px}
+.hypothesis p{font-size:13.5px;line-height:1.8;color:var(--ink);margin-bottom:8px}
+.hypothesis p:last-child{margin-bottom:0}
+
+/* 論点 */
+.decision{background:#fff;border:1px solid var(--line);border-top:4px solid var(--amber);padding:22px 26px;margin-bottom:16px}
+.decision-num{font-family:var(--serif);font-size:11px;letter-spacing:0.16em;color:var(--amber);font-weight:600;text-transform:uppercase;margin-bottom:8px}
+.decision-title{font-family:var(--serif);font-size:16px;font-weight:600;color:var(--ink);margin-bottom:10px;line-height:1.5}
+.decision p{font-size:13.5px;line-height:1.8;color:var(--sub)}
+
+/* フッター */
+.footer{text-align:center;margin-top:80px;padding-top:32px;border-top:1px solid var(--line);font-size:12px;color:var(--hint);line-height:1.8}
+.footer a{color:var(--poolo-blue-deep);text-decoration:none}
+.footer a:hover{text-decoration:underline}
+
+/* 用語補足 */
+.gloss{display:inline-block;background:rgba(83,74,183,0.06);color:var(--purple);font-size:11px;padding:2px 8px;border-radius:10px;margin-left:6px;font-weight:500}
+
+/* セパレータ */
+hr.sep{border:none;border-top:1px dashed var(--line);margin:28px 0}
+
+@media(max-width:720px){
+  body{font-size:14px}
+  #main{padding:32px 18px 60px}
+  h1{font-size:24px}
+  .part-title{font-size:20px}
+  h2{font-size:17px}
+  .tab{font-size:13px;padding:14px 8px}
+  .objective{padding:22px 20px}
+  .voice{padding:20px 20px}
+  table{font-size:12px}
+  th,td{padding:9px 10px}
+}
+</style>
+</head>
+<body>
+
+<!-- 合言葉ゲート -->
+<div id="gate">
+  <div class="gate-card">
+    <div class="gate-tag">Internal Document</div>
+    <div class="gate-title">POOLO LIFE11期<br>リフレクション統合分析</div>
+    <p class="gate-sub">この資料は運営チーム内共有用です。<br>合言葉を入力してください。</p>
+    <input id="passInput" class="gate-input" type="password" placeholder="合言葉" autocomplete="off" onkeypress="if(event.key==='Enter')checkPass()">
+    <button class="gate-btn" onclick="checkPass()">入る</button>
+    <p id="gateError" class="gate-error">合言葉が違います</p>
+    <p class="gate-note">JS判定の簡易ゲートです。<br>本物のセキュリティではありません。</p>
+  </div>
+</div>
+
+<!-- メイン -->
+<main id="main">
+
+<header class="header">
+  <div class="header-tag">POOLO LIFE11期 ／ リフレクションアンケート</div>
+  <h1>マーケ素材発掘 × 全回横断トレンド分析</h1>
+  <p class="header-sub">3/14キックオフから4/25たかちん回までの4回分のリフレクションを統合分析。マーケ用途別の使えるボイスと、11期の螺旋進行状況を1ページで俯瞰します。</p>
+  <div class="header-meta">作成: 2026-05-09 ／ 対象: POOLO LIFE11期4回（n=39/38/33/26） ／ 公開対象: 運営チーム内</div>
+</header>
+
+<!-- トップサマリ -->
+<div class="objective">
+  <div class="objective-label">Executive Summary</div>
+  <div class="objective-title">11期は「やりたいこと宣言」から「探究テーマの問い化」への移行期。マーケ素材は宝庫、ただし二極化の影も</div>
+  <p>4/25時点の探究テーマ言語化率は<strong>69.2%</strong>、メンバー理解スコアは3回連続で上昇（6.32→6.76→6.92）。一方でチーム別では二極化（D・I は8以上、A・B・F・H は5以下）。</p>
+  <p>4/25たかちん回は29名分の自由記述からマーケ用途別に<strong>11本のボイス</strong>＋<strong>10個のキラーフレーズ</strong>を抽出。LP受講生ボイス枠の主軸候補はほのちゃん（内発的動機×構造的発見）。</p>
+  <p>講師ラインナップは「観点（高井）→技法（最所）→道具（たかちん）」の順序設計が機能。ただし最所回はワーク満足度7.73でやや下振れ、対話時間不足が原因。12期講義設計は1:1から1:2への構成変更を検討する価値あり。</p>
+</div>
+
+<div class="axes">
+  <span class="axis">未来デザイン磨き込み</span>
+  <span class="axis">マーケットフィット検証</span>
+  <span class="axis">カリキュラム具体化</span>
+</div>
+
+<!-- タブナビ -->
+<div class="tabs">
+  <button class="tab active" id="tab-marketing" onclick="showTab('marketing')">
+    <span class="tab-num">Section 01</span>
+    マーケ素材発掘
+  </button>
+  <button class="tab" id="tab-trend" onclick="showTab('trend')">
+    <span class="tab-num">Section 02</span>
+    全回横断トレンド
+  </button>
+</div>
+
+<!-- =================== タブ1: マーケ素材 =================== -->
+<div id="marketing" class="tab-content active">
+
+<!-- Part 1 -->
+<div class="part" style="color:var(--poolo-blue-deep)">
+  <div class="part-head">
+    <span class="part-num">Part A</span>
+    <h2 class="part-title" style="border:none;padding:0">用途別ボイス案分け（4案）</h2>
+    <p class="part-desc">4/25たかちん回29名分の自由記述から、マーケ用途別に使える代表ボイスを抽出。すべて原文ママ、あだ名表記。</p>
+  </div>
+
+  <!-- 案1: LP -->
+  <div class="section">
+    <span class="sec-tag green">案1 ／ LP受講生ボイス枠</span>
+    <h2>過去→発見→一歩の三段構造で語る声 #LP</h2>
+    <p style="font-size:13px;color:var(--sub);margin-bottom:18px">抽出基準：講義満足度8以上／過去の悩みが明示／講義での発見が言語化／一歩が具体化／検討者が自分を重ねられる広がり</p>
+
+    <div class="voice">
+      <div class="voice-head">
+        <div>
+          <div class="voice-name">ボイスA ／ ほのちゃん（サトウホノカ）</div>
+          <div class="voice-tags"><span class="voice-tag">#LP</span><span class="voice-tag">#説明会</span><span class="voice-tag">主軸候補</span></div>
+        </div>
+        <div class="voice-meta">講義8 ／ ワーク10</div>
+      </div>
+      <div class="voice-quote">「私は難しいとは承知の上で内発的動機づけで仕事がしたいと思っていて、そのために今何をすればいいんだろうと悩んでいましたが、エンジンとなる欲求とその発動条件が満たされる場所を見つければいいんだと学びました！新しい一歩が踏み出せそうです！」</div>
+      <div class="voice-why"><strong>なぜキラーか:</strong> 検討者層（やりたいこと迷子・キャリア再設計層）と完全に重なる悩みを最初に提示。講義での発見がはっきり構造化されている。POOLOバリュー（自己決定）と直結。<br><strong>推奨用途:</strong> LPの「こんな人におすすめ」直後の受講生ボイス枠／説明会のオープニング事例</div>
+    </div>
+
+    <div class="voice">
+      <div class="voice-head">
+        <div>
+          <div class="voice-name">ボイスB ／ かおり（タカダカオリ）</div>
+          <div class="voice-tags"><span class="voice-tag">#LP</span><span class="voice-tag">#FAQ</span></div>
+        </div>
+        <div class="voice-meta">講義9 ／ ワーク9</div>
+      </div>
+      <div class="voice-quote">「『モチベーション』があまり好きな言葉じゃないのとそれベースに動くタイプではない自覚があったので、事前課題の時点では乖離は感じていました。講義を聞いて、すでに欲求が満たされる環境（発動条件）の中にいて、無意識に才能を発揮できている状態なのかなということに気づきました。『他人に対して思う／期待すること＝自分にとっての当たり前（才能）』という視点を得て、自分の強みがいくつか具体的に浮かんだので、それらを言語化して様々な場面で活用していきたいと思います。」</div>
+      <div class="voice-why"><strong>なぜキラーか:</strong> 「最初は乖離を感じていた」という違和感の表明から始まる、一周回って深い納得に至るドラマがある。検討者の中にもいる「モチベーション論やキラキラ自己啓発に距離を感じる層」の代弁。海外フリーランス層という多様なペルソナの解像度が立つ。<br><strong>推奨用途:</strong> LPの「乗り気じゃなかった人にも刺さる」セクション／FAQの「モチベ高くないと続かない？」への回答素材</div>
+    </div>
+
+    <div class="voice">
+      <div class="voice-head">
+        <div>
+          <div class="voice-name">ボイスC ／ こうき（マツモトコウキ）</div>
+          <div class="voice-tags"><span class="voice-tag">#LP</span><span class="voice-tag">#SNS</span></div>
+        </div>
+        <div class="voice-meta">講義8 ／ ワーク8</div>
+      </div>
+      <div class="voice-quote">「自分の才能を活かして生きる。25歳の今、その壁にぶつかっている気がします。まずは自分の才能が何かということを理解し、その上で、どんな活かし方があるかを考えていきたいと思います。POOLOは伝える、フィードバックを受ける、チャレンジするという解放の窓を広げやすい環境だと感じているので、この環境を大切に活かしていきたいです。」</div>
+      <div class="voice-why"><strong>なぜキラーか:</strong> POOLO LIFEのコア検討者層（25歳前後・キャリア初期の壁）に直接刺さる年齢設定と悩み。「解放の窓を広げやすい環境」という、POOLOの場の価値を本人の言葉で言語化している。内発的なPOOLO推薦になっている。<br><strong>推奨用途:</strong> LPの「20代後半の声」枠／SNSの引用画像</div>
+    </div>
+
+    <div class="voice">
+      <div class="voice-head">
+        <div>
+          <div class="voice-name">ボイスD ／ moeka（ホシモエカ）</div>
+          <div class="voice-tags"><span class="voice-tag">#LP</span><span class="voice-tag">参考</span></div>
+        </div>
+        <div class="voice-meta">4/11最所回 ／ 講義8 ／ ワーク7</div>
+      </div>
+      <div class="voice-quote">「最近自分の軸や芯となるものがブレている感じがしていて、それは自分で言語化することをサボり続けた結果なのかなと思いました。今後は代わりに言語化してもらった感覚になったときにはそこで終わらせず、自分の中で再度整理し言語化するステップを踏んでいこうと思います。」</div>
+      <div class="voice-why"><strong>なぜキラーか:</strong> AI時代特有の悩み（言語化をAIに任せがち）への自覚的な言及。「軸がブレている感じ」は検討者の最頻悩み。POOLOが「自分で言語化する場」として位置づくストーリー。<br><strong>推奨用途:</strong> 4/25回のメイン素材としては別回だが、LPセクション展開時の補強</div>
+    </div>
+  </div>
+
+  <!-- 案2: SNS -->
+  <div class="section">
+    <span class="sec-tag blue">案2 ／ SNS短尺コピー</span>
+    <h2>1ツイート/1画像で立つフレーズ #SNS</h2>
+    <p style="font-size:13px;color:var(--sub);margin-bottom:18px">抽出基準：1ツイート分（140字以内）／フレーズ単独で意味が通る／検討者がリツイートしたくなる強度</p>
+
+    <div class="grid-2">
+      <div class="card card-blue">
+        <div class="card-title">フレーズ1 ／ たっつん</div>
+        <p style="font-size:13.5px;color:var(--ink);font-style:normal;line-height:1.85;border-left:2px solid var(--poolo-blue-pale);padding-left:12px;margin:10px 0">「才能って聞くととても壮大で大きな何かなイメージがあったけど、何気ない行動の一つを自分の才能と思うことは、背伸びしすぎない感じがしてとても気楽な気持ちに」</p>
+        <p style="font-size:12px"><strong>なぜキラー:</strong> 身近・気楽・自信という3つの感情ワードがコンパクトに揃う</p>
+      </div>
+      <div class="card card-blue">
+        <div class="card-title">フレーズ2 ／ すみちゃん</div>
+        <p style="font-size:13.5px;color:var(--ink);font-style:normal;line-height:1.85;border-left:2px solid var(--poolo-blue-pale);padding-left:12px;margin:10px 0">「やりたいことを探してる・見つからない人へのアプローチのヒントがあった」</p>
+        <p style="font-size:12px"><strong>なぜキラー:</strong> これ自体が広告のキャッチコピー。検討者が見たら立ち止まる</p>
+      </div>
+      <div class="card card-blue">
+        <div class="card-title">フレーズ3 ／ りま</div>
+        <p style="font-size:13.5px;color:var(--ink);font-style:normal;line-height:1.85;border-left:2px solid var(--poolo-blue-pale);padding-left:12px;margin:10px 0">「特に、モチベーションは上がるものではなく、常に動くものであるという考え方が目からうろこでした。」</p>
+        <p style="font-size:12px"><strong>なぜキラー:</strong> 構造的な気づきの言語化。モチベ論への新視点としてバズり要素あり</p>
+      </div>
+      <div class="card card-blue">
+        <div class="card-title">フレーズ4 ／ かにち</div>
+        <p style="font-size:13.5px;color:var(--ink);font-style:normal;line-height:1.85;border-left:2px solid var(--poolo-blue-pale);padding-left:12px;margin:10px 0">「『ついついやってしまうこと』の中でも『やってよかったと思えること』が大事なのだと思った。」</p>
+        <p style="font-size:12px"><strong>なぜキラー:</strong> シンプルな構造比較で、POOLOバリュー「自分ごと化」と接続できる</p>
+      </div>
+      <div class="card card-blue">
+        <div class="card-title">フレーズ5 ／ ひかりん</div>
+        <p style="font-size:13.5px;color:var(--ink);font-style:normal;line-height:1.85;border-left:2px solid var(--poolo-blue-pale);padding-left:12px;margin:10px 0">「モチベーション＝ずっと続けられること ってのも意外だった…アクセルだと思ってた。エンジンだった」</p>
+        <p style="font-size:12px"><strong>なぜキラー:</strong> 素直な驚きと比喩の置換が、SNSで拾われやすい</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 案3: 5/2イベント -->
+  <div class="section">
+    <span class="sec-tag purple">案3 ／ 5/2恵比寿イベント告知補強</span>
+    <h2>対話で何が起きるかを伝える #event502</h2>
+    <p style="font-size:13px;color:var(--sub);margin-bottom:18px">抽出基準：メンバーとの対話で「意外な発見」が起きた声／一人では気づけなかった発見の言語化／化学反応の粒度</p>
+
+    <div class="voice" style="border-top-color:var(--purple)">
+      <div class="voice-head">
+        <div>
+          <div class="voice-name">ボイスE ／ おすぎ（スギタハヤト）</div>
+          <div class="voice-tags"><span class="voice-tag" style="background:rgba(83,74,183,0.1);color:var(--purple)">#event502</span></div>
+        </div>
+        <div class="voice-meta">講義10 ／ ワーク10</div>
+      </div>
+      <div class="voice-quote">「このツールを使ったらもっと楽になるのにと思うことがあることを伝えた後に、aiの話になったのですが、これがジョハリの開放の窓の力かというのを感じました。自分が好きなものだったり、得意なことだったり、いろんなことを開示していくことで、新しい繋がりが生まれる、そこで得意を発揮できるというのはいいなと感じました。」</div>
+      <div class="voice-why"><strong>なぜキラーか:</strong> 「対話の中で開示したことが新しい繋がりを生む」プロセスがリアルタイムで描写されている。5/2恵比寿イベントの3つの問い×対話5ルールの体験予告として完璧。<br><strong>推奨用途:</strong> イベントLPの「対話で起きること」セクションのリード</div>
+    </div>
+
+    <div class="voice" style="border-top-color:var(--purple)">
+      <div class="voice-head">
+        <div>
+          <div class="voice-name">ボイスF ／ たまちゃん（タマシマユウセイ）</div>
+          <div class="voice-tags"><span class="voice-tag" style="background:rgba(83,74,183,0.1);color:var(--purple)">#event502</span></div>
+        </div>
+        <div class="voice-meta">講義10 ／ ワーク10</div>
+      </div>
+      <div class="voice-quote">「自分でもわかっていないけど聞かれると思いだすこと（秘密の窓から開放の窓になった？）で才能に気づいている瞬間があった。自分自身では当たり前のことなので意識しないことでも他の人と交わることで発見があったと思います。」</div>
+      <div class="voice-why"><strong>なぜキラーか:</strong> 「自分でもわかっていないけど聞かれると思いだす」は対話の本質を一言で表現。検討者の「対話って何が起きるの？」への直球の答え。<br><strong>推奨用途:</strong> イベント告知LPのファーストビュー直後／説明会の対話デモ前の前置き</div>
+    </div>
+
+    <div class="voice" style="border-top-color:var(--purple)">
+      <div class="voice-head">
+        <div>
+          <div class="voice-name">ボイスG ／ かおり（タカダカオリ）</div>
+          <div class="voice-tags"><span class="voice-tag" style="background:rgba(83,74,183,0.1);color:var(--purple)">#event502</span></div>
+        </div>
+        <div class="voice-meta">対話発見系</div>
+      </div>
+      <div class="voice-quote">「『人に興味がない』という話になり、普段だったら割と自分の悩み、良くないことなのかなと思ってあまりオープンにはしていませんでした。ただ、同じグループの方も割と感覚が近く、安心しました。話していた時に『興味のベクトルが違うから、自立できているというのもありそう』と言われて腑に落ちた部分はありました。」</div>
+      <div class="voice-why"><strong>なぜキラーか:</strong> 「悩みだと思っていたものが、対話を通じて違う光で見えてくる」というプロセス。関心探究型×仲間の引力場の体現。<br><strong>推奨用途:</strong> イベント告知のセクション「ひとりでは届かない場所へ」素材</div>
+    </div>
+  </div>
+
+  <!-- 案4: 説明会 -->
+  <div class="section">
+    <span class="sec-tag teal">案4 ／ 説明会のリード文・FAQ補強</span>
+    <h2>検討者の典型悩みと完全一致する声 #説明会</h2>
+    <p style="font-size:13px;color:var(--sub);margin-bottom:18px">抽出基準：検討者の典型悩みと一致／「やりたいことが見つからない」「内発的動機」「自己理解」系</p>
+
+    <div class="voice" style="border-top-color:var(--teal)">
+      <div class="voice-head">
+        <div>
+          <div class="voice-name">ボイスI ／ すみちゃん（アカイスミカ）</div>
+          <div class="voice-tags"><span class="voice-tag" style="background:rgba(26,107,90,0.1);color:var(--teal)">#説明会</span></div>
+        </div>
+        <div class="voice-meta">教育・対人支援系ペルソナ</div>
+      </div>
+      <div class="voice-quote">「これやりたい！あそこいってみたい！が思考より先に出てくる自分にとって、『欲求』を言語化することが新鮮に感じました。中高生と関わる仕事をしていて、やりたいことが常にあるせいで人生であまり探したことがない自分にとって、やりたいことがない生徒に対してどうアプローチしたらいいかわからなかったけど、少し糸口が見えてきた気がします。」</div>
+      <div class="voice-why"><strong>なぜキラーか:</strong> 「やりたいことがない人」と「やりたいことがあふれている人」の両方の検討者に響く。教育・人材系の検討者ペルソナにも直撃。<br><strong>推奨用途:</strong> 「教育・対人支援系の方の声」枠</div>
+    </div>
+
+    <div class="voice" style="border-top-color:var(--teal)">
+      <div class="voice-head">
+        <div>
+          <div class="voice-name">ボイスJ ／ マイ（クロダマイ）</div>
+          <div class="voice-tags"><span class="voice-tag" style="background:rgba(26,107,90,0.1);color:var(--teal)">#説明会</span></div>
+        </div>
+        <div class="voice-meta">講義10 ／ ワーク10</div>
+      </div>
+      <div class="voice-quote">「私の欲求『外に出てもっといろんな人と話す』が、これからやりたい国際交流事業とも深くかかわっているなぁと改めて気づきました。才能や欲求を見つけると、自分のやりたいことにも確信をもって進むことができますよね！迷いなく自分のやりたいことを信じて突き進めそうです。」</div>
+      <div class="voice-why"><strong>なぜキラーか:</strong> 「やりたいことに確信を持って進める」は検討者が欲しがっている結果状態の言語化。POOLOバリュー（自己決定）の極致。<br><strong>推奨用途:</strong> 「卒業後の状態イメージ」紹介の一次ボイス</div>
+    </div>
+
+    <div class="voice" style="border-top-color:var(--teal)">
+      <div class="voice-head">
+        <div>
+          <div class="voice-name">ボイスK ／ ぐってぃー（ヒグチアキ）</div>
+          <div class="voice-tags"><span class="voice-tag" style="background:rgba(26,107,90,0.1);color:var(--teal)">#説明会</span></div>
+        </div>
+        <div class="voice-meta">4/11最所回 ／ 参考</div>
+      </div>
+      <div class="voice-quote">「何度も立ち返ってしまう問いがあるはず、それが自分にとって大事なテーマという言葉がすごく心に残りました。数年前の日記等を読み返した際に、私はこの時と同じことを今も考えているのかと少しネガティブにとらえてしまうこともあったのですが、最所さんのその言葉を聞いてすごく前向きにとらえられるようになりました。」</div>
+      <div class="voice-why"><strong>なぜキラーか:</strong> 探究テーマ＝同じことを何度も考える＝それでいい、という認識転換が刺さる。<br><strong>推奨用途:</strong> 「探究テーマって難しそう」への安心感の提供</div>
+    </div>
+  </div>
+</div>
+
+<!-- Part B キラーフレーズ -->
+<div class="part" style="color:var(--blue)">
+  <div class="part-head">
+    <span class="part-num">Part B</span>
+    <h2 class="part-title" style="border:none;padding:0">POOLO思想と接続できるキラーフレーズ集</h2>
+    <p class="part-desc">受講生が無意識に体現したPOOLOの世界観。LP・SNS・説明会の引用候補。</p>
+  </div>
+
+  <table class="tbl-blue">
+    <thead><tr><th style="width:40px">#</th><th>フレーズ（原文ママ）</th><th style="width:90px">発話者</th><th>なぜキラーか</th></tr></thead>
+    <tbody>
+      <tr><td class="num">1</td><td>「自分の才能は、自己開示をすることによって周りが引き出してくれる」</td><td>あのっち</td><td>POOLO「関心探究型×仲間の引力場」の核心を一文で。Being（共にある）の体現</td></tr>
+      <tr><td class="num">2</td><td>「才能は自分が自然としていること、考えていること、感じていることの中から見えてくるもの」</td><td>こうき</td><td>Being＝そのままの自分から始まる、というPOOLO土台の表現</td></tr>
+      <tr><td class="num">3</td><td>「他人に対して思う／期待すること＝自分にとっての当たり前（才能）」</td><td>かおり</td><td>自己と他者の往復で気づく構造。F=G×H（豊かさ＝自己×他者）の小単位</td></tr>
+      <tr><td class="num">4</td><td>「すでに欲求が満たされる環境（発動条件）の中にいて、無意識に才能を発揮できている状態」</td><td>かおり</td><td>「探究テーマは外じゃなく内にある」を素直に言語化</td></tr>
+      <tr><td class="num">5</td><td>「自分自身では当たり前のことなので意識しないことでも他の人と交わることで発見があった」</td><td>たまちゃん</td><td>仲間の引力場が起こすことの直接記述</td></tr>
+      <tr><td class="num">6</td><td>「迷いなく自分のやりたいことを信じて突き進めそうです」</td><td>マイ</td><td>自己決定（POOLOスタンス）の体現結果</td></tr>
+      <tr><td class="num">7</td><td>「自分が好きなものだったり、得意なことだったり、いろんなことを開示していくことで、新しい繋がりが生まれる」</td><td>おすぎ</td><td>自己開示→繋がり→才能発揮の連鎖</td></tr>
+      <tr><td class="num">8</td><td>「モチベーションは上がるものではなく、常に動くものであるという考え方が目からうろこでした」</td><td>りま</td><td>内発的動機論の刷新。POOLOが扱う「Doing3の時系列深化」と接続</td></tr>
+      <tr><td class="num">9</td><td>「他者との比較からではなく、自分自身の持っているものを大事にして、今後の道を歩んでいきたい」</td><td>じょん</td><td>内的欲求と他者とのつながりの真ん中＝POOLO豊かさ定義の素直な言語化</td></tr>
+      <tr><td class="num">10</td><td>「自分の人間関係の整理をできてる人は、自分の欲求がより深掘りできているのかも？」</td><td>よーず</td><td>関心探究と人間関係の相関を発見した声。Beingの輪郭</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- Part C 検討者視点の注意 -->
+<div class="part" style="color:var(--red)">
+  <div class="part-head">
+    <span class="part-num">Part C</span>
+    <h2 class="part-title" style="border:none;padding:0">検討者がこのアンケートを見たら気になる箇所</h2>
+    <p class="part-desc">外部公開時に注意したい記述。market-critic視点での選別基準。</p>
+  </div>
+
+  <div class="hl hl-red">
+    <span class="hl-label">外部公開NG</span>
+    <div class="hl-main">内輪ノリ・自虐的すぎる表現</div>
+    <p style="margin-top:10px;font-size:13.5px">ひかりん「自分の取説言ったら『それは結構危険人物に思われるぞ〜』って爆笑だった」「メンヘラ」（探究テーマ欄）。コミュニティ内のキャラとして了解されている表現が、LP単体では伝わらない。<br><strong>対応:</strong> 本人ボイスとしては魅力的だが、SNSやLPには持ち込まない。内輪文書のみ。</p>
+  </div>
+
+  <div class="hl hl-amber">
+    <span class="hl-label">内部改善材料</span>
+    <div class="hl-main">講義満足度の低い声・批判的記述</div>
+    <p style="margin-top:10px;font-size:13.5px">わらび「コミュニティマネージャーへの心理的安全性 4」、すみちゃん（キックオフ）「私発言とか強いし、気づかず雰囲気つくってしまうタイプなので、他のメンバーたちが圧倒されたり、発言しづらくなる雰囲気をつくってしまいそう」。<br><strong>対応:</strong> 内部改善材料として消化する。マーケでは扱わない。</p>
+  </div>
+
+  <div class="hl hl-red">
+    <span class="hl-label">絶対に外部素材化しない</span>
+    <div class="hl-main">個人事情に踏み込みすぎている声</div>
+    <p style="margin-top:10px;font-size:13.5px">サリー「常に怒られる、殴られる、暴言吐かれる、こき使われるそんな感覚」（5期時の振り返り）、ひかりん（申込）「無職, 休職してて…仕事そろそろ辞める頃で…人生迷ってる真っ只中」。<br><strong>対応:</strong> 本人の同意なく外部使用すると、コミュニティの心理的安全性そのものを毀損する。絶対NG。</p>
+  </div>
+
+  <div class="hl hl-amber" style="margin-top:24px">
+    <span class="hl-label">検討者から見た不安シグナル</span>
+    <div class="hl-main">心理的安全性の自己採点に2〜6が散見</div>
+    <p style="margin-top:10px;font-size:13.5px">4/25回でもれな・きみちゃん・だてお・おかちゃん・かおりなど7以下。検討者：「対話の場って大丈夫なの？」という疑問を持つ可能性。<br><strong>対応:</strong> 定量データはLP掲載しない。定性ボイスのみで対話の安全感を伝える設計。</p>
+  </div>
+
+  <div class="hl hl-poolo" style="margin-top:24px">
+    <span class="hl-label">マーケ転用時の必須確認</span>
+    <div class="hl-main">本人許諾フローの整備</div>
+    <p style="margin-top:10px;font-size:13.5px">ボイスの主はあくまで11期受講生の現在進行形。本人許諾がほぼ必須。LPに名前・あだ名を載せる場合、書面または明示的な口頭同意を取りたい。SNSで匿名フレーズだけ抜粋する場合でも、運営チームから受講生へ「マーケで参考にしました」のフィードバックがあると関係性として健全。</p>
+  </div>
+</div>
+
+<!-- Part D 推奨方向性 -->
+<div class="part" style="color:var(--green)">
+  <div class="part-head">
+    <span class="part-num">Part D</span>
+    <h2 class="part-title" style="border:none;padding:0">いま特に推したい1つの方向性</h2>
+  </div>
+
+  <div class="hl hl-green">
+    <span class="hl-label">推奨アクション</span>
+    <div class="hl-main">12期リード獲得を最大化するなら、ボイスA（ほのちゃん）を主軸に据えたLP受講生ボイス枠を構築するのがベスト</div>
+    <ul style="margin-top:12px;font-size:13.5px;line-height:1.85;padding-left:20px">
+      <li>「内発的動機づけで仕事がしたい」という願望と、「エンジンとなる欲求とその発動条件が満たされる場所を見つければいい」という構造的な発見がワンセットで揃っている</li>
+      <li>検討者の悩み→POOLO提供価値→受講生の手応え、の3段でストーリーが組める</li>
+      <li>5/2恵比寿イベント「3つの問い」のうち「内発的に動ける欲求とは」と完全に同期する</li>
+      <li>属人化回避のため、ボイスB（かおり）・ボイスC（こうき）の年齢/状況の異なる3名構成での三角形を推奨</li>
+    </ul>
+  </div>
+</div>
+
+</div><!-- /tab1 -->
+
+
+<!-- =================== タブ2: 横断トレンド =================== -->
+<div id="trend" class="tab-content">
+
+<!-- Part A 定量推移 -->
+<div class="part" style="color:var(--green)">
+  <div class="part-head">
+    <span class="part-num">Part A</span>
+    <h2 class="part-title" style="border:none;padding:0">定量6項目の回ごと推移</h2>
+    <p class="part-desc">3/14キックオフは別フォーマットのため、6項目の縦比較は4/2・4/11・4/25の3回が中心。</p>
+  </div>
+
+  <div class="section">
+    <span class="sec-tag green">A-1</span>
+    <h2>スコア推移表（3回比較）</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>指標</th>
+          <th class="num">4/2 高井</th>
+          <th class="num">4/11 最所</th>
+          <th class="num">4/25 たかちん</th>
+          <th>推移の方向</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>講義満足度</td><td class="num">8.79</td><td class="num up">9.22</td><td class="num">8.88</td><td>最所回がピーク。3回とも8以上を維持</td></tr>
+        <tr><td>ワーク満足度</td><td class="num">8.78</td><td class="num down">7.73</td><td class="num up">8.92</td><td>4/11で一旦下降、4/25で復調</td></tr>
+        <tr><td>チーム心理的安全性</td><td class="num">8.45</td><td class="num">8.03</td><td class="num">8.35</td><td>8前後で安定、わずかに下降→回復</td></tr>
+        <tr><td>チーム自己開示</td><td class="num">7.18</td><td class="num">7.09</td><td class="num up">7.54</td><td>4/25でじわっと上昇</td></tr>
+        <tr><td>メンバー理解</td><td class="num">6.32</td><td class="num">6.76</td><td class="num up">6.92</td><td><strong>3回連続で上昇トレンド</strong></td></tr>
+        <tr><td>CMへの心理的安全性</td><td class="num">8.16</td><td class="num">7.82</td><td class="num">8.27</td><td>8前後で安定</td></tr>
+        <tr><td style="color:var(--hint)">有効回答数</td><td class="num" style="color:var(--hint)">38名</td><td class="num" style="color:var(--hint)">33名</td><td class="num" style="color:var(--hint)">26名</td><td style="color:var(--hint)">漸減傾向</td></tr>
+      </tbody>
+    </table>
+    <p style="font-size:12px;color:var(--hint);margin-top:8px">参考：3/14キックオフ／全体満足度8.67・対話満足度8.05・ミッション腑落ち度7.95（n=39）</p>
+  </div>
+
+  <div class="section">
+    <span class="sec-tag green">A-2</span>
+    <h2>折れ線で見えてくる動き</h2>
+
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-title">講義満足度</div>
+        <p>4/11最所さんが9.22で最高。「言語化」というスキル系の講義に対する受講生の反応が抜けて高い。4/25たかちんさんはワーク満足度（8.92）が3回中トップで、自己探索系のワークが受講生の手応えと一致している。</p>
+      </div>
+      <div class="card card-amber">
+        <div class="card-title">ワーク満足度の落ち込み（4/11の7.73）</div>
+        <p>自由記述を読むと、「対話の時間が足りなかった」「アーカイブ視聴で対話できなかった」が複数。最所回は講義の情報密度が高く、対話への接続が物理的に困難になった可能性。</p>
+      </div>
+      <div class="card card-poolo">
+        <div class="card-title">メンバー理解の連続上昇（6.32→6.76→6.92）</div>
+        <p>社長の想定（前回6.9で下振れ）とは逆の動き。3月から1ヶ月半でじわっと積み上がっている。ただし最大値10と最小値2の幅が依然大きく、「分散の縮小」は起きていない可能性が高い。</p>
+      </div>
+      <div class="card">
+        <div class="card-title">心理的安全性は8前後で安定</div>
+        <p>チーム心理的安全性とCM心理的安全性は8前後で安定。落とさず保てている＝運営チームの場づくりは機能している。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <span class="sec-tag amber">A-3</span>
+    <h2>4/25チーム別スコア（T1終盤の温度ムラ）</h2>
+
+    <table class="tbl-purple">
+      <thead>
+        <tr>
+          <th>チーム</th>
+          <th class="num">心理安全</th>
+          <th class="num">自己開示</th>
+          <th class="num">メンバー理解</th>
+          <th class="num">n</th>
+          <th>状態の解釈</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="tier-high"><td>I</td><td class="num up">10.0</td><td class="num">9.5</td><td class="num">9.5</td><td class="num">2</td><td>完全に深まっている</td></tr>
+        <tr class="tier-high"><td>D</td><td class="num">9.0</td><td class="num">8.8</td><td class="num">8.2</td><td class="num">4</td><td>安定した深さ</td></tr>
+        <tr><td>J</td><td class="num">9.8</td><td class="num">7.2</td><td class="num">7.0</td><td class="num">4</td><td>安心感はあるが理解はこれから</td></tr>
+        <tr><td>K</td><td class="num">9.0</td><td class="num">8.0</td><td class="num">8.0</td><td class="num">1</td><td>良好</td></tr>
+        <tr><td>C</td><td class="num">8.0</td><td class="num">7.5</td><td class="num">8.0</td><td class="num">2</td><td>中庸で順調</td></tr>
+        <tr><td>G</td><td class="num">9.0</td><td class="num">7.0</td><td class="num">6.0</td><td class="num">1</td><td>安心はあるが理解進まず</td></tr>
+        <tr class="tier-low"><td>L</td><td class="num">8.0</td><td class="num">8.0</td><td class="num down">2.0</td><td class="num">1</td><td>安心の中で理解は最低</td></tr>
+        <tr class="tier-low"><td>F</td><td class="num">7.0</td><td class="num">6.0</td><td class="num">7.0</td><td class="num">2</td><td>中庸でやや停滞</td></tr>
+        <tr class="tier-low"><td>A</td><td class="num">7.0</td><td class="num">6.0</td><td class="num down">5.0</td><td class="num">2</td><td>全指標で低位</td></tr>
+        <tr class="tier-low"><td>H</td><td class="num">7.0</td><td class="num">7.0</td><td class="num down">5.0</td><td class="num">3</td><td>開示はあるが理解進まず</td></tr>
+        <tr class="tier-low"><td>B</td><td class="num">6.5</td><td class="num">6.0</td><td class="num">6.0</td><td class="num">2</td><td>全体的に低位</td></tr>
+      </tbody>
+    </table>
+
+    <div class="hl hl-amber">
+      <span class="hl-label">注目シグナル</span>
+      <div class="hl-main">チーム間でクッキリ二極化</div>
+      <p style="margin-top:10px;font-size:13.5px">D・Iは既にT2（最深4ヶ月）の手応えを先取りしている一方、A・B・F・Hは「安心していない」「お互いを理解できていない」状態。Lはn=1なので参考値だが、Lの「きみちゃん」が「メンバー理解2」と書いた背景は探る価値あり。</p>
+    </div>
+  </div>
+</div>
+
+<!-- Part B 探究テーマ深化 -->
+<div class="part" style="color:var(--purple)">
+  <div class="part-head">
+    <span class="part-num">Part B</span>
+    <h2 class="part-title" style="border:none;padding:0">探究テーマの深化トラッキング</h2>
+    <p class="part-desc">3/14宣言→4/25探究テーマの個人別変化アーク。12期マーケの最強素材。</p>
+  </div>
+
+  <div class="section">
+    <span class="sec-tag purple">B-1</span>
+    <h2>4/25時点の言語化レベル分布（n=26）</h2>
+
+    <div class="grid-2">
+      <div class="card card-purple">
+        <div class="card-title">言語化された問いを持っている</div>
+        <p style="font-size:24px;color:var(--purple);font-family:var(--serif);font-weight:700;margin:6px 0">18名 ／ 69.2%</p>
+        <p>8ヶ月カリキュラムの2ヶ月目時点としては高い水準</p>
+      </div>
+      <div class="card card-amber">
+        <div class="card-title">迷い勢（迷い中＋未記入）</div>
+        <p style="font-size:24px;color:var(--amber);font-family:var(--serif);font-weight:700;margin:6px 0">6名 ／ 23.1%</p>
+        <p>残り約7割は何らかの問いを持ち始めている</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <span class="sec-tag purple">B-2</span>
+    <h2>個人別の変化アーク（3/14宣言→4/25探究テーマ）</h2>
+
+    <h3>パターン1：外向きの宣言→内省的な問いへ反転</h3>
+
+    <div class="voice" style="border-top-color:var(--purple)">
+      <div class="voice-head">
+        <div class="voice-name">かにち（オカダカンイチ）</div>
+        <div class="voice-tags"><span class="voice-tag" style="background:rgba(83,74,183,0.1);color:var(--purple)">★★★ 最強素材</span></div>
+      </div>
+      <p style="font-size:13px;color:var(--sub);margin:8px 0"><strong style="color:var(--ink)">3/14宣言:</strong> 「音声配信の継続はやってみたいです。海外からの配信も。」</p>
+      <p style="font-size:13px;color:var(--sub);margin:8px 0"><strong style="color:var(--ink)">4/25探究:</strong> 「自分にとっての依存と自立とは何か。社会への依存／嗜好への依存／技術への依存など自分の依存を見つめつつ、自立した個人として生きていくためにはどうしたらいいのかを探求する。」</p>
+      <p style="font-size:13px;color:var(--sub);margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)"><strong>解釈:</strong> 「やる活動」から「自分の生き方の根本問い」へ完全に位相が変わっている。POOLOの螺旋が機能している代表例</p>
+    </div>
+
+    <div class="voice" style="border-top-color:var(--purple)">
+      <div class="voice-head">
+        <div class="voice-name">おかちゃん（オカヤマススム）</div>
+      </div>
+      <p style="font-size:13px;color:var(--sub);margin:8px 0"><strong style="color:var(--ink)">3/14宣言:</strong> 「可能な限り全員と対面でラジオ配信して、まとめ動画作成、インタビュー記事まで頑張りたい」</p>
+      <p style="font-size:13px;color:var(--sub);margin:8px 0"><strong style="color:var(--ink)">4/25探究:</strong> 「個性の育み方」</p>
+      <p style="font-size:13px;color:var(--sub);margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)"><strong>解釈:</strong> 手段の宣言から、扱いたいテーマそのものへ凝縮された</p>
+    </div>
+
+    <div class="voice" style="border-top-color:var(--purple)">
+      <div class="voice-head">
+        <div class="voice-name">りま（イケノリマ）</div>
+        <div class="voice-tags"><span class="voice-tag" style="background:rgba(83,74,183,0.1);color:var(--purple)">★★★ 最強素材</span></div>
+      </div>
+      <p style="font-size:13px;color:var(--sub);margin:8px 0"><strong style="color:var(--ink)">3/14宣言:</strong> 「いろんな媒体を通して自分が本当にやりたいこと、求めていること、今後もつながっていける仲間を見つけまくる！！！」</p>
+      <p style="font-size:13px;color:var(--sub);margin:8px 0"><strong style="color:var(--ink)">4/25探究:</strong> 「一人一人が自分らしく生きていくために必要なこととは」</p>
+      <p style="font-size:13px;color:var(--sub);margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)"><strong>解釈:</strong> 「自分のため」から「みんなのため」への射程拡張</p>
+    </div>
+
+    <div class="voice" style="border-top-color:var(--purple)">
+      <div class="voice-head">
+        <div class="voice-name">よっしー（ノムラヨシキ）</div>
+        <div class="voice-tags"><span class="voice-tag" style="background:rgba(83,74,183,0.1);color:var(--purple)">★★★ 最強素材</span></div>
+      </div>
+      <p style="font-size:13px;color:var(--sub);margin:8px 0"><strong style="color:var(--ink)">3/14宣言:</strong> 「仲間作りと自分の揺さぶりを楽しみたいです！」</p>
+      <p style="font-size:13px;color:var(--sub);margin:8px 0"><strong style="color:var(--ink)">4/25探究:</strong> 「何にでも正解を見つけようとする理由と、自分の心からの熱望を知りそれに従うには？」</p>
+      <p style="font-size:13px;color:var(--sub);margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)"><strong>解釈:</strong> 自分の癖（正解探し）への自覚と、内的欲求への注視が同居する深い問いへ</p>
+    </div>
+
+    <div class="voice" style="border-top-color:var(--purple)">
+      <div class="voice-head">
+        <div class="voice-name">マイ（クロダマイ）</div>
+      </div>
+      <p style="font-size:13px;color:var(--sub);margin:8px 0"><strong style="color:var(--ink)">3/14宣言:</strong> 「キャンプ！！bbqしたいですす！」</p>
+      <p style="font-size:13px;color:var(--sub);margin:8px 0"><strong style="color:var(--ink)">4/25探究:</strong> 「『海外交流』を通して人はどれくらい変わるのか？」</p>
+      <p style="font-size:13px;color:var(--sub);margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)"><strong>解釈:</strong> 軽い宣言から、自分の専門領域に直結する問いへ</p>
+    </div>
+
+    <h3>パターン2：宣言時から既に問いを持っていた人</h3>
+    <div class="voice" style="border-top-color:var(--teal)">
+      <div class="voice-head">
+        <div class="voice-name">ふじこ（ナリタアヤカ）</div>
+      </div>
+      <p style="font-size:13px;color:var(--sub);margin:8px 0"><strong style="color:var(--ink)">3/14宣言:</strong> 「みんながただいまって帰れる場所づくりPJ進めるぞ。やりたいことのもっと根っこにある『どんな人で在りたいか』探求していきます！」</p>
+      <p style="font-size:13px;color:var(--sub);margin:8px 0"><strong style="color:var(--ink)">4/25探究:</strong> 「自分も楽しみながらコミュニティをつくっていくには」</p>
+      <p style="font-size:13px;color:var(--sub);margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)"><strong>解釈:</strong> 方向性は変わらず、より具体化されている</p>
+    </div>
+
+    <h3>パターン3：迷いを正直に書ける関係性ができている</h3>
+    <div class="voice" style="border-top-color:var(--amber)">
+      <div class="voice-head">
+        <div class="voice-name">すみちゃん（アカイスミカ）</div>
+      </div>
+      <p style="font-size:13px;color:var(--sub);margin:8px 0"><strong style="color:var(--ink)">3/14宣言:</strong> 「ネガな感想が多くてすみません！始まるときはわくわくだったんですが、課題とかグループワークを通して不安が勝ってしまいました！笑 でもせっかく入ったのでちゃんと楽しみたい！」</p>
+      <p style="font-size:13px;color:var(--sub);margin:8px 0"><strong style="color:var(--ink)">4/25探究:</strong> 「まだ探し中です...」</p>
+      <p style="font-size:13px;color:var(--sub);margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)"><strong>解釈:</strong> 「迷っている」を素直に書ける場としては機能している。ただ「メンバー理解3」と低く、チームHでの定着支援が必要</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <span class="sec-tag purple">B-3</span>
+    <h2>「8ヶ月でこうなる」素材としての厳選リスト</h2>
+
+    <table class="tbl-purple">
+      <thead><tr><th>あだ名</th><th>4/25探究テーマ（原文ママ）</th><th>強度</th></tr></thead>
+      <tbody>
+        <tr><td><strong>かにち</strong></td><td>自分にとっての依存と自立とは何か。社会への依存／嗜好への依存／技術への依存を見つめつつ、自立した個人として生きていくためにはどうしたらいいのか</td><td><span class="stars">★★★</span> 構造化された問い、検討者層の悩みと接続</td></tr>
+        <tr><td><strong>りま</strong></td><td>一人一人が自分らしく生きていくために必要なこととは</td><td><span class="stars">★★★</span> 普遍性が高く誰にでも刺さる</td></tr>
+        <tr><td><strong>松本航己</strong></td><td>満足して生きるとは何か？／本質的な豊かさの探求</td><td><span class="stars">★★★</span> 社長の「豊かさ」軸と完全同期</td></tr>
+        <tr><td>ゆみなっチ</td><td>なぜ平等にしたいのか</td><td><span class="stars">★★</span> 個性的だがメッセージ性あり</td></tr>
+        <tr><td><strong>よっしー</strong></td><td>何にでも正解を見つけようとする理由と、自分の心からの熱望を知りそれに従うには？</td><td><span class="stars">★★★</span> 検討者の自己内省ニーズと直結</td></tr>
+        <tr><td><strong>れな</strong></td><td>心地よく生きていくためにどんな判断軸をもつか</td><td><span class="stars">★★★</span> ライフスタイル設計層に刺さる</td></tr>
+        <tr><td><strong>あのっち</strong></td><td>大人が挑戦できるようになるには？</td><td><span class="stars">★★★</span> ターゲット層と完全一致</td></tr>
+        <tr><td>まるもも</td><td>好きを仕事にするには。好きの発見、仕事に結びつけるには</td><td><span class="stars">★★</span> 王道テーマ。検討者の最頻悩み</td></tr>
+        <tr><td>マサキ</td><td>旅により得られる効能</td><td><span class="stars">★</span> POOLO的だが他と差別化弱い</td></tr>
+        <tr><td>ふじこ</td><td>自分も楽しみながらコミュニティをつくっていくには</td><td><span class="stars">★★</span> コミュニティ運営志向の検討者に響く</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Part C コミュニティ温度変化 -->
+<div class="part" style="color:var(--teal)">
+  <div class="part-head">
+    <span class="part-num">Part C</span>
+    <h2 class="part-title" style="border:none;padding:0">コミュニティ全体の温度変化</h2>
+    <p class="part-desc">3つのフェーズで描写。11期がいまどこにいるか。</p>
+  </div>
+
+  <div class="section">
+    <span class="sec-tag teal">C-1 序盤</span>
+    <h2>3/14キックオフ：わくわくと不安の同居</h2>
+
+    <div class="quote">「同じく不安を抱えている人と話せてよかった。チャットだけ見ると前向きな方が多くて、どうしよう、ネガティブなこと言いづらい...と思ってたけど、不安な気持ちを共感し合える仲間がいたことにほっとしました」<span class="quote-attr">すみちゃん</span></div>
+    <div class="quote">「個人的な話だけど、オンラインでの対話ってどう入っていけばいいかわからない」<span class="quote-attr">ゆうが</span></div>
+    <div class="quote">「会話に前向きな人が多かったのでやりやすかったですが、会話の内容がふわついていたので方向が定まらず難しかったです」<span class="quote-attr">おかちゃん</span></div>
+
+    <div class="hl hl-teal">
+      <span class="hl-label">戸惑い構造</span>
+      <div class="hl-main">オンラインでの対話の入り方／前向き圧／チームの空気／何を宣言していいか、の4タイプ</div>
+      <p style="margin-top:10px;font-size:13.5px">それでも全体満足度8.67・対話満足度8.05とスタートは順調。「楽しかった」と「不安だった」が併存する出発点。</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <span class="sec-tag blue">C-2 中盤</span>
+    <h2>4/2 高井先生：概念で世界を分節し直す</h2>
+
+    <div class="quote">「『旅』という日常生活においてはかなり抽象度の高い議題から、個人領域の思考・課題設定が見えてくるという体験に『揺さぶり』を感じさせていただいた。もっと深ぼって考えていきたい」<span class="quote-attr">だいち</span></div>
+    <div class="quote">「『村人→旅人→観光客』みたいな変化を自分の中で感じています。これまで『旅人であること』に価値やアイデンティティを感じていた分、少しずつ『観光客的な状態』に近づいている感覚に、寂しさや抵抗感があります」<span class="quote-attr">リサ</span></div>
+    <div class="quote">「最近は気晴らしモードの旅が多かったなと思いました。旅の間は楽しくても、帰ってから少し物足りなさや虚しさを感じてしまっていて、その理由が自分は経験モード以上の旅がしたかったからなんだと気づけました」<span class="quote-attr">ほのちゃん</span></div>
+
+    <div class="hl hl-blue">
+      <span class="hl-label">この回で起きたこと</span>
+      <div class="hl-main">これまで言葉にならなかった旅の感覚に、5モード×4象限という共通言語が与えられた</div>
+      <p style="margin-top:10px;font-size:13.5px">受講生は「自分のここまでの人生を振り返り直す」モードに入る。</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <span class="sec-tag blue">C-3 中盤</span>
+    <h2>4/11 最所さん：技法を獲得して自分で言語化を始める</h2>
+
+    <div class="quote">「言語化と発信って別物って考えていいんだ！という考え方がすごく腑に落ちました。自分の中で言語化楽しみつつ、少しづつ発信していったら世界が広がりそう」<span class="quote-attr">きみちゃん</span></div>
+    <div class="quote">「いかに自分が抽象化をサボってきていたのか、いかに自分が具体や正解を求めすぎていたのか気づきがあった」<span class="quote-attr">なり</span></div>
+    <div class="quote">「言語化、体験、感じるに人生の大半を使い、今自分がものすごく空虚であることに氣付きました」<span class="quote-attr">紗生サリー</span></div>
+
+    <div class="hl hl-blue">
+      <span class="hl-label">この回で起きたこと</span>
+      <div class="hl-main">高井先生の「フレーム」を、自分の言葉に変換する技法（具体→抽象→比較→グルーピング→肉付け）が手に入った</div>
+      <p style="margin-top:10px;font-size:13.5px">「サボってきた」「空虚だった」など自己直面の声が増える。</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <span class="sec-tag purple">C-4 4/25時点</span>
+    <h2>たかちんさん：自分の足元の問いに収束する</h2>
+
+    <div class="quote">「やりたいことを探してる・見つからない人へのアプローチのヒントがあった」<span class="quote-attr">すみちゃん</span></div>
+    <div class="quote">「才能ってすごい身近なところにあるんだなぁって感じました。何気ない行動の一つを自分の才能と思うことは、背伸びしすぎない感じがしてとても気楽な気持ちに、自信が持てたような気になりました」<span class="quote-attr">たっつん</span></div>
+    <div class="quote">「自分でもわかっていないけど聞かれると思いだすこと（秘密の窓から開放の窓になった？）で才能に気づいている瞬間があった」<span class="quote-attr">たまちゃん</span></div>
+
+    <div class="hl hl-purple">
+      <span class="hl-label">4/25時点に流れている空気</span>
+      <ol style="margin-top:10px;padding-left:20px;font-size:13.5px;line-height:1.85">
+        <li><strong>「私のこと」で語れる</strong>ようになった。3/14の「みんなで何かしたい」から、4/25の「私はこう生きたい」へ語り口が個人化</li>
+        <li><strong>対話で発見する型</strong>ができはじめている。「自分でもわかっていなかったことが、聞かれると出てくる」</li>
+        <li><strong>対話の時間が足りない</strong>という共通の不満。これは贅沢な悩みであり、対話への信頼が高まった証拠</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="section">
+    <span class="sec-tag amber">C-5</span>
+    <h2>T2再編に向けたシグナル</h2>
+
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-title" style="color:var(--green)">ポジティブ</div>
+        <ul style="font-size:13px;padding-left:18px;line-height:1.85">
+          <li>メンバー理解の平均値は3回連続で上昇（6.32→6.76→6.92）</li>
+          <li>「対話の時間がもっとほしい」声が4/2と4/11で多発（贅沢な悩み）</li>
+          <li>「自分の取説」を笑い合えるチームが出てきている</li>
+        </ul>
+      </div>
+      <div class="card card-amber">
+        <div class="card-title" style="color:var(--amber)">注意すべき</div>
+        <ul style="font-size:13px;padding-left:18px;line-height:1.85">
+          <li>チーム間の理解格差が拡大（D・Iが8以上、A・H・Lが5以下）</li>
+          <li>4/25回答数が26名と漸減。T2再編前に「未提出層がどこにいるか」の確認を</li>
+          <li>すみちゃん・きみちゃんなど、心理的安全性は高くてもメンバー理解が低い人がいる→「安心はあるが理解の深まり待ち」状態。T2再編で組み合わせを変えれば一気に進む可能性</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Part D 講師ラインナップ -->
+<div class="part" style="color:var(--blue)">
+  <div class="part-head">
+    <span class="part-num">Part D</span>
+    <h2 class="part-title" style="border:none;padding:0">講師ラインナップへの示唆</h2>
+  </div>
+
+  <div class="section">
+    <span class="sec-tag blue">D-1</span>
+    <h2>順番設計の評価</h2>
+
+    <table class="tbl-blue">
+      <thead>
+        <tr><th>順番</th><th>講師</th><th>役割</th><th>受講生の反応</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>1（4/2）</td><td>高井先生</td><td><strong>観点を与える</strong>（旅の構造／村人・旅人・観光客／吸収×参加×経験5モード）</td><td>「フレームで自分の人生を振り返る」モード起動</td></tr>
+        <tr><td>2（4/11）</td><td>最所さん</td><td><strong>技法を与える</strong>（言語化＝具体↔抽象、比較・グルーピング・肉付け）</td><td>「サボってきた」「自分でやってみよう」自覚的になる</td></tr>
+        <tr><td>3（4/25）</td><td>たかちんさん</td><td><strong>道具を与える</strong>（才能×欲求の発見、ジョブクラフティング、開放の窓）</td><td>「私の足元」に収束、自分の探究テーマが固まる</td></tr>
+      </tbody>
+    </table>
+
+    <div class="hl hl-blue">
+      <span class="hl-label">結論</span>
+      <div class="hl-main">観点→技法→道具の順番設計は機能している</div>
+      <p style="margin-top:10px;font-size:13.5px">3者の順番が逆だったら、技法を持たないまま自己探索（たかちん）に入って戸惑う、技法だけ先にあって扱う対象（旅／自分）がぼやける、などの悪い噛み合わせが起きていた可能性がある。</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <span class="sec-tag blue">D-2</span>
+    <h2>各回の特性と受け取り方の差</h2>
+
+    <div class="grid-3">
+      <div class="card card-blue">
+        <div class="card-title">高井回（学術／概念）</div>
+        <p>「腑に落ちる」「言語化されてスッキリ」が多い。「アーカイブ視聴で対話できず」のロスもあり。<br><strong>講義8.79・ワーク8.78でほぼ同水準＝バランス良好</strong></p>
+      </div>
+      <div class="card card-amber">
+        <div class="card-title">最所回（実践／技法）</div>
+        <p>講義満足度9.22で3回中最高。テクニカルな満足度が抜けている。ただしワーク満足度は7.73で3回中最低。<strong>情報密度の濃さに対して対話時間が不足</strong>。</p>
+      </div>
+      <div class="card card-purple">
+        <div class="card-title">たかちん回（自己探索／道具）</div>
+        <p>ワーク満足度8.92で3回中最高。<strong>対話による自己探索が一番機能した回</strong>。5/2恵比寿イベントの予行演習として絶好。回答数26名と一番少ない（GW直前の影響？）</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <span class="sec-tag blue">D-3</span>
+    <h2>12期の講師設計に活かす示唆（複数案）</h2>
+
+    <div class="hypothesis">
+      <div class="hypothesis-name">案A：「観点→技法→道具」の3層設計を踏襲する</div>
+      <p>11期の構造をそのまま12期に持ち込む。同じ3名でなくても、「フレーム提供型／技法提供型／自己探索型」の役割で3名揃える。安全策。</p>
+    </div>
+
+    <div class="hypothesis rec">
+      <div class="hypothesis-name">案B：4回目に「実践共有・先輩ボイス」を組み込む<span class="label">推奨</span></div>
+      <p>11期の4/25たかちんさん回の手応え（自己探索に収束）を踏まえ、12期では4回目に「11期受講生による実践共有」を入れる。「2ヶ月でこうなった人がいる」の現物を見せる。POOLOバリュー（共創→共有）の螺旋を、講義の中で再現する設計。</p>
+      <p><strong>採用理由:</strong> 12期リード獲得LPと連動させられる。11期の探究テーマ深化アーク（B-3で抽出した10名）を、12期の講義の中でも語ってもらえれば、「公開素材」と「次期の体験」が連動する。</p>
+    </div>
+
+    <div class="hypothesis">
+      <div class="hypothesis-name">案C：技法回を「対話設計込み」で再設計する</div>
+      <p>最所回のワーク満足度ダウンは情報密度と対話時間の不一致が原因。12期では技法系の回を「講義45分＋対話90分」のような構成に変える。技法を学んで即実践する設計。</p>
+    </div>
+  </div>
+</div>
+
+<!-- Part E マーケへの示唆 -->
+<div class="part" style="color:var(--poolo-blue-deep)">
+  <div class="part-head">
+    <span class="part-num">Part E</span>
+    <h2 class="part-title" style="border:none;padding:0">12期マーケティングへの示唆</h2>
+  </div>
+
+  <div class="section">
+    <span class="sec-tag" style="background:rgba(27,153,183,0.1);color:var(--poolo-blue-deep)">E-1</span>
+    <h2>強調すべき軸（LP・SNSで前面に出す）</h2>
+    <p style="font-size:13.5px;margin-bottom:14px">11期の3回を貫く「受講生の口を揃える共通言語」が出てきている。下記5つは複数回・複数人から繰り返し出てきたフレーズで、12期LPのコア訴求として強い。</p>
+
+    <table>
+      <thead><tr><th>共通言語</th><th>発話者・回</th><th>12期LPでの推奨用途</th></tr></thead>
+      <tbody>
+        <tr><td>「自分でもわかっていないことが、聞かれると出てくる」</td><td>たまちゃん（4/25）／ぐってぃー（4/11）</td><td><strong>対話で起きること</strong>セクションのリード</td></tr>
+        <tr><td>「サボってきた言語化を始められた」</td><td>なり（4/11）／moeka（4/11）</td><td><strong>自分と向き合う場</strong>としての訴求</td></tr>
+        <tr><td>「自分の人生のフェーズが言葉になった」</td><td>リサ（4/2）／ほのちゃん（4/2）</td><td><strong>過去を振り返り直す場</strong>としての訴求</td></tr>
+        <tr><td>「メンバーが似た悩みを持っていて安心した」</td><td>かおり（4/25）／すみちゃん（3/14）</td><td><strong>仲間との出会い</strong>セクション</td></tr>
+        <tr><td>「内発的動機で生きるための発見があった」</td><td>ほのちゃん（4/25）／こうき（4/25）</td><td><strong>キャリア／生き方</strong>セクション</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="section">
+    <span class="sec-tag" style="background:rgba(27,153,183,0.1);color:var(--poolo-blue-deep)">E-2</span>
+    <h2>「8ヶ月でこうなる」変化アーク素材</h2>
+    <p style="font-size:13.5px;margin-bottom:14px">LPで「Before→After」を語るための素材は、B-2のパターン1（外向き宣言→内省的問い）が最強。特に推したい3名：</p>
+
+    <div class="grid-3">
+      <div class="card card-poolo">
+        <div class="card-title">かにち</div>
+        <p style="font-size:12.5px"><strong>Before:</strong> 音声配信やってみたい<br><strong>After:</strong> 依存と自立を探求する</p>
+      </div>
+      <div class="card card-poolo">
+        <div class="card-title">りま</div>
+        <p style="font-size:12.5px"><strong>Before:</strong> やりたいことを見つけまくる<br><strong>After:</strong> 一人一人が自分らしく生きていくために必要なこととは</p>
+      </div>
+      <div class="card card-poolo">
+        <div class="card-title">よっしー</div>
+        <p style="font-size:12.5px"><strong>Before:</strong> 仲間作りと揺さぶりを楽しみたい<br><strong>After:</strong> 正解を見つけようとする理由と、心からの熱望を知り従うには</p>
+      </div>
+    </div>
+    <p style="font-size:13px;color:var(--sub);margin-top:14px">これを「2ヶ月でここまで変わった」として見せ、「8ヶ月後はもっと深く」のメッセージに繋げる。</p>
+  </div>
+
+  <div class="section">
+    <span class="sec-tag" style="background:rgba(27,153,183,0.1);color:var(--poolo-blue-deep)">E-3</span>
+    <h2>検討者の悩みと共鳴する受講生の自覚</h2>
+
+    <ul style="font-size:13.5px;line-height:1.95;padding-left:20px">
+      <li><strong>「やりたいことが常にあるが本当に追いたいものがわからない人」:</strong> すみちゃん（4/25）「やりたいことが常にあるせいで人生であまり探したことがない」</li>
+      <li><strong>「内発的動機で働きたいキャリア初期層」:</strong> ほのちゃん（4/25）／こうき（4/25）「自分の才能を活かして生きる25歳の今、その壁にぶつかっている」</li>
+      <li><strong>「モチベ論やキラキラ自己啓発に距離を感じる層」:</strong> かおり（4/25）「『モチベーション』があまり好きな言葉じゃない」</li>
+      <li><strong>「自分の取説がうっすらわかっている人」:</strong> おすぎ（4/25）「ジョハリの開放の窓の力」</li>
+    </ul>
+  </div>
+</div>
+
+<!-- Part F 解釈の複数案 -->
+<div class="part" style="color:var(--purple)">
+  <div class="part-head">
+    <span class="part-num">Part F</span>
+    <h2 class="part-title" style="border:none;padding:0">解釈の複数案（仮説の競合）</h2>
+    <p class="part-desc">11期の今の状態をどう物語るか、断定せずに3パターン提示。</p>
+  </div>
+
+  <div class="hypothesis">
+    <div class="hypothesis-name">A仮説：「順調な螺旋進行」物語</div>
+    <p>11期は3回の講義を通じて順調に螺旋を回している。スコアは8前後で安定し、メンバー理解も連続上昇。探究テーマの言語化率は約7割と高水準。T2再編に進む準備は整っている。</p>
+    <p><strong>根拠:</strong> 定量スコアの安定／3/14→4/25の探究テーマ変化アーク／対話への信頼の高まり</p>
+    <p><strong>判断:</strong> T2再編は予定通り（5月中旬）進めて問題なし。マーケへの素材化を加速。</p>
+  </div>
+
+  <div class="hypothesis">
+    <div class="hypothesis-name">B仮説：「二極化が進行している」物語</div>
+    <p>平均値は安定しているが、チーム間の理解格差が拡大。D・Iが先行し、A・B・F・Hが置いていかれる構造。回答数が38→33→26と漸減し、参加意欲の低下層が見えにくくなっている。T2再編は遅らせるべきかもしれない。</p>
+    <p><strong>根拠:</strong> チーム別スコアの二極化（D・I 8以上、A・H・L 5以下）／メンバー理解6以下が10名／回答数の減少</p>
+    <p><strong>判断:</strong> T2再編前に「未提出層・低スコア層」の状態を運営チームでヒアリング。再編タイミングを微調整する選択肢を持つ。</p>
+  </div>
+
+  <div class="hypothesis">
+    <div class="hypothesis-name">C仮説：「対話の時間不足が次期の最重要課題」物語</div>
+    <p>3回の講義すべてで「対話の時間が足りない」声が出ている。スコアは安定しているが、それは「現在の講義設計の天井」を意味する。深まりを加速するには講義時間構成の見直しが必要。</p>
+    <p><strong>根拠:</strong> 3回全てに「対話の時間ほしい」要望／最所回のワーク満足度ダウン／たかちん回でワーク満足度が最高（対話比率が高かった）</p>
+    <p><strong>判断:</strong> 12期講義の時間構成を「講義：対話＝1:2」に変える。11期残りの講義でも試行。</p>
+  </div>
+
+  <div class="hypothesis rec">
+    <div class="hypothesis-name">推奨：B仮説とC仮説の合わせ技<span class="label">推奨</span></div>
+    <p>A仮説は表層の心地よい解釈で、現場の二極化を見落とすリスクが大きい。社長の関心軸（参加者を増やす＝現受講生の体験品質を保つ）から見ると、B仮説の二極化対応は急務。同時にC仮説の対話時間設計は12期へのカリキュラム改善に直結する。</p>
+    <p>A仮説「順調」を採用すると、T2再編のタイミングで低位チームが離脱するリスクを見逃す。B+Cで構造的な手当てを進めながら、マーケ素材化（変化アーク）はA仮説に基づいて進める、という二段構えが現実的。</p>
+  </div>
+</div>
+
+</div><!-- /tab2 -->
+
+
+<!-- 共通: 判断論点 -->
+<div class="part" style="color:var(--amber);margin-top:48px">
+  <div class="part-head">
+    <span class="part-num">Decisions Required</span>
+    <h2 class="part-title" style="border:none;padding:0">社長判断が必要な論点</h2>
+    <p class="part-desc">マーケ素材／横断トレンド両方からの統合論点。</p>
+  </div>
+
+  <div class="decision">
+    <div class="decision-num">論点 01</div>
+    <div class="decision-title">T2再編のタイミング判断</div>
+    <p>メンバー理解の平均値は上昇トレンドだが、チーム間格差は拡大中。5月中旬の再編タイミングを予定通り進めるか、低位チーム（A・B・F・H）への手当て期間を1〜2週間設けてから動かすか。再編後に低位チームのメンバーが「結局深まらなかった」感を持つと、T2の最深4ヶ月が走り出す前に温度が冷える。判断を早めにしたい。</p>
+  </div>
+
+  <div class="decision">
+    <div class="decision-num">論点 02</div>
+    <div class="decision-title">12期講義設計の構成見直し（対話時間比率）</div>
+    <p>3回全てに「対話の時間ほしい」声が複数。11期残りの講義でも試行できれば、12期LPで「対話を中心に置く設計に変えました」と打ち出せる。講義時間構成を1:1から1:2（講義45分／対話90分）に変える方向で運営チームと検討してよいか。最所さんのような情報密度の高い回ほど対話時間の不足が顕在化したことを根拠にしたい。</p>
+  </div>
+
+  <div class="decision">
+    <div class="decision-num">論点 03</div>
+    <div class="decision-title">マーケ素材化の本人許諾フローを誰が回すか</div>
+    <p>LP受講生ボイス枠（ほのちゃん・かおり・こうきの3名構成）と、変化アーク素材★★★レベル3名（かにち／りま／よっしー）の「3/14宣言→4/25探究テーマ」の対比。両方とも12期LPの強い素材になる。許諾依頼テンプレを誰が作って誰が回すか。「個人の変化を時系列で追う」性質上、より丁寧な許諾が必要。</p>
+  </div>
+
+  <div class="decision">
+    <div class="decision-num">論点 04</div>
+    <div class="decision-title">5/2恵比寿イベント告知への即時投入</div>
+    <p>イベント告知LPの差し替えとして、ボイスE（おすぎ）・ボイスF（たまちゃん）を「対話で起きること」セクションに即時投入するか。やるなら今週中の作業判断が必要。</p>
+  </div>
+</div>
+
+<footer class="footer">
+  <p>POOLO LIFE11期リフレクション統合分析</p>
+  <p>作成 2026-05-09 ／ 対象 4回（n=39/38/33/26） ／ 分析対象 約77.7Kトークン全件読了</p>
+  <p style="margin-top:12px">参照: <a href="https://michinorionda.github.io/poolo-life/">マスターダッシュボード</a></p>
+</footer>
+
+</main>
+
+<script>
+function checkPass(){
+  var input = document.getElementById('passInput').value;
+  if(input === 'poolo11'){
+    document.getElementById('gate').style.display = 'none';
+    document.getElementById('main').style.display = 'block';
+    try{ sessionStorage.setItem('poolo11_unlocked','1'); }catch(e){}
+  } else {
+    document.getElementById('gateError').style.display = 'block';
+  }
+}
+function showTab(id){
+  document.querySelectorAll('.tab-content').forEach(function(el){el.classList.remove('active')});
+  document.querySelectorAll('.tab').forEach(function(el){el.classList.remove('active')});
+  document.getElementById(id).classList.add('active');
+  document.getElementById('tab-' + id).classList.add('active');
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+window.addEventListener('load', function(){
+  try{
+    if(sessionStorage.getItem('poolo11_unlocked') === '1'){
+      document.getElementById('gate').style.display = 'none';
+      document.getElementById('main').style.display = 'block';
+    } else {
+      document.getElementById('passInput').focus();
+    }
+  }catch(e){
+    document.getElementById('passInput').focus();
+  }
+});
+</script>
+</body>
+</html>
