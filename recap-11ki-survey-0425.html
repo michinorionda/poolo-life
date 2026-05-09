@@ -247,6 +247,7 @@ hr.sep{border:none;border-top:1px dashed var(--line);margin:28px 0}
   <p>5/9 永井玲衣回（哲学対話）で講義満足度<strong>9.24</strong>を記録、5回中最高。メンバー理解スコアは4回連続上昇（6.32→6.76→6.92→<strong>7.36</strong>）で初めて7点台へ。チームGが急上昇（4/25 6.0→5/9 8.75）、チームAも改善。一方でチームHは固定（5.5）、紗生から救難信号が出ており、未提出層（たまちゃん・りま等）への確認が急務。</p>
   <p>5/9で<strong>新キラーフレーズ3つ</strong>を追加：「対話には『狙い』はないけど『願い』はある」（かにち）／「悩みは個人化されてしまう、でも問いは一緒に考えられる」（すみちゃん）／「話がずれてもいいと肯定してもらえた」（山田理沙）。永井さん回は5/2恵比寿イベント告知の補強素材として最強の組み合わせ。</p>
   <p>講師ラインナップは「観点（高井）→技法（最所）→道具（たかちん）→問いの構え（永井）」の<strong>4層構造として完成</strong>。12期では永井さん（または同系譜）を初期に配置し、対話の構えを共有してから他の講師を配する設計が示唆される。</p>
+  <p style="font-size:13px;color:var(--sub);margin-top:14px;padding-top:14px;border-top:1px dashed var(--line)">本資料は<strong>3つの角度</strong>で構成。Section 01 マーケ素材／Section 02 全回横断トレンド／<strong>Section 03 運営アクション全方位棚卸し</strong>。</p>
 </div>
 
 <div class="axes">
@@ -264,6 +265,10 @@ hr.sep{border:none;border-top:1px dashed var(--line);margin:28px 0}
   <button class="tab" id="tab-trend" onclick="showTab('trend')">
     <span class="tab-num">Section 02</span>
     全回横断トレンド
+  </button>
+  <button class="tab" id="tab-ops" onclick="showTab('ops')">
+    <span class="tab-num">Section 03</span>
+    運営アクション
   </button>
 </div>
 
@@ -1179,43 +1184,393 @@ hr.sep{border:none;border-top:1px dashed var(--line);margin:28px 0}
 
 </div><!-- /tab2 -->
 
+<!-- =================== タブ3: 運営アクション =================== -->
+<div id="ops" class="tab-content">
 
-<!-- 共通: 判断論点 -->
+<!-- イントロ -->
+<div class="part" style="color:var(--amber)">
+  <div class="part-head">
+    <span class="part-num">Part C</span>
+    <h2 class="part-title" style="border:none;padding:0">運営アクション全方位棚卸し（5/9時点）</h2>
+    <p class="part-desc">マーケ素材／全回横断とは別の角度。「誰が・何を・いつまでに」の実行ベースで、運営チーム3名体制で動かせる打ち手を7軸で棚卸し。</p>
+  </div>
+</div>
+
+<!-- 軸1: チーム別ヘルスチェック -->
+<div class="section">
+  <span class="sec-tag amber">軸 01</span>
+  <h2>チーム別ヘルスチェック（5/9時点・11チーム）</h2>
+  <p>4/25→5/9の動きを矢印で示す。介入優先度3区分で判定。</p>
+
+  <table>
+    <thead>
+      <tr><th>チーム</th><th class="num">心安</th><th class="num">自開</th><th class="num">メ理解</th><th class="num">n</th><th>4/25→5/9</th><th>介入優先度</th></tr>
+    </thead>
+    <tbody>
+      <tr class="tier-high"><td>D</td><td class="num">10.0</td><td class="num">10.0</td><td class="num">9.0</td><td class="num">1</td><td class="flat">横ばい（おすぎのみ）</td><td>観察継続</td></tr>
+      <tr><td>E</td><td class="num">9.7</td><td class="num">7.7</td><td class="num">7.7</td><td class="num">3</td><td class="up">やや上昇</td><td>自走可能</td></tr>
+      <tr><td>C</td><td class="num">9.5</td><td class="num">8.5</td><td class="num">7.5</td><td class="num">2</td><td class="up">上昇</td><td>自走可能</td></tr>
+      <tr><td>J</td><td class="num">9.5</td><td class="num">7.5</td><td class="num">8.0</td><td class="num">2</td><td class="up">上昇</td><td>自走可能</td></tr>
+      <tr class="tier-high"><td>G</td><td class="num">9.0</td><td class="num">8.5</td><td class="num"><strong>8.75</strong></td><td class="num">4</td><td class="up">急上昇（6.0→8.75）</td><td>観察継続</td></tr>
+      <tr><td>K</td><td class="num">8.5</td><td class="num">7.0</td><td class="num">7.0</td><td class="num">2</td><td class="flat">横ばい</td><td>自走可能</td></tr>
+      <tr class="tier-low"><td>L</td><td class="num">8.5</td><td class="num">7.5</td><td class="num">6.0</td><td class="num">2</td><td class="up">やや改善</td><td><strong>介入推奨</strong></td></tr>
+      <tr><td>A</td><td class="num">8.0</td><td class="num">7.5</td><td class="num">7.0</td><td class="num">2</td><td class="up">大幅改善（5.0→7.0）</td><td>観察継続</td></tr>
+      <tr><td>F</td><td class="num">8.0</td><td class="num">7.5</td><td class="num">7.5</td><td class="num">2</td><td class="up">やや改善</td><td>自走可能</td></tr>
+      <tr class="tier-low"><td>B</td><td class="num">7.0</td><td class="num">6.7</td><td class="num">6.7</td><td class="num">3</td><td class="up">やや改善</td><td><strong>介入推奨</strong></td></tr>
+      <tr class="tier-low"><td>H</td><td class="num">7.0</td><td class="num">7.0</td><td class="num"><strong>5.5</strong></td><td class="num">2</td><td class="flat">横ばい固定</td><td><strong>介入優先度高</strong></td></tr>
+      <tr class="tier-low"><td>I</td><td class="num">—</td><td class="num">—</td><td class="num">—</td><td class="num">0</td><td class="down">5/9で消滅（全員未提出）</td><td><strong>介入優先度高</strong></td></tr>
+    </tbody>
+  </table>
+
+  <div class="grid-2">
+    <div class="hl hl-green">
+      <span class="hl-label">チームG 急上昇の仮説</span>
+      <ul style="margin:8px 0 0 18px;font-size:13.5px">
+        <li>かにちJ→G移動が最大要因。J時代の対話文化を持ち込んだ</li>
+        <li>5/9に4名全員回答で平均値の偶然上振れの可能性</li>
+        <li>永井回がG内チームMTGの質を直接上げた可能性</li>
+      </ul>
+    </div>
+    <div class="hl hl-red">
+      <span class="hl-label">チームH 固定化の仮説</span>
+      <ul style="margin:8px 0 0 18px;font-size:13.5px">
+        <li>すみちゃんの3/14時点の自認（自分が場の阻害）が今も残る</li>
+        <li>すみ／れな／いぶくん／よねの組み合わせが構造的にミスマッチ</li>
+        <li>判断：T2再編で<strong>必ず分解</strong>。組み合わせ問題と仮置き</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- 軸2: T2再編 -->
+<div class="section">
+  <span class="sec-tag red">軸 02</span>
+  <h2>T2再編タイミング判断材料</h2>
+
+  <h3>判断軸の整理</h3>
+  <table class="tbl-blue">
+    <thead>
+      <tr><th>判断軸</th><th>予定通り（5/15）</th><th>1週間遅延（5/22）</th><th><strong>前倒し（5/12-14）</strong></th></tr>
+    </thead>
+    <tbody>
+      <tr><td>紗生の救難信号への対応</td><td>再編前にCMフォロー必須</td><td>1週間あれば1on1可</td><td>再編前提のフォローを最短で</td></tr>
+      <tr><td>未提出層の現況把握</td><td>5/12までに全員アクセス必要</td><td>余裕あり</td><td>把握なしで再編は危険</td></tr>
+      <tr><td>チームH固定化</td><td>早く動かしたい</td><td>さらに1週間固定</td><td>即時改善</td></tr>
+      <tr><td>チームG好調維持</td><td>維持可能</td><td>維持可能</td><td>急上昇直後で時期尚早の可能性</td></tr>
+      <tr><td>マーケ素材化の連続性</td><td>標準</td><td>標準</td><td>4/25編成をスナップショット化可能</td></tr>
+    </tbody>
+  </table>
+
+  <div class="hl hl-green">
+    <span class="hl-label">推奨</span>
+    <p class="hl-main">前倒し（5/12-14）＋並行ヒアリング</p>
+    <p style="font-size:13.5px;margin-top:10px">チームHの固定化は構造問題、放置のコストが大きい。紗生の救難信号は再編「前」のCMフォローでは間に合わない可能性。未提出層の把握は再編設計と並行で（5/9-12でCM3名分担）。</p>
+  </div>
+
+  <h3>再編後のペアリング設計案（複数案）</h3>
+  <div class="grid-3">
+    <div class="card card-green">
+      <div class="card-title">案A：低位チーム分散モデル</div>
+      <p>旧H・旧Bを他チームに1人ずつ分散配置。低位の固定化を構造的に解消。</p>
+      <p><strong>推奨度：◎</strong></p>
+    </div>
+    <div class="card card-amber">
+      <div class="card-title">案B：高位先行温存モデル</div>
+      <p>機能しているG・Eを温存。残りを再編。深まりを途切れさせない。</p>
+      <p><strong>推奨度：△</strong>（T2の意義が薄まる）</p>
+    </div>
+    <div class="card card-blue">
+      <div class="card-title">案C：関心テーマ近接配置</div>
+      <p>4/25時点の探究テーマで近いもの同士を寄せる（自立／場づくり／自己理解／他者支援の4系統）。</p>
+      <p><strong>推奨度：○</strong></p>
+    </div>
+  </div>
+
+  <div class="hl hl-purple">
+    <span class="hl-label">推奨ハイブリッド</span>
+    <p class="hl-main">案A＋案C：低位は分散、高位の一部は関心テーマ近接で再編。G・Eは温存または最小変更。</p>
+  </div>
+
+  <h3>個別判断したいペア</h3>
+  <div class="grid-2">
+    <div class="hl hl-green">
+      <span class="hl-label">残したいペア</span>
+      <ul style="margin:8px 0 0 18px;font-size:13.5px">
+        <li>かにち×山田理沙（5/9で対話の質が高い）</li>
+        <li>ぐってぃー×ほのちゃん（4/11以降の言語化深化が同期）</li>
+      </ul>
+    </div>
+    <div class="hl hl-red">
+      <span class="hl-label">分けたいペア</span>
+      <ul style="margin:8px 0 0 18px;font-size:13.5px">
+        <li>すみちゃん×いぶくん（チームHのメ理解5.5の中心）</li>
+        <li>紗生×他L所属者（紗生本人が「蚊帳の外」と感じている）</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- 軸3: 個別ケア -->
+<div class="section">
+  <span class="sec-tag red">軸 03</span>
+  <h2>個別ケア要受講生リスト（優先度付き）</h2>
+
+  <h3>Sランク（即時対応・5/12まで）</h3>
+
+  <div class="hl hl-red">
+    <span class="hl-label">S-1：紗生（クボタサキ／L／5/9救難信号）</span>
+    <p class="hl-main">「自分の存在が場やメンバーの心理的安全性の阻害になってる感覚」「対話すること＝戦争暴力支配と直結してる自分がいた」</p>
+    <p style="font-size:13.5px;margin-top:10px"><strong>3つの選択肢</strong>：①積極介入（CMから24時間以内に1on1打診）／②待ちの姿勢（メッセージのみ）／③チーム経由（きみちゃんから一段階迂回）</p>
+    <p style="font-size:13.5px;margin-top:6px"><strong>推奨：①積極介入</strong>。本人の安全感を脅かしている可能性が高く、放置は危険。</p>
+  </div>
+
+  <div class="hl hl-red">
+    <span class="hl-label">S-2：すみちゃん（アカイスミカ／H／4/25メ理解3・5/9も継続不安）</span>
+    <p class="hl-main">3/14時点で「自分が雰囲気を作ってしまう」と自認。一方、5/9永井回では「悩みは個人化、問いは共有」に救われたと言及。</p>
+    <p style="font-size:13.5px;margin-top:10px"><strong>3つの選択肢</strong>：①積極介入（CMから1on1）／②待ちの姿勢（T2再編待ち）／③チーム経由（おすぎと接続する場をCM設計）</p>
+    <p style="font-size:13.5px;margin-top:6px"><strong>推奨：①＋③併用</strong>。再編前に違和感を聞きつつ、再編後にすみちゃんが入りやすい高位チームを選定。</p>
+  </div>
+
+  <h3>Aランク（5/16までに対応）</h3>
+  <table class="tbl-purple">
+    <thead>
+      <tr><th>対象</th><th>所属</th><th>状況</th><th>推奨アクション</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>たまちゃん</td><td>I</td><td>4/25全項目10、5/9未提出</td><td>CMから軽い接触</td></tr>
+      <tr><td>りま</td><td>I</td><td>4/25高位、変化アーク★★★候補、5/9未提出</td><td>CMから軽い接触</td></tr>
+      <tr><td>わらび</td><td>D</td><td>4/25 CM心理安全4と低位、5/9未提出</td><td>CMから1on1＋おすぎ経由で状況把握</td></tr>
+      <tr><td>松本航己</td><td>D</td><td>4/25探究テーマ★★★（豊かさの探求）、5/9未提出</td><td>CMから軽い接触</td></tr>
+      <tr><td>ひかりん</td><td>D</td><td>4/25熱量高、5/9未提出</td><td>CMから軽い接触</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Bランク（観察継続）</h3>
+  <p>かったー（B／5/9心安6・自開6）、だてお（A／4/25メ理解4）、ピース（L／5/9メ理解6）。次回講義での反応で判断。</p>
+</div>
+
+<!-- 軸4: ファシリ・CM -->
+<div class="section">
+  <span class="sec-tag teal">軸 04</span>
+  <h2>ファシリテーター・CM動線への示唆</h2>
+
+  <h3>CMがしてくれて良かった行動（5回の自由記述から）</h3>
+  <div class="quote">「いつも見守りみんなが快適に成長できる場所を作ってくださりありがとうございます」<span class="quote-attr">紗生／5/9</span></div>
+  <div class="quote">「運営陣やCMさんたちの音声配信楽しく拝聴してます」<span class="quote-attr">さや／4/11</span></div>
+  <p style="font-size:13.5px">→ <strong>見守る／受け入れる／日常的な発信を続ける</strong>ことへの感謝が多い。</p>
+
+  <h3>もっとしてほしいこと（暗黙的な要望）</h3>
+  <ul>
+    <li><strong>対話時間の確保</strong>：4/2・4/11・4/25の3回連続で要望あり</li>
+    <li><strong>質問箱／簡易な投げ場</strong>：「質問箱ものすごく好きです」（紗生／4/11）</li>
+    <li><strong>心理的安全性そのものへの解説</strong>：紗生5/9「心理的安全性が何かを改めて知る機会が欲しい」</li>
+    <li><strong>講義で学んだことの実践課題</strong>：「講義のあとに、取り組む課題があってもいいかも」（かにち／4/11）</li>
+  </ul>
+
+  <h3>T2再編後にCMが見守るべき5つのポイント</h3>
+  <ol>
+    <li>再編直後の各チーム初回MTGを全観察（CM3名で分担）</li>
+    <li>新ペアの相性シグナルを3回MTGで判定（特に旧Hメンバーの分散先）</li>
+    <li>紗生の新チーム所属感を初回・3回目・1ヶ月後で定点確認</li>
+    <li>未提出層の参加密度（チャット反応・MTG出席率）を週次で軽くトラック</li>
+    <li>「対話の構え」<span class="gloss">永井さん回の3つの約束＝バカにしない・冷笑しない・拒絶しない</span>がチームMTGで参照されているか</li>
+  </ol>
+</div>
+
+<!-- 軸5: 講義・ワーク設計 -->
+<div class="section">
+  <span class="sec-tag purple">軸 05</span>
+  <h2>講義・ワーク設計改善</h2>
+
+  <h3>対話時間比率の見直し</h3>
+  <p>3回連続の「対話時間ほしい」コメントと、4/11最所回のワーク満足度7.73（4回中最低）が根拠。一方、5/9永井回は講義45分＋対話90分の比率に近く、講義9.24／ワーク8.84の高位安定。</p>
+  <div class="hl hl-purple">
+    <span class="hl-label">示唆</span>
+    <p class="hl-main">講義45-60分／対話60-90分の<strong>1:1.5〜1:2比率</strong>が適切。情報密度の高い回ほど対話時間を厚くする。</p>
+  </div>
+
+  <h3>5/9永井回でワーク満足度8.84が出た要因（仮説3つ）</h3>
+  <ul>
+    <li>仮説1：哲学対話の3つの約束が事前共有され、対話の前提が揃った</li>
+    <li>仮説2：「問い」を真ん中に置く対話設計が、受講生の「正解探し疲れ」を解放</li>
+    <li>仮説3：永井さんの講義が「対話とは何か」を扱う回だったため、対話への意識が高まった</li>
+  </ul>
+
+  <h3>12期に向けた構成パターン（複数案）</h3>
+  <div class="grid-3">
+    <div class="card card-purple">
+      <div class="card-title">案I：「対話の構え→観点→技法→道具」順</div>
+      <p>永井さん的な「対話の構え」を12期では2-3回目に配置。後続回のワーク満足度が安定。</p>
+    </div>
+    <div class="card card-purple">
+      <div class="card-title">案II：4回目に「11期受講生の実践共有」枠</div>
+      <p>POOLOバリュー（共創→共有）を講義内で再現。12期生のロールモデル獲得。</p>
+    </div>
+    <div class="card card-purple">
+      <div class="card-title">案III：技法系を「45分＋90分」で再設計</div>
+      <p>最所回のワーク満足度ダウンの再発防止。既存講師でリスク低。</p>
+    </div>
+  </div>
+  <p style="font-size:13.5px;margin-top:14px"><strong>推奨：案I＋案II</strong></p>
+</div>
+
+<!-- 軸6: アンケート設計 -->
+<div class="section">
+  <span class="sec-tag blue">軸 06</span>
+  <h2>アンケート設計改善</h2>
+
+  <h3>5/9でフォーマット変更された影響</h3>
+  <p>5/9 簡略版（n=25）は探究テーマ列が削除された。詳細版はテンプレ＋テスト2行のみで実質空。深化トラッキングが不能化した一方で、回答負荷は下がり回答数は維持（26→25）。</p>
+
+  <h3>連続測定すべき必須項目</h3>
+  <ul>
+    <li>講義満足度／ワーク満足度／心理的安全性／自己開示／メンバー理解／CM心理的安全性（10点法）</li>
+    <li><strong>探究テーマ（自由記述）</strong>← 5/9で削除された。深化トラッキングのために復活推奨</li>
+  </ul>
+
+  <h3>欠測（未提出）対策</h3>
+  <div class="grid-3">
+    <div class="card card-blue">
+      <div class="card-title">案①：再リマインドフロー</div>
+      <p>講義3日後にCMから個別チャット1回、7日後にチーム経由でリマインド1回。</p>
+    </div>
+    <div class="card card-blue">
+      <div class="card-title">案②：簡略版＋詳細版の併用</div>
+      <p>簡略版（5項目・3分）：全員提出を目指す／詳細版（自由記述厚め・15分）：意欲のある人のみ。</p>
+    </div>
+    <div class="card card-blue">
+      <div class="card-title">案③：匿名化オプション</div>
+      <p>心理的安全性が低い人ほど未提出になりやすい仮説を検証する。</p>
+    </div>
+  </div>
+  <p style="font-size:13.5px;margin-top:14px"><strong>推奨：案①＋案②の即時導入</strong></p>
+</div>
+
+<!-- 軸7: 回答率漸減 -->
+<div class="section">
+  <span class="sec-tag amber">軸 07</span>
+  <h2>回答率漸減対策</h2>
+
+  <p>39→38→33→24→25 の推移。仮説競合：</p>
+  <div class="hypothesis">
+    <div class="hypothesis-name">仮説α：「面倒」説</div>
+    <p>書く分量が多く義務感が薄れる。→ 5/9で簡略版に切り替えて回答率は維持（24→25）</p>
+  </div>
+  <div class="hypothesis">
+    <div class="hypothesis-name">仮説β：「言葉にするのが難しい」説</div>
+    <p>講義の内容が深まるほど自由記述の言語化負荷が上がる。→ 5/9 永井回は思想性高いがn=25維持</p>
+  </div>
+  <div class="hypothesis rec">
+    <div class="hypothesis-name">仮説γ：「優先度低下」説<span class="label">最有力</span></div>
+    <p>他の活動（チームMTG・1on1・実践）の比重が上がり、リフレクションの優先度が下がる。→ 5/9で「対話したい」声が増えており、整合的。</p>
+  </div>
+
+  <h3>11期残り講義で試せる打ち手（複数案）</h3>
+  <div class="grid-2">
+    <div class="card card-amber">
+      <div class="card-title">案①：「直後3分版」の導入</div>
+      <p>講義終了直後の3分間で5項目だけ回答。詳細版は任意で後日。</p>
+    </div>
+    <div class="card card-amber">
+      <div class="card-title">案②：「対話で出た問い」を1つだけ書く欄</div>
+      <p>リフレクションを「自分の感想」から「対話で出てきた問い」に変える。</p>
+    </div>
+    <div class="card card-amber">
+      <div class="card-title">案③：CMからの「お礼＋紹介」</div>
+      <p>回答内容のうち良い部分をCMが本人にコメント返し。回答した実感を強化。</p>
+    </div>
+    <div class="card card-amber">
+      <div class="card-title">案④：チーム単位の回答率の見える化</div>
+      <p>「今週のチームXの回答率は3/4」とチームに伝える。</p>
+    </div>
+  </div>
+  <p style="font-size:13.5px;margin-top:14px"><strong>推奨：案①＋案③</strong>を5/23講義で試す</p>
+</div>
+
+<!-- アクションリスト -->
+<div class="part" style="color:var(--red);margin-top:48px">
+  <div class="part-head">
+    <span class="part-num">Action List</span>
+    <h2 class="part-title" style="border:none;padding:0">向こう2週間（5/9〜5/23）のアクション</h2>
+    <p class="part-desc">7軸の分析結果から、運営チームで実行すべきアクション10個。担当は実行体制の単位（個人名は出さない）。</p>
+  </div>
+
+  <table>
+    <thead>
+      <tr><th class="num">#</th><th>アクション</th><th>担当</th><th>期限</th><th>優先度</th><th>関連軸</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="num">1</td><td>紗生への個別1on1（救難信号への即時フォロー）</td><td>CM（現担当）</td><td><strong>5/12まで</strong></td><td><span style="color:var(--red);font-weight:700">S</span></td><td>個別ケア</td></tr>
+      <tr><td class="num">2</td><td>チームI 全員（たまちゃん・りま・moeka・ゆうが）への現況確認</td><td>CM3名で分担</td><td>5/12まで</td><td><span style="color:var(--red);font-weight:700">S</span></td><td>個別ケア／T2再編</td></tr>
+      <tr><td class="num">3</td><td>わらび／松本航己／ひかりんへの現況確認</td><td>CM（現担当）</td><td>5/14まで</td><td><span style="color:var(--amber);font-weight:700">A</span></td><td>個別ケア</td></tr>
+      <tr><td class="num">4</td><td>T2再編タイミング判断（前倒し／予定通り／遅延の三択）</td><td>社長</td><td><strong>5/12まで</strong></td><td><span style="color:var(--red);font-weight:700">S</span></td><td>T2再編</td></tr>
+      <tr><td class="num">5</td><td>T2再編後のペアリング設計確定（案A＋C推奨）</td><td>社長＋運営チーム</td><td>5/14まで</td><td><span style="color:var(--amber);font-weight:700">A</span></td><td>T2再編</td></tr>
+      <tr><td class="num">6</td><td>すみちゃんへの個別1on1（チームHの違和感聞き取り）</td><td>CM（現担当）</td><td>5/14まで</td><td><span style="color:var(--amber);font-weight:700">A</span></td><td>個別ケア</td></tr>
+      <tr><td class="num">7</td><td>リフレクション「直後3分版」設計と5/23講義での試行</td><td>運営チーム</td><td>5/23まで</td><td><span style="color:var(--amber);font-weight:700">A</span></td><td>アンケート設計</td></tr>
+      <tr><td class="num">8</td><td>探究テーマ列をアンケートに復活（次回フォーム改修）</td><td>運営チーム</td><td>5/23まで</td><td><span style="color:var(--amber);font-weight:700">A</span></td><td>アンケート設計</td></tr>
+      <tr><td class="num">9</td><td>12期講義設計に「対話の構え」を初期配置する案の検討</td><td>社長＋運営チーム</td><td>5/23まで</td><td><span style="color:var(--purple);font-weight:700">B</span></td><td>カリキュラム</td></tr>
+      <tr><td class="num">10</td><td>T2再編直後の各チーム初回MTGを全観察（CM3名分担）</td><td>CM3名</td><td>5/30まで</td><td><span style="color:var(--amber);font-weight:700">A</span></td><td>ファシリ動線</td></tr>
+    </tbody>
+  </table>
+</div>
+
+</div><!-- /tab3 ops -->
+
+
+<!-- 共通: 判断論点（マーケ・トレンド・運営の統合論点） -->
 <div class="part" style="color:var(--amber);margin-top:48px">
   <div class="part-head">
     <span class="part-num">Decisions Required</span>
     <h2 class="part-title" style="border:none;padding:0">社長判断が必要な論点</h2>
-    <p class="part-desc">マーケ素材／横断トレンド両方からの統合論点。</p>
+    <p class="part-desc">3つの角度からの統合論点。論点01-04は既存4論点（マーケ素材・横断トレンド由来）、論点05-07は運営アクション由来の新規。</p>
   </div>
 
   <div class="decision">
     <div class="decision-num">論点 01</div>
     <div class="decision-title">T2再編のタイミング判断（5/9更新）</div>
-    <p>5/9で平均値は上昇したが、チームHは依然固定（メンバー理解5.5）、紗生から救難信号、4/25高位チームDIから5名以上が5/9未提出。<strong>5月中旬の再編タイミングを予定通り進めるか、未提出層（たまちゃん・りま・わらび・紗生）の状況確認と低位チーム（H・B）への手当て期間を1週間設けてから動かすか</strong>。判断を早めにしたい。</p>
+    <p>5/9で平均値は上昇したが、チームHは依然固定（メ理解5.5）、紗生から救難信号、4/25高位チームDIから5名以上が5/9未提出。<strong>5月中旬の再編タイミングを予定通り進めるか、前倒し（5/12-14）か、未提出層ヒアリング期間を1週間設けてから動かすか</strong>。運営アクション軸02の推奨は「前倒し＋並行ヒアリング」。</p>
   </div>
 
   <div class="decision">
     <div class="decision-num">論点 02</div>
     <div class="decision-title">12期講義設計の構成見直し（対話時間比率＋永井さん配置）</div>
-    <p>5/9 永井回で「対話の構え」が共有され、「対話の時間ほしい」声は大幅に減少。これを11期だけの一過性で終わらせず、<strong>12期では永井さん（または同系譜の哲学対話実践者）を初期2-3回目に配置する設計に変えてよいか</strong>。「対話の構え→観点→技法→道具」の順番設計に組み替える。最所さんのような情報密度の高い回も「対話の構え」が先にあれば、ワーク時間不足が起きにくい。</p>
+    <p>5/9 永井回で「対話の構え」が共有され、「対話の時間ほしい」声は大幅に減少。<strong>12期では永井さん（または同系譜の哲学対話実践者）を初期2-3回目に配置する設計に変えてよいか</strong>。「対話の構え→観点→技法→道具」の順番設計に組み替える。</p>
   </div>
 
   <div class="decision">
     <div class="decision-num">論点 03</div>
     <div class="decision-title">マーケ素材化の本人許諾フローを誰が回すか</div>
-    <p>LP受講生ボイス枠（ほのちゃん・かおり・こうきの3名構成）と、変化アーク素材★★★レベル3名（かにち／りま／よっしー）の「3/14宣言→4/25探究テーマ」の対比に加え、5/9で「探究テーマを問いとして手放さない構え」を獲得したかにちの<strong>3点アーク</strong>（3/14音声配信→4/25依存と自立→5/9対話には願いがある）も使える。許諾依頼テンプレを誰が作って誰が回すか。「個人の変化を時系列で追う」性質上、より丁寧な許諾が必要。</p>
+    <p>LP受講生ボイス枠（ほのちゃん・かおり・こうきの3名構成）と、変化アーク素材★★★レベル3名（かにち／りま／よっしー）に加え、5/9で「探究テーマを問いとして手放さない構え」を獲得したかにちの<strong>3点アーク</strong>（3/14音声配信→4/25依存と自立→5/9対話には願いがある）も使える。許諾依頼テンプレを誰が作って誰が回すか。</p>
   </div>
 
   <div class="decision">
     <div class="decision-num">論点 04</div>
     <div class="decision-title">5/2恵比寿イベント告知への即時投入</div>
-    <p>イベント告知LPに、5/9永井回の「対話で起きること」セクション（かにち・山田理沙・すみちゃん）を即時投入するか。永井さん回の手応えと5/2イベントの設計が完全に同期するため、投入価値が極めて高い。やるなら今週中の作業判断が必要。</p>
+    <p>イベント告知LPに、5/9永井回の「対話で起きること」セクション（かにち・山田理沙・すみちゃん）を即時投入するか。永井さん回の手応えと5/2イベントの設計が完全に同期。やるなら今週中の作業判断が必要。</p>
+  </div>
+
+  <div class="decision" style="border-top-color:var(--red)">
+    <div class="decision-num" style="color:var(--red)">論点 05（運営由来・新規）</div>
+    <div class="decision-title">紗生のケアで「対話＝暴力」という重い言葉をどう扱うか</div>
+    <p>紗生の5/9発言「対話すること＝戦争暴力支配と直結してる自分がいた」は、本人の過去経験を含む可能性が高い重い言葉。CMが個別1on1で受け止める際、<strong>運営の枠を超える可能性</strong>もある。専門家（カウンセラー・対話実践者）への接続を準備しておくか、CMの範囲で対応するか、線引きの判断が必要。</p>
+  </div>
+
+  <div class="decision" style="border-top-color:var(--red)">
+    <div class="decision-num" style="color:var(--red)">論点 06（運営由来・新規）</div>
+    <div class="decision-title">CM3名体制のスパン・オブ・コントロール</div>
+    <p>CM3名で45名（1人あたり15名）を見ている現体制で、5/9のような「個別フォロー優先度高2名＋A優先4名」が同時発生した場合、CMの稼働限界に達する可能性。<strong>T2再編時にCMの担当受講生組み換えも併せて議論</strong>するか、再編は受講生のみで運営側は据え置きか、判断が必要。</p>
+  </div>
+
+  <div class="decision" style="border-top-color:var(--red)">
+    <div class="decision-num" style="color:var(--red)">論点 07（運営由来・新規）</div>
+    <div class="decision-title">アンケート連続性の損失と意思決定の品質</div>
+    <p>5/9で探究テーマ列が削除されたのは、回答率維持を優先した運営判断と推察。一方で、深化トラッキングの不能化は12期設計（変化アーク素材）への影響が大きい。<strong>「回答率維持」と「データ連続性」のどちらを優先するか</strong>、アンケート設計の意思決定基準を明文化する価値あり。</p>
   </div>
 </div>
 
 <footer class="footer">
-  <p>POOLO LIFE11期リフレクション統合分析（5回統合）</p>
-  <p>最終更新 2026-05-09 ／ 対象 5回（n=39/38/33/26/25） ／ 5/9 永井玲衣回追加で5回統合済み</p>
+  <p>POOLO LIFE11期リフレクション統合分析（5回統合・3角度構成）</p>
+  <p>最終更新 2026-05-09 ／ 対象 5回（n=39/38/33/26/25） ／ Section 01 マーケ素材／02 全回横断トレンド／03 運営アクション</p>
   <p style="margin-top:12px">参照: <a href="https://michinorionda.github.io/poolo-life/">マスターダッシュボード</a></p>
 </footer>
 
