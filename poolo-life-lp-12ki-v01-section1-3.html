@@ -1,0 +1,421 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>POOLO LIFE 12期生募集 ｜ あたらしい旅の学校</title>
+<meta name="description" content="旅と、問いと、共創で、想像もしなかった世界と自分に出会いにいく8か月。POOLO LIFE 12期生募集中。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#2D3E36;
+    --ink-mid:#5A6B62;
+    --ink-light:#8A9690;
+    --bg:#FAF8F4;
+    --bg-alt:#F2EFE8;
+    --line:#E0DCD2;
+    --brand:#1B99B7;
+    --brand-deep:#157A98;
+    --brand-pale:#B8E0EB;
+    --brand-mist:#EAF5F8;
+    --sage:#7A9E8A;
+  }
+  *,*::before,*::after{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    font-family:'Noto Sans JP',sans-serif;
+    font-weight:400;
+    color:var(--ink);
+    background:var(--bg);
+    line-height:1.85;
+    font-size:15px;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+  }
+  img{max-width:100%;height:auto;display:block}
+  a{color:inherit;text-decoration:none}
+
+  /* ============ Layout ============ */
+  .container{max-width:780px;margin:0 auto;padding:0 24px}
+  .container-narrow{max-width:680px;margin:0 auto;padding:0 24px}
+  section{padding:80px 0}
+  @media (min-width:768px){
+    section{padding:120px 0}
+  }
+
+  /* ============ Top Banner ============ */
+  .topbar{
+    background:var(--ink);
+    color:var(--bg);
+    text-align:center;
+    font-size:12px;
+    font-weight:500;
+    padding:10px 16px;
+    letter-spacing:0.04em;
+  }
+  .topbar a{
+    color:var(--brand-pale);
+    border-bottom:1px solid rgba(184,224,235,0.35);
+    padding-bottom:1px;
+  }
+
+  /* ============ Header ============ */
+  .header{
+    padding:18px 24px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    border-bottom:1px solid var(--line);
+    background:var(--bg);
+  }
+  .logo{
+    font-family:'Cormorant Garamond',serif;
+    font-weight:600;
+    font-size:22px;
+    letter-spacing:0.12em;
+    color:var(--ink);
+  }
+  .menu-btn{
+    width:32px;height:32px;
+    display:flex;flex-direction:column;justify-content:center;gap:5px;
+    cursor:pointer;
+  }
+  .menu-btn span{display:block;height:1px;background:var(--ink);width:24px}
+
+  /* ============ FV ============ */
+  .fv{
+    position:relative;
+    padding:0;
+    background:var(--bg);
+  }
+  .fv-meta{
+    text-align:center;
+    padding:36px 24px 18px;
+    font-family:'Cormorant Garamond',serif;
+    font-size:13px;
+    letter-spacing:0.32em;
+    color:var(--brand-deep);
+    text-transform:uppercase;
+    font-weight:500;
+  }
+  .fv-meta-jp{
+    font-family:'Noto Sans JP',sans-serif;
+    font-size:11px;
+    letter-spacing:0.18em;
+    color:var(--ink-light);
+    margin-top:6px;
+    font-weight:400;
+  }
+  .fv-image{
+    width:100%;
+    overflow:hidden;
+  }
+  .fv-image img{
+    width:100%;
+    height:auto;
+    display:block;
+  }
+  .fv-headline{
+    text-align:center;
+    padding:48px 24px 0;
+  }
+  .fv-headline h1{
+    font-family:'Noto Sans JP',sans-serif;
+    font-weight:500;
+    font-size:24px;
+    line-height:1.7;
+    letter-spacing:0.06em;
+    color:var(--ink);
+    margin:0;
+  }
+  @media (min-width:768px){
+    .fv-headline h1{font-size:30px;letter-spacing:0.08em}
+  }
+  .fv-tagline{
+    margin-top:24px;
+    font-family:'Cormorant Garamond',serif;
+    font-style:italic;
+    font-size:15px;
+    letter-spacing:0.06em;
+    color:var(--ink-mid);
+  }
+
+  /* ============ Section common ============ */
+  .sect-label{
+    font-family:'Cormorant Garamond',serif;
+    font-size:13px;
+    letter-spacing:0.36em;
+    color:var(--brand-deep);
+    text-transform:uppercase;
+    text-align:center;
+    margin-bottom:12px;
+    font-weight:500;
+  }
+  .sect-label-jp{
+    text-align:center;
+    font-size:11px;
+    letter-spacing:0.18em;
+    color:var(--ink-light);
+    margin-bottom:48px;
+    font-weight:400;
+  }
+  .sect-rule{
+    width:32px;
+    height:1px;
+    background:var(--brand);
+    margin:0 auto 48px;
+    border:none;
+  }
+  h2.sect-title{
+    font-family:'Noto Sans JP',sans-serif;
+    font-weight:500;
+    font-size:22px;
+    line-height:1.7;
+    letter-spacing:0.06em;
+    color:var(--ink);
+    text-align:center;
+    margin:0 0 40px;
+  }
+  @media (min-width:768px){
+    h2.sect-title{font-size:28px}
+  }
+
+  /* ============ Shared Question ============ */
+  .shared-question{
+    background:var(--bg-alt);
+  }
+  .sq-text{
+    font-size:15px;
+    line-height:2.05;
+    letter-spacing:0.04em;
+    color:var(--ink);
+    margin:0 0 28px;
+  }
+  .sq-text:last-of-type{margin-bottom:48px}
+  .sq-quote{
+    text-align:center;
+    margin:0 auto;
+    padding:36px 0 0;
+    border-top:1px solid var(--line);
+    font-family:'Noto Sans JP',sans-serif;
+    font-weight:500;
+    font-size:18px;
+    line-height:1.95;
+    letter-spacing:0.08em;
+    color:var(--ink);
+  }
+  .sq-quote::before,.sq-quote::after{
+    content:'';
+    display:block;
+    width:24px;
+    height:1px;
+    background:var(--brand);
+    margin:0 auto;
+  }
+  .sq-quote::before{margin-bottom:24px}
+  .sq-quote::after{margin-top:24px}
+
+  /* ============ What's POOLO ============ */
+  .whats-poolo{
+    background:var(--bg);
+  }
+  .wp-lead{
+    font-size:15px;
+    line-height:2.05;
+    letter-spacing:0.04em;
+    margin:0 0 48px;
+    color:var(--ink);
+  }
+  .wp-photo{
+    margin:0 -24px 56px;
+  }
+  .wp-photo img{
+    width:100%;
+    height:auto;
+    display:block;
+  }
+  @media (min-width:768px){
+    .wp-photo{margin:0 0 64px;border-radius:6px;overflow:hidden}
+  }
+  .wp-points{
+    list-style:none;
+    margin:0;
+    padding:0;
+    border-top:1px solid var(--line);
+  }
+  .wp-points li{
+    padding:22px 0;
+    border-bottom:1px solid var(--line);
+    display:flex;
+    gap:18px;
+    align-items:flex-start;
+    font-size:15px;
+    line-height:1.85;
+    letter-spacing:0.04em;
+  }
+  .wp-points .num{
+    font-family:'Cormorant Garamond',serif;
+    font-size:20px;
+    font-weight:500;
+    color:var(--brand);
+    flex-shrink:0;
+    line-height:1.4;
+    min-width:28px;
+  }
+
+  /* ============ Floating CTA ============ */
+  .floating-cta{
+    position:fixed;
+    left:0;right:0;bottom:0;
+    background:rgba(45,62,54,0.96);
+    padding:14px 16px calc(14px + env(safe-area-inset-bottom));
+    z-index:80;
+    backdrop-filter:saturate(140%) blur(8px);
+    -webkit-backdrop-filter:saturate(140%) blur(8px);
+    transform:translateY(100%);
+    transition:transform 0.4s ease;
+  }
+  .floating-cta.show{transform:translateY(0)}
+  .floating-cta a{
+    display:block;
+    background:var(--brand);
+    color:#fff;
+    text-align:center;
+    padding:14px 16px;
+    font-size:14px;
+    font-weight:500;
+    letter-spacing:0.06em;
+    border-radius:4px;
+    transition:background 0.2s ease;
+  }
+  .floating-cta a:hover{background:var(--brand-deep)}
+  @media (min-width:768px){.floating-cta{display:none}}
+
+  /* ============ Wireframe stage indicator (dev only) ============ */
+  .stage-note{
+    background:var(--ink);
+    color:var(--bg-alt);
+    text-align:center;
+    padding:8px;
+    font-size:10px;
+    letter-spacing:0.18em;
+    font-family:'Cormorant Garamond',serif;
+  }
+</style>
+</head>
+<body>
+
+<!-- 開発用ステージ表示。本番削除予定 -->
+<div class="stage-note">POOLO LIFE LP ／ ビジュアルドラフト v01 ／ FV〜WHAT'S POOLO</div>
+
+<!-- Top banner（No.3 12期生募集中バナー） -->
+<div class="topbar">
+  12期生募集中。<a href="#cta">公式LINEで最新情報をお届け</a>
+</div>
+
+<!-- Header -->
+<header class="header">
+  <div class="logo">POOLO</div>
+  <div class="menu-btn" aria-label="メニュー">
+    <span></span><span></span><span></span>
+  </div>
+</header>
+
+<!-- ============ FV (No.1-4) ============ -->
+<section class="fv">
+
+  <div class="fv-meta">
+    POOLO LIFE 12th
+    <div class="fv-meta-jp">あたらしい旅の学校</div>
+  </div>
+
+  <div class="fv-image">
+    <img src="images/poolo-life-12-kv.png" alt="POOLO LIFE 12期 メインビジュアル：想像もしなかった、世界と自分へ。">
+  </div>
+
+  <div class="fv-headline">
+    <h1>あなたの好奇心と、<br>今を揺さぶる勇気を問う。</h1>
+    <div class="fv-tagline">— make the world a better place by traveling.</div>
+    <div class="fv-tagline" style="font-family:'Noto Sans JP',sans-serif;font-style:normal;font-size:13px;color:var(--ink-mid);margin-top:8px;letter-spacing:0.08em">旅で世界を、もっと素敵に。</div>
+  </div>
+
+</section>
+
+<!-- ============ SHARED QUESTION (No.5-9) ============ -->
+<section class="shared-question">
+  <div class="container-narrow">
+
+    <div class="sect-label">Shared Question</div>
+    <div class="sect-label-jp">共有したい問い</div>
+    <hr class="sect-rule">
+
+    <p class="sq-text">「いま、何かを変えたい」と思う人。「まあ、このままでいいか」と思う人。どちらにも共通するのは、どこか満たされない気持ち。</p>
+
+    <p class="sq-text">家と職場を往復する日常。なんとなく過ぎていく毎日に大きな不満はないけれど、どこか物足りない。</p>
+
+    <p class="sq-text">そんな「今」を、「旅」と「仲間」は揺さぶってくれる。旅は、当たり前を超えるきっかけになり、一人ではたどり着けない場所も、仲間となら行ける。</p>
+
+    <div class="sq-quote">
+      あなたは、ここで出会う仲間と<br>どこまで遠くへ行きますか？
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ WHAT'S POOLO (No.10-15) ============ -->
+<section class="whats-poolo">
+  <div class="container">
+
+    <div class="sect-label">What's POOLO</div>
+    <div class="sect-label-jp">POOLOについて</div>
+    <hr class="sect-rule">
+
+    <h2 class="sect-title">あたらしい旅の学校、POOLO</h2>
+
+    <div class="container-narrow" style="padding:0">
+      <p class="wp-lead">POOLO（ポーロ）は「旅と人生をつなぐ、大人の学び」をコンセプトとした、校舎の無い学びの場です。2019年に開校、世界中を旅する20代・30代が全国から集まり、現在1,200名以上が参加するコミュニティとなっています。</p>
+    </div>
+
+    <div class="wp-photo">
+      <img src="images/poolo-community.jpg" alt="POOLOコミュニティ：旅好きが集う場">
+    </div>
+
+    <ul class="wp-points">
+      <li>
+        <span class="num">01</span>
+        <span>旅と教育をテーマにした、新しい形の学校。</span>
+      </li>
+      <li>
+        <span class="num">02</span>
+        <span>参加者は、旅が好きな20代・30代が中心。</span>
+      </li>
+      <li>
+        <span class="num">03</span>
+        <span>オンライン開催のため、全国・海外から参加可能。</span>
+      </li>
+    </ul>
+
+  </div>
+</section>
+
+<!-- Floating CTA（SP only） -->
+<div class="floating-cta" id="floatingCta">
+  <a href="#cta">12期生募集中。LINEで無料相談する</a>
+</div>
+
+<script>
+  // 30%スクロールで追従CTA表示
+  (function(){
+    var el=document.getElementById('floatingCta');
+    var shown=false;
+    window.addEventListener('scroll',function(){
+      var ratio=window.scrollY/(document.documentElement.scrollHeight-window.innerHeight);
+      if(!shown && ratio>0.3){el.classList.add('show');shown=true}
+    },{passive:true});
+  })();
+</script>
+
+</body>
+</html>
