@@ -57,39 +57,36 @@ section { padding: 7rem 0; position: relative; }
 .rule { text-align: center; color: var(--hint); font-size: 0.7rem; letter-spacing: 0.3em; margin: 3rem 0; }
 .rule::before { content: "—"; }
 
-/* ========== Hero ========== */
-.hero {
-  position: relative;
-  min-height: 96vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+/* ========== Hero (OGP TOP) ========== */
+.hero-ogp {
+  background: var(--bg);
   padding: 4rem 1.5rem 5rem;
-  background: linear-gradient(rgba(26, 26, 26, 0.35), rgba(26, 26, 26, 0.50)), url('images/img_11.jpeg') center/cover no-repeat;
   text-align: center;
-  color: #fff;
+  color: var(--ink);
 }
-.hero-mark { font-family: var(--serif); font-size: 0.85rem; letter-spacing: 0.18em; color: #e8e5db; margin-bottom: 2.5rem; font-weight: 500; }
-.hero-catch {
-  font-family: var(--serif);
-  font-size: 1.85rem;
-  font-weight: 600;
-  line-height: 2.1;
-  letter-spacing: 0.06em;
-  color: #fff;
-  margin-bottom: 3rem;
-  max-width: 760px;
+.hero-ogp-img {
+  max-width: 1040px;
+  margin: 0 auto 3rem;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 12px 40px rgba(26, 26, 26, 0.10);
 }
-.hero-meta {
+.hero-ogp-img img { width: 100%; display: block; }
+.hero-ogp-meta {
   font-family: var(--serif);
-  font-size: 0.95rem;
-  color: #f0ede2;
+  font-size: 1rem;
+  color: var(--ink);
   letter-spacing: 0.18em;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.6rem;
+  font-weight: 500;
 }
-.hero-loc { font-size: 0.78rem; color: #c8c4b8; letter-spacing: 0.15em; margin-bottom: 3rem; }
-.hero-ctas { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+.hero-ogp-loc {
+  font-size: 0.74rem;
+  color: var(--mute);
+  letter-spacing: 0.18em;
+  margin-bottom: 2.5rem;
+}
+.hero-ogp-ctas { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
 
 /* PC/SP 切り分け改行 */
 .br-pc { display: inline; }
@@ -434,10 +431,9 @@ section { padding: 7rem 0; position: relative; }
 /* ========== Responsive ========== */
 @media (max-width: 760px) {
   section, .day-container, .info-container, .guest-container, .fw-container, .gallery-container { padding: 5rem 0; }
-  .hero { min-height: 92vh; padding: 3rem 1rem 4rem; }
-  .hero-mark { font-size: 0.78rem; letter-spacing: 0.14em; margin-bottom: 2rem; }
-  .hero-catch { font-size: 1.32rem; letter-spacing: 0.04em; line-height: 2.2; margin-bottom: 2.5rem; }
-  .hero-meta { font-size: 0.85rem; letter-spacing: 0.12em; }
+  .hero-ogp { padding: 2.5rem 1rem 3rem; }
+  .hero-ogp-img { max-width: 480px; margin-bottom: 2rem; box-shadow: 0 8px 24px rgba(26, 26, 26, 0.10); }
+  .hero-ogp-meta, .hero-ogp-loc { display: none; }
   .sec-head, .day-head { font-size: 1.2rem; letter-spacing: 0.05em; }
   .lead { font-size: 0.92rem; line-height: 2.15; letter-spacing: 0.01em; padding: 0 0.2rem; }
   .day-lead { font-size: 0.92rem; }
@@ -457,7 +453,7 @@ section { padding: 7rem 0; position: relative; }
   .gallery-grid .span2 { grid-column: span 2; }
   .cta-text { font-size: 1rem; letter-spacing: 0.05em; }
   .btn { padding: 0.9rem 2rem; font-size: 0.78rem; }
-  .hero-ctas { flex-direction: column; align-items: center; }
+  .hero-ogp-ctas { flex-direction: column; align-items: center; }
   .cohost-logos { gap: 2rem; }
   .img-block { padding: 0 1rem; }
 }
@@ -468,17 +464,18 @@ section { padding: 7rem 0; position: relative; }
 <a href="https://docs.google.com/forms/d/e/1FAIpQLSc7W99gNVsQgp_rl6DH6G66fs5QwvaPhaFvbHDhGklgZpAe2w/viewform" class="float-apply" id="floatApply" target="_blank" rel="noopener">申し込む</a>
 
 <!-- ═════════════ 1. HERO ═════════════ -->
-<section class="hero">
-  <div class="hero-mark">POOLO × School for Life Compath</div>
-  <h1 class="hero-catch">
-    北海道・東川町の<br class="br-sp">暮らしと人と自然の中で、<br>
-    『自分のこれからの生き方』を<br class="br-sp">問い直す3日間
+<section class="hero-ogp">
+  <h1 class="hero-ogp-img">
+    <picture>
+      <source media="(max-width: 760px)" srcset="images/ogp-sp.png">
+      <img src="images/ogp.png" alt="POOLO × School for Life Compath｜北海道・東川町の暮らしと人と自然の中で、自分のこれからの生き方を問い直す3日間（2026年8月21日〜23日）">
+    </picture>
   </h1>
-  <p class="hero-meta">2026.08.21 fri ─ 08.23 sun</p>
-  <p class="hero-loc">HOKKAIDO HIGASHIKAWA</p>
-  <div class="hero-ctas">
+  <p class="hero-ogp-meta">2026.08.21 fri ─ 08.23 sun</p>
+  <p class="hero-ogp-loc">HOKKAIDO HIGASHIKAWA</p>
+  <div class="hero-ogp-ctas">
     <a href="https://docs.google.com/forms/d/e/1FAIpQLSc7W99gNVsQgp_rl6DH6G66fs5QwvaPhaFvbHDhGklgZpAe2w/viewform" class="btn btn-primary" target="_blank" rel="noopener">申し込む</a>
-    <a href="#info" class="btn btn-ghost">開催概要</a>
+    <a href="#info" class="btn btn-ghost-dark">開催概要</a>
   </div>
 </section>
 
