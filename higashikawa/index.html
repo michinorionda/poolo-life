@@ -118,6 +118,55 @@ section { padding: 7rem 0; position: relative; }
 }
 .btn-ghost-dark:hover { border-color: var(--ink); }
 
+/* ========== Floating Apply ========== */
+.float-apply {
+  position: fixed;
+  top: 1.4rem;
+  right: 1.4rem;
+  z-index: 1000;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.85rem 1.5rem;
+  background: var(--green);
+  color: #fff;
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  letter-spacing: 0.18em;
+  font-weight: 500;
+  text-decoration: none;
+  border-radius: 999px;
+  box-shadow: 0 6px 20px rgba(26, 26, 26, 0.18);
+  opacity: 0;
+  transform: translateY(-8px);
+  pointer-events: none;
+  transition: opacity 0.35s ease, transform 0.35s ease, background 0.3s;
+}
+.float-apply.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+.float-apply:hover { background: #1f5640; }
+.float-apply::before {
+  content: "▶";
+  font-size: 0.6rem;
+  letter-spacing: 0;
+  transform: translateY(-1px);
+}
+@media (max-width: 760px) {
+  .float-apply {
+    top: auto;
+    bottom: 1rem;
+    right: 1rem;
+    left: 1rem;
+    justify-content: center;
+    padding: 1rem 1.5rem;
+    font-size: 0.82rem;
+    box-shadow: 0 8px 24px rgba(26, 26, 26, 0.22);
+  }
+}
+
 /* ========== Section Title ========== */
 .sec-label { font-size: 0.62rem; letter-spacing: 0.35em; color: var(--green); text-align: center; margin-bottom: 1.5rem; font-weight: 500; }
 .sec-head {
@@ -403,6 +452,8 @@ section { padding: 7rem 0; position: relative; }
 </style>
 </head>
 <body>
+
+<a href="https://docs.google.com/forms/d/e/1FAIpQLSc7W99gNVsQgp_rl6DH6G66fs5QwvaPhaFvbHDhGklgZpAe2w/viewform" class="float-apply" id="floatApply" target="_blank" rel="noopener">申し込む</a>
 
 <!-- ═════════════ 1. HERO ═════════════ -->
 <section class="hero">
@@ -740,6 +791,33 @@ section { padding: 7rem 0; position: relative; }
 <footer class="footer">
   © POOLO × School for Life Compath ／ HIGASHIKAWA 3 DAYS 2026
 </footer>
+
+<script>
+(function () {
+  var btn = document.getElementById('floatApply');
+  if (!btn) return;
+  var threshold = window.innerHeight * 0.6;
+  var ticking = false;
+  function update() {
+    if (window.scrollY > threshold) {
+      btn.classList.add('is-visible');
+    } else {
+      btn.classList.remove('is-visible');
+    }
+    ticking = false;
+  }
+  window.addEventListener('scroll', function () {
+    if (!ticking) {
+      window.requestAnimationFrame(update);
+      ticking = true;
+    }
+  }, { passive: true });
+  window.addEventListener('resize', function () {
+    threshold = window.innerHeight * 0.6;
+  });
+  update();
+})();
+</script>
 
 </body>
 </html>
