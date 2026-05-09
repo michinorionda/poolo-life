@@ -1442,6 +1442,69 @@ a:hover { opacity: 0.7; }
   .theme-main p { font-size: 14.5px; line-height: 1.9; }
 }
 
+/* ===== 11期受講生の声（voices） ===== */
+.voices-section { background: var(--bg-soft); }
+.voices-list {
+  list-style: none;
+  display: grid;
+  gap: 24px;
+  margin-top: 16px;
+  padding: 0;
+}
+.voice-card {
+  background: #FFFFFF;
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--accent);
+  padding: 28px 32px;
+}
+.voice-card-mark {
+  display: block;
+  width: 28px;
+  height: 2px;
+  background: var(--accent);
+  margin-bottom: 16px;
+  opacity: 0.7;
+}
+.voice-quote {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 15.5px;
+  line-height: 2;
+  letter-spacing: 0.04em;
+  color: var(--text);
+  margin-bottom: 18px;
+  font-weight: 400;
+}
+.voice-attr {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  flex-wrap: wrap;
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  color: var(--text-soft);
+  padding-top: 14px;
+  border-top: 1px solid var(--line-light);
+}
+.voice-attr-label {
+  display: inline-block;
+  font-size: 10.5px;
+  letter-spacing: 0.18em;
+  color: var(--cta);
+  font-weight: 600;
+  text-transform: uppercase;
+  font-style: italic;
+}
+.voice-attr-name {
+  font-weight: 500;
+  color: var(--main);
+}
+@media (max-width: 640px) {
+  .voice-card { padding: 22px 22px; }
+  .voice-quote { font-size: 14px; line-height: 1.95; margin-bottom: 14px; }
+  .voice-attr { font-size: 12px; gap: 8px; }
+}
+
 /* ===== 当日のワーク（抜粋）===== */
 .worksheet-questions {
   list-style: none;
@@ -1573,11 +1636,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- ===== THEME ===== -->
 <section class="theme-section">
   <div class="section section-narrow">
-    <h2 class="section-title" data-num="02">このイベントで向き合うこと</h2>
-    <p class="section-lead">自己理解と、才能の輪郭。</p>
+    <h2 class="section-title" data-num="02">向き合うのは、自分の欲求と、才能。</h2>
+    <p class="section-lead">外の地図ではなく、自分の内側にすでにあるもの。</p>
     <div class="theme-main">
-      <p>市場価値、ロールモデル、SNSで流れてくるキャリアの正解。外側にある地図に照らせば照らすほど、自分の輪郭はぼやけていく。</p>
-      <p>今日はその「外の地図」をいったん閉じて、自分の内側の手触り、夢中になれる才能のかけらを、言葉にしてみる時間です。</p>
+      <p>市場価値、ロールモデル、SNSで流れてくるキャリアの正解。外側の地図に照らせば照らすほど、自分の輪郭はぼやけていく。</p>
+      <p>今日はその外の地図をいったん閉じて、自分の内側にあるふたつのものに、ゆっくり向き合います。</p>
+      <p>ひとつめは、自分の<strong>欲求</strong>。何をしているときに、自分はいちばん満たされるのか。動かされるエンジンは、どこにあるのか。</p>
+      <p>ふたつめは、自分の<strong>才能</strong>。背伸びをして掲げる「強み」ではなく、何気ない行動のなかに、すでに自然と発揮されている自分の手触り。</p>
+      <p>欲求と才能。このふたつは、ふだん別々に語られがちだけれど、ほんとうはセットで、あなたの「夢中で生きる」の入り口になります。</p>
     </div>
   </div>
 </section>
@@ -1658,21 +1724,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="wq-num">Q.</div>
         <div>
           <div class="wq-text">最近、「このまま走り続けていいんだっけ」と立ち止まる瞬間は、どんなときに出てきますか？</div>
-          <div class="wq-helper">うまく言葉にできなくてOK。あの場面でモヤッとした、というシーン単位の記憶でも構いません。</div>
+          <div class="wq-helper">うまく言葉にできなくてOK。あの場面でモヤッとした、というシーン単位の記憶でも構いません。違和感の正体に、あなたの欲求のヒントが眠っています。</div>
         </div>
       </li>
       <li class="wq-card">
         <div class="wq-num">Q.</div>
         <div>
-          <div class="wq-text">これまでに、時間を忘れて夢中になった経験は何でしたか？</div>
-          <div class="wq-helper">仕事・趣味・旅・人との関わり、ジャンルは問いません。小さな夢中で構わないので、ひとつ思い出してみて下さい。</div>
+          <div class="wq-text">これまでに、時間を忘れて夢中になった経験は何でしたか。そのとき、自分は、何に動かされていたんでしょうか？</div>
+          <div class="wq-helper">仕事・趣味・旅・人との関わり、ジャンルは問いません。夢中の中に、あなたを動かしている「エンジンとなる欲求」が見えてきます。</div>
         </div>
       </li>
       <li class="wq-card">
         <div class="wq-num">Q.</div>
         <div>
-          <div class="wq-text">人から「ありがとう」「助かった」と言われたことの中で、自分でも納得感があった瞬間はどんなときですか？</div>
-          <div class="wq-helper">そこには、自分でも気づいていない才能のかけらが宿っているかもしれません。</div>
+          <div class="wq-text">人から「ありがとう」「助かった」と言われたことの中で、自分にとっては当たり前すぎて、特別なことだと意識していなかったものはありますか？</div>
+          <div class="wq-helper">背伸びした強みではなく、自然に発揮できているもの。それが、あなたの才能のかけらです。</div>
         </div>
       </li>
     </ol>
@@ -1733,11 +1799,46 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="section section-narrow">
     <h2 class="section-title" data-num="06">こんな方へ</h2>
     <ul class="target-list">
-      <li class="target-item">20代後半に入って、自分の歩幅や方角を一度確かめたくなった方</li>
-      <li class="target-item">仕事はこなせているけれど、「自分が本当にやりたいことだっけ」が消えない方</li>
+      <li class="target-item">仕事はこなせているけれど、「仕事だけの毎日でいいんだっけ」と立ち止まる瞬間がある方</li>
+      <li class="target-item">自分なりにビジョンから逆算してキャリアを選んできた、けれどふと自分のこれからを考え直したくなった方</li>
       <li class="target-item">SNSや周りの正解と、自分の感覚との距離を感じはじめた方</li>
-      <li class="target-item">自分の才能や、これから夢中になれることの輪郭を、言葉にしたい方</li>
+      <li class="target-item">自分の欲求と才能に、ちゃんと向き合う時間を持ちたい方</li>
       <li class="target-item">少人数の対話のなかで、自分のことばを探したい方</li>
+    </ul>
+  </div>
+</section>
+
+
+<!-- ===== 11期受講生の声 ===== -->
+<section class="voices-section">
+  <div class="section section-narrow">
+    <h2 class="section-title">11期受講生の、リアルな声</h2>
+    <p class="section-lead">いま8ヶ月のPOOLO LIFEに参加している受講生から、入会のきっかけと、向き合うなかで生まれた発見。</p>
+    <ul class="voices-list">
+      <li class="voice-card">
+        <span class="voice-card-mark" aria-hidden="true"></span>
+        <p class="voice-quote">「28歳、色々と悩みますよね。キャリア、ライフバランス、交友関係、自己成長。自分なりにビジョンから逆算してキャリアを選択してきたつもりでも、自分のこれからを考えることはあります。人生とキャリアの折衷案を見つけたいと思い、内省とコミュニティでの探究を通じて成長できればと考えて入会を決めました」</p>
+        <div class="voice-attr">
+          <span class="voice-attr-label">入会動機</span>
+          <span class="voice-attr-name">りゅうおうさん（28歳）</span>
+        </div>
+      </li>
+      <li class="voice-card">
+        <span class="voice-card-mark" aria-hidden="true"></span>
+        <p class="voice-quote">「私は難しいとは承知の上で内発的動機づけで仕事がしたいと思っていて、そのために今何をすればいいんだろうと悩んでいましたが、エンジンとなる欲求とその発動条件が満たされる場所を見つければいいんだと学びました。新しい一歩が踏み出せそうです」</p>
+        <div class="voice-attr">
+          <span class="voice-attr-label">ワーク後の発見</span>
+          <span class="voice-attr-name">ほのちゃん（28歳）</span>
+        </div>
+      </li>
+      <li class="voice-card">
+        <span class="voice-card-mark" aria-hidden="true"></span>
+        <p class="voice-quote">「才能ってすごい身近なところにあるんだなぁって感じました。才能って聞くととても壮大で大きな何かなイメージがあったけど、何気ない行動の一つを自分の才能と思うことは、背伸びしすぎない感じがして、とても気楽な気持ちにと、自信が持てたような気になりました」</p>
+        <div class="voice-attr">
+          <span class="voice-attr-label">ワーク後の発見</span>
+          <span class="voice-attr-name">たっつんさん（30代）</span>
+        </div>
+      </li>
     </ul>
   </div>
 </section>
@@ -1752,11 +1853,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
     <div class="about-text">
       <p>あたらしい旅の学校POOLO（ポーロ）は、旅を入り口に自分の生き方・働き方を問い直す<strong>大人の学び場</strong>として、7年以上続いてきました。運営しているのは、旅に関する事業を広く手がけてきた株式会社TABIPPOとコオドリ社。</p>
-      <p>近年、20代後半でPOOLOを訪ねてくる方々に、ひとつの共通項を感じるようになりました。</p>
-      <p>仕事はこなせている。後輩もできて、できることも増えている。それでも、どこかで<span class="quoted">本当にこの方角でいいんだっけ</span>という小さな違和感がある。</p>
-      <p>そんな方々に必要なのは、きっと新しい情報やフレームワークではなく、<strong>自分の中にすでにある素材を、他者の問いでじっくり見つめ直す時間</strong>ではないか。そう考えてイベントを企画しました。</p>
+      <p>近年、20代後半でPOOLOを訪ねてくる方々に、いくつかの共通する声を聞くようになりました。</p>
+      <p>「仕事だけの毎日では、どこかなにかが足りない」。「自分は、何をしているときに満たされるんだろう」。「これからのキャリアを、ちゃんと納得して選んでいけているのか」。</p>
+      <p>そんな方々に必要なのは、きっと新しい情報やフレームワークではなく、<strong>自分のなかにすでにある素材、つまり「欲求」と「才能」を、他者の問いでじっくり見つめ直す時間</strong>ではないか。そう考えてイベントを企画しました。</p>
       <p>対話のルールは、「話す人が自分の言葉をゆっくり探せるように」置いています。アドバイスをされるわけでもなく、要約もされない時間。だから、普段の会話では出てこなかった言葉が、自分の口から出てくると思います。</p>
-      <p>今回のイベントは、POOLOが運営する8ヶ月のオンラインプログラム<strong>POOLO LIFE</strong>のプログラムを、90分に凝縮したものでもあります。いきなり8ヶ月は少しハードルが高いという方も、まずは1日、問いと対話の場を味わいに来てもらえたらと思います。</p>
+      <p>今回のイベントは、POOLOが運営する8ヶ月のオンラインプログラム<strong>POOLO LIFE</strong>のなかで、特に手応えの大きかった「欲求と才能のワーク」を、90分に凝縮したものでもあります。いきなり8ヶ月は少しハードルが高いという方も、まずは1日、問いと対話の場を味わいに来てもらえたらと思います。</p>
       <p class="about-closing">ご参加お待ちしています！</p>
       <div class="about-award">
         <img src="images/02_peatix_award.jpg" alt="Peatix Community Award 2025 表彰式">
