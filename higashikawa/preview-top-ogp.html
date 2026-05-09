@@ -30,10 +30,10 @@
   --bg: #faf9f6;
   --bg-deep: #f3f1ea;
   --line: #e0ddd3;
-  --blue: #1B99B7;
-  --blue-deep: #157A98;
-  --blue-lt: #F4FAFB;
-  --blue-bg: #EAF6FA;
+  --terra: #D97758;
+  --terra-deep: #B85A3E;
+  --terra-lt: #FBF6F2;
+  --terra-bg: #F4E8E0;
   --serif: 'Shippori Mincho', serif;
   --sans: 'Noto Sans JP', sans-serif;
 }
@@ -129,11 +129,11 @@ section { padding: 7rem 0; position: relative; }
   font-family: var(--sans);
 }
 .btn-primary {
-  background: var(--blue);
+  background: var(--terra);
   color: #fff;
-  border: 1px solid var(--blue);
+  border: 1px solid var(--terra);
 }
-.btn-primary:hover { background: #157A98; transform: translateY(-1px); }
+.btn-primary:hover { background: #B85A3E; transform: translateY(-1px); }
 .btn-ghost {
   background: transparent;
   color: #fff;
@@ -157,7 +157,7 @@ section { padding: 7rem 0; position: relative; }
   align-items: center;
   gap: 0.5rem;
   padding: 0.85rem 1.5rem;
-  background: var(--blue);
+  background: var(--terra);
   color: #fff;
   font-family: var(--sans);
   font-size: 0.78rem;
@@ -176,7 +176,7 @@ section { padding: 7rem 0; position: relative; }
   transform: translateY(0);
   pointer-events: auto;
 }
-.float-apply:hover { background: #157A98; }
+.float-apply:hover { background: #B85A3E; }
 .float-apply::before {
   content: "▶";
   font-size: 0.6rem;
@@ -197,7 +197,7 @@ section { padding: 7rem 0; position: relative; }
 }
 
 /* ========== Section Title ========== */
-.sec-label { font-size: 0.62rem; letter-spacing: 0.35em; color: var(--blue); text-align: center; margin-bottom: 1.5rem; font-weight: 500; }
+.sec-label { font-size: 0.62rem; letter-spacing: 0.35em; color: var(--terra); text-align: center; margin-bottom: 1.5rem; font-weight: 500; }
 .sec-head {
   font-family: var(--serif);
   font-size: 1.45rem;
@@ -231,8 +231,8 @@ section { padding: 7rem 0; position: relative; }
 /* ========== Day Card ========== */
 .day-container { padding: 6rem 0; }
 .day-container.alt { background: var(--bg-deep); }
-.day-container.bluelt { background: var(--blue-lt); }
-.day-num { text-align: center; font-family: var(--serif); font-size: 0.75rem; letter-spacing: 0.4em; color: var(--blue); font-weight: 600; margin-bottom: 1.5rem; }
+.day-container.terralt { background: var(--terra-lt); }
+.day-num { text-align: center; font-family: var(--serif); font-size: 0.75rem; letter-spacing: 0.4em; color: var(--terra); font-weight: 600; margin-bottom: 1.5rem; }
 .day-head {
   font-family: var(--serif);
   font-size: 1.45rem;
@@ -260,7 +260,7 @@ section { padding: 7rem 0; position: relative; }
 .tt-list { margin: 2rem auto; max-width: 600px; }
 .tt-row { display: flex; align-items: baseline; padding: 1.4rem 0; border-bottom: 1px dashed var(--line); gap: 2rem; }
 .tt-row:last-child { border-bottom: none; }
-.tt-time { font-family: var(--serif); font-size: 0.95rem; font-weight: 600; color: var(--blue); min-width: 72px; letter-spacing: 0.05em; }
+.tt-time { font-family: var(--serif); font-size: 0.95rem; font-weight: 600; color: var(--terra); min-width: 72px; letter-spacing: 0.05em; }
 .tt-title { font-family: var(--serif); font-size: 1rem; font-weight: 600; margin-bottom: 0.3rem; letter-spacing: 0.05em; color: var(--ink); }
 .tt-desc { font-size: 0.82rem; color: var(--mute); letter-spacing: 0.03em; font-weight: 300; line-height: 1.95; }
 
@@ -279,7 +279,7 @@ section { padding: 7rem 0; position: relative; }
 .guest-photo { width: 220px; height: 220px; overflow: hidden; border-radius: 2px; background: var(--line); }
 .guest-photo img { width: 100%; height: 100%; object-fit: cover; }
 .guest-name { font-family: var(--serif); font-size: 1.25rem; font-weight: 600; letter-spacing: 0.08em; margin-bottom: 0.4rem; color: var(--ink); }
-.guest-role { font-size: 0.78rem; color: var(--blue); letter-spacing: 0.12em; margin-bottom: 1.5rem; font-weight: 500; }
+.guest-role { font-size: 0.78rem; color: var(--terra); letter-spacing: 0.12em; margin-bottom: 1.5rem; font-weight: 500; }
 .guest-text {
   font-family: var(--serif);
   font-size: 0.95rem;
@@ -291,7 +291,7 @@ section { padding: 7rem 0; position: relative; }
 .guest-text p:last-child { margin-bottom: 0; }
 
 /* ========== For whom ========== */
-.fw-container { padding: 7rem 0; background: var(--blue-lt); }
+.fw-container { padding: 7rem 0; background: var(--terra-lt); }
 .fw-list { max-width: 600px; margin: 2rem auto 0; }
 .fw-item {
   font-family: var(--serif);
@@ -304,7 +304,7 @@ section { padding: 7rem 0; position: relative; }
   border-bottom: 1px dashed var(--line);
 }
 .fw-item:last-child { border-bottom: none; }
-.fw-item::before { content: "◇"; position: absolute; left: 0.3rem; color: var(--blue); font-size: 0.85rem; top: 1.5rem; }
+.fw-item::before { content: "◇"; position: absolute; left: 0.3rem; color: var(--terra); font-size: 0.85rem; top: 1.5rem; }
 
 /* ========== Gallery ========== */
 .gallery-container { padding: 6rem 0; background: var(--bg); }
@@ -331,7 +331,7 @@ section { padding: 7rem 0; position: relative; }
   align-items: start;
 }
 .info-row:last-child { border-bottom: none; }
-.info-label { font-family: var(--serif); font-size: 0.85rem; font-weight: 600; color: var(--blue); letter-spacing: 0.1em; }
+.info-label { font-family: var(--serif); font-size: 0.85rem; font-weight: 600; color: var(--terra); letter-spacing: 0.1em; }
 .info-value { font-size: 0.88rem; line-height: 2; color: var(--ink); letter-spacing: 0.03em; }
 .info-value .sub { font-size: 0.78rem; color: var(--mute); display: block; margin-top: 0.4rem; line-height: 1.95; }
 .info-list { margin: 0.4rem 0 0 1rem; padding: 0; }
@@ -520,7 +520,7 @@ section { padding: 7rem 0; position: relative; }
 </section>
 
 <!-- ═════════════ 3. RHYTHM ═════════════ -->
-<section style="background: var(--blue-lt);">
+<section style="background: var(--terra-lt);">
   <div class="wrap">
     <h2 class="sec-head">3日間のリズム</h2>
     <div class="lead">
@@ -669,7 +669,7 @@ section { padding: 7rem 0; position: relative; }
 </div>
 
 <!-- ═════════════ 7. DAY 3 ═════════════ -->
-<div class="day-container bluelt">
+<div class="day-container terralt">
   <div class="wrap">
     <div class="day-num">DAY 3 ／ 8.23 SUN</div>
     <h2 class="day-head">綴じて、新たな世界に踏み出す</h2>
