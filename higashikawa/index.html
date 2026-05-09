@@ -381,6 +381,79 @@ section { padding: 7rem 0; position: relative; }
   text-align: left;
 }
 
+/* ========== Editorial 2-column Day & Why ========== */
+.day-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4.5rem;
+  align-items: start;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.day-grid.reverse .day-content { order: 2; }
+.day-grid.reverse .day-photo { order: 1; }
+.day-photo {
+  position: sticky;
+  top: 5rem;
+  align-self: start;
+}
+.day-photo img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 2px;
+}
+.day-grid .day-num { text-align: left; margin-bottom: 1rem; }
+.day-grid .day-head { text-align: left; margin-bottom: 1.8rem; }
+.day-grid .day-lead {
+  text-align: left;
+  max-width: none;
+  margin: 0 0 2.8rem;
+}
+.day-grid .tt-list { margin: 0; max-width: none; }
+
+.why-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4.5rem;
+  align-items: start;
+  max-width: 1100px;
+  margin: 2.5rem auto 0;
+}
+.why-grid .lead {
+  max-width: none;
+  margin: 0;
+}
+.why-photo {
+  position: sticky;
+  top: 5rem;
+  align-self: start;
+}
+.why-photo img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 2px;
+}
+
+@media (max-width: 880px) {
+  .day-grid, .day-grid.reverse,
+  .why-grid {
+    grid-template-columns: 1fr;
+    gap: 2.2rem;
+  }
+  .day-grid.reverse .day-content,
+  .day-grid.reverse .day-photo { order: initial; }
+  .day-grid .day-num { text-align: center; }
+  .day-grid .day-head { text-align: center; }
+  .day-grid .day-lead {
+    text-align: center;
+    max-width: 580px;
+    margin: 0 auto 2rem;
+  }
+  .day-photo, .why-photo { position: static; max-width: 640px; margin: 0 auto; }
+}
+
 /* ========== Day Card ========== */
 .day-container { padding: 6rem 0; }
 .day-container.alt { background: var(--bg-deep); }
@@ -670,21 +743,23 @@ section { padding: 7rem 0; position: relative; }
 
 <!-- ═════════════ 2. WHY HIGASHIKAWA ═════════════ -->
 <section>
-  <div class="wrap">
+  <div class="wrap-wide">
     <h2 class="sec-head">なぜ、東川町なのか。</h2>
-    <div class="lead">
-      <p>北海道のほぼ中央、<br class="br-sp">大雪山国立公園の麓にある町、東川町。</p>
-      <p>人口およそ8,400人。<br class="br-sp">上水道がなく、すべての家庭が<br class="br-sp">地下水で暮らしている。</p>
-      <p>写真の町を名乗り、家具をつくり、<br class="br-sp">移住者と元からの住民が<br class="br-sp">ゆるやかに混ざり合う。</p>
-      <p>「東川スタイル」と呼ばれる作法が、<br class="br-sp">町の風景の中に静かに息づく暮らし。</p>
-      <p>森を歩けば、自分の足音が聞こえる。<br class="br-sp">町の人の言葉に触れれば、<br class="br-sp">生き方の選択肢がひとつ増える。</p>
-      <p>3日間、あなたはこの町の一員のように過ごします。</p>
-      <p>誰かのストーリーを聞き、<br class="br-sp">自分のストーリーを話し、また聞く。</p>
-      <p>その往復のなかで、<br class="br-sp">これからの自分の生き方の輪郭を、<br class="br-sp">問い直し、描き直していきませんか。</p>
+    <div class="why-grid">
+      <div class="lead">
+        <p>北海道のほぼ中央、大雪山国立公園の麓にある町、東川町。</p>
+        <p>人口およそ8,400人。上水道がなく、すべての家庭が地下水で暮らしている。</p>
+        <p>写真の町を名乗り、家具をつくり、移住者と元からの住民がゆるやかに混ざり合う。</p>
+        <p>「東川スタイル」と呼ばれる作法が、町の風景の中に静かに息づく暮らし。</p>
+        <p>森を歩けば、自分の足音が聞こえる。町の人の言葉に触れれば、生き方の選択肢がひとつ増える。</p>
+        <p>3日間、あなたはこの町の一員のように過ごします。</p>
+        <p>誰かのストーリーを聞き、自分のストーリーを話し、また聞く。</p>
+        <p>その往復のなかで、これからの自分の生き方の輪郭を、問い直し、描き直していきませんか。</p>
+      </div>
+      <div class="why-photo">
+        <img src="images/img_02.png" alt="東川町 School for Life Compath 校舎の外景">
+      </div>
     </div>
-  </div>
-  <div class="img-block">
-    <img src="images/img_02.png" alt="東川町 School for Life Compath 校舎の外景">
   </div>
 </section>
 
@@ -724,17 +799,15 @@ section { padding: 7rem 0; position: relative; }
 
 <!-- ═════════════ 4. DAY 1 ═════════════ -->
 <div class="day-container">
-  <div class="wrap">
-    <div class="day-num">DAY 1 ／ 8.21 FRI</div>
-    <h2 class="day-head">東川にグラウンディングする</h2>
-    <p class="day-lead">
-      旭川空港に降り立った瞬間から、<br>
-      空気が変わります。<br>
-      森を歩き、夜は皆で台所に立つ。<br>
-      明日からの土台を、身体でつくる1日です。
-    </p>
-    <div class="day-img"><img src="images/img_01.jpeg" alt="町の人と参加者で料理を囲む夜の風景"></div>
-    <div class="tt-list">
+  <div class="wrap-wide">
+    <div class="day-grid">
+      <div class="day-content">
+        <div class="day-num">DAY 1 ／ 8.21 FRI</div>
+        <h2 class="day-head">東川にグラウンディングする</h2>
+        <p class="day-lead">
+          旭川空港に降り立った瞬間から、空気が変わります。森を歩き、夜は皆で台所に立つ。明日からの土台を、身体でつくる1日です。
+        </p>
+        <div class="tt-list">
       <div class="tt-row">
         <div class="tt-time">14:00</div>
         <div>
@@ -770,24 +843,26 @@ section { padding: 7rem 0; position: relative; }
           <div class="tt-desc">ジャーナリング（書きながら自分に問う時間）と、NVC（互いの願いを聴き合う対話法）を使って、1日を振り返ります。</div>
         </div>
       </div>
+        </div>
+      </div>
+      <div class="day-photo">
+        <img src="images/img_01.jpeg" alt="町の人と参加者で料理を囲む夜の風景">
+      </div>
     </div>
   </div>
 </div>
 
 <!-- ═════════════ 5. DAY 2 ═════════════ -->
 <div class="day-container alt">
-  <div class="wrap">
-    <div class="day-num">DAY 2 ／ 8.22 SAT</div>
-    <h2 class="day-head">対話して、世界を広げる</h2>
-    <p class="day-lead">
-      町に生きる二人のゲストの話を、<br>
-      ゆっくり聴きます。<br>
-      本屋の店主と、森のガイド。<br>
-      それぞれの選び方が、<br>
-      あなたの選択肢を広げていきます。
-    </p>
-    <div class="day-img"><img src="images/img_10.png" alt="付箋を使った対話ワークの様子"></div>
-    <div class="tt-list">
+  <div class="wrap-wide">
+    <div class="day-grid reverse">
+      <div class="day-content">
+        <div class="day-num">DAY 2 ／ 8.22 SAT</div>
+        <h2 class="day-head">対話して、世界を広げる</h2>
+        <p class="day-lead">
+          町に生きる二人のゲストの話を、ゆっくり聴きます。本屋の店主と、森のガイド。それぞれの選び方が、あなたの選択肢を広げていきます。
+        </p>
+        <div class="tt-list">
       <div class="tt-row">
         <div class="tt-time">9:00</div>
         <div>
@@ -822,6 +897,11 @@ section { padding: 7rem 0; position: relative; }
           <div class="tt-title">ゲスト② 鳥羽晃一さんと夜の森林浴</div>
           <div class="tt-desc">ガイドオフィス風主宰／ネイチャーガイド。暗闇のなかで五感をひらく、夜の森を歩きます。</div>
         </div>
+      </div>
+        </div>
+      </div>
+      <div class="day-photo">
+        <img src="images/img_10.png" alt="付箋を使った対話ワークの様子">
       </div>
     </div>
   </div>
@@ -862,30 +942,33 @@ section { padding: 7rem 0; position: relative; }
 
 <!-- ═════════════ 7. DAY 3 ═════════════ -->
 <div class="day-container terralt">
-  <div class="wrap">
-    <div class="day-num">DAY 3 ／ 8.23 SUN</div>
-    <h2 class="day-head">綴じて、新たな世界に踏み出す</h2>
-    <p class="day-lead">
-      書く時間と、話す時間。<br>
-      3日間で揺らいだものを、<br>
-      自分の言葉で綴じてから、<br>
-      12時に町を出ます。
-    </p>
-    <div class="day-img"><img src="images/img_13.png" alt="草地で静かにジャーナリングをする参加者"></div>
-    <div class="tt-list">
-      <div class="tt-row">
-        <div class="tt-time">9:00</div>
-        <div>
-          <div class="tt-title">リフレクション＆対話</div>
-          <div class="tt-desc">3日間のラップアップ。ゆっくりジャーナリングを重ねながら、感じたこと、起こしたい一歩を仲間と話します。</div>
+  <div class="wrap-wide">
+    <div class="day-grid">
+      <div class="day-content">
+        <div class="day-num">DAY 3 ／ 8.23 SUN</div>
+        <h2 class="day-head">綴じて、新たな世界に踏み出す</h2>
+        <p class="day-lead">
+          書く時間と、話す時間。3日間で揺らいだものを、自分の言葉で綴じてから、12時に町を出ます。
+        </p>
+        <div class="tt-list">
+          <div class="tt-row">
+            <div class="tt-time">9:00</div>
+            <div>
+              <div class="tt-title">リフレクション＆対話</div>
+              <div class="tt-desc">3日間のラップアップ。ゆっくりジャーナリングを重ねながら、感じたこと、起こしたい一歩を仲間と話します。</div>
+            </div>
+          </div>
+          <div class="tt-row">
+            <div class="tt-time">12:00</div>
+            <div>
+              <div class="tt-title">解散</div>
+              <div class="tt-desc">町を出る前にランチを共にできる14:30以降のフライト便がおすすめです。乗継のある方は、13:00台便でも送迎いたします。</div>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="tt-row">
-        <div class="tt-time">12:00</div>
-        <div>
-          <div class="tt-title">解散</div>
-          <div class="tt-desc">町を出る前にランチを共にできる14:30以降のフライト便がおすすめです。乗継のある方は、13:00台便でも送迎いたします。</div>
-        </div>
+      <div class="day-photo">
+        <img src="images/img_13.png" alt="草地で静かにジャーナリングをする参加者">
       </div>
     </div>
   </div>
