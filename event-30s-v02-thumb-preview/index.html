@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>30s Life vol.02 サムネイル候補</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Shippori+Mincho+B1:wght@400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #F5F2EB;
+    font-family: 'Noto Sans JP', sans-serif;
+    color: #2D3E36;
+    padding: 60px 24px 120px;
+  }
+  .wrap { max-width: 1280px; margin: 0 auto; }
+  .page-head {
+    text-align: center;
+    margin-bottom: 56px;
+  }
+  .page-head h1 {
+    font-family: 'Shippori Mincho B1', serif;
+    font-size: 28px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    margin-bottom: 12px;
+  }
+  .page-head p {
+    font-size: 14px;
+    color: #5A5A5A;
+    line-height: 1.8;
+  }
+  .copy-card {
+    background: #FFFCF6;
+    border-left: 3px solid #1B99B7;
+    padding: 18px 24px;
+    margin: 24px auto 0;
+    max-width: 760px;
+    font-family: 'Shippori Mincho B1', serif;
+    font-size: 16px;
+    line-height: 1.9;
+    text-align: left;
+    color: #2D3E36;
+  }
+  .case { margin-bottom: 72px; }
+  .case-head {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    margin-bottom: 16px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #E5E0D5;
+  }
+  .case-id {
+    font-family: 'Shippori Mincho B1', serif;
+    font-size: 22px;
+    font-weight: 600;
+    color: #1B99B7;
+  }
+  .case-title {
+    font-size: 16px;
+    font-weight: 500;
+    color: #2D3E36;
+  }
+  .case-note {
+    font-size: 13px;
+    color: #5A5A5A;
+    margin-bottom: 18px;
+    line-height: 1.7;
+  }
+
+  /* サムネイル本体 1200x630 を等倍表示 */
+  .thumb {
+    width: 1200px;
+    height: 630px;
+    background: #FFFCF6;
+    font-family: 'Shippori Mincho B1', serif;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 5fr 6fr;
+    box-shadow: 0 12px 36px rgba(0,0,0,0.10);
+    margin: 0 auto;
+  }
+  .thumb .photo, .thumb .content { height: 630px; }
+  .thumb .photo {
+    background-size: cover;
+    background-position: center center;
+    filter: saturate(0.92) sepia(0.06) brightness(1.02);
+  }
+  .thumb .content {
+    background: #FFFCF6;
+    position: relative;
+    padding: 0;
+    overflow: hidden;
+  }
+  .thumb .tag-pos {
+    position: absolute; top: 60px; left: 60px; right: 60px;
+  }
+  .thumb .main-block {
+    position: absolute; top: 50%; left: 60px; right: 60px;
+    transform: translateY(-50%);
+  }
+  .thumb .date-pos {
+    position: absolute; bottom: 80px; left: 60px; right: 60px;
+  }
+  .thumb .vertical {
+    position: absolute; right: 20px; top: 0; bottom: 0;
+    writing-mode: vertical-rl;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px; letter-spacing: 0.4em;
+    color: rgba(45,62,54,0.09);
+    font-weight: 700; font-style: italic;
+    display: flex; align-items: center;
+    text-transform: uppercase;
+  }
+  .thumb .tag {
+    align-self: flex-start;
+    background: #1B99B7; color: #fff;
+    padding: 10px 22px;
+    font-size: 16px; font-weight: 500;
+    letter-spacing: 0.12em;
+    border-radius: 2px;
+    font-family: 'Shippori Mincho B1', serif;
+  }
+  .thumb .title-lead {
+    font-size: 22px; font-weight: 400;
+    letter-spacing: 0.06em; line-height: 1.7;
+    margin-bottom: 22px;
+    color: #2D3E36;
+  }
+  .thumb .title-lead .em { color: #1B99B7; font-weight: 500; }
+  .thumb .title {
+    font-size: 44px; font-weight: 500;
+    letter-spacing: 0.05em; line-height: 1.55;
+    color: #2D3E36;
+  }
+  .thumb .title .em { color: #1B99B7; font-weight: 600; }
+  .thumb .title .line { display: block; }
+  .thumb .date {
+    padding: 14px 0;
+    border-top: 2px solid #1B99B7;
+    border-bottom: 2px solid #1B99B7;
+    font-size: 19px; font-weight: 600;
+    letter-spacing: 0.04em;
+    color: #2D3E36;
+    display: flex; align-items: baseline;
+    gap: 12px; white-space: nowrap;
+  }
+  .thumb .date .small { font-size: 13px; color: #5A5A5A; font-weight: 500; }
+  .thumb .date .place { font-size: 15px; color: #2A2A2A; font-weight: 500; margin-left: 4px; }
+
+  /* B案: コピー縦書きに振った変奏 */
+  .b-variant .title {
+    font-size: 50px;
+    line-height: 1.5;
+  }
+  .b-variant .title-lead {
+    font-size: 21px;
+  }
+
+  /* レスポンシブ縮小表示 */
+  .thumb-frame {
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+  }
+  @media (max-width: 1280px) {
+    .thumb {
+      transform: scale(0.95);
+      transform-origin: top center;
+    }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="page-head">
+  <h1>POOLO 30s LIFE｜vol.02 サムネイル候補</h1>
+  <p>1200×630 / vol.01のog-source.html構造を踏襲（5fr:6fr / 写真にセピアフィルター / 明朝×Cyan #1B99B7）</p>
+  <div class="copy-card">
+    目標逆算型の「やらねばならない」リストから、<br>
+    「やりたい欲求」の探究型へ。
+  </div>
+</header>
+
+<!-- ============ A案: 海辺・解放感 ============ -->
+<section class="case">
+  <div class="case-head">
+    <span class="case-id">A</span>
+    <span class="case-title">海辺・解放感（04_seaside.jpg）</span>
+  </div>
+  <p class="case-note">
+    広い空と水面、5人の自然な笑顔。「やりたい欲求」を解放するメッセージと最も整合する。vol.01の3人歩行（内省）と画調が変わり、シリーズ内での差別化も出る。
+  </p>
+  <div class="thumb-frame">
+    <div class="thumb">
+      <div class="photo" style="background-image:url('images/04_seaside.jpg');background-position:center 60%;"></div>
+      <div class="content">
+        <div class="vertical">ONLINE DIALOGUE vol.02</div>
+        <div class="tag-pos"><span class="tag">30代の生き方シリーズvol.02</span></div>
+        <div class="main-block">
+          <p class="title-lead">目標逆算型の<span class="em">「やらねばならない」</span>リストから、</p>
+          <h1 class="title">
+            <span class="line"><span class="em">「やりたい欲求」</span>の</span>
+            <span class="line">探究型へ。</span>
+          </h1>
+        </div>
+        <div class="date-pos">
+          <div class="date">
+            <span>X/X <span class="small">(X)</span></span>
+            <span>XX:XX〜XX:XX</span>
+            <span class="place">@Zoom</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ B案: 庭・対話の落ち着き ============ -->
+<section class="case">
+  <div class="case-head">
+    <span class="case-id">B</span>
+    <span class="case-title">庭・対話の落ち着き（05_garden_talk.jpg）</span>
+  </div>
+  <p class="case-note">
+    庭の石椅子に5人。緑の柔らかさと対話の気配。「やりたい欲求」を一人で書き出すというより、対話の中で発掘していく90分のニュアンスが立つ。
+  </p>
+  <div class="thumb-frame">
+    <div class="thumb b-variant">
+      <div class="photo" style="background-image:url('images/05_garden_talk.jpg');background-position:center 50%;"></div>
+      <div class="content">
+        <div class="vertical">ONLINE DIALOGUE vol.02</div>
+        <div class="tag-pos"><span class="tag">30代の生き方シリーズvol.02</span></div>
+        <div class="main-block">
+          <p class="title-lead">目標逆算型の<span class="em">「やらねばならない」</span>リストから、</p>
+          <h1 class="title">
+            <span class="line"><span class="em">「やりたい欲求」</span>の</span>
+            <span class="line">探究型へ。</span>
+          </h1>
+        </div>
+        <div class="date-pos">
+          <div class="date">
+            <span>X/X <span class="small">(X)</span></span>
+            <span>XX:XX〜XX:XX</span>
+            <span class="place">@Zoom</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ C案: イベント・笑顔の場 ============ -->
+<section class="case">
+  <div class="case-head">
+    <span class="case-id">C</span>
+    <span class="case-title">イベント・笑顔の場（11_laughing_group.jpg）</span>
+  </div>
+  <p class="case-note">
+    対話イベント中の自然な笑顔。「真面目に考える90分」より「楽しく気づく90分」を強調したい時にハマる。集客面では一番ライトでとっつきやすい。
+  </p>
+  <div class="thumb-frame">
+    <div class="thumb">
+      <div class="photo" style="background-image:url('images/11_laughing_group.jpg');background-position:center 40%;"></div>
+      <div class="content">
+        <div class="vertical">ONLINE DIALOGUE vol.02</div>
+        <div class="tag-pos"><span class="tag">30代の生き方シリーズvol.02</span></div>
+        <div class="main-block">
+          <p class="title-lead">目標逆算型の<span class="em">「やらねばならない」</span>リストから、</p>
+          <h1 class="title">
+            <span class="line"><span class="em">「やりたい欲求」</span>の</span>
+            <span class="line">探究型へ。</span>
+          </h1>
+        </div>
+        <div class="date-pos">
+          <div class="date">
+            <span>X/X <span class="small">(X)</span></span>
+            <span>XX:XX〜XX:XX</span>
+            <span class="place">@Zoom</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="case">
+  <div class="case-head">
+    <span class="case-id">比較</span>
+    <span class="case-title">3案のトレードオフ</span>
+  </div>
+  <table style="width:100%;border-collapse:collapse;background:#fff;font-size:13px;">
+    <thead>
+      <tr style="background:#FBF7EE;">
+        <th style="padding:12px;text-align:left;border-bottom:1px solid #EAE5DC;">案</th>
+        <th style="padding:12px;text-align:left;border-bottom:1px solid #EAE5DC;">画調</th>
+        <th style="padding:12px;text-align:center;border-bottom:1px solid #EAE5DC;">コピー整合</th>
+        <th style="padding:12px;text-align:center;border-bottom:1px solid #EAE5DC;">vol.01との差</th>
+        <th style="padding:12px;text-align:center;border-bottom:1px solid #EAE5DC;">集客の強さ</th>
+        <th style="padding:12px;text-align:left;border-bottom:1px solid #EAE5DC;">こんな時に</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="padding:12px;border-bottom:1px solid #EEE;"><strong>A 海辺</strong></td>
+        <td style="padding:12px;border-bottom:1px solid #EEE;">解放・自由</td>
+        <td style="padding:12px;text-align:center;border-bottom:1px solid #EEE;">◎◎</td>
+        <td style="padding:12px;text-align:center;border-bottom:1px solid #EEE;">◎</td>
+        <td style="padding:12px;text-align:center;border-bottom:1px solid #EEE;">◎</td>
+        <td style="padding:12px;border-bottom:1px solid #EEE;">「欲求の解放」を強く出したい時</td>
+      </tr>
+      <tr>
+        <td style="padding:12px;border-bottom:1px solid #EEE;"><strong>B 庭</strong></td>
+        <td style="padding:12px;border-bottom:1px solid #EEE;">対話・落ち着き</td>
+        <td style="padding:12px;text-align:center;border-bottom:1px solid #EEE;">◯</td>
+        <td style="padding:12px;text-align:center;border-bottom:1px solid #EEE;">◯</td>
+        <td style="padding:12px;text-align:center;border-bottom:1px solid #EEE;">◯</td>
+        <td style="padding:12px;border-bottom:1px solid #EEE;">対話で発掘するニュアンスを強調したい時</td>
+      </tr>
+      <tr>
+        <td style="padding:12px;border-bottom:1px solid #EEE;"><strong>C 笑顔</strong></td>
+        <td style="padding:12px;border-bottom:1px solid #EEE;">楽しさ・場</td>
+        <td style="padding:12px;text-align:center;border-bottom:1px solid #EEE;">◯</td>
+        <td style="padding:12px;text-align:center;border-bottom:1px solid #EEE;">◎</td>
+        <td style="padding:12px;text-align:center;border-bottom:1px solid #EEE;">◎◎</td>
+        <td style="padding:12px;border-bottom:1px solid #EEE;">初参加者にライトに広げたい時</td>
+      </tr>
+    </tbody>
+  </table>
+  <p style="margin-top:20px;padding:18px 22px;background:#fff;border-left:3px solid #C97C5D;font-size:13px;line-height:1.8;">
+    <strong>推奨A。</strong>「やりたい欲求の解放」というメッセージとの整合度が圧倒的、かつvol.01の落ち着いた画調から画的に動きが出てシリーズ感も保てる。Cはライト層に、Bは対話色を強めたい単発回に。
+  </p>
+</section>
+
+</div>
+</body>
+</html>

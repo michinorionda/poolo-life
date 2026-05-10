@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Shippori+Mincho+B1:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body {
+    width: 1200px; height: 630px;
+    background: #FFFCF6;
+    font-family: 'Shippori Mincho B1', serif;
+    overflow: hidden;
+  }
+  .hero {
+    width: 1200px; height: 630px;
+    display: grid;
+    grid-template-columns: 5fr 6fr;
+  }
+  .photo, .content { height: 630px; }
+  .photo {
+    background-image: url('images/04_seaside.jpg');
+    background-size: cover;
+    background-position: center center;
+    filter: saturate(0.92) sepia(0.06) brightness(1.02);
+  }
+  .content {
+    background: #FFFCF6;
+    position: relative;
+    padding: 0;
+    overflow: hidden;
+  }
+  .tag-pos {
+    position: absolute;
+    top: 60px;
+    left: 60px;
+    right: 60px;
+  }
+  .main-block {
+    position: absolute;
+    top: 50%;
+    left: 60px;
+    right: 60px;
+    transform: translateY(-50%);
+  }
+  .date-pos {
+    position: absolute;
+    bottom: 80px;
+    left: 60px;
+    right: 60px;
+  }
+  .vertical {
+    position: absolute;
+    right: 20px;
+    top: 0; bottom: 0;
+    writing-mode: vertical-rl;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    letter-spacing: 0.4em;
+    color: rgba(45,62,54,0.09);
+    font-weight: 700;
+    font-style: italic;
+    display: flex;
+    align-items: center;
+    text-transform: uppercase;
+  }
+  .tag {
+    align-self: flex-start;
+    background: #1B99B7;
+    color: #fff;
+    padding: 10px 22px;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    margin-bottom: 0;
+    border-radius: 2px;
+    font-family: 'Shippori Mincho B1', serif;
+  }
+  .title-lead {
+    font-size: 22px;
+    font-weight: 400;
+    letter-spacing: 0.06em;
+    line-height: 1.7;
+    margin-bottom: 22px;
+    color: #2D3E36;
+  }
+  .title {
+    font-size: 44px;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    line-height: 1.55;
+    color: #2D3E36;
+  }
+  .title .em { color: #1B99B7; font-weight: 600; }
+  .title .line { display: block; }
+  .date {
+    margin-top: 0;
+    padding: 14px 0;
+    border-top: 2px solid #1B99B7;
+    border-bottom: 2px solid #1B99B7;
+    font-size: 19px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: #2D3E36;
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+  }
+  .date .small { font-size: 13px; color: #5A5A5A; font-weight: 500; }
+  .date .place { font-size: 15px; color: #2A2A2A; font-weight: 500; margin-left: 4px; }
+</style>
+</head>
+<body>
+  <div class="hero">
+    <div class="photo"></div>
+    <div class="content">
+      <div class="vertical">ONLINE DIALOGUE vol.02</div>
+      <div class="tag-pos"><span class="tag">30代の生き方シリーズvol.02</span></div>
+      <div class="main-block">
+        <p class="title-lead">目標逆算型の<span class="em" style="color:#1B99B7;font-weight:500;">「やらねばならない」</span>リストから、</p>
+        <h1 class="title">
+          <span class="line"><span class="em">「やりたい欲求」</span>の</span>
+          <span class="line">探究型へ。</span>
+        </h1>
+      </div>
+      <div class="date-pos">
+        <div class="date">
+          <span>X/X <span class="small">(X)</span></span>
+          <span>XX:XX〜XX:XX</span>
+          <span class="place">@Zoom</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
