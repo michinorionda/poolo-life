@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Shippori+Mincho+B1:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body {
+    width: 1200px; height: 630px;
+    background: #FFFCF6;
+    font-family: 'Shippori Mincho B1', serif;
+    overflow: hidden;
+  }
+  .hero {
+    width: 1200px; height: 630px;
+    display: grid;
+    grid-template-columns: 4fr 7fr;
+  }
+  .photo, .content { height: 630px; }
+  .photo {
+    background-image: url('images/04_seaside.jpg');
+    background-size: cover;
+    background-position: center 60%;
+    filter: saturate(0.92) sepia(0.06) brightness(1.02);
+  }
+  .content {
+    background: #FFFCF6;
+    position: relative;
+    padding: 56px 56px 48px 56px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  .vertical {
+    position: absolute;
+    right: 18px; top: 0; bottom: 0;
+    writing-mode: vertical-rl;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    letter-spacing: 0.4em;
+    color: rgba(45,62,54,0.09);
+    font-weight: 700;
+    font-style: italic;
+    display: flex;
+    align-items: center;
+    text-transform: uppercase;
+  }
+  .tag {
+    align-self: flex-start;
+    background: #1B99B7;
+    color: #fff;
+    padding: 8px 18px;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    border-radius: 2px;
+    font-family: 'Shippori Mincho B1', serif;
+  }
+  .hero-title {
+    margin-top: 22px;
+    font-family: 'Shippori Mincho B1', serif;
+    font-size: 84px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    line-height: 1.1;
+    color: #2D3E36;
+  }
+  .hero-title .em { color: #1B99B7; }
+  .hero-sub {
+    margin-top: 14px;
+    font-size: 17px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    color: #5A6760;
+  }
+
+  .compare {
+    margin-top: 26px;
+    padding-top: 22px;
+    border-top: 1px solid #D4CFC2;
+    display: grid;
+    grid-template-columns: 1fr 36px 1fr;
+    align-items: center;
+    gap: 8px;
+  }
+  .col-from, .col-to {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .col-from .kind, .col-to .kind {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 12px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: #8a8a8a;
+    font-weight: 600;
+  }
+  .col-from .label, .col-to .label {
+    font-family: 'Shippori Mincho B1', serif;
+    font-size: 14px;
+    letter-spacing: 0.06em;
+    color: #5A5A5A;
+    font-weight: 500;
+  }
+  .col-from .word {
+    font-family: 'Shippori Mincho B1', serif;
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: #8a8a8a;
+    text-decoration: line-through;
+    text-decoration-color: #C97C5D;
+    text-decoration-thickness: 2px;
+  }
+  .col-to .word {
+    font-family: 'Shippori Mincho B1', serif;
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    color: #1B99B7;
+  }
+  .arrow {
+    text-align: center;
+    color: #C97C5D;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 30px;
+    font-weight: 400;
+    transform: translateY(8px);
+  }
+
+  .date {
+    margin-top: auto;
+    padding: 12px 0 0 0;
+    border-top: 2px solid #1B99B7;
+    font-size: 17px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: #2D3E36;
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    white-space: nowrap;
+  }
+  .date .small { font-size: 12px; color: #5A5A5A; font-weight: 500; }
+  .date .place { font-size: 14px; color: #2A2A2A; font-weight: 500; margin-left: 4px; }
+</style>
+</head>
+<body>
+  <div class="hero">
+    <div class="photo"></div>
+    <div class="content">
+      <div class="vertical">A DIALOGUE FOR 30s · POOLO LIFE</div>
+      <span class="tag">30代の生き方シリーズvol.02</span>
+      <h1 class="hero-title">30代の<span class="em">生き方</span>。</h1>
+      <p class="hero-sub">目標逆算型から、関心探究型へ。</p>
+
+      <div class="compare">
+        <div class="col-from">
+          <span class="kind">From</span>
+          <span class="label">目標逆算型の</span>
+          <span class="word">「やらねばならない」</span>
+        </div>
+        <div class="arrow">→</div>
+        <div class="col-to">
+          <span class="kind">To</span>
+          <span class="label">関心探究型の</span>
+          <span class="word">「やりたい欲求」</span>
+        </div>
+      </div>
+
+      <div class="date">
+        <span>X/X <span class="small">(X)</span></span>
+        <span>XX:XX〜XX:XX</span>
+        <span class="place">@Zoom</span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
