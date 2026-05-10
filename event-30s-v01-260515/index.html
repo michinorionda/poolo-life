@@ -439,7 +439,21 @@ a:hover { opacity: 0.7; }
 
 .hero-title .em { color: var(--cta); font-weight: 600; }
 
-.hero-title .line { display: block; }
+.hero-title .em-lg {
+  font-size: 1.33em;
+  line-height: 1.25;
+  letter-spacing: 0.04em;
+}
+
+.hero-title .suffix {
+  font-size: 0.83em;
+  letter-spacing: 0.05em;
+  color: var(--main-soft);
+  margin-left: 0.15em;
+}
+
+.hero-title .line { display: block; margin-bottom: 6px; }
+.hero-title .line:last-child { margin-bottom: 0; }
 
 .hero-flourish {
   display: flex;
@@ -1532,8 +1546,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <span class="hero-tag">30代の生き方シリーズvol.01</span>
         <p class="hero-title-lead">自分自身が納得できる、</p>
         <h1 class="hero-title">
-          <span class="line"><span class="em">30代の生き方</span>を</span>
-          <span class="line"><span class="em">「問い直す」</span>90分。</span>
+          <span class="line"><span class="em em-lg">30代の生き方</span>を</span>
+          <span class="line"><span class="em em-lg">「問い直す」</span><span class="suffix">90分。</span></span>
         </h1>
         <div class="hero-flourish" aria-hidden="true">
           <span class="hero-flourish-line"></span>
