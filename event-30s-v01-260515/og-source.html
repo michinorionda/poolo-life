@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Shippori+Mincho+B1:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Noto+Sans+JP:wght@300;400;500;600;700&family=Shippori+Mincho+B1:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html, body {
@@ -84,14 +84,18 @@
     color: #2D3E36;
   }
   .title {
-    font-size: 48px;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 44px;
     font-weight: 500;
     letter-spacing: 0.06em;
-    line-height: 1.5;
+    line-height: 1.45;
     color: #2D3E36;
   }
   .title .em { color: #1B99B7; font-weight: 600; }
   .title .line { display: block; }
+  .title .line-mid { font-size: 1em; line-height: 1.5; margin-bottom: 8px; }
+  .title .line-keyword { font-size: 1.55em; line-height: 1.25; letter-spacing: 0.05em; margin-bottom: 10px; }
+  .title .line-tail { font-size: 0.7em; line-height: 1.5; letter-spacing: 0.08em; color: #4A5A52; }
   .date {
     margin-top: 0;
     padding: 14px 0;
@@ -120,8 +124,9 @@
       <div class="main-block">
         <p class="title-lead">自分自身が納得できる、</p>
         <h1 class="title">
-          <span class="line"><span class="em">30代の生き方</span>を</span>
-          <span class="line"><span class="em">「問い直す」</span>90分。</span>
+          <span class="line line-mid">30代の生き方を、</span>
+          <span class="line line-keyword"><span class="em">「問い直す」</span></span>
+          <span class="line line-tail">そんな90分。</span>
         </h1>
       </div>
       <div class="date-pos">
