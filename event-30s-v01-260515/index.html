@@ -443,19 +443,23 @@ a:hover { opacity: 0.7; }
 .hero-title .line-mid {
   font-size: 1em;
   line-height: 1.5;
-  margin-bottom: 6px;
+  margin-bottom: 12px;
 }
-.hero-title .line-keyword {
-  font-size: 1.55em;
-  line-height: 1.25;
-  letter-spacing: 0.05em;
-  margin-bottom: 8px;
+.hero-title .line-main {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  line-height: 1;
 }
-.hero-title .line-tail {
-  font-size: 0.75em;
-  line-height: 1.5;
-  letter-spacing: 0.08em;
+.hero-title .line-main .em {
+  font-size: 1.78em;
+  letter-spacing: 0.04em;
+}
+.hero-title .line-main .suffix {
+  font-size: 0.85em;
+  font-weight: 500;
   color: var(--main-soft);
+  letter-spacing: 0.06em;
 }
 
 .hero-flourish {
@@ -1550,8 +1554,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <p class="hero-title-lead">自分自身が納得できる、</p>
         <h1 class="hero-title">
           <span class="line line-mid">30代の生き方を、</span>
-          <span class="line line-keyword"><span class="em">「問い直す」</span></span>
-          <span class="line line-tail">そんな90分。</span>
+          <span class="line line-main">
+            <span class="em">問い直す</span><span class="suffix">90分</span>
+          </span>
         </h1>
         <div class="hero-flourish" aria-hidden="true">
           <span class="hero-flourish-line"></span>

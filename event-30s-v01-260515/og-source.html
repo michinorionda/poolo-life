@@ -2,6 +2,7 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
+<title>OG Thumbnail A — 3行・キーワード強調</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Noto+Sans+JP:wght@300;400;500;600;700&family=Shippori+Mincho+B1:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -26,90 +27,65 @@
   .content {
     background: #FFFCF6;
     position: relative;
-    padding: 0;
-    overflow: hidden;
   }
-  .tag-pos {
-    position: absolute;
-    top: 60px;
-    left: 60px;
-    right: 60px;
-  }
-  .main-block {
-    position: absolute;
-    top: 50%;
-    left: 60px;
-    right: 60px;
-    transform: translateY(-50%);
-  }
-  .date-pos {
-    position: absolute;
-    bottom: 80px;
-    left: 60px;
-    right: 60px;
-  }
+  .tag-pos { position: absolute; top: 60px; left: 60px; right: 60px; }
+  .main-block { position: absolute; top: 50%; left: 60px; right: 60px; transform: translateY(-50%); }
+  .date-pos { position: absolute; bottom: 80px; left: 60px; right: 60px; }
   .vertical {
-    position: absolute;
-    right: 20px;
-    top: 0; bottom: 0;
+    position: absolute; right: 20px; top: 0; bottom: 0;
     writing-mode: vertical-rl;
     font-family: 'Cormorant Garamond', serif;
-    font-size: 22px;
-    letter-spacing: 0.4em;
+    font-size: 22px; letter-spacing: 0.4em;
     color: rgba(45,62,54,0.09);
-    font-weight: 700;
-    font-style: italic;
-    display: flex;
-    align-items: center;
+    font-weight: 700; font-style: italic;
+    display: flex; align-items: center;
     text-transform: uppercase;
   }
   .tag {
-    align-self: flex-start;
-    background: #1B99B7;
-    color: #fff;
+    background: #1B99B7; color: #fff;
     padding: 10px 22px;
-    font-size: 16px;
-    font-weight: 500;
-    letter-spacing: 0.12em;
-    margin-bottom: 0;
+    font-size: 16px; font-weight: 500; letter-spacing: 0.12em;
     border-radius: 2px;
     font-family: 'Shippori Mincho B1', serif;
   }
   .title-lead {
-    font-size: 24px;
-    font-weight: 400;
-    letter-spacing: 0.08em;
-    line-height: 1.6;
-    margin-bottom: 18px;
-    color: #2D3E36;
+    font-size: 24px; font-weight: 400;
+    letter-spacing: 0.08em; line-height: 1.6;
+    margin-bottom: 18px; color: #2D3E36;
   }
   .title {
     font-family: 'Shippori Mincho B1', serif;
-    font-size: 44px;
-    font-weight: 500;
-    letter-spacing: 0.06em;
-    line-height: 1.45;
     color: #2D3E36;
   }
-  .title .em { color: #1B99B7; font-weight: 600; }
-  .title .line { display: block; }
-  .title .line-mid { font-size: 1em; line-height: 1.5; margin-bottom: 8px; }
-  .title .line-keyword { font-size: 1.55em; line-height: 1.25; letter-spacing: 0.05em; margin-bottom: 10px; }
-  .title .line-tail { font-size: 0.7em; line-height: 1.5; letter-spacing: 0.08em; color: #4A5A52; }
+  .title .row-mid {
+    display: block;
+    font-size: 38px; font-weight: 500;
+    letter-spacing: 0.06em; line-height: 1.45;
+    margin-bottom: 14px;
+  }
+  .title .row-main {
+    display: flex; align-items: baseline;
+    gap: 12px;
+    line-height: 1;
+  }
+  .title .em {
+    font-size: 78px; font-weight: 600;
+    color: #1B99B7;
+    letter-spacing: 0.04em;
+  }
+  .title .suffix {
+    font-size: 36px; font-weight: 500;
+    color: #4A5A52;
+    letter-spacing: 0.06em;
+  }
   .date {
-    margin-top: 0;
     padding: 14px 0;
     border-top: 2px solid #1B99B7;
     border-bottom: 2px solid #1B99B7;
-    font-size: 19px;
-    font-weight: 600;
-    letter-spacing: 0.04em;
-    color: #2D3E36;
-    display: flex;
-    align-items: baseline;
-    gap: 12px;
-    flex-wrap: nowrap;
-    white-space: nowrap;
+    font-size: 19px; font-weight: 600;
+    letter-spacing: 0.04em; color: #2D3E36;
+    display: flex; align-items: baseline; gap: 12px;
+    flex-wrap: nowrap; white-space: nowrap;
   }
   .date .small { font-size: 13px; color: #5A5A5A; font-weight: 500; }
   .date .place { font-size: 15px; color: #2A2A2A; font-weight: 500; margin-left: 4px; }
@@ -124,9 +100,10 @@
       <div class="main-block">
         <p class="title-lead">自分自身が納得できる、</p>
         <h1 class="title">
-          <span class="line line-mid">30代の生き方を、</span>
-          <span class="line line-keyword"><span class="em">「問い直す」</span></span>
-          <span class="line line-tail">そんな90分。</span>
+          <span class="row-mid">30代の生き方を、</span>
+          <span class="row-main">
+            <span class="em">問い直す</span><span class="suffix">90分</span>
+          </span>
         </h1>
       </div>
       <div class="date-pos">
