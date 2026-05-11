@@ -1180,16 +1180,19 @@ a:hover { opacity: 0.7; }
   .event-summary-row dt { font-size: 10.5px; letter-spacing: 0.14em; }
   .event-summary-row dd { font-size: 13px; line-height: 1.7; letter-spacing: 0.05em; }
   .event-summary-row dd .small { font-size: 11px; display: block; margin-left: 0; margin-top: 2px; }
-  /* スマホでも横長16:9を維持（PCと同じレイアウト・サイズダウン） */
+  /* スマホは縦積み：写真上 → コンテンツ全幅下 */
+  .hero { grid-template-columns: 1fr; aspect-ratio: auto; }
+  .hero-photo { aspect-ratio: 16 / 10; width: 100%; }
   .hero-vertical { display: none; }
-  .hero-content-inner { padding: 14px 14px 18px; }
-  .hero-tag { font-size: 9px; padding: 4px 10px; margin-top: 24px; margin-bottom: 8px; letter-spacing: 0.08em; }
-  .hero-flourish { display: none; }
-  .hero-title-lead { font-size: 11px; margin-bottom: 6px; letter-spacing: 0.04em; line-height: 1.4; }
-  .hero-title { font-size: 17px; letter-spacing: 0.04em; line-height: 1.45; }
-  .hero-date { font-size: 11px; padding: 5px 0; gap: 6px; margin-top: auto; border-width: 1px; }
-  .hero-date .small { font-size: 9px; }
-  .hero-date .place { font-size: 9.5px; }
+  .hero-content-inner { padding: 22px 18px 24px; }
+  .hero-tag { font-size: 11px; padding: 5px 12px; margin-top: 0; margin-bottom: 14px; letter-spacing: 0.1em; }
+  .hero-flourish { margin-top: 14px; }
+  .hero-flourish-mark { font-size: 10.5px; letter-spacing: 0.18em; }
+  .hero-title-lead { font-size: 13px; margin-bottom: 8px; letter-spacing: 0.06em; line-height: 1.5; }
+  .hero-title { font-size: 22px; letter-spacing: 0.04em; line-height: 1.45; }
+  .hero-date { font-size: 13px; padding: 8px 0; gap: 8px; margin-top: 16px; border-width: 1.5px; }
+  .hero-date .small { font-size: 10px; }
+  .hero-date .place { font-size: 11px; margin-left: 2px; }
   .hero-band { padding: 7px 14px; font-size: 10px; line-height: 1.55; letter-spacing: 0.04em; }
 
   .photo-break { height: 50vh; min-height: 280px; }
