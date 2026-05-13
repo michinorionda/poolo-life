@@ -213,6 +213,46 @@ li{margin-bottom:8px;line-height:1.85}
 a{color:var(--blue);text-decoration:none;border-bottom:1px solid var(--blue-soft)}
 a:hover{border-bottom-color:var(--blue)}
 
+/* ミッションブロック（KV + コピー） */
+.mission-block{
+  display:grid;
+  grid-template-columns:230px 1fr;
+  gap:36px;
+  align-items:center;
+  background:var(--card);
+  border:1px solid var(--line);
+  padding:28px 32px;
+  margin:0 0 36px;
+  border-radius:2px;
+  box-shadow:0 1px 0 var(--line);
+}
+.mission-visual img{
+  width:100%;
+  height:auto;
+  display:block;
+  border-radius:2px;
+}
+.mission-tag{
+  display:inline-block;
+  font-size:11px;
+  letter-spacing:0.16em;
+  font-weight:700;
+  color:var(--green);
+  background:var(--green-soft);
+  padding:5px 12px;
+  border-radius:2px;
+  margin-bottom:18px;
+}
+.mission-line{
+  font-family:'Shippori Mincho',serif;
+  font-weight:700;
+  font-size:26px;
+  line-height:1.75;
+  margin:0;
+  color:var(--ink);
+  letter-spacing:0.03em;
+}
+
 /* ヒーローKPIカード */
 .kpi-grid{
   display:grid;
@@ -589,6 +629,9 @@ footer.doc-foot{
   h2.sec-title{font-size:18px}
   body{font-size:14px}
   .kpi-grid{grid-template-columns:1fr}
+  .mission-block{grid-template-columns:1fr;gap:22px;padding:22px}
+  .mission-visual{max-width:200px;margin:0 auto}
+  .mission-line{font-size:21px;line-height:1.7}
   .lp-row{flex-direction:column;gap:14px}
   .lp-row .lp-thumb{flex:0 0 auto;width:100%;aspect-ratio:1200 / 630}
   .framework-compare{grid-template-columns:1fr;gap:12px}
@@ -616,6 +659,16 @@ footer.doc-foot{
 <section class="part part-1">
   <div class="part-number">PART 01</div>
   <h2 class="part-title">簡単な共有</h2>
+
+  <div class="mission-block">
+    <div class="mission-visual">
+      <img src="images/mission-visual.png" alt="POOLO LIFE 12期 メインビジュアル｜想像もしなかった、世界と自分へ。">
+    </div>
+    <div class="mission-text">
+      <div class="mission-tag">12期のコースミッション</div>
+      <p class="mission-line">旅と、問いと、共創で<br>想像もしなかった世界と自分に、<br>出会いにいく</p>
+    </div>
+  </div>
 
   <div class="kpi-grid">
     <div class="kpi-card">
