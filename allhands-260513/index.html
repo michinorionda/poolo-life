@@ -430,7 +430,55 @@ table.guest .gname{font-weight:600}
   line-height:1.5;
   color:var(--teal);
 }
-.fb-card p{margin:0;font-size:14px;line-height:1.85}
+.fb-card p{margin:0 0 12px;font-size:14px;line-height:1.85}
+.fb-card p:last-child{margin-bottom:0}
+.fb-card .fb-focus-list{
+  list-style:none;
+  padding:0;
+  margin:8px 0 12px;
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+}
+.fb-card .fb-focus-list li{
+  background:rgba(255,255,255,0.55);
+  border:1px solid rgba(26,107,90,0.22);
+  border-radius:2px;
+  padding:14px 16px;
+  margin:0;
+  font-size:14px;
+  line-height:1.8;
+}
+.fb-card .fb-focus-list .fb-no{
+  display:inline-block;
+  font-family:'Shippori Mincho',serif;
+  font-weight:700;
+  font-size:12px;
+  letter-spacing:0.1em;
+  color:var(--teal);
+  background:var(--teal-soft);
+  padding:2px 9px;
+  border-radius:2px;
+  margin-right:8px;
+}
+.fb-card .fb-focus-list .fb-focus-title{
+  font-family:'Shippori Mincho',serif;
+  font-weight:700;
+  font-size:14.5px;
+  color:var(--ink);
+}
+.fb-card .fb-focus-list .fb-focus-body{
+  margin-top:6px;
+  font-size:13.5px;
+  color:var(--sub);
+  line-height:1.85;
+}
+.fb-card .fb-link{
+  font-size:12px;
+  color:var(--sub);
+  word-break:break-all;
+}
+.fb-card .fb-link a{color:var(--teal);border-bottom-color:var(--teal-soft)}
 
 /* FYIブロック */
 .fyi-card{
@@ -706,6 +754,31 @@ footer.doc-foot{
     <div class="fb-label">FEEDBACK 02</div>
     <h3>冒頭のテキスト</h3>
     <p>LPの一番上で何を語るか。検討者が最初の3秒で読む文字。ここに違和感や提案があれば。</p>
+  </div>
+
+  <div class="fb-card">
+    <div class="fb-label">FEEDBACK 03</div>
+    <h3>LP v7｜特に見てほしい2ブロック</h3>
+    <p>LPワイヤーフレーム v7 のうち、下記の番号エリアを重点的にフィードバックがほしい。</p>
+
+    <ul class="fb-focus-list">
+      <li>
+        <span class="fb-no">No.4-9</span>
+        <span class="fb-focus-title">SHARED QUESTION｜LP冒頭の核心メッセージ</span>
+        <div class="fb-focus-body">
+          「人生はたった、一度きり」から始まり、「わけのわからなさと向き合い続ける」「旅・問い・仲間」を経て、「想像もしなかった世界と自分に、出会いに行きませんか」へつながる、POOLO思想の一番太い導入。ここの言葉が、検討者の最初の体温を決める。
+        </div>
+      </li>
+      <li>
+        <span class="fb-no">No.19-21</span>
+        <span class="fb-focus-title">ABOUT LIFE COURSE｜コース概要の入口</span>
+        <div class="fb-focus-body">
+          「旅と、問いと、共創で想像もしなかった世界と自分に、出会いにいく8か月」というh2と、POOLO LIFEが何の場かを最初に手渡す本文（50-70名／探究テーマ／8か月）。コースの輪郭がここで伝わるか。
+        </div>
+      </li>
+    </ul>
+
+    <p class="fb-link"><a href="https://michinorionda.github.io/poolo-life/poolo-life-lp-wireframe-sp-v7.html" target="_blank" rel="noopener">https://michinorionda.github.io/poolo-life/poolo-life-lp-wireframe-sp-v7.html</a></p>
   </div>
 </section>
 
