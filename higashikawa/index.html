@@ -89,6 +89,79 @@ section { padding: 7rem 0; position: relative; }
 }
 .hero-ogp-ctas { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
 
+/* Hero bottom: 2-col on PC (left=CTA, right=event summary) */
+.hero-ogp-bottom {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3.5rem;
+  align-items: center;
+}
+.hero-ogp-left { text-align: center; }
+.hero-ogp-summary {
+  background: #fff;
+  border: 1px solid var(--terra-line);
+  border-radius: 4px;
+  padding: 2.2rem 2.4rem;
+  text-align: left;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+}
+.hero-summary-label {
+  font-family: var(--serif);
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  color: var(--terra);
+  text-align: center;
+  margin-bottom: 1.4rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--terra-line);
+}
+.hero-summary-table { font-size: 0.78rem; line-height: 1.7; }
+.hero-summary-table dt {
+  font-weight: 600;
+  color: var(--terra-deep);
+  font-size: 0.66rem;
+  letter-spacing: 0.18em;
+  margin-bottom: 0.2rem;
+}
+.hero-summary-table dd {
+  margin-bottom: 0.95rem;
+  color: var(--ink);
+  font-size: 0.84rem;
+  font-family: var(--serif);
+  letter-spacing: 0.02em;
+}
+.hero-summary-table dd:last-child { margin-bottom: 0; }
+.hero-summary-table dd span {
+  display: block;
+  font-family: var(--sans);
+  font-size: 0.68rem;
+  color: var(--mute);
+  letter-spacing: 0.06em;
+  margin-top: 0.15rem;
+}
+.hero-summary-more {
+  display: block;
+  text-align: center;
+  margin-top: 1.4rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--terra-line);
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  color: var(--terra);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+.hero-summary-more:hover { color: var(--terra-deep); }
+@media (max-width: 880px) {
+  .hero-ogp-bottom { grid-template-columns: 1fr; gap: 0; padding: 0 1.5rem; }
+  .hero-ogp-summary { display: none; }
+}
+
 /* Urgency strip (typography-only) */
 .urgency-strip {
   display: inline-flex;
@@ -741,16 +814,38 @@ section { padding: 7rem 0; position: relative; }
       <img src="images/ogp.png" alt="POOLO × School for Life Compath｜北海道・東川町の暮らしと人と自然の中で、自分のこれからの生き方を問い直す3日間（2026年8月21日〜23日）">
     </picture>
   </h1>
-  <p class="hero-ogp-meta">2026.08.21 fri ─ 08.23 sun</p>
-  <p class="hero-ogp-loc">HOKKAIDO HIGASHIKAWA</p>
-  <div class="urgency-strip">
-    <span>残り5名・先着順</span>
-    <span class="us-sep">／</span>
-    <span>申込締切 2026.07.23 fri</span>
-  </div>
-  <div class="hero-ogp-ctas">
-    <a href="https://docs.google.com/forms/d/e/1FAIpQLSc7W99gNVsQgp_rl6DH6G66fs5QwvaPhaFvbHDhGklgZpAe2w/viewform" class="btn btn-primary" target="_blank" rel="noopener">申し込む</a>
-    <a href="#info" class="btn btn-ghost-dark">開催概要</a>
+  <div class="hero-ogp-bottom">
+    <div class="hero-ogp-left">
+      <p class="hero-ogp-meta">2026.08.21 fri ─ 08.23 sun</p>
+      <p class="hero-ogp-loc">HOKKAIDO HIGASHIKAWA</p>
+      <div class="urgency-strip">
+        <span>残り5名・先着順</span>
+        <span class="us-sep">／</span>
+        <span>申込締切 2026.07.23 fri</span>
+      </div>
+      <div class="hero-ogp-ctas">
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSc7W99gNVsQgp_rl6DH6G66fs5QwvaPhaFvbHDhGklgZpAe2w/viewform" class="btn btn-primary" target="_blank" rel="noopener">申し込む</a>
+        <a href="#info" class="btn btn-ghost-dark">開催概要</a>
+      </div>
+    </div>
+    <aside class="hero-ogp-summary">
+      <p class="hero-summary-label">開催概要</p>
+      <dl class="hero-summary-table">
+        <dt>日程</dt>
+        <dd>2026年8月21日（金）〜23日（日）<span>2泊3日</span></dd>
+        <dt>会場</dt>
+        <dd>School for Life Compath 校舎<span>北海道・東川町</span></dd>
+        <dt>集合</dt>
+        <dd>8月21日（金）14:00<span>旭川空港または東川町せんとぴゅあ</span></dd>
+        <dt>参加費</dt>
+        <dd>59,800円（税込）<span>食事・宿泊込／旅費別</span></dd>
+        <dt>定員</dt>
+        <dd>16名（先着順）<span>残り5名</span></dd>
+        <dt>申込締切</dt>
+        <dd>2026年7月23日（金）12:00</dd>
+      </dl>
+      <a href="#info" class="hero-summary-more">詳しい開催概要を見る →</a>
+    </aside>
   </div>
 </section>
 
