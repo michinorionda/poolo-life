@@ -278,45 +278,76 @@ a:hover{border-bottom-color:var(--blue)}
   top:1px;
 }
 
-/* 体験会リンク3本 */
+/* 体験会リンク3本（サムネ付き） */
 .lp-grid{
   display:grid;
   grid-template-columns:1fr;
-  gap:14px;
+  gap:16px;
   margin-top:8px;
 }
 .lp-row{
   display:flex;
-  justify-content:space-between;
-  align-items:flex-start;
-  gap:16px;
+  align-items:stretch;
+  gap:18px;
   background:var(--card);
   border:1px solid var(--line);
-  padding:16px 20px;
+  padding:14px;
   border-radius:2px;
+  text-decoration:none;
+  color:inherit;
+  transition:box-shadow .15s ease,border-color .15s ease;
+}
+.lp-row:hover{
+  border-color:var(--blue);
+  box-shadow:0 2px 8px rgba(0,0,0,0.05);
+}
+.lp-row .lp-thumb{
+  flex:0 0 200px;
+  aspect-ratio:1200 / 630;
+  background:var(--bg);
+  overflow:hidden;
+  border-radius:2px;
+  border:1px solid var(--line);
+}
+.lp-row .lp-thumb img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+.lp-row .lp-body{
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  min-width:0;
+}
+.lp-row .lp-sub{
+  font-family:'Noto Sans JP',sans-serif;
+  font-weight:600;
+  font-size:11px;
+  color:var(--blue);
+  background:var(--blue-soft);
+  display:inline-block;
+  padding:3px 10px;
+  border-radius:2px;
+  letter-spacing:0.08em;
+  margin-bottom:8px;
+  align-self:flex-start;
 }
 .lp-row .lp-title{
   font-family:'Shippori Mincho',serif;
   font-weight:600;
-  font-size:15px;
+  font-size:16px;
   color:var(--ink);
-  flex:1;
+  line-height:1.5;
+  margin-bottom:6px;
 }
-.lp-row .lp-title .lp-sub{
-  display:block;
-  font-family:'Noto Sans JP',sans-serif;
-  font-weight:500;
-  font-size:12px;
+.lp-row .lp-url{
+  font-size:11.5px;
   color:var(--sub);
-  letter-spacing:0.05em;
-  margin-bottom:4px;
-}
-.lp-row a{
-  font-size:12px;
-  color:var(--blue);
   word-break:break-all;
-  text-align:right;
-  max-width:280px;
+  line-height:1.6;
 }
 
 /* ゲストテーブル */
@@ -461,8 +492,8 @@ footer.doc-foot{
   h2.sec-title{font-size:18px}
   body{font-size:14px}
   .kpi-grid{grid-template-columns:1fr}
-  .lp-row{flex-direction:column}
-  .lp-row a{text-align:left;max-width:100%}
+  .lp-row{flex-direction:column;gap:14px}
+  .lp-row .lp-thumb{flex:0 0 auto;width:100%;aspect-ratio:1200 / 630}
   table.guest{font-size:13px}
   table.guest thead th,table.guest tbody td{padding:10px}
 }
@@ -549,27 +580,30 @@ footer.doc-foot{
       <p>属性別に3本展開。それぞれ「誰に・何を問うか」を変えてテスト中。</p>
 
       <div class="lp-grid">
-        <div class="lp-row">
-          <div class="lp-title">
+        <a class="lp-row" href="https://michinorionda.github.io/poolo-life/event-20s-v01-260511/" target="_blank" rel="noopener">
+          <div class="lp-thumb"><img src="images/event-thumbnail-20s-v01.png" alt="20代後半｜自己理解 体験会サムネイル" loading="lazy"></div>
+          <div class="lp-body">
             <span class="lp-sub">20代後半｜自己理解</span>
-            体験会LP v01
+            <div class="lp-title">体験会LP v01</div>
+            <div class="lp-url">event-20s-v01-260511</div>
           </div>
-          <a href="https://michinorionda.github.io/poolo-life/event-20s-v01-260511/" target="_blank" rel="noopener">event-20s-v01-260511</a>
-        </div>
-        <div class="lp-row">
-          <div class="lp-title">
+        </a>
+        <a class="lp-row" href="https://michinorionda.github.io/poolo-life/event-30s-v03-260518/" target="_blank" rel="noopener">
+          <div class="lp-thumb"><img src="images/event-thumbnail-30s-v03.png" alt="30代｜関心探究型 体験会サムネイル" loading="lazy"></div>
+          <div class="lp-body">
             <span class="lp-sub">30代｜関心探究型</span>
-            体験会LP v03
+            <div class="lp-title">体験会LP v03</div>
+            <div class="lp-url">event-30s-v03-260518</div>
           </div>
-          <a href="https://michinorionda.github.io/poolo-life/event-30s-v03-260518/" target="_blank" rel="noopener">event-30s-v03-260518</a>
-        </div>
-        <div class="lp-row">
-          <div class="lp-title">
+        </a>
+        <a class="lp-row" href="https://michinorionda.github.io/poolo-life/event-30s-v01-260525/" target="_blank" rel="noopener">
+          <div class="lp-thumb"><img src="images/event-thumbnail-30s-v01.png" alt="30代｜キャリアの問い直し 体験会サムネイル" loading="lazy"></div>
+          <div class="lp-body">
             <span class="lp-sub">30代｜キャリアの問い直し</span>
-            体験会LP v01
+            <div class="lp-title">体験会LP v01</div>
+            <div class="lp-url">event-30s-v01-260525</div>
           </div>
-          <a href="https://michinorionda.github.io/poolo-life/event-30s-v01-260525/" target="_blank" rel="noopener">event-30s-v01-260525</a>
-        </div>
+        </a>
       </div>
     </div>
 
