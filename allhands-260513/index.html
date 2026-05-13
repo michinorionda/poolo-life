@@ -121,6 +121,115 @@ header.doc-head h1{
 .part-5 .part-title,.part-5 .part-number{color:var(--amber)}
 .part-6 .part-title,.part-6 .part-number{color:var(--sub)}
 
+/* 目標逆算 vs 関心探究 比較セクション */
+.type-intro{
+  background:var(--amber-soft);
+  border-left:4px solid var(--amber);
+  padding:20px 24px;
+  margin:0 0 24px;
+  border-radius:2px;
+  font-size:14.5px;
+  line-height:1.85;
+}
+.type-intro .ti-label{
+  font-size:11px;
+  letter-spacing:0.16em;
+  font-weight:700;
+  color:var(--amber);
+  margin-bottom:8px;
+}
+.type-intro p{margin:0}
+.type-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:18px;
+  margin:0 0 24px;
+}
+.type-card{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-top:4px solid var(--sub);
+  padding:22px 24px;
+  border-radius:2px;
+}
+.type-card.gyaku{border-top-color:var(--blue)}
+.type-card.tankyu{border-top-color:var(--amber)}
+.type-card .tc-label{
+  font-family:'Noto Sans JP',sans-serif;
+  font-size:11px;
+  letter-spacing:0.16em;
+  font-weight:700;
+  margin-bottom:8px;
+}
+.type-card.gyaku .tc-label{color:var(--blue)}
+.type-card.tankyu .tc-label{color:var(--amber)}
+.type-card h3{
+  font-family:'Shippori Mincho',serif;
+  font-weight:700;
+  font-size:19px;
+  margin:0 0 6px;
+  line-height:1.4;
+}
+.type-card.gyaku h3{color:var(--blue)}
+.type-card.tankyu h3{color:var(--amber)}
+.type-card .tc-sub{
+  font-size:12px;
+  color:var(--sub);
+  margin-bottom:14px;
+  letter-spacing:0.04em;
+}
+.type-card .tc-row{
+  margin-bottom:12px;
+}
+.type-card .tc-row:last-child{margin-bottom:0}
+.type-card .tc-row-label{
+  font-size:11px;
+  letter-spacing:0.12em;
+  font-weight:700;
+  color:var(--sub);
+  margin-bottom:4px;
+}
+.type-card .tc-row p{
+  margin:0;
+  font-size:13.5px;
+  line-height:1.8;
+}
+.type-card ul{
+  margin:0;
+  padding-left:18px;
+}
+.type-card ul li{
+  font-size:13.5px;
+  line-height:1.8;
+  margin-bottom:4px;
+}
+.type-stance{
+  background:var(--green-soft);
+  border-left:4px solid var(--green);
+  padding:22px 26px;
+  border-radius:2px;
+}
+.type-stance .ts-label{
+  font-size:11px;
+  letter-spacing:0.16em;
+  font-weight:700;
+  color:var(--green);
+  margin-bottom:8px;
+}
+.type-stance h3{
+  font-family:'Shippori Mincho',serif;
+  font-weight:700;
+  font-size:18px;
+  margin:0 0 10px;
+  color:var(--green);
+  line-height:1.5;
+}
+.type-stance p{
+  margin:0;
+  font-size:14px;
+  line-height:1.85;
+}
+
 .section{margin:0 0 36px}
 .sec-tag{
   display:inline-block;
@@ -542,6 +651,7 @@ footer.doc-foot{
   .kpi-grid{grid-template-columns:1fr}
   .lp-row{flex-direction:column;gap:14px}
   .lp-row .lp-thumb{flex:0 0 auto;width:100%;aspect-ratio:1200 / 630}
+  .type-grid{grid-template-columns:1fr;gap:14px}
   table.guest{font-size:13px}
   table.guest thead th,table.guest tbody td{padding:10px}
 }
@@ -782,9 +892,88 @@ footer.doc-foot{
   </div>
 </section>
 
-<!-- PART 5: FYI -->
+<!-- PART 5: POOLO LIFEの共通言語 -->
 <section class="part part-5">
   <div class="part-number">PART 05</div>
+  <h2 class="part-title">POOLO LIFEの共通言語<br>目標逆算型と関心探究型</h2>
+
+  <div class="type-intro">
+    <div class="ti-label">PREMISE</div>
+    <p>POOLO LIFEは「関心探究型」のための場として設計しています。社会で多数派の「目標逆算型」とは別ルートを通る人たち。チームで施策の言葉を選ぶときに、どちらの人に向けて書いているのかを意識的に分けたい。</p>
+  </div>
+
+  <div class="type-grid">
+
+    <div class="type-card gyaku">
+      <div class="tc-label">TYPE A</div>
+      <h3>目標逆算型</h3>
+      <div class="tc-sub">Goal-Reverse Engineering</div>
+
+      <div class="tc-row">
+        <div class="tc-row-label">行動原理</div>
+        <p>先に目標を置き、そこから逆算して計画的に進む。最短距離・再現性・成果が明確であることを大切にする。</p>
+      </div>
+
+      <div class="tc-row">
+        <div class="tc-row-label">強み</div>
+        <ul>
+          <li>達成可能性が読める</li>
+          <li>進捗が見えるので前に進みやすい</li>
+          <li>ビジネス・キャリア領域と相性がいい</li>
+        </ul>
+      </div>
+
+      <div class="tc-row">
+        <div class="tc-row-label">弱み</div>
+        <ul>
+          <li>知っている言葉でしか検索できない</li>
+          <li>想定外を排除しがちで、視野が閉じる</li>
+          <li>目標の手前にある「自分の関心」を置き去りにする</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="type-card tankyu">
+      <div class="tc-label">TYPE B</div>
+      <h3>関心探究型</h3>
+      <div class="tc-sub">Curiosity-Driven Exploration</div>
+
+      <div class="tc-row">
+        <div class="tc-row-label">行動原理</div>
+        <p>自分の好奇心や違和感を起点に、答えを急がず探究する。問いのまま持ち帰り、仲間と深め合いながら輪郭を立ち上げていく。</p>
+      </div>
+
+      <div class="tc-row">
+        <div class="tc-row-label">強み</div>
+        <ul>
+          <li>想像していなかった景色に辿り着ける</li>
+          <li>偶然や脱線が栄養になる</li>
+          <li>探究テーマが、人生を貫く軸に育っていく</li>
+        </ul>
+      </div>
+
+      <div class="tc-row">
+        <div class="tc-row-label">弱み</div>
+        <ul>
+          <li>一人だと孤独で、成果が見えにくい</li>
+          <li>社会の主流の物差しでは評価しづらい</li>
+          <li>言葉になる前のものを差し出せる場が、ふだん少ない</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="type-stance">
+    <div class="ts-label">POOLO LIFEのスタンス</div>
+    <h3>関心探究型を、50-70名 × 8か月で、一つの場に集める</h3>
+    <p>一人では孤独で成立しづらい関心探究型の生き方が、同じ向きの仲間と出会うことで、ふつうに息ができる場になる。一人では辿り着けない景色まで、仲間の引力で運ばれていく。マーケや発信は、目標逆算型の検討者にも届く言葉を残しつつ、最終的には関心探究型の人に「ここは自分の場所だ」と感じてもらえる解像度で書く。</p>
+  </div>
+</section>
+
+<!-- PART 6: FYI -->
+<section class="part part-6">
+  <div class="part-number">PART 06</div>
   <h2 class="part-title">FYI｜最近の参考メモ</h2>
 
   <div class="fyi-card">
