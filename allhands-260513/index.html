@@ -569,6 +569,98 @@ table.guest .gname{font-weight:600}
 }
 .fb-card .fb-link a{color:var(--teal);border-bottom-color:var(--teal-soft)}
 
+/* v7プレビュー（SP風ミニチュア） */
+.lp-preview{
+  margin:14px 0 18px;
+  background:rgba(255,255,255,0.55);
+  border:1px solid rgba(26,107,90,0.22);
+  border-radius:4px;
+  padding:18px;
+}
+.lp-preview-caption{
+  font-size:11px;
+  letter-spacing:0.14em;
+  font-weight:700;
+  color:var(--teal);
+  text-align:center;
+  margin-bottom:12px;
+  text-transform:uppercase;
+}
+.lp-preview-frame{
+  max-width:380px;
+  margin:0 auto;
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:10px;
+  padding:18px 16px;
+  box-shadow:0 2px 12px rgba(0,0,0,0.05);
+}
+.lp-preview-row{
+  display:flex;
+  align-items:flex-start;
+  gap:10px;
+  padding:10px 0;
+  border-bottom:1px dashed rgba(0,0,0,0.06);
+}
+.lp-preview-row:first-child{padding-top:4px}
+.lp-preview-row:last-child{border-bottom:none;padding-bottom:4px}
+.lpr-no{
+  font-family:'Shippori Mincho',serif;
+  font-weight:700;
+  font-size:11px;
+  color:var(--teal);
+  background:var(--teal-soft);
+  min-width:22px;
+  height:22px;
+  line-height:22px;
+  text-align:center;
+  border-radius:50%;
+  flex-shrink:0;
+  letter-spacing:0;
+}
+.lpr-content{
+  flex:1;
+  font-size:12.5px;
+  line-height:1.8;
+  color:var(--ink);
+  min-width:0;
+}
+.lpr-kv{
+  height:84px;
+  border-radius:4px;
+  background:linear-gradient(135deg,#e7edf4 0%,#ece9f6 60%,#f4ebd6 100%);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.lpr-kv-placeholder{
+  font-size:10px;
+  color:var(--sub);
+  letter-spacing:0.18em;
+  font-weight:600;
+}
+.lpr-label{
+  display:inline-block;
+  font-size:10px;
+  letter-spacing:0.18em;
+  font-weight:700;
+  color:var(--blue);
+  background:var(--blue-soft);
+  padding:3px 10px;
+  border-radius:2px;
+}
+.lpr-quote{
+  font-family:'Shippori Mincho',serif;
+  font-weight:600;
+  font-size:13px;
+  color:var(--ink);
+  background:var(--green-soft);
+  padding:10px 12px;
+  border-left:2px solid var(--green);
+  border-radius:2px;
+  line-height:1.85;
+}
+
 /* FYIブロック */
 .fyi-card{
   background:var(--card);
@@ -870,6 +962,38 @@ footer.doc-foot{
         <span class="fb-focus-title">SHARED QUESTION｜LP冒頭の核心メッセージ</span>
         <div class="fb-focus-body">
           「人生はたった、一度きり」から始まり、「わけのわからなさと向き合い続ける」「旅・問い・仲間」を経て、「想像もしなかった世界と自分に、出会いに行きませんか」へつながる、POOLO思想の一番太い導入。ここの言葉が、検討者の最初の体温を決める。
+        </div>
+
+        <div class="lp-preview">
+          <div class="lp-preview-caption">v7 No.4-9 プレビュー</div>
+          <div class="lp-preview-frame">
+            <div class="lp-preview-row">
+              <span class="lpr-no">4</span>
+              <div class="lpr-content lpr-kv">
+                <span class="lpr-kv-placeholder">KV / HERO</span>
+              </div>
+            </div>
+            <div class="lp-preview-row">
+              <span class="lpr-no">5</span>
+              <div class="lpr-content"><span class="lpr-label">SHARED QUESTION</span></div>
+            </div>
+            <div class="lp-preview-row">
+              <span class="lpr-no">6</span>
+              <div class="lpr-content">人生はたった、一度きり。<br>それでも僕らは、自分のことも、目の前の誰かのことも、いつまで経ってもよくわからないまま生きている。</div>
+            </div>
+            <div class="lp-preview-row">
+              <span class="lpr-no">7</span>
+              <div class="lpr-content">その「わけのわからなさ」と向き合い続けることこそが、人生を豊かにしていく。</div>
+            </div>
+            <div class="lp-preview-row">
+              <span class="lpr-no">8</span>
+              <div class="lpr-content">だからこそ、僕らが大事にしたいのは<br><br>旅に出ること。<br>問いを立てること。<br>仲間と、学び合い、深め合うこと。<br><br>好奇心を起点に、<br>仕事のためだけじゃない、人生のための探究と実践を。</div>
+            </div>
+            <div class="lp-preview-row">
+              <span class="lpr-no">9</span>
+              <div class="lpr-content"><div class="lpr-quote">想像もしなかった世界と、想像もしなかった自分に<br>一緒に、出会いに行きませんか。</div></div>
+            </div>
+          </div>
         </div>
       </li>
       <li>
