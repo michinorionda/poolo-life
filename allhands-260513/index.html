@@ -626,18 +626,22 @@ table.guest .gname{font-weight:600}
   min-width:0;
 }
 .lpr-kv{
-  height:84px;
+  min-height:96px;
+  padding:18px 14px;
   border-radius:4px;
   background:linear-gradient(135deg,#e7edf4 0%,#ece9f6 60%,#f4ebd6 100%);
   display:flex;
   align-items:center;
   justify-content:center;
+  text-align:center;
 }
-.lpr-kv-placeholder{
-  font-size:10px;
-  color:var(--sub);
-  letter-spacing:0.18em;
-  font-weight:600;
+.lpr-kv-copy{
+  font-family:'Shippori Mincho',serif;
+  font-weight:700;
+  font-size:14px;
+  line-height:1.7;
+  color:var(--ink);
+  letter-spacing:0.04em;
 }
 .lpr-label{
   display:inline-block;
@@ -985,7 +989,7 @@ footer.doc-foot{
             <div class="lp-preview-row">
               <span class="lpr-no">4</span>
               <div class="lpr-content lpr-kv">
-                <span class="lpr-kv-placeholder">KV / HERO</span>
+                <div class="lpr-kv-copy">あなたの好奇心と、<br>今を揺さぶる勇気を問う。</div>
               </div>
             </div>
             <div class="lp-preview-row">
