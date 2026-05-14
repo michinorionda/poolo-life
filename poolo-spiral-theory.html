@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>POOLO LIFE — なぜ、想像もしなかった世界の自分に出会い続けるのか</title>
+<meta name="description" content="POOLO LIFEの構造を、3つの問いで解く。動き出す／深まる／出会い続ける。12本の理論で裏打ちした、POOLO生のための長文読みもの。">
 <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
@@ -16,18 +17,78 @@
   --serif:'Shippori Mincho',serif;--sans:'Noto Sans JP',sans-serif;
 }
 *{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
 body{font-family:var(--sans);background:var(--bg);color:var(--ink);line-height:1.95;font-weight:300;-webkit-font-smoothing:antialiased}
 .wrap{max-width:760px;margin:0 auto;padding:0 1.5rem}
 .wrap-wide{max-width:1000px;margin:0 auto;padding:0 1.5rem}
 
+/* Scroll progress bar */
+.scroll-progress{position:fixed;top:0;left:0;width:0;height:2px;background:linear-gradient(90deg,var(--green),var(--star));z-index:200;transition:width 0.08s linear}
+
+/* Sticky chapter pill */
+.chapter-pill{position:fixed;top:1.2rem;right:1.2rem;background:rgba(255,255,255,0.94);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border:1px solid var(--line);padding:0.5rem 0.9rem;border-radius:24px;font-size:0.68rem;letter-spacing:0.16em;color:var(--ink);font-weight:600;opacity:0;transform:translateY(-6px);transition:opacity 0.4s,transform 0.4s;z-index:50;pointer-events:none;display:flex;align-items:center;gap:0.55rem}
+.chapter-pill.show{opacity:1;transform:translateY(0)}
+.chapter-pill .pill-num{color:var(--star);font-family:var(--serif);font-weight:700}
+.chapter-pill .pill-dot{width:5px;height:5px;border-radius:50%;background:var(--green)}
+
+/* Back to top */
+.back-to-top{position:fixed;bottom:1.5rem;right:1.5rem;background:#fff;border:1px solid var(--line);border-radius:50%;width:44px;height:44px;display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--green);font-size:1.1rem;opacity:0;transition:opacity 0.3s,background 0.2s,color 0.2s;z-index:50;text-decoration:none;box-shadow:0 2px 12px rgba(0,0,0,0.06)}
+.back-to-top.show{opacity:1}
+.back-to-top:hover{background:var(--green);color:#fff}
+
 /* Header */
-.header{padding:5rem 0 3rem;text-align:center;border-bottom:1px solid var(--line)}
+.header{padding:4.5rem 0 1.5rem;text-align:center}
 .mark{display:inline-block;font-size:0.6rem;letter-spacing:0.4em;color:var(--star);margin-bottom:1.8rem;font-weight:500;padding:0.35rem 1.1rem;border:1px solid var(--star);background:#fff}
 .h-title{font-family:var(--serif);font-size:1.95rem;font-weight:600;letter-spacing:0.08em;line-height:1.7;margin-bottom:1.2rem;color:var(--ink)}
 .h-sub{font-family:var(--serif);font-size:0.92rem;color:var(--sub);letter-spacing:0.08em;margin-bottom:1.5rem}
 .h-meta{font-size:0.72rem;color:var(--mute);letter-spacing:0.18em}
 .h-meta span{margin:0 0.6rem}
-.back{display:inline-block;margin-top:1.5rem;font-size:0.78rem;color:var(--green);text-decoration:none;letter-spacing:0.1em;border-bottom:1px solid var(--green);padding-bottom:2px}
+.h-audience{display:inline-block;margin-top:1.2rem;font-size:0.68rem;color:var(--green);letter-spacing:0.18em;font-weight:500;padding:0.3rem 0.9rem;background:var(--green-bg);border-radius:3px}
+.back{display:inline-block;margin-top:1.2rem;font-size:0.78rem;color:var(--green);text-decoration:none;letter-spacing:0.1em;border-bottom:1px solid var(--green);padding-bottom:2px}
+
+/* Hero spiral visualization */
+.hero-spiral{padding:0.5rem 0 2.5rem;display:flex;justify-content:center;align-items:center;flex-direction:column}
+.hero-spiral svg{width:100%;max-width:560px;height:auto}
+.hero-spiral .spiral-path{stroke:var(--green);stroke-width:1.3;fill:none;stroke-linecap:round;stroke-dasharray:2000;stroke-dashoffset:2000;animation:drawSpiral 2.4s cubic-bezier(0.4,0,0.2,1) 0.3s forwards}
+.hero-spiral .q-dot{opacity:0}
+.hero-spiral .q-dot.q1{fill:var(--green);animation:fadeIn 0.6s ease 2.0s forwards}
+.hero-spiral .q-dot.q2{fill:var(--warm);animation:fadeIn 0.6s ease 2.2s forwards}
+.hero-spiral .q-dot.q3{fill:var(--star);animation:fadeIn 0.6s ease 2.4s forwards}
+.hero-spiral text{opacity:0}
+.hero-spiral .q-name{font-family:var(--serif);font-size:14px;fill:var(--ink);font-weight:600;letter-spacing:0.05em}
+.hero-spiral .q-num{font-family:var(--serif);font-size:10px;letter-spacing:0.18em;font-weight:700}
+.hero-spiral .q-num.q1,.hero-spiral .q-name.q1{animation:fadeIn 0.8s ease 2.1s forwards}
+.hero-spiral .q-num.q1{fill:var(--green)}
+.hero-spiral .q-num.q2,.hero-spiral .q-name.q2{animation:fadeIn 0.8s ease 2.3s forwards}
+.hero-spiral .q-num.q2{fill:var(--warm)}
+.hero-spiral .q-num.q3,.hero-spiral .q-name.q3{animation:fadeIn 0.8s ease 2.5s forwards}
+.hero-spiral .q-num.q3{fill:var(--star)}
+.hero-spiral .center-mark{fill:var(--mute);animation:fadeIn 0.6s ease 0.2s forwards}
+.hero-spiral .center-text{font-family:var(--serif);font-size:10px;fill:var(--mute);letter-spacing:0.18em;text-anchor:middle;animation:fadeIn 0.8s ease 0.4s forwards}
+.hero-spiral .ring{fill:none;stroke:var(--line);stroke-width:0.6;stroke-dasharray:1.5,3}
+
+@keyframes drawSpiral{to{stroke-dashoffset:0}}
+@keyframes fadeIn{to{opacity:1}}
+
+/* Three questions overview */
+.three-q{padding:3rem 0 3.5rem;background:var(--bg-deep)}
+.three-q-label{text-align:center;font-size:0.62rem;letter-spacing:0.35em;color:var(--mute);font-weight:500;margin-bottom:0.7rem}
+.three-q-head{text-align:center;font-family:var(--serif);font-size:1.1rem;font-weight:600;letter-spacing:0.08em;line-height:1.7;color:var(--ink);margin-bottom:2.5rem}
+.q-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;max-width:920px;margin:0 auto;padding:0 1.5rem}
+.q-card{background:#fff;border:1px solid var(--line);border-radius:3px;padding:1.6rem 1.3rem;position:relative;display:flex;flex-direction:column;transition:transform 0.25s,box-shadow 0.25s}
+.q-card:hover{transform:translateY(-3px);box-shadow:0 6px 20px rgba(0,0,0,0.06)}
+.q-card.c1{border-top:3px solid var(--green)}
+.q-card.c2{border-top:3px solid var(--warm)}
+.q-card.c3{border-top:3px solid var(--star)}
+.q-card .q-mark{font-family:var(--serif);font-size:0.66rem;letter-spacing:0.3em;font-weight:700;margin-bottom:0.55rem}
+.q-card.c1 .q-mark{color:var(--green)}
+.q-card.c2 .q-mark{color:var(--warm)}
+.q-card.c3 .q-mark{color:var(--star)}
+.q-card .q-title{font-family:var(--serif);font-size:1.02rem;font-weight:600;color:var(--ink);line-height:1.65;margin-bottom:1rem;letter-spacing:0.04em}
+.q-card .q-thesis{font-size:0.78rem;color:var(--sub);line-height:1.95;margin-top:auto;font-weight:300}
+.q-card .q-thesis b{color:var(--ink);font-weight:500}
+.q-card .q-link{margin-top:1rem;padding-top:0.7rem;border-top:1px dashed var(--line);font-size:0.7rem;color:var(--mute);letter-spacing:0.1em;text-decoration:none}
+.q-card .q-link:hover{color:var(--green)}
 
 /* TOC */
 .toc{max-width:760px;margin:3rem auto 0;padding:2rem 2rem;background:#fff;border:1px solid var(--line);border-radius:4px}
@@ -36,19 +97,21 @@ body{font-family:var(--sans);background:var(--bg);color:var(--ink);line-height:1
 .toc li{counter-increment:toc;padding:0.45rem 0;border-top:1px dashed var(--line);font-size:0.88rem;display:flex;gap:1rem;align-items:baseline}
 .toc li:first-child{border-top:none}
 .toc li::before{content:counter(toc,decimal-leading-zero);font-family:var(--serif);color:var(--star);font-weight:600;font-size:0.78rem;letter-spacing:0.1em;min-width:2rem}
-.toc a{color:var(--ink);text-decoration:none;flex:1}
+.toc a{color:var(--ink);text-decoration:none;flex:1;transition:color 0.2s}
 .toc a:hover{color:var(--green)}
 .toc .sub{display:block;font-size:0.72rem;color:var(--mute);margin-top:0.2rem;letter-spacing:0.05em}
 
 /* Chapter */
-.chapter{padding:4.5rem 0 1.5rem}
-.chapter-head{text-align:center;margin-bottom:3rem}
+.chapter{padding:4.5rem 0 1.5rem;scroll-margin-top:1rem}
+.chapter-head{text-align:center;margin-bottom:2.5rem}
 .ch-num{font-family:var(--serif);font-size:0.68rem;letter-spacing:0.4em;color:var(--star);font-weight:500;display:block;margin-bottom:0.9rem}
 .ch-title{font-family:var(--serif);font-size:1.55rem;font-weight:600;letter-spacing:0.08em;line-height:1.7;color:var(--ink)}
+.ch-opener{max-width:280px;margin:1.8rem auto 0;display:flex;justify-content:center}
+.ch-opener svg{width:100%;height:auto;max-height:90px}
 .ch-prologue{max-width:760px;margin:0 auto}
 
-/* Thesis card (章冒頭の中心主張) */
-.thesis{background:var(--bg-deep);border-left:3px solid var(--star);border-right:3px solid var(--star);padding:1.8rem 2rem;margin:2rem 0 2.8rem;border-radius:2px}
+/* Thesis card */
+.thesis{background:#fff;border-left:3px solid var(--star);border-right:3px solid var(--star);padding:1.8rem 2rem;margin:2rem 0 2.8rem;border-radius:2px}
 .thesis p{font-family:var(--serif);font-size:1.02rem;font-weight:500;line-height:2.05;color:var(--ink);letter-spacing:0.04em;margin:0}
 
 /* Paragraph */
@@ -56,41 +119,50 @@ body{font-family:var(--sans);background:var(--bg);color:var(--ink);line-height:1
 .ch-prologue p b,.ch-prologue b{color:var(--ink);font-weight:500}
 .ch-prologue p em{font-style:normal;background:linear-gradient(transparent 65%,var(--star-bg) 65%);padding:0 2px}
 
-/* Voice quote (肉声) */
+/* Voice quote */
 .voice{padding:1.6rem 1.8rem;background:#fff;border:1px solid var(--line);border-radius:3px;margin:1.4rem 0;font-family:var(--serif);font-size:0.95rem;color:var(--ink);font-weight:500;letter-spacing:0.04em;line-height:1.9;position:relative}
 .voice::before{content:'＼';position:absolute;top:-0.6rem;left:1.5rem;background:var(--bg);padding:0 0.4rem;color:var(--warm);font-size:0.8rem}
 .voice + .voice{margin-top:0.9rem}
 
-/* Side note (用語補足) */
+/* Side note */
 .note{background:var(--warm-bg);border-left:3px solid var(--warm);padding:1.2rem 1.4rem;margin:1.6rem 0;border-radius:2px}
 .note .note-tag{display:inline-block;font-size:0.6rem;letter-spacing:0.2em;color:var(--warm);border:1px solid var(--warm);padding:0.15rem 0.45rem;margin-bottom:0.55rem;font-weight:500;background:#fff}
 .note .note-term{font-family:var(--serif);font-weight:600;color:var(--ink);font-size:0.92rem;margin-bottom:0.4rem;letter-spacing:0.04em}
 .note p{font-size:0.82rem;line-height:1.95;color:var(--sub);margin:0}
 .note p b{color:var(--ink);font-weight:500}
 
-/* Section break within chapter (2-1/2-2/2-3) */
+/* Section break within chapter */
 .subch{padding:2rem 0 0.5rem;border-top:1px dashed var(--line);margin-top:2.5rem}
 .subch:first-of-type{border-top:none;margin-top:0;padding-top:0}
 .subch-head{display:flex;align-items:baseline;gap:1rem;margin-bottom:1.4rem}
 .subch-num{font-family:var(--serif);font-size:0.7rem;letter-spacing:0.3em;color:var(--green);font-weight:600}
 .subch-title{font-family:var(--serif);font-size:1.1rem;font-weight:600;letter-spacing:0.06em;color:var(--ink)}
 
-/* Chapter closer (章末移行) */
+/* Chapter closer */
 .closer{margin-top:2.2rem;padding-top:1.5rem;border-top:1px solid var(--line);text-align:center;font-family:var(--serif);font-size:0.88rem;color:var(--mute);font-weight:500;letter-spacing:0.08em;font-style:italic}
 
-/* Scene (体験シーン) */
+/* Scene */
 .scene{background:var(--deep-bg);border-radius:3px;padding:1.4rem 1.6rem;margin:1.6rem 0;font-size:0.88rem;line-height:2;color:var(--sub);border-left:3px solid var(--deep)}
 .scene-tag{display:inline-block;font-size:0.6rem;letter-spacing:0.3em;color:var(--deep);font-weight:600;margin-bottom:0.5rem}
 
-/* Appendix: theory list */
+/* Inline diagram block */
+.diagram{margin:2.4rem auto;background:#fff;border:1px solid var(--line);border-radius:4px;padding:1.8rem 1.5rem;max-width:760px}
+.diagram-label{font-size:0.62rem;letter-spacing:0.3em;color:var(--mute);font-weight:500;margin-bottom:0.4rem;text-align:center}
+.diagram-title{font-family:var(--serif);font-size:0.98rem;font-weight:600;color:var(--ink);text-align:center;letter-spacing:0.06em;margin-bottom:1.4rem}
+.diagram svg{width:100%;height:auto;display:block}
+.diagram-caption{font-size:0.74rem;color:var(--mute);text-align:center;margin-top:1rem;letter-spacing:0.04em;line-height:1.9}
+.diagram svg text{font-family:var(--sans)}
+
+/* Appendix theory cards */
 .theory-intro{text-align:center;color:var(--mute);font-size:0.85rem;line-height:1.95;margin-bottom:2.5rem;max-width:620px;margin-left:auto;margin-right:auto}
 .theory-group{padding:1.6rem 0 0.3rem;border-top:1px dashed var(--line);margin-top:1.8rem}
 .theory-group:first-of-type{border-top:none;margin-top:0;padding-top:0}
 .theory-group-head{display:flex;align-items:baseline;gap:1rem;margin-bottom:1rem}
 .theory-group-num{font-family:var(--serif);font-size:0.7rem;letter-spacing:0.3em;color:var(--green);font-weight:600}
 .theory-group-title{font-family:var(--serif);font-size:1rem;font-weight:600;letter-spacing:0.06em;color:var(--ink)}
-.theory-item{padding:1.3rem 0;border-bottom:1px dotted var(--line)}
+.theory-item{padding:1.3rem 0;border-bottom:1px dotted var(--line);position:relative}
 .theory-item:last-child{border-bottom:none}
+.theory-item::before{content:'';position:absolute;left:-1.2rem;top:1.7rem;width:6px;height:6px;border-radius:50%;background:var(--star);opacity:0.6}
 .theory-name{font-family:var(--serif);font-size:1rem;font-weight:600;color:var(--ink);margin-bottom:0.65rem;letter-spacing:0.03em}
 .theory-name .theory-author{font-size:0.76rem;color:var(--mute);font-weight:400;margin-left:0.5rem;letter-spacing:0.04em}
 .theory-line{font-size:0.85rem;color:var(--sub);line-height:1.95;margin-bottom:0.35rem}
@@ -101,7 +173,7 @@ body{font-family:var(--sans);background:var(--bg);color:var(--ink);line-height:1
 
 /* Final CTA */
 .final-cta{background:var(--deep);color:#fff;padding:3.5rem 0;margin-top:4rem}
-.final-cta .wrap{text-align:center}
+.final-cta .wrap-wide{text-align:center}
 .final-cta .final-title{font-family:var(--serif);font-size:1.2rem;font-weight:600;letter-spacing:0.08em;margin-bottom:1.5rem;line-height:1.8;color:#fff}
 .final-cta p{color:rgba(255,255,255,0.85);font-size:0.88rem;line-height:2;margin-bottom:1.8rem}
 .final-cta .links{display:flex;justify-content:center;gap:1rem;flex-wrap:wrap;margin-top:2rem}
@@ -122,36 +194,95 @@ footer p{color:rgba(255,255,255,0.45);font-size:0.72rem;margin-top:1rem;letter-s
   .thesis p{font-size:0.94rem}
   .ch-prologue p{font-size:0.9rem;line-height:1.95}
   .final-cta .links{flex-direction:column;gap:0.7rem}
+  .q-cards{grid-template-columns:1fr;gap:0.8rem;padding:0 1.5rem}
+  .chapter-pill{top:auto;bottom:5rem;right:1rem;font-size:0.62rem;padding:0.45rem 0.75rem}
+  .back-to-top{bottom:1rem;right:1rem;width:40px;height:40px}
+  .hero-spiral svg{max-width:340px}
+  .diagram{padding:1.4rem 1rem;margin:2rem auto}
+  .toc{padding:1.5rem 1.3rem}
+  .theory-item::before{display:none}
 }
 </style>
 </head>
 <body>
 
-<header class="header">
+<div class="scroll-progress" id="scrollProgress"></div>
+<div class="chapter-pill" id="chapterPill"><span class="pill-num"></span><span class="pill-dot"></span><span class="pill-text"></span></div>
+<a href="#top" class="back-to-top" id="backToTop" aria-label="Back to top">↑</a>
+
+<header class="header" id="top">
   <div class="wrap">
     <span class="mark">POOLO LIFE — THE THEORY</span>
     <h1 class="h-title">なぜ、想像もしなかった<br>世界の自分に出会い続けるのか</h1>
     <p class="h-sub">3つの問いで解く、螺旋の構造</p>
     <p class="h-meta"><span>約13分</span>・<span>5,500字</span>・<span>理論12件</span></p>
+    <div><span class="h-audience">POOLO LIFE 在校生・卒業生向け</span></div>
     <a href="index-share.html" class="back">← 共有ハブに戻る</a>
   </div>
 </header>
 
+<!-- Hero spiral visualization -->
+<div class="hero-spiral" aria-hidden="true">
+  <svg id="spiralHero" viewBox="0 0 600 460">
+    <circle class="ring" cx="300" cy="230" r="50"/>
+    <circle class="ring" cx="300" cy="230" r="100"/>
+    <circle class="ring" cx="300" cy="230" r="160"/>
+    <path id="spiralPath" class="spiral-path"/>
+    <circle class="center-mark" cx="300" cy="230" r="3"/>
+    <text class="center-text" x="300" y="248">START</text>
+    <circle class="q-dot q1" cx="263" cy="251" r="6"/>
+    <text class="q-num q1" x="248" y="244" text-anchor="end">Q.01</text>
+    <text class="q-name q1" x="248" y="262" text-anchor="end">動き出す</text>
+    <circle class="q-dot q2" cx="300" cy="168" r="6"/>
+    <text class="q-num q2" x="300" y="145" text-anchor="middle">Q.02</text>
+    <text class="q-name q2" x="300" y="161" text-anchor="middle">深まる</text>
+    <circle class="q-dot q3" cx="419" cy="298" r="6"/>
+    <text class="q-num q3" x="432" y="304" text-anchor="start">Q.03</text>
+    <text class="q-name q3" x="432" y="321" text-anchor="start">出会い続ける</text>
+  </svg>
+</div>
+
+<!-- Three questions overview -->
+<section class="three-q">
+  <div class="three-q-label">── THE THREE QUESTIONS ──</div>
+  <div class="three-q-head">3つの問いが、ひとつの螺旋になる</div>
+  <div class="q-cards">
+    <div class="q-card c1">
+      <span class="q-mark">Q.01</span>
+      <h3 class="q-title">なぜ、人は<br>動き出せるのか</h3>
+      <p class="q-thesis"><b>身体が先に動く条件と、関心を起点にできる場</b>が揃ったとき、人は予想しなかった速度で動いていく。</p>
+      <a href="#ch1" class="q-link">第1章を読む →</a>
+    </div>
+    <div class="q-card c2">
+      <span class="q-mark">Q.02</span>
+      <h3 class="q-title">なぜ、<br>深まるのか</h3>
+      <p class="q-thesis"><b>仮の輪郭・仲間の引力場・反応を取り込む螺旋</b>。この3つが噛み合った量で、深さは決まる。</p>
+      <a href="#ch2" class="q-link">第2章を読む →</a>
+    </div>
+    <div class="q-card c3">
+      <span class="q-mark">Q.03</span>
+      <h3 class="q-title">なぜ、出会い<br>続けるのか</h3>
+      <p class="q-thesis">8ヶ月はゴールではなく、<b>螺旋が身体化して卒業後も回り続ける転換点</b>。到達点は生成変化し続ける自分そのもの。</p>
+      <a href="#ch3" class="q-link">第3章を読む →</a>
+    </div>
+  </div>
+</section>
+
 <!-- TOC -->
-<nav class="toc">
+<nav class="toc" aria-label="目次">
   <div class="toc-label">── CONTENTS ──</div>
   <ol>
     <li><a href="#prologue">序章<span class="sub">想像力の外側へ運ばれたい人へ</span></a></li>
-    <li><a href="#ch1">なぜ、人は動き出せるのか<span class="sub">揺らぎ ― 身体が先に動く</span></a></li>
-    <li><a href="#ch2">なぜ、深まるのか<span class="sub">輪郭 × 引力 × 受け取り直す</span></a></li>
-    <li><a href="#ch3">なぜ、出会い続けるのか<span class="sub">生成 ― 螺旋の身体化</span></a></li>
+    <li><a href="#ch1">なぜ、人は動き出せるのか<span class="sub">揺らぎ・身体が先に動く</span></a></li>
+    <li><a href="#ch2">なぜ、深まるのか<span class="sub">輪郭・引力・受け取り直す</span></a></li>
+    <li><a href="#ch3">なぜ、出会い続けるのか<span class="sub">生成・螺旋の身体化</span></a></li>
     <li><a href="#epilogue">結章<span class="sub">螺旋を日常の動作にする</span></a></li>
     <li><a href="#appendix">付録<span class="sub">本稿で用いた理論（12本）</span></a></li>
   </ol>
 </nav>
 
 <!-- 序章 -->
-<section class="chapter" id="prologue">
+<section class="chapter" id="prologue" data-pill="序" data-pill-text="序章">
   <div class="chapter-head">
     <span class="ch-num">── PROLOGUE ──</span>
     <h2 class="ch-title">序章</h2>
@@ -175,10 +306,20 @@ footer p{color:rgba(255,255,255,0.45);font-size:0.72rem;margin-top:1rem;letter-s
 </section>
 
 <!-- 第1章 -->
-<section class="chapter" id="ch1" style="background:var(--bg-deep)">
+<section class="chapter" id="ch1" data-pill="01" data-pill-text="動き出し" style="background:var(--bg-deep)">
   <div class="chapter-head">
     <span class="ch-num">── CHAPTER 01 ──</span>
     <h2 class="ch-title">なぜ、人は動き出せるのか</h2>
+    <div class="ch-opener">
+      <svg viewBox="0 0 240 90" aria-hidden="true">
+        <circle cx="40" cy="45" r="3" fill="#2D6A4F" opacity="0.25"/>
+        <circle cx="72" cy="45" r="4" fill="#2D6A4F" opacity="0.45"/>
+        <circle cx="108" cy="45" r="5" fill="#2D6A4F" opacity="0.7"/>
+        <circle cx="148" cy="45" r="6" fill="#2D6A4F"/>
+        <path d="M158,45 L210,45 M210,45 L202,40 M210,45 L202,50" fill="none" stroke="#2D6A4F" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+        <text x="125" y="78" text-anchor="middle" font-family="Shippori Mincho,serif" font-size="10" fill="#7a7a7a" letter-spacing="0.08em">身体が先、言葉が後</text>
+      </svg>
+    </div>
   </div>
   <div class="ch-prologue">
     <div class="thesis">
@@ -205,6 +346,38 @@ footer p{color:rgba(255,255,255,0.45);font-size:0.72rem;margin-top:1rem;letter-s
       <p>運営チームが場に対して担う5つの機能。鏡（映す）／反応（返す）／問い（揺らす）／出会い（つなぐ）／伴走（併走する）。いずれも導きではない。<b>変わる条件を整える機能</b>。</p>
     </div>
 
+    <!-- Diagram: 5役割 pentagon -->
+    <div class="diagram">
+      <div class="diagram-label">── DIAGRAM ──</div>
+      <div class="diagram-title">運営チームの5役割と、本人の関心の起点</div>
+      <svg viewBox="0 0 480 320" aria-hidden="true">
+        <line x1="240" y1="160" x2="240" y2="50" stroke="#e0ddd3" stroke-width="0.8"/>
+        <line x1="240" y1="160" x2="345" y2="125" stroke="#e0ddd3" stroke-width="0.8"/>
+        <line x1="240" y1="160" x2="305" y2="248" stroke="#e0ddd3" stroke-width="0.8"/>
+        <line x1="240" y1="160" x2="175" y2="248" stroke="#e0ddd3" stroke-width="0.8"/>
+        <line x1="240" y1="160" x2="135" y2="125" stroke="#e0ddd3" stroke-width="0.8"/>
+        <circle cx="240" cy="160" r="36" fill="#E9F5EE" stroke="#2D6A4F" stroke-width="1.6"/>
+        <text x="240" y="156" text-anchor="middle" font-family="Shippori Mincho,serif" font-size="11" fill="#2D6A4F" font-weight="700" letter-spacing="0.1em">本人の</text>
+        <text x="240" y="172" text-anchor="middle" font-family="Shippori Mincho,serif" font-size="11" fill="#2D6A4F" font-weight="700" letter-spacing="0.1em">関心</text>
+        <circle cx="240" cy="50" r="28" fill="#fff" stroke="#2D6A4F" stroke-width="1.4"/>
+        <text x="240" y="48" text-anchor="middle" font-family="Shippori Mincho,serif" font-size="13" fill="#1a1a1a" font-weight="600">鏡</text>
+        <text x="240" y="65" text-anchor="middle" font-size="8" fill="#7a7a7a" letter-spacing="0.15em">MIRROR</text>
+        <circle cx="345" cy="125" r="28" fill="#fff" stroke="#2D6A4F" stroke-width="1.4"/>
+        <text x="345" y="123" text-anchor="middle" font-family="Shippori Mincho,serif" font-size="13" fill="#1a1a1a" font-weight="600">反応</text>
+        <text x="345" y="140" text-anchor="middle" font-size="8" fill="#7a7a7a" letter-spacing="0.15em">REACT</text>
+        <circle cx="305" cy="248" r="28" fill="#fff" stroke="#2D6A4F" stroke-width="1.4"/>
+        <text x="305" y="246" text-anchor="middle" font-family="Shippori Mincho,serif" font-size="13" fill="#1a1a1a" font-weight="600">問い</text>
+        <text x="305" y="263" text-anchor="middle" font-size="8" fill="#7a7a7a" letter-spacing="0.15em">QUESTION</text>
+        <circle cx="175" cy="248" r="28" fill="#fff" stroke="#2D6A4F" stroke-width="1.4"/>
+        <text x="175" y="246" text-anchor="middle" font-family="Shippori Mincho,serif" font-size="13" fill="#1a1a1a" font-weight="600">出会い</text>
+        <text x="175" y="263" text-anchor="middle" font-size="8" fill="#7a7a7a" letter-spacing="0.15em">ENCOUNTER</text>
+        <circle cx="135" cy="125" r="28" fill="#fff" stroke="#2D6A4F" stroke-width="1.4"/>
+        <text x="135" y="123" text-anchor="middle" font-family="Shippori Mincho,serif" font-size="13" fill="#1a1a1a" font-weight="600">伴走</text>
+        <text x="135" y="140" text-anchor="middle" font-size="8" fill="#7a7a7a" letter-spacing="0.15em">WALK-WITH</text>
+        <text x="240" y="305" text-anchor="middle" font-size="10" fill="#a8a8a8" letter-spacing="0.06em">5役割は導きではなく、本人の関心が起点から外れないように整える機能。</text>
+      </svg>
+    </div>
+
     <p>変容の起点についての古典的議論にも触れておく。大人の学び直しを研究した<b>変容的学習</b>（メジロー）は、しばしば disorienting dilemma、つまり危機的な動揺を起点として語られる。POOLOはこの理論の核心を、危機そのものではなく<b>前提枠組が揺らいで組み替わる契機</b>のほうに置く。危機はその契機の一形態にすぎない。核心を維持したまま、<em>契機の形態を危機から旅の快に置き換える</em>。旅で身体が先に動くとき、頭の前提枠組は抵抗を持たずに緩む。苦しさを入口にしないから、自分を責めずに起動できる。場は無理に揺さぶらず、身体が勝手に揺らぐ条件だけを整える。これは<b>導きをしない</b>という原則とも矛盾しない。</p>
 
     <p>この場は、コーチングでもスクールでもコミュニティでもない。目標を立てて逆算する場でも、熟達者から正解を受け取る場でも、同質の仲間で安心する場でもない。<b>関心から始まり、仲間の反応で軌道が曲がり、知らない人に差し出して軌道が確定する場</b>。動き出しの時点で、他の選択肢とは別の地図の上に立っている。</p>
@@ -214,10 +387,20 @@ footer p{color:rgba(255,255,255,0.45);font-size:0.72rem;margin-top:1rem;letter-s
 </section>
 
 <!-- 第2章 -->
-<section class="chapter" id="ch2">
+<section class="chapter" id="ch2" data-pill="02" data-pill-text="深まり">
   <div class="chapter-head">
     <span class="ch-num">── CHAPTER 02 ──</span>
     <h2 class="ch-title">なぜ、深まるのか</h2>
+    <div class="ch-opener">
+      <svg viewBox="0 0 240 90" aria-hidden="true">
+        <circle cx="95" cy="45" r="26" fill="#E9F5EE" fill-opacity="0.7" stroke="#2D6A4F" stroke-width="1.2"/>
+        <circle cx="120" cy="45" r="26" fill="#F7EDE2" fill-opacity="0.7" stroke="#C08457" stroke-width="1.2"/>
+        <circle cx="145" cy="45" r="26" fill="#DCE6E7" fill-opacity="0.7" stroke="#1F3A3D" stroke-width="1.2"/>
+        <text x="65" y="80" font-family="Shippori Mincho,serif" font-size="9" fill="#2D6A4F" text-anchor="middle">輪郭</text>
+        <text x="120" y="80" font-family="Shippori Mincho,serif" font-size="9" fill="#C08457" text-anchor="middle">引力</text>
+        <text x="175" y="80" font-family="Shippori Mincho,serif" font-size="9" fill="#1F3A3D" text-anchor="middle">受け取り直す</text>
+      </svg>
+    </div>
   </div>
   <div class="ch-prologue">
     <div class="thesis">
@@ -278,6 +461,39 @@ footer p{color:rgba(255,255,255,0.45);font-size:0.72rem;margin-top:1rem;letter-s
         <p>POOLO LIFEの8ヶ月チーム設計。T1（1〜3ヶ月）で最初のチーム、T2（4〜7ヶ月、最深の4ヶ月）で別のチーム、T3（8ヶ月目）で新鮮な組み合わせ。3回の組み換えで、<b>馴れ合う前に引力場の形が変わる</b>。</p>
       </div>
 
+      <!-- Diagram: T1/T2/T3 timeline -->
+      <div class="diagram">
+        <div class="diagram-label">── DIAGRAM ──</div>
+        <div class="diagram-title">8ヶ月・3回のチーム組み換え</div>
+        <svg viewBox="0 0 720 170" aria-hidden="true">
+          <text x="80" y="22" text-anchor="middle" font-size="10" fill="#a8a8a8">M1</text>
+          <text x="160" y="22" text-anchor="middle" font-size="10" fill="#a8a8a8">M2</text>
+          <text x="240" y="22" text-anchor="middle" font-size="10" fill="#a8a8a8">M3</text>
+          <text x="320" y="22" text-anchor="middle" font-size="10" fill="#a8a8a8">M4</text>
+          <text x="400" y="22" text-anchor="middle" font-size="10" fill="#a8a8a8">M5</text>
+          <text x="480" y="22" text-anchor="middle" font-size="10" fill="#a8a8a8">M6</text>
+          <text x="560" y="22" text-anchor="middle" font-size="10" fill="#a8a8a8">M7</text>
+          <text x="640" y="22" text-anchor="middle" font-size="10" fill="#a8a8a8">M8</text>
+          <rect x="40" y="38" width="240" height="36" fill="#E9F5EE" stroke="#2D6A4F" stroke-width="1.4" rx="2"/>
+          <text x="160" y="62" text-anchor="middle" font-family="Shippori Mincho,serif" font-size="15" font-weight="700" fill="#2D6A4F" letter-spacing="0.06em">T1</text>
+          <text x="160" y="95" text-anchor="middle" font-size="10" fill="#4a4a4a" letter-spacing="0.1em">M1 ・ M2 ・ M3</text>
+          <text x="160" y="112" text-anchor="middle" font-family="Shippori Mincho,serif" font-size="11" fill="#1a1a1a" font-weight="600" letter-spacing="0.06em">最初のチーム</text>
+          <text x="160" y="130" text-anchor="middle" font-size="9" fill="#7a7a7a">関心の輪郭を置く</text>
+          <rect x="280" y="38" width="320" height="36" fill="#DCE6E7" stroke="#1F3A3D" stroke-width="1.6" rx="2"/>
+          <text x="440" y="62" text-anchor="middle" font-family="Shippori Mincho,serif" font-size="15" font-weight="700" fill="#1F3A3D" letter-spacing="0.06em">T2</text>
+          <text x="440" y="95" text-anchor="middle" font-size="10" fill="#4a4a4a" letter-spacing="0.1em">M4 ・ M5 ・ M6 ・ M7</text>
+          <text x="440" y="112" text-anchor="middle" font-family="Shippori Mincho,serif" font-size="11" fill="#1a1a1a" font-weight="700" letter-spacing="0.06em">別のチーム・最深の4ヶ月</text>
+          <text x="440" y="130" text-anchor="middle" font-size="9" fill="#7a7a7a">引力場が組み替わる</text>
+          <rect x="600" y="38" width="80" height="36" fill="#F7EDE2" stroke="#C08457" stroke-width="1.4" rx="2"/>
+          <text x="640" y="62" text-anchor="middle" font-family="Shippori Mincho,serif" font-size="15" font-weight="700" fill="#C08457" letter-spacing="0.06em">T3</text>
+          <text x="640" y="95" text-anchor="middle" font-size="10" fill="#4a4a4a" letter-spacing="0.1em">M8</text>
+          <text x="640" y="112" text-anchor="middle" font-family="Shippori Mincho,serif" font-size="11" fill="#1a1a1a" font-weight="600" letter-spacing="0.06em">新鮮な組み合わせ</text>
+          <text x="640" y="130" text-anchor="middle" font-size="9" fill="#7a7a7a">関係が再変形</text>
+          <path d="M280,148 L600,148" stroke="#C08457" stroke-width="0.8" stroke-dasharray="2,3" opacity="0.6"/>
+          <text x="440" y="162" text-anchor="middle" font-size="9" fill="#C08457" letter-spacing="0.1em">最深ゾーン</text>
+        </svg>
+      </div>
+
       <div class="scene">
         <span class="scene-tag">── SCENE ──</span>
         T2の初回、新しいチームに移ったばかりの夜。誰かが<b>関心テーマ、T1のときと少し変わってきた</b>と小さく差し出す。別の誰かが<b>その変わり方、わたしにも覚えがある</b>と応える。進行表にはない話が続く。この夜の残響が、次の旅の選び方を変える。
@@ -305,10 +521,76 @@ footer p{color:rgba(255,255,255,0.45);font-size:0.72rem;margin-top:1rem;letter-s
         <p>見つける（M1-3）→ 名乗る（M3-4）→ 小さく届ける（M4-6）→ 知らない人に届ける（M7-8）。各ステップの中で、<b>反射・言語化・接続の小さな螺旋が何度も回る</b>。</p>
       </div>
 
+      <!-- Diagram: 4-step flow -->
+      <div class="diagram">
+        <div class="diagram-label">── DIAGRAM ──</div>
+        <div class="diagram-title">4ステップ・差し出す相手の射程を広げる</div>
+        <svg viewBox="0 0 720 200" aria-hidden="true">
+          <line x1="100" y1="80" x2="630" y2="80" stroke="#e0ddd3" stroke-width="0.8" stroke-dasharray="3,3"/>
+          <circle cx="100" cy="80" r="34" fill="#fff" stroke="#2D6A4F" stroke-width="1.4"/>
+          <text x="100" y="68" text-anchor="middle" font-size="9" fill="#B8860B" letter-spacing="0.2em" font-weight="700">STEP</text>
+          <text x="100" y="90" text-anchor="middle" font-family="Shippori Mincho,serif" font-size="20" font-weight="700" fill="#2D6A4F">01</text>
+          <text x="100" y="138" text-anchor="middle" font-family="Shippori Mincho,serif" font-size="14" font-weight="700" fill="#1a1a1a">見つける</text>
+          <text x="100" y="158" text-anchor="middle" font-size="10" fill="#7a7a7a" letter-spacing="0.1em">M1 ・ M3</text>
+          <text x="100" y="178" text-anchor="middle" font-size="10" fill="#a8a8a8" font-family="Shippori Mincho,serif">関心の輪郭</text>
+          <path d="M138,80 L222,80 M222,80 L214,75 M222,80 L214,85" fill="none" stroke="#a8a8a8" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="265" cy="80" r="34" fill="#fff" stroke="#C08457" stroke-width="1.4"/>
+          <text x="265" y="68" text-anchor="middle" font-size="9" fill="#B8860B" letter-spacing="0.2em" font-weight="700">STEP</text>
+          <text x="265" y="90" text-anchor="middle" font-family="Shippori Mincho,serif" font-size="20" font-weight="700" fill="#C08457">02</text>
+          <text x="265" y="138" text-anchor="middle" font-family="Shippori Mincho,serif" font-size="14" font-weight="700" fill="#1a1a1a">名乗る</text>
+          <text x="265" y="158" text-anchor="middle" font-size="10" fill="#7a7a7a" letter-spacing="0.1em">M3 ・ M4</text>
+          <text x="265" y="178" text-anchor="middle" font-size="10" fill="#a8a8a8" font-family="Shippori Mincho,serif">輪郭を宣言</text>
+          <path d="M303,80 L387,80 M387,80 L379,75 M387,80 L379,85" fill="none" stroke="#a8a8a8" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="430" cy="80" r="34" fill="#fff" stroke="#C08457" stroke-width="1.4"/>
+          <text x="430" y="68" text-anchor="middle" font-size="9" fill="#B8860B" letter-spacing="0.2em" font-weight="700">STEP</text>
+          <text x="430" y="90" text-anchor="middle" font-family="Shippori Mincho,serif" font-size="20" font-weight="700" fill="#C08457">03</text>
+          <text x="430" y="138" text-anchor="middle" font-family="Shippori Mincho,serif" font-size="14" font-weight="700" fill="#1a1a1a">小さく届ける</text>
+          <text x="430" y="158" text-anchor="middle" font-size="10" fill="#7a7a7a" letter-spacing="0.1em">M4 ・ M6</text>
+          <text x="430" y="178" text-anchor="middle" font-size="10" fill="#a8a8a8" font-family="Shippori Mincho,serif">仲間の外側へ</text>
+          <path d="M468,80 L552,80 M552,80 L544,75 M552,80 L544,85" fill="none" stroke="#1F3A3D" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="595" cy="80" r="36" fill="#DCE6E7" stroke="#1F3A3D" stroke-width="1.8"/>
+          <text x="595" y="68" text-anchor="middle" font-size="9" fill="#1F3A3D" letter-spacing="0.2em" font-weight="700">STEP</text>
+          <text x="595" y="90" text-anchor="middle" font-family="Shippori Mincho,serif" font-size="20" font-weight="700" fill="#1F3A3D">04</text>
+          <text x="595" y="138" text-anchor="middle" font-family="Shippori Mincho,serif" font-size="13" font-weight="700" fill="#1a1a1a">知らない人に届ける</text>
+          <text x="595" y="158" text-anchor="middle" font-size="10" fill="#7a7a7a" letter-spacing="0.1em">M7 ・ M8</text>
+          <text x="595" y="178" text-anchor="middle" font-size="10" fill="#1F3A3D" font-family="Shippori Mincho,serif" font-weight="600" letter-spacing="0.08em">Lv.3 必修ライン</text>
+        </svg>
+      </div>
+
       <div class="note">
         <span class="note-tag">POOLO用語</span>
         <div class="note-term">Lv.3 必修ライン</div>
         <p>差し出しの深さの4段階（自分／仲間／知らない人／関係を紡ぐ）のうち、POOLOではLv.3（知らない人に差し出す／立つ）を全員の必修ラインとして置く。<b>自己分析や仲間うちの共有では絶対に届かない場所に、Lv.3で初めて手が届く。</b></p>
+      </div>
+
+      <!-- Diagram: Depth ladder -->
+      <div class="diagram">
+        <div class="diagram-label">── DIAGRAM ──</div>
+        <div class="diagram-title">差し出しの深さ・4段階</div>
+        <svg viewBox="0 0 480 360" aria-hidden="true">
+          <rect x="60" y="40" width="360" height="56" fill="#fff" stroke="#e0ddd3" stroke-width="1" rx="2"/>
+          <text x="78" y="62" font-family="Shippori Mincho,serif" font-size="11" fill="#B8860B" font-weight="700" letter-spacing="0.2em">Lv.4</text>
+          <text x="78" y="84" font-family="Shippori Mincho,serif" font-size="14" fill="#1a1a1a" font-weight="600">関係を紡ぐ</text>
+          <text x="402" y="74" text-anchor="end" font-size="10" fill="#a8a8a8" letter-spacing="0.06em">場の文化を育てる</text>
+          <rect x="50" y="116" width="380" height="74" fill="#E9F5EE" stroke="#2D6A4F" stroke-width="1.8" rx="2"/>
+          <text x="68" y="140" font-family="Shippori Mincho,serif" font-size="12" fill="#2D6A4F" font-weight="700" letter-spacing="0.2em">Lv.3</text>
+          <line x1="100" y1="136" x2="148" y2="136" stroke="#2D6A4F" stroke-width="1"/>
+          <text x="158" y="140" font-family="Shippori Mincho,serif" font-size="10" fill="#2D6A4F" font-weight="700" letter-spacing="0.15em">必修ライン</text>
+          <text x="68" y="164" font-family="Shippori Mincho,serif" font-size="16" fill="#1a1a1a" font-weight="700">知らない人に差し出す</text>
+          <text x="412" y="180" text-anchor="end" font-size="10" fill="#2D6A4F" font-weight="600" letter-spacing="0.06em">場の外に手が届く</text>
+          <rect x="60" y="210" width="360" height="56" fill="#fff" stroke="#e0ddd3" stroke-width="1" rx="2"/>
+          <text x="78" y="232" font-family="Shippori Mincho,serif" font-size="11" fill="#a8a8a8" font-weight="700" letter-spacing="0.2em">Lv.2</text>
+          <text x="78" y="254" font-family="Shippori Mincho,serif" font-size="14" fill="#1a1a1a" font-weight="600">仲間に差し出す</text>
+          <text x="402" y="244" text-anchor="end" font-size="10" fill="#a8a8a8" letter-spacing="0.06em">仲間うちで安全</text>
+          <rect x="60" y="286" width="360" height="56" fill="#fff" stroke="#e0ddd3" stroke-width="1" rx="2"/>
+          <text x="78" y="308" font-family="Shippori Mincho,serif" font-size="11" fill="#a8a8a8" font-weight="700" letter-spacing="0.2em">Lv.1</text>
+          <text x="78" y="330" font-family="Shippori Mincho,serif" font-size="14" fill="#1a1a1a" font-weight="600">自分の中で言葉にする</text>
+          <text x="402" y="320" text-anchor="end" font-size="10" fill="#a8a8a8" letter-spacing="0.06em">自己分析の領域</text>
+          <path d="M30,314 L30,224 M30,224 L25,232 M30,224 L35,232" fill="none" stroke="#a8a8a8" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M30,200 L30,150 M30,150 L25,158 M30,150 L35,158" fill="none" stroke="#2D6A4F" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M30,114 L30,68 M30,68 L25,76 M30,68 L35,76" fill="none" stroke="#a8a8a8" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <div class="diagram-caption">Lv.1とLv.2の往復だけでは手が届かない場所が、Lv.3を超えると初めて現れる。</div>
       </div>
 
       <p>前章で触れた<b>変容的学習</b>の核（前提枠組が揺らいで組み替わる）は、この越境で最も濃く現れる。仲間内では成立していた自分像が、知らない人には通用しない。その気づきを危機ではなく快の揺らぎで迎えられるよう、場の側が準備されている。</p>
@@ -319,10 +601,19 @@ footer p{color:rgba(255,255,255,0.45);font-size:0.72rem;margin-top:1rem;letter-s
 </section>
 
 <!-- 第3章 -->
-<section class="chapter" id="ch3" style="background:var(--bg-deep)">
+<section class="chapter" id="ch3" data-pill="03" data-pill-text="出会い続け" style="background:var(--bg-deep)">
   <div class="chapter-head">
     <span class="ch-num">── CHAPTER 03 ──</span>
     <h2 class="ch-title">なぜ、出会い続けるのか</h2>
+    <div class="ch-opener">
+      <svg viewBox="0 0 240 90" aria-hidden="true">
+        <circle cx="120" cy="45" r="5" fill="#B8860B"/>
+        <circle cx="120" cy="45" r="14" fill="none" stroke="#B8860B" stroke-width="1.2" opacity="0.8"/>
+        <circle cx="120" cy="45" r="25" fill="none" stroke="#B8860B" stroke-width="1" opacity="0.55"/>
+        <circle cx="120" cy="45" r="37" fill="none" stroke="#B8860B" stroke-width="0.8" opacity="0.3"/>
+        <text x="120" y="82" text-anchor="middle" font-family="Shippori Mincho,serif" font-size="10" fill="#B8860B" letter-spacing="0.08em">螺旋が、外へ、外へ</text>
+      </svg>
+    </div>
   </div>
   <div class="ch-prologue">
     <div class="thesis">
@@ -337,6 +628,26 @@ footer p{color:rgba(255,255,255,0.45);font-size:0.72rem;margin-top:1rem;letter-s
 
     <p>ここで、POOLOが持続の条件として置いている考え方を、検討者の言葉で書き下しておく。<b>自分の中身だけでも、他者への貢献だけでも、長くは続かない。内側の手応え（気になってしまうもの、できると感じること）と、それが誰かに届いて返ってくる反応。この2つが掛け算で回り続けるとき、はじめて豊かさは持続する。</b> 内側だけに閉じれば自分の世界で完結してしまうし、外側だけに尽くせば自己犠牲に落ちる。</p>
 
+    <!-- Diagram: Multiplication -->
+    <div class="diagram">
+      <div class="diagram-label">── DIAGRAM ──</div>
+      <div class="diagram-title">豊かさの掛け算・内側 × 外側</div>
+      <svg viewBox="0 0 520 300" aria-hidden="true">
+        <circle cx="200" cy="150" r="100" fill="#E9F5EE" fill-opacity="0.55" stroke="#2D6A4F" stroke-width="1.4"/>
+        <circle cx="320" cy="150" r="100" fill="#F7EDE2" fill-opacity="0.55" stroke="#C08457" stroke-width="1.4"/>
+        <text x="140" y="58" text-anchor="middle" font-family="Shippori Mincho,serif" font-size="14" font-weight="700" fill="#2D6A4F" letter-spacing="0.06em">内側の手応え</text>
+        <text x="140" y="78" text-anchor="middle" font-size="10" fill="#7a7a7a" letter-spacing="0.06em">気になってしまうもの</text>
+        <text x="140" y="93" text-anchor="middle" font-size="10" fill="#7a7a7a" letter-spacing="0.06em">できると感じること</text>
+        <text x="380" y="58" text-anchor="middle" font-family="Shippori Mincho,serif" font-size="14" font-weight="700" fill="#C08457" letter-spacing="0.06em">外側の反応</text>
+        <text x="380" y="78" text-anchor="middle" font-size="10" fill="#7a7a7a" letter-spacing="0.06em">誰かに届いて</text>
+        <text x="380" y="93" text-anchor="middle" font-size="10" fill="#7a7a7a" letter-spacing="0.06em">返ってくる</text>
+        <text x="260" y="148" text-anchor="middle" font-family="Shippori Mincho,serif" font-size="28" font-weight="300" fill="#1F3A3D">×</text>
+        <text x="260" y="180" text-anchor="middle" font-family="Shippori Mincho,serif" font-size="12" font-weight="700" fill="#1F3A3D" letter-spacing="0.1em">持続する豊かさ</text>
+        <text x="260" y="275" text-anchor="middle" font-size="10" fill="#7a7a7a" letter-spacing="0.06em">どちらか一方では続かない。</text>
+        <text x="260" y="292" text-anchor="middle" font-size="10" fill="#7a7a7a" letter-spacing="0.06em">掛け算で回り続けるとき、はじめて豊かさは持続する。</text>
+      </svg>
+    </div>
+
     <p>この掛け算は「正解」ではない。<b>更新され続ける運動</b>の言語化。内側の手応えは旅ごとに更新され、誰に届けるかは差し出しごとに更新される。卒業後も、誰かに差し出した反応が次の旅を連れてきて、その旅が次の内側を更新する。循環は止まる理由を持たない。答えを急がず不確かさに耐える力（<b>ネガティブ・ケイパビリティ</b>／キーツ、ビオン）が、場の運営条件としてそれを支える。POOLOの<b>未完成を差し出す</b>は、この運営条件の別名。確定した答えに早く着地したい誘惑に場が加担しないから、生成変化は止まらない。</p>
 
     <p>POOLOは個人の変容に閉じない。<b>受け取る人から、創る人へ</b>の転換は一度起きると不可逆で、卒業生は次の誰かの旅の起点になる。一人の変容が誰かの胸に小さな波紋を起こし、その誰かがまた別の誰かに差し出す。個人の掛け算が、場の文化を育てていく。</p>
@@ -346,7 +657,7 @@ footer p{color:rgba(255,255,255,0.45);font-size:0.72rem;margin-top:1rem;letter-s
 </section>
 
 <!-- 結章 -->
-<section class="chapter" id="epilogue">
+<section class="chapter" id="epilogue" data-pill="結" data-pill-text="結章">
   <div class="chapter-head">
     <span class="ch-num">── EPILOGUE ──</span>
     <h2 class="ch-title">結章</h2>
@@ -361,7 +672,7 @@ footer p{color:rgba(255,255,255,0.45);font-size:0.72rem;margin-top:1rem;letter-s
 </section>
 
 <!-- 付録：理論まとめ -->
-<section class="chapter" id="appendix" style="background:var(--bg-deep)">
+<section class="chapter" id="appendix" data-pill="付録" data-pill-text="理論12本" style="background:var(--bg-deep)">
   <div class="chapter-head">
     <span class="ch-num">── APPENDIX ──</span>
     <h2 class="ch-title">付録：本稿で用いた理論</h2>
@@ -403,7 +714,7 @@ footer p{color:rgba(255,255,255,0.45);font-size:0.72rem;margin-top:1rem;letter-s
     <div class="theory-group">
       <div class="theory-group-head">
         <span class="theory-group-num">CH 2</span>
-        <span class="theory-group-title">深まる ― 輪郭 × 引力 × 受け取り直す</span>
+        <span class="theory-group-title">深まる ― 輪郭 ・ 引力 ・ 受け取り直す</span>
       </div>
 
       <div class="theory-item">
@@ -494,6 +805,73 @@ footer p{color:rgba(255,255,255,0.45);font-size:0.72rem;margin-top:1rem;letter-s
     <p>POOLO LIFE — The Theory / 2026.04.17</p>
   </div>
 </footer>
+
+<script>
+(function(){
+  // ── Hero spiral path generation ──
+  const path = document.getElementById('spiralPath');
+  if (path) {
+    const cx = 300, cy = 230;
+    const points = [];
+    for (let theta = 0; theta <= 6 * Math.PI; theta += 0.04) {
+      const r = 4 + 9 * theta;
+      const x = cx + r * Math.sin(theta);
+      const y = cy - r * Math.cos(theta);
+      points.push(x.toFixed(2) + ',' + y.toFixed(2));
+    }
+    path.setAttribute('d', 'M' + points.join(' L '));
+  }
+
+  // ── Scroll progress bar ──
+  const progress = document.getElementById('scrollProgress');
+  const backToTop = document.getElementById('backToTop');
+  const chapterPill = document.getElementById('chapterPill');
+  const pillNum = chapterPill ? chapterPill.querySelector('.pill-num') : null;
+  const pillText = chapterPill ? chapterPill.querySelector('.pill-text') : null;
+
+  function onScroll() {
+    const h = document.documentElement;
+    const scrolled = (h.scrollTop) / (h.scrollHeight - h.clientHeight);
+    if (progress) progress.style.width = (scrolled * 100) + '%';
+    if (backToTop) {
+      if (h.scrollTop > 600) backToTop.classList.add('show');
+      else backToTop.classList.remove('show');
+    }
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  // ── Chapter pill (sticky indicator) ──
+  if ('IntersectionObserver' in window) {
+    const chapters = document.querySelectorAll('.chapter[data-pill]');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting && e.intersectionRatio > 0.15) {
+          const num = e.target.dataset.pill;
+          const text = e.target.dataset.pillText;
+          if (pillNum) pillNum.textContent = num;
+          if (pillText) pillText.textContent = text;
+          if (chapterPill) chapterPill.classList.add('show');
+        }
+      });
+    }, { threshold: [0.15, 0.5] });
+    chapters.forEach(c => observer.observe(c));
+
+    // Hide pill when above first chapter
+    const header = document.getElementById('top');
+    if (header) {
+      const headerObserver = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          if (e.isIntersecting && chapterPill) {
+            chapterPill.classList.remove('show');
+          }
+        });
+      }, { threshold: 0.5 });
+      headerObserver.observe(header);
+    }
+  }
+})();
+</script>
 
 </body>
 </html>
