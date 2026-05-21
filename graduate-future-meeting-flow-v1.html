@@ -86,6 +86,62 @@ html, body {
   letter-spacing: 0.08em;
 }
 
+/* Statement (opening) */
+.statement {
+  text-align: center;
+  padding: 64px 32px 56px;
+  margin-bottom: 56px;
+  background: linear-gradient(180deg, #FBFAF6 0%, #F4F8F9 100%);
+  border-top: 1px solid var(--blue-soft);
+  border-bottom: 1px solid var(--blue-soft);
+  position: relative;
+}
+.statement .ribbon {
+  display: inline-block;
+  font-size: 10px;
+  letter-spacing: 0.25em;
+  color: var(--blue-deep);
+  font-weight: 600;
+  margin-bottom: 28px;
+  padding: 5px 14px;
+  background: var(--card);
+  border: 1px solid var(--blue-soft);
+  border-radius: 2px;
+}
+.statement .quote {
+  font-family: 'Shippori Mincho', serif;
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 1.85;
+  color: var(--ink);
+  letter-spacing: 0.06em;
+  margin-bottom: 14px;
+}
+.statement .quote .ln2 {
+  display: block;
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--blue-deep);
+  margin-top: 14px;
+  letter-spacing: 0.08em;
+}
+.statement .note {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 14px;
+  color: var(--sub);
+  margin-top: 36px;
+  line-height: 1.95;
+  letter-spacing: 0.04em;
+}
+.statement .ask {
+  font-family: 'Shippori Mincho', serif;
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--green-deep);
+  margin-top: 10px;
+  letter-spacing: 0.05em;
+}
+
 /* Objective box */
 .objective {
   background: var(--blue-soft);
@@ -461,6 +517,10 @@ html, body {
   .container { padding: 56px 20px 96px; }
   .header h1 { font-size: 26px; }
   .header .subtitle { font-size: 15px; }
+  .statement { padding: 44px 18px 40px; }
+  .statement .quote { font-size: 20px; line-height: 1.75; }
+  .statement .quote .ln2 { font-size: 17px; }
+  .statement .note { font-size: 13px; }
   .objective { padding: 28px 22px; }
   .objective .main { font-size: 17px; }
   .part-head { flex-wrap: wrap; gap: 10px; }
@@ -481,6 +541,17 @@ html, body {
     <div class="subtitle">深い納得を持ち帰る、共著者の時間</div>
     <div class="meta">2026-05-21 / 設計レビュー段階 / CODOLI</div>
   </header>
+
+  <!-- STATEMENT (会冒頭で読み上げるテーマ表明) -->
+  <section class="statement">
+    <div class="ribbon">OPENING STATEMENT</div>
+    <div class="quote">
+      想像のしなかった世界を、自分に出会いにいく。
+      <span class="ln2">旅と問いと共創と。</span>
+    </div>
+    <div class="note">11期以降、POOLOはこの言葉で伝えています。</div>
+    <div class="ask">皆さんの卒業時の感覚に、重なりますか。</div>
+  </section>
 
   <!-- OBJECTIVE -->
   <div class="objective">
