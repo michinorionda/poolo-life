@@ -294,6 +294,78 @@ html, body {
 }
 .call p:last-child { margin-bottom: 0; }
 
+/* DRAFT COMPARE (案A／案B 並列表示) */
+.draft-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  margin-top: 16px;
+}
+.draft-card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-top: 4px solid var(--blue);
+  border-radius: 2px;
+  padding: 28px 26px;
+}
+.draft-card.draft-b {
+  border-top-color: var(--blue-deep);
+}
+.draft-card .draft-label {
+  display: inline-block;
+  font-family: 'Shippori Mincho', serif;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.15em;
+  color: var(--card);
+  background: var(--blue);
+  padding: 4px 12px;
+  border-radius: 2px;
+  margin-bottom: 18px;
+}
+.draft-card.draft-b .draft-label {
+  background: var(--blue-deep);
+}
+.draft-card .draft-title {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.7;
+  margin-bottom: 14px;
+  letter-spacing: 0.04em;
+}
+.draft-card .draft-eyebrow {
+  display: block;
+  font-size: 10px;
+  letter-spacing: 0.25em;
+  color: var(--blue-deep);
+  font-weight: 600;
+  margin: 18px 0 14px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--line);
+}
+.draft-card .draft-body {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 14px;
+  line-height: 2.05;
+  color: var(--ink);
+  letter-spacing: 0.04em;
+}
+.draft-card .draft-body p {
+  margin-bottom: 14px;
+}
+.draft-card .draft-body p:last-child {
+  margin-bottom: 0;
+}
+.draft-card .draft-body .closing {
+  font-weight: 700;
+  font-size: 15px;
+  margin-top: 18px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+}
+
 /* LINK BOX */
 .linkbox {
   display: block;
@@ -351,6 +423,11 @@ html, body {
   .insight-grid { grid-template-columns: 1fr; gap: 14px; }
   .item-list li { font-size: 15.5px; }
   .topic .topic-title { font-size: 15.5px; }
+  .draft-grid { grid-template-columns: 1fr; gap: 14px; }
+  .draft-card { padding: 22px 20px; }
+  .draft-card .draft-title { font-size: 15px; }
+  .draft-card .draft-body { font-size: 13.5px; line-height: 1.95; }
+  .draft-card .draft-body .closing { font-size: 14px; }
 }
 </style>
 </head>
@@ -440,7 +517,41 @@ html, body {
     </div>
     <div class="call">
       <p>新しい伝え方の言葉を、卒業生のみなさんの目線で読んでみてください。</p>
-      <p>当日その場で、感想を聞かせてください。</p>
+      <p>下の2案を見比べて、感想を聞かせてください。</p>
+    </div>
+
+    <div class="draft-grid">
+
+      <!-- 案A -->
+      <div class="draft-card draft-a">
+        <div class="draft-label">案A</div>
+        <div class="draft-title">あなたの好奇心と、<br>今を揺さぶる勇気を問う。</div>
+        <span class="draft-eyebrow">SHARED QUESTION</span>
+        <div class="draft-body">
+          <p>『いま、何かを変えたい』と思う人。<br>『まあ、このままでいいか』と思う人。</p>
+          <p>どちらにも共通するのは、<br>どこか満たされない気持ち。</p>
+          <p>家と職場を往復する日常。<br>なんとなく過ぎていく毎日に<br>大きな不満はないけれど、<br>どこか物足りない。</p>
+          <p>そんな『今』を、<br>『旅』と『仲間』は揺さぶってくれる。</p>
+          <p>旅は、当たり前を超えるきっかけになり、<br>1人ではたどり着けない場所も、仲間となら行ける。</p>
+          <p>再び問う。</p>
+          <p class="closing">あなたは、ここで出会う仲間と<br>どこまで遠くへ行きますか？</p>
+        </div>
+      </div>
+
+      <!-- 案B -->
+      <div class="draft-card draft-b">
+        <div class="draft-label">案B</div>
+        <div class="draft-title">あなたの好奇心と、<br>今を揺さぶる勇気を問う。</div>
+        <span class="draft-eyebrow">SHARED QUESTION</span>
+        <div class="draft-body">
+          <p>「完璧な人生」なんて、存在しないし<br>誰も、答えを持っていない。</p>
+          <p>自分のことも。<br>目の前の、誰かのことも。<br>そして、この世界のことも。</p>
+          <p>世の中の「当たり前」と向き合い<br>自分の問いを、自分で創る。<br>問い続けることこそが、<br>人生を豊かにしていく。</p>
+          <p>だから、僕らは旅に出る。<br>仲間と対話し、学び、深め合う。</p>
+          <p class="closing">旅の学校が、あなたの可能性をひらく。</p>
+        </div>
+      </div>
+
     </div>
   </section>
 
