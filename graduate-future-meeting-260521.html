@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>POOLO卒業生未来会議｜2026.05.21</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700&family=Shippori+Mincho:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --blue: #1B99B7;
+  --blue-deep: #157A98;
+  --blue-soft: #B8E0EB;
+  --blue-bg: #EAF5F8;
+  --green: #2D6A4F;
+  --green-deep: #1F4D38;
+  --green-soft: #E8F0EC;
+  --teal: #1A6B5A;
+  --purple: #534AB7;
+  --amber: #7A5500;
+  --ink: #1a1a1a;
+  --sub: #5a5a5a;
+  --hint: #999;
+  --bg: #faf9f6;
+  --card: #ffffff;
+  --line: #e5e2db;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'Noto Sans JP', sans-serif;
+  font-weight: 400;
+  line-height: 1.95;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+}
+
+.container {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 72px 28px 120px;
+}
+
+/* HEADER */
+.header {
+  text-align: center;
+  padding-bottom: 40px;
+  margin-bottom: 56px;
+  border-bottom: 2px solid var(--blue);
+}
+.tag-label {
+  display: inline-block;
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  color: var(--blue-deep);
+  font-weight: 600;
+  padding: 5px 14px;
+  border: 1px solid var(--blue);
+  border-radius: 2px;
+  margin-bottom: 24px;
+}
+.header h1 {
+  font-family: 'Shippori Mincho', serif;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 1.45;
+  color: var(--ink);
+  margin-bottom: 16px;
+  letter-spacing: 0.05em;
+}
+.header .meta {
+  font-size: 12px;
+  color: var(--hint);
+  letter-spacing: 0.1em;
+}
+
+/* WELCOME */
+.welcome {
+  text-align: center;
+  padding: 48px 24px;
+  margin-bottom: 64px;
+  background: linear-gradient(180deg, #FBFAF6 0%, #F0F7F9 100%);
+  border-top: 1px solid var(--blue-soft);
+  border-bottom: 1px solid var(--blue-soft);
+}
+.welcome .greeting {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 13px;
+  letter-spacing: 0.2em;
+  color: var(--blue-deep);
+  font-weight: 600;
+  margin-bottom: 24px;
+}
+.welcome .body {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 17px;
+  font-weight: 500;
+  line-height: 2;
+  color: var(--ink);
+  letter-spacing: 0.05em;
+}
+
+/* MISSION (大きく見せる) */
+.mission {
+  text-align: center;
+  padding: 64px 32px 60px;
+  margin: 0 0 80px;
+  background: linear-gradient(135deg, #EAF5F8 0%, #DCEFF4 100%);
+  border-radius: 4px;
+  position: relative;
+}
+.mission .label {
+  font-size: 11px;
+  letter-spacing: 0.25em;
+  color: var(--blue-deep);
+  font-weight: 600;
+  margin-bottom: 28px;
+  padding: 5px 14px;
+  display: inline-block;
+  background: var(--card);
+  border: 1px solid var(--blue-soft);
+  border-radius: 2px;
+}
+.mission .text {
+  font-family: 'Shippori Mincho', serif;
+  font-weight: 700;
+  font-size: 26px;
+  line-height: 1.95;
+  color: var(--ink);
+  letter-spacing: 0.08em;
+}
+.mission .text .ln1 { display: block; }
+.mission .text .ln2 { display: block; margin-top: 6px; }
+
+/* SECTION */
+.sec {
+  margin-bottom: 64px;
+}
+.sec-head {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  margin-bottom: 24px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--line);
+}
+.sec-num {
+  font-family: 'Shippori Mincho', serif;
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 0.22em;
+  color: var(--blue-deep);
+}
+.sec-title {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--ink);
+  letter-spacing: 0.04em;
+}
+
+.sec-lead {
+  font-size: 14.5px;
+  color: var(--sub);
+  margin-bottom: 22px;
+  line-height: 1.95;
+}
+
+/* ITEM LIST (シンプル) */
+.item-list {
+  list-style: none;
+  padding: 0;
+}
+.item-list li {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 17px;
+  font-weight: 500;
+  color: var(--ink);
+  padding: 14px 0 14px 28px;
+  position: relative;
+  border-bottom: 1px dotted var(--line);
+  letter-spacing: 0.04em;
+}
+.item-list li:last-child {
+  border-bottom: none;
+}
+.item-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 26px;
+  width: 14px;
+  height: 1px;
+  background: var(--blue);
+}
+
+/* TOPIC CARDS (構想インプット用) */
+.topic-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.topic {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--blue);
+  padding: 22px 26px;
+  border-radius: 2px;
+}
+.topic .topic-num {
+  font-family: 'Shippori Mincho', serif;
+  font-weight: 600;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  color: var(--blue-deep);
+  margin-bottom: 6px;
+}
+.topic .topic-title {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--ink);
+  letter-spacing: 0.05em;
+  line-height: 1.7;
+}
+
+/* INSIGHT (二段組) */
+.insight-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-top: 8px;
+}
+.insight-col {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-top: 4px solid var(--blue);
+  padding: 26px 24px;
+  border-radius: 2px;
+}
+.insight-col.col-30 {
+  border-top-color: var(--purple);
+}
+.insight-col .seg {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 16px;
+  letter-spacing: 0.05em;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--line);
+}
+.insight-col ul {
+  list-style: none;
+  padding: 0;
+}
+.insight-col li {
+  font-size: 14px;
+  color: var(--ink);
+  padding: 8px 0 8px 16px;
+  position: relative;
+  line-height: 1.75;
+}
+.insight-col li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 16px;
+  width: 8px;
+  height: 1px;
+  background: var(--sub);
+}
+
+/* CALL (フィードバック依頼系) */
+.call {
+  background: var(--green-soft);
+  padding: 26px 28px;
+  border-radius: 4px;
+  border-left: 4px solid var(--green);
+  margin-top: 16px;
+}
+.call p {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 15px;
+  color: var(--green-deep);
+  line-height: 1.95;
+  letter-spacing: 0.04em;
+  margin-bottom: 12px;
+}
+.call p:last-child { margin-bottom: 0; }
+
+/* LINK BOX */
+.linkbox {
+  display: block;
+  background: var(--card);
+  border: 1px solid var(--blue);
+  border-radius: 4px;
+  padding: 22px 26px;
+  margin-top: 18px;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+.linkbox:hover { background: var(--blue-bg); }
+.linkbox .linkbox-label {
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  color: var(--blue-deep);
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+.linkbox .linkbox-title {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--ink);
+  letter-spacing: 0.04em;
+  line-height: 1.6;
+  margin-bottom: 6px;
+}
+.linkbox .linkbox-url {
+  font-size: 12px;
+  color: var(--sub);
+  word-break: break-all;
+}
+
+/* FOOTER */
+.footer {
+  text-align: center;
+  margin-top: 88px;
+  padding-top: 40px;
+  border-top: 1px solid var(--line);
+  font-size: 12px;
+  color: var(--hint);
+  letter-spacing: 0.08em;
+  line-height: 2;
+}
+
+@media (max-width: 640px) {
+  .container { padding: 52px 18px 96px; }
+  .header h1 { font-size: 24px; }
+  .welcome { padding: 36px 18px; }
+  .welcome .body { font-size: 15.5px; }
+  .mission { padding: 44px 20px 40px; }
+  .mission .text { font-size: 19px; line-height: 1.85; letter-spacing: 0.05em; }
+  .sec-title { font-size: 19px; }
+  .insight-grid { grid-template-columns: 1fr; gap: 14px; }
+  .item-list li { font-size: 15.5px; }
+  .topic .topic-title { font-size: 15.5px; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="tag-label">POOLO GRADUATES MEETING</div>
+    <h1>POOLO卒業生未来会議</h1>
+    <div class="meta">2026.05.21</div>
+  </header>
+
+  <!-- WELCOME -->
+  <section class="welcome">
+    <div class="greeting">WELCOME</div>
+    <div class="body">
+      新しいPOOLOの構想を、<br>
+      卒業生のみなさんと一緒に磨きたい。<br>
+      今日は、聞いてもらう会ではなく、<br>
+      一緒に話す会です。
+    </div>
+  </section>
+
+  <!-- MISSION -->
+  <section class="mission">
+    <div class="label">NEW MISSION</div>
+    <div class="text">
+      <span class="ln1">旅と問いと共創で</span>
+      <span class="ln2">想像もしなかった世界に自分に、出会いにいく</span>
+    </div>
+  </section>
+
+  <!-- SEC 01：冒頭ブレスト -->
+  <section class="sec">
+    <div class="sec-head">
+      <span class="sec-num">SECTION 01</span>
+      <span class="sec-title">冒頭：ブレスト</span>
+    </div>
+    <ul class="item-list">
+      <li>POOLOのキーワード案</li>
+      <li>自分にとってPOOLOとは？</li>
+    </ul>
+  </section>
+
+  <!-- SEC 02：話したいこと -->
+  <section class="sec">
+    <div class="sec-head">
+      <span class="sec-num">SECTION 02</span>
+      <span class="sec-title">今日、みんなと話したいこと</span>
+    </div>
+    <p class="sec-lead">この後のテーマを順番に。途中で寄り道してもOKです。</p>
+  </section>
+
+  <!-- SEC 03：新しい構想のインプット -->
+  <section class="sec">
+    <div class="sec-head">
+      <span class="sec-num">SECTION 03</span>
+      <span class="sec-title">新しい構想のインプット</span>
+    </div>
+    <p class="sec-lead">運営から、新しい構想を共有します。当日その場で詳しく話します。</p>
+    <div class="topic-grid">
+      <div class="topic">
+        <div class="topic-num">TOPIC 01</div>
+        <div class="topic-title">ミッション（上の言葉について）</div>
+      </div>
+      <div class="topic">
+        <div class="topic-num">TOPIC 02</div>
+        <div class="topic-title">より越境していく感覚／より自律して進んでいく感覚について</div>
+      </div>
+      <div class="topic">
+        <div class="topic-num">TOPIC 03</div>
+        <div class="topic-title">関心探索型モデルについて</div>
+      </div>
+      <div class="topic">
+        <div class="topic-num">TOPIC 04</div>
+        <div class="topic-title">変容モデルについて</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEC 04：冒頭テキストのフィードバック -->
+  <section class="sec">
+    <div class="sec-head">
+      <span class="sec-num">SECTION 04</span>
+      <span class="sec-title">冒頭のテキスト案のフィードバック</span>
+    </div>
+    <div class="call">
+      <p>新しい伝え方の言葉を、卒業生のみなさんの目線で読んでみてください。</p>
+      <p>当日その場で、感想を聞かせてください。</p>
+    </div>
+  </section>
+
+  <!-- SEC 05：参加者インサイト -->
+  <section class="sec">
+    <div class="sec-head">
+      <span class="sec-num">SECTION 05</span>
+      <span class="sec-title">参加者の深いインサイトについて</span>
+    </div>
+    <p class="sec-lead">これから参加してくれる次の世代の声を、卒業生のみなさんと一緒に見てみたい。</p>
+    <div class="insight-grid">
+      <div class="insight-col">
+        <div class="seg">20代後半</div>
+        <ul>
+          <li>仲間が欲しい</li>
+          <li>自己理解（自分の強みを言語化したい）</li>
+          <li>自分の個性を理解したい</li>
+          <li>周りの仲間に置いていかれたくない</li>
+          <li>成長、新しい刺激が欲しい</li>
+          <li>仕事ばかりで、働き方・生き方を考えたい</li>
+        </ul>
+      </div>
+      <div class="insight-col col-30">
+        <div class="seg">30代</div>
+        <ul>
+          <li>改めて、自分の生き方を問い直したい</li>
+          <li>成長だけでない、違う価値観を持ちたい</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEC 06：ワイヤーフィードバック -->
+  <section class="sec">
+    <div class="sec-head">
+      <span class="sec-num">SECTION 06</span>
+      <span class="sec-title">ワイヤーを見てもらってのフィードバック</span>
+    </div>
+    <p class="sec-lead">新しいLPワイヤー。卒業生の目で見てみてください。</p>
+    <a class="linkbox" href="https://michinorionda.github.io/poolo-life/poolo-life-lp-wireframe-sp-v7.html" target="_blank" rel="noopener">
+      <div class="linkbox-label">WIREFRAME</div>
+      <div class="linkbox-title">POOLO LIFE LP ワイヤーフレーム v7（SP版）</div>
+      <div class="linkbox-url">michinorionda.github.io/poolo-life/poolo-life-lp-wireframe-sp-v7.html</div>
+    </a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    今日は来てくれてありがとうございます。<br>
+    POOLO / CODOLI
+  </footer>
+
+</div>
+</body>
+</html>
