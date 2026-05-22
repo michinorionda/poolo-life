@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>案B ペア対話厚め型｜30代キャリア戦略ワーク 体験会90分</title>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#1a1a1a; --sub:#4a4a4a; --mute:#7a7a7a; --hint:#a8a8a8;
+  --bg:#faf9f6; --bg-deep:#f3f1ea; --card:#ffffff; --line:#e0ddd3;
+  --accent:#8B3A2A; --accent-bg:#F4E1DC; --accent-deep:#6f2c20;
+  --amber:#7A5500; --amber-bg:#F7EFD8;
+  --green:#2D6A4F;
+  --serif:'Shippori Mincho',serif; --sans:'Noto Sans JP',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--bg);color:var(--ink);line-height:1.95;font-weight:400;-webkit-font-smoothing:antialiased}
+.wrap{max-width:980px;margin:0 auto;padding:0 1.5rem}
+section{padding:3rem 0}
+
+.topbar{padding:0.7rem 0;background:var(--accent);color:#fff;font-size:0.74rem;letter-spacing:0.1em;text-align:center}
+.topbar a{color:#fff;text-decoration:none;border-bottom:1px solid rgba(255,255,255,0.4)}
+.topbar .recommend-pill{background:#fff;color:var(--accent);padding:0.15rem 0.6rem;border-radius:2px;font-weight:700;letter-spacing:0.18em;font-size:0.66rem;margin-right:0.5rem}
+
+.header{padding:3.5rem 0 2.8rem;background:linear-gradient(135deg,var(--accent-bg) 0%,var(--bg) 70%);border-bottom:2px solid var(--accent);text-align:center;position:relative}
+.recommend-banner{display:inline-block;background:var(--accent);color:#fff;font-size:0.68rem;letter-spacing:0.3em;font-weight:700;padding:0.4rem 1.4rem;border-radius:30px;margin-bottom:1rem}
+.badge-row{display:flex;justify-content:center;gap:0.6rem;margin-bottom:1.4rem;flex-wrap:wrap}
+.case-badge{display:inline-block;font-size:0.65rem;letter-spacing:0.3em;color:#fff;background:var(--accent);padding:0.4rem 1.2rem;border-radius:30px;font-weight:600}
+.internal-badge{display:inline-block;font-size:0.65rem;letter-spacing:0.3em;color:#fff;background:var(--ink);padding:0.4rem 1.2rem;border-radius:30px;font-weight:600}
+.header-title{font-family:var(--serif);font-size:1.95rem;font-weight:600;letter-spacing:0.05em;line-height:1.7;color:var(--ink);margin-bottom:0.5rem}
+.header-sub{font-family:var(--serif);font-size:0.96rem;color:var(--sub);letter-spacing:0.05em;margin-bottom:1.4rem}
+.header-meta{display:inline-flex;gap:1.4rem;padding:0.55rem 1.4rem;background:#fff;border:1px solid var(--line);border-radius:3px;font-size:0.74rem;color:var(--mute);letter-spacing:0.08em}
+.header-meta b{color:var(--accent);font-weight:600;font-family:var(--serif)}
+
+.objective-box{background:var(--accent-bg);border-left:4px solid var(--accent);padding:1.7rem 1.9rem;border-radius:3px;max-width:880px;margin:2.5rem auto 0}
+.obj-label{font-size:0.66rem;letter-spacing:0.3em;color:var(--accent);font-weight:600;margin-bottom:0.6rem}
+.obj-main{font-family:var(--serif);font-size:1rem;color:var(--ink);line-height:2.05;font-weight:500;letter-spacing:0.03em}
+.obj-main b{background:#fff;padding:0 0.2rem;color:var(--accent-deep)}
+
+.section-head{text-align:center;margin-bottom:2.4rem}
+.sec-tag{display:inline-block;font-family:var(--serif);font-size:0.7rem;letter-spacing:0.35em;font-weight:600;color:var(--accent);padding:0.35rem 1rem;border:1px solid var(--accent);margin-bottom:0.8rem}
+.sec-title{font-family:var(--serif);font-size:1.4rem;font-weight:600;letter-spacing:0.05em;line-height:1.6;color:var(--ink);border-bottom:1px solid var(--line);padding-bottom:0.7rem;display:inline-block}
+
+.timeline{position:relative;padding-left:8rem;margin-top:1rem}
+.timeline::before{content:"";position:absolute;left:5.2rem;top:0;bottom:0;width:2px;background:var(--accent-bg)}
+.tl-row{position:relative;margin-bottom:1.4rem;break-inside:avoid;page-break-inside:avoid}
+.tl-time{position:absolute;left:-8rem;width:5.6rem;font-family:var(--serif);font-size:0.84rem;color:var(--accent);font-weight:600;letter-spacing:0.04em;text-align:right;padding-top:0.2rem}
+.tl-dot{position:absolute;left:-1.95rem;top:0.5rem;width:14px;height:14px;background:#fff;border:3px solid var(--accent);border-radius:50%;z-index:1}
+.tl-row.pair .tl-dot{background:var(--accent);border-color:var(--accent-deep);box-shadow:0 0 0 4px var(--accent-bg)}
+.tl-card{background:#fff;border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:3px;padding:1rem 1.2rem 1.1rem}
+.tl-row.pair .tl-card{background:linear-gradient(180deg,var(--accent-bg) 0%,#fff 50%);border-left:4px solid var(--accent-deep)}
+.tl-head{display:flex;align-items:baseline;gap:0.7rem;margin-bottom:0.5rem;flex-wrap:wrap}
+.tl-title{font-family:var(--serif);font-size:1rem;color:var(--ink);font-weight:600;letter-spacing:0.04em}
+.tl-format{font-size:0.66rem;color:#fff;background:var(--accent);padding:0.15rem 0.55rem;border-radius:2px;letter-spacing:0.15em;font-weight:500}
+.tl-format.indiv{background:var(--mute)}
+.tl-format.pair{background:var(--accent-deep)}
+.tl-format.all{background:var(--ink)}
+.tl-pair-num{font-size:0.66rem;color:var(--accent-deep);background:#fff;border:1px solid var(--accent);padding:0.15rem 0.55rem;border-radius:2px;letter-spacing:0.15em;font-weight:700}
+.tl-content{font-size:0.86rem;color:var(--sub);line-height:1.85;margin-bottom:0.5rem}
+.tl-facil{font-size:0.78rem;color:var(--mute);line-height:1.8;letter-spacing:0.02em;padding-top:0.5rem;border-top:1px dashed var(--line)}
+.tl-facil b{font-family:var(--serif);font-size:0.66rem;letter-spacing:0.2em;color:var(--ink);font-weight:600;display:block;margin-bottom:0.2rem}
+
+.rules-block{background:var(--bg-deep);padding:3rem 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.rules-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0.8rem;max-width:840px;margin:0 auto 1.5rem}
+.rule-card{background:#fff;border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:3px;padding:0.9rem 1.1rem;break-inside:avoid;page-break-inside:avoid}
+.rule-num{font-family:var(--serif);font-size:0.66rem;letter-spacing:0.18em;color:var(--accent);font-weight:600;margin-bottom:0.3rem}
+.rule-text{font-family:var(--serif);font-size:0.88rem;color:var(--ink);line-height:1.75;font-weight:500}
+.rule-card.added{border-left-color:var(--amber)}
+.rule-card.added .rule-num{color:var(--amber)}
+.rules-subtitle{text-align:center;font-family:var(--serif);font-size:0.9rem;color:var(--ink);margin:1.5rem 0 1rem;letter-spacing:0.04em;font-weight:600}
+.rules-note{text-align:center;font-size:0.84rem;color:var(--sub);font-family:var(--serif);margin-bottom:0.8rem;line-height:1.95}
+
+.q-table{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--line);font-size:0.86rem;margin-top:1rem}
+.q-table th,.q-table td{padding:0.85rem 1rem;border:1px solid var(--line);text-align:left;line-height:1.85;vertical-align:top}
+.q-table thead th{background:var(--accent);color:#fff;font-family:var(--serif);font-weight:600;letter-spacing:0.04em;font-size:0.84rem}
+.q-table tbody th{background:var(--accent-bg);font-family:var(--serif);color:var(--accent);font-weight:600;text-align:center;width:6.5rem;letter-spacing:0.05em}
+.q-table tbody td.step{font-size:0.78rem;color:var(--mute);width:8rem;text-align:center;font-family:var(--serif);letter-spacing:0.04em}
+.q-table tbody td.q{color:var(--ink);font-family:var(--serif);font-weight:500;line-height:1.9}
+
+.listener-table{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--line);font-size:0.88rem;margin-top:1.5rem;max-width:820px;margin-left:auto;margin-right:auto}
+.listener-table th,.listener-table td{padding:0.85rem 1rem;border:1px solid var(--line);line-height:1.85}
+.listener-table thead th{background:var(--accent-deep);color:#fff;font-family:var(--serif);font-weight:600;letter-spacing:0.04em;font-size:0.84rem;text-align:center}
+.listener-table tbody td:first-child{background:var(--accent-bg);font-family:var(--serif);color:var(--accent-deep);font-weight:700;text-align:center;width:12rem;letter-spacing:0.06em}
+.listener-table tbody td:nth-child(2){color:var(--ink);font-family:var(--serif);font-weight:500}
+
+.help-block{padding:3rem 0;border-bottom:1px solid var(--line)}
+.help-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:0.9rem;margin-top:1rem}
+.help-card{background:#fff;border:1px solid var(--line);border-top:3px solid var(--amber);border-radius:3px;padding:1.1rem 1.2rem;break-inside:avoid;page-break-inside:avoid}
+.help-num{font-family:var(--serif);font-size:0.7rem;letter-spacing:0.2em;color:var(--amber);font-weight:600;margin-bottom:0.4rem}
+.help-text{font-family:var(--serif);font-size:0.92rem;color:var(--ink);line-height:1.85;font-weight:500}
+.help-note{font-size:0.84rem;color:var(--sub);line-height:1.95;letter-spacing:0.02em;text-align:center;margin-bottom:1rem}
+
+.quote-block{padding:3rem 0;background:var(--bg-deep)}
+.quote-grid{display:flex;flex-direction:column;gap:1rem;max-width:820px;margin:1rem auto 0}
+.quote-card{background:#fff;border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:3px;padding:1.2rem 1.5rem;break-inside:avoid;page-break-inside:avoid}
+.quote-when{font-family:var(--serif);font-size:0.72rem;letter-spacing:0.2em;color:var(--accent);font-weight:600;margin-bottom:0.5rem}
+.quote-text{font-family:var(--serif);font-size:0.96rem;color:var(--ink);line-height:2;font-weight:500;letter-spacing:0.02em}
+.quote-text b{background:var(--accent-bg);padding:0 0.2rem;font-weight:600}
+
+.worksheet-block{padding:3rem 0;border-bottom:1px solid var(--line)}
+.ws-table{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--line);font-size:0.86rem;margin-top:1rem}
+.ws-table th,.ws-table td{padding:0.85rem 1rem;border:1px solid var(--line);text-align:left;line-height:1.85;vertical-align:top}
+.ws-table thead th{background:var(--accent);color:#fff;font-family:var(--serif);font-weight:600;letter-spacing:0.04em;font-size:0.84rem}
+.ws-table tbody td:first-child{background:var(--accent-bg);font-family:var(--serif);color:var(--ink);font-weight:600;width:11rem;font-size:0.82rem;letter-spacing:0.03em}
+.ws-table tbody td:nth-child(2){font-family:var(--serif);color:var(--ink);font-weight:500;width:16rem}
+.ws-table tbody td:nth-child(3){color:var(--sub)}
+
+.checkbox-list{margin-top:1.5rem;max-width:780px;background:#fff;border:1px solid var(--line);border-radius:3px;padding:1.2rem 1.5rem;list-style:none}
+.checkbox-list li{padding:0.6rem 0 0.6rem 2rem;border-bottom:1px dashed var(--line);font-size:0.88rem;color:var(--ink);line-height:1.85;position:relative}
+.checkbox-list li:last-child{border-bottom:none}
+.checkbox-list li::before{content:"☐";position:absolute;left:0.4rem;font-size:1rem;color:var(--accent);top:0.5rem}
+
+.closing-block{padding:3rem 0;background:var(--accent-bg)}
+.closing-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem;margin-top:1rem}
+.cl-card{background:#fff;border:1px solid var(--line);border-radius:3px;padding:1.2rem 1.3rem}
+.cl-card.end{border-top:3px solid var(--accent)}
+.cl-card.bridge{border-top:3px solid var(--amber)}
+.cl-card.percent{border-top:3px solid var(--mute)}
+.cl-label{font-family:var(--serif);font-size:0.7rem;letter-spacing:0.25em;font-weight:600;margin-bottom:0.5rem}
+.cl-card.end .cl-label{color:var(--accent)}
+.cl-card.bridge .cl-label{color:var(--amber)}
+.cl-card.percent .cl-label{color:var(--mute)}
+.cl-title{font-family:var(--serif);font-size:0.96rem;color:var(--ink);font-weight:600;letter-spacing:0.04em;margin-bottom:0.5rem;line-height:1.6}
+.cl-desc{font-size:0.82rem;color:var(--sub);line-height:1.9;letter-spacing:0.02em}
+
+.takeaway-block{padding:3rem 0;background:#fff;border-top:1px solid var(--line)}
+.takeaway-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:1rem}
+.ta-card{background:var(--bg-deep);border:1px solid var(--line);border-top:3px solid var(--accent);border-radius:3px;padding:1.2rem 1.4rem;text-align:center;break-inside:avoid;page-break-inside:avoid}
+.ta-num{font-family:var(--serif);font-size:1.6rem;font-weight:700;color:var(--accent);line-height:1;margin-bottom:0.5rem}
+.ta-text{font-family:var(--serif);font-size:0.9rem;color:var(--ink);line-height:1.85;font-weight:500}
+
+.variant-block{padding:3rem 0;background:var(--bg-deep);border-top:1px solid var(--line)}
+.variant-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;max-width:820px;margin:1rem auto 0}
+.var-card{background:#fff;border:1px solid var(--line);border-radius:3px;padding:1.2rem 1.4rem}
+.var-label{font-family:var(--serif);font-size:0.74rem;letter-spacing:0.2em;color:var(--accent);font-weight:600;margin-bottom:0.4rem}
+.var-title{font-family:var(--serif);font-size:1rem;color:var(--ink);font-weight:600;margin-bottom:0.5rem}
+.var-desc{font-size:0.82rem;color:var(--sub);line-height:1.85}
+
+.warn-block{padding:3rem 0;background:#fff;border-top:1px solid var(--line)}
+.warn-list{max-width:820px;margin:1rem auto 0;list-style:none;padding-left:0}
+.warn-list li{padding:0.85rem 0 0.85rem 2.2rem;border-bottom:1px solid var(--line);font-size:0.88rem;color:var(--sub);line-height:1.95;position:relative}
+.warn-list li::before{content:"⚠";position:absolute;left:0.4rem;font-size:1rem;color:var(--accent);top:0.85rem}
+.warn-list li b{color:var(--ink);font-family:var(--serif);font-weight:600;display:block;margin-bottom:0.2rem}
+
+.footer{padding:3rem 0 3.5rem;background:var(--bg-deep);border-top:1px solid var(--line);text-align:center}
+.footer-nav{display:inline-flex;gap:1.6rem;margin-bottom:1rem;font-size:0.84rem;letter-spacing:0.06em;flex-wrap:wrap;justify-content:center}
+.footer-nav a{color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent);padding-bottom:0.1rem}
+.footer-meta{font-size:0.74rem;color:var(--mute);letter-spacing:0.08em;line-height:2}
+
+@media(max-width:820px){
+  .header-title{font-size:1.5rem}
+  .timeline{padding-left:0}
+  .timeline::before{display:none}
+  .tl-time{position:static;width:auto;text-align:left;padding-top:0;margin-bottom:0.3rem}
+  .tl-dot{display:none}
+  .rules-grid{grid-template-columns:1fr}
+  .closing-grid,.takeaway-grid,.variant-grid{grid-template-columns:1fr}
+  .q-table,.ws-table,.listener-table{font-size:0.78rem}
+}
+
+@media print{
+  body{background:#fff}
+  .topbar,.header,.rules-block,.quote-block,.worksheet-block,.closing-block,.takeaway-block,.variant-block,.warn-block,.footer{background:#fff !important}
+  .tl-card,.rule-card,.help-card,.quote-card,.ta-card,.var-card,.cl-card{break-inside:avoid;page-break-inside:avoid;box-shadow:none}
+  section{padding:1.2rem 0}
+  a{color:inherit}
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <span class="recommend-pill">RECOMMEND</span>体験会90分ブラッシュアップ ／ <a href="workshop-2605-index.html">インデックス</a> ／ <a href="workshop-2605-a.html">案A</a> ／ <a href="workshop-2605-c.html">案C</a> ／ <a href="1on1-script-2605-index.html">1on1</a>
+</div>
+
+<header class="header">
+  <div class="wrap">
+    <span class="recommend-banner">★ RECOMMEND ／ 3軸全て上位</span>
+    <div class="badge-row">
+      <span class="internal-badge">INTERNAL ／ 社内資料</span>
+      <span class="case-badge">CASE B</span>
+    </div>
+    <h1 class="header-title">案B ペア対話厚め型</h1>
+    <div class="header-sub">90分／ペア対話3回組み替え／POOLO LIFEのチーム再編体験を先取り</div>
+    <div class="header-meta">
+      <span><b>90</b>分</span>
+      <span><b>8-14</b>名（偶数推奨）</span>
+      <span>運営<b>2名</b>推奨</span>
+    </div>
+
+    <div class="objective-box">
+      <div class="obj-label">この案の狙い</div>
+      <div class="obj-main">違う相手3回と問いを聴き合うことで、「自分の問いが他者の前でどう揺れるか」を体感させる型。POOLO LIFEのチーム再編設計（T1：1〜3ヶ月／T2：4〜7ヶ月／T3：8ヶ月で組み換え）を体験会で先取り、入会後の景色を実感させます。仲間と問いを聴き合う <b>「引力場」</b>（POOLO内部用語：関心探究型の人が集まると一人では届かない場所に運ばれていく場の力）の萌芽を90分で体感。</div>
+    </div>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <span class="sec-tag">TIMETABLE</span>
+      <h2 class="sec-title">90分タイムテーブル</h2>
+    </div>
+
+    <div class="timeline">
+
+      <div class="tl-row">
+        <div class="tl-time">0-7分</div>
+        <div class="tl-dot"></div>
+        <div class="tl-card">
+          <div class="tl-head">
+            <span class="tl-title">チェックイン</span>
+            <span class="tl-format all">全体</span>
+          </div>
+          <div class="tl-content">「ニックネーム@今いる場所」＋ひと言「最近よく考えること」</div>
+          <div class="tl-facil"><b>ファシリ進行</b>全員順に、1人25-30秒目安</div>
+        </div>
+      </div>
+
+      <div class="tl-row">
+        <div class="tl-time">7-12分</div>
+        <div class="tl-dot"></div>
+        <div class="tl-card">
+          <div class="tl-head">
+            <span class="tl-title">今日のルール／ペア対話のルール／流れ説明</span>
+            <span class="tl-format all">全体</span>
+          </div>
+          <div class="tl-content">今日のルール3つ＋ペア対話3つのルール／ワークシート配布</div>
+          <div class="tl-facil"><b>ファシリ進行</b>ペアで聴き合う体験が中心になる旨を明示</div>
+        </div>
+      </div>
+
+      <div class="tl-row">
+        <div class="tl-time">12-22分</div>
+        <div class="tl-dot"></div>
+        <div class="tl-card">
+          <div class="tl-head">
+            <span class="tl-title">Q1個人 違和感と期待を書き出す</span>
+            <span class="tl-format indiv">個人</span>
+          </div>
+          <div class="tl-content">「最近、違和感／期待で揺れているもの」を書き出す（10分）</div>
+          <div class="tl-facil"><b>ファシリ進行</b>沈黙を守る。アナウンスを途中で入れない</div>
+        </div>
+      </div>
+
+      <div class="tl-row pair">
+        <div class="tl-time">22-34分</div>
+        <div class="tl-dot"></div>
+        <div class="tl-card">
+          <div class="tl-head">
+            <span class="tl-title">Q2 違和感シェア</span>
+            <span class="tl-format pair">ペア</span>
+            <span class="tl-pair-num">ROUND 1</span>
+          </div>
+          <div class="tl-content">1人6分ずつ、書いたことを話す／聴き手は質問を1つだけ返す</div>
+          <div class="tl-facil"><b>ファシリ進行</b>ペア組み替え1回目（くじ引きまたは事前指定）。聴き手の役割を明示</div>
+        </div>
+      </div>
+
+      <div class="tl-row">
+        <div class="tl-time">34-42分</div>
+        <div class="tl-dot"></div>
+        <div class="tl-card">
+          <div class="tl-head">
+            <span class="tl-title">Q3個人 問いの形にする</span>
+            <span class="tl-format indiv">個人</span>
+          </div>
+          <div class="tl-content">「いま話したこと／聴いたことを問いの形にすると？」（8分）／介助フック5個併記</div>
+          <div class="tl-facil"><b>ファシリ進行</b>沈黙の長さに耐える。机間巡回はしない</div>
+        </div>
+      </div>
+
+      <div class="tl-row pair">
+        <div class="tl-time">42-54分</div>
+        <div class="tl-dot"></div>
+        <div class="tl-card">
+          <div class="tl-head">
+            <span class="tl-title">Q4 問いを磨き合う</span>
+            <span class="tl-format pair">ペア</span>
+            <span class="tl-pair-num">ROUND 2</span>
+          </div>
+          <div class="tl-content">違う相手と1人6分ずつ、立てた問いを読み上げる／聴き手は「その問いを聴いて何を感じたか」だけ返す</div>
+          <div class="tl-facil"><b>ファシリ進行</b>ペア組み替え2回目。聴き手は感覚返しのみ、評価禁止</div>
+        </div>
+      </div>
+
+      <div class="tl-row">
+        <div class="tl-time">54-58分</div>
+        <div class="tl-dot"></div>
+        <div class="tl-card">
+          <div class="tl-head">
+            <span class="tl-title">Q5全体 「探究テーマ」と呼ぶ／POOLO短く</span>
+            <span class="tl-format all">全体</span>
+          </div>
+          <div class="tl-content">「いま立った問いをPOOLOでは<b>探究テーマ</b>（POOLOで8ヶ月間磨き続ける自分の問いのこと）と呼ぶ」／プログラム全体像を3分で</div>
+          <div class="tl-facil"><b>ファシリ進行</b>概念だけ、売り込まない</div>
+        </div>
+      </div>
+
+      <div class="tl-row">
+        <div class="tl-time">58-64分</div>
+        <div class="tl-dot"></div>
+        <div class="tl-card">
+          <div class="tl-head">
+            <span class="tl-title">Q6全体 関心探究型／8ヶ月の磨き方</span>
+            <span class="tl-format all">全体</span>
+          </div>
+          <div class="tl-content"><b>目標逆算型</b>（ゴールから今を決める考え方）と <b>関心探究型</b>（今の関心から始める考え方）の対比／「想像していなかった場所」</div>
+          <div class="tl-facil"><b>ファシリ進行</b>卒業生エピソード1つ。営業せず事実として</div>
+        </div>
+      </div>
+
+      <div class="tl-row pair">
+        <div class="tl-time">64-78分</div>
+        <div class="tl-dot"></div>
+        <div class="tl-card">
+          <div class="tl-head">
+            <span class="tl-title">Q7 問いを最終で磨く</span>
+            <span class="tl-format pair">ペア</span>
+            <span class="tl-pair-num">ROUND 3</span>
+          </div>
+          <div class="tl-content">また違う相手と1人7分ずつ、いま自分の問いがどう揺れているかを話す／聴き手は復唱と感覚返し</div>
+          <div class="tl-facil"><b>ファシリ進行</b>ペア組み替え3回目。3回目は最も深まる相手になりやすい</div>
+        </div>
+      </div>
+
+      <div class="tl-row">
+        <div class="tl-time">78-85分</div>
+        <div class="tl-dot"></div>
+        <div class="tl-card">
+          <div class="tl-head">
+            <span class="tl-title">Q8個人 持ち帰る問いを書く</span>
+            <span class="tl-format indiv">個人</span>
+          </div>
+          <div class="tl-content">3回のペア対話を踏まえて、持ち帰る問いを最終記入／POOLO入りたい度何%／次の一歩</div>
+          <div class="tl-facil"><b>ファシリ進行</b>沈黙を守る。入りたい度は紙のみ</div>
+        </div>
+      </div>
+
+      <div class="tl-row">
+        <div class="tl-time">85-90分</div>
+        <div class="tl-dot"></div>
+        <div class="tl-card">
+          <div class="tl-head">
+            <span class="tl-title">クロージング</span>
+            <span class="tl-format all">全体</span>
+          </div>
+          <div class="tl-content">「3回違う相手と聴き合った経験を持ち帰ってください」／1on1案内</div>
+          <div class="tl-facil"><b>ファシリ進行</b>押さない。希望者のみ別途案内</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="rules-block">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="sec-tag">RULES</span>
+      <h2 class="sec-title">今日のルール＋ペア対話3ルール</h2>
+    </div>
+
+    <div class="rules-subtitle">継承する3つ（自分への約束）</div>
+    <div class="rules-grid">
+      <div class="rule-card">
+        <div class="rule-num">RULE 01</div>
+        <div class="rule-text">上手な言葉にしなくていい</div>
+      </div>
+      <div class="rule-card">
+        <div class="rule-num">RULE 02</div>
+        <div class="rule-text">斜に構えない・かっこつけない</div>
+      </div>
+      <div class="rule-card">
+        <div class="rule-num">RULE 03</div>
+        <div class="rule-text">沈黙を焦らない</div>
+      </div>
+    </div>
+
+    <div class="rules-subtitle">追加する3つ（聴き手としての約束）</div>
+    <div class="rules-grid">
+      <div class="rule-card added">
+        <div class="rule-num">RULE 04</div>
+        <div class="rule-text">聴き手は質問・復唱・感覚返しのいずれかだけ返す</div>
+      </div>
+      <div class="rule-card added">
+        <div class="rule-num">RULE 05</div>
+        <div class="rule-text">評価・解釈・アドバイスを返さない（「いいですね」「それは大変ですね」も含む）</div>
+      </div>
+      <div class="rule-card added">
+        <div class="rule-num">RULE 06</div>
+        <div class="rule-text">ペア対話の内容は外に持ち出さない（守秘）</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <span class="sec-tag">QUESTIONS</span>
+      <h2 class="sec-title">各ワークの問い（1on1からの翻訳）</h2>
+    </div>
+
+    <table class="q-table">
+      <thead>
+        <tr>
+          <th>ワーク</th>
+          <th>1on1の対応ステップ</th>
+          <th>集団用の問い</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><th>チェックイン</th><td class="step">ステップ1</td><td class="q">「ニックネーム@今いる場所＋最近よく考えていること、ひと言ずつ」</td></tr>
+        <tr><th>Q1個人</th><td class="step">ステップ2</td><td class="q">「最近、何かに違和感を感じていたり、逆に何かに期待していたり、揺れているものはありますか？」</td></tr>
+        <tr><th>Q2ペア①</th><td class="step">ステップ2の集団化</td><td class="q">「書いたことを、ペアで6分ずつ話します。聴き手は質問を1つだけ返してください」</td></tr>
+        <tr><th>Q3個人</th><td class="step">ステップ3</td><td class="q">「Q2で話したこと／聴いたことを、もし問いの形にすると？」</td></tr>
+        <tr><th>Q4ペア②</th><td class="step">ステップ3の集団化</td><td class="q">「違う相手と、立てた問いを聴き合います。聴き手は『その問いを聴いて何を感じたか』だけ返してください」</td></tr>
+        <tr><th>Q5全体</th><td class="step">ステップ4</td><td class="q">（ファシリから差し出し）「みなさんの問いを、POOLOでは探究テーマと呼びます」</td></tr>
+        <tr><th>Q6全体</th><td class="step">ステップ5・6・8</td><td class="q">（ファシリから差し出し）「8ヶ月の磨き方／関心探究型／想像していなかった場所」</td></tr>
+        <tr><th>Q7ペア③</th><td class="step">ステップ3の深化</td><td class="q">「さらに違う相手と、いま自分の問いがどう揺れているか、7分ずつ話します。聴き手は復唱と感覚返しを返してください」</td></tr>
+        <tr><th>Q8個人</th><td class="step">ステップ11</td><td class="q">「持ち帰る問い／POOLO入りたい度何%／次の一歩、ワークシートに記入してください」</td></tr>
+      </tbody>
+    </table>
+
+    <h3 style="font-family:var(--serif);font-size:1rem;color:var(--ink);margin-top:2.5rem;margin-bottom:0.8rem;letter-spacing:0.04em;text-align:center">ペア対話の聴き手3つの返し方（ワークシート裏面に明示）</h3>
+    <table class="listener-table">
+      <thead>
+        <tr>
+          <th>ペア回</th>
+          <th>聴き手の返し方</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>1回目（Q2）</td><td>質問を1つだけ：「もう少し聞きたいのは…」</td></tr>
+        <tr><td>2回目（Q4）</td><td>感覚返し：「その問いを聴いて、自分はこう感じた」</td></tr>
+        <tr><td>3回目（Q7）</td><td>復唱＋感覚返し：「いま聴いた問いをそのまま繰り返す」＋「自分はこう感じた」</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="help-block">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="sec-tag" style="color:var(--amber);border-color:var(--amber)">HELP HOOKS</span>
+      <h2 class="sec-title">介助フック（Q3で詰まったとき）</h2>
+    </div>
+    <div class="help-note">案A・Cと共通の5個。ピンと来たものから選んでもらう</div>
+
+    <div class="help-grid">
+      <div class="help-card">
+        <div class="help-num">No. 01</div>
+        <div class="help-text">最近もやっとした瞬間を一つ挙げるなら、いつ・どこで・誰といたとき？</div>
+      </div>
+      <div class="help-card">
+        <div class="help-num">No. 02</div>
+        <div class="help-text">その違和感に名前をつけるとしたら？</div>
+      </div>
+      <div class="help-card">
+        <div class="help-num">No. 03</div>
+        <div class="help-text">逆に、最近ちょっと心が動いた瞬間を覚えていますか？</div>
+      </div>
+      <div class="help-card">
+        <div class="help-num">No. 04</div>
+        <div class="help-text">もし誰かに「あなたは何に興味があるの？」と聞かれたら、なんて答えますか？</div>
+      </div>
+      <div class="help-card">
+        <div class="help-num">No. 05</div>
+        <div class="help-text">答えなくていいから、今の自分に問いかけたいことを一つだけ言うとしたら？</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="quote-block">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="sec-tag">FACILITATOR SCRIPT</span>
+      <h2 class="sec-title">ファシリ進行台本（主要な転換）</h2>
+    </div>
+
+    <div class="quote-grid">
+      <div class="quote-card">
+        <div class="quote-when">オープニング（0-12分）</div>
+        <div class="quote-text">「今日の90分は、誰かに教わる時間ではなく、3回違う相手と、自分の中で動いているものを聴き合う時間です。ルールが3つ＋3つあります。前半3つは自分への約束、後半3つは聴き手としての約束です」</div>
+      </div>
+      <div class="quote-card">
+        <div class="quote-when">Q2 ペア①への移行（22分）</div>
+        <div class="quote-text">「では、ペアを組みます。1人6分ずつ、Q1に書いたことをそのまま話してください。聴き手は、最後に質問を1つだけ返してください。『もう少し聞きたいのは…』だけで大丈夫です。タイマー鳴ったら交代します」</div>
+      </div>
+      <div class="quote-card">
+        <div class="quote-when">Q5 「探究テーマと呼ぶ」への切り替え（54分）</div>
+        <div class="quote-text">「みなさんが2回違う相手と聴き合って、立て直してきた問い。POOLOでは、これを<b>探究テーマ</b>と呼んでいます。今日この場で、2人の前で読み上げたその問いを、もし50人の仲間と8ヶ月持ち続けたら、どうなるか。それを試す場としてPOOLOが用意されています」</div>
+      </div>
+      <div class="quote-card">
+        <div class="quote-when">Q6 「関心探究型と引力場」への移行（58分）</div>
+        <div class="quote-text">「面白いのは、関心探究型の人が50人集まると、一人では届かない場所に運ばれていく<b>引力場</b>ができることです。今日この90分で、3人と聴き合うだけでも、自分の問いが少し変わる感覚があると思います。それが50人と8ヶ月続くと、想像していなかったところにたどり着く、ということが起きます」</div>
+      </div>
+      <div class="quote-card">
+        <div class="quote-when">Q7 ペア③への移行（64分）</div>
+        <div class="quote-text">「最後のペアに移ります。1人7分ずつ。今度は、ここまでの話を聴いて、自分の問いがいまどう揺れているか、を話してください。聴き手は、まず相手の問いを復唱して返してください。そのあと、感じたことをIメッセージで返してください」</div>
+      </div>
+      <div class="quote-card">
+        <div class="quote-when">クロージング（85-90分）</div>
+        <div class="quote-text">「90分で、3人の前で自分の問いを置いた、その経験を持ち帰ってください。問いは1週間持ち歩くと、勝手に動き始めます。もしよければ、今日の続きを個別で話したい方には、後日1on1の時間を作れます」</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="worksheet-block">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="sec-tag">WORKSHEET</span>
+      <h2 class="sec-title">参加者ワークシート構造</h2>
+    </div>
+
+    <table class="ws-table">
+      <thead>
+        <tr>
+          <th>セクション</th>
+          <th>ラベル</th>
+          <th>意図</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>上部</td><td>チェックイン記入欄</td><td>場に名前を置く</td></tr>
+        <tr><td>Q1</td><td>違和感と期待（自由記述・大きめ）</td><td>内側の動きを言葉の手前まで運ぶ</td></tr>
+        <tr><td>Q3</td><td>問いに変換（1-3行）／介助フック5個併記</td><td>違和感を問いに変える</td></tr>
+        <tr><td>Q8</td><td>持ち帰る問い／POOLO入りたい度何%／次の一歩</td><td>持ち帰り＋意思表明</td></tr>
+        <tr><td>裏面上部</td><td>ペア対話の3つの返し方一覧（1回目／2回目／3回目）</td><td>聴き手の役割を都度確認</td></tr>
+        <tr><td>裏面下部</td><td>ペア相手のメモ欄3つ（任意）</td><td>3人の名前と印象的だった一言を書ける</td></tr>
+      </tbody>
+    </table>
+
+    <h3 style="font-family:var(--serif);font-size:1rem;color:var(--ink);margin-top:2rem;margin-bottom:0.8rem;letter-spacing:0.04em">Q8のチェックボックス</h3>
+    <ul class="checkbox-list">
+      <li>プレエントリー（正式申込前の意思表明枠）の案内を希望</li>
+      <li>詳細資料の送付を希望</li>
+      <li>後日、運営から一度連絡を希望</li>
+      <li>いったん持ち帰って、自分から連絡する</li>
+    </ul>
+  </div>
+</section>
+
+<section class="closing-block">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="sec-tag">CLOSING ／ 1ON1 BRIDGE</span>
+      <h2 class="sec-title">クロージングと1on1への接続</h2>
+    </div>
+
+    <div class="closing-grid">
+      <div class="cl-card end">
+        <div class="cl-label">会の終わり方</div>
+        <div class="cl-title">「3人と聴き合った経験を持ち帰ってください」で締める</div>
+        <div class="cl-desc">POOLOの宣伝で終わらない</div>
+      </div>
+      <div class="cl-card bridge">
+        <div class="cl-label">1on1への誘導</div>
+        <div class="cl-title">集団アナウンス1回＋ワークシートのチェック欄</div>
+        <div class="cl-desc">帰り際の個別声かけはしない。1on1案内は後日メールで、希望チェックを入れた人にのみ送る</div>
+      </div>
+      <div class="cl-card percent">
+        <div class="cl-label">入りたい度%</div>
+        <div class="cl-title">ワークシート記入のみ</div>
+        <div class="cl-desc">集団で挙手・発言させない。数字は1on1や後日メールでのフォロー判断に使う</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="takeaway-block">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="sec-tag">TAKE-AWAYS</span>
+      <h2 class="sec-title">体験会終了時の参加者の状態</h2>
+    </div>
+
+    <div class="takeaway-grid">
+      <div class="ta-card">
+        <div class="ta-num">01</div>
+        <div class="ta-text">自分の問いがワークシートに書かれている</div>
+      </div>
+      <div class="ta-card">
+        <div class="ta-num">02</div>
+        <div class="ta-text">3人の違う相手の前で、その問いを読み上げた経験がある（聴かれる体験を3回積んだ）</div>
+      </div>
+      <div class="ta-card">
+        <div class="ta-num">03</div>
+        <div class="ta-text">POOLOで「探究テーマ」「引力場」と呼ぶ概念に、自分の問いと3人との対話を通して触れている</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="variant-block">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="sec-tag">VARIANTS</span>
+      <h2 class="sec-title">派生メモ</h2>
+    </div>
+
+    <div class="variant-grid">
+      <div class="var-card">
+        <div class="var-label">75分短縮版</div>
+        <div class="var-title">ペア3回目を削って2回に</div>
+        <div class="var-desc">ペア1回目を5分ずつ・2回目を6分ずつ・全体パートを少し圧縮。「3回違う相手と聴き合う」体験の核がやや薄れるので、案B本来の狙いは半減。90分取れないなら案Aの60分短縮版を推奨</div>
+      </div>
+      <div class="var-card">
+        <div class="var-label">100分拡張版</div>
+        <div class="var-title">ペア対話を1回目8分・2回目8分・3回目10分に</div>
+        <div class="var-desc">全体パートと個人ワークは変えない。14名×100分が体感の上限。これ以上は集中力が落ちる</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="warn-block">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="sec-tag">OPERATIONAL NOTES</span>
+      <h2 class="sec-title">運用上の注意</h2>
+    </div>
+
+    <ul class="warn-list">
+      <li><b>ペアのマッチング運</b>3回中1回でも噛み合わないペアが出ると、参加者の体感が下がる。事前の組み合わせ設計に時間をかける</li>
+      <li><b>奇数の場合</b>ファシリがペアに入る。ファシリは聴き手専門で、自分の問いは話さない（場が運営側に引っ張られないため）</li>
+      <li><b>オンラインの場合</b>3回のブレイクアウトルーム切り替えで進行が複雑。運営2名体制を推奨（1名がファシリ、1名がZoomオペレーション）</li>
+      <li><b>時間管理がタイト</b>ペア対話の交代を運営が正確に管理する。タイマー必須</li>
+    </ul>
+  </div>
+</section>
+
+<section style="background:var(--bg-deep);border-top:1px solid var(--line);padding:3rem 0 4rem">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="sec-tag">CHECKLIST</span>
+      <h2 class="sec-title">ファシリ事前準備</h2>
+    </div>
+
+    <ul class="checkbox-list" style="margin:0 auto;background:#fff">
+      <li>ペア組み合わせ3回分を事前に設計（参加者名簿から）</li>
+      <li>オンラインの場合、ブレイクアウトルーム3パターンを事前登録</li>
+      <li>ワークシートの印刷（参加人数＋予備3枚）</li>
+      <li>タイマー（ペア対話の交代を運営側で管理、スマホ＋見える位置の時計）</li>
+      <li>スライド4枚（今日のルール＋ペア3ルール／Q5探究テーマ／Q6関心探究型・引力場／クロージング）</li>
+      <li>1on1案内のメール文面</li>
+      <li>体験会後のリード一覧化テンプレート</li>
+    </ul>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-nav">
+      <a href="workshop-2605-index.html">体験会インデックス</a>
+      <a href="workshop-2605-a.html">案A</a>
+      <a href="workshop-2605-c.html">案C</a>
+      <a href="1on1-script-2605-index.html">1on1スクリプト</a>
+    </div>
+    <div class="footer-meta">
+      30代キャリア戦略ワーク 体験会90分 ／ 案B ペア対話厚め型（推奨）<br>
+      2026-05 ブラッシュアップ ／ 社内資料
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
