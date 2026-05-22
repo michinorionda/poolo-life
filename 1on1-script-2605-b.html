@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>案B 違和感掘り強化型｜POOLO LIFE 1on1スクリプト 2026-05</title>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#1a1a1a; --sub:#4a4a4a; --mute:#7a7a7a; --hint:#a8a8a8;
+  --bg:#faf9f6; --bg-deep:#f3f1ea; --card:#ffffff; --line:#e0ddd3;
+  --accent:#8B3A2A; --accent-bg:#F4E1DC; --accent-deep:#6f2c20;
+  --amber:#7A5500; --amber-bg:#F7EFD8;
+  --green:#2D6A4F;
+  --serif:'Shippori Mincho',serif; --sans:'Noto Sans JP',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--bg);color:var(--ink);line-height:1.95;font-weight:400;-webkit-font-smoothing:antialiased}
+.wrap{max-width:980px;margin:0 auto;padding:0 1.5rem}
+section{padding:3rem 0}
+
+.topbar{padding:0.7rem 0;background:var(--accent);color:#fff;font-size:0.74rem;letter-spacing:0.1em;text-align:center}
+.topbar a{color:#fff;text-decoration:none;border-bottom:1px solid rgba(255,255,255,0.4)}
+
+.header{padding:3.5rem 0 2.8rem;background:linear-gradient(135deg,var(--accent-bg) 0%,var(--bg) 70%);border-bottom:2px solid var(--accent);text-align:center}
+.badge-row{display:flex;justify-content:center;gap:0.6rem;margin-bottom:1.4rem;flex-wrap:wrap}
+.case-badge{display:inline-block;font-size:0.65rem;letter-spacing:0.3em;color:#fff;background:var(--accent);padding:0.4rem 1.2rem;border-radius:30px;font-weight:600}
+.internal-badge{display:inline-block;font-size:0.65rem;letter-spacing:0.3em;color:#fff;background:var(--ink);padding:0.4rem 1.2rem;border-radius:30px;font-weight:600}
+.header-title{font-family:var(--serif);font-size:1.95rem;font-weight:600;letter-spacing:0.05em;line-height:1.7;color:var(--ink);margin-bottom:0.5rem}
+.header-sub{font-family:var(--serif);font-size:0.96rem;color:var(--sub);letter-spacing:0.05em;margin-bottom:1.4rem}
+.header-meta{display:inline-flex;gap:1.4rem;padding:0.55rem 1.4rem;background:#fff;border:1px solid var(--line);border-radius:3px;font-size:0.74rem;color:var(--mute);letter-spacing:0.08em}
+.header-meta b{color:var(--accent);font-weight:600;font-family:var(--serif)}
+
+.objective-box{background:var(--accent-bg);border-left:4px solid var(--accent);padding:1.7rem 1.9rem;border-radius:3px;max-width:880px;margin:2.5rem auto 0}
+.obj-label{font-size:0.66rem;letter-spacing:0.3em;color:var(--accent);font-weight:600;margin-bottom:0.6rem}
+.obj-main{font-family:var(--serif);font-size:1rem;color:var(--ink);line-height:2.05;font-weight:500;letter-spacing:0.03em}
+
+.section-head{text-align:center;margin-bottom:2.4rem}
+.sec-tag{display:inline-block;font-family:var(--serif);font-size:0.7rem;letter-spacing:0.35em;font-weight:600;color:var(--accent);padding:0.35rem 1rem;border:1px solid var(--accent);margin-bottom:0.8rem}
+.sec-title{font-family:var(--serif);font-size:1.4rem;font-weight:600;letter-spacing:0.05em;line-height:1.6;color:var(--ink);border-bottom:1px solid var(--line);padding-bottom:0.7rem;display:inline-block}
+
+.phase-list{display:flex;flex-direction:column;gap:1rem}
+.phase-card{background:#fff;border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:3px;padding:1.4rem 1.6rem;break-inside:avoid;page-break-inside:avoid}
+.phase-card.focus{background:linear-gradient(180deg,var(--accent-bg) 0%,#fff 25%);border-left:5px solid var(--accent-deep)}
+.phase-head{display:flex;align-items:baseline;gap:1rem;margin-bottom:1rem;flex-wrap:wrap;border-bottom:1px dashed var(--line);padding-bottom:0.8rem}
+.phase-num{font-family:var(--serif);font-size:0.78rem;color:var(--accent);font-weight:600;letter-spacing:0.15em;min-width:3rem}
+.phase-title{font-family:var(--serif);font-size:1.1rem;font-weight:600;color:var(--ink);letter-spacing:0.04em;flex:1;line-height:1.55}
+.phase-time{font-size:0.78rem;color:#fff;background:var(--accent);padding:0.25rem 0.7rem;border-radius:2px;letter-spacing:0.08em;font-weight:500;white-space:nowrap}
+.focus-tag{display:inline-block;font-size:0.62rem;color:var(--accent-deep);background:var(--accent-bg);border:1px solid var(--accent);padding:0.15rem 0.55rem;border-radius:2px;letter-spacing:0.15em;font-weight:600;margin-left:0.3rem}
+.phase-body{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem}
+.phase-cell{display:flex;flex-direction:column;gap:0.45rem}
+.cell-label{font-family:var(--serif);font-size:0.68rem;letter-spacing:0.18em;color:var(--accent);font-weight:600;padding-bottom:0.3rem;border-bottom:1px solid var(--accent-bg)}
+.cell-body{font-size:0.85rem;color:var(--sub);line-height:1.85;letter-spacing:0.02em}
+.cell-body b{color:var(--ink);font-weight:600;background:var(--accent-bg);padding:0 0.2rem}
+
+.help-block{background:var(--bg-deep);padding:3rem 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.help-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:0.9rem;margin-top:1.5rem}
+.help-card{background:#fff;border:1px solid var(--line);border-top:3px solid var(--amber);border-radius:3px;padding:1.1rem 1.2rem;break-inside:avoid;page-break-inside:avoid}
+.help-num{font-family:var(--serif);font-size:0.7rem;letter-spacing:0.2em;color:var(--amber);font-weight:600;margin-bottom:0.4rem}
+.help-text{font-family:var(--serif);font-size:0.92rem;color:var(--ink);line-height:1.85;font-weight:500}
+.help-note{font-size:0.84rem;color:var(--sub);line-height:1.95;letter-spacing:0.02em;margin-bottom:1rem}
+
+.branch-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:1.5rem}
+.branch-card{background:#fff;border:1px solid var(--line);border-radius:4px;padding:1.3rem 1.4rem;break-inside:avoid;page-break-inside:avoid}
+.branch-card.high{border-top:3px solid var(--green)}
+.branch-card.mid{border-top:3px solid var(--amber)}
+.branch-card.low{border-top:3px solid var(--accent)}
+.branch-label{font-family:var(--serif);font-size:0.68rem;letter-spacing:0.18em;font-weight:600;margin-bottom:0.6rem}
+.branch-card.high .branch-label{color:var(--green)}
+.branch-card.mid .branch-label{color:var(--amber)}
+.branch-card.low .branch-label{color:var(--accent)}
+.branch-percent{font-family:var(--serif);font-size:1.4rem;color:var(--ink);font-weight:700;margin-bottom:0.8rem;letter-spacing:0.03em}
+.branch-script{font-size:0.85rem;color:var(--sub);line-height:1.9;letter-spacing:0.02em;margin-bottom:0.8rem}
+.branch-listen{font-size:0.78rem;color:var(--mute);line-height:1.85;letter-spacing:0.02em;padding-top:0.7rem;border-top:1px dashed var(--line)}
+.branch-listen b{font-family:var(--serif);font-size:0.68rem;letter-spacing:0.2em;color:var(--ink);font-weight:600;display:block;margin-bottom:0.3rem}
+
+.closing-block{padding:3rem 0;background:var(--accent-bg)}
+.closing-options{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:1.5rem}
+.opt-card{background:#fff;border:1px solid var(--line);border-radius:3px;padding:1.2rem 1.3rem;text-align:center}
+.opt-num{font-family:var(--serif);font-size:0.7rem;letter-spacing:0.25em;color:var(--accent);font-weight:600;margin-bottom:0.5rem}
+.opt-title{font-family:var(--serif);font-size:1rem;color:var(--ink);font-weight:600;letter-spacing:0.04em;margin-bottom:0.5rem}
+.opt-desc{font-size:0.8rem;color:var(--sub);line-height:1.85}
+.closing-script{margin-top:1.5rem;font-family:var(--serif);font-size:0.92rem;color:var(--ink);line-height:2;padding:1.2rem 1.4rem;background:#fff;border-left:3px solid var(--accent);max-width:780px;margin-left:auto;margin-right:auto}
+
+.notes-block{padding:3rem 0;background:#fff;border-top:1px solid var(--line)}
+.notes-list{max-width:780px;margin:1.5rem auto 0;padding-left:0;list-style:none}
+.notes-list li{padding:0.8rem 0 0.8rem 2rem;border-bottom:1px solid var(--line);font-size:0.9rem;color:var(--sub);line-height:1.95;position:relative}
+.notes-list li::before{content:"●";color:var(--accent);position:absolute;left:0.5rem;font-size:0.6rem;top:1rem}
+
+.footer{padding:3rem 0 3.5rem;background:var(--bg-deep);border-top:1px solid var(--line);text-align:center}
+.footer-nav{display:inline-flex;gap:1.6rem;margin-bottom:1rem;font-size:0.84rem;letter-spacing:0.06em}
+.footer-nav a{color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent);padding-bottom:0.1rem}
+.footer-meta{font-size:0.74rem;color:var(--mute);letter-spacing:0.08em;line-height:2}
+
+@media(max-width:820px){
+  .header-title{font-size:1.5rem}
+  .phase-body{grid-template-columns:1fr}
+  .branch-grid{grid-template-columns:1fr}
+  .closing-options{grid-template-columns:1fr}
+}
+
+@media print{
+  body{background:#fff}
+  .topbar,.header,.help-block,.closing-block,.notes-block,.footer{background:#fff !important}
+  .phase-card,.help-card,.branch-card,.opt-card{break-inside:avoid;page-break-inside:avoid;box-shadow:none}
+  section{padding:1.2rem 0}
+  a{color:inherit}
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  POOLO LIFE 1on1スクリプト ／ <a href="1on1-script-2605-index.html">インデックスに戻る</a> ／ <a href="1on1-script-2605-a.html">案A</a> ／ <a href="1on1-script-2605-c.html">案C</a>
+</div>
+
+<header class="header">
+  <div class="wrap">
+    <div class="badge-row">
+      <span class="internal-badge">INTERNAL ／ 社内資料</span>
+      <span class="case-badge">CASE B</span>
+    </div>
+    <h1 class="header-title">案B 違和感掘り強化型</h1>
+    <div class="header-sub">標準45-60分／違和感の具体エピソードを2〜3個引き出して問い化</div>
+    <div class="header-meta">
+      <span><b>45-60</b>分</span>
+      <span><b>11</b>フェーズ</span>
+      <span>POOLO思想<b>最整合</b></span>
+    </div>
+
+    <div class="objective-box">
+      <div class="obj-label">この案の狙い</div>
+      <div class="obj-main">ラポール形成を短めにして、違和感の具体エピソードを2〜3個引き出すことに時間を集中。本人の問いが立つことを最優先する型。「探究テーマが本人の言葉で立つ」をゴールに置きます。違和感を強く抱えていそうな、キャリアや人間関係で立ち止まっている検討者向け。</div>
+    </div>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <span class="sec-tag">11 PHASES</span>
+      <h2 class="sec-title">フェーズごとの進行</h2>
+    </div>
+
+    <div class="phase-list">
+
+      <div class="phase-card">
+        <div class="phase-head">
+          <span class="phase-num">No. 01</span>
+          <span class="phase-title">ラポール形成（短め）</span>
+          <span class="phase-time">0-5分</span>
+        </div>
+        <div class="phase-body">
+          <div class="phase-cell">
+            <div class="cell-label">問い・トーク例</div>
+            <div class="cell-body">「体験会、お疲れさまでした。今日のあの場、どうでした？／印象に残った瞬間、ひとつだけ挙げるとしたら？」（軽い自己開示は最小限）</div>
+          </div>
+          <div class="phase-cell">
+            <div class="cell-label">聴くポイント</div>
+            <div class="cell-body">体験会で動いた瞬間／声のトーン／緊張度</div>
+          </div>
+          <div class="phase-cell">
+            <div class="cell-label">注意点・分岐</div>
+            <div class="cell-body">ラポールに時間を使いすぎない。体験会の余熱を活かして、本題に早めに入る</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="phase-card focus">
+        <div class="phase-head">
+          <span class="phase-num">No. 02</span>
+          <span class="phase-title">違和感を聴く（エピソード1）<span class="focus-tag">CORE</span></span>
+          <span class="phase-time">5-13分</span>
+        </div>
+        <div class="phase-body">
+          <div class="phase-cell">
+            <div class="cell-label">問い・トーク例</div>
+            <div class="cell-body">「最近、違和感を感じた瞬間って、何かありますか？／仕事でもプライベートでも」／（出てきたら）「もう少し詳しく聞かせてもらえますか？それ、いつ、どこで、誰といたときですか？」</div>
+          </div>
+          <div class="phase-cell">
+            <div class="cell-label">聴くポイント</div>
+            <div class="cell-body">違和感の具体場面／そのときの身体感覚（息が詰まった、笑えなかった等）／背景にある期待や前提</div>
+          </div>
+          <div class="phase-cell">
+            <div class="cell-label">注意点・分岐</div>
+            <div class="cell-body">抽象に逃がさない。「なんとなく」を「いつ・どこで・誰と」で具体化する。掘る、寄せる、繰り返す</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="phase-card focus">
+        <div class="phase-head">
+          <span class="phase-num">No. 03</span>
+          <span class="phase-title">違和感を聴く（エピソード2）<span class="focus-tag">CORE</span></span>
+          <span class="phase-time">13-19分</span>
+        </div>
+        <div class="phase-body">
+          <div class="phase-cell">
+            <div class="cell-label">問い・トーク例</div>
+            <div class="cell-body">「他にも、似たような瞬間って、最近ありました？／違うパターンの違和感でも」／（出てきたら）「それと、さっきの〇〇って、共通点ありそうですか？」</div>
+          </div>
+          <div class="phase-cell">
+            <div class="cell-label">聴くポイント</div>
+            <div class="cell-body">エピソード1と2の共通点／違和感のパターン（自由がない／自分が消える／反応が薄い等）</div>
+          </div>
+          <div class="phase-cell">
+            <div class="cell-label">注意点・分岐</div>
+            <div class="cell-body">2個出てくると本人の中でパターンが見え始める。共通点を相手に聞いて、こちらが言わない</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="phase-card">
+        <div class="phase-head">
+          <span class="phase-num">No. 04</span>
+          <span class="phase-title">違和感を聴く（エピソード3・任意）</span>
+          <span class="phase-time">19-23分</span>
+        </div>
+        <div class="phase-body">
+          <div class="phase-cell">
+            <div class="cell-label">問い・トーク例</div>
+            <div class="cell-body">「もう一つくらい、あります？／ない場合はスキップで大丈夫」</div>
+          </div>
+          <div class="phase-cell">
+            <div class="cell-label">聴くポイント</div>
+            <div class="cell-body">3つ目があれば確信度が上がる。なくても2つで十分</div>
+          </div>
+          <div class="phase-cell">
+            <div class="cell-label">注意点・分岐</div>
+            <div class="cell-body">無理に絞り出させない。2つ目で本人がパターンを掴んでいれば3つ目はカットしてよい</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="phase-card focus">
+        <div class="phase-head">
+          <span class="phase-num">No. 05</span>
+          <span class="phase-title">問いの形にする<span class="focus-tag">CORE</span></span>
+          <span class="phase-time">23-32分</span>
+        </div>
+        <div class="phase-body">
+          <div class="phase-cell">
+            <div class="cell-label">問い・トーク例</div>
+            <div class="cell-body">「いま話してくれた違和感を、もし問いの形にするとしたら、どうなりますか？」／（詰まったら下の介助の問いへ）</div>
+          </div>
+          <div class="phase-cell">
+            <div class="cell-label">聴くポイント</div>
+            <div class="cell-body">違和感を踏まえた問いが立つか／その問いに本人がどれだけリアリティを感じるか</div>
+          </div>
+          <div class="phase-cell">
+            <div class="cell-label">注意点・分岐</div>
+            <div class="cell-body">エピソードを並べた直後なので、問いが立ちやすい状態。沈黙3秒以上待つ</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="phase-card">
+        <div class="phase-head">
+          <span class="phase-num">No. 06</span>
+          <span class="phase-title">「探究テーマ」と呼ぶ</span>
+          <span class="phase-time">32-36分</span>
+        </div>
+        <div class="phase-body">
+          <div class="phase-cell">
+            <div class="cell-label">問い・トーク例</div>
+            <div class="cell-body">「いま立ててくれたその問い、POOLOではこれを<b>探究テーマ</b>（POOLOで8ヶ月間、本人が磨き続ける『自分の問い』のこと）って呼んでて」／「答えを出すというより、磨くものとして扱います」</div>
+          </div>
+          <div class="phase-cell">
+            <div class="cell-label">聴くポイント</div>
+            <div class="cell-body">概念に対する反応／自分の問いと「探究テーマ」という言葉が繋がるか</div>
+          </div>
+          <div class="phase-cell">
+            <div class="cell-label">注意点・分岐</div>
+            <div class="cell-body">上から教えにいかない。本人の問いを受けてから、概念を差し出す</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="phase-card">
+        <div class="phase-head">
+          <span class="phase-num">No. 07</span>
+          <span class="phase-title">8ヶ月で問いが磨かれる／想像していなかった場所</span>
+          <span class="phase-time">36-41分</span>
+        </div>
+        <div class="phase-body">
+          <div class="phase-cell">
+            <div class="cell-label">問い・トーク例</div>
+            <div class="cell-body">「8ヶ月かけて、この問いが磨かれたり、答えが見えて次の問いが生まれたり、します」／「最初の問いと8ヶ月後の問いって、全然違うものになる人が多くて」／「結果として、自分が想像してなかったところにたどり着く」</div>
+          </div>
+          <div class="phase-cell">
+            <div class="cell-label">聴くポイント</div>
+            <div class="cell-body">時間軸の受け取り／「想像してなかった」への反応</div>
+          </div>
+          <div class="phase-cell">
+            <div class="cell-label">注意点・分岐</div>
+            <div class="cell-body">「想像してなかった」を悪い方向に取られないよう、ポジティブな具体例（過去期の卒業生のエピソード）を1つ添える</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="phase-card">
+        <div class="phase-head">
+          <span class="phase-num">No. 08</span>
+          <span class="phase-title">POOLOの話／関心探究型</span>
+          <span class="phase-time">41-48分</span>
+        </div>
+        <div class="phase-body">
+          <div class="phase-cell">
+            <div class="cell-label">問い・トーク例</div>
+            <div class="cell-body">「POOLOは、旅と問いと共創で、想像もしなかった世界と自分に出会う8ヶ月のプログラム」／「世の中の学びって、3年後の目標を決めて逆算する型（<b>目標逆算型</b>：ゴールを先に決めて今を決める）が多いですが、POOLOは逆で、今、何に心が動くかから始める型（<b>関心探究型</b>：自分の関心を起点に、行きたい方向を後から見つける）です」</div>
+          </div>
+          <div class="phase-cell">
+            <div class="cell-label">聴くポイント</div>
+            <div class="cell-body">関心探究型に対する反応（「それです」感／「ピンとこない」感）</div>
+          </div>
+          <div class="phase-cell">
+            <div class="cell-label">注意点・分岐</div>
+            <div class="cell-body">違和感掘りで本人の関心が出てきているはずなので、関心探究型の説明はその実例として接続する</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="phase-card">
+        <div class="phase-head">
+          <span class="phase-num">No. 09</span>
+          <span class="phase-title">講義・合宿・旅・自主プロジェクト</span>
+          <span class="phase-time">48-53分</span>
+        </div>
+        <div class="phase-body">
+          <div class="phase-cell">
+            <div class="cell-label">問い・トーク例</div>
+            <div class="cell-body">「問いを磨くために、講義・合宿・旅・仲間との対話があって」／「8ヶ月の中で、<b>自主プロジェクト</b>（有志で、自分が動きたいことを実際にやってみる場）もあります」</div>
+          </div>
+          <div class="phase-cell">
+            <div class="cell-label">聴くポイント</div>
+            <div class="cell-body">どの入り口に反応するか</div>
+          </div>
+          <div class="phase-cell">
+            <div class="cell-label">注意点・分岐</div>
+            <div class="cell-body">詳しく話しすぎない。「興味あれば資料お送りしますね」で済ませてもよい</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="phase-card">
+        <div class="phase-head">
+          <span class="phase-num">No. 10</span>
+          <span class="phase-title">入りたい度何%？</span>
+          <span class="phase-time">53-57分</span>
+        </div>
+        <div class="phase-body">
+          <div class="phase-cell">
+            <div class="cell-label">問い・トーク例</div>
+            <div class="cell-body">「ここまで話してきて、今<b>POOLO入りたい度何%ぐらい</b>ですか？／正直な数字で大丈夫です」</div>
+          </div>
+          <div class="phase-cell">
+            <div class="cell-label">聴くポイント</div>
+            <div class="cell-body">数字の高さ／違和感掘りで温度が上がったかどうか</div>
+          </div>
+          <div class="phase-cell">
+            <div class="cell-label">注意点・分岐</div>
+            <div class="cell-body">下の「分岐返答」へ。違和感掘りに時間を使った分、数字が上がっていることが多い</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="phase-card">
+        <div class="phase-head">
+          <span class="phase-num">No. 11</span>
+          <span class="phase-title">クロージング</span>
+          <span class="phase-time">57-60分</span>
+        </div>
+        <div class="phase-body">
+          <div class="phase-cell">
+            <div class="cell-label">問い・トーク例</div>
+            <div class="cell-body">（分岐返答の後）「最後に、今日の話の繋がり方、いくつか置いておきますね」／プレエントリー／資料送付／後日連絡の3択</div>
+          </div>
+          <div class="phase-cell">
+            <div class="cell-label">聴くポイント</div>
+            <div class="cell-body">本人の選んだ次の一歩</div>
+          </div>
+          <div class="phase-cell">
+            <div class="cell-label">注意点・分岐</div>
+            <div class="cell-body">押し売りしない。3択を本人に選ばせる</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="help-block">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="sec-tag" style="color:var(--amber);border-color:var(--amber)">HELP QUESTIONS</span>
+      <h2 class="sec-title">介助の問い（フェーズ5で詰まったとき）</h2>
+    </div>
+    <div class="help-note">違和感のエピソードが出ているので、それを踏まえた問いを作るための介助。順番は固定せず、相手の表情と発話に合わせて選ぶ。</div>
+
+    <div class="help-grid">
+      <div class="help-card">
+        <div class="help-num">No. 01</div>
+        <div class="help-text">さっきの〇〇（具体エピソード）の瞬間、自分が一番抱えていた感情ってなんでした？</div>
+      </div>
+      <div class="help-card">
+        <div class="help-num">No. 02</div>
+        <div class="help-text">その違和感の奥に、どんな期待があったと思いますか？</div>
+      </div>
+      <div class="help-card">
+        <div class="help-num">No. 03</div>
+        <div class="help-text">もしその瞬間にタイムスリップできたら、当時の自分に何を聞きたいですか？</div>
+      </div>
+      <div class="help-card">
+        <div class="help-num">No. 04</div>
+        <div class="help-text">いまの違和感を、未来の自分に持っていくとしたら、どんな問いになりますか？</div>
+      </div>
+      <div class="help-card">
+        <div class="help-num">No. 05</div>
+        <div class="help-text">答えはいらないので、今の自分が向き合いたい問いを一つだけ言うとしたら？</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <span class="sec-tag">BRANCH RESPONSE</span>
+      <h2 class="sec-title">「入りたい度何%？」後の分岐返答</h2>
+    </div>
+
+    <div class="branch-grid">
+      <div class="branch-card high">
+        <div class="branch-label">HIGH</div>
+        <div class="branch-percent">80%以上</div>
+        <div class="branch-script">「ありがとうございます、高めですね。今日の中で何が一番背中を押しましたか？」／「逆に、残り20%は何の20%ですか？」／「もし気持ちが固まりつつあるなら、<b>プレエントリー</b>（正式申込前の意思表明枠、後の本エントリーまで個別フォローあり）の案内もできます」</div>
+        <div class="branch-listen">
+          <b>聴くポイント</b>
+          違和感掘りで立ち上がった問いが、POOLOで磨きたいものとして本人の中で繋がっているか
+        </div>
+      </div>
+
+      <div class="branch-card mid">
+        <div class="branch-label">MID</div>
+        <div class="branch-percent">50-79%</div>
+        <div class="branch-script">「半分以上で迷ってる感じですね。迷ってる50%って、情報不足の話か、気持ちの迷いか、どっちが近いですか？」／「気持ちの迷いの中で、一番大きいのは？」／クロージング：「今日立った問いを、まず持ち帰ってもらえれば。その問いがしばらく自分の中で動くのが大事なので。気になることが出てきたら個別で連絡してください」</div>
+        <div class="branch-listen">
+          <b>聴くポイント</b>
+          本人が立てた問いを大事にする姿勢を見せる。POOLO入会を急かさない
+        </div>
+      </div>
+
+      <div class="branch-card low">
+        <div class="branch-label">LOW</div>
+        <div class="branch-percent">49%以下</div>
+        <div class="branch-script">「正直に言ってくれてありがとうございます。今日合わなかった点はどこですか？」／（受け取る）／「POOLOが合わなくても、今日立った問いはすごく面白いので、その問いを持って自分のペースで動けるよう応援します」／「近い領域の本や人で、紹介できるものがあれば伝えますね」</div>
+        <div class="branch-listen">
+          <b>聴くポイント</b>
+          本人を引き戻そうとしない。立った問いだけ持ち帰ってもらう、で十分
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="closing-block">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="sec-tag">CLOSING</span>
+      <h2 class="sec-title">クロージング3択</h2>
+    </div>
+
+    <div class="closing-options">
+      <div class="opt-card">
+        <div class="opt-num">OPTION 01</div>
+        <div class="opt-title">プレエントリー</div>
+        <div class="opt-desc">気持ちが固まりつつあるなら、申込前の意思表明枠</div>
+      </div>
+      <div class="opt-card">
+        <div class="opt-num">OPTION 02</div>
+        <div class="opt-title">資料送付</div>
+        <div class="opt-desc">もう少し情報を見てから考えたいなら、詳細資料を送る</div>
+      </div>
+      <div class="opt-card">
+        <div class="opt-num">OPTION 03</div>
+        <div class="opt-title">後日連絡</div>
+        <div class="opt-desc">いったん持ち帰って、後日こちらから一度連絡を入れる</div>
+      </div>
+    </div>
+
+    <div class="closing-script">
+      「最後に、今日の繋がり方、いくつか選択肢を置いておきますね。1つ目が…2つ目が…3つ目が…今の感覚に近いのはどれですか？」
+    </div>
+  </div>
+</section>
+
+<section class="notes-block">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="sec-tag">NOTES</span>
+      <h2 class="sec-title">このスクリプトの注意点</h2>
+    </div>
+    <ul class="notes-list">
+      <li>違和感を「ない」と言う人には、「期待」「最近心が動いた瞬間」に切り替える</li>
+      <li>エピソードを掘るときに、評価や解釈を差し挟まない（「それは大変でしたね」程度に留める）</li>
+      <li>違和感掘りに時間を使う分、POOLO説明は短くなる。情報は資料送付で補完する前提で進める</li>
+      <li>問いが立たないまま終わってもOK。「今日は問いの種を見つけた回」として捉える</li>
+    </ul>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-nav">
+      <a href="1on1-script-2605-index.html">インデックス</a>
+      <a href="1on1-script-2605-a.html">案A</a>
+      <a href="1on1-script-2605-c.html">案C</a>
+    </div>
+    <div class="footer-meta">
+      POOLO LIFE 1on1スクリプト 2026-05 ／ 案B 違和感掘り強化型<br>
+      30代キャリア体験会 個別相談用 ／ 社内資料
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
