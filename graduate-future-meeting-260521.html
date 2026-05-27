@@ -357,6 +357,75 @@ html, body {
   margin-right: 8px;
 }
 
+/* THEME EXAMPLES (探究テーマ例) */
+.theme-examples {
+  margin-top: 32px;
+  padding-top: 26px;
+  border-top: 1px dotted var(--line);
+}
+.theme-examples-head {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 12px;
+  letter-spacing: 0.25em;
+  color: var(--amber);
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+.theme-examples-lead {
+  font-size: 13.5px;
+  color: var(--sub);
+  margin-bottom: 18px;
+  line-height: 1.9;
+  letter-spacing: 0.02em;
+}
+.theme-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.theme-col {
+  background: #FBF8F0;
+  border: 1px solid #EFE5D0;
+  border-left: 3px solid var(--amber);
+  padding: 20px 22px;
+  border-radius: 2px;
+}
+.theme-col .seg {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--amber);
+  margin-bottom: 12px;
+  letter-spacing: 0.1em;
+  padding-bottom: 8px;
+  border-bottom: 1px dotted #E3D6B6;
+}
+.theme-col ul {
+  list-style: none;
+  padding: 0;
+}
+.theme-col li {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 14.5px;
+  font-weight: 500;
+  color: var(--ink);
+  padding: 7px 0 7px 16px;
+  line-height: 1.8;
+  letter-spacing: 0.03em;
+  position: relative;
+}
+.theme-col li::before {
+  content: 'Q.';
+  position: absolute;
+  left: 0;
+  top: 7px;
+  font-family: 'Shippori Mincho', serif;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--amber);
+  letter-spacing: 0;
+}
+
 /* FLOW (相談会の流れ) */
 .flow {
   margin-top: 8px;
@@ -988,6 +1057,32 @@ html, body {
           <li>改めて、自分の生き方を問い直したい</li>
           <li>成長だけでない、違う価値観を持ちたい</li>
         </ul>
+      </div>
+    </div>
+
+    <div class="theme-examples">
+      <div class="theme-examples-head">EXAMPLES ／ 探究テーマに変えてみると</div>
+      <p class="theme-examples-lead">インサイトを「問い」の形に置き換えると、こんなイメージ。POOLOではこれを「探究テーマ」として 8 ヶ月かけて磨いていく。</p>
+      <div class="theme-grid">
+        <div class="theme-col">
+          <div class="seg">20代後半</div>
+          <ul>
+            <li>自分にとっての「いい仲間」って、どんな関係？</li>
+            <li>私の強みは、何で・どう活きる？</li>
+            <li>人と比べない「前に進む」って、どういうこと？</li>
+            <li>働くって、自分にとって何？</li>
+            <li>「成長」の正体って、何だろう？</li>
+          </ul>
+        </div>
+        <div class="theme-col">
+          <div class="seg">30代</div>
+          <ul>
+            <li>これからの10年、どんな自分でいたい？</li>
+            <li>成長じゃない豊かさって、どんなもの？</li>
+            <li>誰と・どう過ごす時間が、自分を満たす？</li>
+            <li>自分の人生の「主語」を取り戻すには？</li>
+          </ul>
+        </div>
       </div>
     </div>
   </section>
