@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>POOLO卒業生未来会議｜2026.05.26</title>
+<title>POOLO相談会｜メンバー共有資料</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700&family=Shippori+Mincho:wght@400;600;700;800&display=swap" rel="stylesheet">
@@ -357,6 +357,67 @@ html, body {
   margin-right: 8px;
 }
 
+/* FLOW (相談会の流れ) */
+.flow {
+  margin-top: 8px;
+}
+.flow-step {
+  display: flex;
+  gap: 20px;
+  padding: 22px 0;
+  border-bottom: 1px dotted var(--line);
+}
+.flow-step:last-child { border-bottom: none; }
+.flow-num {
+  flex: 0 0 36px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--blue);
+  color: #fff;
+  font-family: 'Shippori Mincho', serif;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  margin-top: 2px;
+}
+.flow-content {
+  flex: 1;
+}
+.flow-title {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--ink);
+  letter-spacing: 0.05em;
+  margin-bottom: 12px;
+  line-height: 1.6;
+}
+.flow-pts {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.flow-pts li {
+  font-size: 14px;
+  line-height: 1.95;
+  color: var(--sub);
+  padding: 5px 0 5px 18px;
+  position: relative;
+  letter-spacing: 0.02em;
+}
+.flow-pts li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 16px;
+  width: 10px;
+  height: 1px;
+  background: var(--blue);
+}
+
 /* INSIGHT (二段組) */
 .insight-grid {
   display: grid;
@@ -565,8 +626,8 @@ html, body {
 
   <!-- HEADER -->
   <header class="header">
-    <div class="tag-label">POOLO GRADUATES MEETING</div>
-    <h1>POOLO卒業生未来会議</h1>
+    <div class="tag-label">POOLO MEETING ／ MEMBER SHARE</div>
+    <h1>POOLO相談会<br>メンバー共有資料</h1>
     <div class="meta">2026.05.26</div>
   </header>
 
@@ -589,32 +650,81 @@ html, body {
     </div>
   </section>
 
-  <!-- SEC 01：冒頭ブレスト -->
+  <!-- SEC 01：相談会の流れ -->
   <section class="sec">
     <div class="sec-head">
       <span class="sec-num">SECTION 01</span>
-      <span class="sec-title">冒頭：ブレスト</span>
+      <span class="sec-title">相談会の流れ</span>
     </div>
-    <ul class="item-list">
-      <li>POOLOのキーワード案</li>
-      <li>自分にとってPOOLOとは？</li>
-      <li>POOLOを自分がアップデートするなら？</li>
-    </ul>
-  </section>
+    <p class="sec-lead">相談会の流れのイメージ。順番にステップを踏んで進めていきます。</p>
+    <div class="flow">
 
-  <!-- SEC 02：話したいこと -->
-  <section class="sec">
-    <div class="sec-head">
-      <span class="sec-num">SECTION 02</span>
-      <span class="sec-title">今日、みんなと話したいこと</span>
+      <div class="flow-step">
+        <div class="flow-num">1</div>
+        <div class="flow-content">
+          <div class="flow-title">ラポール形成</div>
+          <ul class="flow-pts">
+            <li>これまでの話</li>
+            <li>いまの話</li>
+            <li>自己開示</li>
+            <li>共感などなど</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="flow-step">
+        <div class="flow-num">2</div>
+        <div class="flow-content">
+          <div class="flow-title">違和感と期待を「問い」に変える</div>
+          <ul class="flow-pts">
+            <li>最近どんなことに違和感をもってたり、逆にどんな期待を感じてたりする？</li>
+            <li>それをあえて問いの形にすると？</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="flow-step">
+        <div class="flow-num">3</div>
+        <div class="flow-content">
+          <div class="flow-title">POOLOは、それを「探究テーマ」として動かしていく</div>
+          <ul class="flow-pts">
+            <li>POOLOはそれを「探究テーマ」っていう形にして活動していく</li>
+            <li>8ヶ月後に問いが磨かれていく</li>
+            <li>答えが出て、次の新しい問いが生まれていく</li>
+            <li>その結果、自分が想像していなかったところにたどり着ける</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="flow-step">
+        <div class="flow-num">4</div>
+        <div class="flow-content">
+          <div class="flow-title">POOLOの話</div>
+          <ul class="flow-pts">
+            <li>目標逆算型と関心探究型の話</li>
+            <li>「問い」を磨くために講義や合宿や旅がある</li>
+            <li>自主プロジェクトで自由に活動している</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="flow-step">
+        <div class="flow-num">5</div>
+        <div class="flow-content">
+          <div class="flow-title">クロージング</div>
+          <ul class="flow-pts">
+            <li>POOLO 入りたい度 何%？</li>
+          </ul>
+        </div>
+      </div>
+
     </div>
-    <p class="sec-lead">この後のテーマを順番に進めていきます◎</p>
   </section>
 
   <!-- SEC 03：新しい構想のインプット -->
   <section class="sec">
     <div class="sec-head">
-      <span class="sec-num">SECTION 03</span>
+      <span class="sec-num">SECTION 02</span>
       <span class="sec-title">新しい構想のインプット</span>
     </div>
     <p class="sec-lead">運営から、新しい構想を共有します。当日その場で詳しく話します。</p>
@@ -856,7 +966,7 @@ html, body {
   <!-- SEC 04：冒頭テキストのフィードバック -->
   <section class="sec">
     <div class="sec-head">
-      <span class="sec-num">SECTION 04</span>
+      <span class="sec-num">SECTION 03</span>
       <span class="sec-title">冒頭のテキスト案のフィードバック</span>
     </div>
     <div class="call">
@@ -902,7 +1012,7 @@ html, body {
   <!-- SEC 05：参加者インサイト -->
   <section class="sec">
     <div class="sec-head">
-      <span class="sec-num">SECTION 05</span>
+      <span class="sec-num">SECTION 04</span>
       <span class="sec-title">参加者の深いインサイトについて</span>
     </div>
     <p class="sec-lead">インサイトを深堀りたい。本音のインサイトを。</p>
@@ -931,7 +1041,7 @@ html, body {
   <!-- SEC 06：ワイヤーフィードバック -->
   <section class="sec">
     <div class="sec-head">
-      <span class="sec-num">SECTION 06</span>
+      <span class="sec-num">SECTION 05</span>
       <span class="sec-title">ワイヤーを見てもらってのフィードバック</span>
     </div>
     <p class="sec-lead">新しいLPワイヤーをみんなであれこれ。</p>
