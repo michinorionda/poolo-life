@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>POOLO LIFE LP モック（SP版）v8｜12期</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --brand: #1B99B7;
+    --brand-deep: #157A98;
+    --ink: #1a1a1a;
+    --ink-mid: #4a4a4a;
+    --ink-light: #8a8a8a;
+    --bg: #f3f5f8;
+    --card: #ffffff;
+    --line: #e2e6ea;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html, body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Noto Sans JP', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.7;
+  }
+
+  .scaffold-header {
+    background: var(--card);
+    border-bottom: 1px solid var(--line);
+    padding: 14px 20px 12px;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+  .scaffold-header .label {
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    color: var(--brand-deep);
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+  .scaffold-header .title {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--ink);
+    letter-spacing: 0.03em;
+  }
+  .scaffold-header .meta {
+    font-size: 11px;
+    color: var(--ink-light);
+    margin-top: 3px;
+  }
+
+  .mock-frame {
+    max-width: 420px;
+    margin: 24px auto 80px;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+  }
+  .mock-frame img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .scaffold-note {
+    max-width: 420px;
+    margin: 0 auto 40px;
+    padding: 18px 20px;
+    background: #FFFBEB;
+    border: 1px solid #F5E6A8;
+    border-radius: 4px;
+    font-size: 12.5px;
+    color: var(--ink-mid);
+    line-height: 1.9;
+  }
+  .scaffold-note b {
+    color: var(--ink);
+    font-weight: 700;
+  }
+
+  @media (max-width: 480px) {
+    .mock-frame { margin: 14px 12px 60px; border-radius: 4px; }
+    .scaffold-note { margin: 0 12px 30px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="scaffold-header">
+  <div class="label">POOLO LIFE ／ LP MOCK</div>
+  <div class="title">POOLO LIFE LP モック（SP版）v8</div>
+  <div class="meta">12期｜2026.05.27 更新</div>
+</header>
+
+<div class="mock-frame">
+  <img src="poolo-life-lp-mock-sp-v8.png" alt="POOLO LIFE LP モック SP版 v8">
+</div>
+
+<div class="scaffold-note">
+  <b>このページについて</b><br>
+  デザインモック（PNG）をそのまま表示しています。テキスト・レイアウト・配色の確認用。コーディング前のレビュー用途。
+</div>
+
+</body>
+</html>
