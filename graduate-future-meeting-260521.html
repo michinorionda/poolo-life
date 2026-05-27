@@ -659,6 +659,93 @@ html, body {
   word-break: break-all;
 }
 
+/* REFLECT (WELCOME と MISSION の間) */
+.reflect {
+  margin: 0 0 72px;
+}
+.reflect-opener {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--blue-deep);
+  text-align: center;
+  margin-bottom: 30px;
+  letter-spacing: 0.1em;
+}
+.reflect-questions {
+  text-align: center;
+  margin-bottom: 30px;
+  padding: 26px 24px;
+  border-top: 1px dotted var(--line);
+  border-bottom: 1px dotted var(--line);
+}
+.reflect-questions p {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--ink);
+  line-height: 2.1;
+  letter-spacing: 0.05em;
+}
+.reflect-bridge {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 14.5px;
+  color: var(--sub);
+  text-align: center;
+  line-height: 1.95;
+  letter-spacing: 0.04em;
+  margin-bottom: 32px;
+}
+.vision-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-bottom: 40px;
+}
+.vision-card {
+  background: linear-gradient(135deg, #FBFAF6 0%, #F0F7F9 100%);
+  border: 1px solid var(--blue-soft);
+  border-radius: 4px;
+  padding: 26px 22px;
+  text-align: center;
+}
+.vision-label {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 12px;
+  letter-spacing: 0.22em;
+  color: var(--blue-deep);
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+.vision-sub {
+  font-size: 11px;
+  color: var(--sub);
+  letter-spacing: 0.08em;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px dotted var(--line);
+}
+.vision-text {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1.95;
+  letter-spacing: 0.05em;
+}
+.reflect-closing {
+  padding: 0 4px;
+}
+.reflect-closing p {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 14.5px;
+  color: var(--ink);
+  line-height: 2.05;
+  letter-spacing: 0.04em;
+  margin-bottom: 14px;
+}
+.reflect-closing p:last-child { margin-bottom: 0; }
+
 /* FOOTER */
 .footer {
   text-align: center;
@@ -687,6 +774,14 @@ html, body {
   .draft-card .draft-title { font-size: 15px; }
   .draft-card .draft-body { font-size: 13.5px; line-height: 1.95; }
   .draft-card .draft-body .closing { font-size: 14px; }
+  .reflect-opener { font-size: 18px; }
+  .reflect-questions { padding: 22px 14px; }
+  .reflect-questions p { font-size: 13.5px; line-height: 2; }
+  .reflect-bridge { font-size: 13.5px; }
+  .vision-pair { grid-template-columns: 1fr; gap: 12px; }
+  .vision-card { padding: 22px 18px; }
+  .vision-text { font-size: 14px; }
+  .reflect-closing p { font-size: 13.5px; line-height: 1.95; }
 }
 </style>
 </head>
@@ -707,6 +802,39 @@ html, body {
       新しいPOOLOを伝える相談会を、<br>
       みなさんと一緒に磨いていきたいです。<br>
       この資料で、流れと伝え方を共有させてください。
+    </div>
+  </section>
+
+  <!-- REFLECT -->
+  <section class="reflect">
+    <div class="reflect-opener">そもそも...！</div>
+
+    <div class="reflect-questions">
+      <p>POOLOをどうやったらよりよくできるのか？</p>
+      <p>今のPOOLOで世の中に貢献できているのか？</p>
+      <p>参加者の満足度を高め、さらにその参加者と共に、世の中に貢献を出来ているのか？</p>
+    </div>
+
+    <p class="reflect-bridge">こんなことを考えていました。<br>そして、POOLO自体のビジョンに立ち戻ります。</p>
+
+    <div class="vision-pair">
+      <div class="vision-card">
+        <div class="vision-label">BIG VISION</div>
+        <div class="vision-sub">POOLOとしてのビジョン</div>
+        <div class="vision-text">旅で人生を豊かにする人を増やし、<br>未来を共に創る。</div>
+      </div>
+      <div class="vision-card">
+        <div class="vision-label">INSPIRE VISION</div>
+        <div class="vision-sub">恩田を動かすエネルギー</div>
+        <div class="vision-text">世の中を面白がりながら、地に足をつけて、<br>誰かの役に立っている人を増やしたい。</div>
+      </div>
+    </div>
+
+    <div class="reflect-closing">
+      <p>ここから改めて整理。</p>
+      <p>そして、より深く自分と向き合い、より深く世の中と向きあうプログラムとして改善をしていきたいなと。</p>
+      <p>旅の学校であること。キャリアスクールではないこと。コーチングスクールではないこと。その独自性をどこに出していくのか。</p>
+      <p>もっとわくわくするような挑戦をできる場に。硬い言葉を使うと、越境的人材、自律的人材。わくわくする好奇心を持って進んでいく。そんな学び場としての、挑戦でもあります。</p>
     </div>
   </section>
 
