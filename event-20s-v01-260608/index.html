@@ -155,6 +155,59 @@ a:hover { opacity: 0.7; }
 
 .header-cta:hover { background: var(--cta-deep); color: #fff; opacity: 1; transform: translateY(-1px); box-shadow: 0 4px 14px rgba(27, 153, 183, 0.35); }
 
+/* スクロール後に出る float-apply と右上で重ならないよう、表示時はヘッダー側を隠す */
+.float-apply.is-visible ~ .header .header-cta { visibility: hidden; }
+
+/* ===== Top Notice ===== */
+.notice-section { padding: 36px 24px 0; }
+.notice-wrap { max-width: 840px; margin: 0 auto; padding: 0; }
+.notice {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 22px;
+  background: var(--bg-warm);
+  border-left: 3px solid var(--accent);
+  border-radius: 2px;
+  color: var(--text);
+  text-decoration: none;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+.notice:hover { background: #F5EFE0; opacity: 1; transform: translateX(2px); }
+.notice-tag {
+  flex: 0 0 auto;
+  background: var(--accent);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  padding: 4px 10px;
+  border-radius: 2px;
+  font-family: 'Noto Sans JP', sans-serif;
+}
+.notice-text {
+  flex: 1 1 auto;
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--text);
+  font-family: 'Noto Sans JP', sans-serif;
+}
+.notice-text strong { color: var(--accent-deep); font-weight: 600; }
+.notice-arrow {
+  flex: 0 0 auto;
+  color: var(--accent);
+  font-size: 16px;
+  transition: transform 0.2s ease;
+}
+.notice:hover .notice-arrow { transform: translateX(3px); }
+@media (max-width: 600px) {
+  .notice-section { padding: 24px 16px 0; }
+  .notice { flex-wrap: wrap; gap: 10px; padding: 14px 16px; }
+  .notice-tag { font-size: 10px; padding: 3px 8px; }
+  .notice-text { font-size: 13px; flex-basis: 100%; }
+  .notice-arrow { display: none; }
+}
+
 /* ===== Layout ===== */
 .section {
   padding: 72px 24px;
@@ -1731,6 +1784,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <dd>無料</dd>
       </div>
     </dl>
+  </div>
+</section>
+
+
+<!-- ===== TOP NOTICE ===== -->
+<section class="notice-section">
+  <div class="notice-wrap">
+    <a class="notice" href="https://tabippo.net/poolo/course/life/" target="_blank" rel="noopener">
+      <span class="notice-tag">お知らせ</span>
+      <span class="notice-text"><strong>POOLO LIFE12期</strong>を募集中です！8月スタートで、<strong>6月15日（月）</strong>まで早割期間です。</span>
+      <span class="notice-arrow" aria-hidden="true">→</span>
+    </a>
   </div>
 </section>
 
