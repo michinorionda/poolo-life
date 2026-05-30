@@ -32,7 +32,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700;800&family=Shippori+Mincho+B1:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700;800&family=Shippori+Mincho+B1:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root {
   --bg: #FFFFFF;
@@ -417,6 +417,257 @@ a:hover { opacity: 0.7; }
   display: block;
   width: 100%;
   height: auto;
+}
+
+/* ===== Hero D: HTML/CSS編集型サムネイル ===== */
+.hd {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #FFFFFF;
+  border-radius: 4px;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 41.25% 58.75%;
+  container-type: inline-size;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+}
+.hd-photo {
+  background-image: url('images/hero-photo-01_542.jpg');
+  background-size: cover;
+  background-position: 50% 75%;
+}
+.hd-content {
+  position: relative;
+  padding: 4cqi 4cqi 3cqi 4.4cqi;
+  display: grid;
+  grid-template-rows: 7fr 3fr;
+  background: #FFFFFF;
+  border-left: 1px solid #E8E8E8;
+}
+.hd-main-copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2.4cqi;
+}
+.hd-tag-row {
+  display: flex;
+  align-items: center;
+  gap: 1.2cqi;
+}
+.hd-tag {
+  font-family: 'Shippori Mincho B1', serif;
+  font-size: 1.9cqi;
+  letter-spacing: 0.22em;
+  font-weight: 600;
+  color: #189BBC;
+  line-height: 1;
+}
+.hd-tag-line {
+  flex: 0 0 auto;
+  width: 6cqi;
+  height: 1px;
+  background: #189BBC;
+}
+.hd-title {
+  font-family: 'Shippori Mincho B1', serif;
+  line-height: 1.08;
+  width: max-content;
+}
+.hd-title-line {
+  display: block;
+  text-align: justify;
+  text-align-last: justify;
+  text-justify: inter-character;
+}
+.hd-title-row1 {
+  font-size: 3.2cqi;
+  font-weight: 600;
+  color: #111111;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.4em;
+  white-space: nowrap;
+}
+.hd-title-row2 {
+  font-size: 5.6cqi;
+  font-weight: 800;
+  color: #189BBC;
+  letter-spacing: 0.04em;
+  line-height: 1.18;
+}
+.hd-sub {
+  font-family: 'Shippori Mincho B1', serif;
+  font-size: 2.1cqi;
+  color: #111111;
+  letter-spacing: 0.05em;
+  line-height: 1.7;
+  font-weight: 500;
+}
+.hd-sub-accent {
+  color: #189BBC;
+  font-weight: 800;
+  font-family: 'Shippori Mincho B1', serif;
+  font-size: 1.25em;
+  letter-spacing: 0;
+}
+.hd-date-zoom {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1cqi;
+}
+.hd-date-band {
+  position: relative;
+  padding: 1.2cqi 0;
+  border-top: 2px dotted #189BBC;
+  border-bottom: 2px dotted #189BBC;
+}
+.hd-date-row {
+  display: flex;
+  align-items: center;
+  gap: 1cqi;
+  font-family: 'Shippori Mincho B1', serif;
+}
+.hd-date-cal {
+  width: 2.4cqi;
+  height: 2.4cqi;
+  color: #189BBC;
+  flex: 0 0 auto;
+}
+.hd-date-cal svg { width: 100%; height: 100%; display: block; }
+.hd-date-main {
+  font-family: 'Shippori Mincho B1', serif;
+  font-size: 4.2cqi;
+  font-weight: 600;
+  color: #111111;
+  letter-spacing: 0.02em;
+  line-height: 1;
+}
+.hd-date-dow {
+  width: 2.4cqi;
+  height: 2.4cqi;
+  background: #189BBC;
+  color: #fff;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Shippori Mincho B1', serif;
+  font-size: 1.4cqi;
+  font-weight: 700;
+  line-height: 1;
+  margin-left: -0.1cqi;
+}
+.hd-date-time {
+  margin-left: 0.6cqi;
+  font-family: 'Shippori Mincho B1', serif;
+  font-size: 2.2cqi;
+  font-weight: 500;
+  color: #111111;
+  letter-spacing: 0.06em;
+  line-height: 1;
+}
+.hd-zoom-row {
+  display: flex;
+  align-items: center;
+  gap: 1.2cqi;
+  font-family: 'Shippori Mincho B1', serif;
+  color: #111111;
+}
+.hd-zoom-icon {
+  width: 2.6cqi;
+  height: 2cqi;
+  background: #189BBC;
+  border-radius: 4px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
+.hd-zoom-icon svg { width: 60%; height: 60%; display: block; }
+.hd-zoom-label {
+  font-family: 'Shippori Mincho B1', serif;
+  font-size: 2cqi;
+  font-weight: 600;
+  color: #189BBC;
+  letter-spacing: 0.04em;
+}
+.hd-zoom-divider {
+  width: 1px;
+  height: 2cqi;
+  background: #D6E9EF;
+}
+.hd-free-pill {
+  font-family: 'Shippori Mincho B1', serif;
+  font-size: 1.7cqi;
+  font-weight: 600;
+  color: #189BBC;
+  border: 1.5px solid #189BBC;
+  border-radius: 4px;
+  padding: 0.45em 1.2em;
+  letter-spacing: 0.1em;
+  line-height: 1;
+}
+.hd-brand-logo {
+  position: absolute;
+  bottom: 2.5cqi;
+  right: 4.5cqi;
+  height: 3.4cqi;
+  width: auto;
+  display: block;
+}
+@media (max-width: 720px) {
+  .hd {
+    display: block;
+    aspect-ratio: auto;
+    container-type: normal;
+    overflow: hidden;
+  }
+  .hd-photo {
+    width: 100%;
+    height: 220px;
+    background-position: 50% 65%;
+  }
+  .hd-content {
+    display: flex;
+    flex-direction: column;
+    border-left: none;
+    border-top: 1px solid #E8E8E8;
+    padding: 22px 20px 60px;
+    gap: 18px;
+    grid-template-rows: none;
+  }
+  .hd-main-copy { gap: 14px; }
+  .hd-tag-row { gap: 10px; }
+  .hd-tag { font-size: 11px; letter-spacing: 0.18em; }
+  .hd-tag-line { width: 32px; }
+  .hd-title { width: auto; line-height: 1.15; }
+  .hd-title-line { text-align: left; text-align-last: left; }
+  .hd-title-row1 { font-size: 16px; letter-spacing: 0.06em; margin-bottom: 6px; }
+  .hd-title-row2 { font-size: 30px; line-height: 1.22; letter-spacing: 0.04em; }
+  .hd-sub { font-size: 13px; line-height: 1.7; margin-top: 4px; }
+  .hd-sub-accent { font-size: 17px; }
+  .hd-date-zoom { gap: 12px; }
+  .hd-date-band { padding: 9px 0; }
+  .hd-date-row { gap: 8px; }
+  .hd-date-cal { width: 18px; height: 18px; }
+  .hd-date-main { font-size: 28px; }
+  .hd-date-dow { width: 18px; height: 18px; font-size: 10px; }
+  .hd-date-time { font-size: 14px; margin-left: 6px; letter-spacing: 0.04em; }
+  .hd-zoom-row { gap: 10px; }
+  .hd-zoom-icon { width: 22px; height: 17px; }
+  .hd-zoom-label { font-size: 15px; }
+  .hd-zoom-divider { height: 16px; }
+  .hd-free-pill { font-size: 12px; padding: 5px 12px; }
+  .hd-brand-logo {
+    bottom: 16px;
+    right: 16px;
+    top: auto;
+    left: auto;
+    height: 28px;
+    width: 68px;
+  }
 }
 
 .hero-content {
@@ -1761,28 +2012,55 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 表示位置：記事幅928px max（左右24pxパディング）の中央寄せ、ヘッダーから80px下
 -->
 <div class="article-top">
-  <section class="hero">
-    <div class="hero-photo"></div>
-    <div class="hero-content">
-      <div class="hero-vertical">ONLINE DIALOGUE vol.01</div>
-      <div class="hero-content-inner">
-        <span class="hero-tag">30代の生き方シリーズvol.01</span>
-        <p class="hero-title-lead">自分自身が納得できる、</p>
-        <h1 class="hero-title">
-          <span class="line line-mid">30代の生き方を</span>
-          <span class="line line-main">
-            <span class="em">問い直す</span><span class="suffix">90分</span>
-          </span>
-        </h1>
-        <div class="hero-flourish" aria-hidden="true">
-          <span class="hero-flourish-mark">対話・内省・好奇心</span>
+  <!-- ===== Hero D: HTML/CSS編集型サムネイル =====
+       日付は .hd-date-main / .hd-date-dow / .hd-date-time の3か所を書き換えるだけ。
+       タイトル・タグ・無料/Zoom表記もすべてテキスト編集可能。
+  ============================================================ -->
+  <section class="hd" aria-label="イベントサムネイル">
+    <div class="hd-photo" role="img" aria-label="海辺を歩く30代の3人"></div>
+    <div class="hd-content">
+
+      <!-- 70%: Main copy -->
+      <div class="hd-main-copy">
+        <div class="hd-tag-row">
+          <span class="hd-tag">生き方を問い直す</span>
+          <span class="hd-tag-line" aria-hidden="true"></span>
         </div>
-        <div class="hero-date">
-          <span>6/7 <span class="small">(日)</span></span>
-          <span>20:00〜21:30</span>
-          <span class="place">@Zoom</span>
+
+        <h1 class="hd-title">
+          <span class="hd-title-line hd-title-row1">自分自身が納得できる、</span>
+          <span class="hd-title-line hd-title-row2">30代の生き方を</span>
+          <span class="hd-title-line hd-title-row2">問い直す</span>
+        </h1>
+
+        <p class="hd-sub">対話と、内省と、好奇心で問い直す<span class="hd-sub-accent">90</span>分。</p>
+      </div>
+
+      <!-- 30%: Date + Zoom -->
+      <div class="hd-date-zoom">
+        <div class="hd-date-band">
+          <div class="hd-date-row">
+            <span class="hd-date-cal" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            </span>
+            <span class="hd-date-main">6/7</span>
+            <span class="hd-date-dow">日</span>
+            <span class="hd-date-time">20:00〜21:30</span>
+          </div>
+        </div>
+
+        <div class="hd-zoom-row">
+          <span class="hd-zoom-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
+          </span>
+          <span class="hd-zoom-label">zoom</span>
+          <span class="hd-zoom-divider" aria-hidden="true"></span>
+          <span class="hd-free-pill">無料</span>
         </div>
       </div>
+
+      <!-- Brand logo -->
+      <img class="hd-brand-logo" src="images/poolo_logo03.png" alt="あたらしい旅の学校 POOLO">
     </div>
   </section>
 </div>
