@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>POOLO相談会｜メンバー トークスクリプト</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --main:#189BBC;
+    --main-d:#0f7691;
+    --main-l:#e7f5f9;
+    --main-ll:#f4fbfd;
+    --ink:#1b2a30;
+    --sub:#5a6b72;
+    --line:#dfeaee;
+    --bg:#f3f8fa;
+    --white:#fff;
+    --accent:#ffb547;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{
+    font-family:"Zen Kaku Gothic New","Noto Sans JP",sans-serif;
+    color:var(--ink);
+    background:var(--bg);
+    line-height:1.85;
+    -webkit-font-smoothing:antialiased;
+    font-weight:500;
+  }
+  .wrap{max-width:860px;margin:0 auto;padding:0 20px 100px;}
+  .en{font-family:"Jost",sans-serif;letter-spacing:.06em;}
+
+  /* HERO */
+  .hero{
+    background:linear-gradient(135deg,var(--main) 0%,var(--main-d) 100%);
+    color:#fff;padding:72px 28px 64px;text-align:center;
+    border-radius:0 0 32px 32px;position:relative;overflow:hidden;
+  }
+  .hero::before{content:"";position:absolute;width:380px;height:380px;border-radius:50%;
+    background:rgba(255,255,255,.08);top:-160px;right:-120px;}
+  .hero::after{content:"";position:absolute;width:240px;height:240px;border-radius:50%;
+    background:rgba(255,255,255,.06);bottom:-120px;left:-80px;}
+  .hero .badge{display:inline-block;font-family:"Jost",sans-serif;font-weight:600;
+    letter-spacing:.16em;font-size:12px;background:rgba(255,255,255,.18);
+    padding:7px 16px;border-radius:999px;margin-bottom:22px;position:relative;}
+  .hero h1{font-size:30px;font-weight:900;line-height:1.5;letter-spacing:.02em;position:relative;}
+  .hero .sub{margin-top:18px;font-size:14px;opacity:.92;font-weight:400;position:relative;}
+  .hero .mission{margin-top:30px;font-family:"Jost",sans-serif;font-weight:500;
+    font-size:13px;letter-spacing:.04em;opacity:.85;position:relative;}
+  .hero .mission b{display:block;font-family:"Zen Kaku Gothic New",sans-serif;
+    font-weight:700;font-size:16px;margin-top:6px;letter-spacing:0;}
+
+  /* SECTION LABELS */
+  .lead{background:var(--white);border-radius:20px;padding:26px 28px;margin:-32px auto 40px;
+    position:relative;box-shadow:0 10px 30px rgba(24,155,188,.10);}
+  .lead h2{font-size:16px;color:var(--main-d);margin-bottom:12px;font-weight:700;}
+  .lead ul{list-style:none;}
+  .lead li{padding-left:26px;position:relative;font-size:14px;margin-bottom:8px;}
+  .lead li::before{content:"";position:absolute;left:6px;top:11px;width:8px;height:8px;
+    border-radius:50%;background:var(--main);}
+  .lead li b{color:var(--main-d);}
+
+  /* FLOW TABLE */
+  .flow{margin:0 0 56px;}
+  .flow-title{display:flex;align-items:center;gap:12px;margin:0 0 20px;}
+  .flow-title .en{font-size:12px;color:var(--main);font-weight:600;}
+  .flow-title h2{font-size:20px;font-weight:900;}
+  .steps-mini{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;}
+  .steps-mini .m{background:var(--white);border-radius:14px;padding:14px 8px;text-align:center;
+    border:1px solid var(--line);}
+  .steps-mini .m .n{font-family:"Jost",sans-serif;font-weight:700;color:var(--main);font-size:18px;}
+  .steps-mini .m .t{font-size:11px;margin-top:6px;line-height:1.5;font-weight:700;}
+
+  /* STEP CARDS */
+  .step{background:var(--white);border-radius:24px;padding:34px 30px;margin-bottom:24px;
+    box-shadow:0 4px 18px rgba(27,42,48,.05);border:1px solid var(--line);}
+  .step-head{display:flex;align-items:center;gap:16px;margin-bottom:8px;}
+  .step-num{flex:none;width:52px;height:52px;border-radius:16px;
+    background:var(--main);color:#fff;display:flex;align-items:center;justify-content:center;
+    font-family:"Jost",sans-serif;font-weight:700;font-size:24px;
+    box-shadow:0 6px 14px rgba(24,155,188,.35);}
+  .step-head h3{font-size:21px;font-weight:900;letter-spacing:.01em;}
+  .step-head .en{display:block;font-size:11px;color:var(--main);font-weight:600;margin-bottom:2px;}
+  .aim{background:var(--main-ll);border-left:4px solid var(--main);border-radius:0 10px 10px 0;
+    padding:12px 16px;font-size:13px;color:var(--main-d);font-weight:700;margin:14px 0 22px;}
+
+  h4{font-size:15px;font-weight:900;margin:24px 0 12px;padding-left:14px;position:relative;}
+  h4::before{content:"";position:absolute;left:0;top:4px;bottom:4px;width:5px;border-radius:3px;background:var(--main);}
+
+  .say{background:linear-gradient(135deg,var(--main-l),var(--main-ll));border-radius:16px;
+    padding:18px 20px 18px 52px;margin:14px 0;position:relative;font-size:14.5px;font-weight:500;}
+  .say::before{content:"\201C";position:absolute;left:16px;top:6px;font-family:"Jost",serif;
+    font-size:46px;color:var(--main);opacity:.5;line-height:1;}
+
+  ul.list{list-style:none;margin:12px 0;}
+  ul.list li{padding-left:24px;position:relative;font-size:14px;margin-bottom:9px;}
+  ul.list li::before{content:"";position:absolute;left:7px;top:11px;width:7px;height:7px;
+    border-radius:50%;background:var(--main);}
+  .tip{font-size:13.5px;background:#fff8ec;border:1px solid #ffe3b0;border-radius:12px;
+    padding:13px 16px;margin:14px 0;}
+  .tip b{color:#c47d12;}
+
+  /* TABLES */
+  table{width:100%;border-collapse:collapse;margin:14px 0;font-size:13.5px;
+    border-radius:12px;overflow:hidden;border:1px solid var(--line);}
+  th{background:var(--main);color:#fff;padding:11px 14px;text-align:left;font-weight:700;font-size:13px;}
+  td{padding:11px 14px;border-top:1px solid var(--line);vertical-align:top;}
+  tr:nth-child(even) td{background:var(--main-ll);}
+  .q-col{color:var(--main-d);font-weight:700;}
+
+  .pill-row{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0;}
+  .pill{background:var(--main-l);color:var(--main-d);font-size:12.5px;font-weight:700;
+    padding:6px 13px;border-radius:999px;}
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  .mini-card{background:var(--main-ll);border-radius:14px;padding:16px 18px;}
+  .mini-card .label{font-family:"Jost",sans-serif;font-weight:700;color:var(--main);
+    font-size:12px;letter-spacing:.08em;margin-bottom:8px;}
+
+  .round{display:grid;gap:10px;margin:12px 0;}
+  .round .r{display:flex;gap:14px;align-items:flex-start;background:var(--main-ll);
+    border-radius:12px;padding:13px 16px;}
+  .round .r .num{flex:none;font-family:"Jost",sans-serif;font-weight:700;color:#fff;
+    background:var(--main);width:30px;height:30px;border-radius:50%;display:flex;
+    align-items:center;justify-content:center;font-size:13px;}
+  .round .r .txt{font-size:13.5px;}
+
+  /* CHECK / NG */
+  .panel{border-radius:24px;padding:30px 30px;margin-bottom:20px;}
+  .panel.check{background:var(--main-d);color:#fff;}
+  .panel.ng{background:#fff;border:2px dashed #f1b6b6;}
+  .panel h3{font-size:19px;font-weight:900;margin-bottom:16px;display:flex;align-items:center;gap:10px;}
+  .panel.check h4{color:#bfe9f3;}
+  .panel.check h4::before{background:#7fd4e8;}
+  .check ul{list-style:none;}
+  .check li{padding-left:30px;position:relative;font-size:14px;margin-bottom:10px;}
+  .check li::before{content:"✓";position:absolute;left:4px;top:0;color:var(--accent);font-weight:700;}
+  .ng h3{color:#d8534f;}
+  .ng ul{list-style:none;}
+  .ng li{padding-left:30px;position:relative;font-size:14px;margin-bottom:11px;}
+  .ng li::before{content:"✕";position:absolute;left:6px;top:0;color:#d8534f;font-weight:700;}
+  .ng li b{color:var(--main-d);}
+
+  .footer{text-align:center;margin-top:50px;color:var(--sub);font-size:12px;}
+  .footer .en{color:var(--main);font-weight:600;letter-spacing:.1em;}
+
+  @media(max-width:680px){
+    .hero h1{font-size:23px;}
+    .steps-mini{grid-template-columns:repeat(5,1fr);gap:5px;}
+    .steps-mini .m{padding:10px 3px;}
+    .steps-mini .m .t{font-size:9.5px;}
+    .two{grid-template-columns:1fr;}
+    .step{padding:26px 20px;}
+    table{font-size:12.5px;}
+    th,td{padding:9px 10px;}
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <span class="badge">POOLO MEETING · MEMBER SCRIPT</span>
+  <h1>POOLO相談会<br>メンバー トークスクリプト</h1>
+  <p class="sub">参加希望者の「違和感・期待」を、一緒に "問い" に変えていく時間</p>
+  <p class="mission">NEW MISSION
+    <b>旅と問いと共創で、想像もしなかった世界に／自分に、出会いにいく。</b>
+  </p>
+</div>
+
+<div class="wrap">
+
+  <div class="lead">
+    <h2>このスクリプトの考え方</h2>
+    <ul>
+      <li>セリフは "あたり"。丸読みせず、<b>自分の言葉</b>に変えてOK。</li>
+      <li><b>話す : 聞く = 2 : 8</b>。主役は相手。引き出して、整理して、返す。</li>
+      <li>ゴールは「自分の "問い" に気づけた」と感じてもらうこと。<b>入会はその結果。</b></li>
+    </ul>
+  </div>
+
+  <div class="flow">
+    <div class="flow-title">
+      <span class="en">FLOW</span>
+      <h2>相談会の5ステップ</h2>
+    </div>
+    <div class="steps-mini">
+      <div class="m"><div class="n">1</div><div class="t">ラポール<br>形成</div></div>
+      <div class="m"><div class="n">2</div><div class="t">問いに<br>変える</div></div>
+      <div class="m"><div class="n">3</div><div class="t">探究テーマ<br>として動かす</div></div>
+      <div class="m"><div class="n">4</div><div class="t">POOLOの<br>話</div></div>
+      <div class="m"><div class="n">5</div><div class="t">クロー<br>ジング</div></div>
+    </div>
+  </div>
+
+  <!-- STEP 1 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">1</div>
+      <div><span class="en">RAPPORT</span><h3>ラポール形成</h3></div>
+    </div>
+    <div class="aim">ねらい：これまでの話・いまの話・自己開示・共感で、本音が出る土台をつくる</div>
+    <div class="say">今日は来てくれてありがとうございます！進行する〇〇です。まずはお互いのことを知るところから、ゆるく話せたら嬉しいです。</div>
+    <h4>聞く（これまで／いま）</h4>
+    <ul class="list">
+      <li>今日はどんなきっかけで相談会に申し込んでくれたんですか？</li>
+      <li>普段はどんなことをしている方ですか？お仕事や、最近の過ごし方とか。</li>
+      <li>旅は好きですか？最近の旅とか、印象に残ってる旅ってありますか？</li>
+    </ul>
+    <h4>自己開示で返す</h4>
+    <ul class="list">
+      <li>「自分もこうだった」を<b>先に少し開く</b>と、相手も開きやすい。</li>
+      <li>共感の一言を必ず：「わかります」「それいいですね」「自分もそうでした」</li>
+    </ul>
+    <div class="say">なんとなく〇〇さんのこと、見えてきました。せっかくなので、もう一歩踏み込んで聞かせてもらってもいいですか？</div>
+  </div>
+
+  <!-- STEP 2 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">2</div>
+      <div><span class="en">RE-FRAME TO A QUESTION</span><h3>違和感と期待を「問い」に変える</h3></div>
+    </div>
+    <div class="aim">ねらい：本音のインサイトを引き出し、"問い" の形に置き換える ── ここが相談会の核</div>
+    <h4>まず引き出す</h4>
+    <div class="say">最近、生活や仕事の中で "なんかモヤッとするな" とか、逆に "こうなったらいいな" って思うことってありますか？</div>
+    <ul class="list">
+      <li>それって、いつ頃から感じてます？</li>
+      <li>具体的にどんな場面でそう思いますか？</li>
+      <li>逆に、どうなってたら満たされそうですか？</li>
+    </ul>
+    <h4>よくあるインサイト（頭出し用）</h4>
+    <div class="two">
+      <div class="mini-card">
+        <div class="label">20s 後半</div>
+        <div class="pill-row">
+          <span class="pill">仲間が欲しい</span><span class="pill">強みを言語化</span>
+          <span class="pill">個性を知りたい</span><span class="pill">置いていかれたくない</span>
+          <span class="pill">成長・刺激</span><span class="pill">働き方・生き方</span>
+        </div>
+      </div>
+      <div class="mini-card">
+        <div class="label">30s</div>
+        <div class="pill-row">
+          <span class="pill">生き方を問い直す</span><span class="pill">成長以外の価値観</span>
+          <span class="pill">満たされなさ</span>
+        </div>
+      </div>
+    </div>
+    <h4>"問い" に変換して返す</h4>
+    <div class="say">今のお話、あえて "問い" にしてみると、こういう感じかもしれないですね 👉</div>
+    <table>
+      <tr><th>違和感・期待</th><th>問いに変えると</th></tr>
+      <tr><td>仲間がいない／欲しい</td><td class="q-col">自分にとっての "いい仲間" って、どんな関係？</td></tr>
+      <tr><td>強みがわからない</td><td class="q-col">私の強みは、何で・どう活きる？</td></tr>
+      <tr><td>周りと比べて焦る</td><td class="q-col">人と比べない "前に進む" って、どういうこと？</td></tr>
+      <tr><td>働き方に迷う</td><td class="q-col">働くって、自分にとって何？</td></tr>
+      <tr><td>成長に疲れた</td><td class="q-col">"成長" の正体って、何だろう？</td></tr>
+      <tr><td>(30s) 満たされない</td><td class="q-col">社会的な正解を選んできたのに、なぜ満ちない？</td></tr>
+      <tr><td>(30s) 別の価値観</td><td class="q-col">成長じゃない豊かさって、どんなもの？</td></tr>
+      <tr><td>(30s) 主体性</td><td class="q-col">自分の人生の "主語" を取り戻すには？</td></tr>
+    </table>
+    <div class="tip"><b>コツ：</b>正解を出さない。「答え」ではなく「問い」を一緒に見つけて終える。相手が「たしかにそれが気になってる」と気づけたら大成功。</div>
+    <div class="say">いいですね、その問い。実はPOOLOって、こういう問いを "探究テーマ" って呼んで、8ヶ月かけて一緒に磨いていく場なんです。</div>
+  </div>
+
+  <!-- STEP 3 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">3</div>
+      <div><span class="en">AS A THEME OF INQUIRY</span><h3>「探究テーマ」として動かしていく</h3></div>
+    </div>
+    <div class="aim">ねらい：見つけた問いが、POOLOの中でどう育つかをイメージさせる</div>
+    <div class="say">POOLOでは、さっきの問いを "探究テーマ" として持って活動していきます。最初から完成してなくていい。<b>今、何に心が動くか</b>が出発点です。</div>
+    <ul class="list">
+      <li>探究テーマ＝<b>自分を内側から突き動かすもの</b>（目標やToDoではない）</li>
+      <li>8ヶ月かけて、<b>問いが磨かれていく</b></li>
+      <li>「答えが出る → 次の新しい問いが生まれる」を繰り返す</li>
+      <li>結果として、<b>想像していなかったところにたどり着ける</b></li>
+    </ul>
+    <h4>旅・問い・共創を、8ヶ月で何周も</h4>
+    <div class="round">
+      <div class="r"><div class="num">1</div><div class="txt"><b>1周目</b>　行ってみる／違和感を拾う／とりあえず話す</div></div>
+      <div class="r"><div class="num">2</div><div class="txt"><b>2周目</b>　選んで飛び込む／自分の言葉を探す／仲間と反応し合う</div></div>
+      <div class="r"><div class="num">3</div><div class="txt"><b>3周目</b>　行く意味が変わる／探究テーマが輪郭を持つ／知らない人に差し出す</div></div>
+    </div>
+    <div class="say">1周目の自分には想像もできなかった自分に、3周目で出会ってる。そんなイメージです。</div>
+  </div>
+
+  <!-- STEP 4 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">4</div>
+      <div><span class="en">ABOUT POOLO</span><h3>POOLOの話</h3></div>
+    </div>
+    <div class="aim">ねらい：「なぜPOOLOでそれが起きるのか」をモデルと手段でシンプルに ── 盛りすぎない</div>
+    <h4>① 関心探究型モデル（vs 目標逆算型）</h4>
+    <div class="say">世の中の多くは "目標を決めて逆算する" やり方。それも大事。でもPOOLOは逆で、<b>"今、何に心が動く？" から始めて、試す→反応→また試す</b>を繰り返します。</div>
+    <table>
+      <tr><th></th><th>目標逆算型</th><th>関心探究型（POOLO）</th></tr>
+      <tr><td>起点</td><td>3年後どうなりたい</td><td class="q-col">今、何に心が動く</td></tr>
+      <tr><td>進み方</td><td>直線的・予測可能</td><td class="q-col">螺旋的・予測不能</td></tr>
+      <tr><td>ゴール</td><td>想定内の自分（1つ）</td><td class="q-col">想像もしなかった自分（複数）</td></tr>
+    </table>
+    <h4>② 問いを磨く "手段" がある</h4>
+    <div class="say">その問いを磨くために、講義・合宿・旅があって、自主プロジェクトで自由に動けます。</div>
+    <div class="pill-row">
+      <span class="pill">旅：身体で飛び込む</span>
+      <span class="pill">問い：自分の言葉にする</span>
+      <span class="pill">共創：作って差し出す</span>
+    </div>
+    <ul class="list">
+      <li>仲間（約50人の引力場）が、一人では行けない場所に連れていってくれる</li>
+    </ul>
+    <h4>③（必要なら）POOLOが考える "豊かさ"</h4>
+    <div class="say">大事にしてる豊かさって、<b>G（自分の充足）× H（つながり）の掛け算</b>。どっちかがゼロだと、ゼロになっちゃう。両方を回し続ける力を身につける場です。</div>
+    <div class="tip">相手の関心が薄ければ ①② だけでOK。情報は刺さる部分だけに絞る。</div>
+  </div>
+
+  <!-- STEP 5 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">5</div>
+      <div><span class="en">CLOSING</span><h3>クロージング</h3></div>
+    </div>
+    <div class="aim">ねらい：気持ちを言語化してもらい、次の一歩を確認する</div>
+    <div class="say">今日いろいろ話してみて……ストレートに聞いちゃいますね。<b>今の "POOLO入りたい度" って、何%くらいですか？</b></div>
+    <h4>%が出たら、必ず深掘り</h4>
+    <ul class="list">
+      <li><b>（高め）</b>いいですね！その%の、決め手になってる部分はどこですか？</li>
+      <li><b>（低め／迷い）</b>残りの%を埋めるとしたら、何が解消されたら上がりそうですか？</li>
+    </ul>
+    <p style="font-size:13.5px;color:var(--sub);margin:6px 0 4px;">→ 出てきた不安・疑問にその場で対応。わからなければ「確認して連絡しますね」でOK。</p>
+    <div class="say">今日は来てくれて本当にありがとうございました。どんな選択をしても、〇〇さんが見つけた "問い" はすごく良いものだと思います。ぜひ大事にしてください。これからも応援しています！</div>
+  </div>
+
+  <!-- CHECKLIST -->
+  <div class="panel check">
+    <h3>✓ メンバー チェックリスト</h3>
+    <h4>事前</h4>
+    <ul>
+      <li>新MISSION・関心探究型・探究テーマを、自分の言葉で言えるか</li>
+      <li>図解（螺旋3×3／F=G×H／関心探究型 vs 目標逆算型）を見返した</li>
+      <li>申込導線・連絡先を手元に用意した</li>
+    </ul>
+    <h4>当日</h4>
+    <ul>
+      <li>話す : 聞く = 2 : 8</li>
+      <li>STEP2で必ず "問い" に変換して返す（肝）</li>
+      <li>情報を盛りすぎない／答えではなく問いを一緒に見つける</li>
+      <li>STEP5で % とその理由を聞く</li>
+    </ul>
+  </div>
+
+  <!-- NG -->
+  <div class="panel ng">
+    <h3>避けたいNG</h3>
+    <ul>
+      <li>POOLOの説明（STEP4）から入る → <b>まず相手の話（STEP1-2）から</b></li>
+      <li>違和感を聞いてすぐ解決策を出す → <b>"問い" に変えて渡す</b></li>
+      <li>8トピック全部を説明する → <b>刺さる部分だけ</b></li>
+      <li>「入ってほしい」が前面に出る → <b>相手の探究が主役</b></li>
+      <li>%を聞いて終わり → <b>理由と次の一歩まで確認</b></li>
+    </ul>
+  </div>
+
+  <div class="footer">
+    <p class="en">POOLO &nbsp;/&nbsp; CODOLI</p>
+    <p style="margin-top:6px;">相談会メンバー共有用 トークスクリプト</p>
+  </div>
+
+</div>
+</body>
+</html>
