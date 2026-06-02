@@ -180,6 +180,34 @@ html, body {
   font-weight: 700;
 }
 
+/* QUESTION (今のPOOLOへの問い) */
+.question {
+  margin: 0 0 64px;
+  text-align: center;
+  padding: 46px 28px;
+  border-top: 1px solid var(--blue-soft);
+  border-bottom: 1px solid var(--blue-soft);
+  background: linear-gradient(180deg, #FBFAF6 0%, #F0F7F9 100%);
+}
+.question-label {
+  font-size: 11px;
+  letter-spacing: 0.25em;
+  color: var(--blue-deep);
+  font-weight: 600;
+  margin-bottom: 24px;
+}
+.question-text {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 19px;
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 2;
+  letter-spacing: 0.06em;
+}
+.question-text + .question-text {
+  margin-top: 12px;
+}
+
 /* MISSION (大きく見せる) */
 .mission {
   text-align: center;
@@ -874,6 +902,8 @@ html, body {
   .summary { padding: 28px 20px; }
   .summary-title { font-size: 17.5px; }
   .summary-list li { font-size: 14.5px; padding-left: 32px; }
+  .question { padding: 34px 18px; }
+  .question-text { font-size: 16px; line-height: 1.9; }
   .mission { padding: 44px 20px 40px; }
   .mission .text { font-size: 19px; line-height: 1.85; letter-spacing: 0.05em; }
   .sec-title { font-size: 19px; }
@@ -925,6 +955,13 @@ html, body {
       <li><span class="num">3</span>最終的に、<b>自分の探究を知らない誰かに差し出す</b>ところまで行う</li>
       <li><span class="num">4</span>キャリアスクールではなく、<b>旅の学校としての独自性</b>を強める</li>
     </ul>
+  </section>
+
+  <!-- QUESTION -->
+  <section class="question">
+    <div class="question-label">QUESTION ／ 今のPOOLOへの問い</div>
+    <p class="question-text">POOLOは、参加者の人生を豊かにできているのか。</p>
+    <p class="question-text">その豊かさは、本人の中だけでなく、<br>誰かや社会にも届いているのか。</p>
   </section>
 
   <!-- REFLECT -->
