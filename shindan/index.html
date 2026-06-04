@@ -8,20 +8,18 @@
 <title>POOLO 旅の資質診断 ｜ あなたの中で動き始めるもの</title>
 <meta property="og:title" content="POOLO 旅の資質診断">
 <meta property="og:description" content="24の問いから、あなたの「旅の資質」を見つける。POOLOの世界観でできた、ストレングスファインダー型の自己診断。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&family=Noto+Sans+JP:wght@300;400;500;600;700&family=Zen+Kaku+Gothic+New:wght@300;400;500;700&display=swap" rel="stylesheet">
 <style>
   :root{
     --ink:#1a1a1a; --sub:#4a4a4a; --mute:#7a7a7a; --hint:#a8a8a8;
-    --bg:#faf9f6; --bg-deep:#f3f1ea; --line:#e0ddd3; --card:#ffffff;
-    --green:#2D6A4F; --green-bg:#E9F5EE;
-    --warm:#C08457; --warm-bg:#F7EDE2;
-    --deep:#1F3A3D; --deep-bg:#DCE6E7;
-    --star:#B8860B; --star-bg:#F9F0D9;
-    --terra:#C97B5C; --terra-bg:#F8EAE3;
-    --sage:#7E9A6E; --sage-bg:#ECF1E7;
-    --sky:#5E83A6; --sky-bg:#E5EDF3;
-    --plum:#9A6E8E; --plum-bg:#F2E9EF;
-    --serif:'Shippori Mincho','Yu Mincho',serif;
+    --bg:#f9f9f9; --bg-deep:#eef0f1; --line:#e5e5e5; --card:#ffffff;
+    /* POOLO brand */
+    --green:#189BBC; --green-bg:#E7F4F8; --brand-soft:#5BBCD4;
+    --head:'Zen Kaku Gothic New','Noto Sans JP',sans-serif;
     --sans:'Noto Sans JP',-apple-system,BlinkMacSystemFont,sans-serif;
+    --en:'Jost','Noto Sans JP',sans-serif;
   }
   *{margin:0;padding:0;box-sizing:border-box}
   html{scroll-behavior:smooth}
@@ -31,7 +29,7 @@
     padding:0;min-height:100vh;
   }
   .wrap{max-width:680px;margin:0 auto;padding:0 1.25rem}
-  .serif{font-family:var(--serif)}
+  .serif{font-family:var(--head)}
   /* ---------- screens ---------- */
   .screen{display:none;animation:fade .5s ease both}
   .screen.active{display:block}
@@ -39,19 +37,19 @@
 
   /* ---------- INTRO ---------- */
   #intro{text-align:center;padding:4.5rem 0 4rem}
-  .mark{display:inline-block;font-size:.6rem;letter-spacing:.4em;color:var(--green);
+  .mark{display:inline-block;font-family:var(--en);font-size:.6rem;letter-spacing:.4em;color:var(--green);
     margin-bottom:1.8rem;font-weight:500;padding:.35rem 1.1rem;border:1px solid var(--green);background:#fff}
-  .intro-title{font-family:var(--serif);font-size:2rem;font-weight:600;letter-spacing:.08em;
+  .intro-title{font-family:var(--head);font-size:2rem;font-weight:600;letter-spacing:.08em;
     line-height:1.7;margin-bottom:1.2rem}
-  .intro-lead{font-family:var(--serif);font-size:1.02rem;color:var(--sub);letter-spacing:.06em;
+  .intro-lead{font-family:var(--head);font-size:1.02rem;color:var(--sub);letter-spacing:.06em;
     line-height:2.1;margin:0 auto 2.4rem;max-width:30rem}
   .intro-meta{display:flex;gap:1.4rem;justify-content:center;flex-wrap:wrap;
     margin-bottom:2.6rem;color:var(--mute);font-size:.8rem;letter-spacing:.05em}
-  .intro-meta span b{color:var(--green);font-weight:600;font-size:1.05rem;margin-right:.15rem}
-  .btn{font-family:var(--serif);font-size:1.05rem;letter-spacing:.12em;font-weight:600;
+  .intro-meta span b{font-family:var(--en);color:var(--green);font-weight:600;font-size:1.15rem;margin-right:.15rem}
+  .btn{font-family:var(--head);font-size:1.05rem;letter-spacing:.12em;font-weight:600;
     color:#fff;background:var(--green);border:none;padding:1rem 3rem;border-radius:999px;
-    cursor:pointer;transition:.25s;box-shadow:0 6px 20px rgba(45,106,79,.22)}
-  .btn:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(45,106,79,.3)}
+    cursor:pointer;transition:.25s;box-shadow:0 6px 20px rgba(24,155,188,.22)}
+  .btn:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(24,155,188,.3)}
   .btn.ghost{background:#fff;color:var(--green);border:1.5px solid var(--green);box-shadow:none}
   .btn.ghost:hover{background:var(--green-bg)}
   .intro-note{margin-top:1.6rem;font-size:.74rem;color:var(--hint);letter-spacing:.04em}
@@ -66,17 +64,17 @@
   .progress-head{display:flex;justify-content:space-between;align-items:center;
     margin-bottom:.7rem;font-size:.74rem;color:var(--mute);letter-spacing:.08em}
   .progress-bar{height:5px;background:var(--bg-deep);border-radius:99px;overflow:hidden;margin-bottom:2.6rem}
-  .progress-fill{height:100%;background:linear-gradient(90deg,var(--green),var(--sage));
+  .progress-fill{height:100%;background:linear-gradient(90deg,var(--green),var(--brand-soft));
     width:0;border-radius:99px;transition:width .4s ease}
   .q-card{background:var(--card);border:1px solid var(--line);border-radius:14px;
     padding:2.6rem 1.6rem 2rem;box-shadow:0 4px 20px rgba(0,0,0,.03)}
-  .q-num{font-family:var(--serif);font-size:.8rem;color:var(--green);letter-spacing:.2em;
+  .q-num{font-family:var(--en);font-size:.8rem;color:var(--green);letter-spacing:.2em;
     text-align:center;margin-bottom:1rem}
-  .q-instr{font-family:var(--serif);font-size:.92rem;color:var(--mute);letter-spacing:.06em;
+  .q-instr{font-family:var(--head);font-size:.92rem;color:var(--mute);letter-spacing:.06em;
     text-align:center;margin-bottom:1.4rem}
   .q-instr b{color:var(--green);font-weight:600}
   .pair{display:flex;flex-direction:column;gap:.5rem}
-  .stmt{font-family:var(--serif);font-size:1.12rem;font-weight:500;line-height:1.7;letter-spacing:.03em;
+  .stmt{font-family:var(--head);font-size:1.12rem;font-weight:500;line-height:1.7;letter-spacing:.03em;
     text-align:center;padding:1.15rem 1.1rem;border:1.5px solid var(--line);border-radius:12px;
     transition:.2s;position:relative}
   .stmt .tag{position:absolute;top:-.6rem;left:50%;transform:translateX(-50%);font-family:var(--sans);
@@ -102,16 +100,16 @@
 
   /* ---------- RESULT ---------- */
   #result{padding:2.4rem 0 4rem}
-  .res-mark{text-align:center;font-size:.62rem;letter-spacing:.4em;color:var(--mute);margin-bottom:.7rem}
+  .res-mark{font-family:var(--en);text-align:center;font-size:.62rem;letter-spacing:.4em;color:var(--mute);margin-bottom:.7rem}
   .hero-card{border-radius:18px;padding:2.6rem 1.6rem 2.2rem;text-align:center;color:#fff;
     margin-bottom:1.8rem;position:relative;overflow:hidden}
   .hero-card .label{font-size:.7rem;letter-spacing:.3em;opacity:.85;margin-bottom:.9rem}
   .hero-icon{font-size:2.6rem;line-height:1;margin-bottom:.6rem}
-  .hero-card h2{font-family:var(--serif);font-size:2rem;font-weight:600;letter-spacing:.06em;margin-bottom:.5rem}
-  .hero-card .en{font-size:.74rem;letter-spacing:.25em;opacity:.8;margin-bottom:1.2rem}
-  .hero-card .catch{font-family:var(--serif);font-size:1.05rem;line-height:1.9;letter-spacing:.05em;
+  .hero-card h2{font-family:var(--head);font-size:2rem;font-weight:600;letter-spacing:.06em;margin-bottom:.5rem}
+  .hero-card .en{font-family:var(--en);font-size:.74rem;letter-spacing:.25em;opacity:.8;margin-bottom:1.2rem}
+  .hero-card .catch{font-family:var(--head);font-size:1.05rem;line-height:1.9;letter-spacing:.05em;
     opacity:.96;max-width:26rem;margin:0 auto}
-  .sec-h{font-family:var(--serif);font-size:1.15rem;font-weight:600;letter-spacing:.06em;
+  .sec-h{font-family:var(--head);font-size:1.15rem;font-weight:600;letter-spacing:.06em;
     margin:2.6rem 0 1.1rem;display:flex;align-items:center;gap:.6rem}
   .sec-h::before{content:"";width:4px;height:1.1rem;background:var(--green);border-radius:2px}
   .desc-card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:1.5rem 1.4rem;
@@ -125,8 +123,8 @@
   /* ranking bars */
   .rank{display:flex;flex-direction:column;gap:.7rem}
   .rank-row{display:flex;align-items:center;gap:.7rem}
-  .rank-no{font-family:var(--serif);font-size:.85rem;color:var(--hint);width:1.4rem;flex:0 0 1.4rem;text-align:center}
-  .rank-row.top1 .rank-no{color:var(--star);font-weight:600}
+  .rank-no{font-family:var(--head);font-size:.85rem;color:var(--hint);width:1.4rem;flex:0 0 1.4rem;text-align:center}
+  .rank-row.top1 .rank-no{color:var(--green);font-weight:600}
   .rank-name{flex:0 0 6.2rem;font-size:.82rem;color:var(--ink);letter-spacing:.02em}
   .rank-track{flex:1;height:11px;background:var(--bg-deep);border-radius:99px;overflow:hidden}
   .rank-bar{display:block;height:100%;border-radius:99px;width:0;transition:width 1s cubic-bezier(.2,.7,.2,1)}
@@ -146,7 +144,7 @@
   .x-btn:hover{box-shadow:0 10px 26px rgba(0,0,0,.26)}
   .cta-card{margin-top:2.6rem;background:linear-gradient(135deg,var(--green-bg),var(--bg));
     border:1px solid var(--line);border-radius:14px;padding:2rem 1.5rem;text-align:center}
-  .cta-card .ct{font-family:var(--serif);font-size:1.05rem;font-weight:600;letter-spacing:.05em;
+  .cta-card .ct{font-family:var(--head);font-size:1.05rem;font-weight:600;letter-spacing:.05em;
     line-height:1.9;margin-bottom:.6rem;color:var(--green)}
   .cta-card .cs{font-size:.85rem;color:var(--sub);line-height:1.9;margin-bottom:1.3rem}
   footer{text-align:center;color:var(--hint);font-size:.7rem;letter-spacing:.1em;
@@ -243,19 +241,19 @@
    ============================================================ */
 
 const QUALITIES = {
-  tabi:   {name:"飛び込む力", en:"THE DIVER",      icon:"🧭", color:"#2D6A4F", layer:"実践 ／ 旅",
+  tabi:   {name:"飛び込む力", en:"THE DIVER",      icon:"🧭", color:"#189BBC", layer:"実践 ／ 旅",
     catch:"考えるより先に、身体が動く。<br>知らない世界へ、まず飛び込む人。"},
-  toi:    {name:"問いを立てる力", en:"THE SEEKER",  icon:"🔍", color:"#1F3A3D", layer:"実践 ／ 問い",
+  toi:    {name:"問いを立てる力", en:"THE SEEKER",  icon:"🔍", color:"#2C7A7B", layer:"実践 ／ 問い",
     catch:"答えより、問いに惹かれる。<br>もやもやを、自分の言葉にしていく人。"},
-  kyoso:  {name:"差し出す力", en:"THE WEAVER",     icon:"🤝", color:"#C08457", layer:"実践 ／ 共創",
+  kyoso:  {name:"差し出す力", en:"THE WEAVER",     icon:"🤝", color:"#C57B5C", layer:"実践 ／ 共創",
     catch:"一人より、誰かと。<br>作りかけのものを、人に差し出せる人。"},
-  jiko:   {name:"自己決定する力", en:"THE CHOOSER", icon:"🧗", color:"#B8860B", layer:"スタンス ／ 自己決定",
+  jiko:   {name:"自己決定する力", en:"THE CHOOSER", icon:"🧗", color:"#C99A3C", layer:"スタンス ／ 自己決定",
     catch:"最後は、自分の感覚で決める。<br>選んだ道を、自分のものにできる人。"},
-  jibun:  {name:"自分ごと化する力", en:"THE OWNER", icon:"🌱", color:"#C97B5C", layer:"スタンス ／ 自分ごと化",
+  jibun:  {name:"自分ごと化する力", en:"THE OWNER", icon:"🌱", color:"#57967E", layer:"スタンス ／ 自分ごと化",
     catch:"他人ごとを、自分ごとに。<br>引き受けるところから、問いが湧く人。"},
-  omosiro:{name:"面白がる力", en:"THE PLAYER",     icon:"🎈", color:"#9A6E8E", layer:"スタンス ／ 面白がる",
+  omosiro:{name:"面白がる力", en:"THE PLAYER",     icon:"🎈", color:"#9A6E9E", layer:"スタンス ／ 面白がる",
     catch:"想定外も、ネタにできる。<br>コントロールを手放して、楽しめる人。"},
-  tomoni: {name:"共にある力", en:"THE ANCHOR",     icon:"🪵", color:"#7E9A6E", layer:"Being ／ 共にある",
+  tomoni: {name:"共にある力", en:"THE ANCHOR",     icon:"🪵", color:"#3D6E9E", layer:"Being ／ 共にある",
     catch:"「ここにいていい」をつくる。<br>つながりを、静かに支える人。"},
   spiral: {name:"動き続ける力", en:"THE SPIRALER", icon:"🌀", color:"#5E83A6", layer:"螺旋 ／ 動き続ける",
     catch:"一度きりで終わらない。<br>回すほどに、深まっていける人。"},
@@ -486,12 +484,12 @@ function radarSVG(pct){
   // grid rings
   rings.forEach(r=>{
     const pts = ORDER.map((_,i)=>polar(cx,cy,R*r,i,N)).map(p=>p.join(',')).join(' ');
-    g+=`<polygon points="${pts}" fill="none" stroke="#e0ddd3" stroke-width="1"/>`;
+    g+=`<polygon points="${pts}" fill="none" stroke="#e5e5e5" stroke-width="1"/>`;
   });
   // spokes + labels
   ORDER.forEach((k,i)=>{
     const [x,y]=polar(cx,cy,R,i,N);
-    g+=`<line x1="${cx}" y1="${cy}" x2="${x}" y2="${y}" stroke="#ece8de" stroke-width="1"/>`;
+    g+=`<line x1="${cx}" y1="${cy}" x2="${x}" y2="${y}" stroke="#eef0f1" stroke-width="1"/>`;
     const [lx,ly]=polar(cx,cy,R+22,i,N);
     const anchor = Math.abs(lx-cx)<6?'middle':(lx>cx?'start':'end');
     g+=`<text x="${lx}" y="${ly+3}" font-size="9.5" fill="#7a7a7a" text-anchor="${anchor}" font-family="Noto Sans JP,sans-serif">${QUALITIES[k].name.replace('する力','').replace('力','')}</text>`;
@@ -499,7 +497,7 @@ function radarSVG(pct){
   // data polygon
   const dpts = ORDER.map((k,i)=>polar(cx,cy,R*(pct[k]/100),i,N));
   const poly = dpts.map(p=>p.join(',')).join(' ');
-  g+=`<polygon points="${poly}" fill="rgba(45,106,79,.16)" stroke="#2D6A4F" stroke-width="2" stroke-linejoin="round"/>`;
+  g+=`<polygon points="${poly}" fill="rgba(24,155,188,.16)" stroke="#189BBC" stroke-width="2" stroke-linejoin="round"/>`;
   dpts.forEach((p,i)=>{ g+=`<circle cx="${p[0]}" cy="${p[1]}" r="3" fill="${QUALITIES[ORDER[i]].color}"/>`; });
   return `<svg viewBox="0 0 340 320" xmlns="http://www.w3.org/2000/svg">${g}</svg>`;
 }
@@ -513,6 +511,5 @@ function shade(hex,amt){
   return '#'+((1<<24)+(r<<16)+(g<<8)+b).toString(16).slice(1);
 }
 </script>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600&family=Shippori+Mincho:wght@500;600&display=swap" rel="stylesheet">
 </body>
 </html>
