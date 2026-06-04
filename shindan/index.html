@@ -72,18 +72,27 @@
     padding:2.6rem 1.6rem 2rem;box-shadow:0 4px 20px rgba(0,0,0,.03)}
   .q-num{font-family:var(--serif);font-size:.8rem;color:var(--green);letter-spacing:.2em;
     text-align:center;margin-bottom:1rem}
-  .q-text{font-family:var(--serif);font-size:1.3rem;font-weight:500;line-height:1.85;
-    letter-spacing:.04em;text-align:center;margin-bottom:2.2rem;min-height:4.4em;
-    display:flex;align-items:center;justify-content:center}
-  .scale{display:flex;flex-direction:column;gap:.55rem}
-  .scale-btn{font-family:var(--sans);font-size:.95rem;font-weight:400;color:var(--sub);
-    background:#fff;border:1.5px solid var(--line);border-radius:10px;padding:.85rem 1rem;
-    cursor:pointer;transition:.18s;display:flex;align-items:center;gap:.8rem;text-align:left}
-  .scale-btn:hover{border-color:var(--green);color:var(--green);background:var(--green-bg);transform:translateX(2px)}
-  .scale-btn .dot{width:14px;height:14px;border-radius:50%;border:2px solid var(--line);flex:0 0 14px;transition:.18s}
-  .scale-btn:hover .dot{border-color:var(--green);background:var(--green)}
-  .scale-btn.sel{border-color:var(--green);background:var(--green-bg);color:var(--green);font-weight:500}
-  .scale-btn.sel .dot{border-color:var(--green);background:var(--green)}
+  .q-instr{font-family:var(--serif);font-size:.92rem;color:var(--mute);letter-spacing:.06em;
+    text-align:center;margin-bottom:1.4rem}
+  .q-instr b{color:var(--green);font-weight:600}
+  .pair{display:flex;flex-direction:column;gap:.5rem}
+  .stmt{font-family:var(--serif);font-size:1.12rem;font-weight:500;line-height:1.7;letter-spacing:.03em;
+    text-align:center;padding:1.15rem 1.1rem;border:1.5px solid var(--line);border-radius:12px;
+    transition:.2s;position:relative}
+  .stmt .tag{position:absolute;top:-.6rem;left:50%;transform:translateX(-50%);font-family:var(--sans);
+    font-size:.6rem;letter-spacing:.2em;font-weight:600;padding:.12rem .6rem;border-radius:99px;color:#fff}
+  .choices{display:flex;flex-direction:column;gap:.45rem;padding:.55rem 0}
+  .choice{font-family:var(--sans);font-size:.9rem;font-weight:400;color:var(--sub);background:#fff;
+    border:1.5px solid var(--line);border-radius:10px;padding:.7rem 1rem;cursor:pointer;transition:.16s;
+    display:flex;align-items:center;gap:.75rem;text-align:left}
+  .choice .cdot{width:15px;height:15px;border-radius:50%;border:2px solid var(--line);flex:0 0 15px;transition:.16s}
+  .choice[data-side="top"] .cdot{border-color:var(--c)}
+  .choice[data-side="bot"] .cdot{border-color:var(--c)}
+  .choice:hover{transform:translateX(2px);border-color:var(--c);color:var(--ink)}
+  .choice:hover .cdot{background:var(--c);border-color:var(--c)}
+  .choice.sel{border-color:var(--c);color:var(--ink);font-weight:500;background:color-mix(in srgb,var(--c) 8%,#fff)}
+  .choice.sel .cdot{background:var(--c);border-color:var(--c)}
+  .choice.strong{font-weight:500}
   .q-nav{display:flex;justify-content:space-between;margin-top:1.6rem;align-items:center}
   .back-link{background:none;border:none;color:var(--mute);font-size:.82rem;cursor:pointer;
     font-family:var(--sans);letter-spacing:.04em;padding:.4rem .2rem}
@@ -145,7 +154,8 @@
 
   @media(max-width:520px){
     .intro-title{font-size:1.6rem}
-    .q-text{font-size:1.12rem;min-height:4em}
+    .stmt{font-size:1rem}
+    .choice{font-size:.84rem}
     .hero-card h2{font-size:1.7rem}
     .rank-name{flex:0 0 5rem;font-size:.76rem}
     .intro-axes{grid-template-columns:1fr}
@@ -162,10 +172,11 @@
     <p class="intro-lead">
       旅・問い・共創。<br>
       POOLOの世界観でできた、ストレングスファインダー型の自己診断。<br>
-      24の問いから、あなたの「旅の資質」を見つけます。
+      毛色の違う2つの言葉から「より自分に近いほう」を選んでいくと、<br>
+      あなたの「旅の資質」の順位が見えてきます。
     </p>
     <div class="intro-meta">
-      <span><b>24</b>問</span>
+      <span><b>24</b>組の二択</span>
       <span><b>約4</b>分</span>
       <span><b>8</b>つの資質</span>
     </div>
@@ -183,8 +194,8 @@
     <div class="progress-bar"><div class="progress-fill" id="progFill"></div></div>
     <div class="q-card">
       <div class="q-num" id="qNum">QUESTION 01</div>
-      <div class="q-text serif" id="qText">—</div>
-      <div class="scale" id="scale"></div>
+      <div class="q-instr">より<b>「自分に近い」</b>のは、どちら？</div>
+      <div class="pair" id="pair"></div>
     </div>
     <div class="q-nav">
       <button class="back-link" id="backBtn" disabled>← 前の問いに戻る</button>
@@ -252,32 +263,37 @@ const QUALITIES = {
 
 const ORDER = ["tabi","toi","kyoso","jiko","jibun","omosiro","tomoni","spiral"];
 
-/* 3 statements per quality (24 total) */
-const QUESTIONS = [
-  {k:"tabi", t:"知らない場所や初めての環境に、考えるより先に身体が動く。"},
-  {k:"tabi", t:"予定がきっちり決まった旅より、何が起こるか分からない旅にワクワクする。"},
-  {k:"tabi", t:"迷ったときは「とりあえず行ってみる」で決めることが多い。"},
-  {k:"toi", t:"物事を「そもそも、なぜ？」と問い直すクセがある。"},
-  {k:"toi", t:"もやもやした気持ちを、時間をかけてでも言葉にしたくなる。"},
-  {k:"toi", t:"すぐに答えが出ない問いについて、考えること自体が好きだ。"},
-  {k:"kyoso", t:"自分のアイデアや作りかけのものを、つい人に見せてみたくなる。"},
-  {k:"kyoso", t:"一人で完成させるより、誰かと一緒に作るときに一番力が出る。"},
-  {k:"kyoso", t:"「これ、一緒にやってみない？」と人を巻き込むことが多い。"},
-  {k:"jiko", t:"最後は、人の意見より自分の感覚で決めたい。"},
-  {k:"jiko", t:"周りがどうであれ、自分の選択に納得していたい。"},
-  {k:"jiko", t:"「やらされている」状態が、何より苦手だ。"},
-  {k:"jibun", t:"他人の問題でも、つい自分のこととして引き受けてしまう。"},
-  {k:"jibun", t:"「誰かがやるだろう」より「自分がやる」と考えるほうだ。"},
-  {k:"jibun", t:"一度関わったことには、最後まで責任を持ちたい。"},
-  {k:"omosiro", t:"想定外のトラブルも、後から思えばいいネタになると思える。"},
-  {k:"omosiro", t:"思いどおりにならない状況も、わりと楽しめる。"},
-  {k:"omosiro", t:"「面白そう」が、自分が動く一番の理由になりやすい。"},
-  {k:"tomoni", t:"一緒に何かしていなくても、人とつながっている感覚を大事にしている。"},
-  {k:"tomoni", t:"場の空気や、その場の人が安心できているかに自然と気を配る。"},
-  {k:"tomoni", t:"誰かが「ここにいていい」と思える場をつくりたい。"},
-  {k:"spiral", t:"一度やって終わりより、何度も繰り返して深めていきたい。"},
-  {k:"spiral", t:"振り返って、また次へ進むサイクルが心地よい。"},
-  {k:"spiral", t:"同じことでも、繰り返すたびに見える景色が変わると感じる。"},
+/* ------------------------------------------------------------
+   Forced-choice pairs (CliftonStrengths-style).
+   Each pair puts two *different-natured* qualities head to head.
+   Across 24 pairs every quality appears 5-7 times against varied
+   opponents; scoring is ipsative (relative), normalised per count.
+   ------------------------------------------------------------ */
+const PAIRS = [
+  {a:"tabi",   at:"考えるより先に、まず飛び込んでみたい",   b:"toi",     bt:"「そもそも何だっけ？」と、つい問い直す"},
+  {a:"kyoso",  at:"誰かと一緒に作るときに、一番燃える",       b:"jiko",    bt:"最後は、自分の感覚で決めたい"},
+  {a:"jibun",  at:"他人ごとでも、つい引き受けてしまう",       b:"omosiro", bt:"予想外なことほど、面白がれる"},
+  {a:"tomoni", at:"その場の人が安心できているか、気になる",   b:"spiral",  bt:"一度きりより、何度も繰り返したい"},
+  {a:"tabi",   at:"知らない場所に行くと、力が湧いてくる",     b:"kyoso",   bt:"作りかけでも、人に見せたくなる"},
+  {a:"toi",    at:"答えより、いい問いのほうに惹かれる",       b:"jiko",    bt:"「やらされている」のが、とにかく苦手だ"},
+  {a:"jibun",  at:"「誰かがやる」より「自分がやる」と思う",   b:"tomoni",  bt:"人とつながっている感覚を、大切にする"},
+  {a:"omosiro",at:"思い通りにならない状況も、楽しめる",       b:"spiral",  bt:"振り返って次へ進む、その循環が心地よい"},
+  {a:"tabi",   at:"迷ったら「行ってみる」を選ぶ",             b:"jibun",   bt:"関わったことには、最後まで責任を持ちたい"},
+  {a:"toi",    at:"もやもやを言葉にしていくのが好きだ",       b:"omosiro", bt:"「面白そう」が、動く一番の理由になる"},
+  {a:"kyoso",  at:"「一緒にやろう」と人を巻き込みたい",       b:"tomoni",  bt:"「ここにいていい」と思える場をつくりたい"},
+  {a:"jiko",   at:"自分で選んだことに、納得していたい",       b:"spiral",  bt:"続けるほどに深まっていく感覚がある"},
+  {a:"tabi",   at:"考えるより先に、身体が動くほうだ",         b:"omosiro", bt:"計画が崩れても、わりと面白がれる"},
+  {a:"toi",    at:"立ち止まって「なぜ？」を考えたくなる",     b:"tomoni",  bt:"場の空気や、人の安心に自然と気を配る"},
+  {a:"kyoso",  at:"一人で完成させるより、誰かと混ざりたい",   b:"spiral",  bt:"同じことでも、回すたびに発見がある"},
+  {a:"jiko",   at:"人の意見より、自分の納得で動きたい",       b:"jibun",   bt:"目の前のことを、自分の問題として引き受ける"},
+  {a:"tabi",   at:"未知の環境に放り込まれると、燃える",       b:"tomoni",  bt:"つながっている安心感を、何より大事にする"},
+  {a:"toi",    at:"答えの出ない問いを、抱えていられる",       b:"spiral",  bt:"一度やって終わりにせず、繰り返したい"},
+  {a:"kyoso",  at:"作りかけを「どう思う？」と差し出せる",     b:"jibun",   bt:"傍観者でいるより、当事者でいたい"},
+  {a:"jiko",   at:"「自分で決めた」という感覚が大事だ",       b:"omosiro", bt:"コントロールを手放すほうが、楽しめる"},
+  {a:"tabi",   at:"まず動いてから、考えるタイプだ",           b:"spiral",  bt:"じっくり何周も重ねて、深めるタイプだ"},
+  {a:"toi",    at:"「そもそも」を問い直すのが好きだ",         b:"kyoso",   bt:"誰かと一緒に形にするのが好きだ"},
+  {a:"jiko",   at:"自分の選択は、自分で引き受けたい",         b:"tomoni",  bt:"仲間とともにいる感覚を、大切にしたい"},
+  {a:"jibun",  at:"関わったら、最後まで見届けたい",           b:"spiral",  bt:"終わってもまた、次の一周へ進みたい"},
 ];
 
 const DESC = {
@@ -302,17 +318,18 @@ const USE = {
   spiral:["一つの体験を<b>「振り返り→次へ」で回す</b>。あなたの真価は反復で出ます。","各回のあとに<b>変化を記録する</b>。らせんの軌跡が自信になります。","停滞を恐れず<b>もう一周</b>。同じ景色が違って見えたら成長の証です。"],
 };
 
-const SCALE = [
-  {label:"とても、あてはまる", v:4},
-  {label:"あてはまる",        v:3},
-  {label:"どちらともいえない", v:2},
-  {label:"あまり、あてはまらない", v:1},
-  {label:"まったく、あてはまらない", v:0},
+/* 5-point slider between the two statements (idx 0 = fully TOP … 4 = fully BOTTOM) */
+const CHOICES = [
+  {label:"上が、強くあてはまる",   side:"top", strong:true},
+  {label:"どちらかといえば、上",   side:"top"},
+  {label:"どちらともいえない",     side:"mid"},
+  {label:"どちらかといえば、下",   side:"bot"},
+  {label:"下が、強くあてはまる",   side:"bot", strong:true},
 ];
 
 /* ---------- state ---------- */
-let order = [];          // shuffled question indices
-let answers = [];        // value per question (by original index)
+let seq = [];            // session pairs: {topKey,topText,botKey,botText}
+let answers = [];        // chosen idx (0-4) per displayed pair, by pos
 let pos = 0;
 
 /* ---------- elements ---------- */
@@ -329,56 +346,73 @@ function show(id){ document.querySelectorAll('.screen').forEach(s=>s.classList.r
 
 /* ---------- start ---------- */
 $('startBtn').onclick = () => {
-  order = QUESTIONS.map((_,i)=>i);
-  for(let i=order.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[order[i],order[j]]=[order[j],order[i]];}
-  answers = new Array(QUESTIONS.length).fill(null);
+  // build session: random top/bottom orientation per pair, then shuffle pair order
+  seq = PAIRS.map(p=>{
+    return Math.random()<0.5
+      ? {topKey:p.a, topText:p.at, botKey:p.b, botText:p.bt}
+      : {topKey:p.b, topText:p.bt, botKey:p.a, botText:p.at};
+  });
+  for(let i=seq.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[seq[i],seq[j]]=[seq[j],seq[i]];}
+  answers = new Array(seq.length).fill(null);
   pos = 0;
   show('quiz'); renderQ();
 };
 
 /* ---------- render question ---------- */
 function renderQ(){
-  const qi = order[pos];
-  const q = QUESTIONS[qi];
-  const n = pos+1, total = QUESTIONS.length;
+  const s = seq[pos];
+  const top = QUALITIES[s.topKey], bot = QUALITIES[s.botKey];
+  const n = pos+1, total = seq.length;
   $('progLabel').textContent = `Q${n} / ${total}`;
   const pct = Math.round((n-1)/total*100);
   $('progPct').textContent = pct + '%';
   $('progFill').style.width = pct + '%';
   $('qNum').textContent = 'QUESTION ' + String(n).padStart(2,'0');
-  $('qText').textContent = q.t;
-  $('scale').innerHTML = SCALE.map(s=>{
-    const sel = answers[qi]===s.v ? ' sel':'';
-    return `<button class="scale-btn${sel}" data-v="${s.v}"><span class="dot"></span>${s.label}</button>`;
+
+  const choicesHTML = CHOICES.map((c,idx)=>{
+    const col = c.side==='top' ? top.color : c.side==='bot' ? bot.color : '#b0b0b0';
+    const sel = answers[pos]===idx ? ' sel':'';
+    const strong = c.strong ? ' strong':'';
+    return `<button class="choice${sel}${strong}" data-idx="${idx}" data-side="${c.side}" style="--c:${col}"><span class="cdot"></span>${c.label}</button>`;
   }).join('');
-  $('scale').querySelectorAll('.scale-btn').forEach(b=>{
-    b.onclick = ()=>choose(qi, +b.dataset.v);
+
+  $('pair').innerHTML =
+    `<div class="stmt top" style="border-color:${top.color};background:${top.color}10">
+        <span class="tag" style="background:${top.color}">上</span>${s.topText}</div>
+     <div class="choices">${choicesHTML}</div>
+     <div class="stmt bot" style="border-color:${bot.color};background:${bot.color}10">
+        <span class="tag" style="background:${bot.color}">下</span>${s.botText}</div>`;
+
+  $('pair').querySelectorAll('.choice').forEach(b=>{
+    b.onclick = ()=>choose(+b.dataset.idx);
   });
   $('backBtn').disabled = pos===0;
 }
 
-function choose(qi, v){
-  answers[qi] = v;
-  // brief highlight then advance
-  $('scale').querySelectorAll('.scale-btn').forEach(b=>{
-    b.classList.toggle('sel', +b.dataset.v===v);
+function choose(idx){
+  answers[pos] = idx;
+  $('pair').querySelectorAll('.choice').forEach(b=>{
+    b.classList.toggle('sel', +b.dataset.idx===idx);
   });
   setTimeout(()=>{
-    if(pos < QUESTIONS.length-1){ pos++; renderQ(); }
+    if(pos < seq.length-1){ pos++; renderQ(); }
     else finish();
-  }, 230);
+  }, 240);
 }
 
 $('backBtn').onclick = ()=>{ if(pos>0){ pos--; renderQ(); } };
 
-/* ---------- scoring ---------- */
+/* ---------- scoring (ipsative, normalised per appearance) ---------- */
 function computeScores(){
   const sum={}, cnt={};
   ORDER.forEach(k=>{sum[k]=0;cnt[k]=0;});
-  QUESTIONS.forEach((q,i)=>{ const v = answers[i]==null?2:answers[i]; sum[q.k]+=v; cnt[q.k]++; });
-  // percent of max (cnt*4)
+  seq.forEach((s,i)=>{
+    const idx = answers[i]==null ? 2 : answers[i];   // default = neutral
+    sum[s.topKey] += (4-idx); cnt[s.topKey]++;
+    sum[s.botKey] += idx;     cnt[s.botKey]++;
+  });
   const pct={};
-  ORDER.forEach(k=>{ pct[k]=Math.round(sum[k]/(cnt[k]*4)*100); });
+  ORDER.forEach(k=>{ pct[k] = cnt[k] ? Math.round(sum[k]/(cnt[k]*4)*100) : 0; });
   return pct;
 }
 
