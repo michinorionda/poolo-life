@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<!-- updated 2026-06-04 -->
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>POOLO LIFE 12期｜相談会 定例MTG</title>
+<meta name="description" content="POOLO LIFE 12期 相談会メンバーとの定例MTG。アジェンダの共有と、後半の相互理解ワーク（探究テーマ・人生への活かし方・大事にしたい価値観）をその場で書き込めるシートです。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="POOLO LIFE 12期｜相談会 定例MTG">
+<meta property="og:description" content="相談会メンバーとの定例MTG。アジェンダ共有と相互理解ワークをまとめた1枚です。">
+<meta property="og:url" content="https://michinorionda.github.io/poolo-life/poolo-12ki-soudankai-mtg-260604.html">
+<meta property="og:site_name" content="POOLO LIFE">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700&family=Shippori+Mincho:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --blue: #1B99B7;
+  --blue-deep: #157A98;
+  --blue-soft: #B8E0EB;
+  --blue-bg: #EAF5F8;
+  --green: #2D6A4F;
+  --green-deep: #1F4D38;
+  --purple: #534AB7;
+  --amber: #7A5500;
+  --ink: #1a1a1a;
+  --sub: #5a5a5a;
+  --hint: #999;
+  --bg: #faf9f6;
+  --card: #ffffff;
+  --line: #e5e2db;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'Noto Sans JP', sans-serif;
+  font-weight: 400;
+  line-height: 1.95;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+}
+
+.container {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 64px 28px 120px;
+}
+
+/* HEADER */
+.header {
+  text-align: center;
+  padding-bottom: 36px;
+  margin-bottom: 52px;
+  border-bottom: 2px solid var(--blue);
+}
+.tag-label {
+  display: inline-block;
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  color: var(--blue-deep);
+  font-weight: 600;
+  padding: 5px 14px;
+  border: 1px solid var(--blue);
+  border-radius: 2px;
+  margin-bottom: 22px;
+}
+.header h1 {
+  font-family: 'Shippori Mincho', serif;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 1.45;
+  color: var(--ink);
+  margin-bottom: 16px;
+  letter-spacing: 0.05em;
+}
+.header .meta {
+  font-size: 12px;
+  color: var(--hint);
+  letter-spacing: 0.1em;
+}
+
+/* AGENDA OVERVIEW */
+.agenda {
+  margin: 0 0 64px;
+  background: var(--card);
+  border: 1px solid var(--blue-soft);
+  border-top: 4px solid var(--blue);
+  border-radius: 4px;
+  padding: 36px 32px;
+}
+.block-label {
+  font-size: 11px;
+  letter-spacing: 0.25em;
+  color: var(--blue-deep);
+  font-weight: 600;
+  margin-bottom: 18px;
+}
+.agenda-list { list-style: none; }
+.agenda-list li {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1.7;
+  padding: 14px 0 14px 40px;
+  position: relative;
+  letter-spacing: 0.04em;
+  border-bottom: 1px dotted var(--line);
+}
+.agenda-list li:last-child { border-bottom: none; }
+.agenda-list li .num {
+  position: absolute;
+  left: 0;
+  top: 15px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--blue);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Shippori Mincho', serif;
+}
+.agenda-list li small {
+  display: block;
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 12.5px;
+  font-weight: 400;
+  color: var(--sub);
+  letter-spacing: 0.02em;
+  margin-top: 2px;
+}
+
+/* SECTION */
+.sec { margin-bottom: 60px; }
+.sec-head {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 22px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--line);
+}
+.sec-head .kicker {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--blue);
+  letter-spacing: 0.12em;
+  white-space: nowrap;
+}
+.sec-head h2 {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 21px;
+  font-weight: 700;
+  color: var(--ink);
+  letter-spacing: 0.05em;
+  line-height: 1.5;
+}
+
+/* CARD */
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 26px 28px;
+  margin-bottom: 18px;
+}
+.card h3 {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 16.5px;
+  font-weight: 700;
+  color: var(--ink);
+  letter-spacing: 0.04em;
+  margin-bottom: 10px;
+  line-height: 1.6;
+}
+.card p {
+  font-size: 14.5px;
+  color: var(--sub);
+  line-height: 1.95;
+  letter-spacing: 0.02em;
+}
+.card p + p { margin-top: 10px; }
+.card .ex {
+  display: inline-block;
+  margin-top: 12px;
+  font-size: 13px;
+  color: var(--blue-deep);
+  background: var(--blue-bg);
+  border-radius: 3px;
+  padding: 8px 14px;
+  line-height: 1.7;
+}
+.card .note {
+  margin-top: 14px;
+  padding: 12px 16px;
+  border-left: 3px solid var(--blue-soft);
+  background: #fbfdfe;
+  font-size: 13.5px;
+  color: var(--sub);
+  line-height: 1.9;
+}
+
+/* QUESTION highlight */
+.q-highlight {
+  text-align: center;
+  padding: 40px 28px;
+  margin-bottom: 18px;
+  border-top: 1px solid var(--blue-soft);
+  border-bottom: 1px solid var(--blue-soft);
+  background: linear-gradient(180deg, #FBFAF6 0%, #F0F7F9 100%);
+}
+.q-highlight .q-text {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 19px;
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.95;
+  letter-spacing: 0.06em;
+}
+
+/* RESOURCES */
+.res-grid { display: grid; gap: 14px; }
+.res {
+  display: block;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 18px 20px;
+  text-decoration: none;
+  color: inherit;
+  transition: border-color .15s, box-shadow .15s;
+}
+a.res:hover { border-color: var(--blue-soft); box-shadow: 0 2px 10px rgba(27,153,183,.08); }
+.res .res-kind {
+  display: inline-block;
+  font-size: 10.5px;
+  letter-spacing: 0.16em;
+  font-weight: 700;
+  color: #fff;
+  background: var(--blue);
+  border-radius: 2px;
+  padding: 3px 9px;
+  margin-bottom: 10px;
+}
+.res .res-kind.fyi { background: var(--amber); }
+.res .res-kind.bg { background: var(--purple); }
+.res .res-title {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 15.5px;
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.6;
+  letter-spacing: 0.03em;
+}
+.res .res-sub {
+  font-size: 12.5px;
+  color: var(--hint);
+  margin-top: 4px;
+  letter-spacing: 0.02em;
+  word-break: break-all;
+}
+
+/* ===== WORKSHOP ===== */
+.work-intro {
+  text-align: center;
+  padding: 48px 30px;
+  margin: 0 0 12px;
+  background: linear-gradient(135deg, #EAF5F8 0%, #DCEFF4 100%);
+  border-radius: 4px;
+}
+.work-intro .label {
+  font-size: 11px;
+  letter-spacing: 0.25em;
+  color: var(--blue-deep);
+  font-weight: 600;
+  margin-bottom: 22px;
+  padding: 5px 14px;
+  display: inline-block;
+  background: var(--card);
+  border: 1px solid var(--blue-soft);
+  border-radius: 2px;
+}
+.work-intro .title {
+  font-family: 'Shippori Mincho', serif;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 1.7;
+  color: var(--ink);
+  letter-spacing: 0.06em;
+}
+.work-intro .sub {
+  margin-top: 16px;
+  font-size: 13.5px;
+  color: var(--sub);
+  line-height: 1.9;
+}
+
+/* toolbar */
+.toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  background: rgba(250,249,246,.94);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid var(--line);
+  padding: 10px 4px;
+  margin: 28px 0 22px;
+}
+.toolbar .status {
+  font-size: 12px;
+  color: var(--green);
+  letter-spacing: 0.04em;
+  margin-right: auto;
+  font-weight: 600;
+}
+.toolbar .status.idle { color: var(--hint); font-weight: 400; }
+.btn {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--blue-deep);
+  background: var(--card);
+  border: 1px solid var(--blue-soft);
+  border-radius: 4px;
+  padding: 7px 14px;
+  cursor: pointer;
+  transition: background .15s, color .15s;
+}
+.btn:hover { background: var(--blue-bg); }
+.btn.danger { color: #9a3b3b; border-color: #e3c4c4; }
+.btn.danger:hover { background: #fbf0f0; }
+
+/* work block */
+.work-block { margin-bottom: 34px; }
+.work-q {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+.work-q .wq-num {
+  flex: none;
+  width: 26px; height: 26px;
+  border-radius: 50%;
+  background: var(--blue);
+  color: #fff;
+  font-family: 'Shippori Mincho', serif;
+  font-size: 12px; font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+}
+.work-q h3 {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--ink);
+  letter-spacing: 0.05em;
+  line-height: 1.55;
+}
+.work-q-sub {
+  font-size: 13px;
+  color: var(--sub);
+  margin: 0 0 16px 36px;
+  line-height: 1.85;
+}
+
+.member {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  margin-bottom: 12px;
+  overflow: hidden;
+}
+.member-name {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: #fff;
+  background: var(--blue-deep);
+  letter-spacing: 0.06em;
+  padding: 7px 18px;
+}
+.member:nth-child(2) .member-name { background: var(--teal, #1A6B5A); background: #1A6B5A; }
+.member:nth-child(3) .member-name { background: var(--purple); }
+.editable {
+  min-height: 86px;
+  padding: 16px 18px;
+  font-size: 15px;
+  line-height: 1.95;
+  color: var(--ink);
+  letter-spacing: 0.02em;
+  outline: none;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+.editable:focus { background: #fbfdfe; box-shadow: inset 0 0 0 2px var(--blue-soft); }
+.editable:empty:before {
+  content: attr(data-ph);
+  color: #c4c4c4;
+  font-weight: 300;
+}
+
+/* footer */
+.footer {
+  text-align: center;
+  margin-top: 80px;
+  padding-top: 32px;
+  border-top: 1px solid var(--line);
+  font-size: 11px;
+  color: var(--hint);
+  letter-spacing: 0.14em;
+}
+.footer .brand {
+  font-family: 'Shippori Mincho', serif;
+  font-weight: 700;
+  color: var(--blue-deep);
+  font-size: 13px;
+  letter-spacing: 0.2em;
+  margin-bottom: 6px;
+}
+
+@media (max-width: 560px) {
+  .container { padding: 48px 18px 100px; }
+  .header h1 { font-size: 24px; }
+  .work-intro .title { font-size: 20px; }
+  .sec-head { flex-direction: column; gap: 4px; }
+}
+
+@media print {
+  .toolbar { display: none; }
+  body { background: #fff; }
+  .editable:empty:before { content: ""; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- HEADER -->
+  <header class="header">
+    <span class="tag-label">POOLO LIFE 12期 ・ 相談会</span>
+    <h1>相談会メンバー 定例MTG</h1>
+    <p class="meta">2026.06.04 ｜ 体験会運営チーム</p>
+  </header>
+
+  <!-- AGENDA OVERVIEW -->
+  <section class="agenda">
+    <div class="block-label">今日のアジェンダ</div>
+    <ol class="agenda-list">
+      <li><span class="num">1</span>チェックイン
+        <small>毎回 担当制で回していく</small></li>
+      <li><span class="num">2</span>共有・現状の質問
+        <small>現状での質問／スライドの情報について</small></li>
+      <li><span class="num">3</span>この相談会の時間を、自分の人生にどう活かす？</li>
+      <li><span class="num">4</span>メンバー相互理解
+        <small>自分の探究テーマを開示しよう！</small></li>
+      <li><span class="num">5</span>12期相談会で大事にしたい価値観を決める</li>
+    </ol>
+  </section>
+
+  <!-- 1. 最初に -->
+  <section class="sec">
+    <div class="sec-head">
+      <span class="kicker">01</span>
+      <h2>最初に — チェックイン</h2>
+    </div>
+    <div class="card">
+      <h3>チェックインを毎回「担当制」で回していきたい</h3>
+      <p>毎回ひとりが担当になり、その回のチェックインのお題を出す形に。場をひらく役割を、みんなで分かち合います。</p>
+      <span class="ex">ex. 自分が「嬉しい」と感じる瞬間は？</span>
+    </div>
+  </section>
+
+  <!-- 2. 共有 -->
+  <section class="sec">
+    <div class="sec-head">
+      <span class="kicker">02</span>
+      <h2>共有・現状の質問</h2>
+    </div>
+    <div class="card">
+      <h3>共有内容・資料について</h3>
+      <p>現状での質問、スライドの情報について確認・共有します。</p>
+    </div>
+  </section>
+
+  <!-- 3. 問い -->
+  <section class="sec">
+    <div class="sec-head">
+      <span class="kicker">03</span>
+      <h2>この時間を、自分の人生にどう活かす？</h2>
+    </div>
+    <div class="q-highlight">
+      <p class="q-text">この相談会の時間を、<br>自分の人生にどう活かす？</p>
+    </div>
+    <div class="card">
+      <p>POOLOのためにやってもらっていることは<b>前提</b>。<br>そのうえで——「自分のためになること」は何か？を、ここで言語化していきます。</p>
+    </div>
+  </section>
+
+  <!-- 共有ファイル / FYI -->
+  <section class="sec">
+    <div class="sec-head">
+      <span class="kicker">FILES</span>
+      <h2>共有ファイル ・ FYI</h2>
+    </div>
+    <div class="res-grid">
+      <a class="res" href="https://docs.google.com/spreadsheets/d/1-8cp2sZzq-pQ33VHMCc1EsLY8TJuT4iWw4Gno-Dd7mU/edit?gid=1272144328#gid=1272144328" target="_blank" rel="noopener">
+        <span class="res-kind">共有ファイル</span>
+        <div class="res-title">【LIFE12th】体験会_運営シート</div>
+        <div class="res-sub">体験会メンバーのシート（Google スプレッドシート）</div>
+      </a>
+      <a class="res" href="https://www.youtube.com/watch?v=0fseum0gdVg&t=5s" target="_blank" rel="noopener">
+        <span class="res-kind fyi">FYI ・ 動画</span>
+        <div class="res-title">【解放】25年間、鎧を着て走り続けた起業家が漏らす「自分の人生を生きたい」</div>
+        <div class="res-sub">経沢香保子 / 高木新平（YouTube）</div>
+      </a>
+      <a class="res" href="https://amzn.to/4e6W5g0" target="_blank" rel="noopener">
+        <span class="res-kind fyi">FYI ・ 書籍</span>
+        <div class="res-title">サードウェイ — 第三の道のつくり方</div>
+        <div class="res-sub">山口絵理子 ｜ https://amzn.to/4e6W5g0</div>
+      </a>
+      <a class="res" href="https://drive.google.com/file/d/1BcHp5NFdyB4ZUA5iCwu4X0jhAt14gxlS/view?usp=sharing" target="_blank" rel="noopener">
+        <span class="res-kind bg">バーチャル背景</span>
+        <div class="res-title">zoom2.png</div>
+        <div class="res-sub">Zoom用バーチャル背景（Google ドライブ）</div>
+      </a>
+    </div>
+  </section>
+
+  <!-- ===== WORKSHOP ===== -->
+  <div class="work-intro">
+    <span class="label">WORKSHOP ・ 後半ワーク</span>
+    <div class="title">メンバー相互理解 &<br>大事にしたい価値観</div>
+    <p class="sub">下の枠はその場で直接タイプできます。<br>入力は自動でこの端末に保存されます（リロードしても消えません）。</p>
+  </div>
+
+  <!-- toolbar -->
+  <div class="toolbar">
+    <span class="status idle" id="status">入力するとここに保存状況が表示されます</span>
+    <button class="btn" id="copyBtn">全文コピー</button>
+    <button class="btn" id="printBtn">印刷 / PDF</button>
+    <button class="btn danger" id="clearBtn">入力をクリア</button>
+  </div>
+
+  <!-- Q1 -->
+  <div class="work-block">
+    <div class="work-q"><span class="wq-num">1</span><h3>人生の探究テーマは？</h3></div>
+    <p class="work-q-sub">自分の探究テーマを開示しよう！ — 今、どんな問いを生きている？</p>
+    <div class="member">
+      <div class="member-name">えなん</div>
+      <div class="editable" contenteditable="true" data-key="q1-enan" data-ph="ここに入力…"></div>
+    </div>
+    <div class="member">
+      <div class="member-name">とがみん</div>
+      <div class="editable" contenteditable="true" data-key="q1-togamin" data-ph="ここに入力…"></div>
+    </div>
+    <div class="member">
+      <div class="member-name">りなお</div>
+      <div class="editable" contenteditable="true" data-key="q1-rinao" data-ph="ここに入力…"></div>
+    </div>
+  </div>
+
+  <!-- Q2 -->
+  <div class="work-block">
+    <div class="work-q"><span class="wq-num">2</span><h3>この相談会の時間を、自分の人生にどう活かす？</h3></div>
+    <p class="work-q-sub">POOLOのためは前提。そのうえで「自分のためになること」は？</p>
+    <div class="member">
+      <div class="member-name">えなん</div>
+      <div class="editable" contenteditable="true" data-key="q2-enan" data-ph="ここに入力…"></div>
+    </div>
+    <div class="member">
+      <div class="member-name">とがみん</div>
+      <div class="editable" contenteditable="true" data-key="q2-togamin" data-ph="ここに入力…"></div>
+    </div>
+    <div class="member">
+      <div class="member-name">りなお</div>
+      <div class="editable" contenteditable="true" data-key="q2-rinao" data-ph="ここに入力…"></div>
+    </div>
+  </div>
+
+  <!-- Q3 -->
+  <div class="work-block">
+    <div class="work-q"><span class="wq-num">3</span><h3>12期相談会で大事にしたい価値観</h3></div>
+    <p class="work-q-sub">この場で大切にしたいこと・約束ごとを言葉にしよう。</p>
+    <div class="member">
+      <div class="member-name">えなん</div>
+      <div class="editable" contenteditable="true" data-key="q3-enan" data-ph="ここに入力…"></div>
+    </div>
+    <div class="member">
+      <div class="member-name">とがみん</div>
+      <div class="editable" contenteditable="true" data-key="q3-togamin" data-ph="ここに入力…"></div>
+    </div>
+    <div class="member">
+      <div class="member-name">りなお</div>
+      <div class="editable" contenteditable="true" data-key="q3-rinao" data-ph="ここに入力…"></div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="brand">POOLO LIFE</div>
+    <div>by TABIPPO ｜ 12期 相談会 定例MTG</div>
+  </footer>
+
+</div>
+
+<script>
+(function () {
+  var PREFIX = 'poolo-12ki-soudankai-260604:';
+  var statusEl = document.getElementById('status');
+  var cells = Array.prototype.slice.call(document.querySelectorAll('.editable'));
+  var saveTimer = null;
+
+  // labels for export
+  var Q_TITLES = {
+    q1: '【探究テーマ】',
+    q2: '【この時間を人生にどう活かす？】',
+    q3: '【大事にしたい価値観】'
+  };
+  var NAMES = { enan: 'えなん', togamin: 'とがみん', rinao: 'りなお' };
+
+  // restore
+  cells.forEach(function (el) {
+    var saved = localStorage.getItem(PREFIX + el.dataset.key);
+    if (saved !== null) el.textContent = saved;
+  });
+
+  function setStatus(msg, idle) {
+    statusEl.textContent = msg;
+    statusEl.className = 'status' + (idle ? ' idle' : '');
+  }
+
+  function timeStr() {
+    var d = new Date();
+    function p(n){ return (n < 10 ? '0' : '') + n; }
+    return p(d.getHours()) + ':' + p(d.getMinutes()) + ':' + p(d.getSeconds());
+  }
+
+  function save() {
+    cells.forEach(function (el) {
+      localStorage.setItem(PREFIX + el.dataset.key, el.textContent);
+    });
+    setStatus('✓ 保存しました（' + timeStr() + '）', false);
+  }
+
+  cells.forEach(function (el) {
+    el.addEventListener('input', function () {
+      setStatus('… 入力中', true);
+      if (saveTimer) clearTimeout(saveTimer);
+      saveTimer = setTimeout(save, 600);
+    });
+    // paste as plain text
+    el.addEventListener('paste', function (e) {
+      e.preventDefault();
+      var text = (e.clipboardData || window.clipboardData).getData('text/plain');
+      document.execCommand('insertText', false, text);
+    });
+  });
+
+  // copy all
+  document.getElementById('copyBtn').addEventListener('click', function () {
+    var lines = ['POOLO LIFE 12期 相談会 定例MTG（2026.06.04）', ''];
+    ['q1', 'q2', 'q3'].forEach(function (q) {
+      lines.push(Q_TITLES[q]);
+      ['enan', 'togamin', 'rinao'].forEach(function (m) {
+        var el = document.querySelector('[data-key="' + q + '-' + m + '"]');
+        var v = el ? el.textContent.trim() : '';
+        lines.push('・' + NAMES[m] + '：' + (v || '（未記入）'));
+      });
+      lines.push('');
+    });
+    var text = lines.join('\n');
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(function () {
+        setStatus('✓ 全文をコピーしました', false);
+      });
+    } else {
+      var ta = document.createElement('textarea');
+      ta.value = text; document.body.appendChild(ta); ta.select();
+      try { document.execCommand('copy'); } catch (e) {}
+      document.body.removeChild(ta);
+      setStatus('✓ 全文をコピーしました', false);
+    }
+  });
+
+  document.getElementById('printBtn').addEventListener('click', function () { window.print(); });
+
+  document.getElementById('clearBtn').addEventListener('click', function () {
+    if (!confirm('入力した内容をすべて消去します。よろしいですか？')) return;
+    cells.forEach(function (el) {
+      el.textContent = '';
+      localStorage.removeItem(PREFIX + el.dataset.key);
+    });
+    setStatus('入力をクリアしました', true);
+  });
+})();
+</script>
+</body>
+</html>
