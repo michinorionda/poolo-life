@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta name="googlebot" content="noindex, nofollow, noarchive">
+<title>POOLO 旅の資質診断 ｜ あなたの中で動き始めるもの</title>
+<meta property="og:title" content="POOLO 旅の資質診断">
+<meta property="og:description" content="24の問いから、あなたの「旅の資質」を見つける。POOLOの世界観でできた、ストレングスファインダー型の自己診断。">
+<style>
+  :root{
+    --ink:#1a1a1a; --sub:#4a4a4a; --mute:#7a7a7a; --hint:#a8a8a8;
+    --bg:#faf9f6; --bg-deep:#f3f1ea; --line:#e0ddd3; --card:#ffffff;
+    --green:#2D6A4F; --green-bg:#E9F5EE;
+    --warm:#C08457; --warm-bg:#F7EDE2;
+    --deep:#1F3A3D; --deep-bg:#DCE6E7;
+    --star:#B8860B; --star-bg:#F9F0D9;
+    --terra:#C97B5C; --terra-bg:#F8EAE3;
+    --sage:#7E9A6E; --sage-bg:#ECF1E7;
+    --sky:#5E83A6; --sky-bg:#E5EDF3;
+    --plum:#9A6E8E; --plum-bg:#F2E9EF;
+    --serif:'Shippori Mincho','Yu Mincho',serif;
+    --sans:'Noto Sans JP',-apple-system,BlinkMacSystemFont,sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:var(--sans);background:var(--bg);color:var(--ink);
+    line-height:1.8;font-weight:300;-webkit-font-smoothing:antialiased;
+    padding:0;min-height:100vh;
+  }
+  .wrap{max-width:680px;margin:0 auto;padding:0 1.25rem}
+  .serif{font-family:var(--serif)}
+  /* ---------- screens ---------- */
+  .screen{display:none;animation:fade .5s ease both}
+  .screen.active{display:block}
+  @keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+
+  /* ---------- INTRO ---------- */
+  #intro{text-align:center;padding:4.5rem 0 4rem}
+  .mark{display:inline-block;font-size:.6rem;letter-spacing:.4em;color:var(--green);
+    margin-bottom:1.8rem;font-weight:500;padding:.35rem 1.1rem;border:1px solid var(--green);background:#fff}
+  .intro-title{font-family:var(--serif);font-size:2rem;font-weight:600;letter-spacing:.08em;
+    line-height:1.7;margin-bottom:1.2rem}
+  .intro-lead{font-family:var(--serif);font-size:1.02rem;color:var(--sub);letter-spacing:.06em;
+    line-height:2.1;margin:0 auto 2.4rem;max-width:30rem}
+  .intro-meta{display:flex;gap:1.4rem;justify-content:center;flex-wrap:wrap;
+    margin-bottom:2.6rem;color:var(--mute);font-size:.8rem;letter-spacing:.05em}
+  .intro-meta span b{color:var(--green);font-weight:600;font-size:1.05rem;margin-right:.15rem}
+  .btn{font-family:var(--serif);font-size:1.05rem;letter-spacing:.12em;font-weight:600;
+    color:#fff;background:var(--green);border:none;padding:1rem 3rem;border-radius:999px;
+    cursor:pointer;transition:.25s;box-shadow:0 6px 20px rgba(45,106,79,.22)}
+  .btn:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(45,106,79,.3)}
+  .btn.ghost{background:#fff;color:var(--green);border:1.5px solid var(--green);box-shadow:none}
+  .btn.ghost:hover{background:var(--green-bg)}
+  .intro-note{margin-top:1.6rem;font-size:.74rem;color:var(--hint);letter-spacing:.04em}
+  .intro-axes{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;max-width:30rem;
+    margin:2.8rem auto 0;text-align:left}
+  .axis-chip{background:#fff;border:1px solid var(--line);border-radius:6px;padding:.7rem .9rem;
+    font-size:.78rem;color:var(--sub);display:flex;align-items:center;gap:.55rem}
+  .axis-dot{width:9px;height:9px;border-radius:50%;flex:0 0 9px}
+
+  /* ---------- QUIZ ---------- */
+  #quiz{padding:2.2rem 0 3rem}
+  .progress-head{display:flex;justify-content:space-between;align-items:center;
+    margin-bottom:.7rem;font-size:.74rem;color:var(--mute);letter-spacing:.08em}
+  .progress-bar{height:5px;background:var(--bg-deep);border-radius:99px;overflow:hidden;margin-bottom:2.6rem}
+  .progress-fill{height:100%;background:linear-gradient(90deg,var(--green),var(--sage));
+    width:0;border-radius:99px;transition:width .4s ease}
+  .q-card{background:var(--card);border:1px solid var(--line);border-radius:14px;
+    padding:2.6rem 1.6rem 2rem;box-shadow:0 4px 20px rgba(0,0,0,.03)}
+  .q-num{font-family:var(--serif);font-size:.8rem;color:var(--green);letter-spacing:.2em;
+    text-align:center;margin-bottom:1rem}
+  .q-text{font-family:var(--serif);font-size:1.3rem;font-weight:500;line-height:1.85;
+    letter-spacing:.04em;text-align:center;margin-bottom:2.2rem;min-height:4.4em;
+    display:flex;align-items:center;justify-content:center}
+  .scale{display:flex;flex-direction:column;gap:.55rem}
+  .scale-btn{font-family:var(--sans);font-size:.95rem;font-weight:400;color:var(--sub);
+    background:#fff;border:1.5px solid var(--line);border-radius:10px;padding:.85rem 1rem;
+    cursor:pointer;transition:.18s;display:flex;align-items:center;gap:.8rem;text-align:left}
+  .scale-btn:hover{border-color:var(--green);color:var(--green);background:var(--green-bg);transform:translateX(2px)}
+  .scale-btn .dot{width:14px;height:14px;border-radius:50%;border:2px solid var(--line);flex:0 0 14px;transition:.18s}
+  .scale-btn:hover .dot{border-color:var(--green);background:var(--green)}
+  .scale-btn.sel{border-color:var(--green);background:var(--green-bg);color:var(--green);font-weight:500}
+  .scale-btn.sel .dot{border-color:var(--green);background:var(--green)}
+  .q-nav{display:flex;justify-content:space-between;margin-top:1.6rem;align-items:center}
+  .back-link{background:none;border:none;color:var(--mute);font-size:.82rem;cursor:pointer;
+    font-family:var(--sans);letter-spacing:.04em;padding:.4rem .2rem}
+  .back-link:hover{color:var(--green)}
+  .back-link:disabled{opacity:.3;cursor:default}
+  .q-hint{font-size:.72rem;color:var(--hint)}
+
+  /* ---------- RESULT ---------- */
+  #result{padding:2.4rem 0 4rem}
+  .res-mark{text-align:center;font-size:.62rem;letter-spacing:.4em;color:var(--mute);margin-bottom:.7rem}
+  .hero-card{border-radius:18px;padding:2.6rem 1.6rem 2.2rem;text-align:center;color:#fff;
+    margin-bottom:1.8rem;position:relative;overflow:hidden}
+  .hero-card .label{font-size:.7rem;letter-spacing:.3em;opacity:.85;margin-bottom:.9rem}
+  .hero-icon{font-size:2.6rem;line-height:1;margin-bottom:.6rem}
+  .hero-card h2{font-family:var(--serif);font-size:2rem;font-weight:600;letter-spacing:.06em;margin-bottom:.5rem}
+  .hero-card .en{font-size:.74rem;letter-spacing:.25em;opacity:.8;margin-bottom:1.2rem}
+  .hero-card .catch{font-family:var(--serif);font-size:1.05rem;line-height:1.9;letter-spacing:.05em;
+    opacity:.96;max-width:26rem;margin:0 auto}
+  .sec-h{font-family:var(--serif);font-size:1.15rem;font-weight:600;letter-spacing:.06em;
+    margin:2.6rem 0 1.1rem;display:flex;align-items:center;gap:.6rem}
+  .sec-h::before{content:"";width:4px;height:1.1rem;background:var(--green);border-radius:2px}
+  .desc-card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:1.5rem 1.4rem;
+    font-size:.94rem;line-height:2;color:var(--sub);letter-spacing:.03em}
+  .desc-card b{color:var(--ink);font-weight:600}
+  .use-list{list-style:none;display:flex;flex-direction:column;gap:.7rem;margin-top:.4rem}
+  .use-list li{background:#fff;border:1px solid var(--line);border-left:3px solid var(--green);
+    border-radius:8px;padding:.9rem 1.1rem;font-size:.9rem;line-height:1.8;color:var(--sub)}
+  .use-list li b{color:var(--green);font-weight:600}
+
+  /* ranking bars */
+  .rank{display:flex;flex-direction:column;gap:.7rem}
+  .rank-row{display:flex;align-items:center;gap:.7rem}
+  .rank-no{font-family:var(--serif);font-size:.85rem;color:var(--hint);width:1.4rem;flex:0 0 1.4rem;text-align:center}
+  .rank-row.top1 .rank-no{color:var(--star);font-weight:600}
+  .rank-name{flex:0 0 6.2rem;font-size:.82rem;color:var(--ink);letter-spacing:.02em}
+  .rank-track{flex:1;height:11px;background:var(--bg-deep);border-radius:99px;overflow:hidden}
+  .rank-bar{height:100%;border-radius:99px;width:0;transition:width 1s cubic-bezier(.2,.7,.2,1)}
+  .rank-pct{flex:0 0 2.6rem;text-align:right;font-size:.76rem;color:var(--mute)}
+
+  /* radar */
+  .radar-wrap{display:flex;justify-content:center;margin:.6rem 0 .2rem}
+  .radar-wrap svg{max-width:340px;width:100%}
+
+  .secondary-note{background:var(--bg-deep);border-radius:10px;padding:1rem 1.2rem;font-size:.86rem;
+    color:var(--sub);line-height:1.9;margin-top:1rem}
+  .secondary-note b{color:var(--ink);font-weight:600}
+
+  .share{display:flex;gap:.7rem;flex-wrap:wrap;justify-content:center;margin-top:2.4rem}
+  .share .btn{padding:.85rem 1.8rem;font-size:.92rem}
+  .x-btn{background:#1a1a1a;box-shadow:0 6px 20px rgba(0,0,0,.18)}
+  .x-btn:hover{box-shadow:0 10px 26px rgba(0,0,0,.26)}
+  .cta-card{margin-top:2.6rem;background:linear-gradient(135deg,var(--green-bg),var(--bg));
+    border:1px solid var(--line);border-radius:14px;padding:2rem 1.5rem;text-align:center}
+  .cta-card .ct{font-family:var(--serif);font-size:1.05rem;font-weight:600;letter-spacing:.05em;
+    line-height:1.9;margin-bottom:.6rem;color:var(--green)}
+  .cta-card .cs{font-size:.85rem;color:var(--sub);line-height:1.9;margin-bottom:1.3rem}
+  footer{text-align:center;color:var(--hint);font-size:.7rem;letter-spacing:.1em;
+    padding:2.4rem 0 1.4rem;margin-top:1rem}
+
+  @media(max-width:520px){
+    .intro-title{font-size:1.6rem}
+    .q-text{font-size:1.12rem;min-height:4em}
+    .hero-card h2{font-size:1.7rem}
+    .rank-name{flex:0 0 5rem;font-size:.76rem}
+    .intro-axes{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- ============ INTRO ============ -->
+  <section id="intro" class="screen active">
+    <span class="mark">POOLO ／ 旅の資質診断</span>
+    <h1 class="intro-title">あなたの中で、<br>動き始めるものは何か。</h1>
+    <p class="intro-lead">
+      旅・問い・共創。<br>
+      POOLOの世界観でできた、ストレングスファインダー型の自己診断。<br>
+      24の問いから、あなたの「旅の資質」を見つけます。
+    </p>
+    <div class="intro-meta">
+      <span><b>24</b>問</span>
+      <span><b>約4</b>分</span>
+      <span><b>8</b>つの資質</span>
+    </div>
+    <button class="btn" id="startBtn">診断をはじめる</button>
+    <div class="intro-axes" id="introAxes"></div>
+    <p class="intro-note">※ 直感で答えるほど、よく当たります。回答は端末内だけで処理され、送信されません。</p>
+  </section>
+
+  <!-- ============ QUIZ ============ -->
+  <section id="quiz" class="screen">
+    <div class="progress-head">
+      <span id="progLabel">Q1 / 24</span>
+      <span id="progPct">0%</span>
+    </div>
+    <div class="progress-bar"><div class="progress-fill" id="progFill"></div></div>
+    <div class="q-card">
+      <div class="q-num" id="qNum">QUESTION 01</div>
+      <div class="q-text serif" id="qText">—</div>
+      <div class="scale" id="scale"></div>
+    </div>
+    <div class="q-nav">
+      <button class="back-link" id="backBtn" disabled>← 前の問いに戻る</button>
+      <span class="q-hint">選ぶと自動で次へ進みます</span>
+    </div>
+  </section>
+
+  <!-- ============ RESULT ============ -->
+  <section id="result" class="screen">
+    <div class="res-mark">YOUR TRAVEL QUALITIES</div>
+    <div class="hero-card" id="heroCard"></div>
+
+    <h3 class="sec-h">この資質について</h3>
+    <div class="desc-card" id="descCard"></div>
+
+    <h3 class="sec-h">POOLOの8ヶ月での活かし方</h3>
+    <ul class="use-list" id="useList"></ul>
+
+    <h3 class="sec-h">8つの資質バランス</h3>
+    <div class="radar-wrap" id="radarWrap"></div>
+    <div class="rank" id="rankList"></div>
+    <div class="secondary-note" id="secondaryNote"></div>
+
+    <div class="share">
+      <button class="btn x-btn" id="shareBtn">結果をXでシェア</button>
+      <button class="btn ghost" id="retakeBtn">もう一度診断する</button>
+    </div>
+
+    <div class="cta-card">
+      <div class="ct">この資質を、8ヶ月で育ててみませんか。</div>
+      <div class="cs">POOLOは、旅・問い・共創を仲間と何度も回しながら、<br>「想像もしなかった世界と自分」に出会いにいく旅の学校です。</div>
+      <a class="btn ghost" href="https://poolo.jp/" target="_blank" rel="noopener">POOLOを見てみる</a>
+    </div>
+
+    <footer>POOLO ／ 旅の資質診断 ・ for fun &amp; self-reflection</footer>
+  </section>
+
+</div>
+
+<script>
+/* ============================================================
+   POOLO 旅の資質診断 — 8 qualities grounded in the POOLO model
+   実践: 旅 / 問い / 共創   スタンス: 自己決定 / 自分ごと化 / 面白がる
+   Being: 共にある   螺旋: 動き続ける
+   ============================================================ */
+
+const QUALITIES = {
+  tabi:   {name:"飛び込む力", en:"THE DIVER",      icon:"🧭", color:"#2D6A4F", layer:"実践 ／ 旅",
+    catch:"考えるより先に、身体が動く。<br>知らない世界へ、まず飛び込む人。"},
+  toi:    {name:"問いを立てる力", en:"THE SEEKER",  icon:"🔍", color:"#1F3A3D", layer:"実践 ／ 問い",
+    catch:"答えより、問いに惹かれる。<br>もやもやを、自分の言葉にしていく人。"},
+  kyoso:  {name:"差し出す力", en:"THE WEAVER",     icon:"🤝", color:"#C08457", layer:"実践 ／ 共創",
+    catch:"一人より、誰かと。<br>作りかけのものを、人に差し出せる人。"},
+  jiko:   {name:"自己決定する力", en:"THE CHOOSER", icon:"🧗", color:"#B8860B", layer:"スタンス ／ 自己決定",
+    catch:"最後は、自分の感覚で決める。<br>選んだ道を、自分のものにできる人。"},
+  jibun:  {name:"自分ごと化する力", en:"THE OWNER", icon:"🌱", color:"#C97B5C", layer:"スタンス ／ 自分ごと化",
+    catch:"他人ごとを、自分ごとに。<br>引き受けるところから、問いが湧く人。"},
+  omosiro:{name:"面白がる力", en:"THE PLAYER",     icon:"🎈", color:"#9A6E8E", layer:"スタンス ／ 面白がる",
+    catch:"想定外も、ネタにできる。<br>コントロールを手放して、楽しめる人。"},
+  tomoni: {name:"共にある力", en:"THE ANCHOR",     icon:"🪵", color:"#7E9A6E", layer:"Being ／ 共にある",
+    catch:"「ここにいていい」をつくる。<br>つながりを、静かに支える人。"},
+  spiral: {name:"動き続ける力", en:"THE SPIRALER", icon:"🌀", color:"#5E83A6", layer:"螺旋 ／ 動き続ける",
+    catch:"一度きりで終わらない。<br>回すほどに、深まっていける人。"},
+};
+
+const ORDER = ["tabi","toi","kyoso","jiko","jibun","omosiro","tomoni","spiral"];
+
+/* 3 statements per quality (24 total) */
+const QUESTIONS = [
+  {k:"tabi", t:"知らない場所や初めての環境に、考えるより先に身体が動く。"},
+  {k:"tabi", t:"予定がきっちり決まった旅より、何が起こるか分からない旅にワクワクする。"},
+  {k:"tabi", t:"迷ったときは「とりあえず行ってみる」で決めることが多い。"},
+  {k:"toi", t:"物事を「そもそも、なぜ？」と問い直すクセがある。"},
+  {k:"toi", t:"もやもやした気持ちを、時間をかけてでも言葉にしたくなる。"},
+  {k:"toi", t:"すぐに答えが出ない問いについて、考えること自体が好きだ。"},
+  {k:"kyoso", t:"自分のアイデアや作りかけのものを、つい人に見せてみたくなる。"},
+  {k:"kyoso", t:"一人で完成させるより、誰かと一緒に作るときに一番力が出る。"},
+  {k:"kyoso", t:"「これ、一緒にやってみない？」と人を巻き込むことが多い。"},
+  {k:"jiko", t:"最後は、人の意見より自分の感覚で決めたい。"},
+  {k:"jiko", t:"周りがどうであれ、自分の選択に納得していたい。"},
+  {k:"jiko", t:"「やらされている」状態が、何より苦手だ。"},
+  {k:"jibun", t:"他人の問題でも、つい自分のこととして引き受けてしまう。"},
+  {k:"jibun", t:"「誰かがやるだろう」より「自分がやる」と考えるほうだ。"},
+  {k:"jibun", t:"一度関わったことには、最後まで責任を持ちたい。"},
+  {k:"omosiro", t:"想定外のトラブルも、後から思えばいいネタになると思える。"},
+  {k:"omosiro", t:"思いどおりにならない状況も、わりと楽しめる。"},
+  {k:"omosiro", t:"「面白そう」が、自分が動く一番の理由になりやすい。"},
+  {k:"tomoni", t:"一緒に何かしていなくても、人とつながっている感覚を大事にしている。"},
+  {k:"tomoni", t:"場の空気や、その場の人が安心できているかに自然と気を配る。"},
+  {k:"tomoni", t:"誰かが「ここにいていい」と思える場をつくりたい。"},
+  {k:"spiral", t:"一度やって終わりより、何度も繰り返して深めていきたい。"},
+  {k:"spiral", t:"振り返って、また次へ進むサイクルが心地よい。"},
+  {k:"spiral", t:"同じことでも、繰り返すたびに見える景色が変わると感じる。"},
+];
+
+const DESC = {
+  tabi:`あなたの一番の強みは、<b>身体から動き始められること</b>。人は理屈や努力だけでは変われません。知らない世界に飛び込み、世界に揺さぶられることでしか、本当の変化は始まらない。あなたはその最初の一歩を、ためらいなく踏み出せる人です。「はたらく自分」のフィルターを外し、旅先で出会った景色から、新しい自分を立ち上げていきます。`,
+  toi:`あなたの一番の強みは、<b>問いを立て、言葉にできること</b>。答えのある問題を解くより、まだ誰も問うていないことを問い直すのが得意です。もやもやした違和感を放置せず、自分の言葉に翻訳していく。その問いこそが、あなたを内側から突き動かす「探究テーマ」の源になります。深く考える時間が、あなたにとっての旅です。`,
+  kyoso:`あなたの一番の強みは、<b>差し出し、巻き込めること</b>。完璧にしてから出すのではなく、作りかけのものを「どう思う？」と人に手渡せる。その勇気が、一人では届かない場所まで物事を運びます。あなたの周りには自然と協働が生まれ、誰かのアイデアとあなたのアイデアが混ざり合って、想像を超えたものが立ち上がっていきます。`,
+  jiko:`あなたの一番の強みは、<b>自分で決められること</b>。最後は人の評価ではなく、自分の感覚を信じて選ぶ。「やらされている」状態を嫌い、自分の選択を自分のものとして引き受けます。この自己決定の軸があるから、あなたは怖さの中でも前に進める。共にある仲間がいるほど、あなたの決断はしなやかになります。`,
+  jibun:`あなたの一番の強みは、<b>自分ごとにできること</b>。傍観者でいることを良しとせず、目の前のことを「自分の問題」として引き受けます。誰かの課題でも、当事者として向き合う。そこから初めて、本気の問いが湧き、行動が生まれます。引き受ける覚悟が、あなたの探究を本物にしていきます。`,
+  omosiro:`あなたの一番の強みは、<b>面白がれること</b>。思いどおりにならない状況、予想外のトラブル、計画の崩れ——それらを嘆くのではなく、ネタにし、味わえる。コントロールを手放す態度こそ、旅の醍醐味を最大化します。あなたがいる場は軽やかになり、想定外が「面白い」に変わっていきます。`,
+  tomoni:`あなたの一番の強みは、<b>共にあれること</b>。一緒に何かをしていなくても、ひとりでいるときも、つながりを感じていられる。場の安心を気づかい、「ここにいていい」を静かにつくる。これはPOOLOで最も土台となる在り方（Being）です。あなたの存在が、仲間が自己決定し、挑戦するための根になります。`,
+  spiral:`あなたの一番の強みは、<b>回し続けられること</b>。一度やって終わりにせず、旅・問い・共創を何度もくり返して深めていく。1周目の自分には見えなかった景色を、3周目の自分は見ている。あなたのその粘り強い循環が、想像もしなかった自分へと、らせん状に登っていく原動力になります。`,
+};
+
+const USE = {
+  tabi:["<b>序盤の旅</b>で、誰よりも先に飛び込む役を。あなたの一歩が、仲間の背中を押します。","頭で固まったときは、<b>場所を変える</b>。あなたは身体から動かすと調子が出ます。","勢いを<b>言葉や問いに残す</b>と、飛び込みが探究テーマに育ちます。"],
+  toi:["仲間のもやもやを<b>問いに翻訳する</b>聞き役を。場の探究が深まります。","旅の前後に<b>「そもそも？」を一つ</b>立てる。あなたの旅の解像度が上がります。","答えを急がず、<b>問いを抱えたまま動く</b>。実践が問いを育ててくれます。"],
+  kyoso:["作りかけでいいから<b>早めに差し出す</b>。共創の起点はいつもあなたから。","異なる職種の仲間を<b>つなぐハブ</b>に。混ざるほど面白くなります。","巻き込む前に<b>自分の探究テーマを一言</b>添えると、共感が集まります。"],
+  jiko:["カリキュラムを<b>自分流にカスタムする</b>。受け身は最大の苦手です。","迷ったら<b>「自分はどうしたいか」</b>に戻る。あなたの軸が判断を速くします。","決めたことを<b>仲間に宣言する</b>と、共にある力が決断を支えます。"],
+  jibun:["気になったテーマは<b>「自分がやる」と手を挙げる</b>。当事者から学びが生まれます。","他人の挑戦も<b>自分ごととして並走</b>。あなたの本気が場を本気にします。","抱え込みすぎたら<b>Beingに戻る</b>。一人で背負わなくて大丈夫です。"],
+  omosiro:["計画が崩れた瞬間こそ<b>あなたの出番</b>。場を軽くする達人です。","重くなった議論を<b>「面白がって」ほぐす</b>。挑戦のハードルが下がります。","面白がる先に<b>「なぜ面白い？」</b>を足すと、探究テーマが見えてきます。"],
+  tomoni:["序盤は<b>「ここにいていい」をつくる</b>役を。あなたの安心が場の根になります。","不調な仲間には<b>煽らず、まず共にいる</b>。POOLOの介入の基本です。","自分のBeingも大切に。<b>支える人ほど支えられていい</b>のです。"],
+  spiral:["一つの体験を<b>「振り返り→次へ」で回す</b>。あなたの真価は反復で出ます。","各回のあとに<b>変化を記録する</b>。らせんの軌跡が自信になります。","停滞を恐れず<b>もう一周</b>。同じ景色が違って見えたら成長の証です。"],
+};
+
+const SCALE = [
+  {label:"とても、あてはまる", v:4},
+  {label:"あてはまる",        v:3},
+  {label:"どちらともいえない", v:2},
+  {label:"あまり、あてはまらない", v:1},
+  {label:"まったく、あてはまらない", v:0},
+];
+
+/* ---------- state ---------- */
+let order = [];          // shuffled question indices
+let answers = [];        // value per question (by original index)
+let pos = 0;
+
+/* ---------- elements ---------- */
+const $ = id => document.getElementById(id);
+function show(id){ document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active')); $(id).classList.add('active'); window.scrollTo({top:0,behavior:'smooth'}); }
+
+/* ---------- intro axes chips ---------- */
+(function(){
+  $('introAxes').innerHTML = ORDER.map(k=>{
+    const q=QUALITIES[k];
+    return `<div class="axis-chip"><span class="axis-dot" style="background:${q.color}"></span>${q.name}</div>`;
+  }).join('');
+})();
+
+/* ---------- start ---------- */
+$('startBtn').onclick = () => {
+  order = QUESTIONS.map((_,i)=>i);
+  for(let i=order.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[order[i],order[j]]=[order[j],order[i]];}
+  answers = new Array(QUESTIONS.length).fill(null);
+  pos = 0;
+  show('quiz'); renderQ();
+};
+
+/* ---------- render question ---------- */
+function renderQ(){
+  const qi = order[pos];
+  const q = QUESTIONS[qi];
+  const n = pos+1, total = QUESTIONS.length;
+  $('progLabel').textContent = `Q${n} / ${total}`;
+  const pct = Math.round((n-1)/total*100);
+  $('progPct').textContent = pct + '%';
+  $('progFill').style.width = pct + '%';
+  $('qNum').textContent = 'QUESTION ' + String(n).padStart(2,'0');
+  $('qText').textContent = q.t;
+  $('scale').innerHTML = SCALE.map(s=>{
+    const sel = answers[qi]===s.v ? ' sel':'';
+    return `<button class="scale-btn${sel}" data-v="${s.v}"><span class="dot"></span>${s.label}</button>`;
+  }).join('');
+  $('scale').querySelectorAll('.scale-btn').forEach(b=>{
+    b.onclick = ()=>choose(qi, +b.dataset.v);
+  });
+  $('backBtn').disabled = pos===0;
+}
+
+function choose(qi, v){
+  answers[qi] = v;
+  // brief highlight then advance
+  $('scale').querySelectorAll('.scale-btn').forEach(b=>{
+    b.classList.toggle('sel', +b.dataset.v===v);
+  });
+  setTimeout(()=>{
+    if(pos < QUESTIONS.length-1){ pos++; renderQ(); }
+    else finish();
+  }, 230);
+}
+
+$('backBtn').onclick = ()=>{ if(pos>0){ pos--; renderQ(); } };
+
+/* ---------- scoring ---------- */
+function computeScores(){
+  const sum={}, cnt={};
+  ORDER.forEach(k=>{sum[k]=0;cnt[k]=0;});
+  QUESTIONS.forEach((q,i)=>{ const v = answers[i]==null?2:answers[i]; sum[q.k]+=v; cnt[q.k]++; });
+  // percent of max (cnt*4)
+  const pct={};
+  ORDER.forEach(k=>{ pct[k]=Math.round(sum[k]/(cnt[k]*4)*100); });
+  return pct;
+}
+
+/* ---------- finish & render result ---------- */
+function finish(){
+  $('progPct').textContent='100%'; $('progFill').style.width='100%';
+  const pct = computeScores();
+  const ranked = [...ORDER].sort((a,b)=> pct[b]-pct[a] || ORDER.indexOf(a)-ORDER.indexOf(b));
+  renderResult(pct, ranked);
+  show('result');
+}
+
+function renderResult(pct, ranked){
+  const top = ranked[0];
+  const q = QUALITIES[top];
+
+  // hero
+  $('heroCard').style.background = `linear-gradient(150deg, ${q.color}, ${shade(q.color,-18)})`;
+  $('heroCard').innerHTML = `
+    <div class="label">あなたの一番の資質</div>
+    <div class="hero-icon">${q.icon}</div>
+    <h2>${q.name}</h2>
+    <div class="en">${q.en} ・ ${q.layer}</div>
+    <p class="catch">${q.catch}</p>`;
+
+  // description
+  $('descCard').innerHTML = DESC[top];
+
+  // use list
+  $('useList').innerHTML = USE[top].map(u=>`<li>${u}</li>`).join('');
+
+  // radar
+  $('radarWrap').innerHTML = radarSVG(pct);
+
+  // ranking
+  $('rankList').innerHTML = ranked.map((k,i)=>{
+    const qq=QUALITIES[k];
+    return `<div class="rank-row ${i===0?'top1':''}">
+      <span class="rank-no">${i+1}</span>
+      <span class="rank-name">${qq.name}</span>
+      <span class="rank-track"><span class="rank-bar" data-w="${pct[k]}" style="background:${qq.color}"></span></span>
+      <span class="rank-pct">${pct[k]}%</span>
+    </div>`;
+  }).join('');
+  // animate bars
+  requestAnimationFrame(()=>{ setTimeout(()=>{
+    document.querySelectorAll('.rank-bar').forEach(b=> b.style.width = b.dataset.w+'%');
+  },80); });
+
+  // secondary note (2nd & 3rd, and lowest as growth)
+  const s2=QUALITIES[ranked[1]], s3=QUALITIES[ranked[2]], low=QUALITIES[ranked[7]];
+  $('secondaryNote').innerHTML =
+    `<b>${q.name}</b>を軸に、<b>${s2.name}</b>と<b>${s3.name}</b>が続きます。この3つが、あなたの旅を駆動する組み合わせです。<br>` +
+    `いま控えめなのは<b>${low.name}</b>。弱点ではなく、8ヶ月で出会いにいける<b>伸びしろ</b>です。`;
+
+  // share
+  const txt = `私のPOOLO旅の資質は「${q.name}」${q.icon}\n${q.catch.replace(/<br>/g,' ')}\n#POOLO #旅の資質診断`;
+  $('shareBtn').onclick = ()=>{
+    const url = encodeURIComponent(location.href.split('#')[0]);
+    window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(txt)}&url=${url}`,'_blank','noopener');
+  };
+}
+
+$('retakeBtn').onclick = ()=>{ show('intro'); };
+
+/* ---------- radar chart (SVG, 8 axes) ---------- */
+function radarSVG(pct){
+  const cx=170, cy=160, R=120, N=ORDER.length;
+  const rings=[.25,.5,.75,1];
+  let g='';
+  // grid rings
+  rings.forEach(r=>{
+    const pts = ORDER.map((_,i)=>polar(cx,cy,R*r,i,N)).map(p=>p.join(',')).join(' ');
+    g+=`<polygon points="${pts}" fill="none" stroke="#e0ddd3" stroke-width="1"/>`;
+  });
+  // spokes + labels
+  ORDER.forEach((k,i)=>{
+    const [x,y]=polar(cx,cy,R,i,N);
+    g+=`<line x1="${cx}" y1="${cy}" x2="${x}" y2="${y}" stroke="#ece8de" stroke-width="1"/>`;
+    const [lx,ly]=polar(cx,cy,R+22,i,N);
+    const anchor = Math.abs(lx-cx)<6?'middle':(lx>cx?'start':'end');
+    g+=`<text x="${lx}" y="${ly+3}" font-size="9.5" fill="#7a7a7a" text-anchor="${anchor}" font-family="Noto Sans JP,sans-serif">${QUALITIES[k].name.replace('する力','').replace('力','')}</text>`;
+  });
+  // data polygon
+  const dpts = ORDER.map((k,i)=>polar(cx,cy,R*(pct[k]/100),i,N));
+  const poly = dpts.map(p=>p.join(',')).join(' ');
+  g+=`<polygon points="${poly}" fill="rgba(45,106,79,.16)" stroke="#2D6A4F" stroke-width="2" stroke-linejoin="round"/>`;
+  dpts.forEach((p,i)=>{ g+=`<circle cx="${p[0]}" cy="${p[1]}" r="3" fill="${QUALITIES[ORDER[i]].color}"/>`; });
+  return `<svg viewBox="0 0 340 320" xmlns="http://www.w3.org/2000/svg">${g}</svg>`;
+}
+function polar(cx,cy,r,i,n){ const a=-Math.PI/2 + i*2*Math.PI/n; return [ +(cx+r*Math.cos(a)).toFixed(1), +(cy+r*Math.sin(a)).toFixed(1) ]; }
+
+/* ---------- color shade ---------- */
+function shade(hex,amt){
+  const n=parseInt(hex.slice(1),16);
+  let r=(n>>16)+amt, g=((n>>8)&255)+amt, b=(n&255)+amt;
+  r=Math.max(0,Math.min(255,r));g=Math.max(0,Math.min(255,g));b=Math.max(0,Math.min(255,b));
+  return '#'+((1<<24)+(r<<16)+(g<<8)+b).toString(16).slice(1);
+}
+</script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600&family=Shippori+Mincho:wght@500;600&display=swap" rel="stylesheet">
+</body>
+</html>
