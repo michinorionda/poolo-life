@@ -259,7 +259,8 @@ section{position:relative;z-index:1}
 .sticky-cta.show{transform:none}
 .sticky-cta .inner{max-width:1180px;margin:0 auto;padding:13px 28px;
   display:flex;align-items:center;justify-content:space-between;gap:22px}
-.sticky-cta .info{color:var(--paper);line-height:1.4}
+.sticky-cta .info{color:var(--paper);line-height:1.4;flex:1;min-width:0}
+.sticky-cta .info .d-mini{display:none}
 .sticky-cta .info .t{font-family:"Noto Serif JP",serif;font-weight:500;font-size:1.02rem;letter-spacing:.04em}
 .sticky-cta .info .d{font-size:.78rem;color:rgba(246,244,238,.7);letter-spacing:.06em;margin-top:2px}
 .sticky-cta .info .d b{color:#fff;font-weight:600;font-size:.95rem;margin-right:4px}
@@ -270,7 +271,9 @@ section{position:relative;z-index:1}
   .sticky-cta{left:12px;right:12px;bottom:12px;border-radius:14px;box-shadow:0 14px 30px -10px rgba(21,50,61,.55)}
   .sticky-cta .inner{padding:11px 14px;gap:10px}
   .sticky-cta .info .t{display:block;font-size:.9rem}
-  .sticky-cta .info .d{font-size:.7rem;margin-top:1px}
+  .sticky-cta .info .d{font-size:.74rem;margin-top:2px}
+  .sticky-cta .info .d-full{display:none}
+  .sticky-cta .info .d-mini{display:inline}
   .sticky-cta .apply-btn{flex:none;padding:11px 20px;font-size:.92rem}
 }
 
@@ -532,7 +535,7 @@ section{position:relative;z-index:1}
   <div class="inner">
     <div class="info">
       <div class="t">香川県・豊島の旅</div>
-      <div class="d"><b>2026.7.11 — 12</b>（1泊2日）／ 参加費 15,000円</div>
+      <div class="d"><span class="d-full"><b>2026.7.11 — 12</b>（1泊2日）／ 参加費 15,000円</span><span class="d-mini"><b>7/11–12</b>　参加費15,000円</span></div>
     </div>
     <a class="apply-btn" href="#apply" target="_blank" rel="noopener">お申し込み <span class="ar">→</span></a>
   </div>
