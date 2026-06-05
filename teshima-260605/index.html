@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>神子ヶ浜ファームツアー｜豊かな島、香川県豊島でこれからの生き方を問い直す旅。</title>
+<meta name="description" content="農と海と人が、水でつながる場所へ。香川県・豊島を舞台にした1泊2日。神子ヶ浜ファームツアー 7月11日〜12日。立体農業と島の循環に触れ、これからの生き方を問い直す旅。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@300;400;500;700&family=Noto+Serif+JP:wght@200;300;400;500;600;700&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#15323d;          /* 深い瀬戸内ネイビー */
+  --ink-soft:#3a5562;
+  --teal:#189BBC;         /* POOLOメインカラー */
+  --teal-deep:#0f7e9b;
+  --paper:#f6f4ee;        /* 紙の白 */
+  --paper-warm:#efece3;
+  --line:rgba(21,50,61,.14);
+  --sand:#e8e0d0;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:"Zen Kaku Gothic New","Noto Sans JP",sans-serif;
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.9;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+img{display:block;width:100%;height:100%;object-fit:cover}
+.jost{font-family:"Jost",sans-serif;font-weight:300;letter-spacing:.18em}
+.serif{font-family:"Noto Serif JP",serif}
+.wrap{max-width:1180px;margin:0 auto;padding:0 28px}
+
+/* ===== 背景の水彩レイヤー ===== */
+.watermark{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.5}
+.watermark::before,.watermark::after{
+  content:"";position:absolute;border-radius:50%;filter:blur(70px);
+}
+.watermark::before{width:520px;height:520px;top:-120px;right:-100px;
+  background:radial-gradient(circle,rgba(24,155,188,.18),transparent 70%)}
+.watermark::after{width:600px;height:600px;bottom:-180px;left:-160px;
+  background:radial-gradient(circle,rgba(24,155,188,.12),transparent 70%)}
+
+/* ===== ヘッダー ===== */
+.topbar{position:fixed;top:0;left:0;right:0;z-index:50;
+  display:flex;justify-content:space-between;align-items:center;
+  padding:18px 32px;mix-blend-mode:difference;color:#fff}
+.topbar .brand{font-family:"Jost",sans-serif;font-weight:400;letter-spacing:.32em;font-size:13px}
+.topbar .tag{font-family:"Jost",sans-serif;font-weight:300;letter-spacing:.28em;font-size:11px;opacity:.85}
+
+/* ===== HERO ポスター（雑誌の特集扉：有機コラージュ） ===== */
+.hero{position:relative;z-index:1;padding:84px 0 56px}
+.poster{position:relative;width:100%;max-width:720px;margin:0 auto}
+.poster img{width:100%;height:auto;object-fit:contain}
+
+/* 背景：水彩のにじみ＋等高線・点線・ドット（装飾レイヤー） */
+.poster .wc{position:absolute;border-radius:50%;filter:blur(22px);z-index:0}
+.wc1{width:42%;height:30%;top:4%;left:3%;background:radial-gradient(circle,rgba(24,155,188,.16),transparent 70%)}
+.wc2{width:54%;height:44%;bottom:2%;right:1%;background:radial-gradient(circle,rgba(24,155,188,.14),transparent 70%)}
+.wc3{width:34%;height:26%;top:40%;left:40%;background:radial-gradient(circle,rgba(24,155,188,.10),transparent 70%)}
+.poster .deco{position:absolute;inset:0;width:100%;height:100%;z-index:1;pointer-events:none}
+.poster .veye{position:absolute;z-index:6;writing-mode:vertical-rl;font-family:"Jost",sans-serif;
+  letter-spacing:.28em;font-size:1.7cqw;color:var(--ink-soft);opacity:.75}
+
+/* タイトル */
+.pttl{position:absolute;z-index:7;top:9%;left:6.5%;width:90%}
+.pttl .big{font-family:"Noto Serif JP",serif;font-weight:600;font-size:11cqw;letter-spacing:.12em;
+  display:block;line-height:1;color:var(--ink)}
+.pttl .col{width:37%;margin-top:3cqw}
+.pbox{display:inline-block;border:1px solid var(--ink);padding:1.7cqw 2.4cqw 1.9cqw}
+.pbox .loc{font-family:"Noto Serif JP",serif;font-weight:500;font-size:4.2cqw;letter-spacing:.08em;line-height:1;display:block;white-space:nowrap}
+.pttl .poet{font-family:"Noto Serif JP",serif;font-weight:400;font-size:3cqw;letter-spacing:.05em;
+  line-height:1.6;margin-top:1.8cqw;display:block;color:var(--ink)}
+.pttl .note{font-family:"Noto Serif JP",serif;font-size:2.1cqw;letter-spacing:.05em;line-height:1.6;
+  margin-top:1.8cqw;display:block;color:var(--ink-soft)}
+
+/* 写真ブロブ（しずく状の有機シェイプ） */
+.pb{position:absolute;overflow:hidden;box-shadow:0 3cqw 5.5cqw -3cqw rgba(21,50,61,.5);z-index:3}
+.pb img{transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
+.pb:hover img{transform:scale(1.05)}
+
+/* 中央の大写真：圧倒的に大きく（角丸長方形） */
+.p-chair{left:44%;top:33%;width:52%;height:53%;z-index:4;
+  border-radius:13cqw 9cqw 10cqw 9cqw}
+/* 右上クラスター */
+.p-over{right:3%;top:4%;width:27%;height:17%;z-index:4;
+  border-radius:6cqw 6cqw 13cqw 6cqw}
+.p-fish{right:1%;top:22%;width:21%;height:13%;z-index:5;
+  border-radius:5cqw}
+.p-sit{right:26%;top:27%;width:15%;height:17%;z-index:6;
+  border-radius:6cqw}
+/* 左の縦の流れ */
+.p-village{left:2.5%;top:54%;width:25%;height:14%;z-index:4;
+  border-radius:6cqw 6cqw 6cqw 13cqw}
+.p-cycle{left:5%;top:70%;width:26%;height:13%;z-index:4;
+  border-radius:6cqw}
+.p-terr{left:2.5%;bottom:1%;width:26%;height:14%;z-index:4;
+  border-radius:6cqw 13cqw 6cqw 6cqw}
+/* 下中央 */
+.p-sun{left:30%;bottom:0;width:29%;height:14%;z-index:4;
+  border-radius:7cqw}
+/* TESHIMA ワードマーク＋波線（右下） */
+.p-mark{position:absolute;right:5%;bottom:3%;z-index:8;text-align:right}
+.p-mark .nm{font-family:"Jost",sans-serif;letter-spacing:.34em;font-size:3.4cqw;color:var(--ink)}
+.p-mark svg{display:block;width:14cqw;height:auto;margin:1.2cqw 0 0 auto}
+
+/* ===== セクション共通 ===== */
+section{position:relative;z-index:1}
+.sec-label{display:flex;align-items:center;gap:14px;margin-bottom:26px}
+.sec-label .no{font-family:"Jost",sans-serif;font-weight:400;letter-spacing:.2em;color:var(--teal);font-size:13px}
+.sec-label .tx{font-family:"Jost",sans-serif;letter-spacing:.3em;font-size:12px;color:var(--ink-soft);text-transform:uppercase}
+.sec-label .ln{flex:1;height:1px;background:var(--line)}
+.h2{font-family:"Noto Serif JP",serif;font-weight:500;font-size:clamp(1.7rem,3.4vw,2.5rem);line-height:1.5;letter-spacing:.05em}
+.lead{font-family:"Noto Serif JP",serif;font-weight:400;color:var(--ink-soft);
+  font-size:clamp(1rem,1.4vw,1.12rem);line-height:2.15;letter-spacing:.05em}
+
+/* テーマ：農・海・人・水 */
+.theme{padding:90px 0;text-align:center}
+.theme .h2{margin-bottom:10px}
+.elements{display:flex;justify-content:center;gap:0;margin:50px auto 0;max-width:760px;flex-wrap:wrap}
+.el{flex:1;min-width:120px;padding:24px 10px;position:relative}
+.el:not(:last-child)::after{content:"";position:absolute;right:0;top:28%;height:44%;width:1px;background:var(--line)}
+.el .k{font-size:2.6rem;font-weight:700;letter-spacing:.1em;color:var(--ink)}
+.el .e{font-family:"Jost",sans-serif;letter-spacing:.24em;font-size:11px;color:var(--teal-deep);margin-top:6px}
+.el .d{font-size:13px;color:var(--ink-soft);margin-top:10px;line-height:1.7}
+
+/* 神子ヶ浜ファーム（立体農業 ストーリー） */
+.story{padding:80px 0}
+.story-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:60px;align-items:center}
+.story-imgs{position:relative;height:520px}
+.si1{position:absolute;width:74%;height:70%;top:0;left:0;overflow:hidden;border-radius:52% 48% 46% 54%/50% 52% 48% 50%;box-shadow:0 24px 50px -28px rgba(21,50,61,.5)}
+.si2{position:absolute;width:50%;height:46%;bottom:0;right:0;overflow:hidden;border-radius:48% 52% 54% 46%/46% 50% 50% 54%;z-index:2;border:6px solid var(--paper);box-shadow:0 18px 40px -24px rgba(21,50,61,.5)}
+.story .quote{font-family:"Noto Serif JP",serif;font-weight:500;font-size:clamp(1.25rem,2.4vw,1.7rem);
+  line-height:1.85;letter-spacing:.04em;color:var(--ink);margin:8px 0 26px}
+.story .quote em{font-style:normal;color:var(--teal-deep)}
+.divider-word{display:inline-block;background:var(--teal);color:#fff;font-size:.8rem;letter-spacing:.18em;
+  padding:4px 14px;border-radius:20px;margin-bottom:22px;font-weight:500}
+
+/* ツアー紹介 帯 */
+.tour{padding:90px 0;background:var(--ink);color:var(--paper);position:relative;z-index:1;overflow:hidden}
+.tour::before{content:"";position:absolute;width:480px;height:480px;border-radius:50%;
+  background:radial-gradient(circle,rgba(24,155,188,.3),transparent 70%);top:-160px;right:-120px;filter:blur(40px)}
+.tour .wrap{position:relative;z-index:2}
+.tour .sec-label .tx,.tour .lead{color:rgba(246,244,238,.72)}
+.tour .sec-label .ln{background:rgba(246,244,238,.2)}
+.tour .h2{color:#fff;margin-bottom:24px}
+.tour-grid{display:grid;grid-template-columns:1fr 1fr;gap:54px;align-items:center;margin-top:10px}
+.tour-photo{height:380px;overflow:hidden;border-radius:50% 50% 48% 52%/8% 8% 92% 92%;box-shadow:0 30px 60px -30px rgba(0,0,0,.7)}
+.tour .keyword{font-family:"Noto Serif JP",serif;font-size:1.5rem;color:#fff;letter-spacing:.08em;
+  border-left:3px solid var(--teal);padding-left:16px;margin-bottom:22px;line-height:1.6}
+
+/* ギャラリー */
+.gallery{padding:90px 0}
+.grid-photos{display:grid;grid-template-columns:repeat(12,1fr);grid-auto-rows:130px;gap:14px;margin-top:36px}
+.gp{overflow:hidden;border-radius:14px;box-shadow:0 14px 34px -24px rgba(21,50,61,.5)}
+.gp img{transition:transform 1.1s cubic-bezier(.2,.7,.2,1)}
+.gp:hover img{transform:scale(1.06)}
+.g-a{grid-column:span 5;grid-row:span 2}
+.g-b{grid-column:span 4;grid-row:span 2}
+.g-c{grid-column:span 3;grid-row:span 2}
+.g-d{grid-column:span 4;grid-row:span 2}
+.g-e{grid-column:span 4;grid-row:span 2}
+.g-f{grid-column:span 4;grid-row:span 2}
+.g-g{grid-column:span 6;grid-row:span 2}
+.g-h{grid-column:span 6;grid-row:span 2}
+
+/* スケジュール（写真入りプログラムカード） */
+.schedule{padding:90px 0}
+.sch-day{margin-top:54px}
+.sch-day-head{display:flex;align-items:center;gap:18px;margin-bottom:30px;flex-wrap:wrap}
+.sch-day-head .pill{background:var(--teal);color:#fff;font-family:"Jost",sans-serif;font-weight:500;
+  letter-spacing:.18em;font-size:.82rem;padding:7px 18px;border-radius:30px;white-space:nowrap}
+.sch-day-head .th{font-family:"Noto Serif JP",serif;font-weight:500;font-size:clamp(1.15rem,2.2vw,1.4rem);
+  letter-spacing:.04em;color:var(--ink)}
+.sch-cards{display:flex;flex-wrap:wrap;gap:22px}
+.sch-card{flex:1 1 165px;max-width:215px;position:relative;text-decoration:none;color:inherit}
+.sch-card .ph{position:relative;aspect-ratio:4/5;border-radius:18px;overflow:hidden;
+  box-shadow:0 18px 40px -26px rgba(21,50,61,.55)}
+.sch-card:nth-child(3n+1) .ph{border-radius:26px 18px 18px 26px}
+.sch-card:nth-child(3n+2) .ph{border-radius:18px 26px 26px 18px}
+.sch-card .ph img{width:100%;height:100%;object-fit:cover;transition:transform 1.1s cubic-bezier(.2,.7,.2,1)}
+.sch-card:hover .ph img{transform:scale(1.07)}
+.sch-card .step{position:absolute;top:-12px;left:-10px;z-index:2;width:38px;height:38px;border-radius:50%;
+  background:var(--paper);border:1.5px solid var(--teal);color:var(--teal-deep);
+  font-family:"Jost",sans-serif;font-size:1rem;display:flex;align-items:center;justify-content:center;
+  box-shadow:0 6px 16px -8px rgba(21,50,61,.5)}
+.sch-card .nm{margin-top:16px;font-weight:500;letter-spacing:.03em;line-height:1.55;font-size:.98rem}
+/* 任意カード（写真なし・破線タイル） */
+.sch-card.opt .optbox{aspect-ratio:4/5;border:1.5px dashed var(--teal);border-radius:18px;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;
+  background:rgba(24,155,188,.05);text-align:center;padding:16px}
+.sch-card.opt .optbox .tag{font-size:.7rem;letter-spacing:.14em;color:#fff;background:var(--teal);
+  border-radius:20px;padding:3px 12px}
+.sch-card.opt .optbox svg{width:30px;height:30px;stroke:var(--teal-deep)}
+.sch-card.opt .nm{color:var(--ink-soft)}
+
+/* ガイド */
+.guide{padding:90px 0}
+.guide-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:56px;align-items:center}
+.guide-photo{position:relative;height:520px}
+.guide-photo .main{width:84%;height:100%;margin-left:auto;overflow:hidden;
+  border-radius:48% 52% 46% 54%/12% 12% 88% 88%;box-shadow:0 28px 56px -30px rgba(21,50,61,.55)}
+.guide-photo .badge{position:absolute;left:0;bottom:36px;background:var(--paper);
+  border:1px solid var(--line);border-radius:18px;padding:16px 22px;box-shadow:0 18px 40px -26px rgba(21,50,61,.5)}
+.guide-photo .badge .nm{font-weight:700;font-size:1.15rem;letter-spacing:.05em}
+.guide-photo .badge .ro{font-size:12px;color:var(--teal-deep);font-family:"Jost",sans-serif;letter-spacing:.16em;margin-top:2px}
+.guide .name-jp{font-family:"Noto Serif JP",serif;font-weight:600;font-size:clamp(1.5rem,3vw,2.1rem);letter-spacing:.04em;margin-bottom:6px}
+.guide .name-en{font-family:"Jost",sans-serif;letter-spacing:.24em;color:var(--teal-deep);font-size:14px;margin-bottom:24px}
+.guide .lead+.lead{margin-top:18px}
+
+/* 概要 */
+.outline{padding:80px 0 40px}
+.ol-card{background:#fff;border:1px solid var(--line);border-radius:24px;
+  padding:48px 52px;box-shadow:0 30px 70px -50px rgba(21,50,61,.6)}
+.ol-row{display:flex;gap:24px;padding:20px 0;border-bottom:1px dashed var(--line)}
+.ol-row:last-child{border-bottom:none}
+.ol-row dt{flex:0 0 130px;font-weight:500;letter-spacing:.08em;color:var(--ink)}
+.ol-row dd{flex:1;color:var(--ink-soft);letter-spacing:.04em}
+.ol-row .en{font-family:"Jost",sans-serif;letter-spacing:.14em;color:var(--teal-deep)}
+.ol-row .price{font-weight:600;color:var(--teal-deep);letter-spacing:.01em}
+.ol-row .price .num{font-family:"Jost",sans-serif;font-size:1.7rem;letter-spacing:.02em;margin-right:2px}
+.ol-row .price-note{display:block;margin-top:8px;font-size:.92rem;color:var(--ink-soft);line-height:1.7}
+.ol-row .price-ex{display:inline-block;margin-top:6px;font-size:.82rem;color:var(--teal-deep);
+  border:1px solid var(--line);border-radius:20px;padding:2px 12px}
+
+/* CTA / フッター */
+.cta{padding:70px 0 30px;text-align:center}
+.cta .big{font-family:"Noto Serif JP",serif;font-weight:500;font-size:clamp(1.4rem,3vw,2rem);
+  line-height:1.7;letter-spacing:.05em;margin-bottom:30px}
+.cta .big .ac{color:var(--teal-deep)}
+.footer{padding:48px 0 60px;text-align:center;border-top:1px solid var(--line);margin-top:50px}
+.footer .logo{font-family:"Jost",sans-serif;font-weight:400;letter-spacing:.38em;font-size:18px;color:var(--ink)}
+.footer .by{font-family:"Jost",sans-serif;letter-spacing:.26em;font-size:11px;color:var(--ink-soft);margin-top:10px}
+.footer .place{margin-top:18px;font-size:12px;color:var(--ink-soft);letter-spacing:.1em}
+
+/* 申込ボタン（共通） */
+.apply-btn{display:inline-flex;align-items:center;gap:10px;background:var(--teal);color:#fff;
+  text-decoration:none;font-weight:600;letter-spacing:.06em;padding:16px 40px;border-radius:40px;
+  box-shadow:0 16px 34px -16px rgba(24,155,188,.7);transition:background .25s,transform .25s,box-shadow .25s}
+.apply-btn:hover{background:var(--teal-deep);transform:translateY(-2px);box-shadow:0 22px 40px -16px rgba(24,155,188,.8)}
+.apply-btn .ar{transition:transform .3s}
+.apply-btn:hover .ar{transform:translateX(4px)}
+.cta .apply-wrap{margin-top:6px}
+
+/* 追従するスティッキーCTAバー */
+.sticky-cta{position:fixed;left:0;right:0;bottom:0;z-index:60;
+  background:rgba(21,50,61,.97);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  box-shadow:0 -12px 34px -20px rgba(0,0,0,.6);
+  transform:translateY(130%);transition:transform .5s cubic-bezier(.2,.7,.2,1)}
+.sticky-cta.show{transform:none}
+.sticky-cta .inner{max-width:1180px;margin:0 auto;padding:13px 28px;
+  display:flex;align-items:center;justify-content:space-between;gap:22px}
+.sticky-cta .info{color:var(--paper);line-height:1.4}
+.sticky-cta .info .t{font-family:"Noto Serif JP",serif;font-weight:500;font-size:1.02rem;letter-spacing:.04em}
+.sticky-cta .info .d{font-size:.78rem;color:rgba(246,244,238,.7);letter-spacing:.06em;margin-top:2px}
+.sticky-cta .info .d b{color:#fff;font-weight:600;font-size:.95rem;margin-right:4px}
+.sticky-cta .apply-btn{padding:13px 34px;box-shadow:none}
+.sticky-cta .apply-btn:hover{transform:none;box-shadow:0 0 0 3px rgba(24,155,188,.3)}
+@media(max-width:560px){
+  .sticky-cta .inner{padding:10px 16px;gap:12px}
+  .sticky-cta .info .t{display:none}
+  .sticky-cta .info .d{font-size:.72rem}
+  .sticky-cta .apply-btn{flex:1;justify-content:center;padding:13px 18px}
+}
+
+/* リビール */
+.rv{opacity:0;transform:translateY(26px);transition:opacity .9s ease,transform .9s cubic-bezier(.2,.7,.2,1)}
+.rv.in{opacity:1;transform:none}
+
+/* ===== レスポンシブ ===== */
+@media(max-width:880px){
+  .hero-grid,.story-grid,.tour-grid,.guide-grid,.days{grid-template-columns:1fr;gap:40px}
+  .hero{padding:110px 0 50px}
+  .hero-cols{height:420px;order:-1}
+  .story-imgs{height:400px}
+  .guide-photo{height:440px;max-width:420px;margin:0 auto}
+  .tour-photo{height:300px}
+  .grid-photos{grid-auto-rows:96px;gap:10px}
+  .g-a,.g-b,.g-c,.g-d,.g-e,.g-f,.g-g,.g-h{grid-column:span 6}
+  .ol-card{padding:32px 26px}
+  .ol-row{flex-direction:column;gap:4px}
+  .ol-row dt{flex:none}
+  .topbar{padding:14px 20px}
+}
+@media(max-width:520px){
+  .el{flex:0 0 50%}
+  .el:nth-child(2)::after{display:none}
+}
+</style>
+</head>
+<body>
+<div class="watermark"></div>
+
+<header class="topbar">
+  <div class="brand">TESHIMA</div>
+  <div class="tag">A TRIP TO RETHINK HOW WE LIVE</div>
+</header>
+
+<!-- ===== HERO ポスター ===== -->
+<section class="hero">
+  <div class="wrap">
+    <div class="poster rv">
+      <img src="images/keyvisual.png" alt="豊かな島、香川県・豊島で これからの生き方を問い直す旅。神子ヶ浜ファームツアー 2026.7.11—12">
+    </div>
+  </div>
+</section>
+
+<!-- ===== テーマ：農・海・人・水 ===== -->
+<section class="theme">
+  <div class="wrap rv">
+    <div class="sec-label" style="justify-content:center">
+      <span class="tx">CONCEPT</span>
+    </div>
+    <h2 class="h2">豊かな島で過ごす、贅沢な島時間。</h2>
+    <p class="lead serif" style="max-width:680px;margin:16px auto 0;font-size:clamp(1.1rem,1.8vw,1.35rem);color:var(--ink)">
+      これからの生き方を問い直す旅。
+    </p>
+    <p class="lead" style="max-width:680px;margin:18px auto 0">
+      農と海と人が、ひとつの水の流れの中でつながっている島。<br>
+      その循環にふれることが、自分の暮らしを見つめ直すきっかけになる。
+    </p>
+  </div>
+</section>
+
+<!-- ===== ギャラリー ===== -->
+<section class="gallery">
+  <div class="wrap">
+    <div class="sec-label rv"><span class="no">01</span><span class="tx">Scenes of Teshima</span><span class="ln"></span></div>
+    <div class="grid-photos rv">
+      <div class="gp g-a"><img src="images/terraced-house.jpg" alt="海へと続く棚田と古い家"></div>
+      <div class="gp g-b"><img src="images/village-alley.jpg" alt="青い瓦屋根の集落を歩く"></div>
+      <div class="gp g-c"><img src="images/pier.jpg" alt="海へ伸びる桟橋"></div>
+      <div class="gp g-d"><img src="images/beach-fishing.jpg" alt="浜辺での地引き網"></div>
+      <div class="gp g-e"><img src="images/cycling-two.jpg" alt="海沿いを走る自転車"></div>
+      <div class="gp g-f"><img src="images/sea-chair.jpg" alt="浜辺の椅子から瀬戸内海を望む"></div>
+      <div class="gp g-g"><img src="images/sunset-fishing.jpg" alt="夕暮れの浜で漁の道具を整える"></div>
+      <div class="gp g-h"><img src="images/sitting-sea.jpg" alt="海を見つめ、生き方を問い直す時間"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== スケジュール ===== -->
+<section class="schedule">
+  <div class="wrap">
+    <div class="sec-label rv"><span class="no">02</span><span class="tx">Schedule</span><span class="ln"></span></div>
+    <h2 class="h2 rv" style="margin-bottom:6px">1泊2日の、島時間。</h2>
+    <p class="lead rv">農と海のめぐりにふれ、島を歩き、これからの暮らしを見つめ直す2日間。</p>
+
+    <!-- DAY 1 -->
+    <div class="sch-day rv">
+      <div class="sch-day-head">
+        <span class="pill">DAY 1</span>
+        <span class="th">農と海のめぐりにふれる日</span>
+      </div>
+      <div class="sch-cards">
+        <div class="sch-card">
+          <div class="ph"><span class="step">1</span><img src="images/pier.jpg" alt="港から島へ"></div>
+          <div class="nm">イントロダクション ＆ ランチ</div>
+        </div>
+        <div class="sch-card">
+          <div class="ph"><span class="step">2</span><img src="images/farm-talk.jpg" alt="神子ヶ浜ファームツアー"></div>
+          <div class="nm">神子ヶ浜ファームツアー</div>
+        </div>
+        <div class="sch-card">
+          <div class="ph"><span class="step">3</span><img src="images/beach-fishing.jpg" alt="地引き網体験"></div>
+          <div class="nm">地引き網体験</div>
+        </div>
+        <div class="sch-card">
+          <div class="ph"><span class="step">4</span><img src="images/sunset-fishing.jpg" alt="獲れた魚を囲むBBQ"></div>
+          <div class="nm">獲れた魚を囲むBBQ</div>
+        </div>
+        <div class="sch-card opt">
+          <div class="optbox">
+            <span class="tag">任意</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M6 3h12M6 3l1.5 6a4.5 4.5 0 0 0 9 0L18 3M12 15v5M8 21h8"/>
+            </svg>
+          </div>
+          <div class="nm">地元の居酒屋へ</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DAY 2 -->
+    <div class="sch-day rv">
+      <div class="sch-day-head">
+        <span class="pill">DAY 2</span>
+        <span class="th">島を歩き、自分の暮らしを見つめる日</span>
+      </div>
+      <div class="sch-cards">
+        <div class="sch-card">
+          <div class="ph"><span class="step">1</span><img src="images/cycling-two.jpg" alt="豊島街歩き or サイクリング"></div>
+          <div class="nm">豊島街歩き or サイクリング</div>
+        </div>
+        <div class="sch-card">
+          <div class="ph"><span class="step">2</span><img src="images/sitting-sea.jpg" alt="リフレクション"></div>
+          <div class="nm">リフレクション</div>
+        </div>
+        <div class="sch-card">
+          <div class="ph"><span class="step">3</span><img src="images/overview.jpg" alt="クロージング"></div>
+          <div class="nm">クロージング</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 神子ヶ浜ファーム ストーリー ===== -->
+<section class="story">
+  <div class="wrap story-grid">
+    <div class="story-imgs rv">
+      <div class="si1"><img src="images/terraced-sea.jpg" alt="棚田と瀬戸内海"></div>
+      <div class="si2"><img src="images/paddy-sea.jpg" alt="海を望む棚田と集落の家"></div>
+    </div>
+    <div class="rv">
+      <div class="sec-label"><span class="no">03</span><span class="tx">Kamikohama Farm</span><span class="ln"></span></div>
+      <span class="divider-word">神子ヶ浜ファーム</span>
+      <p class="quote">
+        農と海と人が水で繋がり、<br>
+        自然の仕組みの中に<br><em>「立体農業」</em>が生まれた。
+      </p>
+      <p class="lead">
+        この島で人々は、半農半漁の自給自足生活をしていました。<br>
+        私たちは、当時の自給自足の暮らしや美しい情景が残る場所で、
+        自然の循環がもたらす、サスティナブルな農園を再生しています。
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ツアー紹介 ===== -->
+<section class="tour">
+  <div class="wrap">
+    <div class="sec-label"><span class="no" style="color:var(--teal)">04</span><span class="tx">The Tour</span><span class="ln"></span></div>
+    <div class="tour-grid">
+      <div class="rv">
+        <p class="keyword">当時の風景がよみがえる<br>「神子ヶ浜」へ。</p>
+        <h2 class="h2">立体農業と、<br>島が循環する仕組みをご案内します。</h2>
+        <p class="lead" style="margin-top:20px">
+          豊島で昔から盛んだった、山地などの斜面を利用し、
+          果樹園や畜産、畑作を立体的に組み合わせた “立体農業”。
+          当時の風景がよみがえる「神子ヶ浜」で、自然が循環する仕組みをご案内します。
+        </p>
+      </div>
+      <div class="tour-photo rv"><img src="images/farm-talk.jpg" alt="畑での対話の様子"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ガイド ===== -->
+<section class="guide">
+  <div class="wrap guide-grid">
+    <div class="guide-photo rv">
+      <div class="main"><img src="images/guide-portrait.jpg" alt="ガイド 坂口結衣さん（ゆいぴー）"></div>
+      <div class="badge">
+        <div class="nm">坂口 結衣</div>
+        <div class="ro">YUI SAKAGUCHI ／ ゆいぴー</div>
+      </div>
+    </div>
+    <div class="rv">
+      <div class="sec-label"><span class="no">05</span><span class="tx">Your Guide</span><span class="ln"></span></div>
+      <div class="name-jp">案内役は、豊島のローカルコーディネーター。</div>
+      <div class="name-en">LOCAL COORDINATOR ＆ STORYTELLER</div>
+      <p class="lead">
+        神戸出身、豊島在住。豊島に移住してもうすぐ7年。
+        元・歌って踊れる、豊島のローカルコーディネーター、ゆいぴーこと坂口結衣です。
+      </p>
+      <p class="lead">
+        現在は、株式会社アミューズ瀬戸内プロジェクトに所属し、
+        ツアー・宿泊事業のマネージメントを務めながら、豊島のローカルライフを堪能中。
+        島の循環と暮らしの中へ、ご案内します。
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 概要 ===== -->
+<section class="outline">
+  <div class="wrap">
+    <div class="sec-label rv"><span class="no">06</span><span class="tx">Overview</span><span class="ln"></span></div>
+    <div class="ol-card rv">
+      <dl>
+        <div class="ol-row"><dt>企画名</dt><dd>神子ヶ浜ファームツアー</dd></div>
+        <div class="ol-row"><dt>開催日</dt><dd><span class="en">2026.7.11 — 7.12</span>（1泊2日）</dd></div>
+        <div class="ol-row"><dt>舞台</dt><dd>香川県・豊島（てしま）／ 神子ヶ浜</dd></div>
+        <div class="ol-row"><dt>案内役</dt><dd>坂口 結衣さん（ゆいぴー）｜豊島ローカルコーディネーター</dd></div>
+        <div class="ol-row"><dt>テーマ</dt><dd>農、海、人、水のつながりを体感し、これからの生き方を問い直す旅</dd></div>
+        <div class="ol-row"><dt>参加費</dt><dd>
+          <span class="price"><span class="num">15,000</span>円</span>
+          <span class="price-note">プログラム体験費（ファームツアー・地引き網漁・BBQ 含む）</span>
+          <span class="price-ex">※ ランチ・宿代は別</span>
+        </dd></div>
+        <div class="ol-row"><dt>宿泊</dt><dd>現地払い／<span class="en">7,000円</span> 目安</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA / フッター ===== -->
+<section class="cta">
+  <div class="wrap rv">
+    <p class="big">
+      農と海と人が、<span class="ac">水でつながる</span>場所へ。<br>
+      豊かな島で、これからの生き方を問い直す旅へ。
+    </p>
+    <div class="apply-wrap">
+      <a class="apply-btn" href="#apply" target="_blank" rel="noopener">お申し込みはこちら <span class="ar">→</span></a>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="footer">
+      <div class="logo">TESHIMA</div>
+      <div class="by">KAMIKOHAMA FARM TOUR ／ by TABIPPO</div>
+      <div class="place">香川県・豊島　2026.7.11 — 12</div>
+    </div>
+  </div>
+</section>
+
+<!-- 追従する申込CTAバー -->
+<div class="sticky-cta" id="stickyCta">
+  <div class="inner">
+    <div class="info">
+      <div class="t">香川県・豊島の旅</div>
+      <div class="d"><b>2026.7.11 — 12</b>（1泊2日）／ 参加費 15,000円</div>
+    </div>
+    <a class="apply-btn" href="#apply" target="_blank" rel="noopener">お申し込み <span class="ar">→</span></a>
+  </div>
+</div>
+
+<script>
+// ▼▼ フォーム生成後、ここに Googleフォームの「回答用URL」を貼り付けてください ▼▼
+const FORM_URL = "";
+// ▲▲ 例: "https://docs.google.com/forms/d/e/XXXX/viewform" ▲▲
+if (FORM_URL) {
+  document.querySelectorAll('.apply-btn').forEach(a => a.href = FORM_URL);
+}
+
+// リビール
+const io=new IntersectionObserver((es)=>{
+  es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}});
+},{threshold:.15});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+
+// 追従CTA：ヒーローを過ぎたら表示、最後のCTAに来たら隠す
+const sticky=document.getElementById('stickyCta');
+const endZone=document.querySelector('.cta');
+let pastHero=false, atEnd=false;
+function updateSticky(){ sticky.classList.toggle('show', pastHero && !atEnd); }
+window.addEventListener('scroll',()=>{ pastHero = window.scrollY > window.innerHeight*0.7; updateSticky(); }, {passive:true});
+new IntersectionObserver((es)=>{ atEnd = es[0].isIntersecting; updateSticky(); },{threshold:0}).observe(endZone);
+</script>
+</body>
+</html>
