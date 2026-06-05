@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>POOLO旅企画 3拠点まとめ｜鞆の浦・丹波山・豊島</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;600;700;800&family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --green:#2D6A4F;
+  --blue:#1B4A7A;
+  --purple:#534AB7;
+  --teal:#1A6B5A;
+  --amber:#7A5500;
+  --red:#8B3A2A;
+  --ink:#1a1a1a;
+  --sub:#5a5a5a;
+  --hint:#999;
+  --bg:#faf9f6;
+  --card:#ffffff;
+  --line:#e5e2db;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Noto Sans JP',sans-serif;
+  background:var(--bg);
+  color:var(--ink);
+  line-height:1.8;
+  font-weight:400;
+  -webkit-font-smoothing:antialiased;
+}
+.serif{font-family:'Shippori Mincho',serif}
+.wrap{max-width:920px;margin:0 auto;padding:48px 24px 80px}
+
+/* Header */
+.header{text-align:center;padding:32px 0 48px;border-bottom:2px solid var(--green);margin-bottom:56px}
+.tag{
+  display:inline-block;
+  font-size:12px;letter-spacing:0.18em;
+  color:var(--green);
+  border:1px solid var(--green);
+  padding:4px 14px;border-radius:2px;
+  margin-bottom:24px;font-weight:500;
+}
+.header h1{
+  font-family:'Shippori Mincho',serif;
+  font-weight:700;
+  font-size:36px;letter-spacing:0.04em;
+  margin-bottom:18px;color:var(--ink);
+  line-height:1.45;
+}
+.header .sub{font-size:15px;color:var(--sub);margin-bottom:24px;font-weight:400}
+.header .meta{font-size:12px;color:var(--hint);letter-spacing:0.08em}
+
+/* Objective */
+.objective{
+  background:#e8f0eb;
+  border-left:4px solid var(--green);
+  padding:24px 28px;border-radius:4px;
+  margin-bottom:72px;
+}
+.objective .label{
+  font-size:11px;letter-spacing:0.2em;color:var(--green);
+  font-weight:600;margin-bottom:10px;
+}
+.objective .main{
+  font-family:'Shippori Mincho',serif;font-size:17px;
+  color:var(--ink);font-weight:500;line-height:1.7;
+}
+
+/* Part */
+.part{margin-bottom:72px}
+.part-head{
+  display:flex;align-items:baseline;gap:18px;
+  padding-left:18px;border-left:3px solid;
+  margin-bottom:32px;
+}
+.part-num{
+  font-family:'Shippori Mincho',serif;
+  font-size:14px;letter-spacing:0.18em;font-weight:600;
+}
+.part-title{
+  font-family:'Shippori Mincho',serif;
+  font-size:26px;font-weight:700;letter-spacing:0.04em;
+  line-height:1.4;
+}
+.part-sub{
+  font-size:14px;color:var(--sub);
+  margin-bottom:28px;padding-left:0;font-weight:400;
+}
+.part.green .part-head{border-color:var(--green)}
+.part.green .part-num,.part.green .part-title{color:var(--green)}
+.part.blue .part-head{border-color:var(--blue)}
+.part.blue .part-num,.part.blue .part-title{color:var(--blue)}
+.part.teal .part-head{border-color:var(--teal)}
+.part.teal .part-num,.part.teal .part-title{color:var(--teal)}
+.part.amber .part-head{border-color:var(--amber)}
+.part.amber .part-num,.part.amber .part-title{color:var(--amber)}
+.part.purple .part-head{border-color:var(--purple)}
+.part.purple .part-num,.part.purple .part-title{color:var(--purple)}
+
+/* Timeline */
+.timeline{
+  border-left:2px solid var(--line);
+  margin-left:8px;padding-left:0;
+}
+.tl-item{
+  position:relative;padding:0 0 32px 28px;
+}
+.tl-item:last-child{padding-bottom:0}
+.tl-item::before{
+  content:"";position:absolute;left:-7px;top:6px;
+  width:12px;height:12px;border-radius:50%;
+  background:var(--green);border:2px solid var(--bg);
+}
+.tl-date{
+  font-family:'Shippori Mincho',serif;
+  font-size:13px;letter-spacing:0.1em;color:var(--green);
+  font-weight:600;margin-bottom:4px;
+}
+.tl-title{
+  font-family:'Shippori Mincho',serif;
+  font-size:18px;font-weight:700;line-height:1.5;
+  margin-bottom:6px;letter-spacing:0.03em;
+}
+.tl-body{font-size:14px;color:var(--sub);line-height:1.75}
+.tl-body a{color:var(--green);text-decoration:none;border-bottom:1px solid var(--green);word-break:break-all}
+
+/* Place cards */
+.places{display:flex;flex-direction:column;gap:22px}
+.place{
+  background:var(--card);border:1px solid var(--line);
+  border-left:5px solid;border-radius:6px;
+  padding:28px 30px;
+}
+.place .pl-head{
+  display:flex;align-items:baseline;gap:14px;
+  flex-wrap:wrap;margin-bottom:14px;
+}
+.place .pl-name{
+  font-family:'Shippori Mincho',serif;
+  font-size:24px;font-weight:700;letter-spacing:0.04em;
+}
+.place .pl-region{
+  font-size:13px;color:var(--hint);letter-spacing:0.06em;
+}
+.place .pl-lead{
+  font-family:'Shippori Mincho',serif;
+  font-size:16px;font-weight:500;line-height:1.7;
+  margin-bottom:16px;color:var(--ink);
+}
+.place .pl-meta{
+  display:grid;grid-template-columns:88px 1fr;
+  gap:6px 16px;font-size:13.5px;color:var(--sub);
+  line-height:1.7;
+}
+.place .pl-meta dt{
+  font-weight:600;color:var(--ink);
+  font-family:'Shippori Mincho',serif;letter-spacing:0.04em;
+}
+.place .pl-meta dd{color:var(--sub)}
+.place.teshima{border-left-color:var(--blue)}
+.place.teshima .pl-name{color:var(--blue)}
+.place.tabayama{border-left-color:var(--teal)}
+.place.tabayama .pl-name{color:var(--teal)}
+.place.tomonoura{border-left-color:var(--amber)}
+.place.tomonoura .pl-name{color:var(--amber)}
+@media (max-width:600px){
+  .place .pl-meta{grid-template-columns:1fr;gap:2px 0}
+  .place .pl-meta dt{margin-top:10px}
+}
+
+/* Quote */
+.quote{
+  background:#e7ecf3;border-radius:6px;
+  padding:24px 28px;margin-top:18px;
+  font-family:'Shippori Mincho',serif;
+  font-size:15px;line-height:1.85;color:#27425f;
+  font-weight:400;
+}
+.quote .q-src{
+  display:block;margin-top:12px;font-size:12px;
+  color:var(--hint);font-family:'Noto Sans JP',sans-serif;
+  letter-spacing:0.06em;
+}
+
+/* Pyramid (backbone) */
+.pyramid{
+  display:flex;flex-direction:column;align-items:center;
+  margin:8px auto 32px;gap:6px;
+}
+.pyramid-row{
+  display:flex;align-items:center;justify-content:center;
+  padding:16px 32px;border-radius:6px;
+  font-family:'Shippori Mincho',serif;font-weight:600;
+  width:100%;max-width:580px;text-align:center;
+  letter-spacing:0.06em;
+}
+.pyramid-row .num{
+  font-size:11px;letter-spacing:0.18em;
+  margin-right:14px;opacity:0.75;font-weight:500;
+  font-family:'Noto Sans JP',sans-serif;
+}
+.pyramid-row.vision{background:#e8f0eb;color:var(--green);font-size:17px;width:62%}
+.pyramid-row.value{background:#e7ecf3;color:var(--blue);font-size:16px;width:78%}
+.pyramid-row.rule{background:#e6f0ed;color:var(--teal);font-size:15px;width:94%}
+.pyramid-arrow{width:1px;height:16px;background:var(--hint)}
+
+/* 7 rules */
+.rules-box{
+  background:var(--card);border:1px solid var(--line);
+  border-radius:6px;padding:28px 30px;
+}
+.rb-label{
+  font-size:11px;letter-spacing:0.2em;color:var(--teal);
+  font-weight:600;margin-bottom:18px;
+}
+.rules-box ol{
+  list-style:none;counter-reset:r;
+  display:grid;grid-template-columns:repeat(2,1fr);
+  gap:10px 24px;
+}
+@media (max-width:600px){.rules-box ol{grid-template-columns:1fr}}
+.rules-box li{
+  counter-increment:r;position:relative;
+  padding:8px 12px 8px 40px;
+  font-size:14.5px;color:var(--ink);line-height:1.55;
+  background:#f3efe6;border-radius:3px;
+}
+.rules-box li::before{
+  content:counter(r);position:absolute;left:10px;top:8px;
+  width:22px;height:22px;border-radius:50%;
+  background:var(--teal);color:#fff;
+  font-family:'Shippori Mincho',serif;font-size:12px;font-weight:600;
+  display:flex;align-items:center;justify-content:center;
+}
+
+/* Source links */
+.sources{display:flex;flex-direction:column;gap:12px}
+.src-row{
+  display:flex;align-items:center;gap:16px;
+  background:var(--card);border:1px solid var(--line);
+  border-radius:6px;padding:18px 22px;
+  text-decoration:none;color:inherit;
+  transition:border-color .15s;
+}
+.src-row:hover{border-color:var(--green)}
+.src-date{
+  font-family:'Shippori Mincho',serif;
+  font-size:12px;letter-spacing:0.08em;color:var(--green);
+  font-weight:600;flex-shrink:0;width:78px;
+}
+.src-body{flex:1}
+.src-title{
+  font-family:'Shippori Mincho',serif;
+  font-size:15px;font-weight:600;letter-spacing:0.03em;
+  margin-bottom:2px;
+}
+.src-url{font-size:12px;color:var(--hint);word-break:break-all}
+.src-arrow{color:var(--hint);font-size:18px;flex-shrink:0}
+
+/* Footer */
+.footer{
+  text-align:center;padding-top:48px;
+  border-top:1px solid var(--line);
+  font-size:12px;color:var(--hint);letter-spacing:0.06em;
+}
+.footer .links{margin-top:8px}
+.footer a{color:var(--green);text-decoration:none;border-bottom:1px solid var(--green)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="header">
+  <div class="tag">TABI / 3拠点まとめ / 2026-06-05</div>
+  <h1>POOLO旅企画　3拠点まとめ<br>鞆の浦・丹波山・豊島</h1>
+  <div class="sub">これまでの企画の流れと、3拠点それぞれの背景・縁を一枚に束ねる。<br>「旅を消費から文化に戻す」という不変軸の上に、3つの土地が並ぶ。</div>
+  <div class="meta">CODOLI / POOLO TABI 3KYOTEN v0.1</div>
+</header>
+
+<div class="objective">
+  <div class="label">このページの目的</div>
+  <div class="main">これまで別々の資料に散らばっていた3拠点（鞆の浦・丹波山・豊島）の旅企画を、ひとつの時系列と背景としてまとめる。出発点の議論から、各拠点の縁、企画の背骨（ビジョン／7ルール）までを通して見られるようにする。</div>
+</div>
+
+<!-- Part 1: 企画の履歴 -->
+<section class="part green">
+  <div class="part-head">
+    <div class="part-num">PART 1</div>
+    <h2 class="part-title">企画の履歴</h2>
+  </div>
+  <div class="part-sub">3拠点の旅企画が立ち上がるまでの流れ。構造資料 → オールハンズの順で固まってきた。</div>
+
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-date">2026-05-12</div>
+      <div class="tl-title">POOLO旅人の3階層（構造資料 v0.1）</div>
+      <div class="tl-body">旅企画シリーズに通底する不変軸を、ビジョン／価値観／ルールの3階層で整理。この時点での拠点は「鞆の浦・東川・今後の拠点」。企画の背骨となる構造をここで定義した。<br><a href="https://michinorionda.github.io/poolo-life/poolo-tabi-structure-v01-260512/" target="_blank" rel="noopener">poolo-tabi-structure-v01-260512</a></div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-date">2026-05-13</div>
+      <div class="tl-title">オールハンズ「地域で、旅の企画をします」</div>
+      <div class="tl-body">拠点が「豊島・丹波山・鞆の浦」の3つに更新。企画の背骨として「POOLO的な旅の7ルール」を提示し、3拠点でPOOLO的な旅の企画を進めていく方針を共有した。<br><a href="https://michinorionda.github.io/poolo-life/allhands-260513/" target="_blank" rel="noopener">allhands-260513</a></div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-date">2026-06-05</div>
+      <div class="tl-title">3拠点まとめ（本ページ）</div>
+      <div class="tl-body">散在していた資料を1ページに統合。今後の企画の起点として参照できるようにした。</div>
+    </div>
+  </div>
+</section>
+
+<!-- Part 2: 3拠点 -->
+<section class="part blue">
+  <div class="part-head">
+    <div class="part-num">PART 2</div>
+    <h2 class="part-title">3つの拠点</h2>
+  </div>
+  <div class="part-sub">それぞれの土地には、POOLOメンバーとの縁や原体験がある。それが拠点選定の背景にある。</div>
+
+  <div class="places">
+
+    <div class="place teshima">
+      <div class="pl-head">
+        <span class="pl-name">豊島</span>
+        <span class="pl-region">香川県／瀬戸内</span>
+      </div>
+      <div class="pl-lead">人口700人ほど、信号もコンビニもない静かな島。一人旅の原体験が、旅企画の発想の出発点になった。</div>
+      <dl class="pl-meta">
+        <dt>縁・背景</dt>
+        <dd>運営の一人旅エッセイ（POOLOスパイラル理論）に登場する原体験の地。「言葉にできない衝動や情景に旅の良さがある」と感じた場所。</dd>
+        <dt>旅の質感</dt>
+        <dd>余白・静けさ・暮らすように滞在する。「いま、ここ」を面白がる価値観と相性がよい。</dd>
+      </dl>
+      <div class="quote">
+        宿から数分の港を散歩すると、防波堤の上で三人組の男性がビール飲みながら談笑し、少し離れた所では女性が一人読書をしている。静かにたゆたう海と、空は白が多めの淡い青。気がつくと、足が止まっていた。
+        <span class="q-src">— poolo-spiral-theory.html プロローグより</span>
+      </div>
+    </div>
+
+    <div class="place tabayama">
+      <div class="pl-head">
+        <span class="pl-name">丹波山</span>
+        <span class="pl-region">山梨県／丹波山村</span>
+      </div>
+      <div class="pl-lead">野宿・狩猟・焚火・農業。自然のなかの暮らしに根ざした拠点。在住メンバーがいることが縁になっている。</div>
+      <dl class="pl-meta">
+        <dt>縁・背景</dt>
+        <dd>12期メンバー・成田彩花（ふじこ）さんが丹波山村在住。趣味は野宿旅・無人島キャンプ・焚火・農業・狩猟。</dd>
+        <dt>探究テーマ</dt>
+        <dd>「武士道 × 安心感は両立するのか」</dd>
+        <dt>旅の質感</dt>
+        <dd>自然・身体性・自分で決めて動く。サバイブと自給に近い体験。</dd>
+      </dl>
+    </div>
+
+    <div class="place tomonoura">
+      <div class="pl-head">
+        <span class="pl-name">鞆の浦</span>
+        <span class="pl-region">広島県／瀬戸内</span>
+      </div>
+      <div class="pl-lead">古い港町の時間が残るローカル。構造資料の段階から拠点候補に挙がっていた、企画の中心地のひとつ。</div>
+      <dl class="pl-meta">
+        <dt>縁・背景</dt>
+        <dd>運営の長田涼（ながちゃん）さんが鞆の浦在住。趣味はローカル旅・漫画・テニス。構造資料 v0.1 から拠点として明記されていた。</dd>
+        <dt>探究テーマ</dt>
+        <dd>「好奇心を発揮することが当たり前になる社会」</dd>
+        <dt>旅の質感</dt>
+        <dd>歴史を学んでから訪れる・地元で食べる・現地の人と交流する。土地の文化を自分ごとにする。</dd>
+      </dl>
+    </div>
+
+  </div>
+</section>
+
+<!-- Part 3: 企画の背骨 -->
+<section class="part teal">
+  <div class="part-head">
+    <div class="part-num">PART 3</div>
+    <h2 class="part-title">企画の背骨</h2>
+  </div>
+  <div class="part-sub">3拠点に共通する不変軸。どの土地でも、この構造の上に旅が設計される。</div>
+
+  <div class="pyramid">
+    <div class="pyramid-row vision"><span class="num">VISION</span>旅を消費から文化に戻す</div>
+    <div class="pyramid-arrow"></div>
+    <div class="pyramid-row value"><span class="num">VALUE</span>自分で決める / 自分ごとにする / 面白がる</div>
+    <div class="pyramid-arrow"></div>
+    <div class="pyramid-row rule"><span class="num">RULE</span>旅ごとに、自分の振る舞いを選ぶ</div>
+  </div>
+
+  <div class="rules-box">
+    <div class="rb-label">POOLO的な旅の7ルール（オールハンズ 2026-05-13）</div>
+    <ol>
+      <li>自分で決めていくこと</li>
+      <li>面白がること</li>
+      <li>訪れた地域に何を贈れるか考えること</li>
+      <li>急がず、その土地の時間に乗ること</li>
+      <li>仲間の話をそのまま受け取ること</li>
+      <li>未完成のまま、差し出してみること</li>
+      <li>答えにせず、問いのまま持ち帰ること</li>
+    </ol>
+  </div>
+</section>
+
+<!-- Part 4: 出典資料 -->
+<section class="part amber">
+  <div class="part-head">
+    <div class="part-num">PART 4</div>
+    <h2 class="part-title">出典資料</h2>
+  </div>
+  <div class="part-sub">このまとめの元になった資料。詳細はそれぞれのページを参照。</div>
+
+  <div class="sources">
+    <a class="src-row" href="https://michinorionda.github.io/poolo-life/poolo-tabi-structure-v01-260512/" target="_blank" rel="noopener">
+      <span class="src-date">05-12</span>
+      <span class="src-body">
+        <span class="src-title">POOLO旅人の3階層（構造資料 v0.1）</span>
+        <span class="src-url">poolo-tabi-structure-v01-260512</span>
+      </span>
+      <span class="src-arrow">↗</span>
+    </a>
+    <a class="src-row" href="https://michinorionda.github.io/poolo-life/allhands-260513/" target="_blank" rel="noopener">
+      <span class="src-date">05-13</span>
+      <span class="src-body">
+        <span class="src-title">オールハンズ「地域で、旅の企画をします」／7ルール</span>
+        <span class="src-url">allhands-260513</span>
+      </span>
+      <span class="src-arrow">↗</span>
+    </a>
+    <a class="src-row" href="https://michinorionda.github.io/poolo-life/poolo-spiral-theory.html" target="_blank" rel="noopener">
+      <span class="src-date">essay</span>
+      <span class="src-body">
+        <span class="src-title">POOLOスパイラル理論（豊島の原体験エッセイ）</span>
+        <span class="src-url">poolo-spiral-theory.html</span>
+      </span>
+      <span class="src-arrow">↗</span>
+    </a>
+    <a class="src-row" href="https://michinorionda.github.io/poolo-life/quiz/" target="_blank" rel="noopener">
+      <span class="src-date">member</span>
+      <span class="src-body">
+        <span class="src-title">12期メンバー情報（鞆の浦・丹波山在住メンバー）</span>
+        <span class="src-url">quiz/</span>
+      </span>
+      <span class="src-arrow">↗</span>
+    </a>
+  </div>
+</section>
+
+<footer class="footer">
+  <div>POOLO TABI 3KYOTEN v0.1 / 2026-06-05</div>
+  <div class="links">CODOLI</div>
+</footer>
+
+</div>
+</body>
+</html>
