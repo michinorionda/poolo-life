@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>「散歩」と「対話」と「問い」と。｜暮らし観光を通じて、自分自身の感性を探究する旅【広島県・鞆の浦】</title>
+<meta name="description" content="あたらしい旅の学校 POOLO主催。広島県・鞆の浦を舞台に、暮らし観光を提唱する長田涼さんのガイドで、まちを歩き、感性や問いに出会い直す1泊2日。2026年6月27日〜28日。">
+<meta property="og:title" content="暮らし観光を通じて、自分自身の感性を探究する旅｜広島県・鞆の浦">
+<meta property="og:description" content="鞆の浦のまちを歩き、現地の方との交流や偶然の出会いを味わいながら、自分自身の感覚や問いに向き合う1泊2日。2026.6.27—28。">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@300;400;500;700&family=Noto+Serif+JP:wght@200;300;400;500;600;700&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#15323d;          /* 深い瀬戸内ネイビー */
+  --ink-soft:#3a5562;
+  --teal:#189BBC;         /* POOLOメインカラー */
+  --teal-deep:#0f7e9b;
+  --paper:#f6f4ee;        /* 紙の白 */
+  --paper-warm:#efece3;
+  --line:rgba(21,50,61,.14);
+  --sand:#e8e0d0;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:"Zen Kaku Gothic New","Noto Sans JP",sans-serif;
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.9;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+img{display:block;width:100%;height:100%;object-fit:cover}
+.jost{font-family:"Jost",sans-serif;font-weight:300;letter-spacing:.18em}
+.serif{font-family:"Noto Serif JP",serif}
+.wrap{max-width:1180px;margin:0 auto;padding:0 28px}
+
+/* ===== 背景の水彩レイヤー ===== */
+.watermark{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.5}
+.watermark::before,.watermark::after{
+  content:"";position:absolute;border-radius:50%;filter:blur(70px);
+}
+.watermark::before{width:520px;height:520px;top:-120px;right:-100px;
+  background:radial-gradient(circle,rgba(24,155,188,.18),transparent 70%)}
+.watermark::after{width:600px;height:600px;bottom:-180px;left:-160px;
+  background:radial-gradient(circle,rgba(24,155,188,.12),transparent 70%)}
+
+/* ===== ヘッダー ===== */
+.topbar{position:fixed;top:0;left:0;right:0;z-index:50;
+  display:flex;justify-content:space-between;align-items:center;
+  padding:12px 28px;background:rgba(246,244,238,.9);backdrop-filter:blur(8px);
+  -webkit-backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.topbar .brand{display:flex;align-items:center;height:28px;text-decoration:none}
+.topbar .brand img{height:24px;width:auto;display:block}
+.topbar .brand:hover{opacity:.7}
+.topbar .hcta{background:var(--teal);color:#fff;font-weight:600;font-size:13px;
+  letter-spacing:.06em;padding:9px 22px;border-radius:30px;text-decoration:none;
+  box-shadow:none;transition:background .2s}
+.topbar .hcta:hover{background:var(--teal-deep);transform:none;box-shadow:none}
+
+/* ===== HERO ポスター ===== */
+.hero{position:relative;z-index:1;padding:84px 0 56px}
+.poster{position:relative;width:100%;max-width:560px;margin:0 auto}
+.poster img{width:100%;height:auto;object-fit:contain;
+  border-radius:8px;box-shadow:0 40px 90px -50px rgba(21,50,61,.7)}
+
+/* ===== セクション共通 ===== */
+section{position:relative;z-index:1}
+.sec-label{display:flex;align-items:center;gap:14px;margin-bottom:26px}
+.sec-label .no{font-family:"Jost",sans-serif;font-weight:400;letter-spacing:.2em;color:var(--teal);font-size:13px}
+.sec-label .tx{font-family:"Jost",sans-serif;letter-spacing:.3em;font-size:12px;color:var(--ink-soft);text-transform:uppercase}
+.sec-label .ln{flex:1;height:1px;background:var(--line)}
+.h2{font-family:"Noto Serif JP",serif;font-weight:500;font-size:clamp(1.7rem,3.4vw,2.5rem);line-height:1.5;letter-spacing:.05em}
+.lead{font-family:"Noto Serif JP",serif;font-weight:400;color:var(--ink-soft);
+  font-size:clamp(1rem,1.4vw,1.12rem);line-height:2.15;letter-spacing:.05em}
+
+/* テーマ / コンセプト */
+.theme{padding:96px 0 84px;text-align:center}
+.theme .h2{margin-bottom:10px}
+.theme .eyebrow{font-family:"Noto Serif JP",serif;color:var(--teal-deep);
+  font-size:clamp(.95rem,1.5vw,1.1rem);letter-spacing:.1em;margin-bottom:18px}
+
+/* この旅で体験すること */
+.exp{padding:30px 0 90px}
+.exp-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:40px}
+.exp-card{text-decoration:none;color:inherit}
+.exp-card .ph{aspect-ratio:3/4;border-radius:18px;overflow:hidden;
+  box-shadow:0 18px 40px -26px rgba(21,50,61,.55)}
+.exp-card:nth-child(2n) .ph{border-radius:26px 18px 26px 18px}
+.exp-card:nth-child(2n+1) .ph{border-radius:18px 26px 18px 26px}
+.exp-card .ph img{transition:transform 1.1s cubic-bezier(.2,.7,.2,1)}
+.exp-card:hover .ph img{transform:scale(1.06)}
+.exp-card .no{display:inline-flex;align-items:center;justify-content:center;
+  width:40px;height:40px;border-radius:50%;background:var(--teal);color:#fff;
+  font-family:"Jost",sans-serif;font-size:1rem;margin:18px 0 12px}
+.exp-card .nm{font-family:"Noto Serif JP",serif;font-weight:500;font-size:1.12rem;
+  letter-spacing:.04em;line-height:1.55;color:var(--ink)}
+.exp-card .ds{font-size:.86rem;color:var(--ink-soft);margin-top:10px;line-height:1.85}
+
+/* ギャラリー */
+.gallery{padding:50px 0 90px}
+.grid-photos{display:grid;grid-template-columns:repeat(12,1fr);grid-auto-rows:130px;gap:14px;margin-top:36px}
+.gp{overflow:hidden;border-radius:14px;box-shadow:0 14px 34px -24px rgba(21,50,61,.5)}
+.gp img{transition:transform 1.1s cubic-bezier(.2,.7,.2,1)}
+.gp:hover img{transform:scale(1.06)}
+.g-a{grid-column:span 5;grid-row:span 2}
+.g-b{grid-column:span 4;grid-row:span 2}
+.g-c{grid-column:span 3;grid-row:span 2}
+.g-d{grid-column:span 4;grid-row:span 2}
+.g-e{grid-column:span 4;grid-row:span 2}
+.g-f{grid-column:span 4;grid-row:span 2}
+.g-g{grid-column:span 6;grid-row:span 2}
+.g-h{grid-column:span 6;grid-row:span 2}
+
+/* スケジュール */
+.schedule{padding:90px 0}
+.sch-day{margin-top:54px}
+.sch-day-head{display:flex;align-items:center;gap:18px;margin-bottom:30px;flex-wrap:wrap}
+.sch-day-head .pill{background:var(--teal);color:#fff;font-family:"Jost",sans-serif;font-weight:500;
+  letter-spacing:.16em;font-size:.82rem;padding:7px 18px;border-radius:30px;white-space:nowrap}
+.sch-day-head .th{font-family:"Noto Serif JP",serif;font-weight:500;font-size:clamp(1.15rem,2.2vw,1.4rem);
+  letter-spacing:.04em;color:var(--ink)}
+.sch-cards{display:flex;flex-wrap:wrap;gap:22px}
+.sch-card{flex:1 1 165px;max-width:215px;position:relative;text-decoration:none;color:inherit}
+.sch-card .ph{position:relative;aspect-ratio:4/5;border-radius:18px;overflow:hidden;
+  box-shadow:0 18px 40px -26px rgba(21,50,61,.55)}
+.sch-card:nth-child(3n+1) .ph{border-radius:26px 18px 18px 26px}
+.sch-card:nth-child(3n+2) .ph{border-radius:18px 26px 26px 18px}
+.sch-card .ph img{width:100%;height:100%;object-fit:cover;transition:transform 1.1s cubic-bezier(.2,.7,.2,1)}
+.sch-card:hover .ph img{transform:scale(1.07)}
+.sch-card .step{position:absolute;top:-12px;left:-10px;z-index:2;width:38px;height:38px;border-radius:50%;
+  background:var(--paper);border:1.5px solid var(--teal);color:var(--teal-deep);
+  font-family:"Jost",sans-serif;font-size:1rem;display:flex;align-items:center;justify-content:center;
+  box-shadow:0 6px 16px -8px rgba(21,50,61,.5)}
+.sch-card .nm{margin-top:16px;font-weight:500;letter-spacing:.03em;line-height:1.55;font-size:.98rem}
+.sch-card .tm{display:block;font-family:"Jost",sans-serif;font-size:.78rem;letter-spacing:.1em;
+  color:var(--teal-deep);margin-top:4px}
+.sch-card.opt .optbox{aspect-ratio:4/5;border:1.5px dashed var(--teal);border-radius:18px;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;
+  background:rgba(24,155,188,.05);text-align:center;padding:16px}
+.sch-card.opt .optbox .tag{font-size:.7rem;letter-spacing:.14em;color:#fff;background:var(--teal);
+  border-radius:20px;padding:3px 12px}
+.sch-card.opt .optbox svg{width:30px;height:30px;stroke:var(--teal-deep)}
+.sch-card.opt .nm{color:var(--ink-soft)}
+
+/* 暮らし観光 ストーリー */
+.story{padding:90px 0}
+.story-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:60px;align-items:center}
+.story-imgs{position:relative;height:520px}
+.si1{position:absolute;width:74%;height:70%;top:0;left:0;overflow:hidden;border-radius:52% 48% 46% 54%/50% 52% 48% 50%;box-shadow:0 24px 50px -28px rgba(21,50,61,.5)}
+.si2{position:absolute;width:50%;height:46%;bottom:0;right:0;overflow:hidden;border-radius:48% 52% 54% 46%/46% 50% 50% 54%;z-index:2;border:6px solid var(--paper);box-shadow:0 18px 40px -24px rgba(21,50,61,.5)}
+.story .quote{font-family:"Noto Serif JP",serif;font-weight:500;font-size:clamp(1.25rem,2.4vw,1.7rem);
+  line-height:1.85;letter-spacing:.04em;color:var(--ink);margin:8px 0 26px}
+.story .quote em{font-style:normal;color:var(--teal-deep)}
+.divider-word{display:inline-block;background:var(--teal);color:#fff;font-size:.8rem;letter-spacing:.18em;
+  padding:4px 14px;border-radius:20px;margin-bottom:22px;font-weight:500}
+
+/* ガイド */
+.guide{padding:90px 0;background:var(--ink);color:var(--paper);position:relative;overflow:hidden}
+.guide::before{content:"";position:absolute;width:480px;height:480px;border-radius:50%;
+  background:radial-gradient(circle,rgba(24,155,188,.3),transparent 70%);top:-160px;left:-120px;filter:blur(40px)}
+.guide .wrap{position:relative;z-index:2}
+.guide-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:56px;align-items:center}
+.guide .sec-label .tx{color:rgba(246,244,238,.72)}
+.guide .sec-label .ln{background:rgba(246,244,238,.2)}
+.guide-photo{position:relative;height:480px}
+.guide-photo .main{width:80%;height:100%;margin:0 auto;overflow:hidden;
+  border-radius:48% 52% 46% 54%/12% 12% 88% 88%;box-shadow:0 28px 56px -30px rgba(0,0,0,.7)}
+.guide-photo .main img{object-position:center 22%}
+.guide-photo .badge{position:absolute;left:0;bottom:30px;background:var(--paper);color:var(--ink);
+  border-radius:18px;padding:14px 22px;box-shadow:0 18px 40px -22px rgba(0,0,0,.6)}
+.guide-photo .badge .nm{font-weight:700;font-size:1.12rem;letter-spacing:.05em}
+.guide-photo .badge .ro{font-size:11.5px;color:var(--teal-deep);font-family:"Jost",sans-serif;letter-spacing:.14em;margin-top:2px}
+.guide .name-jp{font-family:"Noto Serif JP",serif;font-weight:600;font-size:clamp(1.45rem,3vw,2rem);letter-spacing:.04em;margin-bottom:6px;color:#fff}
+.guide .name-en{font-family:"Jost",sans-serif;letter-spacing:.2em;color:var(--teal);font-size:13px;margin-bottom:24px}
+.guide .glead{font-family:"Noto Serif JP",serif;font-weight:400;color:rgba(246,244,238,.82);
+  font-size:clamp(1rem,1.4vw,1.1rem);line-height:2.1;letter-spacing:.04em}
+.guide .glead+.glead{margin-top:18px}
+
+/* 宿泊 */
+.stay{padding:80px 0 0}
+.stay-card{display:grid;grid-template-columns:1fr 1.2fr;gap:0;background:#fff;border:1px solid var(--line);
+  border-radius:24px;overflow:hidden;box-shadow:0 30px 70px -50px rgba(21,50,61,.6)}
+.stay-card .ph{min-height:280px;overflow:hidden}
+.stay-card .tx{padding:42px 46px}
+.stay-card .tx .nm{font-family:"Noto Serif JP",serif;font-weight:600;font-size:1.4rem;letter-spacing:.05em;margin-bottom:4px}
+.stay-card .tx .en{font-family:"Jost",sans-serif;letter-spacing:.16em;color:var(--teal-deep);font-size:12px;margin-bottom:16px}
+.stay-card .tx p{font-size:.96rem;color:var(--ink-soft);line-height:1.95}
+.stay-card .tx .link{display:inline-block;margin-top:14px;color:var(--teal-deep);font-weight:600;font-size:.9rem;text-decoration:none;letter-spacing:.04em}
+.stay-card .tx .link:hover{text-decoration:underline}
+.stay-card .tx .pricetag{display:inline-block;margin-top:18px;background:rgba(24,155,188,.08);
+  border:1px solid var(--line);border-radius:14px;padding:12px 18px;font-size:.9rem;color:var(--ink);line-height:1.7}
+.stay-card .tx .pricetag b{color:var(--teal-deep);font-family:"Jost",sans-serif;font-size:1.2rem;margin:0 2px}
+
+/* 概要 */
+.outline{padding:80px 0 40px}
+.ol-card{background:#fff;border:1px solid var(--line);border-radius:24px;
+  padding:48px 52px;box-shadow:0 30px 70px -50px rgba(21,50,61,.6)}
+.ol-row{display:flex;gap:24px;padding:20px 0;border-bottom:1px dashed var(--line)}
+.ol-row:last-child{border-bottom:none}
+.ol-row dt{flex:0 0 130px;font-weight:500;letter-spacing:.08em;color:var(--ink)}
+.ol-row dd{flex:1;color:var(--ink-soft);letter-spacing:.04em}
+.ol-row .en{font-family:"Jost",sans-serif;letter-spacing:.1em;color:var(--teal-deep)}
+.ol-row .price{font-weight:600;color:var(--teal-deep);letter-spacing:.01em}
+.ol-row .price .num{font-family:"Jost",sans-serif;font-size:1.7rem;letter-spacing:.02em;margin-right:2px}
+.ol-row .price-note{display:block;margin-top:8px;font-size:.92rem;color:var(--ink-soft);line-height:1.7}
+.ol-row .price-ex{display:inline-block;margin-top:6px;font-size:.82rem;color:var(--teal-deep);
+  border:1px solid var(--line);border-radius:20px;padding:2px 12px}
+
+/* CTA / フッター */
+.cta{padding:80px 0 30px;text-align:center}
+.cta .big{font-family:"Noto Serif JP",serif;font-weight:500;font-size:clamp(1.4rem,3vw,2rem);
+  line-height:1.7;letter-spacing:.05em;margin-bottom:30px}
+.cta .big .ac{color:var(--teal-deep)}
+.footer{padding:48px 0 90px;text-align:center;border-top:1px solid var(--line);margin-top:50px}
+.footer .logo{font-family:"Jost",sans-serif;font-weight:400;letter-spacing:.34em;font-size:18px;color:var(--ink)}
+.footer .by{font-family:"Jost",sans-serif;letter-spacing:.24em;font-size:11px;color:var(--ink-soft);margin-top:10px}
+.footer .place{margin-top:18px;font-size:12px;color:var(--ink-soft);letter-spacing:.1em}
+
+/* 申込ボタン */
+.apply-btn{display:inline-flex;align-items:center;gap:10px;background:var(--teal);color:#fff;
+  text-decoration:none;font-weight:600;letter-spacing:.06em;padding:16px 40px;border-radius:40px;
+  box-shadow:0 16px 34px -16px rgba(24,155,188,.7);transition:background .25s,transform .25s,box-shadow .25s}
+.apply-btn:hover{background:var(--teal-deep);transform:translateY(-2px);box-shadow:0 22px 40px -16px rgba(24,155,188,.8)}
+.apply-btn .ar{transition:transform .3s}
+.apply-btn:hover .ar{transform:translateX(4px)}
+.cta .apply-wrap{margin-top:6px}
+
+/* 追従するスティッキーCTAバー */
+.sticky-cta{position:fixed;left:0;right:0;bottom:0;z-index:60;
+  background:rgba(21,50,61,.97);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  box-shadow:0 -12px 34px -20px rgba(0,0,0,.6);
+  transform:translateY(130%);transition:transform .5s cubic-bezier(.2,.7,.2,1)}
+.sticky-cta.show{transform:none}
+.sticky-cta .inner{max-width:1180px;margin:0 auto;padding:13px 28px;
+  display:flex;align-items:center;justify-content:space-between;gap:22px}
+.sticky-cta .info{color:var(--paper);line-height:1.4;flex:1;min-width:0}
+.sticky-cta .info .d-mini{display:none}
+.sticky-cta .info .t{font-family:"Noto Serif JP",serif;font-weight:500;font-size:1.02rem;letter-spacing:.04em}
+.sticky-cta .info .d{font-size:.78rem;color:rgba(246,244,238,.7);letter-spacing:.06em;margin-top:2px}
+.sticky-cta .info .d b{color:#fff;font-weight:600;font-size:.95rem;margin-right:4px}
+.sticky-cta .apply-btn{padding:13px 34px;box-shadow:none}
+.sticky-cta .apply-btn:hover{transform:none;box-shadow:0 0 0 3px rgba(24,155,188,.3)}
+@media(max-width:560px){
+  .topbar .hcta{display:none}
+  .sticky-cta{left:12px;right:12px;bottom:12px;border-radius:14px;box-shadow:0 14px 30px -10px rgba(21,50,61,.55)}
+  .sticky-cta .inner{padding:11px 14px;gap:10px}
+  .sticky-cta .info .t{display:block;font-size:.9rem}
+  .sticky-cta .info .d{font-size:.74rem;margin-top:2px}
+  .sticky-cta .info .d-full{display:none}
+  .sticky-cta .info .d-mini{display:inline}
+  .sticky-cta .apply-btn{flex:none;padding:11px 20px;font-size:.92rem}
+}
+
+/* リビール */
+.rv{opacity:0;transform:translateY(26px);transition:opacity .9s ease,transform .9s cubic-bezier(.2,.7,.2,1)}
+.rv.in{opacity:1;transform:none}
+
+/* ===== レスポンシブ ===== */
+@media(max-width:880px){
+  .story-grid,.guide-grid,.stay-card{grid-template-columns:1fr;gap:40px}
+  .hero{padding:104px 0 40px}
+  .exp-grid{grid-template-columns:1fr 1fr;gap:18px}
+  .story-imgs{height:400px}
+  .guide-photo{height:420px;max-width:380px;margin:0 auto}
+  .grid-photos{grid-auto-rows:96px;gap:10px}
+  .g-a,.g-b,.g-c,.g-d,.g-e,.g-f,.g-g,.g-h{grid-column:span 6}
+  .stay-card{gap:0}
+  .stay-card .ph{min-height:220px}
+  .stay-card .tx{padding:30px 26px}
+  .ol-card{padding:32px 26px}
+  .ol-row{flex-direction:column;gap:4px}
+  .ol-row dt{flex:none}
+  .topbar{padding:14px 20px}
+}
+@media(max-width:520px){
+  .exp-grid{grid-template-columns:1fr 1fr;gap:14px}
+}
+</style>
+</head>
+<body>
+<div class="watermark"></div>
+
+<header class="topbar">
+  <a href="#top" class="brand"><img src="images/poolo_logo.png" alt="POOLO あたらしい旅の学校"></a>
+  <a href="#apply" class="hcta apply-btn" target="_blank" rel="noopener">申し込む</a>
+</header>
+
+<!-- ===== HERO ポスター ===== -->
+<section class="hero" id="top">
+  <div class="wrap">
+    <div class="poster rv">
+      <img src="images/keyvisual.png" alt="「散歩」と「対話」と「問い」と。広島・鞆の浦で過ごす1泊2日。">
+    </div>
+  </div>
+</section>
+
+<!-- ===== コンセプト ===== -->
+<section class="theme">
+  <div class="wrap rv">
+    <div class="sec-label" style="justify-content:center">
+      <span class="tx">Concept</span>
+    </div>
+    <p class="eyebrow serif">暮らし観光を通じて、自分自身の感性を探究する旅</p>
+    <h2 class="h2">「なにを感じたか」を、<br>ゆっくり言葉にしていく。</h2>
+    <p class="lead" style="max-width:720px;margin:22px auto 0">
+      鞆の浦のまちを歩き、現地の方との交流や偶然の出会いを味わいながら、<br>
+      日常から少し距離を置き、自分自身の感覚や問いに向き合う1泊2日。<br>
+      ただ観光地を巡るのではなく、その土地に流れる時間や暮らしに触れながら、<br>
+      いま自分のなかにある感性や問いに、出会い直す時間です。
+    </p>
+  </div>
+</section>
+
+<!-- ===== この旅で体験すること ===== -->
+<section class="exp">
+  <div class="wrap">
+    <div class="sec-label rv"><span class="no">01</span><span class="tx">What you experience</span><span class="ln"></span></div>
+    <h2 class="h2 rv" style="margin-bottom:4px">この旅で体験すること</h2>
+    <div class="exp-grid rv">
+      <a class="exp-card" href="#schedule">
+        <div class="ph"><img src="images/town-to-sea.jpg" alt="問いを持って、まちを歩く"></div>
+        <span class="no">01</span>
+        <div class="nm">問いを持って、<br>まちを歩く</div>
+        <p class="ds">「自分は何に心が動くのか」。そんな小さな問いを胸に、鞆の浦のまちを歩きます。</p>
+      </a>
+      <a class="exp-card" href="#schedule">
+        <div class="ph"><img src="images/shop-life.jpg" alt="まちの暮らしに触れる"></div>
+        <span class="no">02</span>
+        <div class="nm">まちの暮らしに<br>触れる</div>
+        <p class="ds">観光地ではなく、そこにある生活や営みに出会う。土地に流れる時間を感じます。</p>
+      </a>
+      <a class="exp-card" href="#schedule">
+        <div class="ph"><img src="images/street-walk.jpg" alt="偶然の出会いを楽しむ"></div>
+        <span class="no">03</span>
+        <div class="nm">偶然の出会いを<br>楽しむ</div>
+        <p class="ds">まちの人との会話や、思いがけない出会い。予定通りでない時間を味わいます。</p>
+      </a>
+      <a class="exp-card" href="#schedule">
+        <div class="ph"><img src="images/silhouette-talk.jpg" alt="感じたことを言葉にする"></div>
+        <span class="no">04</span>
+        <div class="nm">感じたことを<br>言葉にする</div>
+        <p class="ds">対話を通して、自分の感性や問いに向き合い、いまの自分をゆっくり言葉にしていく。</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ギャラリー ===== -->
+<section class="gallery">
+  <div class="wrap">
+    <div class="sec-label rv"><span class="tx">Scenes of Tomonoura</span><span class="ln"></span></div>
+    <div class="grid-photos rv">
+      <div class="gp g-a"><img src="images/joyato-sunset.jpg" alt="夕暮れの常夜燈と鞆の浦の港"></div>
+      <div class="gp g-b"><img src="images/temple-gate.jpg" alt="古い寺の山門をくぐる"></div>
+      <div class="gp g-c"><img src="images/harbor-islands.jpg" alt="瀬戸内の島々を望む鞆の港"></div>
+      <div class="gp g-d"><img src="images/street-walk.jpg" alt="古い町並みの路地を歩く"></div>
+      <div class="gp g-e"><img src="images/sea-sunset.jpg" alt="海に沈む夕日と漁船"></div>
+      <div class="gp g-f"><img src="images/joyato-day.jpg" alt="昼の常夜燈と雁木"></div>
+      <div class="gp g-g"><img src="images/pavilion-dusk.jpg" alt="あずまやから夕暮れの港を眺める"></div>
+      <div class="gp g-h"><img src="images/silhouette-talk.jpg" alt="海を見つめ、対話する時間"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== スケジュール ===== -->
+<section class="schedule" id="schedule">
+  <div class="wrap">
+    <div class="sec-label rv"><span class="no">02</span><span class="tx">Schedule</span><span class="ln"></span></div>
+    <h2 class="h2 rv" style="margin-bottom:6px">1泊2日の、過ごし方。</h2>
+    <p class="lead rv">日常から離れ、鞆の浦という場所に身を置く。少しずつニュートラルに戻りながら過ごす2日間です。</p>
+
+    <!-- DAY 1 -->
+    <div class="sch-day rv">
+      <div class="sch-day-head">
+        <span class="pill">DAY 1</span>
+        <span class="th">6.27 Sat ｜ 問いを持って、まちを歩く日</span>
+      </div>
+      <div class="sch-cards">
+        <div class="sch-card">
+          <div class="ph"><span class="step">1</span><img src="images/harbor-islands.jpg" alt="鞆の浦に集合"></div>
+          <div class="nm">鞆の浦に集合<span class="tm">13:00 ／ ありそろう</span></div>
+        </div>
+        <div class="sch-card">
+          <div class="ph"><span class="step">2</span><img src="images/rest-view.jpg" alt="自己紹介 ＆ 問いを立てる"></div>
+          <div class="nm">自己紹介 ＆ 問いを立てる</div>
+        </div>
+        <div class="sch-card">
+          <div class="ph"><span class="step">3</span><img src="images/street-walk.jpg" alt="まち歩き（長田涼さんガイド）"></div>
+          <div class="nm">まち歩き<span class="tm">長田涼さんガイド</span></div>
+        </div>
+        <div class="sch-card">
+          <div class="ph"><span class="step">4</span><img src="images/village-street.jpg" alt="宿「燧冶」へチェックイン"></div>
+          <div class="nm">宿「燧冶」へチェックイン</div>
+        </div>
+        <div class="sch-card">
+          <div class="ph"><span class="step">5</span><img src="images/pavilion-dusk.jpg" alt="夜の食事・交流会"></div>
+          <div class="nm">夜の食事・交流会<span class="tm">現地の方も交えて</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DAY 2 -->
+    <div class="sch-day rv">
+      <div class="sch-day-head">
+        <span class="pill">DAY 2</span>
+        <span class="th">6.28 Sun ｜ 感じたことを、言葉にする日</span>
+      </div>
+      <div class="sch-cards">
+        <div class="sch-card">
+          <div class="ph"><span class="step">1</span><img src="images/morning-sea.jpg" alt="朝の浦をゆっくり過ごす"></div>
+          <div class="nm">朝の浦を、ゆっくり過ごす</div>
+        </div>
+        <div class="sch-card">
+          <div class="ph"><span class="step">2</span><img src="images/cliff-view.jpg" alt="まち歩き ＆ グループ対話"></div>
+          <div class="nm">まち歩き ＆ グループ対話</div>
+        </div>
+        <div class="sch-card">
+          <div class="ph"><span class="step">3</span><img src="images/shelter-reflect.jpg" alt="ありそろうで振り返り"></div>
+          <div class="nm">ありそろうで振り返り</div>
+        </div>
+        <div class="sch-card">
+          <div class="ph"><span class="step">4</span><img src="images/joyato-day.jpg" alt="解散"></div>
+          <div class="nm">解散<span class="tm">15:00 ／ ありそろう</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 暮らし観光 ストーリー ===== -->
+<section class="story">
+  <div class="wrap story-grid">
+    <div class="story-imgs rv">
+      <div class="si1"><img src="images/waterfront.jpg" alt="鞆の浦の港辺に佇む"></div>
+      <div class="si2"><img src="images/shopping-street.jpg" alt="古い商店が並む鞆の町並み"></div>
+    </div>
+    <div class="rv">
+      <div class="sec-label"><span class="tx">What is "Kurashi-kanko"</span><span class="ln"></span></div>
+      <span class="divider-word">暮らし観光</span>
+      <p class="quote">
+        歩くことで、<br>
+        街の景色が変わり、言葉が生まれ、<br>
+        <em>心の奥に静かな問い</em>が残る。
+      </p>
+      <p class="lead">
+        ただ観光地を巡るのではなく、その土地に流れる時間や暮らしに触れること。<br>
+        「自分は何に心が動くのか」「どんな違和感や気づきが生まれるのか」「いま、自分はどんな問いを持っているのか」——
+        そんな問いを携えて歩く、暮らしのなかのフィールドワークです。
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ガイド ===== -->
+<section class="guide">
+  <div class="wrap guide-grid">
+    <div class="guide-photo rv">
+      <div class="main"><img src="images/guide-osada.jpg" alt="ガイド 長田涼さん"></div>
+      <div class="badge">
+        <div class="nm">長田 涼</div>
+        <div class="ro">RYO OSADA ／ 暮らし観光コーディネーター</div>
+      </div>
+    </div>
+    <div class="rv">
+      <div class="sec-label"><span class="no">03</span><span class="tx">Your Guide</span><span class="ln"></span></div>
+      <div class="name-jp">まち歩きのガイドは、<br>「暮らし観光」を実践する長田涼さん。</div>
+      <div class="name-en">KURASHI-KANKO COORDINATOR</div>
+      <p class="glead">
+        合同会社コト暮らし 共同代表。広島県福山市・鞆の浦で「暮らし観光」の事業や、
+        古民家カフェ＆宿泊施設「鞆の浦みなそら」を運営しています。
+      </p>
+      <p class="glead">
+        東京から鞆の浦へ移住し4年目。今回のまち歩きでは、その土地に流れる時間や
+        暮らしに触れながら、自分自身の感覚や問いに向き合うフィールドワークへとご案内します。
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 宿泊 ===== -->
+<section class="stay">
+  <div class="wrap">
+    <div class="sec-label rv"><span class="tx">Stay</span><span class="ln"></span></div>
+    <div class="stay-card rv">
+      <div class="ph"><img src="images/village-street.jpg" alt="鞆の浦の古い町並み"></div>
+      <div class="tx">
+        <div class="nm">燧冶（ひうちや）</div>
+        <div class="en">ONE-BUILDING STAY ／ TOMONOURA</div>
+        <p>
+          宿泊先は、鞆の浦にある「燧冶（ひうちや）」を1棟貸しで利用する予定です。
+          まちの暮らしのなかに身を置きながら、参加者同士でゆっくりと夜の時間を過ごします。
+        </p>
+        <span class="pricetag">
+          宿泊費の目安 <b>7,700</b>円／泊（当日・現金払い）<br>
+          ※参加人数によって金額が変動する場合があります。
+        </span>
+        <br>
+        <a class="link" href="https://hiuchiya.jp/" target="_blank" rel="noopener">燧冶のサイトを見る →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 概要 ===== -->
+<section class="outline">
+  <div class="wrap">
+    <div class="sec-label rv"><span class="no">04</span><span class="tx">Overview</span><span class="ln"></span></div>
+    <div class="ol-card rv">
+      <dl>
+        <div class="ol-row"><dt>企画名</dt><dd>暮らし観光を通じて、自分自身の感性を探究する旅</dd></div>
+        <div class="ol-row"><dt>開催日</dt><dd><span class="en">2026.6.27 (土) — 6.28 (日)</span>（1泊2日）</dd></div>
+        <div class="ol-row"><dt>開催場所</dt><dd>広島県福山市・鞆の浦</dd></div>
+        <div class="ol-row"><dt>集合・解散</dt><dd>
+          鞆の浦「ありそろう」
+          <span class="price-note">集合 <span class="en">6/27 13:00</span> ／ 解散 <span class="en">6/28 15:00</span></span>
+        </dd></div>
+        <div class="ol-row"><dt>定員</dt><dd>10名（少人数で、対話の時間を大切にします）</dd></div>
+        <div class="ol-row"><dt>ガイド</dt><dd>長田 涼さん｜暮らし観光コーディネーター（合同会社コト暮らし）</dd></div>
+        <div class="ol-row"><dt>参加費</dt><dd>
+          <span class="price"><span class="num">15,000</span>円（税込）</span>
+          <span class="price-note">フィールドワーク参加費・まち歩きガイド費を含みます。</span>
+          <span class="price-ex">※ 宿泊費・食事代・交通費・自由時間中の費用は各自負担</span>
+        </dd></div>
+        <div class="ol-row"><dt>宿泊</dt><dd>
+          各自手配／「燧冶（ひうちや）」1棟貸しを利用予定
+          <span class="price-note">宿泊費 <span class="en">7,700円／泊</span> 目安（当日・現金払い、人数により変動）</span>
+        </dd></div>
+        <div class="ol-row"><dt>主催</dt><dd>あたらしい旅の学校 POOLO</dd></div>
+        <div class="ol-row"><dt>協力</dt><dd>合同会社コト暮らし</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA / フッター ===== -->
+<section class="cta" id="apply-section">
+  <div class="wrap rv">
+    <p class="big">
+      日常から離れ、鞆の浦という場所に身を置いて、<br>
+      いまの<span class="ac">感性や問い</span>に、出会い直す旅へ。
+    </p>
+    <div class="apply-wrap">
+      <a class="apply-btn" href="#apply" target="_blank" rel="noopener">お申し込みはこちら <span class="ar">→</span></a>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="footer">
+      <div class="logo">TOMONOURA</div>
+      <div class="by">KURASHI-KANKO TRIP ／ by POOLO</div>
+      <div class="place">広島県・鞆の浦　2026.6.27 — 28</div>
+    </div>
+  </div>
+</section>
+
+<!-- 追従する申込CTAバー -->
+<div class="sticky-cta" id="stickyCta">
+  <div class="inner">
+    <div class="info">
+      <div class="t">広島県・鞆の浦の旅</div>
+      <div class="d"><span class="d-full"><b>2026.6.27 — 28</b>（1泊2日）／ 参加費 15,000円</span><span class="d-mini"><b>6/27–28</b>　参加費15,000円</span></div>
+    </div>
+    <a class="apply-btn" href="#apply" target="_blank" rel="noopener">お申し込み <span class="ar">→</span></a>
+  </div>
+</div>
+
+<script>
+// ▼ Googleフォーム 回答用URL
+const FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSdeDVWXkROSKGOEumS1zw3feDl_R_UuSkv_Zj2CGK9juEVpJQ/viewform";
+if (FORM_URL) {
+  document.querySelectorAll('.apply-btn').forEach(a => a.href = FORM_URL);
+}
+
+// リビール
+const io=new IntersectionObserver((es)=>{
+  es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}});
+},{threshold:.15});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+
+// 追従CTA：ヒーローを過ぎたら表示、最後のCTAに来たら隠す
+const sticky=document.getElementById('stickyCta');
+const endZone=document.querySelector('.cta');
+let pastHero=false, atEnd=false;
+function updateSticky(){ sticky.classList.toggle('show', pastHero && !atEnd); }
+window.addEventListener('scroll',()=>{ pastHero = window.scrollY > window.innerHeight*0.7; updateSticky(); }, {passive:true});
+new IntersectionObserver((es)=>{ atEnd = es[0].isIntersecting; updateSticky(); },{threshold:0}).observe(endZone);
+</script>
+</body>
+</html>
