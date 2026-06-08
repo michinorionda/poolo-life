@@ -199,6 +199,26 @@ section{position:relative;z-index:1}
 .ol-row .price-ex{display:inline-block;margin-top:6px;font-size:.82rem;color:var(--teal-deep);
   border:1px solid var(--line);border-radius:20px;padding:2px 12px}
 
+/* アクセス */
+.access{padding:80px 0 0}
+.route{position:relative;margin-top:6px}
+.r-stop{position:relative;padding-left:42px;min-height:30px;display:flex;align-items:center;flex-wrap:wrap;gap:0 12px}
+.r-stop .r-dot{position:absolute;left:8px;top:50%;transform:translateY(-50%);width:15px;height:15px;border-radius:50%;
+  background:var(--teal);box-shadow:0 0 0 5px rgba(24,155,188,.14)}
+.r-stop.goal .r-dot{background:var(--teal-deep);box-shadow:0 0 0 5px rgba(15,126,155,.18)}
+.r-name{font-weight:600;font-size:1.08rem;letter-spacing:.05em;color:var(--ink)}
+.r-name .r-sub{font-family:"Jost",sans-serif;font-size:.68rem;letter-spacing:.18em;
+  color:var(--teal-deep);margin-left:10px}
+.r-leg{position:relative;padding:12px 0 12px 42px;display:flex;align-items:center;flex-wrap:wrap;gap:8px 10px}
+.r-leg::before{content:"";position:absolute;left:14px;top:0;bottom:0;width:2px;background:var(--line)}
+.r-leg .r-mode{display:inline-block;background:var(--teal);color:#fff;font-size:.72rem;font-weight:600;
+  border-radius:20px;padding:3px 12px;letter-spacing:.1em;white-space:nowrap}
+.r-leg .r-line{color:var(--ink-soft);font-size:.92rem;letter-spacing:.04em}
+.r-leg .r-time{font-family:"Jost",sans-serif;color:var(--teal-deep);font-size:.86rem;letter-spacing:.1em}
+.access .total{margin-top:18px;font-size:.92rem;color:var(--ink-soft);letter-spacing:.04em}
+.access .total b{font-family:"Jost",sans-serif;color:var(--teal-deep);font-size:1.15rem;margin:0 3px;letter-spacing:.02em}
+.access .note{margin-top:10px;font-size:.82rem;color:var(--ink-soft);line-height:1.7}
+
 /* CTA / フッター */
 .cta{padding:80px 0 30px;text-align:center}
 .cta .big{font-family:"Noto Serif JP",serif;font-weight:500;font-size:clamp(1.4rem,3vw,2rem);
@@ -501,6 +521,28 @@ section{position:relative;z-index:1}
         <div class="ol-row"><dt>主催</dt><dd>あたらしい旅の学校 POOLO</dd></div>
         <div class="ol-row"><dt>協力</dt><dd>たばたび（成田 彩花）</dd></div>
       </dl>
+    </div>
+  </div>
+</section>
+
+<!-- ===== アクセス ===== -->
+<section class="access">
+  <div class="wrap">
+    <div class="sec-label rv"><span class="no">05</span><span class="tx">Access</span><span class="ln"></span></div>
+    <h2 class="h2 rv" style="margin-bottom:6px">丹波山村への行き方</h2>
+    <p class="lead rv">新宿から約2時間30分。電車とバスでのアクセス例です。</p>
+    <div class="ol-card rv" style="margin-top:34px">
+      <div class="route">
+        <div class="r-stop"><span class="r-dot"></span><span class="r-name">新宿駅<span class="r-sub">START</span></span></div>
+        <div class="r-leg"><span class="r-mode">🚃 電車</span><span class="r-line">JR中央線</span><span class="r-time">29分</span></div>
+        <div class="r-stop"><span class="r-dot"></span><span class="r-name">立川駅</span></div>
+        <div class="r-leg"><span class="r-mode">🚃 電車</span><span class="r-line">JR青梅線</span><span class="r-time">68分</span></div>
+        <div class="r-stop"><span class="r-dot"></span><span class="r-name">奥多摩駅</span></div>
+        <div class="r-leg"><span class="r-mode">🚌 バス</span><span class="r-line">西東京バス 丹波行き</span><span class="r-time">56分</span></div>
+        <div class="r-stop goal"><span class="r-dot"></span><span class="r-name">丹波<span class="r-sub">丹波山村</span></span></div>
+      </div>
+      <p class="total">合計 約<b>2</b>時間<b>33</b>分（乗車時間の目安）</p>
+      <p class="note">※ 乗り換え・待ち時間は含みません。バスの本数が限られるため、事前に時刻表をご確認ください。お車でお越しの場合の経路は、参加者へ別途ご案内します。</p>
     </div>
   </div>
 </section>
