@@ -280,9 +280,12 @@ section{position:relative;z-index:1}
 }
 /* PC専用の改行（スマホでは詰める）／ スマホ専用の改行（PCでは無効） */
 .sp-br{display:none}
+/* 文章の区切り：PCでは改行、スマホでは1行空け */
+.para-break{display:block}
 @media(max-width:600px){
   .pc-br{display:none}
   .sp-br{display:inline}
+  .para-break{margin-top:1.05em}
   .theme .lead{text-align:left;line-break:strict;
     font-size:1rem;line-height:2.05;padding:0 2px}
 }
@@ -313,7 +316,7 @@ section{position:relative;z-index:1}
     </div>
     <p class="eyebrow serif">暮らし観光を通じて、<br class="sp-br">自分自身の感性を探究する旅</p>
     <h2 class="h2">「なにを感じたか」を、<br>ゆっくり言葉にしていく。</h2>
-    <p class="lead" style="max-width:680px;margin:22px auto 0">鞆の浦のまちを歩き、現地の方との交流や偶然の出会いを味わいながら、<br class="pc-br">日常から少し距離を置き、自分自身の感覚や問いに向き合う1泊2日。<br class="pc-br">ただ観光地を巡るのではなく、その土地に流れる時間や暮らしに触れながら、<br class="pc-br">いま自分のなかにある感性や問いに、出会い直す時間です。</p>
+    <p class="lead" style="max-width:680px;margin:22px auto 0">鞆の浦のまちを歩き、現地の方との交流や偶然の出会いを味わいながら、<br class="pc-br">日常から少し距離を置き、自分自身の感覚や問いに向き合う1泊2日。<span class="para-break"></span>ただ観光地を巡るのではなく、その土地に流れる時間や暮らしに触れながら、<br class="pc-br">いま自分のなかにある感性や問いに、出会い直す時間です。</p>
   </div>
 </section>
 
