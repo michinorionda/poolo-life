@@ -278,6 +278,12 @@ section{position:relative;z-index:1}
 @media(max-width:520px){
   .exp-grid{grid-template-columns:1fr 1fr;gap:14px}
 }
+/* スマホではPC用の改行を無効化し、自然に詰めて折り返す（禁則処理で文頭の句読点を防ぐ） */
+@media(max-width:600px){
+  .pc-br{display:none}
+  .theme .lead{text-align:left;line-break:strict;
+    font-size:1rem;line-height:2.05;padding:0 2px}
+}
 </style>
 </head>
 <body>
@@ -305,12 +311,7 @@ section{position:relative;z-index:1}
     </div>
     <p class="eyebrow serif">暮らし観光を通じて、自分自身の感性を探究する旅</p>
     <h2 class="h2">「なにを感じたか」を、<br>ゆっくり言葉にしていく。</h2>
-    <p class="lead" style="max-width:720px;margin:22px auto 0">
-      鞆の浦のまちを歩き、現地の方との交流や偶然の出会いを味わいながら、<br>
-      日常から少し距離を置き、自分自身の感覚や問いに向き合う1泊2日。<br>
-      ただ観光地を巡るのではなく、その土地に流れる時間や暮らしに触れながら、<br>
-      いま自分のなかにある感性や問いに、出会い直す時間です。
-    </p>
+    <p class="lead" style="max-width:680px;margin:22px auto 0">鞆の浦のまちを歩き、現地の方との交流や偶然の出会いを味わいながら、<br class="pc-br">日常から少し距離を置き、自分自身の感覚や問いに向き合う1泊2日。<br class="pc-br">ただ観光地を巡るのではなく、その土地に流れる時間や暮らしに触れながら、<br class="pc-br">いま自分のなかにある感性や問いに、出会い直す時間です。</p>
   </div>
 </section>
 
