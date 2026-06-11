@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>POOLO LIFE 11期｜Instagram運用ガイドライン（有志アカウント）</title>
+<meta name="description" content="POOLO LIFE 11期生による有志Instagramアカウントの運用ガイドライン。公式との区別・ロゴ／アイコンの使い方をまとめています。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&family=Noto+Sans+JP:wght@400;500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --main:#189BBC;
+    --main-d:#0f7d99;
+    --ink:#243136;
+    --sub:#5b6b71;
+    --line:#e3eef1;
+    --bg:#f4fafc;
+    --card:#ffffff;
+    --ok:#1f9d6b;
+    --ok-bg:#e9f8f1;
+    --ng:#d8693f;
+    --ng-bg:#fdf0ea;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    font-family:"Zen Kaku Gothic New","Noto Sans JP",sans-serif;
+    color:var(--ink);
+    background:var(--bg);
+    line-height:1.9;
+    -webkit-font-smoothing:antialiased;
+  }
+  /* hero */
+  .hero{
+    background:linear-gradient(135deg,var(--main),#34b7d4);
+    color:#fff;
+    padding:58px 24px 50px;
+    text-align:center;
+  }
+  .hero .brand{
+    font-family:"Jost",sans-serif;
+    letter-spacing:.28em;
+    font-size:13px;
+    opacity:.92;
+    margin-bottom:18px;
+  }
+  .hero h1{
+    font-size:clamp(21px,4.6vw,33px);
+    font-weight:700;
+    margin:0 0 14px;
+    letter-spacing:.02em;
+  }
+  .hero .pill{
+    display:inline-block;
+    background:rgba(255,255,255,.18);
+    border:1px solid rgba(255,255,255,.4);
+    border-radius:999px;
+    padding:6px 16px;
+    font-size:13px;
+    margin-top:6px;
+  }
+  .wrap{max-width:820px;margin:0 auto;padding:36px 20px 80px;}
+  /* intro */
+  .lead{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:16px;
+    padding:24px 26px;
+    font-size:15px;
+    box-shadow:0 2px 14px rgba(24,155,188,.05);
+    margin-bottom:8px;
+  }
+  .lead p{margin:0 0 10px;}
+  .lead p:last-child{margin:0;}
+  .lead .hl{color:var(--main-d);font-weight:700;}
+  /* section label */
+  .section-label{
+    display:inline-block;
+    font-family:"Jost",sans-serif;
+    letter-spacing:.16em;
+    font-size:12px;
+    color:var(--main-d);
+    background:#e7f5f9;
+    padding:6px 14px;
+    border-radius:999px;
+    margin:40px 0 16px;
+    font-weight:600;
+  }
+  .section-label .ja{
+    font-family:"Zen Kaku Gothic New",sans-serif;
+    letter-spacing:.04em;
+    margin-left:8px;
+  }
+  /* card */
+  .card{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:16px;
+    padding:24px 26px;
+    margin:0 0 18px;
+    box-shadow:0 2px 14px rgba(24,155,188,.05);
+  }
+  .card.flag{border-left:5px solid var(--main);}
+  .card h2{
+    font-size:18px;
+    font-weight:700;
+    margin:0 0 6px;
+    line-height:1.55;
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .card h2 .num{
+    flex:none;
+    font-family:"Jost",sans-serif;
+    font-weight:600;
+    font-size:13px;
+    color:#fff;
+    background:var(--main);
+    width:28px;height:28px;
+    display:flex;align-items:center;justify-content:center;
+    border-radius:50%;
+  }
+  .card .desc{font-size:14px;color:var(--sub);margin:2px 0 16px;}
+  /* checklist */
+  ul.rules{list-style:none;margin:0;padding:0;}
+  ul.rules li{
+    position:relative;
+    padding:9px 0 9px 30px;
+    font-size:15px;
+    border-top:1px dashed var(--line);
+  }
+  ul.rules li:first-child{border-top:none;}
+  ul.rules li::before{
+    content:"";
+    position:absolute;
+    left:2px;top:16px;
+    width:14px;height:14px;
+    border-radius:50%;
+    background:var(--main);
+  }
+  ul.rules li.dont::before{background:var(--ng);}
+  ul.rules li b{color:var(--main-d);}
+  ul.rules li .code{
+    font-family:"Jost",monospace;
+    background:#eef7fa;
+    color:var(--main-d);
+    padding:1px 7px;
+    border-radius:6px;
+    font-size:14px;
+    letter-spacing:.02em;
+  }
+  /* do / dont two column */
+  .ddrow{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:6px;}
+  @media(max-width:600px){.ddrow{grid-template-columns:1fr;}}
+  .dd{
+    border-radius:14px;
+    padding:16px 18px;
+    font-size:14px;
+  }
+  .dd.do{background:var(--ok-bg);border:1px solid #cdeede;}
+  .dd.dont{background:var(--ng-bg);border:1px solid #f3d9cc;}
+  .dd .h{
+    font-weight:700;
+    font-size:14px;
+    margin-bottom:8px;
+    display:flex;align-items:center;gap:7px;
+  }
+  .dd.do .h{color:var(--ok);}
+  .dd.dont .h{color:var(--ng);}
+  .dd .ic{
+    width:20px;height:20px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    color:#fff;font-size:12px;font-weight:700;flex:none;
+  }
+  .dd.do .ic{background:var(--ok);}
+  .dd.dont .ic{background:var(--ng);}
+  .dd ul{margin:0;padding-left:18px;}
+  .dd li{margin:5px 0;}
+  /* logo / asset block */
+  .logobox{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:16px;
+    padding:24px 26px 26px;
+    box-shadow:0 2px 14px rgba(24,155,188,.05);
+  }
+  .logo-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:16px;
+    margin-top:6px;
+  }
+  @media(max-width:600px){.logo-grid{grid-template-columns:1fr;}}
+  .logo-card{
+    border:1px solid var(--line);
+    border-radius:14px;
+    overflow:hidden;
+    background:#fff;
+  }
+  .logo-card .frame{
+    background:linear-gradient(135deg,#f7fcfd,#eef7fa);
+    padding:30px 20px;
+    display:flex;align-items:center;justify-content:center;
+    min-height:120px;
+  }
+  .logo-card .frame img{max-width:78%;max-height:90px;height:auto;}
+  .logo-card .cap{
+    padding:12px 16px;
+    border-top:1px solid var(--line);
+    display:flex;align-items:center;justify-content:space-between;
+    gap:10px;
+  }
+  .logo-card .cap .name{font-size:13px;font-weight:700;color:var(--ink);}
+  .logo-card .cap .name span{display:block;font-size:11px;color:var(--sub);font-weight:400;}
+  .dl{
+    flex:none;
+    font-size:12px;
+    font-weight:700;
+    color:#fff;
+    background:var(--main);
+    border-radius:999px;
+    padding:6px 14px;
+    text-decoration:none;
+    white-space:nowrap;
+  }
+  .dl:hover{background:var(--main-d);}
+  .note{
+    margin-top:18px;
+    background:#fbf8ee;
+    border:1px solid #efe7c9;
+    border-radius:12px;
+    padding:14px 16px;
+    font-size:13px;
+    color:#7a6a3a;
+  }
+  .note b{color:#5f5320;}
+  /* tone swatches */
+  .tone{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px;}
+  .sw{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--sub);}
+  .sw .chip{width:22px;height:22px;border-radius:6px;border:1px solid rgba(0,0,0,.06);}
+  /* naming example */
+  .naming{
+    margin-top:14px;
+    background:#0f2b33;
+    color:#cdeef6;
+    border-radius:12px;
+    padding:14px 18px;
+    font-family:"Jost",monospace;
+    font-size:15px;
+    letter-spacing:.04em;
+  }
+  .naming .ok{color:#7fe0c2;}
+  /* footer */
+  footer{
+    text-align:center;
+    padding:36px 20px 48px;
+    color:var(--sub);
+    font-size:13px;
+    border-top:1px solid var(--line);
+    background:#fff;
+  }
+  footer .brand{font-family:"Jost",sans-serif;letter-spacing:.2em;font-size:12px;margin-top:6px;}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="brand">POOLO LIFE 11th &nbsp;/&nbsp; INSTAGRAM</div>
+  <h1>11期 Instagram運用ガイドライン</h1>
+  <div class="pill">有志アカウント向け・安心して使うためのガードレール</div>
+</div>
+
+<div class="wrap">
+
+  <!-- はじめに -->
+  <div class="lead">
+    <p>11期生によるアウトプット＆シェアのアカウント、<span class="hl">ぜひ進めてほしいです！応援しています。</span></p>
+    <p>スムーズに運用していくために、一緒に気をつけたいポイントをまとめました。禁止事項というより「みんなが安心して使えるためのガードレール」として読んでもらえたら嬉しいです。</p>
+  </div>
+
+  <!-- 1. 公式との区別 -->
+  <span class="section-label">01<span class="ja">公式アカウントとの区別</span></span>
+  <div class="card flag">
+    <h2><span class="num">★</span>これが一番大事なポイント</h2>
+    <p class="desc">「公式と間違われない」ことが、有志アカウントを安心して続けるための土台になります。</p>
+    <ul class="rules">
+      <li>アカウント名・プロフィール文・最初の投稿で<b>「11期生の有志運営アカウント」であることを明示</b>する</li>
+      <li>プロフィール先頭に <b>「POOLO LIFE 11期生による有志アカウント（非公式）」</b> のような一文を入れる</li>
+      <li class="dont">名前の横に <b>✓絵文字などを置かない</b>（公式認証と誤認されるため）</li>
+      <li>命名は <span class="code">poolo_life_11th</span> 系で統一（将来の期とも揃えやすく、公式と衝突しない形）</li>
+    </ul>
+    <div class="naming">
+      おすすめの命名例：<span class="ok">@poolo_life_11th</span> / <span class="ok">@poolo_life_11th_fan</span>
+    </div>
+  </div>
+
+  <!-- 2. ロゴ・アイコン -->
+  <span class="section-label">02<span class="ja">ロゴ・アイコンについて</span></span>
+  <div class="card">
+    <h2><span class="num">◎</span>基本方針</h2>
+    <p class="desc">11期オリジナルの土台に「11th」のあしらいを足す形を推奨します。公式ロゴをそのまま主役にしないのがポイントです。</p>
+    <div class="ddrow">
+      <div class="dd do">
+        <div class="h"><span class="ic">○</span>こうするといい</div>
+        <ul>
+          <li>11期オリジナルの土台に「11th」を添える</li>
+          <li>「11th」マークは<b>隅に小さく</b></li>
+          <li>11thの表現はリボン・丸囲み数字・下線テキストなどに</li>
+          <li>円の<b>内側に収まる位置</b>にマークを置く</li>
+          <li>POOLOのトーン（明朝＋クリーム系）に寄せる</li>
+        </ul>
+      </div>
+      <div class="dd dont">
+        <div class="h"><span class="ic">×</span>これは避けたい</div>
+        <ul>
+          <li>公式ロゴそのものをアイコン全面に使う</li>
+          <li>「11th」マークを中央に大きく置く（認証マーク感が出る）</li>
+          <li><b>✓（チェック）の形</b>を使う</li>
+          <li>四隅ぎりぎりに置く（円形トリミングで切れる）</li>
+        </ul>
+      </div>
+    </div>
+    <div class="tone">
+      <div class="sw"><span class="chip" style="background:#189BBC"></span>POOLOブルー #189BBC</div>
+      <div class="sw"><span class="chip" style="background:#f7f2e3"></span>クリーム系の背景</div>
+      <div class="sw"><span class="chip" style="background:#243136"></span>明朝・濃インク</div>
+    </div>
+    <div class="note">
+      📐 <b>作り方のコツ：</b> Instagramのアイコンは<b>円形に切り取られる</b>ので、四隅ではなく円の内側にマークを。作成は <b>Canva等の画像ツールで作ってからアップ</b>が確実です（アプリ内編集だと配置が効きにくい）。
+    </div>
+  </div>
+
+  <!-- 3. 公式ロゴの取り扱い -->
+  <span class="section-label">03<span class="ja">公式ロゴの取り扱い</span></span>
+  <div class="card">
+    <h2><span class="num">!</span>あわせてお願いしたいこと</h2>
+    <ul class="rules">
+      <li class="dont">公式ロゴの<b>色・比率・余白を改変しない</b></li>
+      <li class="dont">ロゴの近くに <b>「公式」「Official」等の紛らわしい文字を置かない</b></li>
+    </ul>
+  </div>
+
+  <!-- ロゴデータ -->
+  <span class="section-label">DATA<span class="ja">ロゴデータ</span></span>
+  <div class="logobox">
+    <p class="desc" style="margin-top:0;color:var(--sub);font-size:14px;">アイコン制作の土台に使えるロゴデータです。<b style="color:var(--main-d)">そのまま全面に使わず</b>、11期のあしらいを足す前提でご活用ください。クリックでダウンロードできます。</p>
+    <div class="logo-grid">
+      <div class="logo-card">
+        <div class="frame"><img src="images/poolo_logo.png" alt="POOLOロゴ（タグライン付き）"></div>
+        <div class="cap">
+          <div class="name">POOLOロゴ<span>タグライン付き</span></div>
+          <a class="dl" href="images/poolo_logo.png" download>DL</a>
+        </div>
+      </div>
+      <div class="logo-card">
+        <div class="frame"><img src="images/poolo_logo03.png" alt="POOLOロゴ"></div>
+        <div class="cap">
+          <div class="name">POOLOロゴ<span>ロゴタイプ</span></div>
+          <a class="dl" href="images/poolo_logo03.png" download>DL</a>
+        </div>
+      </div>
+    </div>
+    <div class="note">
+      🎨 <b>ブランドトーン：</b> メインカラー <b>#189BBC</b>／和文は ZEN KAKU GOTHIC NEW・NOTO SANS JP、欧文は JOST。色・比率・余白は変えずに使ってください。
+    </div>
+  </div>
+
+  <!-- まとめ -->
+  <span class="section-label">CHECK<span class="ja">投稿前のかんたんチェック</span></span>
+  <div class="card">
+    <ul class="rules">
+      <li>プロフィールに「<b>非公式・有志アカウント</b>」と書いてある</li>
+      <li>名前の横に <b>✓ がない</b></li>
+      <li>アイコンは <b>11thを隅に小さく</b>、円の内側に収まっている</li>
+      <li>「公式」「Official」など <b>誤認させる言葉がない</b></li>
+      <li>ユーザー名は <span class="code">poolo_life_11th</span> 系</li>
+    </ul>
+  </div>
+
+  <div class="lead" style="margin-top:24px;text-align:center;">
+    <p style="margin:0;">わからないことがあれば気軽に相談してください。<br><span class="hl">楽しく、安心して、どんどんシェアしていきましょう！</span></p>
+  </div>
+
+</div>
+
+<footer>
+  <p>POOLO LIFE 11期｜Instagram運用ガイドライン（2026/06/11 作成）</p>
+  <p class="brand">by TABIPPO</p>
+</footer>
+
+</body>
+</html>
