@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>OGP — 30s</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700;800&family=Shippori+Mincho+B1:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1600px; height: 900px; background: #FFFFFF; overflow: hidden; }
+  .hd { position: relative; width: 1600px; height: 900px; background: #FFFFFF; overflow: hidden; display: grid; grid-template-columns: 41.25% 58.75%; container-type: inline-size; }
+  .hd-photo { background-image: url('images/hero-photo-01_542.jpg'); background-size: cover; background-position: 50% 75%; }
+  .hd-content { position: relative; padding: 4cqi 4cqi 3cqi 4.4cqi; display: grid; grid-template-rows: 7fr 3fr; background: #FFFFFF; border-left: 1px solid #E8E8E8; }
+  .hd-main-copy { display: flex; flex-direction: column; justify-content: center; gap: 2.4cqi; }
+  .hd-tag-row { display: flex; align-items: center; gap: 1.2cqi; }
+  .hd-tag { font-family: 'Shippori Mincho B1', serif; font-size: 1.9cqi; letter-spacing: 0.22em; font-weight: 600; color: #189BBC; line-height: 1; }
+  .hd-tag-line { flex: 0 0 auto; width: 6cqi; height: 1px; background: #189BBC; }
+  .hd-title { font-family: 'Shippori Mincho B1', serif; line-height: 1.08; width: auto; }
+  .hd-title-line { display: block; text-align: left; text-align-last: left; white-space: nowrap; }
+  .hd-title-row2-sm { font-size: 4.4cqi; font-weight: 700; color: #111111; letter-spacing: 0.04em; line-height: 1.18; margin-bottom: 0.4em; }
+  .hd-title-row2-lg { font-size: 8.2cqi; font-weight: 800; color: #189BBC; letter-spacing: 0.02em; line-height: 1.12; margin-top: 0.3em; }
+  .hd-title-90 { font-size: 4cqi; font-weight: 700; letter-spacing: 0.02em; margin-left: 0.18em; }
+  .hd-date-zoom { display: flex; flex-direction: column; justify-content: center; gap: 1cqi; }
+  .hd-date-band { position: relative; padding: 1.2cqi 0; border-top: 2px dotted #189BBC; border-bottom: 2px dotted #189BBC; }
+  .hd-date-row { display: flex; align-items: center; gap: 1cqi; font-family: 'Shippori Mincho B1', serif; }
+  .hd-date-cal { width: 2.4cqi; height: 2.4cqi; color: #189BBC; flex: 0 0 auto; }
+  .hd-date-cal svg { width: 100%; height: 100%; display: block; }
+  .hd-date-main { font-family: 'Shippori Mincho B1', serif; font-size: 4.2cqi; font-weight: 600; color: #111111; letter-spacing: 0.02em; line-height: 1; }
+  .hd-date-dow { width: 2.4cqi; height: 2.4cqi; background: #189BBC; color: #fff; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-family: 'Shippori Mincho B1', serif; font-size: 1.4cqi; font-weight: 700; line-height: 1; margin-left: -0.1cqi; }
+  .hd-date-time { margin-left: 0.6cqi; font-family: 'Shippori Mincho B1', serif; font-size: 2.2cqi; font-weight: 500; color: #111111; letter-spacing: 0.06em; line-height: 1; }
+  .hd-zoom-row { display: flex; align-items: center; gap: 1.2cqi; font-family: 'Shippori Mincho B1', serif; color: #111111; }
+  .hd-zoom-icon { width: 2.6cqi; height: 2cqi; background: #189BBC; border-radius: 4px; display: inline-flex; align-items: center; justify-content: center; color: #fff; }
+  .hd-zoom-icon svg { width: 60%; height: 60%; display: block; }
+  .hd-zoom-label { font-family: 'Shippori Mincho B1', serif; font-size: 2cqi; font-weight: 600; color: #189BBC; letter-spacing: 0.04em; }
+  .hd-zoom-divider { width: 1px; height: 2cqi; background: #D6E9EF; }
+  .hd-free-pill { font-family: 'Shippori Mincho B1', serif; font-size: 1.7cqi; font-weight: 600; color: #189BBC; border: 1.5px solid #189BBC; border-radius: 4px; padding: 0.45em 1.2em; letter-spacing: 0.1em; line-height: 1; }
+  .hd-brand-logo { position: absolute; bottom: 2.5cqi; right: 4.5cqi; height: 3.4cqi; width: auto; display: block; }
+</style>
+</head>
+<body>
+  <section class="hd">
+    <div class="hd-photo"></div>
+    <div class="hd-content">
+      <div class="hd-main-copy">
+        <div class="hd-tag-row">
+          <span class="hd-tag">生き方を問い直す</span>
+          <span class="hd-tag-line"></span>
+        </div>
+        <h1 class="hd-title">
+          <span class="hd-title-line hd-title-row2-sm">30代の生き方を</span>
+          <span class="hd-title-line hd-title-row2-lg">問い直す<span class="hd-title-90">90分</span></span>
+        </h1>
+      </div>
+      <div class="hd-date-zoom">
+        <div class="hd-date-band">
+          <div class="hd-date-row">
+            <span class="hd-date-cal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></span>
+            <span class="hd-date-main">7/20</span>
+            <span class="hd-date-dow">月</span>
+            <span class="hd-date-time">20:00〜21:30</span>
+          </div>
+        </div>
+        <div class="hd-zoom-row">
+          <span class="hd-zoom-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg></span>
+          <span class="hd-zoom-label">zoom</span>
+          <span class="hd-zoom-divider"></span>
+          <span class="hd-free-pill">無料</span>
+        </div>
+      </div>
+      <img class="hd-brand-logo" src="images/poolo_logo03.png" alt="POOLO">
+    </div>
+  </section>
+</body>
+</html>
