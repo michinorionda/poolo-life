@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>POOLO 参加者インサイト＆マーケ言葉集（10期＋11期note分析）</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --primary:#189BBC; --ink:#1c2b30; --sub:#5a6c72; --line:#e3edf0;
+    --bg:#f4f9fb; --card:#ffffff; --accent:#0d7e9c; --soft:#eef7fa;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    font-family:"Zen Kaku Gothic New","Noto Sans JP",sans-serif;
+    color:var(--ink); background:var(--bg); line-height:1.85;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:860px;margin:0 auto;padding:0 22px 100px}
+  header.hero{
+    background:linear-gradient(135deg,#189BBC 0%,#0d7e9c 100%);
+    color:#fff;padding:64px 22px 56px;text-align:center;margin-bottom:40px;
+  }
+  .hero .ey{font-family:"Jost",sans-serif;letter-spacing:.22em;font-size:13px;opacity:.85;font-weight:500}
+  .hero h1{font-size:30px;font-weight:700;margin:14px 0 12px;line-height:1.45}
+  .hero p{font-size:14px;opacity:.92;max-width:620px;margin:0 auto}
+  .hero .meta{margin-top:20px;font-size:12px;opacity:.8;font-family:"Jost",sans-serif;letter-spacing:.08em}
+  .lede{
+    background:var(--card);border-left:5px solid var(--primary);border-radius:0 14px 14px 0;
+    padding:22px 26px;margin:0 0 44px;box-shadow:0 6px 24px rgba(24,155,188,.08);
+    font-size:16px;font-weight:500;
+  }
+  .lede b{color:var(--accent)}
+  section{margin-bottom:54px}
+  .ptag{
+    display:inline-block;font-family:"Jost",sans-serif;font-size:12px;letter-spacing:.14em;
+    background:var(--soft);color:var(--accent);padding:5px 13px;border-radius:30px;font-weight:600;margin-bottom:14px;
+  }
+  h2{font-size:23px;font-weight:700;margin:0 0 8px;color:var(--ink);border-bottom:2px solid var(--line);padding-bottom:12px}
+  h3{font-size:17px;font-weight:700;margin:30px 0 12px;color:var(--accent);display:flex;align-items:center;gap:9px}
+  h3 .n{
+    font-family:"Jost",sans-serif;background:var(--primary);color:#fff;width:26px;height:26px;border-radius:50%;
+    display:inline-flex;align-items:center;justify-content:center;font-size:13px;flex:none;
+  }
+  ul{list-style:none;margin:6px 0 6px}
+  ul li{position:relative;padding:5px 0 5px 20px;font-size:14.5px;color:#2a3b40}
+  ul li::before{content:"";position:absolute;left:2px;top:14px;width:7px;height:7px;border-radius:50%;background:var(--primary)}
+  .sub{color:var(--sub);font-size:13px}
+  table{width:100%;border-collapse:collapse;margin:14px 0;font-size:13.5px;background:var(--card);border-radius:10px;overflow:hidden;box-shadow:0 4px 16px rgba(0,0,0,.04)}
+  th{background:var(--primary);color:#fff;text-align:left;padding:11px 13px;font-weight:600;font-size:13px}
+  td{padding:11px 13px;border-top:1px solid var(--line);vertical-align:top}
+  tr:nth-child(even) td{background:#fafdfe}
+  .quote-grid{display:grid;gap:12px;margin-top:10px}
+  .q{
+    background:var(--card);border-radius:12px;padding:16px 18px;box-shadow:0 4px 16px rgba(0,0,0,.05);
+    border-left:4px solid var(--primary);
+  }
+  .q p{font-size:15px;font-weight:500;color:var(--ink);margin-bottom:6px}
+  .q .id{font-family:"Jost",sans-serif;font-size:12px;color:var(--primary);letter-spacing:.04em;font-weight:600}
+  .hero-quotes{display:grid;gap:14px;margin-top:6px}
+  .hq{background:linear-gradient(135deg,#eef7fa,#ffffff);border-radius:14px;padding:22px 24px;text-align:center;border:1px solid var(--line)}
+  .hq p{font-size:19px;font-weight:700;color:var(--accent);line-height:1.55}
+  .hq .id{font-family:"Jost",sans-serif;font-size:12px;color:var(--sub);margin-top:8px;display:block}
+  .cat{font-family:"Jost",sans-serif;font-size:13px;color:var(--accent);font-weight:600;margin:24px 0 8px;letter-spacing:.06em;border-left:3px solid var(--primary);padding-left:10px}
+  .vocab{background:var(--card);border-radius:14px;padding:20px 22px;box-shadow:0 4px 16px rgba(0,0,0,.05);font-size:15px;line-height:2.3}
+  .vocab b{background:var(--soft);color:var(--accent);padding:3px 9px;border-radius:6px;font-weight:600;font-size:14px;display:inline-block;margin:2px 0}
+  .takeaways{counter-reset:t}
+  .takeaways .item{background:var(--card);border-radius:12px;padding:15px 18px 15px 54px;margin-bottom:10px;position:relative;box-shadow:0 4px 14px rgba(0,0,0,.04);font-size:14.5px}
+  .takeaways .item::before{
+    counter-increment:t;content:counter(t);position:absolute;left:16px;top:14px;
+    font-family:"Jost",sans-serif;background:var(--primary);color:#fff;width:26px;height:26px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:600;
+  }
+  .takeaways .item b{color:var(--accent)}
+  footer{text-align:center;color:var(--sub);font-size:12px;margin-top:40px;font-family:"Jost",sans-serif;letter-spacing:.06em}
+  .note{font-size:12px;color:var(--sub);background:#fff8ec;border:1px solid #f0e0c0;border-radius:10px;padding:12px 16px;margin-top:18px}
+  @media(max-width:560px){.hero h1{font-size:24px}.hq p{font-size:16px}}
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="ey">POOLO LIFE ・ MEMBER NOTE ANALYSIS</div>
+  <h1>参加者インサイト＆マーケ言葉集</h1>
+  <p>10期145本＋11期144本＝約290本のメンバーnoteを全文精読し、新たな参加者インサイトとマーケで使える"生の言葉"を抽出</p>
+  <div class="meta">2026.06.17 ／ 10期＝入口〜卒業（フルジャーニー1周）／ 11期＝入口〜合宿（前半3ヶ月）</div>
+</header>
+
+<div class="wrap">
+
+  <div class="lede">
+    一言でいうと──<b>「社会的"正解"を選んできたのに満ちない20〜40代が、旅×対話×仲間の中で"本音"を言語化し、"結局は人だった"という確信にたどり着く8ヶ月」。</b>
+    10期の卒業noteを加えたことで、入口の「正解疲れ・本音の不在」が、出口で「人間も捨てたもんじゃない」へ着地する全体像が確認できた。
+  </div>
+
+  <!-- 第1部 -->
+  <section>
+    <span class="ptag">PART 1 ／ INSIGHT</span>
+    <h2>新たに見えた参加者インサイト</h2>
+
+    <h3><span class="n">1</span>入口の動機は"成長欲"より"静かな危機感"</h3>
+    <ul>
+      <li><b>"壊れる前のSOS"としての入会</b>：「変えないと壊れる気がしたけど辞める勇気もなく、縋るように飛び込んだ」<span class="sub">（@chiiiiisan0525）</span></li>
+      <li><b>「楽しいだけでは終わらせたくない」次段階への渇望</b>：過去の旅で"楽しい"は得たが「結局何を学んだんだっけ?」が残った層<span class="sub">（@arashida_sota／@peach023）</span></li>
+      <li><b>年齢が最後の一押し</b>：「最後の一押しは年齢だった」<span class="sub">（@mytabi_mie）</span>、30歳・「4月で年齢が上がるのが嫌」<span class="sub">（@hiro860419）</span></li>
+      <li><b>検討期間が長い（半年〜1年）</b>：「前回10期入らなくて後悔した」<span class="sub">（@stayhumble315）</span>。"知ってたけど見送り→今回えいや"が定番</li>
+      <li><b>過去の傷からの回復願望</b>：「否定されてきた自分を受け入れてくれる気がして」<span class="sub">（@hitorigurashi_27／@cheeky_abelia582）</span></li>
+    </ul>
+
+    <h3><span class="n">2</span>入口期に"弱音"が同居している（新発見）</h3>
+    <p class="sub">入口noteは「ワクワク」一色ではなく、疲れた／怖い／首を絞めている、が共存している。</p>
+    <ul>
+      <li>「ちょっと、もう疲れた。この一言を言うのにどれくらいの勇気を…」<span class="sub">（@chiiiiisan0525）</span></li>
+      <li>「華々しい経歴の人を見ると"うっ"となる」<span class="sub">（@hayato_marv）</span></li>
+    </ul>
+    <p class="sub">→ この弱さを隠さないコピーが、この層には刺さる。</p>
+
+    <h3><span class="n">3</span>変化のプロセス：揺さぶり→…→"結局は人"（10期で全工程確認）</h3>
+    <table>
+      <tr><th>段階</th><th>起きること</th><th>生の根拠</th></tr>
+      <tr><td>①揺さぶり</td><td>予測不能ワーク／旅／合宿</td><td>「揺さぶり＝予測できないアクシデントと腑に落ちた」（@hiro860419）</td></tr>
+      <tr><td>②もやもや</td><td>違和感をスルーせず抱える</td><td>「もやもやのまま言語化して、置いておく」（@canari126）</td></tr>
+      <tr><td>③問い化</td><td>"持って歩く問い"へ</td><td>「探究からの卒業は永遠に来ない」（@peach023）</td></tr>
+      <tr><td>④言語化＝内へ</td><td>発信でなく自己理解</td><td>「言語化は"外へ"でなく"内へ"」（@22_mimoza_77）</td></tr>
+      <tr><td>⑤本音の解放</td><td>答えを出さなくてよい安心</td><td>「大切なものは言葉にならないだけで、自分の中にある」（@hirokiasano0414）</td></tr>
+      <tr><td>⑥着地＝人</td><td>"結局は人だった"の確信</td><td>「結局は、人だった」（@ohta_ttr）</td></tr>
+    </table>
+
+    <h3><span class="n">4</span>before → after（10期卒業noteで実証）</h3>
+    <table>
+      <tr><th>軸</th><th>Before（入口）</th><th>After（卒業）</th></tr>
+      <tr><td>自己開示</td><td>一人で完結／完璧主義</td><td>「試しに見せたら人生がひとつ前に進んだ」（@fair_godwit125）</td></tr>
+      <tr><td>自己評価</td><td>「不安で不安でたまらない」</td><td>「元々持っていたものが大切だったと気付かせてくれた」（@mytabi_mie）</td></tr>
+      <tr><td>人間観</td><td>「誰とも話さず終わる一日」</td><td>「人間も捨てたもんじゃないと思えた」（@ohta_ttr）</td></tr>
+      <tr><td>関係性</td><td>出会いを消費／一線を引く</td><td>「軽くて深い、家族のような関係性」（@arashida_sota）</td></tr>
+      <tr><td>自己像</td><td>「外れ値」「キラキラが羨ましい」</td><td>「等身大の自分で自他共にラブる」（@cozy_bison7086）</td></tr>
+    </table>
+
+    <h3><span class="n">5</span>11期で新しく出た論点</h3>
+    <ul>
+      <li><b>AIとの距離感が二極化</b>：「AIに任せると内省が自分の上を通過する」（@22_mimoza_77）vs「自作プロンプトを才能深掘りの相棒に」（@kanichi0203）→ "自分の言葉で語る"価値を際立たせる時事ネタ</li>
+      <li><b>「悩み」を「問い」に変えると孤独が消える</b>（対話設計の核心を参加者が言語化）：「孤独だと思っていたものが、共有されることで孤独じゃなくなる」（@moon_3zu）</li>
+    </ul>
+  </section>
+
+  <!-- 第2部 -->
+  <section>
+    <span class="ptag">PART 2 ／ COPY</span>
+    <h2>マーケで使える"生の言葉"集</h2>
+    <p class="sub">すべて note 原文ママ＋ID。用途別に分類。</p>
+
+    <div class="cat">A. ヒーローコピー候補（一語で立つ）</div>
+    <div class="hero-quotes">
+      <div class="hq"><p>「大切なものは言葉にならないだけで、自分の中にある。」</p><span class="id">@hirokiasano0414</span></div>
+      <div class="hq"><p>「孤独だと思っていたものが、共有されることで、孤独じゃなくなる。」</p><span class="id">@moon_3zu</span></div>
+      <div class="hq"><p>「言語化は"外へ"ではなくて"内へ"するもの。」</p><span class="id">@22_mimoza_77</span></div>
+      <div class="hq"><p>「"正しい"よりも"優しい"を。」</p><span class="id">@haru1077tigers</span></div>
+    </div>
+
+    <div class="cat">B. 入口・背中押し（やらない後悔／環境を変える）</div>
+    <div class="quote-grid">
+      <div class="q"><p>「ワクワクしたから。そして入らなかったら後悔しそうだから。完全に"えいや！"でした。」</p><span class="id">@stayhumble315</span></div>
+      <div class="q"><p>「不安よりも、ワクワクを信じてみよう。」</p><span class="id">@po_yoo9</span></div>
+      <div class="q"><p>「自分を変えるのは難しいけど、誰を周りに置くかっていう環境を変えるのは簡単だから、POOLOを選びました。」</p><span class="id">@honoka_1014</span></div>
+      <div class="q"><p>「やりたいことが決まって入ってくる人なんて2割しかいなくて、何かを変えたいって前向きに悩んで入ってくる人が8割以上なんですよ。」</p><span class="id">運営の言葉／@22_mimoza_77</span></div>
+    </div>
+
+    <div class="cat">C. 価格の壁を越える「価値回収」ナラティブ</div>
+    <div class="quote-grid">
+      <div class="q"><p>「参加費16万円分の価値を回収するぐらいの気づきを得ることができている。かなりの神コスパだと感じている。」</p><span class="id">@omarimari_62</span></div>
+      <div class="q"><p>「旅仲間が欲しいだけなら、16万円も払いません。本気で悩んで、自分が納得できる選択をしたい。」</p><span class="id">@nattu18</span></div>
+      <div class="q"><p>「絶対払った以上の価値を手に入れるんだ。」</p><span class="id">@yumiralala</span></div>
+    </div>
+
+    <div class="cat">D. 卒業生の総括・推薦（実績として最強）</div>
+    <div class="quote-grid">
+      <div class="q"><p>「ちょっと人生立ち止まって考えたい人に、POOLOはおすすめだ。」</p><span class="id">@ohta_ttr</span></div>
+      <div class="q"><p>「この8ヶ月で、確実に、"人間も捨てたもんじゃない"と思えた。」</p><span class="id">@ohta_ttr</span></div>
+      <div class="q"><p>「私にとってPOOLOは、"自分の人生が大きく一歩進む、人と経験に出会えた場所"だった。」</p><span class="id">@mcyt_9630</span></div>
+      <div class="q"><p>「終わる実感がまるでないのは、私がPOOLOで出会ったのが人だからだと思う。」</p><span class="id">@peach023</span></div>
+      <div class="q"><p>「POOLOは自分の人生を一人で完結させない生き方を教えてくれた。」</p><span class="id">@fair_godwit125</span></div>
+      <div class="q"><p>「このコミュニティには、他の人に紹介したい、と思わせてくれる魅力があった。」</p><span class="id">@ohta_ttr</span></div>
+    </div>
+
+    <div class="cat">E. 変容ビフォーアフター（体験談の核）</div>
+    <div class="quote-grid">
+      <div class="q"><p>「人といる時間が楽しくて幸せって、本当に最高な日々。そんな人生を歩むなんて、信じられなかったよ。」</p><span class="id">@moon_3zu</span></div>
+      <div class="q"><p>「3週間前には想像できないぐらい気持ちが変化している。世界の解像度が増している。」</p><span class="id">@omarimari_62</span></div>
+      <div class="q"><p>「変わったのは、"外側"よりもむしろ"内側"のほうかもしれない。」</p><span class="id">@risa_yamada1009</span></div>
+      <div class="q"><p>「人生がひとつ前に進んだ気がした。」</p><span class="id">@fair_godwit125</span></div>
+    </div>
+
+    <div class="cat">F. コミュニティ価値（"何が起きる場所か"）</div>
+    <div class="quote-grid">
+      <div class="q"><p>「一人で悩むことを、あらゆる人と一緒に探求することができる。」</p><span class="id">@peach023</span></div>
+      <div class="q"><p>「"解決するための問い"ではなく、"持って歩くための問い"を持てるようになった。」</p><span class="id">@canari126</span></div>
+      <div class="q"><p>「POOLOは優しい方の集まりであり、心を預けることができる環境が整っている。」</p><span class="id">@ekvi_2791</span></div>
+      <div class="q"><p>「自立は、依存先を増やすこと。」</p><span class="id">@tender_murre185</span></div>
+    </div>
+
+    <div class="cat">G. 共感喚起（"自分だけじゃない"）</div>
+    <div class="quote-grid">
+      <div class="q"><p>「あ〜私だけじゃないんだな〜〜って思えるだけで安心した。」</p><span class="id">@honoka_1014</span></div>
+      <div class="q"><p>「毎日悩んでいるのは自分だけじゃないんだなと安心感があった。」</p><span class="id">@konatsu312</span></div>
+      <div class="q"><p>「職場と家を往復する日々を定年までの残り三十数年間するのかと想像すると心がゾッとします。」</p><span class="id">@ekvi_2791</span></div>
+    </div>
+  </section>
+
+  <!-- 第3部 -->
+  <section>
+    <span class="ptag">PART 3 ／ VOCABULARY</span>
+    <h2>頻出語彙（コピーは参加者の語彙に寄せる）</h2>
+    <div class="vocab">
+      <b>揺さぶり</b> <b>言語化（内へ）</b> <b>本音</b> <b>問い・探究テーマ</b> <b>もやもや・違和感</b> <b>対話・1on1</b> <b>仲間・出会い・縁</b> <b>居場所・イドコロ</b> <b>ありのまま・素</b> <b>軽くて深い関係性</b> <b>解像度が上がる</b> <b>濃密・あっという間</b> <b>結局は人</b> <b>豊かさ・BIG LOVE</b> <b>繊細さ（弱み→翼）</b> <b>神コスパ・払った以上の価値</b>
+    </div>
+    <p class="sub" style="margin-top:12px">特に「結局は人」「軽くて深い関係性」「内へする言語化」「揺さぶり」は10期・11期で独立して何度も出現＝ブランドの背骨。</p>
+  </section>
+
+  <!-- 第4部 -->
+  <section>
+    <span class="ptag">PART 4 ／ ACTION</span>
+    <h2>ブランド／施策への示唆</h2>
+    <div class="takeaways">
+      <div class="item"><b>入口コピーは「正解疲れ × 本音の不在」を突く</b>。成長欲でなく"静かな危機感"に寄り添う。</div>
+      <div class="item"><b>"変化"より"自己再定義／結局は人"を約束する</b>。卒業生の総括が全員ここに収束。</div>
+      <div class="item"><b>「やりたいことが決まってなくていい（8割がそう）」を不安層の最後の一押しに</b>。最強の離脱防止メッセージ。</div>
+      <div class="item"><b>価格の壁は受講者の言葉で越えさせる</b>：「16万円の神コスパ」「払った以上の価値」をそのまま証言に。</div>
+      <div class="item"><b>見送り層へのリタゲ＋年齢の節目訴求</b>。検討期間が半年〜1年と長い前提で導線設計。</div>
+      <div class="item"><b>葛藤・弱さを隠さない誠実さ</b>（「楽しいだけじゃダメ」「なんかここじゃない」）がこの層の信頼を生む。</div>
+      <div class="item"><b>卒業生推薦コーナーを作る</b>：@ohta_ttr／@peach023／@famous_knot460 など総括力の高い声を実名体験談に。</div>
+    </div>
+    <div class="note">※ 引用は精読に基づき原文ママで揃えていますが、公開前に各noteで前後文脈と本人許諾の確認をおすすめします。</div>
+  </section>
+
+  <footer>POOLO LIFE ／ Member Note Analysis ・ 290 notes ・ 2026.06.17 ・ by TABIPPO</footer>
+</div>
+</body>
+</html>
