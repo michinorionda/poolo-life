@@ -251,6 +251,15 @@ section{position:relative;z-index:1}
 .apply-btn:hover .ar{transform:translateX(4px)}
 .cta .apply-wrap{margin-top:6px}
 
+/* 残り僅かバッジ */
+.seats-badge{display:inline-flex;align-items:center;gap:7px;margin-bottom:16px;
+  padding:7px 16px;border-radius:40px;background:#fbeceb;color:#c0392b;
+  font-size:12.5px;font-weight:600;letter-spacing:.08em}
+.seats-badge .dot{width:7px;height:7px;border-radius:50%;background:#e74c3c;
+  box-shadow:0 0 0 0 rgba(231,76,60,.5);animation:seatsPulse 1.8s infinite}
+@keyframes seatsPulse{0%{box-shadow:0 0 0 0 rgba(231,76,60,.5)}
+  70%{box-shadow:0 0 0 7px rgba(231,76,60,0)}100%{box-shadow:0 0 0 0 rgba(231,76,60,0)}}
+
 /* 追従するスティッキーCTAバー */
 .sticky-cta{position:fixed;left:0;right:0;bottom:0;z-index:60;
   background:rgba(21,50,61,.97);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
@@ -527,7 +536,10 @@ section{position:relative;z-index:1}
       豊かな島で、これからの生き方を問い直す旅へ。
     </p>
     <div class="apply-wrap">
-      <a class="apply-btn" href="#apply" target="_blank" rel="noopener">お申し込みはこちら <span class="ar">→</span></a>
+      <div class="seats-badge"><span class="dot"></span>定員10名・残り僅か</div>
+      <div>
+        <a class="apply-btn" href="#apply" target="_blank" rel="noopener">お申し込みはこちら <span class="ar">→</span></a>
+      </div>
     </div>
   </div>
   <div class="wrap">
