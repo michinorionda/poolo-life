@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<meta name="description" content="2026年7月4日〜5日、山梨県・丹波山村。関東でいちばん小さな村で「豊かな暮らしとは？」を問う2日間。POOLO LIFEの旅の栞。">
+<meta property="og:title" content="丹波山モード｜旅の栞（POOLO LIFE）">
+<meta property="og:description" content="2026年7月4日〜5日、山梨県・丹波山村。関東でいちばん小さな村で豊かな暮らしを問う2日間。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://michinorionda.github.io/poolo-life/tanbayama/shiori-260703.html">
+<meta property="og:image" content="https://michinorionda.github.io/poolo-life/tanbayama/images/keyvisual.png">
+<meta property="og:site_name" content="POOLO LIFE">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="丹波山モード｜旅の栞">
+<meta name="twitter:description" content="2026年7月4日〜5日、山梨県・丹波山村。豊かな暮らしを問う2日間。">
+<style>html,body{margin:0;padding:0}*{box-sizing:border-box}img{max-width:100%;height:auto}</style>
+<title>丹波山モード｜旅の栞</title>
+<style>
+  :root{
+    --teal:#189BBC;
+    --paper:#F5F4EE;
+    --ink:#14201F;
+    --pop:#E85D75;
+    --riso:#F26B3A;
+    --teal-deep:#0f7690;
+  }
+  *{box-sizing:border-box}
+  .zine{
+    font-family:"Hiragino Kaku Gothic StdN","Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
+    background:var(--paper);
+    color:var(--ink);
+    line-height:1.75;
+    margin:0 auto;
+    max-width:940px;
+    overflow-x:hidden;
+    -webkit-font-smoothing:antialiased;
+    /* subtle paper grain */
+    background-image:
+      radial-gradient(rgba(20,32,31,.035) 1px, transparent 1px),
+      radial-gradient(rgba(20,32,31,.025) 1px, transparent 1px);
+    background-size:5px 5px, 7px 7px;
+    background-position:0 0, 3px 2px;
+  }
+  .zine :focus-visible{outline:3px solid var(--pop);outline-offset:3px}
+  .grot{font-family:"Jost","Helvetica Neue","Arial Black",sans-serif}
+  .num{font-variant-numeric:tabular-nums;font-family:"Jost","Helvetica Neue","Arial Black",sans-serif}
+  .wrap{padding:0 clamp(18px,5vw,44px)}
+
+  /* ===== HERO ===== */
+  .hero{
+    position:relative;
+    background:var(--teal);
+    color:var(--paper);
+    padding:clamp(30px,7vw,64px) clamp(18px,5vw,44px) clamp(46px,9vw,88px);
+    overflow:hidden;
+  }
+  /* off-register duplicate title (riso misregistration feel) */
+  .hero-topline{
+    display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center;
+    font-weight:900;letter-spacing:.16em;font-size:clamp(11px,2.4vw,13px);
+    text-transform:uppercase;
+    border-bottom:3px solid var(--paper);
+    padding-bottom:14px;margin-bottom:clamp(20px,5vw,40px);
+  }
+  .hero-topline .dot{width:9px;height:9px;background:var(--pop);border-radius:50%;display:inline-block;box-shadow:2px 2px 0 var(--riso)}
+  .hero-topline .sp{margin-left:auto;font-weight:700;letter-spacing:.22em}
+  .titlewrap{position:relative;margin:0}
+  .en-title{
+    position:relative;
+    font-family:"Jost","Helvetica Neue","Arial Black",sans-serif;
+    font-weight:900;
+    font-size:clamp(52px,15vw,150px);
+    line-height:.86;
+    letter-spacing:-.03em;
+    text-transform:uppercase;
+    margin:0;
+    color:var(--paper);
+  }
+  .en-title .ghost{
+    position:absolute;left:4px;top:5px;
+    color:transparent;
+    -webkit-text-stroke:2px var(--pop);
+    z-index:0;
+    pointer-events:none;
+  }
+  .en-title .front{position:relative;z-index:1}
+  .ja-title{
+    font-weight:900;
+    font-size:clamp(26px,6.5vw,56px);
+    letter-spacing:.05em;
+    margin:clamp(10px,2vw,18px) 0 0;
+    color:var(--paper);
+  }
+  .ja-title .brush{color:var(--pop)}
+  .hero-meta{
+    display:flex;flex-wrap:wrap;gap:8px 10px;margin-top:clamp(18px,4vw,30px);
+  }
+  .chip{
+    display:inline-flex;align-items:center;gap:7px;
+    background:var(--paper);color:var(--ink);
+    font-weight:800;font-size:clamp(12px,2.6vw,14px);letter-spacing:.02em;
+    padding:8px 13px;
+    border:2px solid var(--ink);
+    box-shadow:3px 3px 0 var(--ink);
+  }
+  .chip.pop{background:var(--pop);color:var(--paper);border-color:var(--paper);box-shadow:3px 3px 0 rgba(0,0,0,.25)}
+  .chip .num{font-size:1.05em}
+  /* rotating stamp badge */
+  .stamp{
+    position:absolute;
+    right:clamp(-6px,2vw,22px);top:clamp(84px,20vw,120px);
+    width:clamp(96px,22vw,150px);height:clamp(96px,22vw,150px);
+    transform:rotate(-13deg);
+    z-index:2;
+    filter:drop-shadow(3px 3px 0 rgba(20,32,31,.25));
+  }
+  .stamp text{fill:var(--paper);font-family:"Jost","Helvetica Neue",sans-serif;font-weight:900}
+  .stamp .ring circle{fill:none;stroke:var(--pop);stroke-width:6}
+  .stamp .disc{fill:var(--riso)}
+  @media (max-width:520px){ .stamp{position:static;display:block;margin:20px auto -8px;transform:rotate(-8deg)} }
+
+  /* ===== SECTION SHELL ===== */
+  section{padding:clamp(34px,7vw,64px) 0}
+  .nombre{
+    display:flex;align-items:baseline;gap:14px;margin:0 0 clamp(16px,3vw,26px);
+  }
+  .nombre .big{
+    font-family:"Jost","Helvetica Neue","Arial Black",sans-serif;
+    font-weight:900;font-size:clamp(46px,12vw,104px);line-height:.8;
+    letter-spacing:-.04em;color:var(--teal);
+    font-variant-numeric:tabular-nums;
+  }
+  .nombre .lbl{
+    font-weight:900;font-size:clamp(16px,3.6vw,26px);letter-spacing:.04em;
+    border-bottom:5px solid var(--pop);padding-bottom:3px;
+  }
+  .nombre .en{margin-left:auto;font-family:"Jost",sans-serif;font-weight:800;letter-spacing:.22em;
+    text-transform:uppercase;font-size:clamp(10px,2.2vw,12px);color:var(--riso);align-self:flex-end}
+
+  /* ===== QUESTION / LEAD ===== */
+  .ask{
+    background:var(--ink);color:var(--paper);
+    padding:clamp(28px,6vw,52px) clamp(20px,5vw,44px);
+    position:relative;overflow:hidden;
+  }
+  .ask::before{
+    content:"?";position:absolute;right:-2vw;bottom:-6vw;
+    font-family:"Jost",sans-serif;font-weight:900;
+    font-size:clamp(180px,42vw,340px);line-height:1;
+    color:var(--teal);opacity:.9;z-index:0;
+  }
+  .ask .q{
+    position:relative;z-index:1;
+    font-weight:900;font-size:clamp(24px,6vw,46px);line-height:1.35;letter-spacing:.02em;
+    margin:0;
+    text-shadow:2px 2px 0 var(--riso);
+  }
+  .ask .q em{font-style:normal;color:var(--riso)}
+  .lead{
+    font-size:clamp(15px,2.8vw,18px);font-weight:600;max-width:60ch;margin:0 0 18px;
+  }
+  .subnote{
+    font-size:clamp(14px,2.6vw,16px);line-height:1.9;max-width:62ch;margin:0;
+    padding-left:16px;border-left:5px solid var(--teal);
+  }
+  .lead-mark{
+    display:inline-block;background:var(--pop);color:var(--paper);font-weight:900;
+    padding:2px 10px;transform:rotate(-2deg);margin-bottom:14px;font-size:clamp(13px,2.4vw,15px);
+    letter-spacing:.04em;
+  }
+
+  /* ===== FACTS ===== */
+  .facts{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(8px,2vw,16px)}
+  @media (max-width:640px){ .facts{grid-template-columns:repeat(2,1fr)} }
+  .fact{
+    padding:clamp(16px,3vw,24px) clamp(12px,2.5vw,18px);
+    border:3px solid var(--ink);
+    background:var(--paper);
+    position:relative;
+  }
+  .fact:nth-child(1){background:var(--teal);color:var(--paper);border-color:var(--ink)}
+  .fact:nth-child(2){background:var(--paper)}
+  .fact:nth-child(3){background:var(--pop);color:var(--paper)}
+  .fact:nth-child(4){background:var(--riso);color:var(--paper)}
+  .fact .v{
+    font-family:"Jost","Helvetica Neue","Arial Black",sans-serif;font-weight:900;
+    font-size:clamp(30px,8vw,52px);line-height:.9;letter-spacing:-.03em;
+    font-variant-numeric:tabular-nums;display:block;
+  }
+  .fact .k{font-weight:800;font-size:clamp(12px,2.4vw,14px);margin-top:8px;letter-spacing:.02em}
+
+  /* ===== WEATHER TICKETS ===== */
+  .wx-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(10px,2.5vw,18px)}
+  @media (max-width:560px){ .wx-grid{grid-template-columns:1fr} }
+  .ticket{
+    position:relative;background:var(--paper);border:3px solid var(--ink);
+    padding:clamp(16px,3vw,22px);
+    box-shadow:5px 5px 0 var(--teal);
+  }
+  .ticket.rain{box-shadow:5px 5px 0 var(--riso)}
+  /* punch holes on ticket edge */
+  .ticket::before,.ticket::after{
+    content:"";position:absolute;width:16px;height:16px;border-radius:50%;
+    background:var(--paper);border:3px solid var(--ink);
+  }
+  .ticket::before{left:-11px;top:50%;transform:translateY(-50%)}
+  .ticket::after{right:-11px;top:50%;transform:translateY(-50%)}
+  .ticket .day{font-family:"Jost",sans-serif;font-weight:900;font-size:clamp(13px,2.6vw,15px);letter-spacing:.14em;
+    text-transform:uppercase;color:var(--teal)}
+  .ticket .date{font-weight:900;font-size:clamp(18px,4vw,24px);margin:2px 0 10px}
+  .ticket .cond{font-weight:800;font-size:clamp(15px,3vw,18px);margin:0 0 8px}
+  .ticket .row{display:flex;justify-content:space-between;gap:8px;font-weight:700;font-size:clamp(13px,2.6vw,15px);
+    border-top:2px dotted var(--ink);padding-top:8px}
+  .ticket .num{color:var(--pop)}
+  .wx-note{
+    margin-top:clamp(14px,3vw,20px);background:var(--teal);color:var(--paper);
+    padding:clamp(14px,3vw,20px);border:3px solid var(--ink);font-weight:600;
+    font-size:clamp(14px,2.6vw,16px);line-height:1.85;
+  }
+  .wx-note b{color:var(--ink);background:var(--paper);padding:0 6px}
+  .wx-src{font-size:clamp(11px,2.2vw,13px);opacity:.85;margin-top:10px;font-weight:600}
+
+  /* ===== TIMELINE ===== */
+  .day-head{
+    display:inline-flex;align-items:baseline;gap:12px;
+    background:var(--ink);color:var(--paper);padding:8px 16px;margin-bottom:16px;
+    transform:rotate(-1deg);
+  }
+  .day-head .d{font-family:"Jost",sans-serif;font-weight:900;font-size:clamp(20px,4.4vw,30px);letter-spacing:.06em}
+  .day-head .w{font-weight:800;font-size:clamp(12px,2.6vw,14px);color:var(--riso)}
+  .tl{display:flex;flex-direction:column;gap:6px}
+  .slot{
+    display:grid;grid-template-columns:minmax(96px,124px) 1fr;gap:clamp(10px,2.5vw,18px);
+    align-items:stretch;
+  }
+  .slot .t{
+    font-family:"Jost","Helvetica Neue",sans-serif;font-weight:900;font-variant-numeric:tabular-nums;
+    font-size:clamp(15px,3.2vw,20px);letter-spacing:.01em;
+    background:var(--teal);color:var(--paper);
+    display:flex;align-items:center;padding:10px 12px;border:3px solid var(--ink);
+    line-height:1.15;
+  }
+  .slot:nth-child(even) .t{background:var(--ink)}
+  .slot .e{
+    font-weight:800;font-size:clamp(14px,2.8vw,17px);
+    background:var(--paper);border:3px solid var(--ink);border-left:none;
+    display:flex;align-items:center;padding:10px 14px;
+  }
+  @media (max-width:480px){
+    .slot{grid-template-columns:1fr}
+    .slot .e{border-left:3px solid var(--ink);border-top:none}
+  }
+
+  /* ===== RULES ===== */
+  .rules{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(8px,2vw,14px)}
+  @media (max-width:600px){ .rules{grid-template-columns:1fr} }
+  .rule{
+    display:flex;gap:14px;align-items:flex-start;
+    background:var(--paper);border:3px solid var(--ink);padding:clamp(12px,2.6vw,18px);
+  }
+  .rule .n{
+    flex:0 0 auto;
+    font-family:"Jost","Helvetica Neue","Arial Black",sans-serif;font-weight:900;
+    font-size:clamp(28px,6vw,40px);line-height:.9;font-variant-numeric:tabular-nums;
+    color:var(--pop);width:1.6em;text-align:center;
+  }
+  .rule:nth-child(3n) .n{color:var(--teal)}
+  .rule:nth-child(3n+1) .n{color:var(--riso)}
+  .rule .txt{font-weight:800;font-size:clamp(14px,2.8vw,17px);align-self:center}
+
+  /* ===== ACCESS ===== */
+  .acc{display:grid;grid-template-columns:1fr 1fr 1fr;gap:clamp(10px,2.4vw,16px)}
+  @media (max-width:700px){ .acc{grid-template-columns:1fr} }
+  .acc .card{border:3px solid var(--ink);padding:clamp(14px,3vw,20px);background:var(--paper)}
+  .acc .card .tag{
+    display:inline-block;font-family:"Jost",sans-serif;font-weight:900;letter-spacing:.1em;
+    background:var(--ink);color:var(--paper);padding:4px 10px;font-size:clamp(12px,2.4vw,14px);margin-bottom:10px;
+    text-transform:uppercase;
+  }
+  .acc .card:nth-child(1) .tag{background:var(--teal)}
+  .acc .card:nth-child(2) .tag{background:var(--pop)}
+  .acc .card:nth-child(3) .tag{background:var(--riso)}
+  .acc .card p{margin:0;font-weight:600;font-size:clamp(14px,2.6vw,15px);line-height:1.8}
+
+  /* ===== PACKING ===== */
+  .pack{display:flex;flex-wrap:wrap;gap:9px}
+  .pack .it{
+    font-weight:800;font-size:clamp(14px,2.7vw,16px);
+    padding:8px 14px;border:3px solid var(--ink);background:var(--paper);
+    display:inline-flex;align-items:center;gap:8px;
+  }
+  .pack .it::before{content:"";width:11px;height:11px;background:var(--riso);
+    border:2px solid var(--ink);border-radius:50%;flex:0 0 auto}
+  .pack .it:nth-child(3n)::before{background:var(--teal)}
+  .pack .it:nth-child(3n+1)::before{background:var(--pop)}
+
+  /* ===== FOOTER ===== */
+  .foot{
+    background:var(--teal);color:var(--paper);
+    padding:clamp(34px,7vw,60px) clamp(20px,5vw,44px);
+    text-align:center;position:relative;overflow:hidden;
+  }
+  .foot .big{
+    font-family:"Jost","Helvetica Neue","Arial Black",sans-serif;font-weight:900;
+    font-size:clamp(34px,10vw,80px);line-height:.9;letter-spacing:-.03em;text-transform:uppercase;
+    margin:0;
+  }
+  .foot .big .ghost{color:transparent;-webkit-text-stroke:2px var(--pop)}
+  .foot .sub{font-weight:800;letter-spacing:.14em;margin:14px 0 0;font-size:clamp(12px,2.6vw,14px);text-transform:uppercase;font-family:"Jost",sans-serif}
+  .foot .msg{font-weight:700;font-size:clamp(15px,3vw,19px);margin:22px auto 0;max-width:34ch;line-height:1.7}
+  .foot .seal{
+    display:inline-block;margin-top:20px;transform:rotate(6deg);
+  }
+  .foot .seal svg{width:clamp(80px,20vw,110px);height:auto;filter:drop-shadow(3px 3px 0 rgba(20,32,31,.3))}
+
+  @media (prefers-reduced-motion:no-preference){
+    .stamp{animation:sway 6s ease-in-out infinite}
+  }
+  @keyframes sway{0%,100%{transform:rotate(-13deg)}50%{transform:rotate(-8deg)}}
+</style>
+</head>
+<body>
+<div class="zine">
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero-topline">
+      <span class="dot"></span>
+      <span>POOLO LIFE</span>
+      <span>旅の栞 / THE ZINE</span>
+      <span class="sp">by TABIPPO</span>
+    </div>
+
+    <svg class="stamp" viewBox="0 0 160 160" role="img" aria-label="関東一小さな村 スタンプ">
+      <g class="ring"><circle cx="80" cy="80" r="74"/></g>
+      <circle class="disc" cx="80" cy="80" r="58"/>
+      <path id="arc" d="M80 30 a50 50 0 1 1 -0.1 0" fill="none"/>
+      <text font-size="15" letter-spacing="3"><textPath href="#arc" startOffset="4%">KANTO'S SMALLEST VILLAGE ★ TABAYAMA ★</textPath></text>
+      <text x="80" y="76" text-anchor="middle" font-size="30">97%</text>
+      <text x="80" y="98" text-anchor="middle" font-size="12" letter-spacing="2">NATURE</text>
+    </svg>
+
+    <div class="titlewrap">
+      <h1 class="en-title" aria-label="TABAYAMA MODE">
+        <span class="ghost" aria-hidden="true">TABAYAMA<br>MODE</span>
+        <span class="front">TABAYAMA<br>MODE</span>
+      </h1>
+      <p class="ja-title">丹波山<span class="brush">モード</span>。</p>
+    </div>
+
+    <div class="hero-meta">
+      <span class="chip pop"><span class="num">2026.7.4</span>(土)–<span class="num">7.5</span>(日)</span>
+      <span class="chip">山梨県・丹波山村</span>
+      <span class="chip">関東一小さな村</span>
+      <span class="chip">Day1 <span class="num">12:30</span>集合</span>
+    </div>
+  </header>
+
+  <!-- QUESTION -->
+  <div class="ask">
+    <p class="q">豊かな暮らしとは、<br><em>なんだろう？</em></p>
+  </div>
+
+  <!-- LEAD -->
+  <section class="wrap">
+    <div class="nombre"><span class="big num">01</span><span class="lbl">この旅について</span><span class="en">INTRO</span></div>
+    <span class="lead-mark">村の時間に、乗ってみる。</span>
+    <p class="lead">関東でいちばん小さな村へ。97％の自然と、3％の人。文明からすこし離れて、村の時間に乗ってみる。急がず、面白がって、豊かな暮らしのかけらを持ち帰る2日間。</p>
+    <p class="subnote">スーパーはない。立ち話で一日が回り、ものは交換され、孤独になりようがない、500人ほどの村。国立公園の森に抱かれた沢で珈琲を淹れ、93歳のおじいちゃんの暮らしにお邪魔する。答えは出さなくていい。問いのまま、持ち帰りましょう。</p>
+  </section>
+
+  <!-- FACTS -->
+  <section class="wrap">
+    <div class="nombre"><span class="big num">02</span><span class="lbl">村のかたち</span><span class="en">FACTS</span></div>
+    <div class="facts">
+      <div class="fact"><span class="v num">97%</span><span class="k">村を包む自然</span></div>
+      <div class="fact"><span class="v num">約500<small>人</small></span><span class="k">村に暮らす人</span></div>
+      <div class="fact"><span class="v num">93<small>歳</small></span><span class="k">お邪魔するおじいちゃん</span></div>
+      <div class="fact"><span class="v">関東一</span><span class="k">小さな村</span></div>
+    </div>
+  </section>
+
+  <!-- WEATHER -->
+  <section class="wrap">
+    <div class="nombre"><span class="big num">03</span><span class="lbl">天気の想定</span><span class="en">WEATHER</span></div>
+    <div class="wx-grid">
+      <div class="ticket">
+        <div class="day">Day 1 / Sat</div>
+        <div class="date">7/4（土）</div>
+        <p class="cond">くもり</p>
+        <div class="row"><span>最高 <span class="num">22℃</span></span><span>最低 <span class="num">16℃</span></span></div>
+        <div class="row"><span>降水確率</span><span class="num">40–50%</span></div>
+      </div>
+      <div class="ticket rain">
+        <div class="day">Day 2 / Sun</div>
+        <div class="date">7/5（日）</div>
+        <p class="cond">くもりのち雨</p>
+        <div class="row"><span>最高 <span class="num">20℃</span></span><span>最低 <span class="num">16℃</span></span></div>
+        <div class="row"><span>降水確率</span><span class="num">40–70%</span></div>
+      </div>
+    </div>
+    <div class="wx-note">
+      <b>備えメモ</b>　標高約615m、両日とも肌寒め・朝晩冷える。2日目は雨の可能性が高いので雨具・防寒・替えの一枚を。梅もぎ・村歩きは小雨決行の予定。
+      <div class="wx-src">※ 7/3時点の予報（ウェザーニュース／tenki.jp）。直前に最新をご確認ください。</div>
+    </div>
+  </section>
+
+  <!-- TIMELINE DAY1 -->
+  <section class="wrap">
+    <div class="nombre"><span class="big num">04</span><span class="lbl">2日間のながれ</span><span class="en">TIMELINE</span></div>
+
+    <div class="day-head"><span class="d">DAY 1</span><span class="w">7/4（土）</span></div>
+    <div class="tl">
+      <div class="slot"><div class="t">12:30</div><div class="e">集合（丹波山村）</div></div>
+      <div class="slot"><div class="t">12:30–13:30</div><div class="e">ランチ</div></div>
+      <div class="slot"><div class="t">13:30–14:00</div><div class="e">イントロ</div></div>
+      <div class="slot"><div class="t">14:00–15:00</div><div class="e">村の散歩＆対話</div></div>
+      <div class="slot"><div class="t">15:00–17:00</div><div class="e">おじいちゃんの家＆畑</div></div>
+      <div class="slot"><div class="t">17:00–18:30</div><div class="e">温泉</div></div>
+      <div class="slot"><div class="t">19:00–21:00</div><div class="e">BBQ・焚き火</div></div>
+    </div>
+
+    <div class="day-head" style="margin-top:34px"><span class="d">DAY 2</span><span class="w">7/5（日）</span></div>
+    <div class="tl">
+      <div class="slot"><div class="t">9:00</div><div class="e">朝のチェックイン</div></div>
+      <div class="slot"><div class="t">9:30–10:30</div><div class="e">梅もぎ体験</div></div>
+      <div class="slot"><div class="t">10:30–12:00</div><div class="e">村の散歩</div></div>
+      <div class="slot"><div class="t">12:00–13:00</div><div class="e">ランチ</div></div>
+      <div class="slot"><div class="t">13:00–14:00</div><div class="e">みんなで内省</div></div>
+      <div class="slot"><div class="t">14:30</div><div class="e">解散</div></div>
+    </div>
+  </section>
+
+  <!-- RULES -->
+  <section class="wrap">
+    <div class="nombre"><span class="big num">05</span><span class="lbl">旅の7つのルール</span><span class="en">RULES</span></div>
+    <div class="rules">
+      <div class="rule"><span class="n num">1</span><span class="txt">自分で決めていく</span></div>
+      <div class="rule"><span class="n num">2</span><span class="txt">面白がる</span></div>
+      <div class="rule"><span class="n num">3</span><span class="txt">訪れた地域に何を贈れるか考える</span></div>
+      <div class="rule"><span class="n num">4</span><span class="txt">急がず、その土地の時間に乗る</span></div>
+      <div class="rule"><span class="n num">5</span><span class="txt">仲間の話をそのまま受け取る</span></div>
+      <div class="rule"><span class="n num">6</span><span class="txt">未完成のまま、差し出してみる</span></div>
+      <div class="rule"><span class="n num">7</span><span class="txt">答えにせず、問いのまま持ち帰る</span></div>
+    </div>
+  </section>
+
+  <!-- ACCESS -->
+  <section class="wrap">
+    <div class="nombre"><span class="big num">06</span><span class="lbl">アクセス</span><span class="en">ACCESS</span></div>
+    <div class="acc">
+      <div class="card">
+        <span class="tag">ゆき / 7.4</span>
+        <p>JR青梅線「奥多摩駅」→ 路線バス約50分 → 丹波山村（12:30集合）。</p>
+      </div>
+      <div class="card">
+        <span class="tag">かえり / 7.5</span>
+        <p>丹波山村（14:30解散）→ バス → JR中央線「塩山駅」。</p>
+      </div>
+      <div class="card">
+        <span class="tag">車</span>
+        <p>中央道方面から国道411号（青梅街道）経由。集合場所・バス時刻など詳細は別途案内。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PACKING -->
+  <section class="wrap">
+    <div class="nombre"><span class="big num">07</span><span class="lbl">持ちもの</span><span class="en">PACKING</span></div>
+    <div class="pack">
+      <span class="it">歩きやすい靴</span>
+      <span class="it">温泉セット（タオル）</span>
+      <span class="it">動きやすい服</span>
+      <span class="it">雨具・防寒</span>
+      <span class="it">水筒</span>
+      <span class="it">日焼け・虫よけ</span>
+      <span class="it">飲みたいお酒</span>
+      <span class="it">好奇心</span>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="foot">
+    <p class="big">SEE YOU IN<br><span class="ghost">TABAYAMA</span></p>
+    <p class="sub">POOLO LIFE ／ Tabayama mode · by TABIPPO</p>
+    <span class="seal" aria-hidden="true">
+      <svg viewBox="0 0 120 120" role="img" aria-label="村の印">
+        <circle cx="60" cy="60" r="54" fill="none" stroke="#F5F4EE" stroke-width="4"/>
+        <circle cx="60" cy="60" r="42" fill="#E85D75"/>
+        <text x="60" y="54" text-anchor="middle" fill="#F5F4EE" font-family="Hiragino Kaku Gothic StdN,sans-serif" font-weight="900" font-size="20">丹波山</text>
+        <text x="60" y="78" text-anchor="middle" fill="#F5F4EE" font-family="Hiragino Kaku Gothic StdN,sans-serif" font-weight="900" font-size="14">モード</text>
+      </svg>
+    </span>
+    <p class="msg">それぞれの豊かな暮らしを、この村で。気をつけて、いってらっしゃい。</p>
+  </footer>
+
+</div>
+
+</body>
+</html>
