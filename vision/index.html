@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<meta name="description" content="POOLO これからの未来ビジョン。『正解』という幻想を手放し、問い続けることこそが、人生を自分のものにする。旅と、問いと、共創——想像もしなかった世界と自分に、出会いにいく。旅の学校POOLO by TABIPPO。メンバー共有用。">
+<meta property="og:title" content="POOLO これからの未来ビジョン｜THE ZINE">
+<meta property="og:description" content="「正解」を手放し、問いを、生きる。旅と、問いと、共創——想像もしなかった世界と自分に、出会いにいく。旅の学校POOLOの、これからの未来。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://michinorionda.github.io/poolo-life/vision/">
+<meta property="og:site_name" content="POOLO LIFE">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="POOLO これからの未来ビジョン｜THE ZINE">
+<meta name="twitter:description" content="「正解」を手放し、問いを、生きる。旅と、問いと、共創——想像もしなかった世界と自分に、出会いにいく。">
+<title>POOLO これからの未来ビジョン｜メンバー共有</title>
+<style>
+  :root{
+    --teal:#189BBC; --paper:#F5F4EE; --ink:#14201F;
+    --pop:#E85D75; --riso:#F26B3A; --teal-deep:#0f7690;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{background:#e7e5dc}
+  img{max-width:100%;height:auto}
+  .zine{
+    font-family:"Hiragino Kaku Gothic StdN","Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
+    background:var(--paper);color:var(--ink);line-height:1.75;margin:0 auto;max-width:940px;
+    overflow-x:hidden;-webkit-font-smoothing:antialiased;
+    background-image:
+      radial-gradient(rgba(20,32,31,.035) 1px, transparent 1px),
+      radial-gradient(rgba(20,32,31,.025) 1px, transparent 1px);
+    background-size:5px 5px, 7px 7px;background-position:0 0, 3px 2px;
+  }
+  .zine :focus-visible{outline:3px solid var(--pop);outline-offset:3px}
+  .num{font-variant-numeric:tabular-nums;font-family:"Jost","Helvetica Neue","Arial Black",sans-serif}
+  .wrap{padding:0 clamp(18px,5vw,44px)}
+
+  /* HERO */
+  .hero{position:relative;background:var(--teal);color:var(--paper);padding:clamp(30px,7vw,64px) clamp(18px,5vw,44px) clamp(46px,9vw,88px);overflow:hidden}
+  .hero-topline{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center;font-weight:900;letter-spacing:.16em;font-size:clamp(11px,2.4vw,13px);text-transform:uppercase;border-bottom:3px solid var(--paper);padding-bottom:14px;margin-bottom:clamp(20px,5vw,40px)}
+  .hero-topline .dot{width:9px;height:9px;background:var(--pop);border-radius:50%;display:inline-block;box-shadow:2px 2px 0 var(--riso)}
+  .hero-topline .sp{margin-left:auto;font-weight:700;letter-spacing:.22em}
+  .titlewrap{position:relative;margin:0}
+  .en-title{position:relative;font-family:"Jost","Helvetica Neue","Arial Black",sans-serif;font-weight:900;font-size:clamp(56px,17vw,168px);line-height:.84;letter-spacing:-.04em;text-transform:uppercase;margin:0;color:var(--paper)}
+  .en-title .ghost{position:absolute;left:5px;top:6px;color:transparent;-webkit-text-stroke:2px var(--pop);z-index:0;pointer-events:none}
+  .en-title .front{position:relative;z-index:1}
+  .ja-title{font-weight:900;font-size:clamp(21px,5.2vw,40px);letter-spacing:.05em;margin:clamp(12px,2.2vw,20px) 0 0;color:var(--paper);line-height:1.5}
+  .ja-title .brush{color:var(--pop)}
+  .hero-meta{display:flex;flex-wrap:wrap;gap:8px 10px;margin-top:clamp(18px,4vw,30px)}
+  .chip{display:inline-flex;align-items:center;gap:7px;background:var(--paper);color:var(--ink);font-weight:800;font-size:clamp(12px,2.6vw,14px);letter-spacing:.02em;padding:8px 13px;border:2px solid var(--ink);box-shadow:3px 3px 0 var(--ink)}
+  .chip.pop{background:var(--pop);color:var(--paper);border-color:var(--paper);box-shadow:3px 3px 0 rgba(0,0,0,.25)}
+  .stamp{position:absolute;right:clamp(-6px,2vw,22px);top:clamp(80px,19vw,116px);width:clamp(96px,22vw,150px);height:clamp(96px,22vw,150px);transform:rotate(-13deg);z-index:2;filter:drop-shadow(3px 3px 0 rgba(20,32,31,.25))}
+  .stamp text{fill:var(--paper);font-family:"Jost","Helvetica Neue",sans-serif;font-weight:900}
+  .stamp .ring circle{fill:none;stroke:var(--pop);stroke-width:6}
+  .stamp .disc{fill:var(--riso)}
+  @media (max-width:520px){.stamp{position:static;display:block;margin:20px auto -8px;transform:rotate(-8deg)}}
+
+  /* SECTION */
+  section{padding:clamp(34px,7vw,64px) 0}
+  .nombre{display:flex;align-items:baseline;gap:14px;margin:clamp(6px,1.5vw,14px) 0 clamp(24px,4.5vw,40px)}
+  .nombre .big{font-family:"Jost","Helvetica Neue","Arial Black",sans-serif;font-weight:900;font-size:clamp(46px,12vw,104px);line-height:.8;letter-spacing:-.04em;color:var(--teal);font-variant-numeric:tabular-nums}
+  .nombre .lbl{font-weight:900;font-size:clamp(16px,3.6vw,26px);letter-spacing:.04em;border-bottom:5px solid var(--pop);padding-bottom:3px}
+  .nombre .en{margin-left:auto;font-family:"Jost",sans-serif;font-weight:800;letter-spacing:.2em;text-transform:uppercase;font-size:clamp(10px,2.2vw,12px);color:var(--riso);align-self:flex-end}
+
+  /* ASK */
+  .ask{background:var(--ink);color:var(--paper);padding:clamp(30px,6vw,58px) clamp(20px,5vw,44px);position:relative;overflow:hidden}
+  .ask::before{content:"?";position:absolute;right:-2vw;bottom:-8vw;font-family:"Jost","Arial Black",sans-serif;font-weight:900;font-size:clamp(200px,46vw,380px);line-height:1;color:var(--teal);opacity:.92;z-index:0}
+  .ask .q{position:relative;z-index:1;font-weight:900;font-size:clamp(26px,6.4vw,50px);line-height:1.32;letter-spacing:.02em;margin:0;text-shadow:2px 2px 0 var(--riso)}
+  .ask .q em{font-style:normal;color:var(--riso)}
+
+  /* LEAD */
+  .lead-mark{display:inline-block;background:var(--pop);color:var(--paper);font-weight:900;padding:2px 10px;transform:rotate(-2deg);margin-bottom:14px;font-size:clamp(13px,2.6vw,16px);letter-spacing:.04em}
+  .lead{font-size:clamp(15px,2.9vw,19px);font-weight:600;max-width:60ch;margin:0 0 18px;line-height:1.9}
+  .lead b{background:var(--teal);color:var(--paper);padding:0 6px;font-weight:900}
+  .subnote{font-size:clamp(14px,2.6vw,16px);line-height:1.9;max-width:62ch;margin:0;padding-left:16px;border-left:5px solid var(--teal);font-weight:600}
+
+  /* PULL */
+  .pull{text-align:center;font-weight:900;font-size:clamp(30px,9vw,74px);line-height:1.05;color:var(--teal);margin:clamp(24px,5vw,44px) 0;letter-spacing:.01em;text-shadow:3px 3px 0 var(--ink)}
+
+  /* STORY CARD */
+  .story-card{background:var(--ink);color:var(--paper);border:3px solid var(--ink);padding:clamp(20px,4vw,34px);box-shadow:7px 7px 0 var(--teal);margin:clamp(14px,3vw,22px) 0}
+  .story-card.pop-sh{box-shadow:7px 7px 0 var(--pop)}
+  .story-card.riso-sh{box-shadow:7px 7px 0 var(--riso)}
+  .story-card .big{font-weight:900;font-size:clamp(20px,4.8vw,32px);line-height:1.42;margin:0 0 12px;letter-spacing:.02em}
+  .story-card .big em{font-style:normal;color:var(--riso)}
+  .story-card p{font-weight:600;font-size:clamp(14px,2.6vw,16px);line-height:1.9;margin:0;color:rgba(245,244,238,.92)}
+  .story-card cite{display:block;font-family:"Jost",sans-serif;font-weight:800;letter-spacing:.12em;font-size:clamp(11px,2.2vw,13px);color:var(--riso);margin-top:14px;font-style:normal}
+
+  /* DUO */
+  .duo{display:grid;grid-template-columns:1fr 1fr;gap:clamp(10px,2.4vw,18px);margin:clamp(6px,2vw,10px) 0}
+  @media (max-width:600px){.duo{grid-template-columns:1fr}}
+  .duo .side{border:3px solid var(--ink);padding:clamp(16px,3vw,24px);background:var(--paper)}
+  .duo .side.new{background:var(--teal);color:var(--paper);box-shadow:6px 6px 0 var(--ink)}
+  .duo .side .tag{display:inline-block;font-family:"Jost",sans-serif;font-weight:900;letter-spacing:.1em;text-transform:uppercase;font-size:clamp(10px,2.2vw,12px);padding:3px 9px;margin-bottom:12px;background:var(--ink);color:var(--paper)}
+  .duo .side.new .tag{background:var(--paper);color:var(--ink)}
+  .duo .side .q{font-weight:900;font-size:clamp(17px,3.8vw,23px);line-height:1.45;margin:0 0 8px;letter-spacing:.02em}
+  .duo .side p{font-weight:600;font-size:clamp(13px,2.5vw,15px);line-height:1.8;margin:0}
+
+  /* FACTS */
+  .facts{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(8px,2vw,16px)}
+  @media (max-width:560px){.facts{grid-template-columns:1fr}}
+  .fact{padding:clamp(18px,3vw,28px) clamp(12px,2.5vw,18px);border:3px solid var(--ink);background:var(--paper);text-align:center}
+  .fact:nth-child(1){background:var(--teal);color:var(--paper)}
+  .fact:nth-child(2){background:var(--pop);color:var(--paper)}
+  .fact:nth-child(3){background:var(--riso);color:var(--paper)}
+  .fact .v{font-family:"Hiragino Kaku Gothic StdN",sans-serif;font-weight:900;font-size:clamp(34px,9vw,56px);line-height:.9;display:block}
+  .fact .en{font-family:"Jost",sans-serif;font-weight:800;font-size:clamp(10px,2.2vw,12px);letter-spacing:.18em;display:block;margin-top:8px;opacity:.9}
+  .fact .k{font-weight:800;font-size:clamp(12px,2.4vw,14px);margin-top:8px;letter-spacing:.02em}
+
+  /* STATS */
+  .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(8px,2vw,16px)}
+  @media (max-width:560px){.stats{grid-template-columns:1fr}}
+  .stat{border:3px solid var(--ink);background:var(--paper);padding:clamp(16px,3vw,24px);text-align:center}
+  .stat:nth-child(2){background:var(--ink);color:var(--paper)}
+  .stat .n{font-family:"Jost","Helvetica Neue","Arial Black",sans-serif;font-weight:900;font-size:clamp(38px,10vw,64px);line-height:.85;color:var(--teal);font-variant-numeric:tabular-nums;display:block}
+  .stat:nth-child(2) .n{color:var(--riso)}
+  .stat .k{font-weight:800;font-size:clamp(12px,2.4vw,14px);margin-top:10px;letter-spacing:.03em}
+
+  /* TRIAD */
+  .triad{text-align:center;border:3px solid var(--ink);background:var(--paper);padding:clamp(20px,4vw,32px);margin:clamp(14px,3vw,20px) 0;box-shadow:6px 6px 0 var(--teal);font-weight:900;font-size:clamp(20px,5vw,34px);letter-spacing:.03em;line-height:1.5}
+  .triad .t{color:var(--teal-deep)} .triad .x{color:var(--riso);margin:0 .2em}
+  .triad .note{display:block;font-weight:700;font-size:clamp(12px,2.4vw,14px);color:var(--ink);opacity:.7;margin-top:12px;letter-spacing:.02em}
+
+  /* RULES */
+  .rules{display:grid;grid-template-columns:1fr;gap:clamp(8px,2vw,14px)}
+  .rule{display:flex;gap:16px;align-items:center;background:var(--paper);border:3px solid var(--ink);padding:clamp(14px,2.8vw,22px)}
+  .rule .n{flex:0 0 auto;font-family:"Jost","Helvetica Neue","Arial Black",sans-serif;font-weight:900;font-size:clamp(32px,7vw,52px);line-height:.9;font-variant-numeric:tabular-nums;color:var(--pop);width:1.5em;text-align:center}
+  .rule:nth-child(2) .n{color:var(--teal)}
+  .rule:nth-child(3) .n{color:var(--riso)}
+  .rule .txt{font-weight:900;font-size:clamp(16px,3.4vw,22px);letter-spacing:.02em;line-height:1.4}
+
+  /* FOOTER */
+  .foot{background:var(--teal);color:var(--paper);padding:clamp(38px,8vw,70px) clamp(20px,5vw,44px);text-align:center;position:relative;overflow:hidden}
+  .foot .big{font-family:"Jost","Helvetica Neue","Arial Black",sans-serif;font-weight:900;font-size:clamp(46px,15vw,130px);line-height:.85;letter-spacing:-.04em;text-transform:uppercase;margin:0}
+  .foot .big .ghost{color:transparent;-webkit-text-stroke:2px var(--pop)}
+  .foot .fmsg{font-weight:900;font-size:clamp(17px,3.6vw,24px);line-height:1.5;margin:clamp(16px,3vw,22px) 0 0;letter-spacing:.03em}
+  .foot .fmsg .brush{color:var(--pop)}
+  .foot .sub{font-weight:800;letter-spacing:.14em;margin:16px 0 0;font-size:clamp(11px,2.4vw,13px);text-transform:uppercase;font-family:"Jost",sans-serif;opacity:.92}
+  .foot .note{font-weight:600;font-size:clamp(11px,2.2vw,12px);margin-top:18px;opacity:.8;letter-spacing:.02em}
+</style>
+</head>
+<body>
+<div class="zine">
+
+  <header class="hero">
+    <div class="hero-topline">
+      <span class="dot"></span>
+      <span>POOLO LIFE</span>
+      <span>未来ビジョン / THE ZINE</span>
+      <span class="sp">by TABIPPO</span>
+    </div>
+
+    <svg class="stamp" viewBox="0 0 160 160" role="img" aria-label="POOLO 未来ビジョン スタンプ">
+      <g class="ring"><circle cx="80" cy="80" r="74"/></g>
+      <circle class="disc" cx="80" cy="80" r="58"/>
+      <path id="arc" d="M80 30 a50 50 0 1 1 -0.1 0" fill="none"/>
+      <text font-size="13" letter-spacing="2.5"><textPath href="#arc" startOffset="2%">POOLO ★ FUTURE VISION ★ 2026 ★</textPath></text>
+      <text x="80" y="76" text-anchor="middle" font-size="22">問い続</text>
+      <text x="80" y="100" text-anchor="middle" font-size="22">ける</text>
+    </svg>
+
+    <div class="titlewrap">
+      <h1 class="en-title" aria-label="POOLO">
+        <span class="ghost" aria-hidden="true">POOLO</span>
+        <span class="front">POOLO</span>
+      </h1>
+      <p class="ja-title">「正解」を手放し、<br><span class="brush">問い</span>を、生きる。</p>
+    </div>
+
+    <div class="hero-meta">
+      <span class="chip pop">これからの未来ビジョン</span>
+      <span class="chip">旅と、問いと、共創</span>
+      <span class="chip">校舎のない、旅の学校</span>
+      <span class="chip">FOR MEMBERS</span>
+    </div>
+  </header>
+
+  <div class="ask">
+    <p class="q">僕たちは、<em>「正解」</em>に<br>囚われていないか？</p>
+  </div>
+
+  <!-- 01 -->
+  <section class="wrap">
+    <div class="nombre"><span class="big num">01</span><span class="lbl">はじめに</span><span class="en">Intro</span></div>
+    <span class="lead-mark">何かが、満ちない。</span>
+    <p class="lead">AI時代だからこう生きるべきだ。令和ではこれが正しい。本質的にはこうあるべきだ。そんな言葉が毎日たくさん流れてきて、気づけば社会的な<b>「正解」</b>に自分を合わせようとする。</p>
+    <p class="subnote">何者かになれば。これさえ手に入れば。誰かに認められれば。そう信じて進んでも、心のどこかの違和感は消えない。──このままでいいのか、と。POOLOは、その問いから出発する場所です。</p>
+  </section>
+
+  <!-- 02 -->
+  <section class="wrap">
+    <div class="nombre"><span class="big num">02</span><span class="lbl">「べき」と「正解」</span><span class="en">Whose Voice</span></div>
+    <div class="duo">
+      <div class="side">
+        <span class="tag">Trap ── 正解思考</span>
+        <p class="q">これが、正しい。</p>
+        <p>自分とは無関係に「正しいこと」を信じてしまう。人生を、合っているか/間違っているかで採点しはじめる。</p>
+      </div>
+      <div class="side new">
+        <span class="tag">Own ── べき思考</span>
+        <p class="q">自分は、こう生きたい。</p>
+        <p>意思が、自分の中にある。自分なりの指針。問題は、これが「正解」と混ざり、意思の純度が薄まるとき。</p>
+      </div>
+    </div>
+    <div class="story-card riso-sh">
+      <p class="big">長いあいだ、ジョブズの言葉を誤読していた。「他人のために生きるな」だと。でも彼が言ったのは、<em>「他人の"基準"で生きるな」</em>。</p>
+      <p>時間を何に使うかの話ではなく、誰の声で決めるか、の話だった。誰も正しいと認めてくれなくても、自分はその選択をするか？──そう問えたとき、人生は自分のものになりはじめる。</p>
+      <cite>NOTE ── 「正解」という幻想を、手放す（2026.06）</cite>
+    </div>
+  </section>
+
+  <!-- 03 -->
+  <section class="wrap">
+    <div class="nombre"><span class="big num">03</span><span class="lbl">迷いは、強さ</span><span class="en">Doubt is Strength</span></div>
+    <span class="lead-mark">迷える人は、弱いのではない。</span>
+    <p class="lead">旅をすると、世の中にはいろんな生き方があると知ってしまう。自分の今の人生が、唯一の正解ではないと気づいてしまう。<b>だからこそ、迷う。</b></p>
+    <p class="subnote">それは、人生をちゃんと自分のものとして考えているから起きる、健全な反応。問題は迷いそのものではなく、迷いを"一人で"抱え続けてしまうことです。</p>
+    <div class="story-card">
+      <p class="big">迷いは、前に進む<em>エネルギー</em>。</p>
+      <p>ちゃんと向き合えば「問い」になる。問いは、誰かと話せば、少しずつ自分の言葉になる。自分の言葉になれば──自然と、動ける。</p>
+    </div>
+  </section>
+
+  <!-- 04 -->
+  <section class="wrap">
+    <div class="nombre"><span class="big num">04</span><span class="lbl">違和感は、身体が先に</span><span class="en">The Body Knows</span></div>
+    <p class="lead">なんとなく居心地が悪い。理由は分からないけれど、足が遠のく。違和感は考えた結果ではなく、頭で整理するより前に、<b>すでに身体が反応している</b>状態に近い。</p>
+    <div class="story-card pop-sh">
+      <p class="big">問いは、思考からではなく<br><em>「知覚のズレ」</em>から生まれる。</p>
+      <p>もう分かっている。でも、まだ説明できない。言葉にできない。そのギャップが、違和感の正体。だから対話は、言語化を"急がない"ための手段なのだと思う。</p>
+      <cite>安宅和人「知性は、どう育っていくのか」</cite>
+    </div>
+  </section>
+
+  <!-- 05 -->
+  <section class="wrap">
+    <div class="nombre"><span class="big num">05</span><span class="lbl">だから、旅に出る</span><span class="en">Why We Travel</span></div>
+    <div class="story-card">
+      <p class="big">人は、計画的にではなく、<em>偶然的にしか</em>変化しない。</p>
+      <p>「思いつき」こそが、人を変える根源的な力。そして、一度思いついてしまったことからは、誰も後戻りできない。</p>
+      <cite>東畑開人</cite>
+    </div>
+    <p class="subnote" style="margin-top:22px">「正解」は計画の言葉。逆算できるし、管理できる。でも「思いつき」は逆算できない。いつ来るかも分からない。来た瞬間に、もう世界が変わってしまっている。</p>
+    <div class="pull">だから、旅に出る。</div>
+    <p class="lead">旅とは、思いつきを計画する技術ではなく、<b>思いつきが訪れやすい場所へ、自分を連れていく行為</b>。予定調和が崩された場所で、人はようやく、思いついてしまう。</p>
+  </section>
+
+  <!-- 06 -->
+  <section class="wrap">
+    <div class="nombre"><span class="big num">06</span><span class="lbl">だから、POOLO</span><span class="en">So, POOLO</span></div>
+    <p class="lead">必要なのは、答えを教えてくれる人ではない。<b>迷ったまま、入っていける場所</b>。POOLOは校舎のない旅の学校。3つの実践を、仲間と8ヶ月かけて回します。</p>
+    <div class="facts">
+      <div class="fact"><span class="v">旅</span><span class="en">TABI</span><span class="k">身体で、飛び込む</span></div>
+      <div class="fact"><span class="v">問い</span><span class="en">TOI</span><span class="k">自分の、言葉にする</span></div>
+      <div class="fact"><span class="v">共創</span><span class="en">TSUKURU</span><span class="k">誰かに、差し出す</span></div>
+    </div>
+    <div class="story-card riso-sh" style="margin-top:22px">
+      <p class="big">「正解」という幻想を手放し、<br><em>問い続けること</em>こそが、<br>人生を、自分のものにする。</p>
+    </div>
+  </section>
+
+  <!-- 07 -->
+  <section class="wrap">
+    <div class="nombre"><span class="big num">07</span><span class="lbl">歩き方が、違う</span><span class="en">How We Walk</span></div>
+    <div class="duo">
+      <div class="side">
+        <span class="tag">Before ── 目標逆算型</span>
+        <p class="q">3年後、どうなりたい？</p>
+        <p>ゴールから逆算し、計画する。直線的で、想定内の自分にたどり着く。</p>
+      </div>
+      <div class="side new">
+        <span class="tag">POOLO ── 関心探究型</span>
+        <p class="q">いま、何に心が動く？</p>
+        <p>試す→反応→また試すを螺旋で回す。予測不能で、想像もしなかった自分が立ち現れる。</p>
+      </div>
+    </div>
+    <div class="triad"><span class="t">探究テーマ</span><span class="x">×</span>実践<span class="x">×</span>場<span class="note">──重ねるほど、遠くへ行ける。</span></div>
+  </section>
+
+  <!-- 08 -->
+  <section class="wrap">
+    <div class="nombre"><span class="big num">08</span><span class="lbl">3つの旅的スタンス</span><span class="en">Three Stances</span></div>
+    <p class="subnote" style="margin-bottom:22px">どの実践のどの局面でも、8ヶ月を貫き続ける3つの態度。移動の技術ではなく、日常でも育てられる「生き方のスタンス」。</p>
+    <div class="rules">
+      <div class="rule"><span class="n num">1</span><span class="txt">人生も行動も、自分で決めること。</span></div>
+      <div class="rule"><span class="n num">2</span><span class="txt">何事も、好奇心で面白がること。</span></div>
+      <div class="rule"><span class="n num">3</span><span class="txt">目の前の出来事を、自分ごと化すること。</span></div>
+    </div>
+  </section>
+
+  <!-- 09 -->
+  <section class="wrap">
+    <div class="nombre"><span class="big num">09</span><span class="lbl">これからの、未来</span><span class="en">The Future</span></div>
+    <p class="lead">正解のない時代は、これからも続く。だからPOOLOは、答えを配る場所ではなく、<b>問いを共に生きる仲間の集まる場所</b>であり続けます。旅を「消費」で終わらせず、飛び込み・持ち帰り・言葉にし・差し出す──そんな"旅の文化"を、社会に少しずつ広げていく。</p>
+    <div class="stats">
+      <div class="stat"><span class="n">1,200<span style="font-size:.5em">+</span></span><span class="k">累積参加者</span></div>
+      <div class="stat"><span class="n">11<span style="font-size:.5em">期</span></span><span class="k">開講実績・12期募集中</span></div>
+      <div class="stat"><span class="n">95<span style="font-size:.5em">%</span></span><span class="k">満足度</span></div>
+    </div>
+  </section>
+
+  <footer class="foot">
+    <p class="big"><span class="ghost">POOLO</span></p>
+    <p class="fmsg">想像もしなかった世界と自分に、<br><span class="brush">出会いにいこう。</span></p>
+    <p class="sub">Tabi × Toi × Tsukuru</p>
+    <p class="note">旅で世界を、もっと素敵に。／ 旅の学校 POOLO by TABIPPO<br>本資料はメンバー共有用です。転載・二次配布はご遠慮ください。</p>
+  </footer>
+
+</div>
+</body>
+</html>
