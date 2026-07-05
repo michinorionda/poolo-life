@@ -179,6 +179,7 @@
   /* ===== ACCESS / OUTLINE ===== */
   .acc{display:grid;grid-template-columns:1fr 1fr 1fr;gap:clamp(10px,2.4vw,16px)}
   @media (max-width:700px){ .acc{grid-template-columns:1fr} }
+  @media (min-width:701px){ .acc.two{grid-template-columns:1fr 1fr} }
   .acc .card{border:3px solid var(--ink);padding:clamp(14px,3vw,20px);background:var(--paper)}
   .acc .card .tag{display:inline-block;font-family:"Jost",sans-serif;font-weight:900;letter-spacing:.1em;background:var(--ink);color:var(--paper);padding:4px 10px;font-size:clamp(12px,2.4vw,14px);margin-bottom:10px;text-transform:uppercase}
   .acc .card:nth-child(1) .tag{background:var(--teal)}
@@ -351,11 +352,7 @@
   <!-- 07 OVERVIEW -->
   <section class="wrap">
     <div class="nombre"><span class="big num">07</span><span class="lbl">概要</span><span class="en">OVERVIEW</span></div>
-    <div class="acc">
-      <div class="card">
-        <span class="tag">参加費</span>
-        <p><span class="price num">¥15,000</span>プログラム体験費（ファームツアー・地引き網漁・BBQ 含む）。※ ランチ・宿代は別。</p>
-      </div>
+    <div class="acc two">
       <div class="card">
         <span class="tag">宿泊</span>
         <p><span class="price num">¥7,000</span>目安・現地払い。島の宿にて。</p>
