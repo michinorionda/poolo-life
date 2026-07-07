@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>POOLO LIFE 参加者の声｜9期・10期</title>
+<meta name="description" content="POOLO LIFE 9期・10期 卒業生が総合アンケートに残したリアルな声。体験会・相談会での紹介用。">
+<meta property="og:title" content="POOLO LIFE 参加者の声｜9期・10期">
+<meta property="og:description" content="旅を軸に、自分らしい生き方を探究する8ヶ月。卒業した仲間の飾らない言葉を集めました。">
+<meta property="og:type" content="website">
+<meta name="robots" content="index,follow">
+</head>
+<body>
+<style>
+  :root{
+    --paper:#FCFBF7;--ink:#17201F;--ink2:#4A5754;
+    --teal:#147D97;--teal2:#0E5E72;--rule:#D8D6CC;--wash:#EEF4F3;
+    --mincho:"Hiragino Mincho ProN","Yu Mincho","YuMincho","Noto Serif JP",serif;
+    --gothic:"Hiragino Kaku Gothic ProN","Hiragino Sans","Yu Gothic","Meiryo",sans-serif;
+    --latin:"Georgia","Times New Roman",serif;
+    --w:1120px;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--gothic);line-height:1.9;-webkit-font-smoothing:antialiased}
+  .w{max-width:var(--w);margin:0 auto;padding:0 30px}
+  h2{font-family:var(--mincho);font-weight:600;letter-spacing:.04em}
+  .eye{font-family:var(--latin);font-style:italic;font-size:14px;color:var(--teal);letter-spacing:.04em}
+
+  /* masthead */
+  .mast{border-bottom:2px solid var(--ink);margin-top:14px}
+  .mast .w{display:flex;justify-content:space-between;align-items:baseline;padding-bottom:12px}
+  .mast .logo{font-family:var(--latin);font-weight:700;letter-spacing:.24em;font-size:14px}
+  .mast .issue{font-family:var(--gothic);font-size:11px;letter-spacing:.2em;color:var(--ink2)}
+
+  /* hero */
+  .hero{padding:60px 0 30px}
+  .hero .eye{display:block;margin-bottom:18px}
+  .hero h1{font-family:var(--mincho);font-weight:600;font-size:clamp(34px,6.6vw,72px);line-height:1.22;margin:0;letter-spacing:.03em;text-wrap:balance}
+  .hero h1 em{font-style:normal;color:var(--teal);border-bottom:3px solid var(--teal);padding-bottom:.04em}
+  .hero .dek{margin-top:26px;max-width:34em;font-size:16px;color:var(--ink2);line-height:2;border-left:3px solid var(--teal);padding-left:18px}
+  .byline{margin-top:22px;font-family:var(--gothic);font-size:12px;letter-spacing:.14em;color:var(--ink2)}
+
+  section{padding:56px 0}
+  .shead{display:grid;grid-template-columns:auto 1fr;gap:20px;align-items:end;border-bottom:1px solid var(--ink);padding-bottom:14px;margin-bottom:34px}
+  .shead h2{margin:0;font-size:clamp(22px,3.2vw,32px)}
+  .shead .num{font-family:var(--latin);font-size:44px;color:var(--rule);line-height:.8}
+  .shead .r{grid-column:1/-1;color:var(--ink2);font-size:14px;margin-top:-8px}
+
+  /* metaphor cards — editorial */
+  .mgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(248px,1fr));gap:16px}
+  .mcard{position:relative;background:#fff;border:1px solid var(--rule);padding:26px 24px 20px;
+    display:flex;flex-direction:column;gap:16px;min-height:168px;transition:box-shadow .2s ease, transform .2s ease}
+  .mcard::before{content:"“";position:absolute;top:12px;left:20px;font-family:var(--latin);font-size:52px;
+    line-height:1;color:var(--teal);opacity:.22}
+  .mcard:hover{box-shadow:0 16px 34px -26px rgba(20,60,74,.7);transform:translateY(-3px)}
+  .mcard .t{font-family:var(--mincho);font-size:clamp(18px,2vw,21px);line-height:1.62;color:var(--ink);
+    margin-top:22px;letter-spacing:.02em;flex:1}
+  .mcard .meta{display:flex;align-items:center;justify-content:space-between;
+    border-top:1px solid var(--rule);padding-top:12px}
+  .mcard .idx{font-family:var(--latin);font-style:italic;font-size:14px;color:var(--rule)}
+  .mcard .g{font-family:var(--gothic);font-size:10.5px;letter-spacing:.16em;font-weight:700;
+    color:var(--teal2);border:1px solid var(--teal);border-radius:999px;padding:3px 11px}
+  /* editorial accent: first card larger on wide screens */
+  .mcard.lead{grid-column:span 2;background:var(--ink);border-color:var(--ink)}
+  .mcard.lead::before{color:var(--teal);opacity:.5}
+  .mcard.lead .t{color:#F4F1E7;font-size:clamp(22px,2.6vw,28px);line-height:1.55}
+  .mcard.lead .meta{border-top-color:rgba(244,241,231,.2)}
+  .mcard.lead .idx{color:rgba(244,241,231,.4)}
+  .mcard.lead .g{color:#9FC7D0;border-color:rgba(159,199,208,.5)}
+  @media(max-width:560px){.mcard.lead{grid-column:span 1}}
+
+  /* voices wall — dense editorial */
+  .wall{columns:3;column-gap:40px}
+  @media(max-width:900px){.wall{columns:2}}
+  @media(max-width:600px){.wall{columns:1}}
+  .vq{break-inside:avoid;padding:0 0 22px;margin-bottom:22px;border-bottom:1px solid var(--rule)}
+  .vq p{font-family:var(--mincho);font-size:15.5px;line-height:1.95;margin:0 0 11px;color:#20302E}
+  .vq p .lead{color:var(--teal);font-family:var(--latin);font-weight:700}
+  .vq .by{font-family:var(--gothic);font-size:11px;letter-spacing:.14em;color:var(--ink2)}
+  .vq .by::before{content:"— "}
+  .vq .by .p{color:var(--teal2);font-weight:700}
+
+  /* feature */
+  .feat{background:var(--ink);color:#F4F1E7;padding:clamp(36px,5vw,60px);position:relative}
+  .feat .big{font-family:var(--latin);font-size:90px;line-height:.1;color:var(--teal);display:block;height:34px}
+  .feat p{font-family:var(--mincho);font-size:clamp(20px,2.6vw,28px);line-height:1.85;margin:18px 0 22px;letter-spacing:.02em}
+  .feat .by{font-family:var(--gothic);font-size:12px;letter-spacing:.18em;color:#9FC7D0}
+
+  .close{text-align:center;padding:66px 0}
+  .close h2{font-size:clamp(24px,3.6vw,38px);margin:0 0 14px}
+  .close p{color:var(--ink2);max-width:30em;margin:0 auto}
+  .close .eye{margin-bottom:16px;display:block}
+
+  footer{border-top:2px solid var(--ink);margin-top:20px}
+  footer .w{padding:22px 30px 60px;font-size:11.5px;color:var(--ink2);line-height:1.8;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+  footer .logo{font-family:var(--latin);letter-spacing:.24em;font-weight:700;color:var(--ink)}
+</style>
+
+<div class="mast"><div class="w"><span class="logo">POOLO&nbsp;LIFE</span><span class="issue">VOICES — 9期 &amp; 10期 特集</span></div></div>
+
+<div class="hero"><div class="w">
+  <span class="eye">Real voices, from those who finished the journey.</span>
+  <h1>「入ってよかった」の<br><em>解像度</em>を、上げる。</h1>
+  <p class="dek">旅を軸に、自分らしい生き方を探究する8ヶ月。卒業した仲間が総合アンケートに残した、飾らない言葉を集めました。</p>
+  <div class="byline">POOLO LIFE 9期・10期 卒業生 62名の声 ／ 公開に同意した回答のみ掲載</div>
+</div></div>
+
+<section><div class="w">
+  <div class="shead"><span class="num">01</span><h2>POOLOは、どんな存在でしたか</h2><div class="r">卒業生が「一言で」答えた、その姿。</div></div>
+  <div class="mgrid">
+    <div class="mcard lead"><div class="t">自分の人生を、<br>丸ごと愛せる場所。</div><div class="meta"><span class="idx">i</span><span class="g">9期</span></div></div>
+    <div class="mcard"><div class="t">生きているのが、楽になる。</div><div class="meta"><span class="idx">ii</span><span class="g">10期</span></div></div>
+    <div class="mcard"><div class="t">第2の青春。いくら転んでもいいところ。</div><div class="meta"><span class="idx">iii</span><span class="g">10期</span></div></div>
+    <div class="mcard"><div class="t">いつでも帰ってこれる、セカンドホーム。</div><div class="meta"><span class="idx">iv</span><span class="g">9期</span></div></div>
+    <div class="mcard"><div class="t">安心できるのに、すごく刺激もある環境。</div><div class="meta"><span class="idx">v</span><span class="g">9期</span></div></div>
+    <div class="mcard"><div class="t">少し先の未来を、のぞける場所。</div><div class="meta"><span class="idx">vi</span><span class="g">10期</span></div></div>
+    <div class="mcard"><div class="t">すっぴんの自分に、自信を持てたところ。</div><div class="meta"><span class="idx">vii</span><span class="g">10期</span></div></div>
+    <div class="mcard"><div class="t">探究仲間との、色鮮やかな航海。</div><div class="meta"><span class="idx">viii</span><span class="g">10期</span></div></div>
+    <div class="mcard"><div class="t">人生の秘密基地、身近にある大切なもの。</div><div class="meta"><span class="idx">ix</span><span class="g">9期</span></div></div>
+    <div class="mcard"><div class="t">成長を促進してくれる、触媒のような存在。</div><div class="meta"><span class="idx">x</span><span class="g">10期</span></div></div>
+    <div class="mcard"><div class="t">どんな自分でも、受け止めてくれる場所。</div><div class="meta"><span class="idx">xi</span><span class="g">10期</span></div></div>
+    <div class="mcard"><div class="t">サードプレイス。刺激をくれるコミュニティ。</div><div class="meta"><span class="idx">xii</span><span class="g">9期</span></div></div>
+    <div class="mcard"><div class="t">日常に変化を与えてくれる、宿木のような場所。</div><div class="meta"><span class="idx">xiii</span><span class="g">10期</span></div></div>
+    <div class="mcard"><div class="t">原点回帰。そして、はじめの一歩。</div><div class="meta"><span class="idx">xiv</span><span class="g">9期</span></div></div>
+  </div>
+</div></section>
+
+<section style="padding:0"><div class="feat">
+  <span class="big">“</span>
+  <p>過去を振り返って、今を楽しんで、未来を考える。その繰り返しで、“大変なことも辛いことも多くて自分を何度も嫌いになった、だからこそ今のわたし、これからの楽しい私がいる”と思えている。何かあっても仲間がいるし、“人生＝旅”だから、どうにでもなるか、と思える。</p>
+  <div class="by">POOLO LIFE 9期生 ／ 総合アンケートより</div>
+</div></section>
+
+<section style="background:var(--wash)"><div class="w">
+  <div class="shead"><span class="num">02</span><h2>言葉にすると、あふれてくる</h2><div class="r">62名が残したコメントから、そのまま抜粋しています。</div></div>
+  <div class="wall">
+    <div class="vq"><p><span class="lead">「</span>昨年は人生最大のモヤモヤ期でした。新しい自分というより、本来の自分を取り戻したような感覚です。9期で良かったと心から思っています。</p><div class="by"><span class="p">9期</span>生</div></div>
+    <div class="vq"><p><span class="lead">「</span>振り返ると、POOLOに入る前よりも、確実に今の方が良い人生になっています。心に刺さる講義がいくつもあって、視野が広がりました。</p><div class="by"><span class="p">9期</span>生</div></div>
+    <div class="vq"><p><span class="lead">「</span>“人生が一歩進む”経験と人に出会えた場所。みんなじっくり話を聞いてくれて、そっと背中を押してくれる優しさがありました。</p><div class="by"><span class="p">10期</span>生</div></div>
+    <div class="vq"><p><span class="lead">「</span>大人になって出来るなんて思ってもみなかった青春を過ごせました。忘れられない1ページに……いや、100ページはありそうです。笑</p><div class="by"><span class="p">10期</span>生</div></div>
+    <div class="vq"><p><span class="lead">「</span>みんな年齢も住む場所も価値観も違うのに、誰も否定せずお互いを受け入れて認め合える関係性。9期に参加できて本当によかった。</p><div class="by"><span class="p">9期</span>生</div></div>
+    <div class="vq"><p><span class="lead">「</span>心を開くのに時間がかかるタイプでしたが、この豊かなメンバーのお陰でとっても楽しかった。この10期で入れて本当に良かったです。</p><div class="by"><span class="p">10期</span>生</div></div>
+    <div class="vq"><p><span class="lead">「</span>POOLOはびっくりするくらい素でいれた場所。自分では繋がれないような方々から、色んな話が聞けて勉強になりました。</p><div class="by"><span class="p">9期</span>生</div></div>
+    <div class="vq"><p><span class="lead">「</span>各地に会いたい人がたくさんできて、実際に会いにいける。こんなに楽しくて素晴らしいことはないんだな、って思った。財産になった。</p><div class="by"><span class="p">9期</span>生</div></div>
+    <div class="vq"><p><span class="lead">「</span>内に篭もりがちな自分から、1歩踏み出すヒントをくれた場所。向き合うのは怖いけど、仲間がいたからできました。</p><div class="by"><span class="p">10期</span>生</div></div>
+    <div class="vq"><p><span class="lead">「</span>「こう居なくちゃいけない」という圧から自分を解放し、心に従って生き生きと人生を切り拓いていく練習ができた期間でした。</p><div class="by"><span class="p">9期</span>生</div></div>
+    <div class="vq"><p><span class="lead">「</span>寂しいときやつらいときでも「ここに行くと誰かしらいる」という安心感があった。9期として戻ってきて、ほんとによかったです。</p><div class="by"><span class="p">9期</span>生</div></div>
+    <div class="vq"><p><span class="lead">「</span>人生で1番深い問いに、周囲の力を借りて向き合えたことが大きな財産。小さくトライできる場でもありました。</p><div class="by"><span class="p">10期</span>生</div></div>
+    <div class="vq"><p><span class="lead">「</span>人生のターニングポイントです。かけがえのない宝物です。今、私が見ている世界は8ヶ月前より、ものすごく広い。</p><div class="by"><span class="p">9期</span>生</div></div>
+    <div class="vq"><p><span class="lead">「</span>思いきりチャレンジしたり、その姿を見ることで人生の方向性が見えた。自分探しではなく、“自分試しの旅”をやっていく。</p><div class="by"><span class="p">10期</span>生</div></div>
+    <div class="vq"><p><span class="lead">「</span>8ヶ月があっという間だったけど、本当に参加してよかった。いろんな出会いや対話を通して、自分のやりたいことや方向性が見つかりました。</p><div class="by"><span class="p">9期</span>生</div></div>
+    <div class="vq"><p><span class="lead">「</span>10期でも人生が進み始めている人を何人も見たし、皆の自分と向き合う姿勢から勇気をもらった。これだけ人を変容させるってすごい。</p><div class="by"><span class="p">10期</span>生</div></div>
+    <div class="vq"><p><span class="lead">「</span>今までの人生でこんなにオープンに動き回ったのは初めて。写真の自分が今までにない笑顔で、心から楽しんでいるのだと実感しました。</p><div class="by"><span class="p">9期</span>生</div></div>
+    <div class="vq"><p><span class="lead">「</span>入る前に感じていた自己探究への欲求は、満たされ始めたと同時に大きくなり続けて、まだ終わりはないように感じています。</p><div class="by"><span class="p">10期</span>生</div></div>
+  </div>
+</div></section>
+
+<section style="padding:0"><div class="feat">
+  <span class="big">“</span>
+  <p>人と対話して揺さぶられる時間、それを通して自分も知らなかった自分を知る時間をたくさん過ごしました。次の期にも友人が参加してくれて“入って良かった”と伝えてくれて——こんなコミュニティがあるなんて奇跡だな、と思いました。</p>
+  <div class="by">POOLO LIFE 10期生 ／ 総合アンケートより</div>
+</div></section>
+
+<section><div class="w">
+  <div class="shead"><span class="num">03</span><h2>仲間と、自分らしさと、これからと</h2></div>
+  <div class="wall">
+    <div class="vq"><p><span class="lead">「</span>POOLOを通じて自分だけでなく周りの人もhappyになったし、本音で語れる友達もできました。素敵なご縁を頂き、ありがとう。</p><div class="by"><span class="p">9期</span>生</div></div>
+    <div class="vq"><p><span class="lead">「</span>“異日常”ということばがしっくりきます。他の参加者が生きている日常に触れられる、またとない機会でした。</p><div class="by"><span class="p">10期</span>生</div></div>
+    <div class="vq"><p><span class="lead">「</span>入るかギリギリまで迷っていましたが、9期として参加できて本当に良かった。みんなからたくさん学び、自分も成長できた。</p><div class="by"><span class="p">9期</span>生</div></div>
+    <div class="vq"><p><span class="lead">「</span>POOLOがあったおかげで、こんなにも素敵な人生を送れています。新しい未来を開いてくれた旅人。</p><div class="by"><span class="p">10期</span>生</div></div>
+    <div class="vq"><p><span class="lead">「</span>もう一度かえってきた青春。正直ベースで話せる新しいつながり。一言では言い表せない、不思議なコミュニティ。</p><div class="by"><span class="p">9期</span>生</div></div>
+    <div class="vq"><p><span class="lead">「</span>あの時POOLOに参加してよかった、と思いました。多様性あふれている、素敵な空間でした。</p><div class="by"><span class="p">10期</span>生</div></div>
+    <div class="vq"><p><span class="lead">「</span>POOLOにいると、自分を変化させたくなる。楽しい空間で、ずっと笑って過ごせました。</p><div class="by"><span class="p">9期</span>生</div></div>
+    <div class="vq"><p><span class="lead">「</span>第2の青春。いくら転んでもいいところ。すっぴんの自分に、自信を持てるようになったところ。</p><div class="by"><span class="p">10期</span>生</div></div>
+    <div class="vq"><p><span class="lead">「</span>きっかけをもらった場。自分と向き合うのは怖いけど、仲間がいたから、ちょっと背伸びもできて、自信がついた。</p><div class="by"><span class="p">9期</span>生</div></div>
+    <div class="vq"><p><span class="lead">「</span>好奇心旺盛で受容力抜群な人たちがいる場所。本気の遊び場。気づけば、日本が狭くなりました。</p><div class="by"><span class="p">10期</span>生</div></div>
+    <div class="vq"><p><span class="lead">「</span>帰ってくると安心できる場所。生活の一部になったり、たまに離れたり。別荘みたいなところ。</p><div class="by"><span class="p">9期</span>生</div></div>
+    <div class="vq"><p><span class="lead">「</span>思う存分、青春できる場！楽しすぎて、仕事中にもSlackを覗きたくなってしまうほどでした。</p><div class="by"><span class="p">10期</span>生</div></div>
+    <div class="vq"><p><span class="lead">「</span>人生の学びの学校。みんなと課題をしたり語り合うのが楽しかった！POOLO9期最高！！！</p><div class="by"><span class="p">9期</span>生</div></div>
+    <div class="vq"><p><span class="lead">「</span>ちょっと遠くても、集まればすぐ元通り。中学時代のグループみたいな感じ。みんな最高だ〜〜〜</p><div class="by"><span class="p">10期</span>生</div></div>
+    <div class="vq"><p><span class="lead">「</span>なんでも話せて、挑戦を応援し合える仲間がいて、いつでも帰って来れるセカンドホームのようなコミュニティ。</p><div class="by"><span class="p">9期</span>生</div></div>
+    <div class="vq"><p><span class="lead">「</span>揺さぶりの宝庫。自分の弱さに、向き合えるようになりました。</p><div class="by"><span class="p">10期</span>生</div></div>
+    <div class="vq"><p><span class="lead">「</span>年齢が離れていても友達のように接してくれる仲間に出会えたことは、私にとってすごく良いプレゼントになりました。</p><div class="by"><span class="p">9期</span>生</div></div>
+    <div class="vq"><p><span class="lead">「</span>心を開くのに時間がかかる私が、この10期で入れて本当に良かった。豊か、愛、自分の素を出せる存在でした。</p><div class="by"><span class="p">10期</span>生</div></div>
+  </div>
+</div></section>
+
+<div class="close"><div class="w">
+  <span class="eye">Welcome to POOLO LIFE</span>
+  <h2 style="font-family:var(--mincho)">次に「入ってよかった」と言うのは、<br>あなたかもしれません。</h2>
+  <p>ここにある声は、少し前まで“検討中”だった人たちのもの。まずは体験会・相談会で空気に触れてみてください。</p>
+</div></div>
+
+<footer><div class="w">
+  <span class="logo">POOLO LIFE by TABIPPO</span>
+  <span>出典：9期・10期 総合アンケート（卒業時）／公開同意のある回答のみ・氏名は非掲載・一部抜粋。体験会・相談会での紹介用資料。</span>
+</div></footer>
+</body>
+</html>
