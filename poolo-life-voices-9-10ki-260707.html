@@ -46,28 +46,20 @@
   .shead .num{font-family:var(--latin);font-size:44px;color:var(--rule);line-height:.8}
   .shead .r{grid-column:1/-1;color:var(--ink2);font-size:14px;margin-top:-8px}
 
-  /* metaphor cards — editorial */
-  .mgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(248px,1fr));gap:16px}
-  .mcard{position:relative;background:#fff;border:1px solid var(--rule);padding:26px 24px 20px;
-    display:flex;flex-direction:column;gap:16px;min-height:168px;transition:box-shadow .2s ease, transform .2s ease}
-  .mcard::before{content:"“";position:absolute;top:12px;left:20px;font-family:var(--latin);font-size:52px;
-    line-height:1;color:var(--teal);opacity:.22}
-  .mcard:hover{box-shadow:0 16px 34px -26px rgba(20,60,74,.7);transform:translateY(-3px)}
-  .mcard .t{font-family:var(--mincho);font-size:clamp(18px,2vw,21px);line-height:1.62;color:var(--ink);
-    margin-top:22px;letter-spacing:.02em;flex:1}
-  .mcard .meta{display:flex;align-items:center;justify-content:space-between;
-    border-top:1px solid var(--rule);padding-top:12px}
-  .mcard .idx{font-family:var(--latin);font-style:italic;font-size:14px;color:var(--rule)}
-  .mcard .g{font-family:var(--gothic);font-size:10.5px;letter-spacing:.16em;font-weight:700;
-    color:var(--teal2);border:1px solid var(--teal);border-radius:999px;padding:3px 11px}
-  /* editorial accent: first card larger on wide screens */
-  .mcard.lead{grid-column:span 2;background:var(--ink);border-color:var(--ink)}
-  .mcard.lead::before{color:var(--teal);opacity:.5}
-  .mcard.lead .t{color:#F4F1E7;font-size:clamp(22px,2.6vw,28px);line-height:1.55}
-  .mcard.lead .meta{border-top-color:rgba(244,241,231,.2)}
-  .mcard.lead .idx{color:rgba(244,241,231,.4)}
-  .mcard.lead .g{color:#9FC7D0;border-color:rgba(159,199,208,.5)}
-  @media(max-width:560px){.mcard.lead{grid-column:span 1}}
+  /* metaphor keywords — compact editorial tag-cloud */
+  .mcloud{display:flex;flex-wrap:wrap;gap:9px}
+  .kw{display:inline-flex;align-items:center;font-family:var(--mincho);
+    font-size:clamp(14.5px,3.4vw,18px);line-height:1.25;letter-spacing:.02em;
+    padding:9px 16px;border:1px solid var(--rule);border-radius:999px;background:#fff;color:var(--ink);
+    transition:border-color .18s ease, color .18s ease, background .18s ease}
+  .kw:hover{border-color:var(--teal);color:var(--teal2)}
+  .kw sup{font-family:var(--latin);font-style:normal;font-size:.62em;color:var(--teal);
+    margin-left:6px;letter-spacing:.04em;top:-.4em}
+  /* weighted standouts for tag-cloud rhythm */
+  .kw.hot{background:var(--ink);border-color:var(--ink);color:#F4F1E7;
+    font-size:clamp(16px,4vw,22px);padding:10px 20px}
+  .kw.hot sup{color:#9FC7D0}
+  .kw.mid{border-color:var(--teal);color:var(--teal2);font-size:clamp(15px,3.6vw,19px)}
 
   /* voices wall — dense editorial */
   .wall{columns:3;column-gap:40px}
@@ -94,6 +86,27 @@
   footer{border-top:2px solid var(--ink);margin-top:20px}
   footer .w{padding:22px 30px 60px;font-size:11.5px;color:var(--ink2);line-height:1.8;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
   footer .logo{font-family:var(--latin);letter-spacing:.24em;font-weight:700;color:var(--ink)}
+
+  /* ---- mobile ---- */
+  @media(max-width:560px){
+    .w{padding:0 18px}
+    section{padding:40px 0}
+    .hero{padding:40px 0 18px}
+    .hero .dek{font-size:15px;padding-left:14px;margin-top:20px}
+    .byline{margin-top:18px;line-height:1.7}
+    .shead{grid-template-columns:1fr;gap:4px;align-items:start;margin-bottom:22px;padding-bottom:12px}
+    .shead .num{font-size:26px;line-height:1}
+    .shead .r{margin-top:4px;font-size:13px}
+    .mcloud{gap:8px}
+    .feat{padding:32px 22px}
+    .feat p{font-size:19px;line-height:1.8}
+    .wall{column-gap:0}
+    .vq{padding-bottom:18px;margin-bottom:18px}
+    .vq p{font-size:15px}
+    .mast .issue{font-size:9.5px;letter-spacing:.12em}
+    .close{padding:48px 0}
+    footer .w{padding:20px 18px 48px;flex-direction:column;gap:12px}
+  }
 </style>
 
 <div class="mast"><div class="w"><span class="logo">POOLO&nbsp;LIFE</span><span class="issue">VOICES — 9期 &amp; 10期 特集</span></div></div>
@@ -106,22 +119,28 @@
 </div></div>
 
 <section><div class="w">
-  <div class="shead"><span class="num">01</span><h2>POOLOは、どんな存在でしたか</h2><div class="r">卒業生が「一言で」答えた、その姿。</div></div>
-  <div class="mgrid">
-    <div class="mcard lead"><div class="t">自分の人生を、<br>丸ごと愛せる場所。</div><div class="meta"><span class="idx">i</span><span class="g">9期</span></div></div>
-    <div class="mcard"><div class="t">生きているのが、楽になる。</div><div class="meta"><span class="idx">ii</span><span class="g">10期</span></div></div>
-    <div class="mcard"><div class="t">第2の青春。いくら転んでもいいところ。</div><div class="meta"><span class="idx">iii</span><span class="g">10期</span></div></div>
-    <div class="mcard"><div class="t">いつでも帰ってこれる、セカンドホーム。</div><div class="meta"><span class="idx">iv</span><span class="g">9期</span></div></div>
-    <div class="mcard"><div class="t">安心できるのに、すごく刺激もある環境。</div><div class="meta"><span class="idx">v</span><span class="g">9期</span></div></div>
-    <div class="mcard"><div class="t">少し先の未来を、のぞける場所。</div><div class="meta"><span class="idx">vi</span><span class="g">10期</span></div></div>
-    <div class="mcard"><div class="t">すっぴんの自分に、自信を持てたところ。</div><div class="meta"><span class="idx">vii</span><span class="g">10期</span></div></div>
-    <div class="mcard"><div class="t">探究仲間との、色鮮やかな航海。</div><div class="meta"><span class="idx">viii</span><span class="g">10期</span></div></div>
-    <div class="mcard"><div class="t">人生の秘密基地、身近にある大切なもの。</div><div class="meta"><span class="idx">ix</span><span class="g">9期</span></div></div>
-    <div class="mcard"><div class="t">成長を促進してくれる、触媒のような存在。</div><div class="meta"><span class="idx">x</span><span class="g">10期</span></div></div>
-    <div class="mcard"><div class="t">どんな自分でも、受け止めてくれる場所。</div><div class="meta"><span class="idx">xi</span><span class="g">10期</span></div></div>
-    <div class="mcard"><div class="t">サードプレイス。刺激をくれるコミュニティ。</div><div class="meta"><span class="idx">xii</span><span class="g">9期</span></div></div>
-    <div class="mcard"><div class="t">日常に変化を与えてくれる、宿木のような場所。</div><div class="meta"><span class="idx">xiii</span><span class="g">10期</span></div></div>
-    <div class="mcard"><div class="t">原点回帰。そして、はじめの一歩。</div><div class="meta"><span class="idx">xiv</span><span class="g">9期</span></div></div>
+  <div class="shead"><span class="num">01</span><h2>POOLOは、どんな存在でしたか</h2><div class="r">卒業生が「一言で」答えた言葉たち。（9期・10期より）</div></div>
+  <div class="mcloud">
+    <span class="kw hot">自分の人生を丸ごと愛せる場所<sup>9</sup></span>
+    <span class="kw">生きているのが、楽になる<sup>10</sup></span>
+    <span class="kw mid">第2の青春<sup>10</sup></span>
+    <span class="kw">いくら転んでもいいところ<sup>10</sup></span>
+    <span class="kw">いつでも帰れるセカンドホーム<sup>9</sup></span>
+    <span class="kw mid">安心なのに、刺激もある<sup>9</sup></span>
+    <span class="kw">少し先の未来をのぞける場所<sup>10</sup></span>
+    <span class="kw hot">すっぴんの自分に自信を持てた<sup>10</sup></span>
+    <span class="kw">探究仲間との色鮮やかな航海<sup>10</sup></span>
+    <span class="kw">人生の秘密基地<sup>9</sup></span>
+    <span class="kw mid">原点回帰<sup>9</sup></span>
+    <span class="kw">触媒のような存在<sup>10</sup></span>
+    <span class="kw">どんな自分でも受け止めてくれる場所<sup>10</sup></span>
+    <span class="kw">サードプレイス<sup>9</sup></span>
+    <span class="kw">刺激をくれるコミュニティ<sup>9</sup></span>
+    <span class="kw">宿木のような場所<sup>10</sup></span>
+    <span class="kw mid">はじめの一歩<sup>9</sup></span>
+    <span class="kw">癒し<sup>9</sup></span>
+    <span class="kw">人生の学びの学校<sup>9</sup></span>
+    <span class="kw">本気の遊び場<sup>10</sup></span>
   </div>
 </div></section>
 
