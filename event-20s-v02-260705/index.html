@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>働く意味・生きる意味を、見つけにいく90分｜20代後半の生き方シリーズ vol.01｜POOLO</title>
+<meta name="description" content="2026年7月5日（日）13:00–14:30、Zoomオンライン。20代後半へ。『このままで、いいんだっけ。』を、ワークと対話で少しずつ言葉にしていく無料90分。先着10名。あたらしい旅の学校 POOLO。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="働く意味・生きる意味を、見つけにいく90分。｜POOLO 20s Life vol.01">
+<meta property="og:description" content="立ち止まって、いま感じていることを自分のことばにしていく90分。2026年7月5日（日）、Zoomオンライン、無料・先着10名。">
+<meta property="og:url" content="https://michinorionda.github.io/poolo-life/event-20s-v02-260705/">
+<meta property="og:image" content="https://michinorionda.github.io/poolo-life/event-20s-v02-260705/images/og-thumbnail.png">
+<meta property="og:image:width" content="1600">
+<meta property="og:image:height" content="900">
+<meta property="og:site_name" content="POOLO — あたらしい旅の学校">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://michinorionda.github.io/poolo-life/event-20s-v02-260705/images/og-thumbnail.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;600&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Jost:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* =====================================================
+   20s LIFE vol.01 — A. 静かな誌面 / Quiet Folio（本番）
+   非対称グリッド・hairline罫・ノンブル。装飾ゼロ、
+   構造だけで組む。色は 紙・墨・青 の三色のみ。
+   ===================================================== */
+:root{
+  --paper:#ffffff;
+  --ink:#15323d;
+  --ink-60:rgba(21,50,61,.62);
+  --ink-40:rgba(21,50,61,.40);
+  --rule:rgba(21,50,61,.22);
+  --rule-light:rgba(21,50,61,.12);
+  --blue:#189BBC;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%;overflow-x:clip;scroll-behavior:smooth}
+body{
+  background:var(--paper);color:var(--ink);
+  font-family:"Zen Kaku Gothic New",sans-serif;
+  font-size:15px;line-height:2.05;letter-spacing:.03em;font-weight:400;
+  -webkit-font-smoothing:antialiased;
+}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit;text-decoration:none}
+.serif{font-family:"Noto Serif JP",serif}
+.jost{font-family:"Jost",sans-serif}
+
+/* ---- ラベル ---- */
+.label{font-family:"Jost",sans-serif;font-weight:400;font-size:11px;letter-spacing:.28em;
+  text-transform:uppercase;color:var(--ink-60)}
+
+/* ---- 下線リンク（光らせない）---- */
+.tx-link{display:inline-block;font-family:"Zen Kaku Gothic New",sans-serif;font-size:14px;font-weight:500;
+  letter-spacing:.12em;color:var(--ink);padding-bottom:6px;border-bottom:1px solid var(--ink);
+  transition:color .3s ease,border-color .3s ease}
+.tx-link .arrow{display:inline-block;margin-left:.9em;transition:transform .3s ease}
+.tx-link:hover{color:var(--blue);border-color:var(--blue)}
+.tx-link:hover .arrow{transform:translateX(4px)}
+
+/* ---- ヘッダー ---- */
+header{position:sticky;top:0;z-index:50;background:var(--paper);
+  display:flex;justify-content:space-between;align-items:center;
+  padding:18px clamp(22px,5vw,64px);border-bottom:1px solid var(--rule)}
+header .brand{display:inline-flex;align-items:center;height:36px;transition:opacity .2s ease}
+header .brand:hover{opacity:.7}
+header .brand img{height:36px;width:auto;display:block}
+@media(max-width:560px){ header .brand,header .brand img{height:30px} }
+header nav{display:flex;gap:34px;align-items:baseline}
+header nav a{font-size:12px;letter-spacing:.14em;color:var(--ink-60);transition:color .3s ease}
+header nav a:hover{color:var(--ink)}
+header nav a.apply{color:var(--ink);border-bottom:1px solid var(--ink);padding-bottom:3px}
+header nav a.apply:hover{color:var(--blue);border-color:var(--blue)}
+
+/* ---- ヒーロー：特集の扉 ---- */
+.folio{display:grid;grid-template-columns:minmax(190px,240px) 1fr;min-height:80svh}
+.folio-index{border-right:1px solid var(--rule);padding:clamp(30px,5vh,56px) clamp(20px,2.5vw,34px);
+  display:flex;flex-direction:column}
+.folio-index .vol{font-family:"Jost",sans-serif;font-size:11px;letter-spacing:.28em;color:var(--ink-60)}
+.folio-index .toku{font-family:"Noto Serif JP",serif;font-size:13px;letter-spacing:.2em;margin-top:14px;color:var(--ink)}
+.toc{list-style:none;margin-top:40px}
+.toc li{border-top:1px solid var(--rule-light)}
+.toc li:last-child{border-bottom:1px solid var(--rule-light)}
+.toc a{display:flex;gap:14px;align-items:baseline;padding:11px 0;font-size:12px;letter-spacing:.08em;
+  color:var(--ink-60);transition:color .3s ease}
+.toc a:hover{color:var(--ink)}
+.toc .n{font-family:"Jost",sans-serif;font-size:11px;letter-spacing:.12em;color:var(--blue);flex:none}
+.folio-index .org{margin-top:auto;padding-top:36px;font-size:10.5px;letter-spacing:.16em;color:var(--ink-40);line-height:1.9}
+.folio-main{padding:clamp(40px,7vh,88px) clamp(26px,5vw,72px) clamp(36px,6vh,64px);
+  display:flex;flex-direction:column;justify-content:center}
+.folio-kicker{font-family:"Noto Serif JP",serif;font-size:14px;letter-spacing:.24em;color:var(--ink-60)}
+.folio-title{font-family:"Noto Serif JP",serif;font-weight:500;font-feature-settings:"palt";
+  font-size:clamp(2.4rem,6.2vw,4.35rem);line-height:1.52;letter-spacing:.1em;margin-top:26px}
+.folio-lead{margin-top:34px;max-width:34em;font-size:15px;line-height:2.15;color:var(--ink-60)}
+.folio-date{margin-top:clamp(36px,6vh,60px);padding:22px 0;border-top:1px solid var(--rule);
+  border-bottom:1px solid var(--rule);display:flex;align-items:baseline;gap:clamp(18px,3vw,36px);flex-wrap:wrap}
+.folio-date .d{font-family:"Jost",sans-serif;font-weight:400;font-size:clamp(2.4rem,4.6vw,3.4rem);
+  letter-spacing:.06em;font-variant-numeric:tabular-nums;line-height:1}
+.folio-date .d small{font-size:.38em;letter-spacing:.22em;margin-left:.5em;color:var(--ink-60)}
+.folio-date .meta{font-size:12.5px;letter-spacing:.1em;color:var(--ink-60);line-height:2}
+.folio-date .meta b{font-weight:500;color:var(--ink)}
+.folio-cta{margin-top:40px;display:flex;align-items:baseline;gap:26px;flex-wrap:wrap}
+.folio-cta .note{font-size:11.5px;letter-spacing:.08em;color:var(--ink-40)}
+
+/* ---- 写真：右寄せ非対称 ---- */
+.photo-band{display:grid;grid-template-columns:minmax(190px,240px) 1fr;border-top:1px solid var(--rule)}
+.photo-band .cap-col{border-right:1px solid var(--rule);padding:clamp(26px,4vh,44px) clamp(20px,2.5vw,34px)}
+.photo-band .cap-col .label{display:block}
+.photo-band .cap-col p{margin-top:18px;font-size:12px;line-height:2.1;letter-spacing:.06em;color:var(--ink-60);max-width:16em}
+.photo-band figure{padding:clamp(26px,4vh,52px) clamp(26px,5vw,72px) clamp(26px,4vh,52px) 0;display:flex;justify-content:flex-end}
+.photo-band img{width:min(680px,100%);aspect-ratio:16/10;object-fit:cover;object-position:center 42%}
+
+/* 全面図版：明るい写真で誌面に空気を入れる */
+.fullfig{border-top:1px solid var(--rule)}
+.fullfig>img{width:100%;height:clamp(300px,44vw,540px);object-fit:cover;object-position:center 46%;display:block}
+.fullfig .cap{display:grid;grid-template-columns:minmax(190px,240px) 1fr;border-top:1px solid var(--rule)}
+.fullfig .cap .l{border-right:1px solid var(--rule);padding:15px clamp(20px,2.5vw,34px)}
+.fullfig .cap .l .label{display:block}
+.fullfig .cap .t{padding:15px clamp(26px,5vw,72px);font-size:12px;letter-spacing:.06em;color:var(--ink-60);line-height:1.95}
+/* 本文内の図版（POOLO キービジュアル 等）*/
+.about-fig{margin:2px 0 36px}
+.about-fig img{width:100%;height:auto;display:block}
+.about-fig figcaption{margin-top:12px;font-family:"Jost",sans-serif;font-size:11px;letter-spacing:.16em;color:var(--ink-40)}
+/* 受賞の実写（05 声の末尾に添える）*/
+.award-fig{margin-top:40px;padding-top:26px;border-top:1px solid var(--rule-light)}
+.award-fig img{width:100%;height:auto;display:block}
+
+/* ---- セクション共通：非対称2カラム ---- */
+section.sheet{display:grid;grid-template-columns:minmax(190px,240px) 1fr;border-top:1px solid var(--rule);scroll-margin-top:84px}
+.sheet .side{border-right:1px solid var(--rule);padding:clamp(40px,7vh,80px) clamp(20px,2.5vw,34px)}
+.sheet .side .no{font-family:"Jost",sans-serif;font-size:12px;letter-spacing:.2em;color:var(--blue)}
+.sheet .side h2{font-family:"Noto Serif JP",serif;font-weight:500;font-size:17px;letter-spacing:.18em;margin-top:16px;line-height:1.9}
+.sheet .side .sub{margin-top:16px;font-size:11px;letter-spacing:.16em;color:var(--ink-40)}
+.sheet .body{padding:clamp(40px,7vh,80px) clamp(26px,5vw,72px);max-width:calc(38em + clamp(52px,10vw,144px))}
+.sheet .body>p{max-width:34em}
+.sheet .body p+p{margin-top:1.9em}
+.sheet .body .em{color:var(--blue)}
+.sheet .body .em-ink{color:var(--ink);font-weight:500}
+
+/* 「こんな感覚」— 組みリスト */
+.senses{list-style:none;margin-top:48px;max-width:36em}
+.senses li{padding:20px 0 20px 2.1em;border-top:1px solid var(--rule-light);font-size:14.5px;line-height:2;position:relative}
+.senses li:last-child{border-bottom:1px solid var(--rule-light)}
+.senses li::before{content:"—";position:absolute;left:0;color:var(--blue)}
+.bridge{margin-top:44px;font-family:"Noto Serif JP",serif;font-size:16px;letter-spacing:.08em;line-height:2.2}
+
+/* 02 持ち帰るもの */
+.gains{list-style:none;max-width:40em}
+.gains li{display:grid;grid-template-columns:3em 1fr;gap:clamp(16px,2.5vw,32px);padding:28px 0;
+  border-top:1px solid var(--rule-light);align-items:baseline}
+.gains li:last-child{border-bottom:1px solid var(--rule-light)}
+.gains .gn{font-family:"Jost",sans-serif;font-size:15px;letter-spacing:.1em;color:var(--blue);font-variant-numeric:tabular-nums}
+.gains .gt{font-family:"Noto Serif JP",serif;font-weight:500;font-size:16.5px;letter-spacing:.1em;line-height:1.9}
+.gains .gd{margin-top:12px;font-size:13.5px;line-height:2.05;color:var(--ink-60);max-width:30em}
+
+/* 03 時刻表 */
+.timetable{list-style:none;max-width:40em}
+.timetable li{display:grid;grid-template-columns:7.4em 1fr;gap:clamp(18px,3vw,40px);padding:20px 0;
+  border-top:1px solid var(--rule-light);align-items:baseline}
+.timetable li:last-child{border-bottom:1px solid var(--rule-light)}
+.timetable .t{font-family:"Jost",sans-serif;font-size:14px;letter-spacing:.1em;font-variant-numeric:tabular-nums;color:var(--ink-60)}
+.timetable .w b{display:block;font-weight:500;font-size:14.5px;letter-spacing:.08em}
+.timetable .w span{display:block;font-size:12.5px;line-height:1.95;color:var(--ink-60);margin-top:4px}
+.tt-note{margin-top:30px;font-size:12px;letter-spacing:.06em;color:var(--ink-40);max-width:34em;line-height:2}
+
+/* 04 三つの問い */
+.questions{list-style:none;max-width:38em}
+.questions li{padding:30px 0;border-top:1px solid var(--rule-light)}
+.questions li:last-child{border-bottom:1px solid var(--rule-light)}
+.questions .qn{font-family:"Jost",sans-serif;font-size:12px;letter-spacing:.2em;color:var(--blue)}
+.questions .qq{font-family:"Noto Serif JP",serif;font-weight:500;font-size:clamp(1.05rem,2.2vw,1.32rem);
+  letter-spacing:.08em;line-height:1.85;margin-top:14px;font-feature-settings:"palt"}
+.questions .qd{margin-top:14px;font-size:13px;line-height:2;color:var(--ink-60);max-width:30em}
+
+/* 05 声 */
+.voices{list-style:none;max-width:40em}
+.voices li{padding:30px 0;border-top:1px solid var(--rule-light)}
+.voices li:last-child{border-bottom:1px solid var(--rule-light)}
+.voices .vq{font-family:"Noto Serif JP",serif;font-weight:400;font-size:15.5px;line-height:2.2;letter-spacing:.05em}
+.voices .vw{margin-top:16px;font-family:"Jost",sans-serif;font-size:11px;letter-spacing:.18em;color:var(--ink-60)}
+.credit{margin-top:38px;padding-top:20px;border-top:1px solid var(--rule-light);
+  font-size:12px;letter-spacing:.08em;color:var(--ink-60);line-height:2;max-width:34em}
+.credit .award{color:var(--ink);font-weight:500}
+.voices-note{margin-top:16px;font-size:11px;letter-spacing:.06em;color:var(--ink-40);line-height:1.9;max-width:34em}
+
+/* 06 この場について：建て付け */
+.disclose{border:1px solid var(--rule);padding:clamp(26px,4vw,42px);margin-top:46px;max-width:38em}
+.disclose .dh{font-family:"Noto Serif JP",serif;font-weight:500;font-size:14.5px;letter-spacing:.18em;
+  margin-bottom:18px;padding-bottom:16px;border-bottom:1px solid var(--rule-light)}
+.disclose p{font-size:13.5px;line-height:2.2;color:var(--ink-60)}
+.about-links{margin-top:40px;display:flex;gap:30px;align-items:baseline;flex-wrap:wrap}
+
+/* 07 FAQ */
+.faq{list-style:none;max-width:40em}
+.faq li{padding:24px 0;border-top:1px solid var(--rule-light)}
+.faq li:last-child{border-bottom:1px solid var(--rule-light)}
+.faq .fq{display:flex;gap:13px;font-weight:500;font-size:14.5px;letter-spacing:.05em;line-height:1.8}
+.faq .fq .m{font-family:"Jost",sans-serif;color:var(--blue);flex:none}
+.faq .fa{margin-top:12px;padding-left:1.9em;font-size:13.5px;line-height:2.05;color:var(--ink-60);max-width:32em}
+
+/* 08 概要 */
+.overview{list-style:none;max-width:40em}
+.overview div{display:grid;grid-template-columns:7em 1fr;gap:clamp(16px,3vw,36px);padding:18px 0;
+  border-top:1px solid var(--rule-light);align-items:baseline}
+.overview div:last-child{border-bottom:1px solid var(--rule-light)}
+.overview dt{font-size:12.5px;letter-spacing:.14em;color:var(--ink-60)}
+.overview dd{font-size:14px;letter-spacing:.05em;line-height:1.95}
+.overview dd small{display:block;font-size:12px;color:var(--ink-60);margin-top:5px;line-height:1.9}
+.overview .num{font-family:"Jost",sans-serif;font-variant-numeric:tabular-nums;letter-spacing:.04em}
+.steps{list-style:none;max-width:40em;margin-top:40px}
+.steps>.label{display:block;margin-bottom:8px}
+.steps li{display:grid;grid-template-columns:3em 1fr;gap:20px;padding:14px 0;border-top:1px solid var(--rule-light);
+  font-size:13.5px;letter-spacing:.04em;align-items:baseline}
+.steps li:last-child{border-bottom:1px solid var(--rule-light)}
+.steps .sn{font-family:"Jost",sans-serif;color:var(--blue);letter-spacing:.1em}
+.body-cta{margin-top:44px}
+
+/* ---- 結び・CTA ---- */
+.closing{border-top:1px solid var(--rule);padding:clamp(64px,12vh,120px) clamp(22px,5vw,64px);text-align:center}
+.closing .q{font-family:"Noto Serif JP",serif;font-weight:500;font-feature-settings:"palt";
+  font-size:clamp(1.3rem,3vw,1.8rem);letter-spacing:.14em;line-height:2}
+.closing .s{margin-top:22px;font-size:13px;letter-spacing:.1em;color:var(--ink-60)}
+.closing .tx-link{margin-top:42px;font-size:15px}
+.closing .fine{margin-top:26px;font-size:11px;letter-spacing:.1em;color:var(--ink-40)}
+
+footer{border-top:1px solid var(--rule);padding:30px clamp(22px,5vw,64px);display:flex;
+  justify-content:space-between;align-items:baseline;gap:20px;flex-wrap:wrap}
+footer .l{font-family:"Jost",sans-serif;font-size:11px;letter-spacing:.3em;color:var(--ink-60)}
+footer .r{font-size:10.5px;letter-spacing:.12em;color:var(--ink-40)}
+
+/* ---- モバイル追従CTA（静かに）---- */
+.mcta{position:fixed;left:0;right:0;bottom:0;z-index:55;background:#fff;
+  border-top:1px solid var(--rule);box-shadow:0 -10px 26px -14px rgba(21,50,61,.4);
+  padding:10px 14px calc(10px + env(safe-area-inset-bottom));
+  display:flex;justify-content:space-between;align-items:center;gap:12px;
+  transform:translateY(130%);transition:transform .42s cubic-bezier(.2,.6,.2,1)}
+.mcta.show{transform:none}
+.mcta .mi{font-size:11px;letter-spacing:.03em;color:var(--ink-60);line-height:1.45;
+  flex:1 1 auto;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.mcta .mi b{display:block;color:var(--ink);font-size:13px;letter-spacing:.02em;font-weight:700;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.mcta .mi .free{color:var(--blue);font-weight:700}
+.mcta-btn{flex:none;display:inline-flex;align-items:center;gap:7px;background:var(--blue);color:#fff;
+  font-weight:700;font-size:14px;letter-spacing:.02em;padding:13px 20px;border-radius:9px;
+  box-shadow:0 10px 22px -8px rgba(24,155,188,.7);white-space:nowrap;text-decoration:none;
+  transition:transform .15s ease,box-shadow .15s ease}
+.mcta-btn .arrow{transition:transform .2s ease}
+.mcta-btn:active{transform:translateY(1px);box-shadow:0 6px 14px -8px rgba(24,155,188,.7)}
+@media(min-width:841px){.mcta{display:none}}
+
+/* ---- ヒーローの控えめフェード ---- */
+@media (prefers-reduced-motion:no-preference){
+  .folio-main>*{opacity:0;transform:translateY(10px);animation:rise .9s cubic-bezier(.2,.6,.2,1) forwards}
+  .folio-main>*:nth-child(2){animation-delay:.08s}
+  .folio-main>*:nth-child(3){animation-delay:.16s}
+  .folio-main>*:nth-child(4){animation-delay:.24s}
+  .folio-main>*:nth-child(5){animation-delay:.32s}
+  @keyframes rise{to{opacity:1;transform:none}}
+}
+
+/* ---- レスポンシブ ---- */
+@media (max-width:840px){
+  .folio,.photo-band,section.sheet{grid-template-columns:1fr}
+  .folio-index{border-right:none;border-bottom:1px solid var(--rule);flex-direction:row;flex-wrap:wrap;
+    align-items:baseline;gap:8px 20px;padding:18px 22px}
+  .toc,.folio-index .org{display:none}
+  .folio-index .toku{margin-top:0}
+  .folio-main{padding:44px 22px 48px;min-height:0}
+  .folio{min-height:0}
+  .photo-band .cap-col{border-right:none;padding:26px 22px 0}
+  .photo-band .cap-col p{max-width:none}
+  .photo-band figure{padding:20px 0 36px;justify-content:stretch}
+  .photo-band img{width:100%}
+  .fullfig .cap{grid-template-columns:1fr}
+  .fullfig .cap .l{border-right:none;padding:14px 22px 0}
+  .fullfig .cap .t{padding:6px 22px 16px}
+  .fullfig>img{height:clamp(230px,60vw,360px)}
+  .sheet .side{border-right:none;padding:40px 22px 0;display:flex;align-items:baseline;gap:18px;flex-wrap:wrap}
+  .sheet .side h2{margin-top:0}
+  .sheet .side .sub{margin-top:0}
+  .sheet .body{padding:28px 22px 56px}
+  .timetable li{grid-template-columns:6em 1fr;gap:16px}
+  header nav{gap:22px}
+  footer{flex-direction:column;gap:8px}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <a href="#top" class="brand"><img src="images/poolo_logo03.png" alt="POOLO — あたらしい旅の学校"></a>
+  <nav>
+    <a href="https://tabippo.net/poolo/course/life/" target="_blank" rel="noopener">POOLOとは</a>
+    <a class="apply" href="https://liff.line.me/2004689256-jVradzOV/landing?follow=%40801pdwhq&lp=nRZ0zR&liff_id=2004689256-jVradzOV" target="_blank" rel="noopener">申し込む</a>
+  </nav>
+</header>
+
+<!-- 00 特集の扉 -->
+<div class="folio" id="top">
+  <aside class="folio-index">
+    <span class="vol">20s LIFE — VOL. 01</span>
+    <div class="toku">特集　二十代後半の生き方</div>
+    <ul class="toc">
+      <li><a href="#s01"><span class="n">01</span>はじめに</a></li>
+      <li><a href="#s02"><span class="n">02</span>持ち帰るもの</a></li>
+      <li><a href="#s03"><span class="n">03</span>当日の九十分</a></li>
+      <li><a href="#s04"><span class="n">04</span>三つの問い</a></li>
+      <li><a href="#s05"><span class="n">05</span>参加者のことば</a></li>
+      <li><a href="#s06"><span class="n">06</span>この場について</a></li>
+      <li><a href="#s07"><span class="n">07</span>小さな不安に</a></li>
+      <li><a href="#s08"><span class="n">08</span>開催概要・申込</a></li>
+    </ul>
+    <div class="org">主催<br>POOLO<br>by TABIPPO</div>
+  </aside>
+  <div class="folio-main">
+    <p class="folio-kicker">二十代後半の、生き方を問い直す90分。｜vol.01</p>
+    <h1 class="folio-title">このままで、<br>いいんだっけ。</h1>
+    <p class="folio-lead">働く意味・生きる意味を、見つけにいく90分。答えを出す場ではありません。立ち止まって、いま感じていることを自分のことばにしていく時間です。</p>
+    <div class="folio-date">
+      <span class="d">07.05<small>SUN / 2026</small></span>
+      <div class="meta"><b>13:00 — 14:30</b>　Zoom オンライン<br>参加無料　·　先着10名</div>
+    </div>
+    <div class="folio-cta">
+      <a class="tx-link apply" href="#" target="_blank" rel="noopener">申し込む<span class="arrow">→</span></a>
+      <span class="note">＊LINE公式アカウントへ遷移します</span>
+    </div>
+  </div>
+</div>
+
+<!-- 全面図版：はじめに（浜辺を歩き、これからを見にいく）-->
+<div class="fullfig">
+  <img src="images/intro-beach.jpg" alt="浜辺を歩き、島の先を指さすPOOLOの一場面" style="object-position:center 58%">
+</div>
+
+<!-- 01 導入 -->
+<section class="sheet" id="s01">
+  <aside class="side"><span class="no">01</span><h2>はじめに</h2></aside>
+  <div class="body">
+    <p>日々に大きな不満はない。仕事もひととおり回せるようになった。それでも、同期の昇進や、SNSで見かける誰かの転職が、ふと引っかかる。比べたところで、自分がどうしたいのかは分からないのに。</p>
+    <p>この体験会でするのは、いま感じているモヤモヤを、ワークと対話で少しずつ<span class="em">言葉にしていく</span>作業です。90分ですべてが解決するわけではありません。それでも、自分が何に引っかかっているのか、その輪郭くらいはつかめてくる。</p>
+    <ul class="senses">
+      <li>日々に大きな不満はない。でも「このままでいいのかな」だけが、消えない。</li>
+      <li>何か始めたい。そう思いながら、気づけばまた先延ばしにしている。</li>
+      <li>今いる会社や環境だけで、自分の可能性を決めたくない。</li>
+      <li>キャリアや生き方の深い話を、同じ温度でできる人が、近くにいない。</li>
+    </ul>
+  </div>
+</section>
+
+<!-- 図版：屋外の対話 -->
+<div class="photo-band">
+  <div class="cap-col"></div>
+  <figure>
+    <img src="images/05_garden_talk.jpg" alt="木陰で車座になって語り合う様子">
+  </figure>
+</div>
+
+<!-- 02 持ち帰るもの -->
+<section class="sheet" id="s02">
+  <aside class="side"><span class="no">02</span><h2>この90分で持ち帰るもの</h2></aside>
+  <div class="body">
+    <p>大きな決断を迫る場ではありません。持ち帰るのは、次の三つくらいです。</p>
+    <ul class="gains">
+      <li><span class="gn">01</span><div><div class="gt">モヤモヤが、少し言葉になる</div><p class="gd">「なんとなく不安」のままでは、考えようがありません。だからまず、ワークで書き出すところから。うまくまとまらなくて大丈夫。書けたところまでで十分です。</p></div></li>
+      <li><span class="gn">02</span><div><div class="gt">同じことで悩む人に、会える</div><p class="gd">話してみると、似たようなことを考えている同世代が、意外といるものです。悩んでいるのは自分だけじゃなかった——そう思えるだけでも、来てよかったと感じるはず。</p></div></li>
+      <li><span class="gn">03</span><div><div class="gt">明日からできそうな、小さな一歩</div><p class="gd">転職や独立といった大きな話ではありません。明日からちょっと試せることを、ひとつだけ決めて帰ってもらいます。</p></div></li>
+    </ul>
+  </div>
+</section>
+
+<!-- 全面図版：ブランドブルーの対話 -->
+<div class="fullfig">
+  <img src="images/09_dialogue_blue.jpg" alt="少人数で、いま考えていることを話し合う様子">
+</div>
+
+<!-- 03 当日の九十分 -->
+<section class="sheet" id="s03">
+  <aside class="side"><span class="no">03</span><h2>当日の九十分</h2></aside>
+  <div class="body">
+    <p>聞くだけのセミナーではなく、自分で書いたり話したりする時間が中心です。</p>
+    <ul class="timetable" style="margin-top:44px">
+      <li><span class="t">00 — 10</span><div class="w"><b>オープニング・自己紹介</b><span>進め方の説明と、名前といまの状況をひとことずつ。肩書きの紹介はなしにしています。</span></div></li>
+      <li><span class="t">10 — 30</span><div class="w"><b>対話・本題ワーク</b><span>少人数で、いま考えていることをそのまま話す。そのあと、問いに沿ってひとりで書き出す時間。</span></div></li>
+      <li><span class="t">30 — 60</span><div class="w"><b>共有・探究ワーク</b><span>書いたことをグループで共有。「じゃあ、自分はどうしたいか」を、無理のない範囲で。</span></div></li>
+      <li><span class="t">60 — 90</span><div class="w"><b>一歩・クロージング</b><span>明日からやってみたいことをひとりずつ。振り返りをして、時間どおりに終わります。</span></div></li>
+    </ul>
+    <p class="tt-note">聞くだけで終わらないよう、書く・話す時間を厚くしています。まとまっていない言葉こそ歓迎される場です。</p>
+  </div>
+</section>
+
+<!-- 04 三つの問い -->
+<section class="sheet" id="s04">
+  <aside class="side"><span class="no">04</span><h2>向き合う三つの問い</h2></aside>
+  <div class="body">
+    <p>当日はたとえば、こんな問いを扱います。どれも正解のない問いです。思いついたことを、そのまま書いてもらえれば大丈夫です。</p>
+    <ul class="questions" style="margin-top:40px">
+      <li><span class="qn">Q1</span><p class="qq">このまま続けた先に、自分は何を見たいんだろう？</p><p class="qd">うまく答えられなくても構いません。考えてみること自体が目的です。</p></li>
+      <li><span class="qn">Q2</span><p class="qq">「こなせる」と「楽しい」を、混同していないだろうか？</p><p class="qd">仕事に慣れてきた時期ほど、この区別があいまいになりがちです。</p></li>
+      <li><span class="qn">Q3</span><p class="qq">誰の基準で、自分を測ってきたんだろう？</p><p class="qd">同期や年収など、比べる相手をいったん外して考えてみます。</p></li>
+    </ul>
+  </div>
+</section>
+
+<!-- 図版：あたたかい対話 -->
+<div class="photo-band">
+  <div class="cap-col"></div>
+  <figure>
+    <img src="images/08_community_smile.jpg" alt="テーブルを囲んで笑顔で語り合う様子">
+  </figure>
+</div>
+
+<!-- 05 参加者のことば -->
+<section class="sheet" id="s05">
+  <aside class="side"><span class="no">05</span><h2>参加者のことば</h2><span class="sub">VOICES</span></aside>
+  <div class="body">
+    <p>この体験会に申し込んだ方が、参加時に書いてくれた「いま向き合っていること」。あなたの感覚と、どこか重なるかもしれません。</p>
+    <ul class="voices" style="margin-top:40px">
+      <li><p class="vq">「これがやりたい」で選んできたはずなのに、ありたい自分とズレていく。どこへ進めばいいのか、決められずにいました。</p><p class="vw">28歳・女性・会社員</p></li>
+      <li><p class="vq">環境は悪くない。普通に生きていける。でも、この生活をずっと続けていいのかな、挑戦した方がいいんじゃないかって。</p><p class="vw">28歳・女性・保育教諭</p></li>
+      <li><p class="vq">仕事もプライベートも大事にしたい。でも同じ温度で話せる人が周りにいなくて、自分の考えを話せる場所がほしかった。</p><p class="vw">29歳・女性・会社員</p></li>
+    </ul>
+    <figure class="award-fig">
+      <img src="images/peatix-award-photo.jpg" alt="Peatix Community Award 2025 授賞式でのPOOLOチーム">
+    </figure>
+    <p class="credit" style="border-top:none;margin-top:18px;padding-top:0">この体験会を主催するPOOLOは、7年以上・12期続く大人の学び場です。その活動は、<span class="award">Peatix Community Award 2025</span> を受賞しました。</p>
+    <p class="voices-note">＊お申し込みいただいた方が、参加時に書いてくださったことばです。ご本人が特定されない形（属性のみ）で掲載しています。</p>
+  </div>
+</section>
+
+<!-- 06 この場について（主催・建て付け） -->
+<section class="sheet" id="s06">
+  <aside class="side"><span class="no">06</span><h2>この場について</h2><span class="sub">ABOUT</span></aside>
+  <div class="body">
+    <figure class="about-fig">
+      <img src="images/12_poolo_keyvisual.jpg" alt="あたらしい旅の学校 POOLO — 旅と人生をつなぐ大人の学び">
+    </figure>
+    <p>POOLO（ポーロ）は、旅を愛する会社TABIPPOがつくった「あたらしい旅の学校」。7年以上・12期にわたって、20代の生き方の探究に伴走してきました。2025年には、Peatix Community Awardを受賞しています。</p>
+    <p>20代後半でPOOLOに出会う方々には、ひとつの共通項があります。仕事には手応えが出てきていて、自分なりに走ってきた実感もある。それでも、その先に何があるのか、自分は何を大事にして生きていきたいのか、改めて考えてみたくなる瞬間がある。</p>
+    <p>そんな方に必要なのは、新しい情報やフレームワークではなく、<span class="em-ink">自分のなかにすでにある素材を、他者の問いで一緒に言葉にしていく時間</span>ではないか。そう考えて、この体験会を企画しました。</p>
+
+    <div class="about-links">
+      <a class="tx-link" href="https://tabippo.net/poolo/course/life/" target="_blank" rel="noopener">POOLO LIFE を知る<span class="arrow">→</span></a>
+      <span class="label">主催 ｜ 株式会社TABIPPO ・ 株式会社CODOLI</span>
+    </div>
+  </div>
+</section>
+
+<!-- 07 参加前の小さな不安に -->
+<section class="sheet" id="s07">
+  <aside class="side"><span class="no">07</span><h2>参加前の小さな不安に</h2><span class="sub">FAQ</span></aside>
+  <div class="body">
+    <ul class="faq">
+      <li><div class="fq"><span class="m">Q</span><span>顔出しは必須ですか？</span></div><p class="fa">はい。対話を大切にする場のため、今回は顔出しでのご参加をお願いしています。お互いの表情が見えることで、話がぐっとあたたまります。カメラをオンにできる環境でお越しください。</p></li>
+      <li><div class="fq"><span class="m">Q</span><span>ひとりで参加しても浮きませんか？</span></div><p class="fa">ほとんどの方が、ひとりで参加します。初対面同士を前提に設計しているので、安心して来てください。</p></li>
+      <li><div class="fq"><span class="m">Q</span><span>結局、何かを売り込まれませんか？</span></div><p class="fa">当日に、無理なご案内をすることはありません。続きを知りたい方にだけ、後日こちらから軽くご案内します。</p></li>
+      <li><div class="fq"><span class="m">Q</span><span>パソコンは必要ですか？</span></div><p class="fa">今回はPCからのご参加をお願いしています。ワークで書き出す時間があるため、画面と手元の両方が使える環境だと快適です。（メモできるものが手元にあると◎）</p></li>
+      <li><div class="fq"><span class="m">Q</span><span>初対面の人と、うまく話せるか不安です。</span></div><p class="fa">うまく話す必要はありません。まとまっていない言葉こそ歓迎される場です。まずは聞くところから始めて大丈夫です。</p></li>
+    </ul>
+  </div>
+</section>
+
+<!-- 08 開催概要・申込 -->
+<section class="sheet" id="s08">
+  <aside class="side"><span class="no">08</span><h2>開催概要・申込</h2><span class="sub">OUTLINE</span></aside>
+  <div class="body">
+    <dl class="overview">
+      <div><dt>日時</dt><dd><span class="num">2026.7.5</span>（日）<span class="num">13:00 – 14:30</span></dd></div>
+      <div><dt>形式</dt><dd>Zoom（オンライン）</dd></div>
+      <div><dt>定員</dt><dd><span class="num">10</span>名（先着順）</dd></div>
+      <div><dt>参加費</dt><dd>無料</dd></div>
+      <div><dt>必要機器</dt><dd>PC<small>スマートフォンからの参加は不可。対話の場のため、顔出し・音声でのご参加をお願いしています。</small></dd></div>
+      <div><dt>確認事項</dt><dd>無断欠席はご遠慮ください。<small>対話の場のため、次回以降のご参加をお断りする場合があります。</small></dd></div>
+      <div><dt>主催</dt><dd>POOLO運営チーム（株式会社TABIPPO ／ 株式会社CODOLI）</dd></div>
+    </dl>
+
+    <ul class="steps">
+      <span class="label">お申し込み — 1分で完了します</span>
+      <li><span class="sn">01</span><span>LINE公式アカウントを友だち追加</span></li>
+      <li><span class="sn">02</span><span>メニューから「イベントに申し込む」を押下</span></li>
+      <li><span class="sn">03</span><span>案内に従って手続き完了</span></li>
+      <li><span class="sn">04</span><span>当日、Zoomリンクを受け取って参加</span></li>
+    </ul>
+
+    <div class="body-cta">
+      <a class="tx-link apply" href="#" target="_blank" rel="noopener">無料で申し込む<span class="arrow">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- 結び -->
+<section class="closing" id="apply">
+  <p class="q">席は、10名分です。</p>
+  <p class="s">対話の時間をちゃんと取りたいので、人数を絞っています。</p>
+  <a class="tx-link apply" href="#" target="_blank" rel="noopener">無料で申し込む<span class="arrow">→</span></a>
+  <p class="fine">2026.7.5（日）13:00–14:30　／　Zoomオンライン　／　参加無料・先着10名</p>
+</section>
+
+<footer>
+  <span class="l">POOLO — 20s LIFE — VOL. 01</span>
+  <span class="r">© POOLO ／ 株式会社TABIPPO ・ 株式会社CODOLI</span>
+</footer>
+
+<!-- モバイル追従CTA -->
+<div class="mcta" id="mcta">
+  <div class="mi"><b><span class="free">参加無料</span>・先着10名</b>7/5(日) オンライン</div>
+  <a class="mcta-btn apply" href="#" target="_blank" rel="noopener">無料で申し込む<span class="arrow">→</span></a>
+</div>
+
+<script>
+// 申込リンク（LINE公式 LIFF）
+const APPLY_URL = "https://liff.line.me/2004689256-jVradzOV/landing?follow=%40801pdwhq&lp=nRZ0zR&liff_id=2004689256-jVradzOV";
+document.querySelectorAll('a.apply').forEach(a=>{ a.href = APPLY_URL; a.target="_blank"; a.rel="noopener"; });
+
+// モバイル追従CTA：扉を過ぎたら表示、結びで隠す
+const mcta=document.getElementById('mcta');
+const endZone=document.querySelector('.closing');
+let pastHero=false, atEnd=false;
+function upd(){ mcta.classList.toggle('show', pastHero && !atEnd); }
+window.addEventListener('scroll',()=>{ pastHero = window.scrollY > window.innerHeight*0.85; upd(); },{passive:true});
+if('IntersectionObserver' in window){
+  new IntersectionObserver(es=>{ atEnd=es[0].isIntersecting; upd(); },{threshold:0}).observe(endZone);
+}
+</script>
+</body>
+</html>
