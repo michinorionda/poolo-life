@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@700;900&family=Zen+Kaku+Gothic+New:wght@500;700&family=Jost:wght@500;600&display=swap');
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { width: 1200px; height: 630px; overflow: hidden; }
+.card { width: 1200px; height: 630px; background: #FFFFFF; display: grid; grid-template-columns: 1fr 456px; }
+.left { padding: 60px 56px 54px; display: flex; flex-direction: column; justify-content: space-between; }
+.top { display: flex; align-items: center; gap: 18px; }
+.top img { height: 34px; width: auto; display: block; }
+.series { font-family: 'Jost', sans-serif; font-size: 15px; font-weight: 600; letter-spacing: 0.2em; color: #189BBC; text-transform: uppercase; }
+.eyebrow { display: flex; align-items: center; gap: 14px; margin-bottom: 22px; }
+.eyebrow .rule { width: 42px; height: 1px; background: #189BBC; }
+.eyebrow .t { font-family: 'Zen Old Mincho', serif; font-weight: 700; font-size: 17px; letter-spacing: 0.24em; color: #000; }
+.title { font-family: 'Zen Old Mincho', serif; font-weight: 900; font-size: 64px; line-height: 1.34; letter-spacing: 0.04em; color: #000; font-feature-settings: 'palt'; }
+.title .em { color: #189BBC; }
+.bottom { display: flex; flex-direction: column; gap: 12px; }
+.band { display: inline-flex; align-items: baseline; gap: 20px; background: #189BBC; color: #fff; padding: 13px 26px; align-self: flex-start; }
+.band .d { font-family: 'Zen Old Mincho', serif; font-weight: 900; font-size: 40px; letter-spacing: 0.02em; }
+.band .d .dow { font-size: 20px; margin-left: 7px; font-weight: 700; }
+.band .tm { font-family: 'Jost', sans-serif; font-size: 23px; letter-spacing: 0.06em; font-weight: 500; }
+.meta { font-family: 'Zen Kaku Gothic New', sans-serif; font-size: 16px; font-weight: 500; letter-spacing: 0.12em; color: rgba(0,0,0,0.68); }
+.by { font-family: 'Jost', sans-serif; font-size: 12.5px; font-weight: 500; letter-spacing: 0.22em; color: rgba(0,0,0,0.46); text-transform: uppercase; }
+.right { position: relative; border-left: 8px solid #189BBC; }
+.right img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.right .chip { position: absolute; left: 0; bottom: 40px; background: #189BBC; color: #fff; font-family: 'Jost', sans-serif; font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase; padding: 8px 18px; }
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="left">
+    <div class="top"><img src="images/poolo_logo.png" alt="POOLO"><span class="series">30s Life vol.01</span></div>
+    <div>
+      <div class="eyebrow"><span class="rule"></span><span class="t">生き方を問い直す</span></div>
+      <div class="title">30代の生き方を、<br><span class="em">問い直す</span>90分。</div>
+    </div>
+    <div class="bottom">
+      <div class="band"><span class="d">7.20<span class="dow">月</span></span><span class="tm">20:00 – 21:30</span></div>
+      <div class="meta">Zoom オンライン ／ 無料・先着10名</div>
+      <div class="by">Rethink your 30s — POOLO by TABIPPO</div>
+    </div>
+  </div>
+  <div class="right">
+    <img src="images/03_kominka_dialogue.jpg" alt="">
+    <span class="chip">Quiet Dialogue</span>
+  </div>
+</div>
+</body>
+</html>
