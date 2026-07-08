@@ -1,0 +1,973 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>30代の生き方を「問い直す」90分。｜POOLO 30s Life vol.01 — Direction B</title>
+<meta name="description" content="対話と、内省と、好奇心で、30代の生き方を「問い直す」90分。2026年7月20日（月）20:00–21:30、Zoomオンライン、無料・先着10名。">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@400;700;900&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap');
+
+:root {
+  --ink: #2B2823;
+  --ink-deep: #16130E;
+  --bg: #FFFCF6;
+  --bg-warm: #FBF7EE;
+  --paper: #F4EDE1;
+  --green: #2D3E36;
+  --brass: #9A7B24;
+  --line: #E4DBCB;
+  --serif: 'Zen Old Mincho', 'Hiragino Mincho ProN', serif;
+  --sans: 'Zen Kaku Gothic New', 'Hiragino Kaku Gothic ProN', sans-serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+html, body { overflow-x: clip; }
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 2.1;
+  letter-spacing: 0.05em;
+  line-break: strict;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a { color: inherit; text-decoration: none; }
+.nb { white-space: nowrap; }
+
+/* ============ 版面（シェル）============ */
+.shell {
+  max-width: 1160px;
+  margin-inline: auto;
+  padding-inline: clamp(22px, 5.4vw, 72px);
+}
+
+/* ============ Direction label band ============ */
+.dir-band {
+  background: var(--ink-deep);
+  color: rgba(255, 252, 246, 0.82);
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.28em;
+  padding: 9px 0;
+}
+.dir-band .shell {
+  display: flex;
+  align-items: baseline;
+  gap: 1.4em;
+}
+.dir-band .en {
+  color: var(--brass);
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+}
+@media (max-width: 640px) {
+  .dir-band { font-size: 9.5px; letter-spacing: 0.18em; }
+  .dir-band .shell { gap: 1em; flex-wrap: wrap; row-gap: 0; }
+}
+
+/* ============ Brand row ============ */
+.brand-row {
+  border-bottom: 1px solid var(--line);
+}
+.brand-row .shell {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.brand-name {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: 0.42em;
+  color: var(--ink-deep);
+}
+.brand-name small {
+  display: inline-block;
+  margin-left: 1.2em;
+  font-family: var(--sans);
+  font-weight: 400;
+  font-size: 10.5px;
+  letter-spacing: 0.22em;
+  color: rgba(43, 40, 35, 0.62);
+}
+.brand-series {
+  font-family: var(--sans);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--brass);
+}
+@media (max-width: 640px) {
+  .brand-row .shell { flex-wrap: wrap; row-gap: 2px; padding-top: 16px; padding-bottom: 16px; }
+  .brand-name { font-size: 13px; letter-spacing: 0.34em; }
+  .brand-name small { display: none; }
+  .brand-series { font-size: 8.5px; letter-spacing: 0.22em; }
+}
+
+/* ============ HERO ============ */
+.hero {
+  border-bottom: 1px solid var(--line);
+  position: relative;
+}
+.hero-grid {
+  display: grid;
+  grid-template-columns: 92px 1fr;
+  min-height: min(78vh, 760px);
+}
+
+/* 左レール：縦書き＋モノグラム */
+.hero-rail {
+  border-right: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 44px 0 40px;
+}
+.hero-rail-vertical {
+  writing-mode: vertical-rl;
+  font-family: var(--serif);
+  font-size: 12.5px;
+  font-weight: 400;
+  letter-spacing: 0.46em;
+  color: rgba(43, 40, 35, 0.66);
+}
+.hero-rail-eng {
+  writing-mode: vertical-rl;
+  font-family: var(--sans);
+  font-size: 9.5px;
+  font-weight: 500;
+  letter-spacing: 0.42em;
+  text-transform: uppercase;
+  color: var(--brass);
+  margin-top: 28px;
+}
+
+/* 家紋モノグラム */
+.mon {
+  display: block;
+  width: 52px;
+  height: 52px;
+  color: var(--brass);
+  flex: 0 0 auto;
+}
+.mon svg { width: 100%; height: 100%; display: block; }
+
+/* 右：主版面 */
+.hero-main {
+  padding: clamp(48px, 7.5vh, 88px) clamp(26px, 5.4vw, 88px) 0 clamp(28px, 4.6vw, 72px);
+  display: flex;
+  flex-direction: column;
+}
+
+.hero-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: clamp(28px, 4.6vh, 52px);
+}
+.hero-eyebrow-rule {
+  width: 44px;
+  height: 1px;
+  background: var(--brass);
+  flex: 0 0 auto;
+}
+.hero-eyebrow-text {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 13.5px;
+  letter-spacing: 0.34em;
+  color: var(--ink);
+}
+.hero-eyebrow-en {
+  font-family: var(--sans);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--brass);
+  margin-left: auto;
+}
+
+.hero-title {
+  font-family: var(--serif);
+  font-feature-settings: "palt";
+  color: var(--ink-deep);
+  font-weight: 900;
+}
+.hero-title .t-sm {
+  display: block;
+  font-size: clamp(20px, 3.4vw, 34px);
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  line-height: 1.5;
+  margin-bottom: clamp(10px, 1.6vh, 20px);
+}
+.hero-title .t-lg {
+  display: block;
+  font-size: clamp(46px, 9.6vw, 118px);
+  letter-spacing: 0.035em;
+  line-height: 1.14;
+}
+.hero-title .t-lg .em { color: var(--green); }
+.hero-title .t-lg .t-90 {
+  font-size: 0.56em;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  margin-left: 0.14em;
+  color: var(--ink-deep);
+}
+
+.hero-sub {
+  margin-top: clamp(26px, 4vh, 44px);
+  font-family: var(--sans);
+  font-size: 13.5px;
+  font-weight: 400;
+  line-height: 2.15;
+  letter-spacing: 0.08em;
+  color: rgba(43, 40, 35, 0.78);
+  max-width: 33em;
+}
+
+/* 日付ブロック：下に重心 */
+.hero-date {
+  margin-top: auto;
+  padding: clamp(24px, 3.6vh, 36px) 0 clamp(30px, 4.4vh, 44px);
+  border-top: 1px solid var(--ink);
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  column-gap: clamp(18px, 3vw, 40px);
+  row-gap: 8px;
+}
+.hero-date-num {
+  font-family: var(--serif);
+  font-weight: 900;
+  font-feature-settings: "palt";
+  font-size: clamp(40px, 6.2vw, 72px);
+  letter-spacing: 0.02em;
+  line-height: 1;
+  color: var(--ink-deep);
+}
+.hero-date-num .dow {
+  font-size: 0.34em;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  margin-left: 0.3em;
+  color: var(--ink);
+}
+.hero-date-time {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: clamp(17px, 2.2vw, 24px);
+  letter-spacing: 0.1em;
+  color: var(--ink);
+}
+.hero-date-meta {
+  margin-left: auto;
+  display: flex;
+  align-items: baseline;
+  gap: 1.8em;
+  font-family: var(--sans);
+  font-size: 11.5px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  color: var(--ink);
+}
+.hero-date-meta .en {
+  color: var(--brass);
+  font-size: 10px;
+  letter-spacing: 0.36em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 860px) {
+  .hero-grid { grid-template-columns: 64px 1fr; min-height: 0; }
+  .hero-rail { padding: 30px 0 28px; }
+  .mon { width: 40px; height: 40px; }
+  .hero-rail-vertical { font-size: 11px; letter-spacing: 0.36em; }
+  .hero-rail-eng { display: none; }
+  .hero-main { padding-top: 44px; }
+  .hero-date { margin-top: 44px; }
+}
+@media (max-width: 640px) {
+  .hero-grid { grid-template-columns: 1fr; }
+  .hero-rail {
+    flex-direction: row;
+    border-right: none;
+    border-bottom: 1px solid var(--line);
+    padding: 14px clamp(22px, 5.4vw, 72px);
+    justify-content: space-between;
+    align-items: center;
+  }
+  .hero-rail-vertical {
+    writing-mode: horizontal-tb;
+    letter-spacing: 0.28em;
+    font-size: 10.5px;
+  }
+  .hero-rail-eng { display: none; }
+  .mon { width: 34px; height: 34px; }
+  .hero-main { padding: 38px clamp(22px, 5.4vw, 72px) 0; }
+  .hero-eyebrow { margin-bottom: 26px; }
+  .hero-eyebrow-en { display: none; }
+  .hero-sub { font-size: 12.5px; }
+  .hero-date { margin-top: 40px; flex-direction: column; align-items: flex-start; gap: 10px; }
+  .hero-date-meta { margin-left: 0; flex-wrap: wrap; row-gap: 2px; column-gap: 1.4em; }
+}
+
+/* ============ イベント要点 ============ */
+.summary {
+  border-bottom: 1px solid var(--line);
+  background: var(--bg-warm);
+}
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+.summary-cell {
+  padding: 26px clamp(18px, 2.6vw, 34px) 28px;
+  border-left: 1px solid var(--line);
+}
+.summary-cell:first-child { border-left: none; padding-left: 0; }
+.summary-label {
+  display: flex;
+  align-items: baseline;
+  gap: 0.9em;
+  margin-bottom: 10px;
+}
+.summary-label .en {
+  font-family: var(--sans);
+  font-size: 9.5px;
+  font-weight: 500;
+  letter-spacing: 0.36em;
+  text-transform: uppercase;
+  color: var(--brass);
+}
+.summary-label .ja {
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  color: rgba(43, 40, 35, 0.6);
+}
+.summary-value {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-feature-settings: "palt";
+  font-size: 16.5px;
+  letter-spacing: 0.06em;
+  line-height: 1.7;
+  color: var(--ink-deep);
+}
+.summary-value small {
+  display: block;
+  font-family: var(--sans);
+  font-weight: 400;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: rgba(43, 40, 35, 0.6);
+  margin-top: 2px;
+}
+@media (max-width: 860px) {
+  .summary-grid { grid-template-columns: 1fr 1fr; }
+  .summary-cell { padding: 20px 22px 22px; }
+  .summary-cell:nth-child(odd) { border-left: none; padding-left: 0; }
+  .summary-cell:nth-child(n+3) { border-top: 1px solid var(--line); }
+  .summary-value { font-size: 15px; }
+}
+
+/* ============ セクション共通：非対称スパイン ============ */
+.sec {
+  border-bottom: 1px solid var(--line);
+}
+.sec-inner {
+  display: grid;
+  grid-template-columns: clamp(140px, 19vw, 220px) minmax(0, 1fr);
+  column-gap: clamp(28px, 5vw, 76px);
+  padding-top: clamp(72px, 11vh, 128px);
+  padding-bottom: clamp(72px, 11vh, 128px);
+}
+.sec-spine {
+  border-right: 1px solid var(--line);
+  padding-right: clamp(18px, 2.4vw, 34px);
+}
+.sec-num {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(38px, 4.6vw, 56px);
+  letter-spacing: 0.04em;
+  line-height: 1;
+  color: var(--ink-deep);
+}
+.sec-num::after {
+  content: '';
+  display: block;
+  width: 30px;
+  height: 1px;
+  background: var(--brass);
+  margin-top: 18px;
+}
+.sec-en {
+  display: block;
+  margin-top: 16px;
+  font-family: var(--sans);
+  font-size: 9.5px;
+  font-weight: 500;
+  letter-spacing: 0.38em;
+  text-transform: uppercase;
+  color: var(--brass);
+}
+.sec-title {
+  font-family: var(--serif);
+  font-weight: 900;
+  font-feature-settings: "palt";
+  font-size: clamp(26px, 4.2vw, 44px);
+  letter-spacing: 0.06em;
+  line-height: 1.6;
+  color: var(--ink-deep);
+  margin-bottom: clamp(30px, 5vh, 52px);
+}
+.sec-lead {
+  font-size: 13.5px;
+  line-height: 2.15;
+  letter-spacing: 0.07em;
+  color: rgba(43, 40, 35, 0.72);
+  max-width: 36em;
+  margin-bottom: clamp(32px, 5vh, 56px);
+}
+@media (max-width: 860px) {
+  .sec-inner {
+    grid-template-columns: 1fr;
+    row-gap: 34px;
+    padding-top: 64px;
+    padding-bottom: 64px;
+  }
+  .sec-spine {
+    border-right: none;
+    border-bottom: 1px solid var(--line);
+    padding-right: 0;
+    padding-bottom: 22px;
+    display: flex;
+    align-items: baseline;
+    gap: 20px;
+  }
+  .sec-num { font-size: 34px; }
+  .sec-num::after { display: none; }
+  .sec-en { margin-top: 0; }
+  .sec-title { margin-bottom: 26px; }
+  .sec-lead { margin-bottom: 30px; }
+}
+
+/* ============ 導入 01 ============ */
+.intro-body {
+  max-width: 37em;
+}
+.intro-body p {
+  margin-bottom: 2.1em;
+}
+.intro-body p:last-child { margin-bottom: 0; }
+.intro-body strong {
+  font-weight: 700;
+  color: var(--ink-deep);
+}
+.quoted {
+  font-family: var(--serif);
+  font-weight: 700;
+  color: var(--green);
+  letter-spacing: 0.04em;
+}
+.intro-break {
+  font-family: var(--serif);
+  font-weight: 900;
+  font-feature-settings: "palt";
+  font-size: clamp(21px, 2.8vw, 28px);
+  letter-spacing: 0.22em;
+  color: var(--ink-deep);
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  line-height: 1.4;
+}
+.intro-break::before {
+  content: '';
+  width: 34px;
+  height: 1px;
+  background: var(--brass);
+  flex: 0 0 auto;
+}
+
+/* ============ 当日の流れ 03 ============ */
+.flow-list {
+  list-style: none;
+  max-width: 640px;
+  border-top: 1px solid var(--ink);
+}
+.flow-item {
+  display: grid;
+  grid-template-columns: clamp(120px, 16vw, 176px) 1fr;
+  column-gap: clamp(20px, 3vw, 44px);
+  align-items: baseline;
+  padding: clamp(24px, 3.6vh, 34px) 0;
+  border-bottom: 1px solid var(--line);
+}
+.flow-time {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-feature-settings: "palt";
+  font-size: clamp(19px, 2.4vw, 25px);
+  letter-spacing: 0.05em;
+  color: var(--ink-deep);
+  white-space: nowrap;
+}
+.flow-time small {
+  font-size: 0.56em;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  margin-left: 0.24em;
+  color: rgba(43, 40, 35, 0.72);
+}
+.flow-title {
+  font-family: var(--sans);
+  font-size: 14.5px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  color: var(--ink);
+}
+.flow-note {
+  margin-top: 22px;
+  font-size: 11.5px;
+  letter-spacing: 0.12em;
+  color: rgba(43, 40, 35, 0.58);
+}
+.flow-note .tick { color: var(--brass); margin-right: 0.7em; }
+@media (max-width: 640px) {
+  .flow-item { grid-template-columns: 96px 1fr; column-gap: 16px; padding: 20px 0; }
+  .flow-time { font-size: 17px; }
+  .flow-title { font-size: 13.5px; letter-spacing: 0.07em; }
+}
+
+/* ============ 当日の問い ============ */
+.sec-questions { background: var(--paper); }
+.q-list {
+  list-style: none;
+  max-width: 660px;
+}
+.q-item {
+  padding: clamp(34px, 5vh, 52px) 0;
+  border-top: 1px solid var(--line);
+  display: grid;
+  grid-template-columns: clamp(64px, 8vw, 96px) 1fr;
+  column-gap: clamp(20px, 3vw, 40px);
+  align-items: start;
+}
+.q-item:first-child { border-top: 1px solid var(--ink); }
+.q-item:last-child { padding-bottom: 0; }
+.q-no {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 13px;
+  letter-spacing: 0.3em;
+  color: var(--brass);
+  line-height: 2.3;
+  white-space: nowrap;
+}
+.q-text {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-feature-settings: "palt";
+  font-size: clamp(17px, 2.3vw, 21px);
+  letter-spacing: 0.06em;
+  line-height: 1.95;
+  color: var(--ink-deep);
+}
+.q-helper {
+  margin-top: 14px;
+  font-size: 12.5px;
+  line-height: 2;
+  letter-spacing: 0.06em;
+  color: rgba(43, 40, 35, 0.66);
+  max-width: 33em;
+}
+@media (max-width: 640px) {
+  .q-item { grid-template-columns: 1fr; row-gap: 10px; padding: 28px 0; }
+  .q-no { line-height: 1.6; }
+}
+
+/* ============ 中間CTA ============ */
+.cta {
+  background: var(--green);
+  color: var(--bg);
+  border-bottom: 1px solid var(--line);
+  position: relative;
+}
+.cta::before {
+  content: '';
+  position: absolute;
+  top: 10px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: rgba(154, 123, 36, 0.55);
+}
+.cta-inner {
+  padding-top: clamp(72px, 11vh, 120px);
+  padding-bottom: clamp(72px, 11vh, 120px);
+  display: grid;
+  grid-template-columns: minmax(0, 7fr) minmax(0, 4fr);
+  column-gap: clamp(32px, 5vw, 80px);
+  align-items: end;
+}
+.cta-en {
+  display: block;
+  font-family: var(--sans);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.42em;
+  text-transform: uppercase;
+  color: var(--brass);
+  margin-bottom: 26px;
+}
+.cta-title {
+  font-family: var(--serif);
+  font-weight: 900;
+  font-feature-settings: "palt";
+  font-size: clamp(25px, 3.8vw, 40px);
+  letter-spacing: 0.08em;
+  line-height: 1.75;
+  color: var(--bg);
+}
+.cta-action { text-align: left; }
+.cta-btn {
+  display: block;
+  background: var(--bg);
+  color: var(--green);
+  font-family: var(--sans);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  text-indent: 0.3em;
+  text-align: center;
+  padding: 21px 20px;
+  transition: background 0.25s ease, color 0.25s ease;
+}
+.cta-btn:hover {
+  background: var(--ink-deep);
+  color: var(--bg);
+}
+.cta-note {
+  margin-top: 16px;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  color: rgba(255, 252, 246, 0.62);
+}
+@media (max-width: 860px) {
+  .cta-inner {
+    grid-template-columns: 1fr;
+    row-gap: 44px;
+    align-items: start;
+    padding-top: 68px;
+    padding-bottom: 68px;
+  }
+  .cta-action { max-width: 420px; }
+}
+
+/* ============ FOOTER ============ */
+.footer {
+  background: var(--ink-deep);
+  color: rgba(255, 252, 246, 0.72);
+}
+.footer-inner {
+  padding-top: clamp(56px, 8vh, 88px);
+  padding-bottom: 40px;
+}
+.footer-top {
+  display: flex;
+  align-items: center;
+  gap: clamp(24px, 4vw, 48px);
+  padding-bottom: 36px;
+  border-bottom: 1px solid rgba(228, 219, 203, 0.16);
+}
+.footer .mon { width: 42px; height: 42px; }
+.footer-marks {
+  display: flex;
+  align-items: baseline;
+  gap: clamp(20px, 3vw, 36px);
+}
+.footer-wordmark {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 17px;
+  letter-spacing: 0.4em;
+  color: var(--bg);
+}
+.footer-wordmark small {
+  display: block;
+  font-family: var(--sans);
+  font-weight: 400;
+  font-size: 9.5px;
+  letter-spacing: 0.24em;
+  color: rgba(255, 252, 246, 0.5);
+  margin-top: 6px;
+}
+.footer-divider {
+  width: 1px;
+  height: 34px;
+  background: rgba(228, 219, 203, 0.2);
+  align-self: center;
+}
+.footer-bottom {
+  padding-top: 28px;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.footer-text {
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  line-height: 2;
+}
+.footer-copy {
+  font-family: var(--sans);
+  font-size: 9.5px;
+  font-weight: 500;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--brass);
+}
+@media (max-width: 640px) {
+  .footer-top { flex-wrap: wrap; gap: 22px; }
+  .footer-wordmark { font-size: 14px; letter-spacing: 0.32em; }
+  .footer-divider { height: 26px; }
+  .footer-bottom { flex-direction: column; gap: 12px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ===== Direction label ===== -->
+<div class="dir-band">
+  <div class="shell">
+    <span class="en">Direction B</span>
+    <span>Ink＋Brass — 大胆案</span>
+  </div>
+</div>
+
+<!-- ===== Brand row ===== -->
+<header class="brand-row">
+  <div class="shell">
+    <div class="brand-name">POOLO<small>あたらしい旅の学校</small></div>
+    <div class="brand-series">30s Life Series — vol.01</div>
+  </div>
+</header>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <div class="shell">
+    <div class="hero-grid">
+
+      <div class="hero-rail">
+        <span class="mon" aria-hidden="true">
+          <svg viewBox="0 0 96 96" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
+            <circle cx="48" cy="48" r="45"/>
+            <circle cx="48" cy="37" r="8.5"/>
+            <line x1="21" y1="54" x2="75" y2="54"/>
+            <path d="M28 67 Q48 59.5 68 67"/>
+          </svg>
+        </span>
+        <div class="hero-rail-vertical">対話と、内省と、好奇心と。</div>
+        <div class="hero-rail-eng">Quiet Dialogue</div>
+      </div>
+
+      <div class="hero-main">
+        <div class="hero-eyebrow">
+          <span class="hero-eyebrow-rule" aria-hidden="true"></span>
+          <span class="hero-eyebrow-text">生き方を問い直す</span>
+          <span class="hero-eyebrow-en">Rethink Your 30s</span>
+        </div>
+
+        <h1 class="hero-title">
+          <span class="t-sm">30代の生き方を</span>
+          <span class="t-lg"><span class="em">問い直す</span><span class="t-90 nb">90分</span></span>
+        </h1>
+
+        <p class="hero-sub">対話と、内省と、好奇心で。新しい情報やフレームワークではなく、<span class="nb">自分のなかにすでにある手がかりを、</span>ゆっくりとことばにする時間です。</p>
+
+        <div class="hero-date">
+          <span class="hero-date-num">7.20<span class="dow nb">月</span></span>
+          <span class="hero-date-time nb">20:00 – 21:30</span>
+          <span class="hero-date-meta">
+            <span class="en nb">Zoom Online</span>
+            <span class="nb">無料・先着10名</span>
+          </span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== イベント要点 ===== -->
+<section class="summary">
+  <div class="shell">
+    <dl class="summary-grid">
+      <div class="summary-cell">
+        <dt class="summary-label"><span class="en">Date</span><span class="ja">日時</span></dt>
+        <dd class="summary-value">2026年7月20日（月）<span class="nb">20:00〜21:30</span></dd>
+      </div>
+      <div class="summary-cell">
+        <dt class="summary-label"><span class="en">Format</span><span class="ja">形式</span></dt>
+        <dd class="summary-value">Zoom<span class="nb">（オンライン）</span><small>PCからの参加・顔出し必須</small></dd>
+      </div>
+      <div class="summary-cell">
+        <dt class="summary-label"><span class="en">Seats</span><span class="ja">定員</span></dt>
+        <dd class="summary-value">10名（先着順）</dd>
+      </div>
+      <div class="summary-cell">
+        <dt class="summary-label"><span class="en">Fee</span><span class="ja">参加費</span></dt>
+        <dd class="summary-value">無料</dd>
+      </div>
+    </dl>
+  </div>
+</section>
+
+<!-- ===== 導入 01 ===== -->
+<section class="sec">
+  <div class="shell sec-inner">
+    <div class="sec-spine">
+      <div class="sec-num">01</div>
+      <span class="sec-en">Introduction</span>
+    </div>
+    <div>
+      <h2 class="sec-title">今とこれからを、<br class="nb">納得できる生き方を<span class="nb">考える。</span></h2>
+      <div class="intro-body">
+        <p>仕事は頑張ってきた。評価もそれなりにされていて、できることも増えてきている。</p>
+        <p class="intro-break">ただ、しかし。</p>
+        <p>なんか直感的に違和感のようなものがある。もしかしたら、今の生き方の延長線上ではいけないのかもしれない。もちろん、自分の人生に対して<span class="quoted">正解</span>は存在しない。大事なことは、自分が納得を積み重ねて生きていくこと。</p>
+        <p>この90分のイベントは、ワークと対話を通して、自分自身が、<strong>今とこれからを納得できる生き方</strong>を考える場として設計しました。社会的な正解や、誰かの期待に応えるという視点ではなく、自分がこれでいいのだと思える生き方、キャリア、って何だっけ…？という事に、真剣に向き合う時間です。</p>
+        <p>ワークを通じて、自分自身について深掘りします。そして、対話を通じて、「まだ出会ったことのない自分」を感じてもらえると嬉しいです。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 当日の流れ 03 ===== -->
+<section class="sec">
+  <div class="shell sec-inner">
+    <div class="sec-spine">
+      <div class="sec-num">03</div>
+      <span class="sec-en">Timetable</span>
+    </div>
+    <div>
+      <h2 class="sec-title">90分の流れ</h2>
+      <p class="sec-lead">ワークと対話を交互に。ひとりで思い出す時間と、グループで深める時間を行き来します。</p>
+      <ul class="flow-list">
+        <li class="flow-item">
+          <span class="flow-time">0 – 5<small>分</small></span>
+          <span class="flow-title">オープニング</span>
+        </li>
+        <li class="flow-item">
+          <span class="flow-time">20 – 30<small>分</small></span>
+          <span class="flow-title">本題のワーク</span>
+        </li>
+        <li class="flow-item">
+          <span class="flow-time">75 – 90<small>分</small></span>
+          <span class="flow-title">クロージング</span>
+        </li>
+      </ul>
+      <p class="flow-note"><span class="tick">—</span>ワークと対話を交互に行き来する、全8パートの構成です。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 当日の問い ===== -->
+<section class="sec sec-questions">
+  <div class="shell sec-inner">
+    <div class="sec-spine">
+      <div class="sec-num">問</div>
+      <span class="sec-en">Questions</span>
+    </div>
+    <div>
+      <h2 class="sec-title">当日、こんな問いと<span class="nb">向き合います</span></h2>
+      <p class="sec-lead">3つの問い（一部抜粋）。当日は計13問のワークシートに、自分のペースで書き込みながら進めます。</p>
+      <ol class="q-list">
+        <li class="q-item">
+          <span class="q-no">Q. 一</span>
+          <div>
+            <p class="q-text">自分のこれからのキャリア・生き方を考える上での、違和感、もやもやはどんなものですか？</p>
+            <p class="q-helper">うまく言葉にしなくてもOKなので言語化してみてください。このシーンのときに、違和感があったみたいなことでもOKです。</p>
+          </div>
+        </li>
+        <li class="q-item">
+          <span class="q-no">Q. 二</span>
+          <div>
+            <p class="q-text">20代で、本気で迷って選んだことは何でしたか？</p>
+            <p class="q-helper">仕事のことでも、人間関係のことでも、住む場所のことでも、何でも構いません。一つだけ書いてみて下さい。</p>
+          </div>
+        </li>
+        <li class="q-item">
+          <span class="q-no">Q. 三</span>
+          <div>
+            <p class="q-text">過去に、自分がやっていて納得度もあり、結果として誰かに少しでも貢献できたかも？　という経験は何ですか？</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 中間CTA ===== -->
+<section class="cta">
+  <div class="shell cta-inner">
+    <div>
+      <span class="cta-en">Application</span>
+      <h2 class="cta-title">先着10名・参加無料。<br>気になった方は、<span class="nb">お早めに。</span></h2>
+    </div>
+    <div class="cta-action">
+      <a href="https://liff.line.me/2004689256-jVradzOV/landing?follow=%40801pdwhq&lp=ylA6GF&liff_id=2004689256-jVradzOV" target="_blank" rel="noopener" class="cta-btn">イベントに申し込む</a>
+      <p class="cta-note">＊LINE公式アカウントへ遷移します</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="shell footer-inner">
+    <div class="footer-top">
+      <span class="mon" aria-hidden="true">
+        <svg viewBox="0 0 96 96" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
+          <circle cx="48" cy="48" r="45"/>
+          <circle cx="48" cy="37" r="8.5"/>
+          <line x1="21" y1="54" x2="75" y2="54"/>
+          <path d="M28 67 Q48 59.5 68 67"/>
+        </svg>
+      </span>
+      <div class="footer-marks">
+        <a class="footer-wordmark" href="https://tabippo.net/poolo/" target="_blank" rel="noopener">POOLO<small>あたらしい旅の学校</small></a>
+        <span class="footer-divider" aria-hidden="true"></span>
+        <a class="footer-wordmark" href="https://tabippo.net/" target="_blank" rel="noopener">TABIPPO<small>株式会社TABIPPO</small></a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-text">旅と人生をつなぐ、大人の学び／株式会社TABIPPO／株式会社CODOLI</p>
+      <p class="footer-copy">© POOLO. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

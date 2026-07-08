@@ -1,0 +1,1327 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>30代の生き方を問い直す、90分。｜POOLO 30s Life vol.01</title>
+<meta name="description" content="対話と、内省と、好奇心で、30代の生き方を「問い直す」90分。2026年7月20日（月）20:00–21:30、Zoomオンライン、無料・先着10名。">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@400;700;900&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&family=Jost:wght@400;500;600&display=swap');
+
+:root {
+  --brand: #189BBC;
+  --brand-deep: #127E9A;
+  --brand-mid: #8FC6D6;
+  --brand-pale: #DDECF1;
+  --ink: #000000;
+  --ink-soft: #1E1E1E;
+  --bg: #FFFFFF;
+  --bg-off: #F9F9F9;
+  --line: #E4E4E4;
+  --line-pale: #C2DCE5;
+  --mincho: 'Zen Old Mincho', 'Hiragino Mincho ProN', 'Yu Mincho', serif;
+  --head: 'Zen Kaku Gothic New', 'Hiragino Kaku Gothic ProN', sans-serif;
+  --body: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif;
+  --en: 'Jost', sans-serif;
+  --header-h: 64px;
+}
+@media (max-width: 640px) {
+  :root { --header-h: 54px; }
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+html, body { overflow-x: clip; }
+
+body {
+  background: var(--bg);
+  padding-top: calc(var(--header-h) + 1px); /* 固定ヘッダーのオフセット */
+  color: var(--ink-soft);
+  font-family: var(--body);
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 2.05;
+  letter-spacing: 0.05em;
+  line-break: strict;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a { color: inherit; text-decoration: none; }
+img { display: block; max-width: 100%; }
+.nb { white-space: nowrap; }
+
+/* ============ 版面（シェル）============ */
+.shell {
+  max-width: 1160px;
+  margin-inline: auto;
+  padding-inline: clamp(22px, 5.4vw, 72px);
+}
+
+/* ============ Brand row（固定ヘッダー） ============ */
+.brand-row {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 200;
+  background: var(--bg); /* 不透明・フラット */
+  border-bottom: 1px solid var(--line); /* 影の代わりの1本ヘアライン */
+}
+.brand-row .shell {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: var(--header-h);
+  padding-top: 0;
+  padding-bottom: 0;
+}
+.brand-logo img { height: 30px; width: auto; }
+.header-nav {
+  display: flex;
+  align-items: center;
+  gap: clamp(18px, 3vw, 32px);
+}
+.header-link {
+  font-family: var(--head);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  color: rgba(0, 0, 0, 0.66);
+  border-bottom: 1px solid var(--line); /* ヘアラインの下線 */
+  padding-bottom: 2px;
+  white-space: nowrap;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+.header-link .arrow {
+  font-family: var(--en);
+  font-size: 0.85em;
+  margin-left: 0.4em;
+  color: var(--brand);
+}
+.header-link:hover { color: var(--brand-deep); border-bottom-color: var(--brand); }
+.header-cta {
+  display: inline-block;
+  background: var(--brand);
+  color: #fff;
+  font-family: var(--head);
+  font-size: 12.5px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-indent: 0.22em;
+  padding: 11px 28px;
+  border-radius: 2px;
+  white-space: nowrap;
+  transition: background 0.2s ease;
+}
+.header-cta:hover { background: var(--brand-deep); }
+@media (max-width: 640px) {
+  .brand-logo img { height: 22px; }
+  .header-nav { gap: 14px; }
+  .header-link { display: none; } /* モバイルは申込ボタンを優先 */
+  .header-cta { font-size: 11.5px; padding: 9px 20px; letter-spacing: 0.16em; text-indent: 0.16em; }
+}
+
+/* ============ 家紋モノグラム ============ */
+.mon { display: block; color: var(--brand); flex: 0 0 auto; }
+.mon svg { width: 100%; height: 100%; display: block; }
+
+/* ============ HERO（写真ドリブン）============ */
+.hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 46%) minmax(0, 54%);
+}
+.hero-copy {
+  padding-top: clamp(44px, 7vh, 84px);
+  padding-bottom: clamp(44px, 7vh, 84px);
+  padding-right: clamp(26px, 4vw, 64px);
+  padding-left: max(clamp(22px, 5.4vw, 72px), calc((100vw - 1160px) / 2 + 72px));
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.hero-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: clamp(26px, 4.4vh, 46px);
+}
+.hero-eyebrow-rule { width: 44px; height: 1px; background: var(--brand); flex: 0 0 auto; }
+.hero-eyebrow-ja {
+  font-family: var(--mincho);
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.26em;
+  color: var(--ink);
+}
+.hero-eyebrow-en {
+  font-family: var(--en);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  color: var(--brand);
+  margin-left: auto;
+}
+
+.hero-title {
+  font-family: var(--mincho);
+  font-feature-settings: 'palt';
+  color: var(--ink);
+}
+.hero-title .t-sm {
+  display: block;
+  font-size: clamp(16px, 1.9vw, 24px);
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  line-height: 1.5;
+  margin-bottom: clamp(12px, 2vh, 22px);
+}
+.hero-title .t-lg {
+  display: block;
+  font-size: clamp(38px, 4.8vw, 66px);
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  line-height: 1.34;
+}
+.hero-title .t-lg .em { color: var(--brand); }
+
+.hero-lead {
+  margin-top: clamp(24px, 4vh, 40px);
+  font-size: 13px;
+  line-height: 2.15;
+  letter-spacing: 0.07em;
+  color: rgba(0, 0, 0, 0.72);
+  max-width: 27em;
+}
+
+/* レールコピーは写真構図に合わせて水平の結びに（家紋の存在感もここで） */
+.hero-foot {
+  margin-top: clamp(30px, 5vh, 54px);
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  border-top: 1px solid var(--line);
+  padding-top: 24px;
+}
+.hero-foot .mon { width: 58px; height: 58px; }
+.hero-foot-texts { display: flex; flex-direction: column; }
+.hero-foot-ja {
+  font-family: var(--mincho);
+  font-size: 12.5px;
+  font-weight: 500;
+  letter-spacing: 0.3em;
+  color: rgba(0, 0, 0, 0.66);
+}
+.hero-foot-en {
+  font-family: var(--en);
+  font-size: 9.5px;
+  font-weight: 500;
+  letter-spacing: 0.38em;
+  text-transform: uppercase;
+  color: var(--brand);
+  margin-top: 2px;
+}
+
+.hero-photo {
+  position: relative;
+  border-left: 8px solid var(--brand); /* ブランドブルーの罫で額装 */
+}
+.hero-photo img {
+  width: 100%;
+  height: 100%;
+  min-height: min(64vh, 620px);
+  object-fit: cover;
+}
+.hero-chip {
+  position: absolute;
+  left: 0;
+  bottom: clamp(24px, 5vh, 44px);
+  background: var(--brand); /* フラットなベタ帯 */
+  color: #fff;
+  display: flex;
+  align-items: baseline;
+  gap: 1.2em;
+  padding: 10px 22px 10px 26px;
+}
+.hero-chip .en {
+  font-family: var(--en);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+}
+.hero-chip .ja {
+  font-size: 10.5px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+}
+@media (max-width: 860px) {
+  .hero-grid { grid-template-columns: 1fr; }
+  .hero-copy {
+    padding-left: clamp(22px, 5.4vw, 72px);
+    padding-right: clamp(22px, 5.4vw, 72px);
+    padding-bottom: 40px;
+  }
+  .hero-photo { border-left: none; border-top: 6px solid var(--brand); }
+  .hero-photo img { min-height: 0; height: clamp(260px, 48vh, 420px); }
+  .hero-chip { bottom: 0; padding: 8px 18px 8px 22px; }
+  .hero-chip .ja { display: none; }
+  .hero-lead { font-size: 12.5px; max-width: none; }
+  .hero-foot .mon { width: 46px; height: 46px; }
+}
+@media (max-width: 640px) {
+  .hero-eyebrow { gap: 14px; margin-bottom: 26px; }
+  .hero-eyebrow-rule { width: 30px; }
+  .hero-eyebrow-ja { font-size: 11.5px; letter-spacing: 0.22em; }
+  .hero-eyebrow-en { display: none; }
+}
+
+/* ============ ブルーの日付帯（全幅） ============ */
+.hero-band {
+  background: var(--brand);
+  color: #fff;
+}
+.hero-band-inner {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  column-gap: clamp(20px, 3.4vw, 48px);
+  row-gap: 10px;
+  padding-top: clamp(26px, 4.2vh, 44px);
+  padding-bottom: clamp(28px, 4.6vh, 48px);
+}
+.hero-band-num {
+  font-family: var(--en);
+  font-weight: 600;
+  font-size: clamp(44px, 6.6vw, 76px);
+  letter-spacing: 0.02em;
+  line-height: 1;
+}
+.hero-band-num .dow {
+  font-family: var(--head);
+  font-size: 0.3em;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  margin-left: 0.34em;
+}
+.hero-band-time {
+  font-family: var(--en);
+  font-weight: 500;
+  font-size: clamp(17px, 2.2vw, 24px);
+  letter-spacing: 0.08em;
+}
+.hero-band-meta {
+  margin-left: auto;
+  display: flex;
+  align-items: baseline;
+  gap: 1.8em;
+  font-family: var(--body);
+  font-size: 11.5px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+}
+.hero-band-meta .en {
+  font-family: var(--en);
+  font-size: 11px;
+  letter-spacing: 0.36em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.92);
+}
+@media (max-width: 640px) {
+  .hero-band-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    row-gap: 8px;
+    padding-top: 24px;
+    padding-bottom: 26px;
+  }
+  .hero-band-meta { margin-left: 0; flex-wrap: wrap; row-gap: 2px; column-gap: 1.4em; }
+}
+
+/* ============ イベント要点 ============ */
+.summary {
+  border-bottom: 1px solid var(--line);
+  background: var(--bg-off);
+}
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+.summary-cell {
+  padding: 26px clamp(18px, 2.6vw, 34px) 28px;
+  border-left: 1px solid var(--line);
+}
+.summary-cell:first-child { border-left: none; padding-left: 0; }
+.summary-label {
+  display: flex;
+  align-items: baseline;
+  gap: 0.9em;
+  margin-bottom: 10px;
+}
+.summary-label .en {
+  font-family: var(--en);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.36em;
+  text-transform: uppercase;
+  color: var(--brand);
+}
+.summary-label .ja {
+  font-family: var(--body);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  color: rgba(0, 0, 0, 0.55);
+}
+.summary-value {
+  font-family: var(--head);
+  font-weight: 700;
+  font-feature-settings: "palt";
+  font-size: 16.5px;
+  letter-spacing: 0.06em;
+  line-height: 1.7;
+  color: var(--ink);
+}
+.summary-value small {
+  display: block;
+  font-family: var(--body);
+  font-weight: 400;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: rgba(0, 0, 0, 0.55);
+  margin-top: 2px;
+}
+@media (max-width: 860px) {
+  .summary-grid { grid-template-columns: 1fr 1fr; }
+  .summary-cell { padding: 20px 22px 22px; }
+  .summary-cell:nth-child(odd) { border-left: none; padding-left: 0; }
+  .summary-cell:nth-child(n+3) { border-top: 1px solid var(--line); }
+  .summary-value { font-size: 15px; }
+}
+
+/* ============ セクション共通：非対称スパイン ============ */
+.sec {
+  border-bottom: 1px solid var(--line);
+}
+.sec-inner {
+  display: grid;
+  grid-template-columns: clamp(140px, 19vw, 220px) minmax(0, 1fr);
+  column-gap: clamp(28px, 5vw, 76px);
+  padding-top: clamp(72px, 11vh, 128px);
+  padding-bottom: clamp(72px, 11vh, 128px);
+}
+.sec-spine {
+  border-right: 1px solid var(--line);
+  padding-right: clamp(18px, 2.4vw, 34px);
+}
+.sec-num {
+  font-family: var(--en);
+  font-weight: 400;
+  font-size: clamp(38px, 4.6vw, 56px);
+  letter-spacing: 0.06em;
+  line-height: 1;
+  color: var(--brand);
+}
+.sec-num.ja { font-family: var(--mincho); font-weight: 900; letter-spacing: 0; }
+.sec-num::after {
+  content: '';
+  display: block;
+  width: 30px;
+  height: 1px;
+  background: var(--brand);
+  margin-top: 18px;
+}
+.sec-en {
+  display: block;
+  margin-top: 16px;
+  font-family: var(--en);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.38em;
+  text-transform: uppercase;
+  color: rgba(0, 0, 0, 0.55);
+}
+.sec-title {
+  font-family: var(--mincho);
+  font-weight: 700;
+  font-feature-settings: "palt";
+  font-size: clamp(25px, 4vw, 42px);
+  letter-spacing: 0.08em;
+  line-height: 1.65;
+  color: var(--ink);
+  margin-bottom: clamp(30px, 5vh, 52px);
+}
+.sec-lead {
+  font-size: 13.5px;
+  line-height: 2.15;
+  letter-spacing: 0.07em;
+  color: rgba(0, 0, 0, 0.66);
+  max-width: 36em;
+  margin-bottom: clamp(32px, 5vh, 56px);
+}
+@media (max-width: 860px) {
+  .sec-inner {
+    grid-template-columns: 1fr;
+    row-gap: 34px;
+    padding-top: 64px;
+    padding-bottom: 64px;
+  }
+  .sec-spine {
+    border-right: none;
+    border-bottom: 1px solid var(--line);
+    padding-right: 0;
+    padding-bottom: 22px;
+    display: flex;
+    align-items: baseline;
+    gap: 20px;
+  }
+  .sec-num { font-size: 34px; }
+  .sec-num::after { display: none; }
+  .sec-en { margin-top: 0; }
+  .sec-title { margin-bottom: 26px; }
+  .sec-lead { margin-bottom: 30px; }
+}
+
+/* ============ 導入 01 ============ */
+.intro-body {
+  max-width: 37em;
+}
+.intro-body p {
+  margin-bottom: 2.1em;
+}
+.intro-body p:last-child { margin-bottom: 0; }
+.intro-body strong {
+  font-weight: 700;
+  color: var(--ink);
+}
+.quoted {
+  font-family: var(--head);
+  font-weight: 700;
+  color: var(--brand-deep);
+  letter-spacing: 0.04em;
+}
+.intro-break {
+  font-family: var(--mincho);
+  font-weight: 700;
+  font-feature-settings: "palt";
+  font-size: clamp(21px, 2.8vw, 28px);
+  letter-spacing: 0.22em;
+  color: var(--ink);
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  line-height: 1.4;
+}
+.intro-break::before {
+  content: '';
+  width: 34px;
+  height: 1px;
+  background: var(--brand);
+  flex: 0 0 auto;
+}
+
+/* ============ Photo break（全幅写真＋キャプション） ============ */
+.photo-break {
+  position: relative;
+  border-bottom: 1px solid var(--line);
+  padding-top: clamp(56px, 8vh, 96px);
+}
+.photo-break::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: clamp(110px, 18vh, 180px);
+  background: var(--brand-pale);
+}
+.pb-frame {
+  position: relative;
+  z-index: 1;
+}
+.photo-break--right .pb-frame { padding-left: clamp(22px, 10vw, 160px); }
+.photo-break--left .pb-frame { padding-right: clamp(22px, 10vw, 160px); }
+.pb-frame img {
+  width: 100%;
+  height: clamp(280px, 56vh, 560px);
+  object-fit: cover;
+}
+.pb-caption {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: baseline;
+  gap: 18px;
+  padding-top: 16px;
+  padding-bottom: 20px;
+}
+.pb-caption-en {
+  font-family: var(--en);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.38em;
+  text-transform: uppercase;
+  color: var(--brand-deep);
+  white-space: nowrap;
+}
+.pb-caption-rule {
+  width: 30px;
+  height: 1px;
+  background: var(--brand-deep);
+  flex: 0 0 auto;
+  align-self: center;
+}
+.pb-caption-text {
+  font-family: var(--body);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  color: var(--ink-soft);
+}
+@media (max-width: 640px) {
+  .photo-break { padding-top: 44px; }
+  .photo-break::before { height: 96px; }
+  .photo-break--right .pb-frame { padding-left: 22px; }
+  .photo-break--left .pb-frame { padding-right: 22px; }
+  .pb-frame img { height: clamp(220px, 42vh, 320px); }
+  .pb-caption { flex-wrap: wrap; gap: 10px; padding-top: 12px; padding-bottom: 16px; }
+  .pb-caption-text { font-size: 11px; letter-spacing: 0.08em; }
+}
+
+/* ============ 当日の流れ 03 ============ */
+.flow-list {
+  list-style: none;
+  max-width: 640px;
+  border-top: 1px solid var(--ink);
+}
+.flow-item {
+  display: grid;
+  grid-template-columns: clamp(120px, 16vw, 176px) 1fr;
+  column-gap: clamp(20px, 3vw, 44px);
+  align-items: baseline;
+  padding: clamp(24px, 3.6vh, 34px) 0;
+  border-bottom: 1px solid var(--line);
+}
+.flow-time {
+  font-family: var(--en);
+  font-weight: 500;
+  font-size: clamp(19px, 2.4vw, 25px);
+  letter-spacing: 0.04em;
+  color: var(--brand);
+  white-space: nowrap;
+}
+.flow-time small {
+  font-family: var(--head);
+  font-size: 0.56em;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  margin-left: 0.24em;
+  color: rgba(0, 0, 0, 0.66);
+}
+.flow-title {
+  font-family: var(--head);
+  font-size: 14.5px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  color: var(--ink);
+}
+.flow-note {
+  margin-top: 22px;
+  font-size: 11.5px;
+  letter-spacing: 0.12em;
+  color: rgba(0, 0, 0, 0.55);
+}
+.flow-note .tick { color: var(--brand); margin-right: 0.7em; }
+@media (max-width: 640px) {
+  .flow-item { grid-template-columns: 96px 1fr; column-gap: 16px; padding: 20px 0; }
+  .flow-time { font-size: 17px; }
+  .flow-title { font-size: 13.5px; letter-spacing: 0.07em; }
+}
+
+/* ============ 当日の問い ============ */
+.sec-questions { background: var(--brand-pale); }
+.sec-questions .sec-spine { border-right-color: var(--line-pale); }
+.sec-questions .sec-en { color: rgba(0, 0, 0, 0.5); }
+.q-list {
+  list-style: none;
+  max-width: 660px;
+}
+.q-item {
+  padding: clamp(34px, 5vh, 52px) 0;
+  border-top: 1px solid var(--line-pale);
+  display: grid;
+  grid-template-columns: clamp(64px, 8vw, 96px) 1fr;
+  column-gap: clamp(20px, 3vw, 40px);
+  align-items: start;
+}
+.q-item:first-child { border-top: 1px solid var(--ink); }
+.q-item:last-child { padding-bottom: 0; }
+.q-no {
+  font-family: var(--en);
+  font-weight: 500;
+  font-size: 13px;
+  letter-spacing: 0.3em;
+  color: var(--brand-deep);
+  line-height: 2.3;
+  white-space: nowrap;
+}
+.q-no .kanji { font-family: var(--mincho); font-weight: 700; }
+.q-text {
+  font-family: var(--mincho);
+  font-weight: 700;
+  font-feature-settings: "palt";
+  font-size: clamp(17px, 2.3vw, 21px);
+  letter-spacing: 0.06em;
+  line-height: 1.95;
+  color: var(--ink);
+}
+.q-helper {
+  margin-top: 14px;
+  font-size: 12.5px;
+  line-height: 2;
+  letter-spacing: 0.06em;
+  color: rgba(0, 0, 0, 0.6);
+  max-width: 33em;
+}
+@media (max-width: 640px) {
+  .q-item { grid-template-columns: 1fr; row-gap: 10px; padding: 28px 0; }
+  .q-no { line-height: 1.6; }
+  .sec-questions .sec-spine { border-bottom-color: var(--line-pale); }
+}
+
+/* ============ About POOLO（企画者・信頼の小コーナー） ============ */
+.about {
+  border-bottom: 1px solid var(--line);
+}
+.about-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 7fr) minmax(0, 4fr);
+  column-gap: clamp(32px, 5vw, 80px);
+  padding-top: clamp(64px, 9vh, 104px);
+  padding-bottom: clamp(64px, 9vh, 104px);
+}
+.about-en {
+  display: block;
+  font-family: var(--en);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.42em;
+  text-transform: uppercase;
+  color: var(--brand);
+  margin-bottom: 22px;
+}
+.about-title {
+  font-family: var(--mincho);
+  font-weight: 700;
+  font-feature-settings: "palt";
+  font-size: clamp(20px, 2.8vw, 28px);
+  letter-spacing: 0.09em;
+  line-height: 1.75;
+  color: var(--ink);
+  margin-bottom: 26px;
+}
+.about-text p {
+  font-size: 13.5px;
+  line-height: 2.15;
+  letter-spacing: 0.06em;
+  color: rgba(0, 0, 0, 0.72);
+  max-width: 36em;
+  margin-bottom: 1.8em;
+}
+.about-text p:last-child { margin-bottom: 0; }
+.about-text strong { font-weight: 700; color: var(--ink); }
+.about-figs { display: flex; flex-direction: column; gap: 28px; }
+.about-fig img { width: 100%; height: auto; }
+.about-fig figcaption {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  padding-top: 10px;
+  border-top: 1px solid var(--line);
+  margin-top: 12px;
+  font-family: var(--body);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  color: rgba(0, 0, 0, 0.6);
+}
+.about-fig figcaption .en {
+  font-family: var(--en);
+  font-size: 9.5px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--brand-deep);
+  white-space: nowrap;
+}
+@media (max-width: 860px) {
+  .about-inner {
+    grid-template-columns: 1fr;
+    row-gap: 40px;
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+  .about-figs { flex-direction: row; gap: 18px; }
+  .about-fig { flex: 1 1 0; }
+}
+@media (max-width: 640px) {
+  .about-figs { flex-direction: column; gap: 24px; }
+}
+
+/* ============ 中間CTA（ブルーの面） ============ */
+.cta {
+  background: var(--brand);
+  color: #fff;
+  position: relative;
+}
+.cta::before {
+  content: '';
+  position: absolute;
+  top: 10px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.4);
+}
+.cta-inner {
+  padding-top: clamp(72px, 11vh, 120px);
+  padding-bottom: clamp(72px, 11vh, 120px);
+  display: grid;
+  grid-template-columns: minmax(0, 7fr) minmax(0, 4fr);
+  column-gap: clamp(32px, 5vw, 80px);
+  align-items: end;
+}
+.cta-en {
+  display: block;
+  font-family: var(--en);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.42em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.88);
+  margin-bottom: 26px;
+}
+.cta-title {
+  font-family: var(--mincho);
+  font-weight: 700;
+  font-feature-settings: "palt";
+  font-size: clamp(24px, 3.6vw, 38px);
+  letter-spacing: 0.09em;
+  line-height: 1.8;
+  color: #fff;
+}
+.cta-action { text-align: left; }
+.cta-btn {
+  display: block;
+  background: #fff;
+  color: var(--brand-deep);
+  font-family: var(--head);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  text-indent: 0.3em;
+  text-align: center;
+  padding: 21px 20px;
+  border: 1px solid #fff;
+  transition: background 0.25s ease, color 0.25s ease;
+}
+.cta-btn:hover {
+  background: var(--brand-deep);
+  color: #fff;
+}
+.cta-note {
+  margin-top: 16px;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  color: rgba(255, 255, 255, 0.75);
+}
+@media (max-width: 860px) {
+  .cta-inner {
+    grid-template-columns: 1fr;
+    row-gap: 44px;
+    align-items: start;
+    padding-top: 68px;
+    padding-bottom: 68px;
+  }
+  .cta-action { max-width: 420px; }
+}
+
+/* ============ FOOTER ============ */
+.footer {
+  background: var(--bg-off);
+  color: rgba(0, 0, 0, 0.66);
+}
+.footer-inner {
+  padding-top: clamp(56px, 8vh, 88px);
+  padding-bottom: 40px;
+}
+.footer-top {
+  display: flex;
+  align-items: center;
+  gap: clamp(24px, 4vw, 48px);
+  padding-bottom: 36px;
+  border-bottom: 1px solid var(--line);
+}
+.footer .mon { width: 42px; height: 42px; }
+.footer-marks {
+  display: flex;
+  align-items: center;
+  gap: clamp(20px, 3vw, 36px);
+}
+.footer-marks img { width: auto; }
+.footer-marks img[src*="poolo_logo"] { height: 36px; }
+.footer-marks img[src*="tabippo_logo"] { height: 72px; }
+.footer-marks a { display: inline-flex; align-items: center; transition: opacity 0.2s ease; }
+.footer-marks a:hover { opacity: 0.7; }
+.footer-divider {
+  width: 1px;
+  height: 34px;
+  background: var(--line);
+  align-self: center;
+}
+.footer-bottom {
+  padding-top: 28px;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.footer-text {
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  line-height: 2;
+}
+.footer-copy {
+  font-family: var(--en);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--brand-deep);
+}
+@media (max-width: 640px) {
+  .footer-top { flex-wrap: wrap; gap: 22px; }
+  .footer-marks img[src*="poolo_logo"] { height: 26px; }
+  .footer-marks img[src*="tabippo_logo"] { height: 52px; }
+  .footer-divider { height: 26px; }
+  .footer-bottom { flex-direction: column; gap: 12px; }
+}
+
+/* ============ 追従CTA（スクロール途中で出現） ============ */
+.float-apply {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 180;
+  background: var(--bg); /* フラットな白地 */
+  border-top: 1px solid var(--line); /* 上辺の1本ヘアラインのみ */
+  transform: translateY(102%);
+  pointer-events: none;
+  transition: transform 0.28s ease;
+}
+.float-apply.is-visible {
+  transform: translateY(0);
+  pointer-events: auto;
+}
+.fa-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: clamp(16px, 3vw, 40px);
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+.fa-texts {
+  display: flex;
+  align-items: baseline;
+  gap: 18px;
+  min-width: 0;
+}
+.fa-main {
+  font-family: var(--head);
+  font-weight: 700;
+  font-feature-settings: "palt";
+  font-size: 13.5px;
+  letter-spacing: 0.08em;
+  color: var(--ink);
+  white-space: nowrap;
+}
+.fa-sub {
+  font-family: var(--body);
+  font-size: 11.5px;
+  letter-spacing: 0.1em;
+  color: rgba(0, 0, 0, 0.6);
+  white-space: nowrap;
+}
+.fa-btn {
+  flex: 0 0 auto;
+  background: var(--brand);
+  color: #fff;
+  font-family: var(--head);
+  font-size: 12.5px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-indent: 0.22em;
+  padding: 12px 36px;
+  border-radius: 2px;
+  white-space: nowrap;
+  transition: background 0.2s ease;
+}
+.fa-btn:hover { background: var(--brand-deep); }
+@media (max-width: 640px) {
+  .fa-inner { padding-top: 10px; padding-bottom: 10px; gap: 12px; }
+  .fa-texts { flex-direction: column; gap: 1px; align-items: flex-start; }
+  .fa-main { font-size: 12px; letter-spacing: 0.06em; }
+  .fa-sub { font-size: 10px; letter-spacing: 0.06em; }
+  .fa-btn { font-size: 12px; padding: 11px 22px; letter-spacing: 0.14em; text-indent: 0.14em; }
+}
+
+/* 追従CTA表示中はヘッダー右上の申込ボタンを隠す（重複回避）
+   ※ DOM順：.float-apply → .brand-row（後続兄弟セレクタが効く並び） */
+.float-apply.is-visible ~ .brand-row .header-cta { visibility: hidden; }
+</style>
+</head>
+<body>
+
+<!-- ===== 追従CTA（.brand-row より前に置く：~ セレクタでヘッダーCTAを隠すため） ===== -->
+<div class="float-apply" id="floatApply">
+  <div class="shell fa-inner">
+    <div class="fa-texts">
+      <span class="fa-main">30代の生き方を問い直す 90分</span>
+      <span class="fa-sub">7/20(月) 20:00〜 ・ オンライン ・ 無料</span>
+    </div>
+    <a class="fa-btn" href="https://liff.line.me/2004689256-jVradzOV/landing?follow=%40801pdwhq&lp=ylA6GF&liff_id=2004689256-jVradzOV" target="_blank" rel="noopener">申し込む</a>
+  </div>
+</div>
+
+<!-- ===== Brand row（固定ヘッダー） ===== -->
+<header class="brand-row">
+  <div class="shell">
+    <a class="brand-logo" href="https://tabippo.net/poolo/" target="_blank" rel="noopener">
+      <img src="../event-30s-v01-260720/images/poolo_logo.png" alt="POOLO あたらしい旅の学校">
+    </a>
+    <nav class="header-nav">
+      <a class="header-link" href="https://tabippo.net/poolo/" target="_blank" rel="noopener">POOLO とは<span class="arrow" aria-hidden="true">↗</span></a>
+      <a class="header-cta" href="https://liff.line.me/2004689256-jVradzOV/landing?follow=%40801pdwhq&lp=ylA6GF&liff_id=2004689256-jVradzOV" target="_blank" rel="noopener">申し込む</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ===== HERO（写真ドリブン） ===== -->
+<section class="hero">
+  <div class="hero-grid">
+
+    <div class="hero-copy">
+      <div class="hero-eyebrow">
+        <span class="hero-eyebrow-rule" aria-hidden="true"></span>
+        <span class="hero-eyebrow-ja">生き方を問い直す</span>
+        <span class="hero-eyebrow-en">RETHINK YOUR 30s</span>
+      </div>
+
+      <h1 class="hero-title">
+        <span class="t-sm">30代の生き方を</span>
+        <span class="t-lg"><span class="nb"><span class="em">問い直す</span>、</span><br class="nb"><span class="nb">90分。</span></span>
+      </h1>
+
+      <p class="hero-lead">対話と、内省と、好奇心で。新しい情報やフレームワークではなく、<span class="nb">自分のなかにすでにある手がかりを、</span>ゆっくりとことばにする時間です。</p>
+
+      <div class="hero-foot">
+        <span class="mon" aria-hidden="true">
+          <svg viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-linecap="round">
+            <circle cx="60" cy="60" r="57" stroke-width="1.5"/>
+            <circle cx="60" cy="60" r="51.5" stroke-width="0.75"/>
+            <circle cx="60" cy="42.5" r="9.5" stroke-width="1.5"/>
+            <line x1="30" y1="60.5" x2="46.5" y2="60.5" stroke-width="1.1"/>
+            <line x1="73.5" y1="60.5" x2="90" y2="60.5" stroke-width="1.1"/>
+            <path d="M35 78 Q60 66 85 78" stroke-width="1.5"/>
+            <path d="M44 88 Q60 81 76 88" stroke-width="0.9"/>
+          </svg>
+        </span>
+        <div class="hero-foot-texts">
+          <span class="hero-foot-ja">対話と、内省と、好奇心と。</span>
+          <span class="hero-foot-en">Quiet Dialogue</span>
+        </div>
+      </div>
+    </div>
+
+    <figure class="hero-photo">
+      <img src="../event-30s-v01-260720/images/03_kominka_dialogue.jpg" alt="古民家の円卓を囲み、ゆっくりとことばを交わす対話の場面">
+      <figcaption class="hero-chip">
+        <span class="en nb">Quiet Dialogue</span>
+        <span class="ja nb">問いを挟んで、ことばを探す時間</span>
+      </figcaption>
+    </figure>
+
+  </div>
+
+  <!-- ブルーの日付パネル（全幅） -->
+  <div class="hero-band">
+    <div class="shell hero-band-inner">
+      <span class="hero-band-num">7.20<span class="dow nb">月</span></span>
+      <span class="hero-band-time nb">20:00 – 21:30</span>
+      <span class="hero-band-meta">
+        <span class="en nb">Zoom Online</span>
+        <span class="nb">無料・先着10名</span>
+      </span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== イベント要点 ===== -->
+<section class="summary">
+  <div class="shell">
+    <dl class="summary-grid">
+      <div class="summary-cell">
+        <dt class="summary-label"><span class="en">Date</span><span class="ja">日時</span></dt>
+        <dd class="summary-value">2026年7月20日（月）<span class="nb">20:00〜21:30</span></dd>
+      </div>
+      <div class="summary-cell">
+        <dt class="summary-label"><span class="en">Format</span><span class="ja">形式</span></dt>
+        <dd class="summary-value">Zoom<span class="nb">（オンライン）</span><small>PCからの参加・顔出し必須</small></dd>
+      </div>
+      <div class="summary-cell">
+        <dt class="summary-label"><span class="en">Seats</span><span class="ja">定員</span></dt>
+        <dd class="summary-value">10名（先着順）</dd>
+      </div>
+      <div class="summary-cell">
+        <dt class="summary-label"><span class="en">Fee</span><span class="ja">参加費</span></dt>
+        <dd class="summary-value">無料</dd>
+      </div>
+    </dl>
+  </div>
+</section>
+
+<!-- ===== 導入 01 ===== -->
+<section class="sec">
+  <div class="shell sec-inner">
+    <div class="sec-spine">
+      <div class="sec-num">01</div>
+      <span class="sec-en">Introduction</span>
+    </div>
+    <div>
+      <h2 class="sec-title">今とこれからを、<br class="nb">納得できる生き方を<span class="nb">考える。</span></h2>
+      <div class="intro-body">
+        <p>仕事は頑張ってきた。評価もそれなりにされていて、できることも増えてきている。</p>
+        <p class="intro-break">ただ、しかし。</p>
+        <p>なんか直感的に違和感のようなものがある。もしかしたら、今の生き方の延長線上ではいけないのかもしれない。もちろん、自分の人生に対して<span class="quoted">正解</span>は存在しない。大事なことは、自分が納得を積み重ねて生きていくこと。</p>
+        <p>この90分のイベントは、ワークと対話を通して、自分自身が、<strong>今とこれからを納得できる生き方</strong>を考える場として設計しました。社会的な正解や、誰かの期待に応えるという視点ではなく、自分がこれでいいのだと思える生き方、キャリア、って何だっけ…？という事に、真剣に向き合う時間です。</p>
+        <p>ワークを通じて、自分自身について深掘りします。そして、対話を通じて、「まだ出会ったことのない自分」を感じてもらえると嬉しいです。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PHOTO BREAK 1 ===== -->
+<div class="photo-break photo-break--right">
+  <figure class="pb-frame">
+    <img src="../event-30s-v01-260720/images/11_laughing_group.jpg" alt="話すうちに笑いがこぼれる、POOLOの一場面">
+  </figure>
+  <div class="shell pb-caption">
+    <span class="pb-caption-en">Scene 01</span>
+    <span class="pb-caption-rule" aria-hidden="true"></span>
+    <span class="pb-caption-text">話すうちに笑いがこぼれる、POOLOの一場面</span>
+  </div>
+</div>
+
+<!-- ===== 当日の流れ 03 ===== -->
+<section class="sec">
+  <div class="shell sec-inner">
+    <div class="sec-spine">
+      <div class="sec-num">03</div>
+      <span class="sec-en">Timetable</span>
+    </div>
+    <div>
+      <h2 class="sec-title">90分の流れ</h2>
+      <p class="sec-lead">ワークと対話を交互に。ひとりで思い出す時間と、グループで深める時間を行き来します。</p>
+      <ul class="flow-list">
+        <li class="flow-item">
+          <span class="flow-time">0 – 5<small>分</small></span>
+          <span class="flow-title">オープニング</span>
+        </li>
+        <li class="flow-item">
+          <span class="flow-time">20 – 30<small>分</small></span>
+          <span class="flow-title">本題のワーク</span>
+        </li>
+        <li class="flow-item">
+          <span class="flow-time">75 – 90<small>分</small></span>
+          <span class="flow-title">クロージング</span>
+        </li>
+      </ul>
+      <p class="flow-note"><span class="tick">—</span>ワークと対話を交互に行き来する、全8パートの構成です。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 当日の問い ===== -->
+<section class="sec sec-questions">
+  <div class="shell sec-inner">
+    <div class="sec-spine">
+      <div class="sec-num ja">問</div>
+      <span class="sec-en">Questions</span>
+    </div>
+    <div>
+      <h2 class="sec-title">当日、こんな問いと<span class="nb">向き合います</span></h2>
+      <p class="sec-lead">3つの問い（一部抜粋）。当日は計13問のワークシートに、自分のペースで書き込みながら進めます。</p>
+      <ol class="q-list">
+        <li class="q-item">
+          <span class="q-no">Q. <span class="kanji">一</span></span>
+          <div>
+            <p class="q-text">自分のこれからのキャリア・生き方を考える上での、違和感、もやもやはどんなものですか？</p>
+            <p class="q-helper">うまく言葉にしなくてもOKなので言語化してみてください。このシーンのときに、違和感があったみたいなことでもOKです。</p>
+          </div>
+        </li>
+        <li class="q-item">
+          <span class="q-no">Q. <span class="kanji">二</span></span>
+          <div>
+            <p class="q-text">20代で、本気で迷って選んだことは何でしたか？</p>
+            <p class="q-helper">仕事のことでも、人間関係のことでも、住む場所のことでも、何でも構いません。一つだけ書いてみて下さい。</p>
+          </div>
+        </li>
+        <li class="q-item">
+          <span class="q-no">Q. <span class="kanji">三</span></span>
+          <div>
+            <p class="q-text">過去に、自分がやっていて納得度もあり、結果として誰かに少しでも貢献できたかも？　という経験は何ですか？</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PHOTO BREAK 2 ===== -->
+<div class="photo-break photo-break--left">
+  <figure class="pb-frame">
+    <img src="../event-30s-v01-260720/images/05_garden_talk.jpg" alt="問いをひとつ挟んで、ゆっくりと言葉を探す対話の時間">
+  </figure>
+  <div class="shell pb-caption">
+    <span class="pb-caption-en">Scene 02</span>
+    <span class="pb-caption-rule" aria-hidden="true"></span>
+    <span class="pb-caption-text">問いをひとつ挟んで、ゆっくりと言葉を探す時間</span>
+  </div>
+</div>
+
+<!-- ===== About POOLO ===== -->
+<section class="about">
+  <div class="shell about-inner">
+    <div>
+      <span class="about-en">About POOLO</span>
+      <h2 class="about-title">旅を入り口に、生き方を問い直す<span class="nb">大人の学び場。</span></h2>
+      <div class="about-text">
+        <p>あたらしい旅の学校POOLO（ポーロ）は、旅を入り口に自分の生き方・働き方を問い直す<strong>大人の学び場</strong>として、7年以上続いてきました。運営しているのは、旅に関する事業を広く手がけてきた株式会社TABIPPOとコオドリ社。</p>
+        <p>今回のイベントは、POOLOが運営する8ヶ月のオンラインプログラム<strong>POOLO LIFE</strong>を90分に凝縮したもの。まずは1日、問いと対話の場を味わいに来てもらえたらと思います。</p>
+      </div>
+    </div>
+    <div class="about-figs">
+      <figure class="about-fig">
+        <a href="https://tabippo.net/poolo/course/life/" target="_blank" rel="noopener">
+          <img src="../event-30s-v01-260720/images/12_poolo_keyvisual.jpg" alt="POOLO「あたらしい旅の学校」キービジュアル">
+        </a>
+        <figcaption><span class="en">POOLO</span><span>あたらしい旅の学校</span></figcaption>
+      </figure>
+      <figure class="about-fig">
+        <img src="../event-30s-v01-260720/images/02_peatix_award.jpg" alt="Peatix Community Award 2025 表彰式">
+        <figcaption><span class="en">Award</span><span>Peatix Community Award 2025 受賞</span></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 中間CTA ===== -->
+<section class="cta">
+  <div class="shell cta-inner">
+    <div>
+      <span class="cta-en">Application</span>
+      <h2 class="cta-title">先着10名・参加無料。<br>気になった方は、<span class="nb">お早めに。</span></h2>
+    </div>
+    <div class="cta-action">
+      <a href="https://liff.line.me/2004689256-jVradzOV/landing?follow=%40801pdwhq&lp=ylA6GF&liff_id=2004689256-jVradzOV" target="_blank" rel="noopener" class="cta-btn">イベントに申し込む</a>
+      <p class="cta-note">＊LINE公式アカウントへ遷移します</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="shell footer-inner">
+    <div class="footer-top">
+      <span class="mon" aria-hidden="true">
+        <svg viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-linecap="round">
+          <circle cx="60" cy="60" r="57" stroke-width="1.5"/>
+          <circle cx="60" cy="60" r="51.5" stroke-width="0.75"/>
+          <circle cx="60" cy="42.5" r="9.5" stroke-width="1.5"/>
+          <line x1="30" y1="60.5" x2="46.5" y2="60.5" stroke-width="1.1"/>
+          <line x1="73.5" y1="60.5" x2="90" y2="60.5" stroke-width="1.1"/>
+          <path d="M35 78 Q60 66 85 78" stroke-width="1.5"/>
+          <path d="M44 88 Q60 81 76 88" stroke-width="0.9"/>
+        </svg>
+      </span>
+      <div class="footer-marks">
+        <a href="https://tabippo.net/poolo/" target="_blank" rel="noopener"><img src="../event-30s-v01-260720/images/poolo_logo03.png" alt="POOLO あたらしい旅の学校"></a>
+        <span class="footer-divider" aria-hidden="true"></span>
+        <a href="https://tabippo.net/" target="_blank" rel="noopener"><img src="../event-30s-v01-260720/images/tabippo_logo.png" alt="TABIPPO"></a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-text">旅と人生をつなぐ、大人の学び／株式会社TABIPPO／株式会社CODOLI</p>
+      <p class="footer-copy">© POOLO. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var bar = document.getElementById('floatApply');
+  if (!bar) return;
+  var hero = document.querySelector('.hero');
+  // 最終CTA・フッターが視界に入ったら追従バーを退避（重複回避）
+  var sentinels = [document.querySelector('.cta'), document.querySelector('.footer')]
+    .filter(function (el) { return el; });
+  var threshold = 0;
+  var ticking = false;
+
+  function computeThreshold() {
+    // ヒーロー（写真＋日付帯）の下端が画面上部 40vh を切った頃に出現。
+    // .hero が無い場合は 0.6vh スクロールでフォールバック。
+    if (hero) {
+      return hero.offsetTop + hero.offsetHeight - window.innerHeight * 0.4;
+    }
+    return window.innerHeight * 0.6;
+  }
+
+  function update() {
+    var nearEnd = sentinels.some(function (el) {
+      var r = el.getBoundingClientRect();
+      return r.top < window.innerHeight && r.bottom > 0;
+    });
+    bar.classList.toggle('is-visible', window.scrollY > threshold && !nearEnd);
+    ticking = false;
+  }
+
+  window.addEventListener('scroll', function () {
+    if (!ticking) {
+      window.requestAnimationFrame(update);
+      ticking = true;
+    }
+  }, { passive: true });
+
+  window.addEventListener('resize', function () {
+    threshold = computeThreshold();
+    update();
+  });
+
+  window.addEventListener('load', function () {
+    threshold = computeThreshold();
+    update();
+  });
+
+  threshold = computeThreshold();
+  update();
+})();
+</script>
+
+</body>
+</html>

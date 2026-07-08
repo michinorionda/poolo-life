@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HERO LAB — Direction B2 ヒーロー改善 3案｜POOLO 30s Life vol.01</title>
+<meta name="description" content="direction-b2-brand.html のヒーロー部分ブラッシュアップ3案の比較ラボ。V1 編集・明朝／V2 ブランド書体・精緻／V3 写真ドリブン。">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@400;700;900&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&family=Noto+Sans+JP:wght@400;500;700&family=Jost:wght@400;500;600&display=swap');
+
+:root {
+  --brand: #189BBC;
+  --brand-deep: #127E9A;
+  --brand-mid: #8FC6D6;
+  --brand-pale: #DDECF1;
+  --ink: #000000;
+  --ink-soft: #1E1E1E;
+  --bg: #FFFFFF;
+  --bg-off: #F9F9F9;
+  --line: #E4E4E4;
+  --mincho: 'Zen Old Mincho', 'Hiragino Mincho ProN', 'Yu Mincho', serif;
+  --goth: 'Zen Kaku Gothic New', 'Hiragino Kaku Gothic ProN', sans-serif;
+  --body: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif;
+  --en: 'Jost', sans-serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { overflow-x: clip; }
+body {
+  background: var(--bg);
+  color: var(--ink-soft);
+  font-family: var(--body);
+  font-size: 15px;
+  line-height: 2.05;
+  letter-spacing: 0.05em;
+  line-break: strict;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+a { color: inherit; text-decoration: none; }
+img { display: block; max-width: 100%; }
+.nb { white-space: nowrap; }
+
+.shell {
+  max-width: 1160px;
+  margin-inline: auto;
+  padding-inline: clamp(22px, 5.4vw, 72px);
+}
+
+/* ============ ラボ帯（ページ頭・各案の区切り） ============ */
+.lab-head {
+  background: var(--ink);
+  color: rgba(255, 255, 255, 0.9);
+  padding: 13px 0;
+}
+.lab-head .shell {
+  display: flex;
+  align-items: baseline;
+  gap: 1.6em;
+  flex-wrap: wrap;
+  row-gap: 2px;
+}
+.lab-head-en {
+  font-family: var(--en);
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  color: var(--brand-mid);
+}
+.lab-head-ja {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+}
+.lab-head-note {
+  margin-left: auto;
+  font-family: var(--en);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.lab-band {
+  background: var(--ink);
+  color: rgba(255, 255, 255, 0.88);
+  padding: 8px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.16);
+}
+.lab-band .shell {
+  display: flex;
+  align-items: baseline;
+  gap: 1.5em;
+  flex-wrap: wrap;
+  row-gap: 0;
+}
+.lab-tag {
+  font-family: var(--en);
+  font-weight: 600;
+  font-size: 11px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--brand-mid);
+}
+.lab-name {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+}
+.lab-desc {
+  margin-left: auto;
+  font-size: 10.5px;
+  font-weight: 400;
+  letter-spacing: 0.14em;
+  color: rgba(255, 255, 255, 0.58);
+}
+@media (max-width: 720px) {
+  .lab-desc { margin-left: 0; flex-basis: 100%; }
+  .lab-head-note { display: none; }
+}
+
+.ver-gap { height: clamp(64px, 9vh, 110px); background: var(--bg); }
+
+/* ============ 共通：ブランド行 ============ */
+.brand-row { border-bottom: 1px solid var(--line); background: var(--bg); }
+.brand-row .shell {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 18px;
+  padding-bottom: 18px;
+}
+.brand-logo img { height: 30px; width: auto; }
+.brand-series {
+  font-family: var(--en);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  color: var(--brand);
+}
+@media (max-width: 640px) {
+  .brand-row .shell { padding-top: 14px; padding-bottom: 14px; }
+  .brand-logo img { height: 22px; }
+  .brand-series { font-size: 8.5px; letter-spacing: 0.2em; }
+}
+
+/* ============ 共通：家紋モノグラム ============ */
+.mon { display: block; color: var(--brand); flex: 0 0 auto; }
+.mon svg { width: 100%; height: 100%; display: block; }
+
+/* ============ 共通：日付帯 ============ */
+.date-band { background: var(--brand); color: #fff; }
+.date-band-inner {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  column-gap: clamp(20px, 3.4vw, 48px);
+  row-gap: 10px;
+  padding-top: clamp(26px, 4.2vh, 44px);
+  padding-bottom: clamp(28px, 4.6vh, 48px);
+}
+.db-num {
+  font-family: var(--en);
+  font-weight: 600;
+  font-size: clamp(44px, 6.6vw, 76px);
+  letter-spacing: 0.02em;
+  line-height: 1;
+}
+.db-num .dow {
+  font-family: var(--goth);
+  font-size: 0.3em;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  margin-left: 0.34em;
+}
+.db-time {
+  font-family: var(--en);
+  font-weight: 500;
+  font-size: clamp(17px, 2.2vw, 24px);
+  letter-spacing: 0.08em;
+}
+.db-meta {
+  margin-left: auto;
+  display: flex;
+  align-items: baseline;
+  gap: 1.8em;
+  font-size: 11.5px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+}
+.db-meta .en {
+  font-family: var(--en);
+  font-size: 11px;
+  letter-spacing: 0.36em;
+  text-transform: uppercase;
+}
+@media (max-width: 640px) {
+  .date-band-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    row-gap: 8px;
+    padding-top: 24px;
+    padding-bottom: 26px;
+  }
+  .db-meta { margin-left: 0; flex-wrap: wrap; row-gap: 2px; column-gap: 1.4em; }
+}
+
+/* ============ 共通：eyebrow ============ */
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+.eyebrow-rule { width: 44px; height: 1px; background: var(--brand); flex: 0 0 auto; }
+.eyebrow-ja {
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.3em;
+  color: var(--ink);
+}
+.eyebrow-en {
+  font-family: var(--en);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.14em; /* 字間は詰める（"305"化の回避と精度） */
+  color: var(--brand);
+  margin-left: auto;
+}
+@media (max-width: 640px) {
+  .eyebrow { gap: 14px; }
+  .eyebrow-rule { width: 30px; }
+  .eyebrow-ja { font-size: 11.5px; letter-spacing: 0.24em; }
+  .eyebrow-en { display: none; }
+}
+
+/* ==================================================================
+   V1 ｜ 編集・明朝
+================================================================== */
+.v1 .eyebrow-ja { font-family: var(--mincho); letter-spacing: 0.26em; }
+
+.v1-grid {
+  display: grid;
+  grid-template-columns: 92px 1fr;
+  min-height: min(64vh, 620px);
+}
+.v1-rail {
+  border-right: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 46px 0 42px;
+}
+.v1-rail-ja {
+  writing-mode: vertical-rl;
+  font-family: var(--mincho);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.44em;
+  color: rgba(0, 0, 0, 0.66);
+}
+.v1-rail-en {
+  writing-mode: vertical-rl;
+  font-family: var(--en);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--brand);
+}
+.v1-rail .mon-rail { display: none; }
+
+.v1-main {
+  padding: clamp(44px, 7vh, 78px) 0 clamp(44px, 7vh, 78px) clamp(28px, 4.6vw, 64px);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  column-gap: clamp(28px, 4vw, 56px);
+}
+.v1-content { display: flex; flex-direction: column; }
+.v1-content .eyebrow { margin-bottom: clamp(28px, 4.6vh, 52px); }
+
+.v1-title {
+  font-family: var(--mincho);
+  font-feature-settings: 'palt';
+  color: var(--ink);
+}
+.v1-title .t-sm {
+  display: block;
+  font-size: clamp(18px, 2.6vw, 29px);
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  line-height: 1.5;
+  margin-bottom: clamp(14px, 2.2vh, 26px);
+}
+.v1-title .t-lg {
+  display: block;
+  font-size: clamp(41px, 6.3vw, 78px);
+  font-weight: 900;
+  letter-spacing: 0.035em;
+  line-height: 1.22;
+}
+@media (min-width: 861px) {
+  .v1-title .t-lg { white-space: nowrap; }
+}
+.v1-title .t-lg .em { color: var(--brand); }
+
+.v1-lead {
+  margin-top: clamp(28px, 4.4vh, 46px);
+  font-size: 13.5px;
+  line-height: 2.15;
+  letter-spacing: 0.08em;
+  color: rgba(0, 0, 0, 0.72);
+  max-width: 32em;
+}
+
+/* 右の重心：ヘアライン＋大きな家紋を右下に据える */
+.v1-side {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+  padding-top: 6px;
+}
+.v1-side-line { flex: 1 1 auto; width: 1px; background: var(--line); }
+.v1-side .mon { width: clamp(88px, 9vw, 118px); height: clamp(88px, 9vw, 118px); }
+
+@media (max-width: 860px) {
+  .v1-grid { grid-template-columns: 64px 1fr; min-height: 0; }
+  .v1-rail { padding: 32px 0 30px; }
+  .v1-rail-ja { font-size: 11.5px; letter-spacing: 0.34em; }
+  .v1-rail-en { display: none; }
+  .v1-main { column-gap: 22px; }
+  .v1-side .mon { width: 76px; height: 76px; }
+}
+@media (max-width: 640px) {
+  .v1-grid { grid-template-columns: 1fr; }
+  .v1-rail {
+    flex-direction: row;
+    border-right: none;
+    border-bottom: 1px solid var(--line);
+    padding: 13px clamp(22px, 5.4vw, 72px);
+    justify-content: space-between;
+    align-items: center;
+  }
+  .v1-rail-ja { writing-mode: horizontal-tb; letter-spacing: 0.26em; font-size: 10.5px; }
+  .v1-rail .mon-rail { display: block; width: 34px; height: 34px; }
+  .v1-main {
+    grid-template-columns: 1fr;
+    padding: 36px clamp(22px, 5.4vw, 72px) 44px;
+  }
+  .v1-content .eyebrow { margin-bottom: 26px; }
+  .v1-side { display: none; }
+  .v1-lead { font-size: 12.5px; }
+}
+
+/* ==================================================================
+   V2 ｜ ブランド書体・精緻
+================================================================== */
+.v2-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  column-gap: clamp(30px, 5vw, 72px);
+  align-items: stretch;
+  min-height: min(62vh, 600px);
+  padding-top: clamp(48px, 7.4vh, 84px);
+  padding-bottom: clamp(48px, 7.4vh, 84px);
+}
+.v2-content { display: flex; flex-direction: column; justify-content: center; }
+.v2-content .eyebrow { margin-bottom: clamp(30px, 5vh, 56px); }
+.v2 .eyebrow-ja { font-family: var(--goth); }
+
+.v2-title { font-feature-settings: 'palt'; }
+.v2-title .t-sm {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-family: var(--goth);
+  font-size: clamp(14px, 1.9vw, 19px);
+  font-weight: 500;
+  letter-spacing: 0.34em;
+  color: var(--ink);
+  margin-bottom: clamp(16px, 2.6vh, 30px);
+}
+.v2-title-row {
+  display: flex;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  column-gap: clamp(22px, 3.2vw, 44px);
+  row-gap: 18px;
+}
+.v2-core {
+  font-family: var(--goth);
+  font-weight: 700; /* 900の鈍さを避け、700で締める */
+  font-feature-settings: 'palt';
+  font-size: clamp(48px, 8.2vw, 104px);
+  letter-spacing: 0.055em;
+  line-height: 1.06;
+  color: var(--ink);
+}
+.v2-core .bar {
+  display: block;
+  width: 1.6em;
+  height: 7px;
+  background: var(--brand);
+  margin-top: clamp(14px, 2vh, 22px);
+}
+/* 90分：罫付きの上品なラベルとして見出しに一体化 */
+.v2-90 {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  border-left: 1px solid var(--ink);
+  padding-left: clamp(18px, 2.2vw, 30px);
+  padding-bottom: clamp(20px, 3vh, 34px); /* 罫バーぶんの光学揃え */
+}
+.v2-90-cap {
+  font-family: var(--en);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(0, 0, 0, 0.55);
+}
+.v2-90-num {
+  font-family: var(--en);
+  font-weight: 500;
+  font-size: clamp(34px, 4.6vw, 58px);
+  letter-spacing: 0.02em;
+  line-height: 1;
+  color: var(--brand);
+}
+.v2-90-num small {
+  font-family: var(--goth);
+  font-size: 0.44em;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  margin-left: 0.14em;
+  color: var(--brand);
+}
+.v2-lead {
+  margin-top: clamp(28px, 4.6vh, 50px);
+  font-size: 13.5px;
+  line-height: 2.15;
+  letter-spacing: 0.08em;
+  color: rgba(0, 0, 0, 0.72);
+  max-width: 33em;
+}
+
+/* 右：大きく据えた家紋＋縦書きレール（存在感の作り直し） */
+.v2-side {
+  display: flex;
+  align-items: center;
+  gap: clamp(20px, 2.6vw, 34px);
+}
+.v2-side .mon {
+  width: clamp(180px, 22vw, 272px);
+  height: clamp(180px, 22vw, 272px);
+}
+.v2-side-texts {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  align-self: stretch;
+  justify-content: center;
+}
+.v2-side-ja {
+  writing-mode: vertical-rl;
+  font-family: var(--goth);
+  font-size: 12.5px;
+  font-weight: 500;
+  letter-spacing: 0.44em;
+  color: rgba(0, 0, 0, 0.62);
+}
+.v2-side-en {
+  writing-mode: vertical-rl;
+  font-family: var(--en);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--brand);
+}
+@media (max-width: 960px) {
+  .v2-side .mon { width: clamp(140px, 20vw, 190px); height: clamp(140px, 20vw, 190px); }
+}
+@media (max-width: 780px) {
+  .v2-grid { grid-template-columns: 1fr; row-gap: 40px; min-height: 0; padding-top: 40px; padding-bottom: 48px; }
+  .v2-content .eyebrow { margin-bottom: 28px; }
+  .v2-side {
+    border-top: 1px solid var(--line);
+    padding-top: 26px;
+    justify-content: space-between;
+  }
+  .v2-side { flex-direction: row-reverse; }
+  .v2-side .mon { width: 104px; height: 104px; }
+  .v2-side-texts { align-items: flex-start; gap: 4px; justify-content: center; }
+  .v2-side-ja { writing-mode: horizontal-tb; letter-spacing: 0.26em; font-size: 11px; }
+  .v2-side-en { writing-mode: horizontal-tb; letter-spacing: 0.3em; }
+  .v2-90 { padding-bottom: 10px; }
+  .v2-lead { font-size: 12.5px; }
+}
+
+/* ==================================================================
+   V3 ｜ 写真ドリブン
+================================================================== */
+.v3-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 46%) minmax(0, 54%);
+}
+.v3-copy {
+  padding-top: clamp(44px, 7vh, 84px);
+  padding-bottom: clamp(44px, 7vh, 84px);
+  padding-right: clamp(26px, 4vw, 64px);
+  padding-left: max(clamp(22px, 5.4vw, 72px), calc((100vw - 1160px) / 2 + 72px));
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.v3-copy .eyebrow { margin-bottom: clamp(26px, 4.4vh, 46px); }
+.v3 .eyebrow-ja { font-family: var(--mincho); letter-spacing: 0.26em; }
+.v3 .eyebrow-en { margin-left: auto; }
+
+.v3-title {
+  font-family: var(--mincho);
+  font-feature-settings: 'palt';
+  color: var(--ink);
+}
+.v3-title .t-sm {
+  display: block;
+  font-size: clamp(16px, 1.9vw, 24px);
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  line-height: 1.5;
+  margin-bottom: clamp(12px, 2vh, 22px);
+}
+.v3-title .t-lg {
+  display: block;
+  font-size: clamp(38px, 4.8vw, 66px);
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  line-height: 1.34;
+}
+.v3-title .t-lg .em { color: var(--brand); }
+
+.v3-lead {
+  margin-top: clamp(24px, 4vh, 40px);
+  font-size: 13px;
+  line-height: 2.15;
+  letter-spacing: 0.07em;
+  color: rgba(0, 0, 0, 0.72);
+  max-width: 27em;
+}
+/* レールコピーは写真構図に合わせて水平の結びに（家紋の存在感もここで） */
+.v3-foot {
+  margin-top: clamp(30px, 5vh, 54px);
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  border-top: 1px solid var(--line);
+  padding-top: 24px;
+}
+.v3-foot .mon { width: 58px; height: 58px; }
+.v3-foot-texts { display: flex; flex-direction: column; }
+.v3-foot-ja {
+  font-family: var(--mincho);
+  font-size: 12.5px;
+  font-weight: 500;
+  letter-spacing: 0.3em;
+  color: rgba(0, 0, 0, 0.66);
+}
+.v3-foot-en {
+  font-family: var(--en);
+  font-size: 9.5px;
+  font-weight: 500;
+  letter-spacing: 0.38em;
+  text-transform: uppercase;
+  color: var(--brand);
+  margin-top: 2px;
+}
+
+.v3-photo {
+  position: relative;
+  border-left: 8px solid var(--brand); /* ブランドブルーの罫で額装 */
+}
+.v3-photo img {
+  width: 100%;
+  height: 100%;
+  min-height: min(64vh, 620px);
+  object-fit: cover;
+}
+.v3-chip {
+  position: absolute;
+  left: 0;
+  bottom: clamp(24px, 5vh, 44px);
+  background: var(--brand); /* フラットなベタ帯（グラデ・blurなし） */
+  color: #fff;
+  display: flex;
+  align-items: baseline;
+  gap: 1.2em;
+  padding: 10px 22px 10px 26px;
+}
+.v3-chip .en {
+  font-family: var(--en);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+}
+.v3-chip .ja {
+  font-size: 10.5px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+}
+@media (max-width: 860px) {
+  .v3-grid { grid-template-columns: 1fr; }
+  .v3-copy {
+    padding-left: clamp(22px, 5.4vw, 72px);
+    padding-right: clamp(22px, 5.4vw, 72px);
+    padding-bottom: 40px;
+  }
+  .v3-photo { border-left: none; border-top: 6px solid var(--brand); }
+  .v3-photo img { min-height: 0; height: clamp(260px, 48vh, 420px); }
+  .v3-chip { bottom: 0; padding: 8px 18px 8px 22px; }
+  .v3-chip .ja { display: none; }
+  .v3-lead { font-size: 12.5px; max-width: none; }
+  .v3-foot .mon { width: 46px; height: 46px; }
+}
+
+/* ============ ページ末尾 ============ */
+.lab-foot {
+  background: var(--bg-off);
+  border-top: 1px solid var(--line);
+  padding: 30px 0 34px;
+}
+.lab-foot .shell {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.lab-foot-text { font-size: 11px; letter-spacing: 0.12em; color: rgba(0, 0, 0, 0.6); }
+.lab-foot-en {
+  font-family: var(--en);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--brand-deep);
+}
+</style>
+</head>
+<body>
+
+<!-- ===== ラボ ヘッダー ===== -->
+<div class="lab-head">
+  <div class="shell">
+    <span class="lab-head-en">Hero Lab</span>
+    <span class="lab-head-ja">Direction B2 — ヒーロー改善 3案の比較</span>
+    <span class="lab-head-note">V1 Mincho / V2 Gothic 700 / V3 Photo</span>
+  </div>
+</div>
+
+<!-- ================================================================
+     V1 ｜ 編集・明朝
+================================================================= -->
+<div class="lab-band">
+  <div class="shell">
+    <span class="lab-tag">V1</span>
+    <span class="lab-name">編集・明朝</span>
+    <span class="lab-desc">Zen Old Mincho の大級数で情緒と編集の格。右下に家紋の重心。</span>
+  </div>
+</div>
+
+<section class="ver v1">
+  <header class="brand-row">
+    <div class="shell">
+      <a class="brand-logo" href="https://tabippo.net/poolo/" target="_blank" rel="noopener">
+        <img src="../event-30s-v01-260720/images/poolo_logo.png" alt="POOLO あたらしい旅の学校">
+      </a>
+      <div class="brand-series">30s Life Series — vol.01</div>
+    </div>
+  </header>
+
+  <div class="shell">
+    <div class="v1-grid">
+
+      <div class="v1-rail">
+        <div class="v1-rail-ja">対話と、内省と、好奇心と。</div>
+        <div class="v1-rail-en">Quiet Dialogue</div>
+        <span class="mon mon-rail" aria-hidden="true">
+          <svg viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-linecap="round">
+            <circle cx="60" cy="60" r="57" stroke-width="1.5"/>
+            <circle cx="60" cy="60" r="51.5" stroke-width="0.75"/>
+            <circle cx="60" cy="42.5" r="9.5" stroke-width="1.5"/>
+            <line x1="30" y1="60.5" x2="46.5" y2="60.5" stroke-width="1.1"/>
+            <line x1="73.5" y1="60.5" x2="90" y2="60.5" stroke-width="1.1"/>
+            <path d="M35 78 Q60 66 85 78" stroke-width="1.5"/>
+            <path d="M44 88 Q60 81 76 88" stroke-width="0.9"/>
+          </svg>
+        </span>
+      </div>
+
+      <div class="v1-main">
+        <div class="v1-content">
+          <div class="eyebrow">
+            <span class="eyebrow-rule" aria-hidden="true"></span>
+            <span class="eyebrow-ja">生き方を問い直す</span>
+            <span class="eyebrow-en">RETHINK YOUR 30s</span>
+          </div>
+
+          <h1 class="v1-title">
+            <span class="t-sm">30代の生き方を</span>
+            <span class="t-lg"><span class="nb"><span class="em">問い直す</span>、</span><span class="nb">90分。</span></span>
+          </h1>
+
+          <p class="v1-lead">対話と、内省と、好奇心で。新しい情報やフレームワークではなく、<span class="nb">自分のなかにすでにある手がかりを、</span>ゆっくりとことばにする時間です。</p>
+        </div>
+
+        <div class="v1-side" aria-hidden="true">
+          <span class="v1-side-line"></span>
+          <span class="mon">
+            <svg viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-linecap="round">
+              <circle cx="60" cy="60" r="57" stroke-width="1.5"/>
+              <circle cx="60" cy="60" r="51.5" stroke-width="0.75"/>
+              <circle cx="60" cy="42.5" r="9.5" stroke-width="1.5"/>
+              <line x1="30" y1="60.5" x2="46.5" y2="60.5" stroke-width="1.1"/>
+              <line x1="73.5" y1="60.5" x2="90" y2="60.5" stroke-width="1.1"/>
+              <path d="M35 78 Q60 66 85 78" stroke-width="1.5"/>
+              <path d="M44 88 Q60 81 76 88" stroke-width="0.9"/>
+            </svg>
+          </span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="date-band">
+    <div class="shell date-band-inner">
+      <span class="db-num">7.20<span class="dow nb">月</span></span>
+      <span class="db-time nb">20:00 — 21:30</span>
+      <span class="db-meta">
+        <span class="en nb">Zoom Online</span>
+        <span class="nb">無料・先着10名</span>
+      </span>
+    </div>
+  </div>
+</section>
+
+<div class="ver-gap" aria-hidden="true"></div>
+
+<!-- ================================================================
+     V2 ｜ ブランド書体・精緻
+================================================================= -->
+<div class="lab-band">
+  <div class="shell">
+    <span class="lab-tag">V2</span>
+    <span class="lab-name">ブランド書体・精緻</span>
+    <span class="lab-desc">Zen Kaku Gothic New 700。罫付き「90分」ラベルと大きな家紋で端正に。</span>
+  </div>
+</div>
+
+<section class="ver v2">
+  <header class="brand-row">
+    <div class="shell">
+      <a class="brand-logo" href="https://tabippo.net/poolo/" target="_blank" rel="noopener">
+        <img src="../event-30s-v01-260720/images/poolo_logo.png" alt="POOLO あたらしい旅の学校">
+      </a>
+      <div class="brand-series">30s Life Series — vol.01</div>
+    </div>
+  </header>
+
+  <div class="shell">
+    <div class="v2-grid">
+
+      <div class="v2-content">
+        <div class="eyebrow">
+          <span class="eyebrow-rule" aria-hidden="true"></span>
+          <span class="eyebrow-ja">生き方を問い直す</span>
+          <span class="eyebrow-en">RETHINK YOUR 30s</span>
+        </div>
+
+        <h1 class="v2-title">
+          <span class="t-sm">30代の生き方を</span>
+          <span class="v2-title-row">
+            <span class="v2-core">問い直す<span class="bar" aria-hidden="true"></span></span>
+            <span class="v2-90">
+              <span class="v2-90-cap">Session</span>
+              <span class="v2-90-num nb">90<small>分</small></span>
+            </span>
+          </span>
+        </h1>
+
+        <p class="v2-lead">対話と、内省と、好奇心で。新しい情報やフレームワークではなく、<span class="nb">自分のなかにすでにある手がかりを、</span>ゆっくりとことばにする時間です。</p>
+      </div>
+
+      <div class="v2-side">
+        <div class="v2-side-texts">
+          <span class="v2-side-ja">対話と、内省と、好奇心と。</span>
+          <span class="v2-side-en">Quiet Dialogue</span>
+        </div>
+        <span class="mon" aria-hidden="true">
+          <svg viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-linecap="round">
+            <circle cx="60" cy="60" r="57" stroke-width="1.5"/>
+            <circle cx="60" cy="60" r="51.5" stroke-width="0.75"/>
+            <circle cx="60" cy="42.5" r="9.5" stroke-width="1.5"/>
+            <line x1="30" y1="60.5" x2="46.5" y2="60.5" stroke-width="1.1"/>
+            <line x1="73.5" y1="60.5" x2="90" y2="60.5" stroke-width="1.1"/>
+            <path d="M35 78 Q60 66 85 78" stroke-width="1.5"/>
+            <path d="M44 88 Q60 81 76 88" stroke-width="0.9"/>
+          </svg>
+        </span>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="date-band">
+    <div class="shell date-band-inner">
+      <span class="db-num">7.20<span class="dow nb">月</span></span>
+      <span class="db-time nb">20:00 — 21:30</span>
+      <span class="db-meta">
+        <span class="en nb">Zoom Online</span>
+        <span class="nb">無料・先着10名</span>
+      </span>
+    </div>
+  </div>
+</section>
+
+<div class="ver-gap" aria-hidden="true"></div>
+
+<!-- ================================================================
+     V3 ｜ 写真ドリブン
+================================================================= -->
+<div class="lab-band">
+  <div class="shell">
+    <span class="lab-tag">V3</span>
+    <span class="lab-name">写真ドリブン</span>
+    <span class="lab-desc">古民家の対話写真を半画面に裁ち落とし。明朝見出し＋ブルーの罫とベタ帯で額装。</span>
+  </div>
+</div>
+
+<section class="ver v3">
+  <header class="brand-row">
+    <div class="shell">
+      <a class="brand-logo" href="https://tabippo.net/poolo/" target="_blank" rel="noopener">
+        <img src="../event-30s-v01-260720/images/poolo_logo.png" alt="POOLO あたらしい旅の学校">
+      </a>
+      <div class="brand-series">30s Life Series — vol.01</div>
+    </div>
+  </header>
+
+  <div class="v3-grid">
+
+    <div class="v3-copy">
+      <div class="eyebrow">
+        <span class="eyebrow-rule" aria-hidden="true"></span>
+        <span class="eyebrow-ja">生き方を問い直す</span>
+        <span class="eyebrow-en">RETHINK YOUR 30s</span>
+      </div>
+
+      <h1 class="v3-title">
+        <span class="t-sm">30代の生き方を</span>
+        <span class="t-lg"><span class="nb"><span class="em">問い直す</span>、</span><br class="nb"><span class="nb">90分。</span></span>
+      </h1>
+
+      <p class="v3-lead">対話と、内省と、好奇心で。新しい情報やフレームワークではなく、<span class="nb">自分のなかにすでにある手がかりを、</span>ゆっくりとことばにする時間です。</p>
+
+      <div class="v3-foot">
+        <span class="mon" aria-hidden="true">
+          <svg viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-linecap="round">
+            <circle cx="60" cy="60" r="57" stroke-width="1.5"/>
+            <circle cx="60" cy="60" r="51.5" stroke-width="0.75"/>
+            <circle cx="60" cy="42.5" r="9.5" stroke-width="1.5"/>
+            <line x1="30" y1="60.5" x2="46.5" y2="60.5" stroke-width="1.1"/>
+            <line x1="73.5" y1="60.5" x2="90" y2="60.5" stroke-width="1.1"/>
+            <path d="M35 78 Q60 66 85 78" stroke-width="1.5"/>
+            <path d="M44 88 Q60 81 76 88" stroke-width="0.9"/>
+          </svg>
+        </span>
+        <div class="v3-foot-texts">
+          <span class="v3-foot-ja">対話と、内省と、好奇心と。</span>
+          <span class="v3-foot-en">Quiet Dialogue</span>
+        </div>
+      </div>
+    </div>
+
+    <figure class="v3-photo">
+      <img src="../event-30s-v01-260720/images/03_kominka_dialogue.jpg" alt="古民家の円卓を囲み、ゆっくりとことばを交わす対話の場面">
+      <figcaption class="v3-chip">
+        <span class="en nb">Quiet Dialogue</span>
+        <span class="ja nb">問いを挟んで、ことばを探す時間</span>
+      </figcaption>
+    </figure>
+
+  </div>
+
+  <div class="date-band">
+    <div class="shell date-band-inner">
+      <span class="db-num">7.20<span class="dow nb">月</span></span>
+      <span class="db-time nb">20:00 — 21:30</span>
+      <span class="db-meta">
+        <span class="en nb">Zoom Online</span>
+        <span class="nb">無料・先着10名</span>
+      </span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ラボ フッター ===== -->
+<footer class="lab-foot">
+  <div class="shell">
+    <p class="lab-foot-text">ヒーロー比較ラボ — direction-b2-brand.html の改善検討用（本番反映前の内部資料）</p>
+    <p class="lab-foot-en">Hero Lab / Direction B2</p>
+  </div>
+</footer>
+
+</body>
+</html>

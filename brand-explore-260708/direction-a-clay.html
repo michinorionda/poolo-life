@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>自分自身が納得できる、30代の生き方を考える90分｜Direction A: Clay</title>
+<meta name="robots" content="noindex">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@400;700;900&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap');
+
+:root {
+  --main: #2D3E36;
+  --main-soft: #4A5A52;
+  --bg: #FFFFFF;
+  --bg-soft: #FFFCF6;
+  --bg-warm: #FBF7EE;
+  --sub: #7A9E8A;
+  --line: #EAE5DC;
+  --line-light: #F2EDE3;
+  --accent: #A9552E;
+  --accent-deep: #8F3F20;
+  --accent-light: #EAD5C4;
+  --serif: 'Zen Old Mincho', 'Hiragino Mincho ProN', serif;
+  --sans: 'Zen Kaku Gothic New', 'Hiragino Kaku Gothic ProN', sans-serif;
+  --radius: 2px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  font-family: var(--sans);
+  color: var(--main);
+  font-size: 15.5px;
+  line-height: 2.05;
+  letter-spacing: 0.04em;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a { color: var(--accent); text-decoration: none; }
+a:hover { color: var(--accent-deep); }
+
+.nowrap { white-space: nowrap; }
+.sp-only { display: none; }
+@media (max-width: 720px) { .sp-only { display: inline; } }
+
+/* ===== Direction label band（比較用・1行のみ） ===== */
+.direction-band {
+  background: var(--main);
+  color: #FFFFFF;
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.28em;
+  text-align: center;
+  padding: 8px 16px;
+  line-height: 1.6;
+}
+.direction-band .em { color: var(--accent-light); }
+
+/* ===== Header ===== */
+.header {
+  border-bottom: 1px solid var(--line);
+  background: var(--bg);
+  padding: 18px 32px;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 24px;
+}
+.header-wordmark {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 19px;
+  letter-spacing: 0.3em;
+  color: var(--main);
+  line-height: 1;
+}
+.header-wordmark small {
+  display: inline-block;
+  font-family: var(--sans);
+  font-size: 10.5px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  color: var(--main-soft);
+  margin-left: 14px;
+}
+.header-apply {
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  color: var(--accent);
+  border-bottom: 1px solid var(--accent);
+  padding-bottom: 3px;
+  white-space: nowrap;
+}
+.header-apply::after { content: '　→'; letter-spacing: 0; }
+.header-apply:hover { color: var(--accent-deep); border-color: var(--accent-deep); }
+
+/* ===== Layout primitives ===== */
+.article { max-width: 960px; margin: 0 auto; padding: 0 28px; }
+
+.section { padding: 104px 28px 88px; max-width: 960px; margin: 0 auto; }
+
+/* 見出しは左寄せ＋大きな余白、本文は右へ寄せて版面に強弱をつける */
+.section-body { max-width: 620px; }
+@media (min-width: 721px) {
+  .section-body { margin-left: 88px; }
+}
+
+.section-num {
+  display: block;
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.3em;
+  color: var(--accent);
+  margin-bottom: 20px;
+  padding-bottom: 14px;
+  width: 48px;
+  border-bottom: 1px solid var(--accent);
+  line-height: 1;
+}
+
+.section-title {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: clamp(26px, 3.8vw, 37px);
+  letter-spacing: 0.06em;
+  line-height: 1.65;
+  color: var(--main);
+  margin-bottom: 52px;
+}
+
+.section-lead {
+  font-size: 15px;
+  line-height: 2.1;
+  color: var(--main-soft);
+  margin-bottom: 48px;
+}
+
+/* ===== Hero（編集型サムネイル） ===== */
+.hero-wrap { max-width: 960px; margin: 64px auto 0; padding: 0 28px; }
+
+.hero {
+  position: relative;
+  background: var(--bg-soft);
+  border: 1px solid var(--line);
+  box-shadow: 10px 10px 0 var(--accent-light); /* 硬いオフセット影（blur無し） */
+  padding: clamp(36px, 6vw, 72px) clamp(28px, 6vw, 76px) clamp(28px, 4.5vw, 48px);
+}
+
+.hero-tag-row {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: clamp(24px, 4vw, 44px);
+}
+.hero-tag {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: clamp(13px, 1.6vw, 16px);
+  letter-spacing: 0.3em;
+  color: var(--accent);
+  line-height: 1;
+  white-space: nowrap;
+}
+.hero-tag-line { flex: 0 0 clamp(40px, 7vw, 72px); height: 1px; background: var(--accent); }
+.hero-vol {
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.24em;
+  color: var(--sub);
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.hero-title {
+  font-family: var(--serif);
+  color: var(--main);
+  line-height: 1.2;
+  margin-bottom: clamp(20px, 3vw, 30px);
+  max-width: 30em;
+}
+.hero-title .row1 {
+  display: block;
+  font-size: clamp(20px, 3.4vw, 32px);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.55em;
+}
+.hero-title .row2 {
+  display: block;
+  font-size: clamp(40px, 8vw, 78px);
+  font-weight: 900;
+  letter-spacing: 0.02em;
+  line-height: 1.12;
+  white-space: nowrap;
+}
+.hero-title .row2 .em { color: var(--accent-deep); }
+.hero-title .row2 .suffix {
+  font-size: 0.52em;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  margin-left: 0.16em;
+}
+
+.hero-sub {
+  font-family: var(--sans);
+  font-size: clamp(13px, 1.7vw, 15.5px);
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  color: var(--main-soft);
+  margin-bottom: clamp(36px, 6vw, 64px);
+}
+
+.hero-foot {
+  border-top: 1px solid var(--main);
+  border-bottom: 1px solid var(--main);
+  padding: 16px 0;
+  display: flex;
+  align-items: baseline;
+  gap: 22px;
+  flex-wrap: wrap;
+  font-family: var(--serif);
+  max-width: 620px; /* 帯を全幅にせず、オフセンターで止める */
+}
+.hero-date {
+  font-size: clamp(26px, 4vw, 38px);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  line-height: 1;
+  color: var(--main);
+}
+.hero-date .dow {
+  font-size: 0.44em;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  margin-left: 0.3em;
+}
+.hero-time {
+  font-size: clamp(15px, 2vw, 19px);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--main);
+  line-height: 1;
+}
+.hero-place {
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  color: var(--main-soft);
+  line-height: 1;
+}
+.hero-free {
+  font-family: var(--serif);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  color: var(--accent-deep);
+  border: 1px solid var(--accent);
+  border-radius: var(--radius);
+  padding: 6px 14px 5px 17px;
+  line-height: 1;
+  margin-left: auto;
+}
+
+/* 署名マーク：Clay色の円形シール（旅路の線画） */
+.hero-seal {
+  position: absolute;
+  top: clamp(24px, 4vw, 48px);
+  right: clamp(22px, 4.5vw, 56px);
+  width: clamp(56px, 8vw, 84px);
+  height: auto;
+}
+
+.hero-brand {
+  margin-top: 14px;
+  text-align: right;
+  font-family: var(--serif);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.34em;
+  color: var(--main-soft);
+}
+.hero-brand small {
+  font-family: var(--sans);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  margin-right: 12px;
+  color: var(--sub);
+}
+
+/* ===== Event summary（要点：版面いっぱいに割る） ===== */
+.event-summary {
+  max-width: 960px;
+  margin: 56px auto 0;
+  padding: 0 28px;
+}
+.event-summary-list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+.event-summary-item {
+  padding: 22px 24px 20px;
+  border-left: 1px solid var(--line);
+}
+.event-summary-item:first-child { border-left: none; padding-left: 2px; }
+.event-summary-item dt {
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.26em;
+  color: var(--accent);
+  line-height: 1;
+  margin-bottom: 12px;
+}
+.event-summary-item dd {
+  font-family: var(--serif);
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  line-height: 1.7;
+  color: var(--main);
+}
+
+/* ===== Intro ===== */
+.intro-text p { margin-bottom: 30px; }
+.intro-text p:last-child { margin-bottom: 0; }
+.intro-text strong { font-weight: 700; color: var(--main); }
+.intro-text .quoted {
+  color: var(--accent-deep);
+  font-family: var(--serif);
+  font-weight: 700;
+}
+.intro-break {
+  font-family: var(--serif);
+  font-size: 23px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: var(--accent);
+  line-height: 1.4;
+  margin: 44px 0 !important;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.intro-break::before {
+  content: '';
+  width: 36px;
+  height: 1px;
+  background: var(--accent);
+  flex: 0 0 auto;
+}
+
+/* ===== Day flow ===== */
+.flow-section-bg { background: var(--bg-soft); border-top: 1px solid var(--line-light); border-bottom: 1px solid var(--line-light); }
+.flow-list { list-style: none; border-top: 1px solid var(--line); }
+.flow-item {
+  display: grid;
+  grid-template-columns: 168px 1fr;
+  gap: 36px;
+  padding: 30px 0;
+  border-bottom: 1px solid var(--line);
+  align-items: baseline;
+}
+.flow-time {
+  font-family: var(--serif);
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  color: var(--accent);
+  line-height: 1.3;
+}
+.flow-title {
+  font-family: var(--serif);
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  color: var(--main);
+  line-height: 1.7;
+}
+.flow-note {
+  margin-top: 20px;
+  font-size: 12.5px;
+  letter-spacing: 0.06em;
+  color: var(--main-soft);
+}
+
+/* ===== Worksheet（当日の問い） ===== */
+.worksheet-questions {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+}
+.wq-card {
+  background: var(--bg);
+  border: 1px solid var(--line);
+  box-shadow: 5px 5px 0 var(--line-light); /* 硬いオフセット影 */
+  padding: 30px 34px 28px;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 26px;
+  align-items: start;
+}
+.wq-num {
+  font-family: var(--serif);
+  font-size: 22px;
+  font-weight: 900;
+  color: var(--accent);
+  letter-spacing: 0.02em;
+  line-height: 1.6;
+  white-space: nowrap;
+}
+.wq-text {
+  font-family: var(--serif);
+  font-size: 17.5px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  line-height: 1.85;
+  color: var(--main);
+}
+.wq-helper {
+  margin-top: 10px;
+  font-size: 13px;
+  line-height: 1.9;
+  letter-spacing: 0.03em;
+  color: var(--main-soft);
+}
+
+/* ===== Mid CTA ===== */
+.cta-mid-bg { background: var(--bg-warm); border-top: 1px solid var(--line-light); border-bottom: 1px solid var(--line-light); }
+.cta-mid { padding: 88px 28px; max-width: 960px; margin: 0 auto; }
+.cta-mid-inner {
+  max-width: 620px;
+}
+@media (min-width: 721px) {
+  .cta-mid-inner { margin-left: 88px; } /* 中央寄せにしない */
+}
+.cta-mid-title {
+  font-family: var(--serif);
+  font-size: clamp(21px, 3vw, 27px);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  line-height: 1.8;
+  color: var(--main);
+  margin-bottom: 34px;
+}
+.btn {
+  display: inline-block;
+  background: var(--accent-deep);
+  color: #FFFFFF;
+  font-family: var(--sans);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  padding: 19px 52px 18px 58px;
+  border-radius: var(--radius);
+  transition: background 0.2s ease;
+}
+.btn:hover { background: var(--main); color: #FFFFFF; }
+.cta-mid-note {
+  margin-top: 18px;
+  font-size: 11.5px;
+  letter-spacing: 0.1em;
+  color: var(--main-soft);
+}
+
+/* ===== Footer ===== */
+.footer {
+  border-top: 1px solid var(--line);
+  background: var(--bg);
+  padding: 64px 28px 40px;
+}
+.footer-inner { max-width: 960px; margin: 0 auto; }
+.footer-org {
+  display: flex;
+  align-items: baseline;
+  gap: 28px;
+  flex-wrap: wrap;
+  margin-bottom: 26px;
+}
+.footer-org-poolo {
+  font-family: var(--serif);
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 0.32em;
+  color: var(--main);
+  line-height: 1;
+}
+.footer-org-poolo small {
+  display: block;
+  font-family: var(--sans);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  color: var(--main-soft);
+  margin-bottom: 10px;
+}
+.footer-org-divider {
+  width: 1px;
+  height: 26px;
+  background: var(--line);
+  align-self: center;
+}
+.footer-org-tabippo {
+  font-family: var(--sans);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  color: var(--main-soft);
+  line-height: 1;
+}
+.footer-text {
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  line-height: 2;
+  color: var(--main-soft);
+  margin-bottom: 30px;
+}
+.footer-bottom {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  border-top: 1px solid var(--line-light);
+  padding-top: 22px;
+}
+.footer-copy {
+  font-family: var(--sans);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  color: var(--main-soft);
+}
+.footer-mark {
+  font-family: var(--serif);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  color: var(--accent);
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 720px) {
+  body { font-size: 14.5px; }
+
+  .direction-band { font-size: 10px; letter-spacing: 0.18em; padding: 7px 12px; }
+
+  .header { padding: 14px 20px; }
+  .header-wordmark { font-size: 16px; letter-spacing: 0.24em; }
+  .header-wordmark small { display: none; }
+  .header-apply { font-size: 12px; }
+
+  .hero-wrap { margin-top: 32px; padding: 0 20px; }
+  .hero { box-shadow: 6px 6px 0 var(--accent-light); padding: 30px 22px 24px; }
+  .hero-tag-row { gap: 12px; margin-bottom: 22px; }
+  .hero-vol { display: none; }
+  .hero-title .row2 { white-space: normal; }
+  .hero-sub { margin-bottom: 30px; letter-spacing: 0.06em; }
+  .hero-foot { gap: 12px 16px; padding: 12px 0; }
+  .hero-free { margin-left: 0; }
+  .hero-seal { top: 22px; right: 16px; width: 46px; }
+  .hero-brand { font-size: 10.5px; letter-spacing: 0.26em; }
+  .hero-brand small { display: none; }
+
+  .event-summary { margin-top: 36px; padding: 0 20px; }
+  .event-summary-list { grid-template-columns: 1fr 1fr; }
+  .event-summary-item { padding: 16px 16px 14px; }
+  .event-summary-item:nth-child(odd) { border-left: none; padding-left: 2px; }
+  .event-summary-item:nth-child(n+3) { border-top: 1px solid var(--line-light); }
+  .event-summary-item dt { font-size: 10px; margin-bottom: 8px; }
+  .event-summary-item dd { font-size: 13.5px; }
+
+  .section { padding: 68px 20px 56px; }
+  .section-title { margin-bottom: 34px; line-height: 1.7; }
+  .section-lead { margin-bottom: 34px; font-size: 14px; }
+
+  .intro-text p { margin-bottom: 22px; }
+  .intro-break { font-size: 18px; margin: 32px 0 !important; gap: 14px; }
+  .intro-break::before { width: 24px; }
+
+  .flow-item { grid-template-columns: 112px 1fr; gap: 18px; padding: 22px 0; }
+  .flow-time { font-size: 18px; }
+  .flow-title { font-size: 15.5px; }
+
+  .worksheet-questions { gap: 18px; }
+  .wq-card { padding: 22px 20px; gap: 16px; box-shadow: 4px 4px 0 var(--line-light); }
+  .wq-num { font-size: 18px; }
+  .wq-text { font-size: 15px; line-height: 1.8; }
+  .wq-helper { font-size: 12.5px; }
+
+  .cta-mid { padding: 64px 20px; }
+  .btn { padding: 17px 40px 16px 46px; font-size: 13px; letter-spacing: 0.18em; display: block; text-align: center; }
+
+  .footer { padding: 48px 20px 32px; }
+  .footer-org { gap: 18px; }
+  .footer-org-poolo { font-size: 18px; }
+  .footer-bottom { flex-direction: column; gap: 10px; }
+}
+</style>
+</head>
+<body>
+
+<!-- 比較用ラベル（この1行のみ。以下は本番ページ想定） -->
+<div class="direction-band">DIRECTION A <span class="em">｜</span> CLAY — 進化案</div>
+
+<!-- ===== HEADER ===== -->
+<header class="header">
+  <div class="header-wordmark">POOLO<small>あたらしい旅の学校</small></div>
+  <a class="header-apply" href="https://liff.line.me/2004689256-jVradzOV/landing?follow=%40801pdwhq&lp=ylA6GF&liff_id=2004689256-jVradzOV" target="_blank" rel="noopener">申し込む</a>
+</header>
+
+<main>
+
+<!-- ===== HERO：編集型サムネイル ===== -->
+<div class="hero-wrap">
+  <section class="hero" aria-label="イベントサムネイル">
+
+    <!-- 署名マーク：旅路の線画シール -->
+    <svg class="hero-seal" viewBox="0 0 84 84" fill="none" aria-hidden="true">
+      <circle cx="42" cy="42" r="40.5" stroke="#A9552E" stroke-width="1.5"/>
+      <path d="M22 54 C 32 54, 30 38, 42 38 C 54 38, 50 26, 60 25" stroke="#A9552E" stroke-width="1.5" stroke-linecap="round"/>
+      <circle cx="62.5" cy="24.5" r="3" fill="#A9552E"/>
+      <text x="42" y="68" text-anchor="middle" font-family="'Zen Old Mincho', serif" font-size="8" font-weight="700" letter-spacing="2.5" fill="#8F3F20">POOLO</text>
+    </svg>
+
+    <div class="hero-tag-row">
+      <span class="hero-tag">生き方を問い直す</span>
+      <span class="hero-tag-line" aria-hidden="true"></span>
+      <span class="hero-vol">30s LIFE — vol.01</span>
+    </div>
+
+    <h1 class="hero-title">
+      <span class="row1">30代の生き方を</span>
+      <span class="row2"><span class="em">問い直す</span><span class="suffix">90分</span></span>
+    </h1>
+
+    <p class="hero-sub">自分自身が納得できる、<span class="nowrap">30代の生き方を。</span></p>
+
+    <div class="hero-foot">
+      <span class="hero-date">7/20<span class="dow">（月）</span></span>
+      <span class="hero-time">20:00〜21:30</span>
+      <span class="hero-place">Zoom オンライン</span>
+      <span class="hero-free">無　料</span>
+    </div>
+
+    <div class="hero-brand"><small>あたらしい旅の学校</small>POOLO</div>
+  </section>
+</div>
+
+<!-- ===== EVENT SUMMARY ===== -->
+<section class="event-summary" aria-label="イベント要点">
+  <dl class="event-summary-list">
+    <div class="event-summary-item">
+      <dt>日時</dt>
+      <dd>2026年7月20日（月）<br>20:00〜21:30</dd>
+    </div>
+    <div class="event-summary-item">
+      <dt>形式</dt>
+      <dd>Zoom<br>（オンライン）</dd>
+    </div>
+    <div class="event-summary-item">
+      <dt>定員</dt>
+      <dd>10名<br>（先着順）</dd>
+    </div>
+    <div class="event-summary-item">
+      <dt>参加費</dt>
+      <dd>無料</dd>
+    </div>
+  </dl>
+</section>
+
+<!-- ===== 01 INTRO ===== -->
+<section class="section" id="about">
+  <span class="section-num">01</span>
+  <h2 class="section-title">今とこれからを、<br class="sp-only">納得できる生き方を考える。</h2>
+  <div class="section-body intro-text">
+    <p>仕事は頑張ってきた。評価もそれなりにされていて、できることも増えてきている。</p>
+    <p class="intro-break">ただ、しかし。</p>
+    <p>なんか直感的に違和感のようなものがある。もしかしたら、今の生き方の延長線上ではいけないのかもしれない。もちろん、自分の人生に対して<span class="quoted">正解</span>は存在しない。大事なことは、自分が納得を積み重ねて生きていくこと。</p>
+    <p>この90分のイベントは、ワークと対話を通して、自分自身が、<strong>今とこれからを納得できる生き方</strong>を考える場として設計しました。社会的な正解や、誰かの期待に応えるという視点ではなく、自分が<span class="quoted">これでいいのだ</span>と思える生き方、キャリア、って何だっけ…？という事に、真剣に向き合う時間です。</p>
+    <p>ワークを通じて、自分自身について深掘りします。そして、対話を通じて、「まだ出会ったことのない自分」を感じてもらえると嬉しいです。</p>
+  </div>
+</section>
+
+<!-- ===== 03 DAY FLOW ===== -->
+<div class="flow-section-bg">
+  <section class="section" id="schedule">
+    <span class="section-num">03</span>
+    <h2 class="section-title">90分の流れ</h2>
+    <div class="section-body">
+      <p class="section-lead">ワークと対話を交互に。ひとりで思い出す時間と、グループで深める時間を行き来します。</p>
+      <ul class="flow-list">
+        <li class="flow-item">
+          <span class="flow-time">0–5<span style="font-size:0.6em;">分</span></span>
+          <span class="flow-title">オープニング</span>
+        </li>
+        <li class="flow-item">
+          <span class="flow-time">20–30<span style="font-size:0.6em;">分</span></span>
+          <span class="flow-title">本題のワーク</span>
+        </li>
+        <li class="flow-item">
+          <span class="flow-time">75–90<span style="font-size:0.6em;">分</span></span>
+          <span class="flow-title">クロージング</span>
+        </li>
+      </ul>
+      <p class="flow-note">＊自己紹介ワーク・対話①〜③・探究テーマワークを含む、全8パートで進行します。</p>
+    </div>
+  </section>
+</div>
+
+<!-- ===== 当日の問い ===== -->
+<section class="section" id="worksheet-glimpse">
+  <h2 class="section-title">当日、こんな問いと<br class="sp-only">向き合います</h2>
+  <div class="section-body">
+    <p class="section-lead">3つの問い（一部抜粋）。当日は計13問のワークシートに、自分のペースで書き込みながら進めます。</p>
+    <ol class="worksheet-questions">
+      <li class="wq-card">
+        <span class="wq-num">Q.</span>
+        <div>
+          <div class="wq-text">自分のこれからのキャリア・生き方を考える上での、違和感、もやもやはどんなものですか？</div>
+          <div class="wq-helper">うまく言葉にしなくてもOKなので言語化してみてください。このシーンのときに、違和感があったみたいなことでもOKです。</div>
+        </div>
+      </li>
+      <li class="wq-card">
+        <span class="wq-num">Q.</span>
+        <div>
+          <div class="wq-text">20代で、本気で迷って選んだことは何でしたか？</div>
+          <div class="wq-helper">仕事のことでも、人間関係のことでも、住む場所のことでも、何でも構いません。一つだけ書いてみて下さい。</div>
+        </div>
+      </li>
+      <li class="wq-card">
+        <span class="wq-num">Q.</span>
+        <div>
+          <div class="wq-text">過去に、自分がやっていて納得度もあり、結果として誰かに少しでも貢献できたかも？　という経験は何ですか？</div>
+        </div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ===== MID CTA ===== -->
+<div class="cta-mid-bg">
+  <section class="cta-mid">
+    <div class="cta-mid-inner">
+      <p class="cta-mid-title">先着10名・参加無料。<br>気になった方は、お早めに。</p>
+      <a href="https://liff.line.me/2004689256-jVradzOV/landing?follow=%40801pdwhq&lp=ylA6GF&liff_id=2004689256-jVradzOV" target="_blank" rel="noopener" class="btn">イベントに申し込む</a>
+      <div class="cta-mid-note">＊LINE公式アカウントへ遷移します</div>
+    </div>
+  </section>
+</div>
+
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-org">
+      <a href="https://tabippo.net/poolo/" target="_blank" rel="noopener" class="footer-org-poolo"><small>あたらしい旅の学校</small>POOLO</a>
+      <span class="footer-org-divider" aria-hidden="true"></span>
+      <a href="https://tabippo.net/" target="_blank" rel="noopener" class="footer-org-tabippo">TABIPPO</a>
+    </div>
+    <div class="footer-text">旅と人生をつなぐ、大人の学び／株式会社TABIPPO／株式会社CODOLI</div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© POOLO. All rights reserved.</div>
+      <div class="footer-mark">TRAVEL — LIFE — PEOPLE</div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
