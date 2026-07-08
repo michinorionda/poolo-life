@@ -1,0 +1,148 @@
+/* =============================================================
+   POOLO Design System — tokens.css
+   デザイントークン（単一ソース）
+
+   ブランド基準 by TABIPPO
+   -------------------------------------------------------------
+   ・メインカラー（公式ブランド）: #189BBC
+     → 告知ページ本文の実装アクセントは #1B99B7 系（--accent / --cta）を採用。
+       これは既存の完成ページと色を一致させるための実装値。
+       公式ブランドの #189BBC は「編集型サムネイル（Hero D）」内で
+       --brand-primary として使用している（サムネはブランド純度を優先）。
+   ・和文フォント: ZEN KAKU GOTHIC NEW / Noto Sans JP
+     → 実装は Noto Sans JP を使用（Google Fonts 読み込み）。
+       見出し・サムネの明朝表現には Shippori Mincho B1 を使用。
+   ・欧文フォント（ブランド指定）: Jost
+     → 現行ページは Noto Sans JP のイタリックで欧文あしらいを代用。
+       将来 Jost に寄せる場合は --font-latin を差し替える。
+   =============================================================  */
+
+:root {
+
+  /* ---------- Brand ---------- */
+  --brand-primary: #189BBC;      /* 公式ブランドメインカラー（サムネで使用） */
+
+  /* ---------- Color: 背景 ---------- */
+  --bg: #FFFFFF;                 /* 基本背景（白） */
+  --bg-soft: #FFFCF6;           /* ほんのり暖色の白（intro/theme/footer 等） */
+  --bg-warm: #FBF7EE;           /* 温かみのあるベージュ（notice/cta/apply 等） */
+
+  /* ---------- Color: 文字系ダークグリーン（ブランドの落ち着き） ---------- */
+  --main: #2D3E36;              /* 見出し・主要テキストの深緑 */
+  --main-soft: #4A5A52;         /* main のホバー／補助 */
+
+  /* ---------- Color: アクセント（実装値） ---------- */
+  --accent: #1B99B7;            /* リンク・数字・あしらいのアクセント青 */
+  --accent-deep: #157A98;       /* アクセントの濃色（強調テキスト） */
+  --accent-light: #B8E0EB;      /* アクセントの淡色 */
+
+  /* ---------- Color: CTA（= accent と同値。ボタン／申込導線用の意味づけ） ---------- */
+  --cta: #1B99B7;               /* CTAボタン・番号あしらいの基準色 */
+  --cta-deep: #157A98;          /* CTAホバー */
+
+  /* ---------- Color: サブ（DON'T・箇条・キャプション用のくすみ緑） ---------- */
+  --sub: #7A9E8A;
+  --sub-light: #B8D0C2;
+
+  /* ---------- Color: 本文テキスト ---------- */
+  --text: #2A2A2A;              /* 本文（ほぼ黒） */
+  --text-soft: #5A5A5A;         /* 補助本文・リード */
+  --text-light: #7A7A7A;        /* 注釈・小さな文字 */
+
+  /* ---------- Color: 罫線 ---------- */
+  --line: #EAE5DC;              /* 通常の区切り線 */
+  --line-light: #F2EDE3;        /* 淡い区切り線（リスト内） */
+
+  /* ---------- Color: サムネ内で使う固定値（ブランド純度優先の黒） ---------- */
+  --hd-ink: #111111;            /* Hero D のタイトル黒 */
+  --hd-hairline: #E8E8E8;       /* Hero D の内側仕切り線 */
+
+  /* ---------- Typography: フォントファミリー ---------- */
+  --font-jp: 'Noto Sans JP', sans-serif;          /* 和文ゴシック（本文・見出し） */
+  --font-serif: 'Shippori Mincho B1', serif;      /* 和文明朝（サムネ・ヒーロー装飾） */
+  --font-latin: 'Noto Sans JP', sans-serif;       /* 欧文あしらい（将来 Jost 差替え候補） */
+
+  /* ---------- Typography: サイズスケール（本文基準 16px） ---------- */
+  --fs-3xs: 11px;    /* タグ・注釈の極小 */
+  --fs-2xs: 12px;    /* コピーライト・ヒント */
+  --fs-xs: 13px;     /* ナビ・キャプション・meta */
+  --fs-sm: 14px;     /* サブ本文・ボタン・ラベル */
+  --fs-base: 16px;   /* 本文 */
+  --fs-md: 18px;     /* ルール見出し・強め本文 */
+  --fs-lg: 20px;     /* mid-CTA タイトル */
+  --fs-xl: 22px;     /* intro-break・SP見出し */
+  --fs-2xl: 26px;    /* apply番号・q-keyword */
+  --fs-3xl: 30px;    /* セクション見出し・CTAタイトル */
+  --fs-4xl: 36px;    /* ヒーロータイトル */
+  --fs-5xl: 56px;    /* 大きな装飾数字（q-num） */
+
+  /* ---------- Typography: 行間 ---------- */
+  --lh-tight: 1.5;
+  --lh-snug: 1.7;
+  --lh-normal: 1.9;   /* body 基準 */
+  --lh-relaxed: 2.05;
+  --lh-loose: 2.15;   /* intro/about 本文 */
+
+  /* ---------- Typography: 字間（letter-spacing） ---------- */
+  --ls-tight: 0.02em;
+  --ls-base: 0.04em;    /* body 基準 */
+  --ls-wide: 0.06em;
+  --ls-wider: 0.08em;
+  --ls-label: 0.12em;   /* ナビ・ラベル */
+  --ls-caps: 0.18em;    /* 小見出し・CTA */
+  --ls-tracked: 0.22em;
+  --ls-eyebrow: 0.3em;  /* eyebrow・大文字あしらい */
+  --ls-vertical: 0.45em;/* 縦書きサイドマーク */
+
+  /* ---------- Spacing: セクション余白 ---------- */
+  --space-section-y: 72px;      /* .section 上下 */
+  --space-section-x: 24px;      /* .section 左右 */
+  --space-cta-y: 120px;         /* 大CTA上下 */
+  --space-cta-mid-y: 64px;      /* mid-CTA上下 */
+
+  /* ---------- Spacing: 汎用スケール ---------- */
+  --space-2xs: 8px;
+  --space-xs: 14px;
+  --space-sm: 16px;
+  --space-md: 24px;
+  --space-lg: 32px;
+  --space-xl: 48px;
+  --space-2xl: 56px;
+  --space-3xl: 72px;
+
+  /* ---------- Layout: 幅 ---------- */
+  --w-article: 928px;   /* 記事幅（サムネ・event-summary） */
+  --w-section: 840px;   /* 標準セクション幅 */
+  --w-narrow: 720px;    /* 読み物幅（section-narrow） */
+  --w-notice: 840px;    /* notice 幅 */
+  --w-lead: 640px;      /* リード文の最大行長 */
+
+  /* ---------- Border radius ---------- */
+  --radius-xs: 2px;     /* タグ・小要素 */
+  --radius-sm: 4px;     /* ボタン・カード */
+  --radius-md: 8px;     /* SP固定CTA */
+  --radius-pill: 999px; /* ピル・フロートCTA */
+
+  /* ---------- Border width ---------- */
+  --bw-hairline: 1px;
+  --bw-accent: 3px;     /* カード左帯・DO/DON'T 上帯 */
+
+  /* ---------- Shadow ---------- */
+  --shadow-card: 0 2px 12px rgba(45,62,54,0.06);       /* カード・スライド */
+  --shadow-hd: 0 8px 30px rgba(0,0,0,0.08);            /* Hero D サムネ */
+  --shadow-cta: 0 2px 10px rgba(27,153,183,0.25);      /* ヘッダーCTA */
+  --shadow-cta-hover: 0 4px 14px rgba(27,153,183,0.35);
+  --shadow-float: 0 6px 20px rgba(26,26,26,0.18);      /* フロートCTA */
+  --shadow-float-hover: 0 10px 28px rgba(27,153,183,0.35);
+  --shadow-fixed: 0 10px 28px rgba(27,153,183,0.32);   /* SP固定CTA */
+
+  /* ---------- Transition ---------- */
+  --trans-fast: 0.2s ease;
+  --trans-base: 0.25s ease;
+  --trans-slow: 0.35s ease;
+
+  /* ---------- Header ---------- */
+  --header-bg: rgba(255,255,255,0.92);
+  --z-header: 50;
+  --z-float: 1000;
+}
