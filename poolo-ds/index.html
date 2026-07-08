@@ -5,82 +5,86 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>POOLO Design System — コンポーネントカタログ</title>
 <meta name="robots" content="noindex">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700;800&family=Shippori+Mincho+B1:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-<!-- POOLO Design System -->
+<!-- POOLO Design System（フォントの @import は tokens.css に1本化） -->
 <link rel="stylesheet" href="tokens.css">
 <link rel="stylesheet" href="components.css">
 
 <style>
 /* ===== カタログ専用のページ枠（DSには含めない） ===== */
-.cat-body { background: var(--bg-soft); padding-bottom: 96px; }
+.cat-body { background: var(--bg); padding-bottom: 96px; }
+
 .cat-hero {
-  background: var(--main);
-  color: #fff;
-  padding: 72px 32px 60px;
-  text-align: center;
+  background: var(--brand);          /* ブランドブルーの主役面 */
+  color: var(--on-brand);
+  padding: clamp(56px, 9vh, 84px) var(--shell-pad) clamp(44px, 7vh, 64px);
 }
-.cat-hero h1 {
-  font-family: var(--font-serif);
-  font-size: 34px;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  line-height: 1.4;
-  margin-bottom: 16px;
-}
-.cat-hero p {
-  font-family: var(--font-jp);
-  font-size: 14px;
-  letter-spacing: 0.08em;
-  line-height: 1.9;
-  color: rgba(255,255,255,0.82);
-  max-width: 620px;
-  margin: 0 auto;
-}
-.cat-hero .cat-hero-eyebrow {
-  font-family: var(--font-jp);
-  font-style: italic;
-  font-size: 12px;
-  letter-spacing: 0.35em;
+.cat-hero-inner { max-width: var(--shell-max); margin-inline: auto; }
+.cat-hero-eyebrow {
+  font-family: var(--en);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.42em;
   text-transform: uppercase;
-  color: var(--accent-light);
+  color: var(--on-brand-92);
   margin-bottom: 22px;
 }
+.cat-hero h1 {
+  font-family: var(--mincho);        /* 見出しの顔は明朝 */
+  font-weight: 900;
+  font-feature-settings: "palt";
+  font-size: clamp(30px, 4.6vw, 52px);
+  letter-spacing: 0.06em;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+.cat-hero p {
+  font-family: var(--body);
+  font-size: 13.5px;
+  letter-spacing: 0.06em;
+  line-height: 2.05;
+  color: var(--on-brand-88);
+  max-width: 44em;
+}
+.cat-hero code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.9em;
+  background: var(--on-brand-40);
+  padding: 1px 6px;
+  border-radius: var(--radius);
+}
+
 .cat-group {
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 56px 24px 0;
+  max-width: 1040px;
+  margin-inline: auto;
+  padding: clamp(48px, 7vh, 72px) var(--shell-pad) 0;
 }
 .cat-group-head {
   display: flex;
   align-items: baseline;
   gap: 16px;
-  border-bottom: 2px solid var(--main);
+  border-bottom: 1px solid var(--ink);
   padding-bottom: 12px;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
 }
 .cat-group-head .num {
-  font-family: var(--font-jp);
-  font-style: italic;
+  font-family: var(--en);
   font-size: 13px;
   font-weight: 600;
-  letter-spacing: 0.2em;
-  color: var(--cta);
+  letter-spacing: 0.24em;
+  color: var(--brand);
 }
 .cat-group-head h2 {
-  font-family: var(--font-jp);
-  font-size: 22px;
-  font-weight: 600;
+  font-family: var(--mincho);
+  font-size: 24px;
+  font-weight: 700;
   letter-spacing: 0.1em;
-  color: var(--main);
+  color: var(--ink);
 }
+
 .cat-card {
-  background: var(--bg);
   border: 1px solid var(--line);
-  border-radius: 8px;
-  margin-top: 28px;
+  margin-top: 26px;
   overflow: hidden;
 }
 .cat-card-label {
@@ -88,57 +92,59 @@
   flex-wrap: wrap;
   align-items: baseline;
   gap: 12px;
-  padding: 16px 22px;
-  background: var(--bg-warm);
+  padding: 15px 20px;
+  background: var(--bg-off);
   border-bottom: 1px solid var(--line);
 }
 .cat-card-label .name {
-  font-family: var(--font-jp);
-  font-size: 14px;
-  font-weight: 600;
+  font-family: var(--head);
+  font-size: 13.5px;
+  font-weight: 700;
   letter-spacing: 0.06em;
-  color: var(--main);
+  color: var(--ink);
 }
 .cat-card-label .cls {
   font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
   font-size: 12px;
-  color: var(--cta-deep);
-  background: #fff;
+  color: var(--brand-deep);
+  background: var(--bg);
   border: 1px solid var(--line);
-  border-radius: 4px;
+  border-radius: var(--radius);
   padding: 2px 8px;
 }
 .cat-card-label .use {
-  font-family: var(--font-jp);
+  font-family: var(--body);
   font-size: 12px;
-  color: var(--text-soft);
+  color: var(--ink-60);
   letter-spacing: 0.04em;
 }
 .cat-card-preview { padding: 8px 0; }
 
-/* Foundations: スウォッチ */
+/* Foundations: スウォッチ／タイポ／余白 */
 .cat-swatches { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 14px; padding: 24px; }
-.cat-swatch { border: 1px solid var(--line); border-radius: 6px; overflow: hidden; }
-.cat-swatch .chip { height: 66px; }
-.cat-swatch .meta { padding: 8px 10px; font-family: var(--font-jp); }
-.cat-swatch .meta .var { font-family: ui-monospace, monospace; font-size: 11.5px; color: var(--main); display: block; }
-.cat-swatch .meta .hex { font-size: 11px; color: var(--text-light); letter-spacing: 0.04em; }
-.cat-type-row { padding: 12px 24px; border-bottom: 1px solid var(--line-light); display: flex; align-items: baseline; gap: 20px; }
+.cat-swatch { border: 1px solid var(--line); overflow: hidden; }
+.cat-swatch .chip { height: 62px; }
+.cat-swatch .meta { padding: 8px 10px; }
+.cat-swatch .meta .var { font-family: ui-monospace, monospace; font-size: 11.5px; color: var(--ink); display: block; }
+.cat-swatch .meta .hex { font-family: var(--en); font-size: 11px; color: var(--ink-55); letter-spacing: 0.04em; }
+.cat-type-row { padding: 12px 24px; border-bottom: 1px solid var(--line); display: flex; align-items: baseline; gap: 20px; }
 .cat-type-row:last-child { border-bottom: none; }
-.cat-type-row .tag { font-family: ui-monospace, monospace; font-size: 12px; color: var(--cta-deep); flex: 0 0 96px; }
-.cat-type-row .sample { font-family: var(--font-jp); color: var(--main); letter-spacing: 0.04em; line-height: 1.4; }
-.cat-space-row { padding: 10px 24px; display: flex; align-items: center; gap: 20px; }
-.cat-space-row .tag { font-family: ui-monospace, monospace; font-size: 12px; color: var(--cta-deep); flex: 0 0 130px; }
-.cat-space-row .bar { height: 14px; background: var(--accent-light); border-left: 3px solid var(--cta); }
+.cat-type-row .tag { font-family: ui-monospace, monospace; font-size: 12px; color: var(--brand-deep); flex: 0 0 132px; }
+.cat-type-row .sample { color: var(--ink); letter-spacing: 0.04em; line-height: 1.5; }
+.cat-space-row { padding: 9px 24px; display: flex; align-items: center; gap: 20px; }
+.cat-space-row .tag { font-family: ui-monospace, monospace; font-size: 12px; color: var(--brand-deep); flex: 0 0 150px; }
+.cat-space-row .bar { height: 14px; background: var(--brand-mid); border-left: 2px solid var(--brand); }
 </style>
 </head>
 <body class="cat-body">
 
 <!-- ページヘッダー -->
 <header class="cat-hero">
-  <div class="cat-hero-eyebrow">POOLO Design System</div>
-  <h1>告知ページのための、<br>ひとつの手触り。</h1>
-  <p>これは POOLO（by TABIPPO）のイベント告知ページを、コピペではなく単一ソースで組み立てるためのコンポーネントカタログです。新しいページは <code>tokens.css</code> と <code>components.css</code> を読み込み、下のマークアップを写して作ります。</p>
+  <div class="cat-hero-inner">
+    <div class="cat-hero-eyebrow">POOLO Design System</div>
+    <h1>ブランドブルーと、<br>明朝の顔で。</h1>
+    <p>POOLO（by TABIPPO）のイベント告知ページを、コピペではなく単一ソースで組み立てるためのコンポーネントカタログです。新しいページは <code>tokens.css</code> と <code>components.css</code> を読み込み、下のマークアップを写して作ります。主役はブランドブルー <code>#189BBC</code>。フラットなベタ面とヘアラインで構成し、大見出しの顔は明朝（Zen Old Mincho）が担います。</p>
+  </div>
 </header>
 
 
@@ -150,367 +156,457 @@
 
   <!-- @dsCard group="Foundations" -->
   <div class="cat-card">
-    <div class="cat-card-label"><span class="name">カラー</span><span class="cls">--bg / --main / --accent / --sub …</span><span class="use">ブランドの色。背景は暖色の白、文字は深緑、アクセントは青。</span></div>
+    <div class="cat-card-label"><span class="name">カラー</span><span class="cls">--brand / --ink / --bg / --line …</span><span class="use">主役は #189BBC。文字は黒、背景は白、罫はヘアライン。深緑・くすみ緑は撤去。</span></div>
     <div class="cat-card-preview">
       <div class="cat-swatches">
-        <div class="cat-swatch"><div class="chip" style="background:var(--brand-primary)"></div><div class="meta"><span class="var">--brand-primary</span><span class="hex">#189BBC（公式・サムネ用）</span></div></div>
-        <div class="cat-swatch"><div class="chip" style="background:var(--accent)"></div><div class="meta"><span class="var">--accent / --cta</span><span class="hex">#1B99B7（本文実装値）</span></div></div>
-        <div class="cat-swatch"><div class="chip" style="background:var(--accent-deep)"></div><div class="meta"><span class="var">--accent-deep</span><span class="hex">#157A98</span></div></div>
-        <div class="cat-swatch"><div class="chip" style="background:var(--accent-light)"></div><div class="meta"><span class="var">--accent-light</span><span class="hex">#B8E0EB</span></div></div>
-        <div class="cat-swatch"><div class="chip" style="background:var(--main)"></div><div class="meta"><span class="var">--main</span><span class="hex">#2D3E36</span></div></div>
-        <div class="cat-swatch"><div class="chip" style="background:var(--sub)"></div><div class="meta"><span class="var">--sub</span><span class="hex">#7A9E8A</span></div></div>
-        <div class="cat-swatch"><div class="chip" style="background:var(--bg-soft)"></div><div class="meta"><span class="var">--bg-soft</span><span class="hex">#FFFCF6</span></div></div>
-        <div class="cat-swatch"><div class="chip" style="background:var(--bg-warm)"></div><div class="meta"><span class="var">--bg-warm</span><span class="hex">#FBF7EE</span></div></div>
-        <div class="cat-swatch"><div class="chip" style="background:var(--line)"></div><div class="meta"><span class="var">--line</span><span class="hex">#EAE5DC</span></div></div>
-        <div class="cat-swatch"><div class="chip" style="background:var(--text)"></div><div class="meta"><span class="var">--text</span><span class="hex">#2A2A2A</span></div></div>
+        <div class="cat-swatch"><div class="chip" style="background:var(--brand)"></div><div class="meta"><span class="var">--brand</span><span class="hex">#189BBC（公式メイン）</span></div></div>
+        <div class="cat-swatch"><div class="chip" style="background:var(--brand-deep)"></div><div class="meta"><span class="var">--brand-deep</span><span class="hex">#127E9A</span></div></div>
+        <div class="cat-swatch"><div class="chip" style="background:var(--brand-mid)"></div><div class="meta"><span class="var">--brand-mid</span><span class="hex">#8FC6D6</span></div></div>
+        <div class="cat-swatch"><div class="chip" style="background:var(--brand-pale)"></div><div class="meta"><span class="var">--brand-pale</span><span class="hex">#DDECF1</span></div></div>
+        <div class="cat-swatch"><div class="chip" style="background:var(--ink)"></div><div class="meta"><span class="var">--ink</span><span class="hex">#000000</span></div></div>
+        <div class="cat-swatch"><div class="chip" style="background:var(--ink-soft)"></div><div class="meta"><span class="var">--ink-soft</span><span class="hex">#1E1E1E</span></div></div>
+        <div class="cat-swatch"><div class="chip" style="background:var(--bg-off);border:1px solid var(--line)"></div><div class="meta"><span class="var">--bg-off</span><span class="hex">#F9F9F9</span></div></div>
+        <div class="cat-swatch"><div class="chip" style="background:var(--line)"></div><div class="meta"><span class="var">--line</span><span class="hex">#E4E4E4</span></div></div>
+        <div class="cat-swatch"><div class="chip" style="background:var(--line-pale)"></div><div class="meta"><span class="var">--line-pale</span><span class="hex">#C2DCE5</span></div></div>
+        <div class="cat-swatch"><div class="chip" style="background:var(--bg);border:1px solid var(--line)"></div><div class="meta"><span class="var">--bg</span><span class="hex">#FFFFFF</span></div></div>
       </div>
     </div>
   </div>
 
   <!-- @dsCard group="Foundations" -->
   <div class="cat-card">
-    <div class="cat-card-label"><span class="name">タイポスケール</span><span class="cls">--fs-3xs … --fs-5xl</span><span class="use">和文=Noto Sans JP、明朝あしらい=Shippori Mincho B1。</span></div>
+    <div class="cat-card-label"><span class="name">タイポ（4書体）</span><span class="cls">--mincho / --head / --body / --en</span><span class="use">見出しの顔＝明朝、UI見出し＝Zen Kaku、本文＝Noto、英字数字＝Jost。</span></div>
     <div class="cat-card-preview">
-      <div class="cat-type-row"><span class="tag">--fs-sm 14</span><span class="sample">補助本文・ボタン・ラベル</span></div>
-      <div class="cat-type-row"><span class="tag">--fs-base 16</span><span class="sample">本文。line-height 1.9 / letter-spacing 0.04em。</span></div>
-      <div class="cat-type-row"><span class="tag">--fs-lg 20</span><span class="sample">中CTAのタイトル</span></div>
-      <div class="cat-type-row"><span class="tag">--fs-3xl 30</span><span class="sample" style="font-weight:500;">セクション見出し</span></div>
-      <div class="cat-type-row"><span class="tag">--fs-4xl 36</span><span class="sample" style="font-family:var(--font-serif);font-weight:500;">明朝のヒーロー見出し</span></div>
+      <div class="cat-type-row"><span class="tag">--mincho</span><span class="sample" style="font-family:var(--mincho);font-weight:900;font-size:26px;">生き方を、問い直す。</span></div>
+      <div class="cat-type-row"><span class="tag">--head</span><span class="sample" style="font-family:var(--head);font-weight:700;font-size:16px;">日時・形式・定員（データ見出し）</span></div>
+      <div class="cat-type-row"><span class="tag">--body 15</span><span class="sample" style="font-family:var(--body);">本文。line-height 2.05 / letter-spacing 0.05em。</span></div>
+      <div class="cat-type-row"><span class="tag">--en</span><span class="sample" style="font-family:var(--en);font-weight:600;letter-spacing:0.2em;font-size:18px;color:var(--brand);">7.20 — QUIET DIALOGUE</span></div>
     </div>
   </div>
 
   <!-- @dsCard group="Foundations" -->
   <div class="cat-card">
-    <div class="cat-card-label"><span class="name">余白スケール</span><span class="cls">--space-2xs … --space-3xl</span><span class="use">セクション上下は 72px を基準に。</span></div>
+    <div class="cat-card-label"><span class="name">余白・レイアウト</span><span class="cls">--shell-max / --shell-pad / --radius</span><span class="use">版面 1160px。角丸は 2px 基調（乱発しない）。</span></div>
     <div class="cat-card-preview">
-      <div class="cat-space-row"><span class="tag">--space-sm 16</span><span class="bar" style="width:16px"></span></div>
-      <div class="cat-space-row"><span class="tag">--space-md 24</span><span class="bar" style="width:24px"></span></div>
-      <div class="cat-space-row"><span class="tag">--space-xl 48</span><span class="bar" style="width:48px"></span></div>
-      <div class="cat-space-row"><span class="tag">--space-3xl 72</span><span class="bar" style="width:72px"></span></div>
-      <div class="cat-space-row"><span class="tag">--space-section-y 72</span><span class="bar" style="width:72px"></span></div>
+      <div class="cat-space-row"><span class="tag">--shell-max 1160</span><span class="bar" style="width:100%;max-width:280px"></span></div>
+      <div class="cat-space-row"><span class="tag">--shell-pad clamp</span><span class="bar" style="width:72px"></span></div>
+      <div class="cat-space-row"><span class="tag">--radius 2</span><span class="bar" style="width:40px;border-radius:2px"></span></div>
+      <div class="cat-space-row"><span class="tag">--header-h 64/54</span><span class="bar" style="width:64px"></span></div>
     </div>
   </div>
 </section>
 
 
 <!-- ============================================================
-     GROUP: Meta（ヘッダー・フッター・通知・概要）
+     GROUP: Header
      ============================================================ -->
 <section class="cat-group">
-  <div class="cat-group-head"><span class="num">M</span><h2>Meta</h2></div>
+  <div class="cat-group-head"><span class="num">H</span><h2>Header</h2></div>
 
-  <!-- @dsCard group="Meta" -->
+  <!-- @dsCard group="Header" -->
   <div class="cat-card">
-    <div class="cat-card-label"><span class="name">ヘッダー</span><span class="cls">.header</span><span class="use">固定・すりガラス。ロゴ＋CTA。</span></div>
+    <div class="cat-card-label"><span class="name">固定ヘッダー</span><span class="cls">.brand-row / .header-link / .header-cta</span><span class="use">白地＋下辺ヘアライン。ロゴ／POOLOとは／申込ボタン。body に padding-top オフセット。</span></div>
     <div class="cat-card-preview">
-      <header class="header" style="position:static;">
-        <a href="#" class="header-logo"><img src="../event-30s-v01-260720/images/poolo_logo.png" alt="POOLO"></a>
-        <div class="header-nav">
-          <a href="#" class="header-nav-link" target="_blank" rel="noopener">POOLOとは？</a>
-          <a href="#" class="header-cta">申し込む</a>
+      <header class="brand-row" style="position:static;">
+        <div class="shell">
+          <a class="brand-logo" href="#"><img src="../event-30s-v01-260720/images/poolo_logo.png" alt="POOLO あたらしい旅の学校"></a>
+          <nav class="header-nav">
+            <a class="header-link" href="#">POOLO とは<span class="arrow" aria-hidden="true">↗</span></a>
+            <a class="header-cta" href="#">申し込む</a>
+          </nav>
         </div>
       </header>
     </div>
   </div>
 
-  <!-- @dsCard group="Meta" -->
+  <!-- @dsCard group="Header" -->
   <div class="cat-card">
-    <div class="cat-card-label"><span class="name">お知らせ帯</span><span class="cls">.notice-section / .notice</span><span class="use">上部の一行アナウンス。</span></div>
-    <div class="cat-card-preview">
-      <section class="notice-section">
-        <div class="notice-wrap">
-          <a class="notice" href="#">
-            <span class="notice-tag">お知らせ</span>
-            <span class="notice-text"><strong>POOLO LIFE12期</strong>を募集中です。<strong>7月21日（火）</strong>申込締切。</span>
-            <span class="notice-arrow" aria-hidden="true">→</span>
-          </a>
-        </div>
-      </section>
-    </div>
-  </div>
-
-  <!-- @dsCard group="Meta" -->
-  <div class="cat-card">
-    <div class="cat-card-label"><span class="name">イベント概要（2カラム）</span><span class="cls">.event-summary</span><span class="use">サムネ直後の要点。日時／形式／定員／参加費。</span></div>
-    <div class="cat-card-preview">
-      <section class="event-summary">
-        <div class="event-summary-inner">
-          <dl class="event-summary-list">
-            <div class="event-summary-row"><dt>日時</dt><dd>2026年◯月◯日（◯）20:00〜21:30</dd></div>
-            <div class="event-summary-row"><dt>形式</dt><dd>Zoom（オンライン）</dd></div>
-            <div class="event-summary-row"><dt>定員</dt><dd>10名（先着順）</dd></div>
-            <div class="event-summary-row"><dt>参加費</dt><dd>無料</dd></div>
-          </dl>
-        </div>
-      </section>
-    </div>
-  </div>
-
-  <!-- @dsCard group="Meta" -->
-  <div class="cat-card">
-    <div class="cat-card-label"><span class="name">開催概要テーブル</span><span class="cls">.details-table</span><span class="use">末尾の詳細。項目名は英字ラベル調。</span></div>
-    <div class="cat-card-preview" style="padding:0 24px 16px;">
-      <table class="details-table">
-        <tr><th>日時</th><td>2026年◯月◯日（◯）20:00–21:30</td></tr>
-        <tr><th>形式</th><td>Zoom（オンライン）</td></tr>
-        <tr><th>定員</th><td>10名（先着順）</td></tr>
-        <tr><th>参加費</th><td>無料</td></tr>
-        <tr><th>主催</th><td>POOLO運営チーム（株式会社TABIPPO／株式会社CODOLI）</td></tr>
-      </table>
-    </div>
-  </div>
-
-  <!-- @dsCard group="Meta" -->
-  <div class="cat-card">
-    <div class="cat-card-label"><span class="name">フッター</span><span class="cls">.footer</span><span class="use">2社ロゴ＋コピーライト。</span></div>
-    <div class="cat-card-preview">
-      <footer class="footer" style="border-top:none;">
-        <div class="footer-org">
-          <a href="#"><img src="../event-30s-v01-260720/images/poolo_logo.png" alt="POOLO"></a>
-          <span class="footer-org-divider" aria-hidden="true"></span>
-          <a href="#"><img src="../event-30s-v01-260720/images/tabippo_logo.png" alt="TABIPPO"></a>
-        </div>
-        <div class="footer-text">旅と人生をつなぐ、大人の学び／株式会社TABIPPO／株式会社CODOLI</div>
-        <div class="footer-copy">© POOLO. All rights reserved.</div>
-      </footer>
+    <div class="cat-card-label"><span class="name">家紋モノグラム</span><span class="cls">.mon</span><span class="use">ブランドブルーの線画SVG。Hero フッター・フッターに置く静かな印。</span></div>
+    <div class="cat-card-preview" style="padding:28px 24px;">
+      <span class="mon" style="width:64px;height:64px;" aria-hidden="true">
+        <svg viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-linecap="round">
+          <circle cx="60" cy="60" r="57" stroke-width="1.5"/>
+          <circle cx="60" cy="60" r="51.5" stroke-width="0.75"/>
+          <circle cx="60" cy="42.5" r="9.5" stroke-width="1.5"/>
+          <line x1="30" y1="60.5" x2="46.5" y2="60.5" stroke-width="1.1"/>
+          <line x1="73.5" y1="60.5" x2="90" y2="60.5" stroke-width="1.1"/>
+          <path d="M35 78 Q60 66 85 78" stroke-width="1.5"/>
+          <path d="M44 88 Q60 81 76 88" stroke-width="0.9"/>
+        </svg>
+      </span>
     </div>
   </div>
 </section>
 
 
 <!-- ============================================================
-     GROUP: Layout
+     GROUP: Hero（写真ドリブン＋ブルー日付帯）
      ============================================================ -->
 <section class="cat-group">
-  <div class="cat-group-head"><span class="num">L</span><h2>Layout</h2></div>
+  <div class="cat-group-head"><span class="num">V</span><h2>Hero</h2></div>
 
-  <!-- @dsCard group="Layout" -->
+  <!-- @dsCard group="Hero" -->
   <div class="cat-card">
-    <div class="cat-card-label"><span class="name">セクション見出し（連番）</span><span class="cls">.section-title[data-num] / .section-lead</span><span class="use">01, 02… の連番＋リード文。読み物幅は .section-narrow。</span></div>
+    <div class="cat-card-label"><span class="name">写真ドリブンHero</span><span class="cls">.hero / .hero-grid / .hero-copy / .hero-photo</span><span class="use">左コピー＋右裁ち落とし写真（ブルー額装）。見出しは明朝、強調語だけブルー。</span></div>
     <div class="cat-card-preview">
-      <div class="section section-narrow" style="padding-top:32px;padding-bottom:32px;">
-        <h2 class="section-title" data-num="02">このイベントで向き合うこと</h2>
-        <p class="section-lead">正解ではなく、自分の納得感。</p>
-        <div class="theme-main">
-          <p>市場価値、年収、ロールモデル。外側にある物差しは、たくさんある。けれども、その物差しの内側で、自分はどう感じているのか。</p>
+      <section class="hero">
+        <div class="hero-grid">
+          <div class="hero-copy" style="padding-left:clamp(22px,5.4vw,48px);padding-right:clamp(22px,4vw,48px);">
+            <div class="hero-eyebrow">
+              <span class="hero-eyebrow-rule" aria-hidden="true"></span>
+              <span class="hero-eyebrow-ja">生き方を問い直す</span>
+              <span class="hero-eyebrow-en">RETHINK YOUR 30s</span>
+            </div>
+            <h1 class="hero-title">
+              <span class="t-sm">30代の生き方を</span>
+              <span class="t-lg"><span class="nb"><span class="em">問い直す</span>、</span><span class="nb">90分。</span></span>
+            </h1>
+            <p class="hero-lead">対話と、内省と、好奇心で。新しい情報やフレームワークではなく、<span class="nb">自分のなかにすでにある手がかりを、</span>ゆっくりとことばにする時間です。</p>
+            <div class="hero-foot">
+              <span class="mon" aria-hidden="true">
+                <svg viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-linecap="round">
+                  <circle cx="60" cy="60" r="57" stroke-width="1.5"/>
+                  <circle cx="60" cy="60" r="51.5" stroke-width="0.75"/>
+                  <circle cx="60" cy="42.5" r="9.5" stroke-width="1.5"/>
+                  <line x1="30" y1="60.5" x2="46.5" y2="60.5" stroke-width="1.1"/>
+                  <line x1="73.5" y1="60.5" x2="90" y2="60.5" stroke-width="1.1"/>
+                  <path d="M35 78 Q60 66 85 78" stroke-width="1.5"/>
+                </svg>
+              </span>
+              <div class="hero-foot-texts">
+                <span class="hero-foot-ja">対話と、内省と、好奇心と。</span>
+                <span class="hero-foot-en">Quiet Dialogue</span>
+              </div>
+            </div>
+          </div>
+          <figure class="hero-photo">
+            <img src="../event-30s-v01-260720/images/03_kominka_dialogue.jpg" alt="円卓を囲み、ゆっくりとことばを交わす対話の場面">
+            <figcaption class="hero-chip">
+              <span class="en nb">Quiet Dialogue</span>
+              <span class="ja nb">問いを挟んで、ことばを探す時間</span>
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <!-- @dsCard group="Hero" -->
+  <div class="cat-card">
+    <div class="cat-card-label"><span class="name">ブルー日付帯</span><span class="cls">.hero-band / .hero-band-num / .hero-band-meta</span><span class="use">Hero直下の全幅ベタ面。日付（Jost大）＋曜日＋時間＋形式・定員。</span></div>
+    <div class="cat-card-preview">
+      <div class="hero-band">
+        <div class="shell hero-band-inner">
+          <span class="hero-band-num">7.20<span class="dow nb">月</span></span>
+          <span class="hero-band-time nb">20:00 – 21:30</span>
+          <span class="hero-band-meta">
+            <span class="en nb">Zoom Online</span>
+            <span class="nb">無料・先着10名</span>
+          </span>
         </div>
       </div>
     </div>
   </div>
-
-  <!-- @dsCard group="Layout" -->
-  <div class="cat-card">
-    <div class="cat-card-label"><span class="name">セクション区切りマーク</span><span class="cls">.section-mark</span><span class="use">セクション間の細いあしらい。</span></div>
-    <div class="cat-card-preview">
-      <div class="section-mark"><span class="section-mark-dot"></span></div>
-    </div>
-  </div>
-
-  <!-- @dsCard group="Layout" -->
-  <div class="cat-card">
-    <div class="cat-card-label"><span class="name">縦書きサイドマーク</span><span class="cls">.page-side-mark</span><span class="use">広い画面の左右余白に固定表示（1100px超）。</span></div>
-    <div class="cat-card-preview" style="position:relative;height:120px;">
-      <aside class="page-side-mark is-left" style="position:absolute;top:50%;left:20px;">2026<span class="em">·</span>◯/◯ (Mon)<span class="em">·</span>Zoom Online</aside>
-      <aside class="page-side-mark is-right" style="position:absolute;top:50%;right:20px;">POOLO<span class="em">·</span>Life<span class="em">·</span>vol.01</aside>
-    </div>
-  </div>
 </section>
 
 
 <!-- ============================================================
-     GROUP: Hero
-     ============================================================ -->
-<section class="cat-group">
-  <div class="cat-group-head"><span class="num">H</span><h2>Hero</h2></div>
-
-  <!-- @dsCard group="Hero" -->
-  <div class="cat-card">
-    <div class="cat-card-label"><span class="name">編集型サムネイル（Hero D）</span><span class="cls">.hd</span><span class="use">HTML/CSSで作る16:9サムネ。日付3か所を書き換えるだけ。OG画像の下地にもなる。</span></div>
-    <div class="cat-card-preview" style="padding:24px;">
-      <section class="hd" aria-label="イベントサムネイル">
-        <div class="hd-photo" role="img" aria-label="海辺を歩く人たち" style="background-image:url('../event-30s-v01-260720/images/hero-photo-01_542.jpg');"></div>
-        <div class="hd-content">
-          <div class="hd-main-copy">
-            <div class="hd-tag-row">
-              <span class="hd-tag">生き方を問い直す</span>
-              <span class="hd-tag-line" aria-hidden="true"></span>
-            </div>
-            <h1 class="hd-title">
-              <span class="hd-title-line hd-title-row2-sm">◯◯の生き方を</span>
-              <span class="hd-title-line hd-title-row2-lg">問い直す<span class="hd-title-90">90分</span></span>
-            </h1>
-          </div>
-          <div class="hd-date-zoom">
-            <div class="hd-date-band">
-              <div class="hd-date-row">
-                <span class="hd-date-cal" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></span>
-                <span class="hd-date-main">7/20</span>
-                <span class="hd-date-dow">月</span>
-                <span class="hd-date-time">20:00〜21:30</span>
-              </div>
-            </div>
-            <div class="hd-zoom-row">
-              <span class="hd-zoom-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg></span>
-              <span class="hd-zoom-label">zoom</span>
-              <span class="hd-zoom-divider" aria-hidden="true"></span>
-              <span class="hd-free-pill">無料</span>
-            </div>
-          </div>
-          <img class="hd-brand-logo" src="../event-30s-v01-260720/images/poolo_logo03.png" alt="POOLO">
-        </div>
-      </section>
-    </div>
-  </div>
-</section>
-
-
-<!-- ============================================================
-     GROUP: Sections（本文コンポーネント）
+     GROUP: Sections（sec / intro / flow / questions）
      ============================================================ -->
 <section class="cat-group">
   <div class="cat-group-head"><span class="num">S</span><h2>Sections</h2></div>
 
   <!-- @dsCard group="Sections" -->
   <div class="cat-card">
-    <div class="cat-card-label"><span class="name">導入本文</span><span class="cls">.intro-text / .intro-break</span><span class="use">段落＋中央の一言ブレイク＋強調・引用色。</span></div>
+    <div class="cat-card-label"><span class="name">セクション枠＋スパイン</span><span class="cls">.sec / .sec-inner / .sec-spine / .sec-num / .sec-title</span><span class="use">左に連番スパイン（Jost数字 or 和文ラベル）、右に明朝見出し。</span></div>
     <div class="cat-card-preview">
-      <div class="section section-narrow" style="padding-top:24px;padding-bottom:24px;">
-        <div class="intro-text">
-          <p>仕事は頑張ってきた。評価もされていて、できることも増えてきている。</p>
-          <p class="intro-break">ただ、しかし。</p>
-          <p>なんとなく、違和感のようなものがある。自分の人生に<span class="quoted">正解</span>はない。大事なのは、<strong>自分が納得を積み重ねて生きていくこと</strong>。</p>
+      <section class="sec" style="border-bottom:none;">
+        <div class="shell sec-inner" style="padding-top:40px;padding-bottom:40px;">
+          <div class="sec-spine">
+            <div class="sec-num">01</div>
+            <span class="sec-en">Introduction</span>
+          </div>
+          <div>
+            <h2 class="sec-title">今とこれからを、<br class="nb">納得できる生き方を<span class="nb">考える。</span></h2>
+            <p class="sec-lead">社会的な正解ではなく、自分がこれでいいのだと思える生き方を、静かに考える時間として設計しました。</p>
+          </div>
         </div>
+      </section>
+    </div>
+  </div>
+
+  <!-- @dsCard group="Sections" -->
+  <div class="cat-card">
+    <div class="cat-card-label"><span class="name">導入本文＋ブレイク</span><span class="cls">.intro-body / .intro-break / .quoted</span><span class="use">段落＋一言ブレイク（明朝・罫つき）＋強調 strong・引用 .quoted。</span></div>
+    <div class="cat-card-preview" style="padding:24px;">
+      <div class="intro-body">
+        <p>仕事は頑張ってきた。評価もそれなりにされていて、できることも増えてきている。</p>
+        <p class="intro-break">ただ、しかし。</p>
+        <p>もちろん、自分の人生に対して<span class="quoted">正解</span>は存在しない。大事なことは、<strong>自分が納得を積み重ねて生きていくこと</strong>。</p>
       </div>
     </div>
   </div>
 
   <!-- @dsCard group="Sections" -->
   <div class="cat-card">
-    <div class="cat-card-label"><span class="name">タイムテーブル</span><span class="cls">.flow-list / .flow-item</span><span class="use">当日の流れ。時間＋見出し。</span></div>
-    <div class="cat-card-preview">
-      <div class="section section-narrow" style="padding-top:16px;padding-bottom:16px;">
-        <ul class="flow-list">
-          <li class="flow-item"><span class="flow-time">0–5分</span><div><div class="flow-title">オープニング</div></div></li>
-          <li class="flow-item"><span class="flow-time">5–20分</span><div><div class="flow-title">自己紹介ワークと対話①</div></div></li>
-          <li class="flow-item"><span class="flow-time">75–90分</span><div><div class="flow-title">クロージング</div></div></li>
-        </ul>
-      </div>
+    <div class="cat-card-label"><span class="name">当日の流れ（4フェーズ）</span><span class="cls">.flow-list / .flow-item / .flow-desc</span><span class="use">時刻（Jost）＋タイトル（Zen Kaku）＋説明。</span></div>
+    <div class="cat-card-preview" style="padding:8px 24px 24px;">
+      <ul class="flow-list">
+        <li class="flow-item">
+          <span class="flow-time">0 — 10<small>分</small></span>
+          <div>
+            <span class="flow-title">オープニング・自己紹介</span>
+            <p class="flow-desc">進め方の説明と、名前といまの状況をひとことずつ。肩書きの紹介はなしにしています。</p>
+          </div>
+        </li>
+        <li class="flow-item">
+          <span class="flow-time">60 — 90<small>分</small></span>
+          <div>
+            <span class="flow-title">一歩・クロージング</span>
+            <p class="flow-desc">明日からやってみたいことをひとりずつ。振り返りをして、時間どおりに終わります。</p>
+          </div>
+        </li>
+      </ul>
     </div>
   </div>
 
   <!-- @dsCard group="Sections" -->
   <div class="cat-card">
-    <div class="cat-card-label"><span class="name">当日のワーク（問いカード）</span><span class="cls">.worksheet-questions / .wq-card</span><span class="use">Q. つきの問い＋補足。</span></div>
+    <div class="cat-card-label"><span class="name">当日の問い</span><span class="cls">.sec-questions / .q-list / .q-item</span><span class="use">ブルー淡面のセクション。漢数字番号＋明朝の問い＋補足。</span></div>
     <div class="cat-card-preview">
-      <div class="section section-narrow" style="padding-top:16px;padding-bottom:16px;">
-        <ol class="worksheet-questions">
-          <li class="wq-card"><div class="wq-num">Q.</div><div><div class="wq-text">これからの生き方を考えるうえでの、違和感やもやもやはどんなものですか？</div><div class="wq-helper">うまく言葉にしなくてもOK。このシーンのとき、と情景でも構いません。</div></div></li>
-          <li class="wq-card"><div class="wq-num">Q.</div><div><div class="wq-text">本気で迷って選んだことは何でしたか？</div></div></li>
-        </ol>
-      </div>
-    </div>
-  </div>
-
-  <!-- @dsCard group="Sections" -->
-  <div class="cat-card">
-    <div class="cat-card-label"><span class="name">対話ルール DO/DON'T</span><span class="cls">.dialogue-rules-grid</span><span class="use">やること／やらないことの2カラム。</span></div>
-    <div class="cat-card-preview">
-      <div class="dialogue-rules-section"><div class="section section-narrow" style="padding-top:24px;padding-bottom:24px;">
-        <div class="dialogue-rules-grid">
-          <div class="dialogue-rules-col dialogue-rules-do"><div class="dialogue-rules-label">やること</div><ul><li>問いを返す、深める</li><li>沈黙を許す</li></ul></div>
-          <div class="dialogue-rules-col dialogue-rules-dont"><div class="dialogue-rules-label">やらないこと</div><ul><li>勝手にまとめる</li><li>答えや解釈の提示</li></ul></div>
+      <section class="sec sec-questions" style="border-bottom:none;">
+        <div class="shell sec-inner" style="padding-top:40px;padding-bottom:40px;">
+          <div class="sec-spine">
+            <div class="sec-num ja">問</div>
+            <span class="sec-en">Questions</span>
+          </div>
+          <div>
+            <ol class="q-list">
+              <li class="q-item">
+                <span class="q-no">Q. <span class="kanji">一</span></span>
+                <div>
+                  <p class="q-text">自分のこれからの生き方を考える上での、違和感やもやもやはどんなものですか？</p>
+                  <p class="q-helper">うまく言葉にしなくてもOKなので言語化してみてください。このシーンのとき、という情景でも構いません。</p>
+                </div>
+              </li>
+              <li class="q-item">
+                <span class="q-no">Q. <span class="kanji">二</span></span>
+                <div>
+                  <p class="q-text">20代で、本気で迷って選んだことは何でしたか？</p>
+                </div>
+              </li>
+            </ol>
+          </div>
         </div>
-      </div></div>
-    </div>
-  </div>
-
-  <!-- @dsCard group="Sections" -->
-  <div class="cat-card">
-    <div class="cat-card-label"><span class="name">確認事項（チェック箇条）</span><span class="cls">.terms-list / .terms-item</span><span class="use">✓ つきの参加条件。</span></div>
-    <div class="cat-card-preview">
-      <div class="section section-narrow" style="padding-top:16px;padding-bottom:16px;">
-        <ul class="terms-list">
-          <li class="terms-item">PC（スマートフォン不可）からの接続が可能であること</li>
-          <li class="terms-item">顔出し・音声出しが可能な環境であること</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-
-  <!-- @dsCard group="Sections" -->
-  <div class="cat-card">
-    <div class="cat-card-label"><span class="name">こんな方へ（ダッシュ箇条）</span><span class="cls">.target-list / .target-item</span><span class="use">短い横線つきのターゲット列挙。</span></div>
-    <div class="cat-card-preview">
-      <div class="target-wrap"><div class="section section-narrow" style="padding-top:16px;padding-bottom:16px;">
-        <ul class="target-list">
-          <li class="target-item">仕事は頑張れているけれど、「これで合っているんだっけ」が消えない方</li>
-          <li class="target-item">少人数の対話のなかで、自分のことばを探したい方</li>
-        </ul>
-      </div></div>
-    </div>
-  </div>
-
-  <!-- @dsCard group="Sections" -->
-  <div class="cat-card">
-    <div class="cat-card-label"><span class="name">お申込みステップ</span><span class="cls">.apply-steps / .apply-step</span><span class="use">番号カードで手順を提示。</span></div>
-    <div class="cat-card-preview">
-      <div class="apply-section"><div class="section section-narrow" style="padding-top:20px;padding-bottom:20px;">
-        <ol class="apply-steps">
-          <li class="apply-step"><span class="apply-step-num">01</span><div class="apply-step-body"><div class="apply-step-title">LINE公式アカウントを友だち追加</div></div></li>
-          <li class="apply-step"><span class="apply-step-num">02</span><div class="apply-step-body"><div class="apply-step-title">メニューから「申し込む」を押下</div></div></li>
-        </ol>
-      </div></div>
+      </section>
     </div>
   </div>
 </section>
 
 
 <!-- ============================================================
-     GROUP: CTA
+     GROUP: Content（notice / summary / photo-break / voices / faq / about）
      ============================================================ -->
 <section class="cat-group">
-  <div class="cat-group-head"><span class="num">C</span><h2>CTA</h2></div>
+  <div class="cat-group-head"><span class="num">C</span><h2>Content</h2></div>
 
-  <!-- @dsCard group="CTA" -->
+  <!-- @dsCard group="Content" -->
   <div class="cat-card">
-    <div class="cat-card-label"><span class="name">ボタン</span><span class="cls">.btn / .btn-accent</span><span class="use">深緑ボタンと、アクセント青ボタン。</span></div>
-    <div class="cat-card-preview" style="padding:28px 24px;display:flex;gap:16px;flex-wrap:wrap;">
-      <a href="#" class="btn">イベントに申し込む</a>
-      <a href="#" class="btn btn-accent">イベントに申し込む</a>
+    <div class="cat-card-label"><span class="name">お知らせバンド</span><span class="cls">.notice-bar / .notice-tag / .notice-link</span><span class="use">一行アナウンス。ブルーのタグ＋本文＋リンク。</span></div>
+    <div class="cat-card-preview">
+      <section class="notice-bar" aria-label="お知らせ">
+        <div class="shell">
+          <a href="#">
+            <span class="notice-tag">お知らせ</span>
+            <span class="notice-text">POOLO LIFE 12期を募集中です！</span>
+            <span class="notice-link">詳しくはこちら<span class="arrow">↗</span></span>
+          </a>
+        </div>
+      </section>
     </div>
   </div>
 
+  <!-- @dsCard group="Content" -->
+  <div class="cat-card">
+    <div class="cat-card-label"><span class="name">イベント要点（4カラム）</span><span class="cls">.summary / .summary-grid / .summary-cell</span><span class="use">日時／形式／定員／参加費。ラベルは英字＋和文、値は Zen Kaku 太字。</span></div>
+    <div class="cat-card-preview">
+      <section class="summary" style="border-bottom:none;">
+        <div class="shell">
+          <dl class="summary-grid">
+            <div class="summary-cell">
+              <dt class="summary-label"><span class="en">Date</span><span class="ja">日時</span></dt>
+              <dd class="summary-value">2026年7月20日（月）<span class="nb">20:00〜21:30</span></dd>
+            </div>
+            <div class="summary-cell">
+              <dt class="summary-label"><span class="en">Format</span><span class="ja">形式</span></dt>
+              <dd class="summary-value">Zoom</dd>
+            </div>
+            <div class="summary-cell">
+              <dt class="summary-label"><span class="en">Seats</span><span class="ja">定員</span></dt>
+              <dd class="summary-value">10名（先着順）</dd>
+            </div>
+            <div class="summary-cell">
+              <dt class="summary-label"><span class="en">Fee</span><span class="ja">参加費</span></dt>
+              <dd class="summary-value">無料</dd>
+            </div>
+          </dl>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <!-- @dsCard group="Content" -->
+  <div class="cat-card">
+    <div class="cat-card-label"><span class="name">写真ブレイク</span><span class="cls">.photo-break（--left / --right）/ .pb-frame / .pb-caption</span><span class="use">裁ち落とし写真＋足元のブルー淡面。編集的キャプション。</span></div>
+    <div class="cat-card-preview">
+      <div class="photo-break photo-break--right" style="border-bottom:none;padding-top:32px;">
+        <figure class="pb-frame">
+          <img src="../event-30s-v01-260720/images/11_laughing_group.jpg" alt="話すうちに笑いがこぼれる、POOLOの一場面">
+        </figure>
+        <figcaption class="shell pb-caption">
+          <span class="pb-caption-en">Scene</span>
+          <span class="pb-caption-rule" aria-hidden="true"></span>
+          <span class="pb-caption-text">話すうちに、こわばりがほどけていく</span>
+        </figcaption>
+      </div>
+    </div>
+  </div>
+
+  <!-- @dsCard group="Content" -->
+  <div class="cat-card">
+    <div class="cat-card-label"><span class="name">参加者の声</span><span class="cls">.voice-list / .voice-quote / .voice-attr / .voice-note</span><span class="use">引用は明朝（逐語）、属性は Noto（特定を避ける）。末尾に掲載注記。</span></div>
+    <div class="cat-card-preview" style="padding:8px 24px 24px;">
+      <ul class="voice-list">
+        <li class="voice-item">
+          <p class="voice-quote"><span class="vq-mark">「</span>同期が次々と転職していき、自分はこのままでいいのか？ともやもやしていました。自分らしいキャリアを描くきっかけが得られたら嬉しいです。<span class="vq-mark">」</span></p>
+          <p class="voice-attr">メーカー・企画職／30代・体験会参加者</p>
+        </li>
+      </ul>
+      <p class="voice-note">＊体験会で参加者ご本人が書いてくださったことばです。ご本人が特定されない形で掲載しています。</p>
+    </div>
+  </div>
+
+  <!-- @dsCard group="Content" -->
+  <div class="cat-card">
+    <div class="cat-card-label"><span class="name">About POOLO</span><span class="cls">.about / .about-inner / .about-title / .about-figs</span><span class="use">企画者・信頼の小コーナー。左に本文、右に図版（キャプションつき）。</span></div>
+    <div class="cat-card-preview">
+      <section class="about" style="border-bottom:none;">
+        <div class="shell about-inner" style="padding-top:36px;padding-bottom:36px;">
+          <div>
+            <span class="about-en">About POOLO</span>
+            <h2 class="about-title">旅を入り口に、生き方を問い直す<span class="nb">大人の学び場。</span></h2>
+            <div class="about-text">
+              <p>あたらしい旅の学校POOLOは、旅を入り口に自分の生き方・働き方を問い直す<strong>大人の学び場</strong>として、7年以上続いてきました。運営は株式会社TABIPPOとコオドリ社。</p>
+            </div>
+          </div>
+          <div class="about-figs">
+            <figure class="about-fig">
+              <img src="../event-30s-v01-260720/images/12_poolo_keyvisual.jpg" alt="POOLO キービジュアル">
+              <figcaption><span class="en">POOLO</span><span>あたらしい旅の学校</span></figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <!-- @dsCard group="Content" -->
+  <div class="cat-card">
+    <div class="cat-card-label"><span class="name">FAQ</span><span class="cls">.faq-list / .faq-item / .faq-q / .faq-a</span><span class="use">Q/A をヘアラインで区切る。マーカーは Jost。</span></div>
+    <div class="cat-card-preview" style="padding:8px 24px 24px;">
+      <ul class="faq-list">
+        <li class="faq-item">
+          <p class="faq-q"><span class="m">Q.</span><span>初対面の人と、うまく話せるか不安です。</span></p>
+          <div class="faq-a"><span class="m">A.</span><p>うまく話す必要はありません。まとまっていない言葉こそ歓迎される場です。まずは聞くところから始めて大丈夫です。</p></div>
+        </li>
+        <li class="faq-item">
+          <p class="faq-q"><span class="m">Q.</span><span>ひとりでの参加でも大丈夫ですか？</span></p>
+          <div class="faq-a"><span class="m">A.</span><p>ほとんどの方が、おひとりでの参加です。知らない人同士だからこそ、ふだん言えないことも話せます。</p></div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     GROUP: CTA（cta / float-apply）
+     ============================================================ -->
+<section class="cat-group">
+  <div class="cat-group-head"><span class="num">A</span><h2>CTA</h2></div>
+
   <!-- @dsCard group="CTA" -->
   <div class="cat-card">
-    <div class="cat-card-label"><span class="name">中間CTA</span><span class="cls">.cta-mid</span><span class="use">ページ途中の背中押し。</span></div>
+    <div class="cat-card-label"><span class="name">中間・最終CTA</span><span class="cls">.cta / .cta-inner / .cta-title / .cta-btn</span><span class="use">ブルーのベタ面。明朝見出し＋白ボタン。命令形にしない誘いのトーン。</span></div>
     <div class="cat-card-preview">
-      <section class="cta-mid" style="padding-top:40px;padding-bottom:40px;">
-        <p class="cta-mid-title">先着10名・参加無料。<br class="sp-br">気になった方は、お早めに。</p>
-        <a href="#" class="btn btn-accent">イベントに申し込む</a>
-        <div class="cta-mid-note">＊LINE公式アカウントへ遷移します</div>
+      <section class="cta">
+        <div class="shell cta-inner" style="padding-top:48px;padding-bottom:48px;">
+          <div>
+            <span class="cta-en">Application</span>
+            <h2 class="cta-title">先着10名・参加無料。<br>気になった方は、<span class="nb">お早めに。</span></h2>
+          </div>
+          <div class="cta-action">
+            <a href="#" class="cta-btn">イベントに申し込む</a>
+            <p class="cta-note">＊LINE公式アカウントへ遷移します</p>
+          </div>
+        </div>
       </section>
     </div>
   </div>
 
   <!-- @dsCard group="CTA" -->
   <div class="cat-card">
-    <div class="cat-card-label"><span class="name">最終CTA</span><span class="cls">.cta</span><span class="use">ページ末尾の大きな申込導線。</span></div>
-    <div class="cat-card-preview">
-      <section class="cta" style="padding-top:56px;padding-bottom:56px;">
-        <h2 class="cta-title">生き方を、<br class="sp-br">いちど問い直してみませんか。</h2>
-        <p class="cta-text">お申込みは、POOLO公式LINEから。友だち追加後、メニューより簡単にお手続きいただけます。</p>
-        <a href="#" class="btn btn-accent">イベントに申し込む</a>
-        <div class="cta-note">＊LINE公式アカウントへ遷移します</div>
-      </section>
+    <div class="cat-card-label"><span class="name">追従CTA</span><span class="cls">.float-apply / .fa-inner / .fa-btn（.is-visible / 要JS）</span><span class="use">スクロール途中で下から出現。白地＋上辺ヘアライン。表示中はヘッダーCTAを隠す。</span></div>
+    <div class="cat-card-preview" style="padding:24px;">
+      <div class="float-apply is-visible" style="position:static;transform:none;border:1px solid var(--line);">
+        <div class="shell fa-inner">
+          <div class="fa-texts">
+            <span class="fa-main">30代の生き方を問い直す 90分</span>
+            <span class="fa-sub">7/20(月) 20:00〜 ・ オンライン ・ 無料</span>
+          </div>
+          <a class="fa-btn" href="#">申し込む</a>
+        </div>
+      </div>
+      <p style="font-family:var(--body);font-size:12px;color:var(--ink-50);margin-top:14px;letter-spacing:0.06em;">← 実ページでは position:fixed。JS でスクロール途中に <code style="font-family:ui-monospace,monospace;">.is-visible</code> を付与（スニペットは README 参照）。</p>
     </div>
   </div>
+</section>
 
-  <!-- @dsCard group="CTA" -->
+
+<!-- ============================================================
+     GROUP: Meta（footer）
+     ============================================================ -->
+<section class="cat-group">
+  <div class="cat-group-head"><span class="num">M</span><h2>Meta</h2></div>
+
+  <!-- @dsCard group="Meta" -->
   <div class="cat-card">
-    <div class="cat-card-label"><span class="name">フロート／SP固定CTA</span><span class="cls">.float-apply / .sp-fixed-cta</span><span class="use">スクロール追従（PC右上ピル／SP下部バー）。JSで .is-visible を付与。</span></div>
-    <div class="cat-card-preview" style="padding:28px 24px;display:flex;gap:20px;flex-wrap:wrap;align-items:center;">
-      <a href="#" class="float-apply is-visible" style="position:static;transform:none;"><span class="fa-cta">申し込む</span></a>
-      <span style="font-family:var(--font-jp);font-size:12px;color:var(--text-light);">← 実ページでは position:fixed。スクロール60%で表示。</span>
+    <div class="cat-card-label"><span class="name">フッター</span><span class="cls">.footer / .footer-top / .footer-marks / .footer-bottom</span><span class="use">家紋＋2社ロゴ＋コピーライト。オフホワイト面。</span></div>
+    <div class="cat-card-preview">
+      <footer class="footer">
+        <div class="shell footer-inner" style="padding-top:40px;">
+          <div class="footer-top">
+            <span class="mon" aria-hidden="true">
+              <svg viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-linecap="round">
+                <circle cx="60" cy="60" r="57" stroke-width="1.5"/>
+                <circle cx="60" cy="60" r="51.5" stroke-width="0.75"/>
+                <circle cx="60" cy="42.5" r="9.5" stroke-width="1.5"/>
+                <line x1="30" y1="60.5" x2="46.5" y2="60.5" stroke-width="1.1"/>
+                <line x1="73.5" y1="60.5" x2="90" y2="60.5" stroke-width="1.1"/>
+              </svg>
+            </span>
+            <div class="footer-marks">
+              <a href="#"><img src="../event-30s-v01-260720/images/poolo_logo03.png" alt="POOLO あたらしい旅の学校"></a>
+              <span class="footer-divider" aria-hidden="true"></span>
+              <a href="#"><img src="../event-30s-v01-260720/images/tabippo_logo.png" alt="TABIPPO"></a>
+            </div>
+          </div>
+          <div class="footer-bottom">
+            <p class="footer-text">旅と人生をつなぐ、大人の学び／株式会社TABIPPO／株式会社CODOLI</p>
+            <p class="footer-copy">© POOLO. All rights reserved.</p>
+          </div>
+        </div>
+      </footer>
     </div>
   </div>
 </section>
