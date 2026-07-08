@@ -1209,6 +1209,31 @@ img { display: block; max-width: 100%; }
   </div>
 </section>
 
+<!-- ===== お知らせ（POOLO LIFE 12期 募集中） ===== -->
+<style>
+.notice-bar { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: var(--bg-off); }
+.notice-bar a { display: flex; align-items: center; gap: clamp(14px, 2.4vw, 26px); padding: 17px 0; flex-wrap: wrap; }
+.notice-tag { font-family: var(--head); font-size: 11px; font-weight: 700; letter-spacing: 0.2em; color: #fff; background: var(--brand); padding: 5px 12px; border-radius: 2px; flex: 0 0 auto; }
+.notice-text { font-family: var(--body); font-size: 14px; font-weight: 500; color: var(--ink); letter-spacing: 0.04em; flex: 1 1 auto; min-width: 0; }
+.notice-link { font-family: var(--head); font-size: 13px; font-weight: 700; letter-spacing: 0.08em; color: var(--brand-deep); white-space: nowrap; border-bottom: 1px solid var(--brand); padding-bottom: 2px; flex: 0 0 auto; transition: color 0.2s ease; }
+.notice-link .arrow { font-family: var(--en); margin-left: 0.4em; }
+.notice-bar a:hover .notice-link { color: var(--brand); }
+@media (max-width: 560px) {
+  .notice-bar a { gap: 12px; padding: 15px 0; }
+  .notice-text { font-size: 13px; width: 100%; order: 3; }
+  .notice-link { font-size: 12.5px; }
+}
+</style>
+<section class="notice-bar" aria-label="お知らせ">
+  <div class="shell">
+    <a href="https://tabippo.net/poolo/course/life/" target="_blank" rel="noopener">
+      <span class="notice-tag">お知らせ</span>
+      <span class="notice-text">POOLO LIFE 12期を募集中です！</span>
+      <span class="notice-link">詳しくはこちら<span class="arrow">↗</span></span>
+    </a>
+  </div>
+</section>
+
 <!-- ===== 導入 01 ===== -->
 <section class="sec">
   <div class="shell sec-inner">
