@@ -25,7 +25,6 @@ a{color:inherit}
 .gate-input:focus{outline:none;border-color:var(--brand)}
 .gate-btn{width:100%;padding:13px;background:var(--brand);color:#fff;border:none;font-size:15px;font-weight:600;font-family:var(--body);cursor:pointer;border-radius:2px}
 .gate-error{color:#b3402e;font-size:12px;margin-top:12px;display:none}
-#main{display:none}
 /* header */
 .top{position:sticky;top:0;z-index:200;background:rgba(249,249,249,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
 .top-in{display:flex;align-items:center;justify-content:space-between;height:56px}
@@ -88,15 +87,6 @@ a{color:inherit}
 @media(max-width:640px){.sec-spine{width:34px}.voice-grid{grid-template-columns:1fr}}
 </style></head>
 <body>
-
-<div id="gate"><div class="gate-card">
-<div class="gate-tag">POOLO INTERNAL</div>
-<div class="gate-title">参加者の声ライブラリ</div>
-<div class="gate-sub">運営・マーケ用の内部資料です。<br>合言葉を入力してください。</div>
-<input id="passInput" class="gate-input" type="password" placeholder="合言葉" autocomplete="off" onkeypress="if(event.key==='Enter')checkPass()">
-<button class="gate-btn" onclick="checkPass()">入る</button>
-<p id="gateError" class="gate-error">合言葉が違います</p>
-</div></div>
 
 <div id="main">
 <header class="top"><div class="shell top-in">
@@ -1672,19 +1662,6 @@ a{color:inherit}
 </div>
 
 <script>
-function checkPass(){
-  if(document.getElementById('passInput').value==='poolo11'){
-    document.getElementById('gate').style.display='none';
-    document.getElementById('main').style.display='block';
-    try{sessionStorage.setItem('poolo_unlocked','1')}catch(e){}
-  }else{document.getElementById('gateError').style.display='block';}
-}
-window.addEventListener('load',function(){
-  try{if(sessionStorage.getItem('poolo_unlocked')==='1'){
-    document.getElementById('gate').style.display='none';
-    document.getElementById('main').style.display='block';
-  }else{document.getElementById('passInput').focus();}}catch(e){}
-});
 var curF='all',curQ='';
 function apply(){
   var secs=document.querySelectorAll('.sec');var anyHit=false;
