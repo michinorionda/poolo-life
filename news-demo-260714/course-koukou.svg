@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 280" role="img" aria-label="高校生・進路サポートのイラスト">
+  <defs>
+    <linearGradient id="sky2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#E8F4F9"/><stop offset="1" stop-color="#CFE9F1"/>
+    </linearGradient>
+    <linearGradient id="page" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#EAF3F6"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="280" fill="url(#sky2)"/>
+  <ellipse cx="70" cy="54" rx="32" ry="14" fill="#ffffff" opacity=".85"/>
+  <ellipse cx="330" cy="64" rx="30" ry="13" fill="#ffffff" opacity=".85"/>
+  <!-- 丘と道 -->
+  <path d="M0 206 Q140 172 260 202 T400 196 V280 H0 Z" fill="#C4E4CE"/>
+  <path d="M0 232 Q150 206 300 232 T400 230 V280 H0 Z" fill="#A9D7BD"/>
+  <path d="M150 280 Q196 232 188 200 Q182 176 208 156" fill="none" stroke="#EFE3C9" stroke-width="16" stroke-linecap="round"/>
+  <path d="M150 280 Q196 232 188 200 Q182 176 208 156" fill="none" stroke="#D8C79E" stroke-width="16" stroke-linecap="round" stroke-dasharray="2 20"/>
+  <!-- ゴールの旗 -->
+  <g transform="translate(208,120)">
+    <rect x="-2" y="0" width="4" height="42" rx="2" fill="#7C6A50"/>
+    <path d="M2 2 H34 L26 12 L34 22 H2 Z" fill="#E4A24B"/>
+  </g>
+  <!-- 開いた本 -->
+  <g transform="translate(200,214)">
+    <path d="M0 0 L-96 -20 Q-100 -21 -100 -14 L-100 30 Q-100 34 -96 34 L0 12 Z" fill="url(#page)" stroke="#CFE0E6" stroke-width="2"/>
+    <path d="M0 0 L96 -20 Q100 -21 100 -14 L100 30 Q100 34 96 34 L0 12 Z" fill="url(#page)" stroke="#CFE0E6" stroke-width="2"/>
+    <path d="M0 0 L0 12" stroke="#B9CED6" stroke-width="2"/>
+    <g stroke="#9FC3D2" stroke-width="3" stroke-linecap="round">
+      <path d="M-84 -8 L-20 4"/><path d="M-84 2 L-20 14"/><path d="M-84 12 L-40 20"/>
+      <path d="M84 -8 L20 4"/><path d="M84 2 L20 14"/><path d="M84 12 L40 20"/>
+    </g>
+  </g>
+  <!-- 鉛筆 -->
+  <g transform="rotate(-24 120 150)">
+    <rect x="70" y="140" width="96" height="16" rx="4" fill="#6FB6D0"/>
+    <path d="M166 140 L186 148 L166 156 Z" fill="#F1E2C4"/>
+    <path d="M180 145 L186 148 L180 151 Z" fill="#5C6E77"/>
+    <rect x="62" y="140" width="10" height="16" rx="3" fill="#E4A24B"/>
+  </g>
+</svg>

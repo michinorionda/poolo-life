@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 280" role="img" aria-label="小・中学生の部のイラスト">
+  <defs>
+    <linearGradient id="sky1" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#E8F4F9"/><stop offset="1" stop-color="#CFE9F1"/>
+    </linearGradient>
+    <linearGradient id="blk1" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#7EC0D8"/><stop offset="1" stop-color="#4E9BBB"/>
+    </linearGradient>
+    <linearGradient id="blk2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#EBB268"/><stop offset="1" stop-color="#D98F3E"/>
+    </linearGradient>
+    <linearGradient id="blk3" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#8FC7B4"/><stop offset="1" stop-color="#5EA88E"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="280" fill="url(#sky1)"/>
+  <ellipse cx="66" cy="58" rx="34" ry="15" fill="#ffffff" opacity=".85"/>
+  <ellipse cx="104" cy="66" rx="26" ry="12" fill="#ffffff" opacity=".85"/>
+  <circle cx="336" cy="56" r="24" fill="#F6D28C"/>
+  <path d="M0 214 Q120 176 250 208 T400 202 V280 H0 Z" fill="#C4E4CE"/>
+  <path d="M0 238 Q150 210 300 238 T400 236 V280 H0 Z" fill="#A9D7BD"/>
+  <!-- 積み木 -->
+  <g font-family="'Hiragino Maru Gothic ProN','Hiragino Sans',sans-serif" font-weight="700" text-anchor="middle">
+    <rect x="128" y="150" width="66" height="66" rx="12" fill="url(#blk1)"/>
+    <text x="161" y="194" font-size="34" fill="#ffffff">あ</text>
+    <rect x="200" y="150" width="66" height="66" rx="12" fill="url(#blk2)"/>
+    <text x="233" y="194" font-size="34" fill="#ffffff">1</text>
+    <rect x="164" y="86" width="66" height="66" rx="12" fill="url(#blk3)"/>
+    <text x="197" y="130" font-size="32" fill="#ffffff">★</text>
+  </g>
+  <!-- 芽 -->
+  <g transform="translate(300,196)">
+    <rect x="-16" y="6" width="32" height="24" rx="5" fill="#E8B77E"/>
+    <path d="M0 8 C0 -6 -4 -14 -14 -16 C-8 -6 -6 2 0 8 Z" fill="#79BE9E"/>
+    <path d="M0 8 C0 -8 6 -18 18 -20 C10 -8 8 0 0 8 Z" fill="#96CFB1"/>
+  </g>
+</svg>
