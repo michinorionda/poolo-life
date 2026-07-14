@@ -11,12 +11,15 @@
   /* このページ固有 */
   .hero { position: relative; }
   .hero-photo {
-    aspect-ratio: 16/7; min-height: 340px; border-radius: 0; display: grid; place-items: center;
+    aspect-ratio: 16/9; min-height: 360px; border-radius: 0; display: grid; place-items: center;
     color: #fff; text-align: center; position: relative; overflow: hidden;
-    background:
-      radial-gradient(120% 120% at 20% 0%, rgba(255,255,255,.28), transparent 55%),
-      linear-gradient(160deg, #6FB6D0 0%, #3E8CAB 55%, #2A6A86 100%);
+    background-image:
+      linear-gradient(180deg, rgba(20,40,55,.34) 0%, rgba(20,40,55,.12) 40%, rgba(20,40,55,.42) 100%),
+      url("hero.png");
+    background-size: cover;
+    background-position: center 42%;
   }
+  @media (max-width: 640px) { .hero-photo { aspect-ratio: 4/5; background-position: center 40%; } }
   .hero-inner { position: relative; z-index: 2; padding: 20px; max-width: 720px; }
   .hero h1 { font-family: var(--font-serif); font-size: clamp(28px, 5.4vw, 48px); line-height: 1.35; margin: 14px 0 16px; font-weight: 700; text-wrap: balance; text-shadow: 0 2px 18px rgba(0,0,0,.18); }
   .hero .h-eyebrow { display:inline-block; background: rgba(255,255,255,.22); color:#fff; font-weight:800; font-size:12px; letter-spacing:.14em; padding:6px 15px; border-radius:999px; }
@@ -93,7 +96,6 @@
           <a class="btn ghost" href="news.html">お知らせを見る</a>
         </div>
       </div>
-      <span class="photo-tag">📷 ここにやさしい風景写真が入ります</span>
     </div>
   </div>
 
