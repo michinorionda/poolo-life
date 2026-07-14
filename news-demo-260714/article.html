@@ -158,11 +158,20 @@
       $("#articleHead").className = "article-head " + (catHeadClass[meta.cat] ?? "");
       $("#aKv").className = "keyvisual " + (catHeadClass[meta.cat] ?? "");
 
-      if (art) {
-        $("#aKv").textContent = art.kvText || "📷 記事のメイン画像がここに入ります";
-        $("#aBody").innerHTML = art.body;
+      // アイキャッチ画像があれば表示、無ければ色付き枠のまま
+      if (meta.img) {
+        const kv = $("#aKv");
+        kv.style.backgroundImage = `url('${meta.img}')`;
+        kv.style.backgroundSize = "cover";
+        kv.style.backgroundPosition = "center";
+        kv.textContent = "";
       } else {
         $("#aKv").textContent = "📷 記事のメイン画像がここに入ります";
+      }
+
+      if (art) {
+        $("#aBody").innerHTML = art.body;
+      } else {
         $("#aBody").innerHTML = '<p>この記事の本文は準備中です。（デモのため、本文は主要な3記事のみ用意しています）</p>';
       }
 

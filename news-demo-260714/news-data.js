@@ -5,20 +5,20 @@
    お知らせを1件ふやすときは、下の [ ] の中に
    次の1行を、カンマ区切りでコピペして足すだけです。
 
-     { id: "natsu-event", date: "2026-08-01", cat: "イベント", title: "夏の親子ワークショップを開催します" },
+     { id: "natsu-event", date: "2026-08-01", cat: "イベント", title: "夏の親子ワークショップを開催します", img: "" },
 
    ・id    … 記事ページの目印（英数字）。記事本文は articles.js に同じ id で書きます。
    ・date  … 日付（"年-月-日"）。新しい日付が自動で一番上に並びます。
    ・cat   … カテゴリ。「お知らせ」「イベント」「メディア」から選ぶと色が付きます。
    ・title … お知らせの見出し。
+   ・img   … アイキャッチ画像のファイル名（無ければ "" でOK。色付きの枠になります）。
    ============================================================= */
 
 window.NEWS = [
-  { id: "natsuyasumi-kengaku", date: "2026-07-10", cat: "お知らせ", title: "夏休みの見学受付を開始しました" },
-  { id: "hogosha-zadankai",    date: "2026-06-22", cat: "イベント",  title: "6/29 保護者向け座談会を開催します" },
-  { id: "machinowa-keisai",    date: "2026-06-05", cat: "メディア",  title: "地域情報誌『まちのわ』に活動が掲載されました" },
-  { id: "new-staff",           date: "2026-05-18", cat: "お知らせ", title: "新しいスタッフが仲間に加わりました" },
-  { id: "haru-ensoku",         date: "2026-04-30", cat: "イベント",  title: "春の遠足を無事に終えました" },
-  { id: "nendo-start",         date: "2026-04-08", cat: "お知らせ", title: "2026年度がスタートしました" },
-  { id: "radio-machino-gogo",  date: "2026-03-15", cat: "メディア",  title: "ラジオ番組『まちの午後』で紹介されました" },
+  { id: "natsuyasumi-kengaku", date: "2026-07-10", cat: "お知らせ", title: "夏休みの見学・個別相談を受付中です",   img: "news-kengaku.png" },
+  { id: "natsu-taikenkai",     date: "2026-07-01", cat: "イベント",  title: "夏休みの1日体験会を開催します",        img: "news-taikenkai.png" },
+  { id: "koen-picnic",         date: "2026-06-20", cat: "イベント",  title: "みんなで公園ピクニックに行ってきました", img: "news-picnic.png" },
+  { id: "new-staff",           date: "2026-05-18", cat: "お知らせ", title: "新しいスタッフが仲間に加わりました",     img: "" },
+  { id: "nendo-start",         date: "2026-04-08", cat: "お知らせ", title: "2026年度がスタートしました",           img: "" },
+  { id: "radio-machino-gogo",  date: "2026-03-15", cat: "メディア",  title: "ラジオ番組『まちの午後』で紹介されました", img: "" },
 ];

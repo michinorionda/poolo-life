@@ -100,6 +100,7 @@ section.block.alt { background: var(--paper-2); }
 .ncard:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
 .ncard { transition: transform .14s ease, box-shadow .14s ease; }
 .ncard .thumb { aspect-ratio: 16/10; display: grid; place-items: center; color: #fff; font-size: 13px; font-weight: 700; letter-spacing: .04em; }
+.ncard .thumb.photo { background-size: cover; background-position: center; }
 .ncard .body { padding: 15px 17px 19px; }
 .ncard .meta { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
 .ncard h3 { margin: 0; font-size: 15.5px; line-height: 1.6; font-weight: 700; }
