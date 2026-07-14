@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>POOLOで、何を学んだのか。 ── みんなの学びアーカイブ</title>
+<meta name="description" content="あたらしい旅の学校POOLOで、参加者それぞれが受け取った学び。学びの地図・講義ごとの気づき・価値観の変化・実践知・仲間から得たもの・これからの参加者へ。8ヶ月の旅で生まれた言葉を持ち寄るアーカイブです。">
+
+<!-- OGP -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="POOLOで、何を学んだのか。 ── みんなの学びアーカイブ">
+<meta property="og:description" content="旅・問い・仲間のなかで生まれた気づきを、これからの誰かのために持ち寄るアーカイブ。">
+<meta property="og:image" content="../event-30s-v01-260720/images/12_poolo_keyvisual.jpg">
+
+<!-- POOLO Design System（フォントの @import は tokens.css に1本化） -->
+<link rel="stylesheet" href="../poolo-ds/tokens.css">
+<link rel="stylesheet" href="../poolo-ds/components.css">
+
+<style>
+/* =============================================================
+   ページ固有の追加コンポーネント（poolo-ds に未収録）
+   すべて var(--…) 参照。将来 poolo-ds に還元する候補：
+   ・.map-grid（学びの地図・4系統の俯瞰）
+   ・.change-list（価値観の Before → After）
+   ・.tips-list（実践知の箇条）
+   ・.msg-list（先輩からの一言）
+   ============================================================= */
+
+/* --- リード（このページは何か） --- */
+.lede { border-bottom: 1px solid var(--line); }
+.lede-inner {
+  max-width: var(--shell-max); margin-inline: auto;
+  padding: clamp(40px, 7vh, 68px) var(--shell-pad);
+}
+.lede-en {
+  font-family: var(--en); font-size: 11px; font-weight: 500;
+  letter-spacing: 0.42em; text-transform: uppercase;
+  color: var(--brand); margin-bottom: 20px;
+}
+.lede-body p {
+  font-family: var(--body); font-size: 15px; line-height: 2.05;
+  letter-spacing: 0.05em; color: var(--ink-72); max-width: 40em;
+  margin-bottom: 1.2em;
+}
+.lede-body p:last-child { margin-bottom: 0; }
+.lede-body strong { color: var(--ink); font-weight: 700; }
+
+/* --- 学びの地図（4系統グリッド） --- */
+.map-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr);
+  gap: 1px; background: var(--line);
+  border: 1px solid var(--line); margin-top: 8px;
+}
+.map-cell { background: var(--bg); padding: clamp(24px, 3.4vw, 36px); }
+.map-no {
+  font-family: var(--en); font-size: 30px; font-weight: 600;
+  color: var(--brand); line-height: 1; display: block; margin-bottom: 14px;
+}
+.map-label {
+  font-family: var(--head); font-size: 17px; font-weight: 700;
+  color: var(--ink); letter-spacing: 0.06em; display: block; margin-bottom: 12px;
+}
+.map-desc {
+  font-family: var(--body); font-size: 13.5px; line-height: 1.95;
+  letter-spacing: 0.04em; color: var(--ink-66); margin-bottom: 16px;
+}
+.map-quote {
+  font-family: var(--mincho); font-size: 14px; line-height: 1.85;
+  letter-spacing: 0.04em; color: var(--brand-deep);
+  padding-top: 14px; border-top: 1px solid var(--line);
+}
+.map-foot {
+  font-family: var(--body); font-size: 12.5px; line-height: 1.9;
+  letter-spacing: 0.04em; color: var(--ink-55); margin-top: 22px;
+}
+.map-foot .nb-em { color: var(--brand-deep); font-weight: 500; }
+@media (max-width: 640px){ .map-grid { grid-template-columns: 1fr; } }
+
+/* --- 価値観の変化（Before → After） --- */
+.change-list { list-style: none; margin-top: 8px; }
+.change-item {
+  display: grid; grid-template-columns: 1fr auto 1fr; align-items: center;
+  gap: clamp(14px, 2.4vw, 30px);
+  padding: 24px 0; border-bottom: 1px solid var(--line);
+}
+.change-item:first-child { border-top: 1px solid var(--line); }
+.change-side { min-width: 0; }
+.change-cap {
+  font-family: var(--en); font-size: 10px; font-weight: 600;
+  letter-spacing: 0.24em; text-transform: uppercase; display: block; margin-bottom: 8px;
+}
+.change-before .change-cap { color: var(--ink-40); }
+.change-after  .change-cap { color: var(--brand); }
+.change-text {
+  font-family: var(--mincho); font-size: clamp(14px, 1.8vw, 16px);
+  line-height: 1.8; letter-spacing: 0.03em;
+}
+.change-before .change-text { color: var(--ink-55); }
+.change-after  .change-text { color: var(--ink); }
+.change-arrow {
+  font-family: var(--en); font-size: 20px; color: var(--brand);
+  line-height: 1; align-self: center;
+}
+.change-src {
+  font-family: var(--body); font-size: 11px; letter-spacing: 0.08em;
+  color: var(--ink-40); margin-left: 6px;
+}
+@media (max-width: 640px){
+  .change-item { grid-template-columns: 1fr; gap: 6px; }
+  .change-arrow { transform: rotate(90deg); margin: 4px 0; }
+}
+
+/* --- 実践知 Tips --- */
+.tips-list { list-style: none; margin-top: 8px; }
+.tips-item {
+  display: grid; grid-template-columns: 44px 1fr; gap: 18px;
+  padding: 22px 0; border-bottom: 1px solid var(--line);
+}
+.tips-item:first-child { border-top: 1px solid var(--line); }
+.tips-no {
+  font-family: var(--en); font-size: 15px; font-weight: 600;
+  color: var(--brand); letter-spacing: 0.06em; padding-top: 3px;
+}
+.tips-head {
+  font-family: var(--head); font-size: 15.5px; font-weight: 700;
+  color: var(--ink); letter-spacing: 0.05em; display: block; margin-bottom: 8px;
+}
+.tips-desc {
+  font-family: var(--body); font-size: 13.5px; line-height: 1.95;
+  letter-spacing: 0.04em; color: var(--ink-66);
+}
+.tips-desc .quoted { color: var(--brand-deep); }
+
+/* --- 先輩からの一言 --- */
+.msg-list { list-style: none; margin-top: 20px; display: grid; gap: 1px;
+  background: var(--line); border: 1px solid var(--line); }
+.msg-item {
+  background: var(--brand-pale); padding: clamp(22px, 3vw, 30px);
+}
+.msg-quote {
+  font-family: var(--mincho); font-size: clamp(15px, 1.9vw, 17px);
+  line-height: 1.9; letter-spacing: 0.04em; color: var(--brand-deep);
+}
+.msg-attr {
+  font-family: var(--body); font-size: 11.5px; letter-spacing: 0.08em;
+  color: var(--ink-50); margin-top: 12px;
+}
+
+/* voice に期の注記を添えるユーティリティ */
+.voice-attr .en { font-family: var(--en); letter-spacing: 0.1em; }
+</style>
+</head>
+<body>
+
+<!-- ============ 固定ヘッダー ============ -->
+<header class="brand-row">
+  <div class="shell">
+    <a class="brand-logo" href="#top"><img src="../event-30s-v01-260720/images/poolo_logo.png" alt="POOLO あたらしい旅の学校"></a>
+    <nav class="header-nav">
+      <a class="header-link" href="#top">POOLO とは<span class="arrow" aria-hidden="true">↗</span></a>
+      <a class="header-cta" href="#map">学びを見る</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ============ Hero ============ -->
+<section class="hero" id="top">
+  <div class="hero-grid">
+    <div class="hero-copy" style="padding-left:clamp(22px,5.4vw,48px);padding-right:clamp(22px,4vw,48px);">
+      <div class="hero-eyebrow">
+        <span class="hero-eyebrow-rule" aria-hidden="true"></span>
+        <span class="hero-eyebrow-ja">みんなの学びを持ち寄る</span>
+        <span class="hero-eyebrow-en">Learnings from POOLO</span>
+      </div>
+      <h1 class="hero-title">
+        <span class="t-sm">POOLOで、何を学んだのか。</span>
+        <span class="t-lg"><span class="nb">学びを、</span><span class="nb"><span class="em">持ち寄る</span>。</span></span>
+      </h1>
+      <p class="hero-lead">8ヶ月の旅のなかで、参加者それぞれが受け取ったもの。講義や合宿、仲間との対話から生まれた気づきを、<span class="nb">これからの誰かのために、</span>そっと置いておきます。</p>
+      <div class="hero-foot">
+        <span class="mon" aria-hidden="true">
+          <svg viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-linecap="round">
+            <circle cx="60" cy="60" r="57" stroke-width="1.5"/>
+            <circle cx="60" cy="60" r="51.5" stroke-width="0.75"/>
+            <circle cx="60" cy="42.5" r="9.5" stroke-width="1.5"/>
+            <line x1="30" y1="60.5" x2="46.5" y2="60.5" stroke-width="1.1"/>
+            <line x1="73.5" y1="60.5" x2="90" y2="60.5" stroke-width="1.1"/>
+            <path d="M35 78 Q60 66 85 78" stroke-width="1.5"/>
+          </svg>
+        </span>
+        <div class="hero-foot-texts">
+          <span class="hero-foot-ja">旅・問い・仲間のなかで。</span>
+          <span class="hero-foot-en">Travel, Questions & Companions</span>
+        </div>
+      </div>
+    </div>
+    <figure class="hero-photo">
+      <img src="../event-30s-v01-260720/images/01_poolo_community.jpg" alt="旅の途中、車座になって語り合うPOOLOの仲間たち">
+      <figcaption class="hero-chip">
+        <span class="en nb">Learnings</span>
+        <span class="ja nb">持ち寄って、これからの誰かへ</span>
+      </figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ============ リード：このページは何か ============ -->
+<section class="lede">
+  <div class="lede-inner">
+    <div class="lede-en">About this page</div>
+    <div class="lede-body">
+      <p>これは、POOLO（あたらしい旅の学校）で生まれた<strong>学びを持ち寄るアーカイブ</strong>です。特定の期のものではなく、旅を入り口にした学びのなかで、多くの人が繰り返し辿り着いた気づきを集めました。</p>
+      <p>いま参加している人には<strong>自分の言葉を見つけるヒント</strong>として。これから参加を考えている人には<strong>ここで何が起きるのかの手がかり</strong>として。読みたいところから、どうぞ。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 01 学びの地図 ============ -->
+<section class="sec" id="map">
+  <div class="shell sec-inner">
+    <div class="sec-spine">
+      <div class="sec-num">01</div>
+      <span class="sec-en">The Map</span>
+    </div>
+    <div>
+      <h2 class="sec-title">学びの地図。<br><span class="nb">4つの方向から、</span><span class="nb">同じ場所へ。</span></h2>
+      <p class="sec-lead">POOLOの学びは、バラバラの知識ではなく、ゆるやかに繋がった4つの系統として立ち現れます。入り口はどこでもいい。最後は「どうありたいか」に還っていきます。</p>
+
+      <div class="map-grid">
+        <div class="map-cell">
+          <span class="map-no">01</span>
+          <span class="map-label">動き出す学び</span>
+          <p class="map-desc">頭で変わろうとするのではなく、知らない場所に身を置いて揺さぶられることから始まる。身体が、心より先に動き出す。</p>
+          <p class="map-quote">「人は、理屈や努力では変われない。世界に揺さぶられて、身体が先に動き始める」</p>
+        </div>
+        <div class="map-cell">
+          <span class="map-no">02</span>
+          <span class="map-label">問いの学び</span>
+          <p class="map-desc">悩みを「問い」に変え、自分の言葉を取り戻していく。対話と内省と言語化。ここが、いちばん多くの人が変化を感じる領域。</p>
+          <p class="map-quote">「サボってきた言語化を、やっと始められた」</p>
+        </div>
+        <div class="map-cell">
+          <span class="map-no">03</span>
+          <span class="map-label">共創・関係の学び</span>
+          <p class="map-desc">仲間は鏡。一人では届かない自分に、他者を通して届く。受容が先にあり、そのうえで give が連鎖していく。</p>
+          <p class="map-quote">「仲間は鏡。一人では届かない自分に、届く」</p>
+        </div>
+        <div class="map-cell">
+          <span class="map-no">04</span>
+          <span class="map-label">在り方の学び</span>
+          <p class="map-desc">すべての土台。「何をするか」より「どうありたいか」へ。自己受容と、価値観の再定義。8ヶ月ずっと、静かに全体を支える。</p>
+          <p class="map-quote">「大事なことは何をするかではなく、どうありたいか」</p>
+        </div>
+      </div>
+      <p class="map-foot">時系列でみると、学びは <span class="nb-em">共に旅する → 共に問う → 共に創る</span> の3段階で深まっていきます。ただし土台の「共にある（Being）」だけは、最初から最後まで変わらず全体を支えています。</p>
+    </div>
+  </div>
+</section>
+
+<!-- 写真ブレイク -->
+<div class="photo-break photo-break--right">
+  <figure class="pb-frame">
+    <img src="../event-30s-v01-260720/images/06_event_dialogue.jpg" alt="問いを真ん中に置いて、対面で言葉を交わす対話の場面">
+  </figure>
+  <figcaption class="shell pb-caption">
+    <span class="pb-caption-en">Dialogue</span>
+    <span class="pb-caption-rule" aria-hidden="true"></span>
+    <span class="pb-caption-text">問いを真ん中に置いて、揺さぶり合う</span>
+  </figcaption>
+</div>
+
+<!-- ============ 02 講義・体験ごとの学びログ ============ -->
+<section class="sec">
+  <div class="shell sec-inner">
+    <div class="sec-spine">
+      <div class="sec-num">02</div>
+      <span class="sec-en">Learning Log</span>
+    </div>
+    <div>
+      <h2 class="sec-title">講義と体験の、<br><span class="nb">学びログ。</span></h2>
+      <p class="sec-lead">8ヶ月のカリキュラムは「受け取る → 聴かれる → 仲間に置く → 書き直す → 外へ一歩 → 越境して届ける」と螺旋を描きます。実際の講義・合宿で、何が起きたのか。</p>
+
+      <ul class="flow-list">
+        <li class="flow-item">
+          <span class="flow-time">合宿</span>
+          <div>
+            <span class="flow-title">問いの木の対話</span>
+            <p class="flow-desc">問いを真ん中に置いて、対面で揺さぶり合う。満足度が最も高かったキラーワーク。<br>「ちゃんと、揺さぶられたからこそ、こういう気持ちになってる」</p>
+          </div>
+        </li>
+        <li class="flow-item">
+          <span class="flow-time">連続<br>講義</span>
+          <div>
+            <span class="flow-title">対話とは何か（観点 → 技法 → 道具 → 構え）</span>
+            <p class="flow-desc">「対話」を段階で学ぶ設計。<br>「対話には『狙い』はないけど『願い』はある。言葉を紡ぐことは、祈りに似ている」</p>
+          </div>
+        </li>
+        <li class="flow-item">
+          <span class="flow-time">ゲスト</span>
+          <div>
+            <span class="flow-title">旅の本質（旅と give、不便益、利他）</span>
+            <p class="flow-desc">旅が人にもたらすものを問い直す。<br>「旅は、人を幸せにする。人を強くさせる。人を利他にさせる」</p>
+          </div>
+        </li>
+        <li class="flow-item">
+          <span class="flow-time">ゲスト</span>
+          <div>
+            <span class="flow-title">才能の見つけ方（自己開示 × ジョハリの窓）</span>
+            <p class="flow-desc">才能は壮大な何かではなく、自然にやっていることの中にある。<br>「才能は、自分が自然としていること・考えていること・感じていることの中から見えてくる」</p>
+          </div>
+        </li>
+        <li class="flow-item">
+          <span class="flow-time">ゲスト</span>
+          <div>
+            <span class="flow-title">モチベーションの捉え直し</span>
+            <p class="flow-desc">モチベは「上げるもの」ではなく「常に動くもの」。<br>「モチベーション＝ずっと続けられること。アクセルだと思ってたけど、エンジンだった」</p>
+          </div>
+        </li>
+        <li class="flow-item">
+          <span class="flow-time">発表</span>
+          <div>
+            <span class="flow-title">探究テーマ発表</span>
+            <p class="flow-desc">自分の問いを言語化し、発表し、対面で揺さぶり合う。<br>「7分の発表で、こんなに差が出るのかと感じた」</p>
+          </div>
+        </li>
+        <li class="flow-item">
+          <span class="flow-time">1on1</span>
+          <div>
+            <span class="flow-title">言語化サポーターとの対話</span>
+            <p class="flow-desc">傷や過去さえ、自分の強みに変えていく整理の場。<br>「傷こそが私の個性であり、私の味であり、良さである」</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 03 価値観・マインドの変化 ============ -->
+<section class="sec">
+  <div class="shell sec-inner">
+    <div class="sec-spine">
+      <div class="sec-num">03</div>
+      <span class="sec-en">The Shift</span>
+    </div>
+    <div>
+      <h2 class="sec-title">価値観が、<br><span class="nb">静かにずれていく。</span></h2>
+      <p class="sec-lead">POOLOの核心は、スキルよりもここにあります。旅と仲間を通して、思い込みがほどけ、旅や自分の定義が書き換わっていく。参加した人たちの Before → After を並べました。</p>
+
+      <ul class="change-list">
+        <li class="change-item">
+          <div class="change-side change-before">
+            <span class="change-cap">Before</span>
+            <p class="change-text">とにかく何者かになりたくて、必死に生きていた。</p>
+          </div>
+          <span class="change-arrow" aria-hidden="true">→</span>
+          <div class="change-side change-after">
+            <span class="change-cap">After</span>
+            <p class="change-text">新しい自分というより、本来の自分を取り戻した感覚。<span class="change-src">2期・9期</span></p>
+          </div>
+        </li>
+        <li class="change-item">
+          <div class="change-side change-before">
+            <span class="change-cap">Before</span>
+            <p class="change-text">35歳で、転機は終わってしまう。</p>
+          </div>
+          <span class="change-arrow" aria-hidden="true">→</span>
+          <div class="change-side change-after">
+            <span class="change-cap">After</span>
+            <p class="change-text">思い立ったら、いつでもその時が転機。これって最強。<span class="change-src">2期</span></p>
+          </div>
+        </li>
+        <li class="change-item">
+          <div class="change-side change-before">
+            <span class="change-cap">Before</span>
+            <p class="change-text">自分は、何をやってもパッとしないダメなやつ。</p>
+          </div>
+          <span class="change-arrow" aria-hidden="true">→</span>
+          <div class="change-side change-after">
+            <span class="change-cap">After</span>
+            <p class="change-text">その自己認識が、たまねぎの皮を剥ぐように溶けていった。<span class="change-src">2期</span></p>
+          </div>
+        </li>
+        <li class="change-item">
+          <div class="change-side change-before">
+            <span class="change-cap">Before</span>
+            <p class="change-text">ずっと、正解を探していた。</p>
+          </div>
+          <span class="change-arrow" aria-hidden="true">→</span>
+          <div class="change-side change-after">
+            <span class="change-cap">After</span>
+            <p class="change-text">本当は、正解を探すより実験したい人間なのかもしれない。<span class="change-src">11期</span></p>
+          </div>
+        </li>
+        <li class="change-item">
+          <div class="change-side change-before">
+            <span class="change-cap">Before</span>
+            <p class="change-text">嫌われることが、こわい。</p>
+          </div>
+          <span class="change-arrow" aria-hidden="true">→</span>
+          <div class="change-side change-after">
+            <span class="change-cap">After</span>
+            <p class="change-text">「嫌われる恐怖」が、自分を曝け出すための「安心感」に変わった。</p>
+          </div>
+        </li>
+        <li class="change-item">
+          <div class="change-side change-before">
+            <span class="change-cap">Before</span>
+            <p class="change-text">旅とは、非日常へ出かけること。</p>
+          </div>
+          <span class="change-arrow" aria-hidden="true">→</span>
+          <div class="change-side change-after">
+            <span class="change-cap">After</span>
+            <p class="change-text">旅とは、日々の暮らしを豊かにするもの。<span class="change-src">7期</span></p>
+          </div>
+        </li>
+        <li class="change-item">
+          <div class="change-side change-before">
+            <span class="change-cap">Before</span>
+            <p class="change-text">人生最大の、モヤモヤ期のただ中。</p>
+          </div>
+          <span class="change-arrow" aria-hidden="true">→</span>
+          <div class="change-side change-after">
+            <span class="change-cap">After</span>
+            <p class="change-text">振り返れば、入る前より確実に今の方が良い人生。<span class="change-src">9期</span></p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- 写真ブレイク -->
+<div class="photo-break photo-break--left">
+  <figure class="pb-frame">
+    <img src="../event-30s-v01-260720/images/11_laughing_group.jpg" alt="話すうちに笑いがこぼれる、POOLOの仲間たち">
+  </figure>
+  <figcaption class="shell pb-caption">
+    <span class="pb-caption-en">Companions</span>
+    <span class="pb-caption-rule" aria-hidden="true"></span>
+    <span class="pb-caption-text">満たされると、視線は自然に外へ向く</span>
+  </figcaption>
+</div>
+
+<!-- ============ 04 実践知・Tips ============ -->
+<section class="sec">
+  <div class="shell sec-inner">
+    <div class="sec-spine">
+      <div class="sec-num">04</div>
+      <span class="sec-en">Practical Wisdom</span>
+    </div>
+    <div>
+      <h2 class="sec-title">持ち帰れる、<br><span class="nb">実践知。</span></h2>
+      <p class="sec-lead">概念だけでなく、明日から使える構えとコツ。講義や対話のなかで、参加者自身の言葉になったものを集めました。</p>
+
+      <ul class="tips-list">
+        <li class="tips-item">
+          <span class="tips-no">01</span>
+          <div>
+            <span class="tips-head">「悩み」を「問い」に変える</span>
+            <p class="tips-desc"><span class="quoted">悩み</span>は個人のなかに閉じてしまう。でも<span class="quoted">問い</span>にすれば、誰かと一緒に考えられる。抱え込む前に、問いのかたちにしてみる。</p>
+          </div>
+        </li>
+        <li class="tips-item">
+          <span class="tips-no">02</span>
+          <div>
+            <span class="tips-head">give は、物じゃなくていい</span>
+            <p class="tips-desc">お金・時間・価値観・傾聴・街の宣伝。旅先で自分に何が差し出せるかを考えると、関わり方の幅が一気に広がる。</p>
+          </div>
+        </li>
+        <li class="tips-item">
+          <span class="tips-no">03</span>
+          <div>
+            <span class="tips-head">「ねらい」ではなく「ねがい」を持つ</span>
+            <p class="tips-desc">対話や企画に成果を求めすぎない。狙いはなくても、願いはある。結論を急がず、問いと一緒にいる構え。</p>
+          </div>
+        </li>
+        <li class="tips-item">
+          <span class="tips-no">04</span>
+          <div>
+            <span class="tips-head">才能は、自己開示で他者が引き出す</span>
+            <p class="tips-desc">自分の才能は、当たり前すぎて自分では気づけない。開示するほど、周りが「それ才能だよ」と教えてくれる。</p>
+          </div>
+        </li>
+        <li class="tips-item">
+          <span class="tips-no">05</span>
+          <div>
+            <span class="tips-head">言語化と発信は、別物でいい</span>
+            <p class="tips-desc">まず自分の中で言語化を楽しむ。発信はそのあと、少しずつで大丈夫。分けて考えると、書くことが軽くなる。</p>
+          </div>
+        </li>
+        <li class="tips-item">
+          <span class="tips-no">06</span>
+          <div>
+            <span class="tips-head">沈黙も、話のズレも、恐れない</span>
+            <p class="tips-desc">「沈黙って怖くないんだよ」。話がずれても肯定される場では、うまく話そうとしなくていい。まずは聞くところから。</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 05 人物・関係性から得た学び ============ -->
+<section class="sec">
+  <div class="shell sec-inner">
+    <div class="sec-spine">
+      <div class="sec-num ja">人</div>
+      <span class="sec-en">Companions</span>
+    </div>
+    <div>
+      <h2 class="sec-title">仲間という、<br><span class="nb">鏡から。</span></h2>
+      <p class="sec-lead">POOLOのいちばんの資産は、人。年齢も住む場所も価値観も違う仲間、そしてゲストの言葉から、一人では届かなかった学びが返ってきます。</p>
+
+      <ul class="voice-list">
+        <li class="voice-item">
+          <p class="voice-quote"><span class="vq-mark">「</span>人と対話して揺さぶられる時間。それを通して、自分も知らなかった自分を知る時間だった。<span class="vq-mark">」</span></p>
+          <p class="voice-attr">仲間は鏡 ／ <span class="en">10期</span></p>
+        </li>
+        <li class="voice-item">
+          <p class="voice-quote"><span class="vq-mark">「</span>年齢も住む場所も価値観も違うのに、誰も否定せず、お互いを受け入れて認め合える関係性だった。<span class="vq-mark">」</span></p>
+          <p class="voice-attr">受容が、先にある ／ <span class="en">9期</span></p>
+        </li>
+        <li class="voice-item">
+          <p class="voice-quote"><span class="vq-mark">「</span>あれだけ色んな業界で活躍してる“雲の上の存在”の言葉が、『今の俺でもできそう』と思えるくらいシンプルだった。<span class="vq-mark">」</span></p>
+          <p class="voice-attr">ゲスト・先輩の言葉が、地に足をつける</p>
+        </li>
+        <li class="voice-item">
+          <p class="voice-quote"><span class="vq-mark">「</span>同じ教室にいたら絶対に交わらないタイプの人ばかり。旅を通して、世界を見るレンズが増えていく。<span class="vq-mark">」</span></p>
+          <p class="voice-attr">多様性が、視点のレンズを増やす</p>
+        </li>
+        <li class="voice-item">
+          <p class="voice-quote"><span class="vq-mark">「</span>POOLO生は、案外近しい問いを抱えがち。だからこそ、一人で悩まなくていいと思えた。<span class="vq-mark">」</span></p>
+          <p class="voice-attr">一人で悩まなくていい ／ <span class="en">11期</span></p>
+        </li>
+      </ul>
+      <p class="voice-note">＊参加者ご本人が書いてくださったことばを、特定されない形で掲載しています。期のみ添えています。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 06 これからの参加者へ（FAQ） ============ -->
+<section class="sec sec-questions">
+  <div class="shell sec-inner">
+    <div class="sec-spine">
+      <div class="sec-num ja small">これからの<br>あなたへ</div>
+      <span class="sec-en">For You</span>
+    </div>
+    <div>
+      <h2 class="sec-title">迷っている、<br><span class="nb">あなたへ。</span></h2>
+      <p class="sec-lead">参加する前によく聞かれる不安に、先輩たちの声で答えます。うまくできるかどうかは、入り口の条件ではありません。</p>
+
+      <ul class="faq-list">
+        <li class="faq-item">
+          <p class="faq-q"><span class="m">Q.</span><span>気の利いたことが言えない自分でも、大丈夫？</span></p>
+          <div class="faq-a"><span class="m">A.</span><p>対話には、結果も結論も成果もありません。ゆっくり向き合い、問いと一緒にいるだけ。まとまっていない言葉こそ、歓迎される場です。</p></div>
+        </li>
+        <li class="faq-item">
+          <p class="faq-q"><span class="m">Q.</span><span>モチベーションが高くないと、続かない？</span></p>
+          <div class="faq-a"><span class="m">A.</span><p>モチベーションは「上げるもの」ではなく「常に動くもの」。高いテンションを保つ必要はありません。エンジンは、ゆっくりでも回り続けます。</p></div>
+        </li>
+        <li class="faq-item">
+          <p class="faq-q"><span class="m">Q.</span><span>海外や、新しい一歩が正直こわい。</span></p>
+          <div class="faq-a"><span class="m">A.</span><p>不安があるから進めないのではなく、不安があっても進みたい自分がいる。その気持ちだけで十分です。仲間がいるから、一歩が軽くなります。</p></div>
+        </li>
+        <li class="faq-item">
+          <p class="faq-q"><span class="m">Q.</span><span>やりたいことが、見つからない。</span></p>
+          <div class="faq-a"><span class="m">A.</span><p>社会人になっても、「やりたかったこと」「学びたいこと」に素直に向き合っていい。POOLOは、その素直さを取り戻す時間でもあります。</p></div>
+        </li>
+        <li class="faq-item">
+          <p class="faq-q"><span class="m">Q.</span><span>内向的で、集団が苦手でも居られる？</span></p>
+          <div class="faq-a"><span class="m">A.</span><p>「内に篭もりがちな自分から、1歩踏み出すヒントをくれた場所」という声があります。向き合うのは怖いけれど、仲間がいたからできた、と。</p></div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 先輩からの一言 ============ -->
+<section class="sec" style="border-bottom:none;">
+  <div class="shell sec-inner">
+    <div class="sec-spine">
+      <div class="sec-num ja">声</div>
+      <span class="sec-en">A Word</span>
+    </div>
+    <div>
+      <h2 class="sec-title">そっと、<br><span class="nb">背中を押す声。</span></h2>
+      <ul class="msg-list">
+        <li class="msg-item">
+          <p class="msg-quote">もし言語化できないモヤモヤを抱えている人がいるなら、ぜひPOOLOの扉を叩いてみてほしい。そこにはきっと、あなたの全てを受け止めてくれる仲間たちが待っています。</p>
+        </li>
+        <li class="msg-item">
+          <p class="msg-quote">ここは、楽しむだけの場所じゃない。泣いて、笑って、もがいて、変化するための場所だから。</p>
+          <p class="msg-attr">11期</p>
+        </li>
+        <li class="msg-item">
+          <p class="msg-quote">一年前とは、たった 1° ずれた世界。その 1° が、私を変えてくれると信じられる。</p>
+          <p class="msg-attr">9期</p>
+        </li>
+        <li class="msg-item">
+          <p class="msg-quote">新たな旅と仲間に出会って、私の人生が動き出した。</p>
+          <p class="msg-attr">11期</p>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ About POOLO ============ -->
+<section class="about">
+  <div class="shell about-inner">
+    <div>
+      <span class="about-en">About POOLO</span>
+      <h2 class="about-title">旅を入り口に、<br>生き方を問い直す<span class="nb">大人の学び場。</span></h2>
+      <div class="about-text">
+        <p>あたらしい旅の学校 POOLO は、旅を入り口に自分の生き方・働き方を問い直す<strong>大人の学び場</strong>として、7年以上続いてきました。ここに集めた学びは、そのなかで多くの人が辿り着いた気づきの記録です。</p>
+        <p>運営は株式会社TABIPPO と株式会社CODOLI。</p>
+      </div>
+    </div>
+    <div class="about-figs">
+      <figure class="about-fig">
+        <img src="../event-30s-v01-260720/images/12_poolo_keyvisual.jpg" alt="POOLO キービジュアル">
+        <figcaption><span class="en">POOLO</span><span>あたらしい旅の学校</span></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA（そっと誘う） ============ -->
+<section class="cta">
+  <div class="shell cta-inner">
+    <div>
+      <span class="cta-en">Next Journey</span>
+      <h2 class="cta-title">あなたの学びも、<br>ここに<span class="nb">持ち寄ってほしい。</span></h2>
+    </div>
+    <div class="cta-action">
+      <a href="#" class="cta-btn">POOLO を、のぞいてみる</a>
+      <p class="cta-note">＊気になった方は、ゆっくりどうぞ。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ フッター ============ -->
+<footer class="footer">
+  <div class="shell footer-inner">
+    <div class="footer-top">
+      <span class="mon" aria-hidden="true">
+        <svg viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-linecap="round">
+          <circle cx="60" cy="60" r="57" stroke-width="1.5"/>
+          <circle cx="60" cy="60" r="51.5" stroke-width="0.75"/>
+          <circle cx="60" cy="42.5" r="9.5" stroke-width="1.5"/>
+          <line x1="30" y1="60.5" x2="46.5" y2="60.5" stroke-width="1.1"/>
+          <line x1="73.5" y1="60.5" x2="90" y2="60.5" stroke-width="1.1"/>
+        </svg>
+      </span>
+      <div class="footer-marks">
+        <a href="#"><img src="../event-30s-v01-260720/images/poolo_logo03.png" alt="POOLO あたらしい旅の学校"></a>
+        <span class="footer-divider" aria-hidden="true"></span>
+        <a href="#"><img src="../event-30s-v01-260720/images/tabippo_logo.png" alt="TABIPPO"></a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-text">旅と人生をつなぐ、大人の学び ／ 株式会社TABIPPO ／ 株式会社CODOLI</p>
+      <p class="footer-copy">© POOLO. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
