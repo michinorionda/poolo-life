@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<meta name="description" content="Claude Code ではじめる Webサイトの作り方・更新のしかた（初心者メンバー向けガイド）">
+<title>はじめてのサイト運用ガイド｜Claude Code でつくる・更新する</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+  .g-hero { color:#fff; text-align:center; padding: 56px 20px 60px; background: linear-gradient(160deg, #6FB6D0 0%, #3E8CAB 60%, #2A6A86 100%); }
+  .g-hero .eyebrow { background: rgba(255,255,255,.22); color:#fff; }
+  .g-hero h1 { font-family: var(--font-serif); font-size: clamp(26px, 5vw, 40px); line-height:1.4; margin: 16px 0 12px; font-weight:700; text-wrap:balance; }
+  .g-hero p { margin:0 auto; max-width: 34em; opacity:.96; font-size: 15.5px; }
+
+  .g-wrap { max-width: 780px; margin: 0 auto; padding: 0 22px; }
+
+  /* いちばん大事なこと */
+  .keybox { background: var(--accent-soft); border: 1px solid color-mix(in srgb, var(--accent) 40%, transparent); border-radius: var(--radius); padding: 26px 26px; margin: -30px auto 10px; max-width: 780px; position: relative; box-shadow: var(--shadow); }
+  .keybox h2 { margin:0 0 8px; font-family: var(--font-serif); font-size: 20px; color: var(--accent-ink); }
+  .keybox p { margin:0; font-size: 15px; }
+
+  /* ステップ */
+  .step-sec { padding: 40px 0 8px; }
+  .step { display:flex; gap:18px; align-items:flex-start; }
+  .step-num { flex:0 0 auto; width: 44px; height: 44px; border-radius: 999px; background: var(--accent); color:#fff; display:grid; place-items:center; font-weight:800; font-size:19px; box-shadow: var(--shadow-sm); }
+  .step-main { flex:1 1 auto; min-width:0; }
+  .step-main > h2 { font-family: var(--font-serif); font-size: 22px; margin: 6px 0 6px; }
+  .step-lead { color: var(--ink-soft); margin: 0 0 16px; }
+  .step-body { border-left: 2px dashed var(--line); margin-left: 22px; padding: 4px 0 30px 40px; }
+
+  h3.mini { font-size: 16px; margin: 22px 0 8px; display:flex; align-items:center; gap:8px; }
+  ol.clean, ul.clean { margin: 0 0 16px; padding-left: 22px; }
+  ol.clean li, ul.clean li { margin: 7px 0; }
+
+  .callout { border-radius: 12px; padding: 14px 18px; margin: 16px 0; font-size: 14px; line-height:1.8; }
+  .callout.tip { background: var(--accent-soft); border:1px solid color-mix(in srgb, var(--accent) 30%, transparent); }
+  .callout.warn { background: var(--sun-soft); border:1px solid color-mix(in srgb, var(--sun) 45%, transparent); }
+  .callout b { color: var(--accent-ink); }
+
+  .kbd { display:inline-block; background: var(--card); border:1px solid var(--line); border-bottom-width:2px; border-radius:6px; padding: 1px 8px; font-size: 13px; font-weight:700; font-family: ui-monospace, Menlo, monospace; }
+
+  /* お願い例文 */
+  .prompt { background: var(--ink); color:#EAF1F3; border-radius: 12px; padding: 16px 18px; margin: 10px 0; font-size: 14.5px; line-height:1.85; position: relative; }
+  .prompt::before { content:"あなた → Claude Code"; display:block; font-size:11px; letter-spacing:.08em; color:#8FB6A6; font-weight:800; margin-bottom:8px; }
+  .prompt.a { border-left: 4px solid var(--accent); }
+
+  .glossary { background: var(--paper-2); border:1px solid var(--line); border-radius: var(--radius); padding: 22px 24px; }
+  .glossary dl { margin:0; display:grid; grid-template-columns: 130px 1fr; gap: 12px 16px; }
+  .glossary dt { font-weight:800; color: var(--accent-ink); font-size:14px; }
+  .glossary dd { margin:0; font-size:14px; color: var(--ink-soft); }
+
+  .linkcards { display:grid; grid-template-columns: repeat(2,1fr); gap:12px; }
+  .linkcards a { text-decoration:none; color:var(--ink); background:var(--card); border:1px solid var(--line); border-radius:12px; padding:16px 18px; box-shadow: var(--shadow-sm); }
+  .linkcards a:hover { background: var(--paper-2); }
+  .linkcards .t { font-weight:800; }
+  .linkcards .u { font-size:12.5px; color: var(--ink-soft); word-break: break-all; margin-top:4px; }
+
+  .toc { background: var(--card); border:1px solid var(--line); border-radius: var(--radius); padding: 20px 24px; box-shadow: var(--shadow-sm); }
+  .toc ol { margin:8px 0 0; padding-left: 20px; }
+  .toc a { color: var(--accent-ink); text-decoration:none; font-weight:600; }
+  .toc a:hover { text-decoration: underline; }
+
+  @media (max-width: 600px) {
+    .step-body { padding-left: 20px; margin-left: 14px; }
+    .glossary dl, .linkcards { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+  <div class="demo-note">POOLOメンバー向け・サイト運用ガイド（デモ「そらいろのいえ」を題材にしています）</div>
+
+  <header class="site">
+    <div class="wrap navrow">
+      <a class="brand" href="index.html"><span class="mark">そ</span>そらいろのいえ</a>
+      <nav class="main">
+        <a href="index.html">デモサイト</a>
+        <a href="news.html">お知らせ例</a>
+        <a href="guide.html" aria-current="page">このガイド</a>
+      </nav>
+      <button class="theme-btn" id="themeBtn" aria-label="表示テーマを切り替え">◐</button>
+    </div>
+  </header>
+
+  <div class="g-hero">
+    <span class="eyebrow">Member Guide</span>
+    <h1>はじめての<br>サイトづくり・更新ガイド</h1>
+    <p>Claude Code（クロードコード）を使って、自分のWebサイトをつくってお知らせを更新するまで。<br>プログラミングの知識はいりません。</p>
+  </div>
+
+  <div class="keybox">
+    <h2>💡 いちばん大事なこと</h2>
+    <p>Claude Code は「AIにお願いすると、代わりに作業してくれる道具」です。<strong>コードは書きません。ふつうの日本語で「〇〇して」とお願いするだけ</strong>。この1点さえ分かっていれば大丈夫です。</p>
+  </div>
+
+  <div class="g-wrap" style="padding-top:34px;">
+    <div class="toc">
+      <strong>この順番で進めます</strong>
+      <ol>
+        <li><a href="#s1">最初の準備（一度だけ）</a></li>
+        <li><a href="#s2">基本の使い方をおぼえる</a></li>
+        <li><a href="#s3">サイトをつくる</a></li>
+        <li><a href="#s4">お知らせを更新する（いちばん使う）</a></li>
+        <li><a href="#s5">変更を公開する（リンクで共有）</a></li>
+        <li><a href="#s6">困ったときは</a></li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- STEP 1 -->
+  <section class="step-sec" id="s1">
+    <div class="g-wrap">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-main">
+          <h2>最初の準備（一度だけ）</h2>
+          <p class="step-lead">ここが一番むずかしいところ。<strong>最初はサポート担当と画面共有しながら一緒に</strong>やるのがおすすめです。一度できれば、次からは不要です。</p>
+        </div>
+      </div>
+      <div class="step-body">
+        <h3 class="mini">🧰 用意するもの（2つ）</h3>
+        <ul class="clean">
+          <li><b>Claude の有料プラン（Pro または Max）</b> … Claude Code を使うために必要です。</li>
+          <li><b>GitHub（ギットハブ）のアカウント</b> … サイトのファイルを保管＆公開する場所。無料で作れます。</li>
+        </ul>
+
+        <h3 class="mini">🚪 Claude Code の始め方（一番かんたんな方法）</h3>
+        <ol class="clean">
+          <li>ブラウザで <b>claude.ai/code</b> を開く</li>
+          <li>Claude のアカウント（Proと同じメール）で<b>サインイン</b></li>
+          <li>画面の案内にそって <b>GitHub と接続</b>（「Claude の GitHub App」を許可）</li>
+          <li>作業する場所（リポジトリ）を選べば準備完了</li>
+        </ol>
+        <div class="callout tip">💡 <b>ヒント：</b>パソコンにアプリを入れたい場合は「Claude デスクトップアプリ」でもOK。ターミナル（黒い画面）は使わなくて大丈夫です。まずは <b>ブラウザ版（claude.ai/code）</b>が一番かんたんです。</div>
+        <div class="callout warn">⚠️ <b>この準備だけは要サポート：</b>GitHub アカウントや公開設定（GitHub Pages）まわりは、最初の一度だけ、詳しい人と一緒に進めると安心です。</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STEP 2 -->
+  <section class="step-sec" id="s2">
+    <div class="g-wrap">
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-main">
+          <h2>基本の使い方をおぼえる</h2>
+          <p class="step-lead">やることは「お願いする → 提案を確認する → OKする」の3つだけ。</p>
+        </div>
+      </div>
+      <div class="step-body">
+        <h3 class="mini">💬 ① 日本語でお願いする</h3>
+        <p style="margin:0 0 8px;color:var(--ink-soft);">チャット欄に、やってほしいことをそのまま書きます。</p>
+        <div class="prompt a">トップページに「お問い合わせ」ボタンを追加して。</div>
+
+        <h3 class="mini">👀 ② 提案（変更内容）を確認する</h3>
+        <p style="margin:0 0 8px;color:var(--ink-soft);">Claude Code は、変更する前に「どこをどう変えるか」を見せてくれます。緑＝追加、赤＝削除。内容を見て…</p>
+
+        <h3 class="mini">✅ ③ OK（承認）する</h3>
+        <ul class="clean">
+          <li>よければ <b>Accept（承認）</b>、やり直してほしければ <b>Reject（却下）</b> を押します。</li>
+          <li>作業を途中で止めたいときは <span class="kbd">Esc</span> キー。</li>
+          <li>「さっきの状態に戻したい」ときは <span class="kbd">/rewind</span> と入力して、戻したい時点を選びます。</li>
+        </ul>
+        <div class="callout tip">💡 <b>安心ポイント：</b>勝手にどんどん進むことはありません。大事な操作は必ず「確認 → あなたがOK」の順。まずは気軽に試して大丈夫です。</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STEP 3 -->
+  <section class="step-sec" id="s3">
+    <div class="g-wrap">
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-main">
+          <h2>サイトをつくる</h2>
+          <p class="step-lead">「こんなサイトが欲しい」を伝えれば、たたき台を作ってくれます。</p>
+        </div>
+      </div>
+      <div class="step-body">
+        <p style="margin:0 0 6px;color:var(--ink-soft);">たとえば、このデモサイトを見せながらこう頼めます：</p>
+        <div class="prompt a">このデモ（https://michinorionda.github.io/poolo-life/news-demo-260714/）みたいな、やさしい雰囲気のフリースクールのサイトを作って。トップ・お知らせ一覧・お問い合わせのページが欲しいです。</div>
+        <ul class="clean">
+          <li>色・雰囲気の希望があれば一緒に伝える（例：「青系でやさしい感じ」）</li>
+          <li>載せたい文章や写真があれば「これを使って」と渡す</li>
+          <li>できあがりを見て「ここをこう直して」と何度でもお願いできます</li>
+        </ul>
+        <div class="callout tip">💡 <b>写真も渡せます：</b>使いたい画像をパソコンのデスクトップに置いて、「デスクトップの〇〇.png をトップの写真に使って」と伝えればOK。Claude Code は画像を見て判断できます。</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STEP 4 -->
+  <section class="step-sec" id="s4">
+    <div class="g-wrap">
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-main">
+          <h2>お知らせを更新する（いちばん使う操作）</h2>
+          <p class="step-lead">ふだんの運用は、ほぼこれ。やり方は2通りあります。</p>
+        </div>
+      </div>
+      <div class="step-body">
+        <h3 class="mini">🟢 方法A：Claude Code にお願いする（おすすめ）</h3>
+        <p style="margin:0 0 8px;color:var(--ink-soft);">いちばんかんたん。日本語で伝えるだけ。</p>
+        <div class="prompt a">8月1日に「夏の親子ワークショップを開催します」というお知らせ（イベント）を追加して。本文は、8月上旬に工作やゲームをして過ごす会で、対象は小中学生、事前予約制、という内容でお願い。</div>
+        <p style="margin:0 0 8px;color:var(--ink-soft);">画像も足したいときは：</p>
+        <div class="prompt a">その記事のメイン画像に、デスクトップの natsu-event.png を使って。</div>
+
+        <h3 class="mini">🔵 方法B：自分でファイルに書き足す</h3>
+        <p style="margin:0 0 8px;color:var(--ink-soft);">仕組みを知っておくと安心。お知らせは <b>news-data.js</b>（見出し）と <b>articles.js</b>（本文）の2つに、同じ「id（目印）」で書き足すだけです。デザインのファイルは触りません。</p>
+        <div class="callout tip">💡 迷ったら方法Aでお願いすれば、Claude Code がこの2ファイルを正しく書き換えてくれます。「自分で触るのはこわい」人は方法Aだけで十分です。</div>
+
+        <h3 class="mini">✏️ よく使うお願い（コピペで使えます）</h3>
+        <div class="prompt">〇月〇日の「△△」というお知らせを追加して。カテゴリは（お知らせ / イベント / メディア）。</div>
+        <div class="prompt">〇〇の記事の日付を△月△日に直して。</div>
+        <div class="prompt">一番古いお知らせを1件消して。</div>
+        <div class="prompt">トップの写真を、デスクトップの □□.png に変えて。</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STEP 5 -->
+  <section class="step-sec" id="s5">
+    <div class="g-wrap">
+      <div class="step">
+        <div class="step-num">5</div>
+        <div class="step-main">
+          <h2>変更を公開する（リンクで共有）</h2>
+          <p class="step-lead">編集しただけでは、まだ自分の画面の中だけ。「公開して」と伝えると、みんなが見られるサイトに反映されます。</p>
+        </div>
+      </div>
+      <div class="step-body">
+        <div class="prompt a">いまの変更をサイトに反映して（公開して）。</div>
+        <ul class="clean">
+          <li>Claude Code が「保存して公開」（専門用語で commit / push）まで代わりにやってくれます。</li>
+          <li>反映には数分かかることがあります。少し待ってからページを再読み込み（更新）しましょう。</li>
+          <li>公開されたサイトのURLを、そのまま案内や告知に貼れます。</li>
+        </ul>
+        <div class="callout warn">⚠️ 公開すると<b>誰でも見られる状態</b>になります。個人情報や、まだ見せたくない内容が含まれていないか、公開前に一度確認しましょう。</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STEP 6 -->
+  <section class="step-sec" id="s6">
+    <div class="g-wrap">
+      <div class="step">
+        <div class="step-num">6</div>
+        <div class="step-main">
+          <h2>困ったときは</h2>
+          <p class="step-lead">つまずいても大丈夫。だいたいこれで解決します。</p>
+        </div>
+      </div>
+      <div class="step-body">
+        <h3 class="mini">🗣️ うまく伝わらないとき</h3>
+        <ul class="clean">
+          <li><b>具体的に</b>：どのページの・どこを・どうしたいか。（例：「トップの、お知らせの下に、地図を追加して」）</li>
+          <li>うまくいかない画面は<b>スクリーンショットを貼る</b>と伝わりやすい。</li>
+          <li>エラーの文が出たら、<b>そのまま貼りつけて</b>「これはどういう意味？直して」と聞けばOK。</li>
+        </ul>
+
+        <h3 class="mini">↩️ もとに戻したいとき</h3>
+        <ul class="clean">
+          <li>作業を止める：<span class="kbd">Esc</span></li>
+          <li>前の状態に戻す：<span class="kbd">/rewind</span> → 戻したい時点を選ぶ</li>
+        </ul>
+
+        <h3 class="mini">🧹 別の作業を始めるとき</h3>
+        <ul class="clean">
+          <li>話題を大きく変えるときは <span class="kbd">/clear</span> と入力すると、頭がスッキリして精度が上がります。</li>
+        </ul>
+
+        <div class="glossary" style="margin-top:22px;">
+          <strong style="display:block;margin-bottom:12px;">📖 用語ミニ辞典（わからない言葉が出たら）</strong>
+          <dl>
+            <dt>リポジトリ</dt><dd>サイトのファイル一式を保管する「箱」。GitHub の中にあります。</dd>
+            <dt>コミット / commit</dt><dd>変更に「ここまでやった」と印をつけて保存すること。</dd>
+            <dt>プッシュ / push</dt><dd>保存した変更を、公開用の場所に送ること。</dd>
+            <dt>GitHub Pages</dt><dd>そのファイルを「Webサイト」として無料で公開してくれる仕組み。</dd>
+            <dt>Accept / Reject</dt><dd>Claude の提案を「OK」か「やり直し」か選ぶボタン。</dd>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 参考リンク -->
+  <section class="block alt" style="margin-top:20px;">
+    <div class="g-wrap">
+      <div class="sec-head-c"><span class="sec-en">Reference</span><h2 class="sec">参考：デモサイトを見てみる</h2></div>
+      <div class="linkcards">
+        <a href="index.html"><div class="t">トップページ</div><div class="u">…/news-demo-260714/</div></a>
+        <a href="news.html"><div class="t">お知らせ一覧</div><div class="u">…/news.html</div></a>
+        <a href="article.html?id=natsu-taikenkai"><div class="t">お知らせ記事（個別）</div><div class="u">…/article.html?id=…</div></a>
+        <a href="index.html#course"><div class="t">コース・活動</div><div class="u">…/#course</div></a>
+      </div>
+      <p style="text-align:center;color:var(--ink-soft);font-size:13.5px;margin-top:22px;">このデモと同じものを、あなたの内容で作っていけます。まずは気軽に、Claude Code に話しかけてみてください 🌱</p>
+    </div>
+  </section>
+
+  <footer class="site">
+    <div class="wrap foot-grid">
+      <a class="brand" href="index.html"><span class="mark">そ</span>そらいろのいえ</a>
+      <div>© 2026 メンバー向けガイド（デモ）／ for POOLO</div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("themeBtn").addEventListener("click", () => {
+      const cur = document.documentElement.getAttribute("data-theme");
+      const isDark = cur ? cur === "dark" : matchMedia("(prefers-color-scheme: dark)").matches;
+      document.documentElement.setAttribute("data-theme", isDark ? "light" : "dark");
+    });
+  </script>
+</body>
+</html>
