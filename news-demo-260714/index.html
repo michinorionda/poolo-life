@@ -202,7 +202,7 @@
       const el = document.getElementById("newsCards");
       const items = [...window.NEWS].sort((a,b) => b.date.localeCompare(a.date)).slice(0, 3);
       el.innerHTML = items.map((n, i) => `
-        <a class="ncard" href="article.html">
+        <a class="ncard" href="article.html?id=${n.id}">
           <div class="thumb t${i}">お知らせ画像</div>
           <div class="body">
             <div class="meta"><span class="date">${fmt(n.date)}</span><span class="cat ${catClass[n.cat] ?? ""}">${n.cat}</span></div>

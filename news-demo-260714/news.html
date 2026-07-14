@@ -108,7 +108,7 @@
         .sort((a,b) => b.date.localeCompare(a.date));
       if (!items.length) { el.innerHTML = `<div style="padding:28px;text-align:center;color:var(--ink-soft);">このカテゴリのお知らせはまだありません。</div>`; return; }
       el.innerHTML = items.map(n => `
-        <a class="news-row" href="article.html">
+        <a class="news-row" href="article.html?id=${n.id}">
           <span class="date">${fmt(n.date)}</span>
           <span class="cat ${catClass[n.cat] ?? ""}">${n.cat}</span>
           <span class="rtitle">${n.title}</span>

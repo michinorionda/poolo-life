@@ -4,11 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
-<meta name="description" content="6/29 保護者向け座談会を開催します｜そらいろのいえ（デモ記事）">
-<title>6/29 保護者向け座談会を開催します｜そらいろのいえ</title>
+<meta name="description" content="お知らせ記事｜そらいろのいえ（デモ）">
+<title>お知らせ｜そらいろのいえ</title>
 <link rel="stylesheet" href="styles.css">
 <style>
-  .article-head { background: linear-gradient(160deg, #6FB6D0, #3E8CAB); color:#fff; padding: 40px 20px 44px; }
+  .article-head { color:#fff; padding: 40px 20px 44px; background: linear-gradient(160deg, #6FB6D0, #3E8CAB); }
+  .article-head.cat-event  { background: linear-gradient(160deg, #E9B466, #D07E3A); }
+  .article-head.cat-media  { background: linear-gradient(160deg, #86C0B0, #4E927E); }
   .article-head .wrap { max-width: 760px; }
   .article-head .meta { display:flex; align-items:center; gap:12px; margin-bottom:14px; }
   .article-head .date { color: rgba(255,255,255,.9); }
@@ -19,7 +21,10 @@
   .crumbs a { color: var(--accent-ink); text-decoration:none; font-weight:700; }
 
   .article { max-width: 760px; margin: 0 auto; padding: 12px 22px 20px; }
-  .article .keyvisual { aspect-ratio: 16/9; border-radius: var(--radius); margin: 28px 0 32px; display:grid; place-items:center; color:#fff; font-size:13px; font-weight:700; letter-spacing:.04em; background: linear-gradient(135deg, #E4A24B, #D07E3A); box-shadow: var(--shadow-sm); }
+  .article .keyvisual { aspect-ratio: 16/9; border-radius: var(--radius); margin: 28px 0 32px; display:grid; place-items:center; color:#fff; font-size:13px; font-weight:700; letter-spacing:.04em; box-shadow: var(--shadow-sm); background: linear-gradient(135deg, #5AA6C2, #3E8CAB); }
+  .keyvisual.cat-event { background: linear-gradient(135deg, #E4A24B, #D07E3A); }
+  .keyvisual.cat-media { background: linear-gradient(135deg, #7FB6A6, #4E927E); }
+
   .article-body { font-size: 16px; line-height: 2; }
   .article-body p { margin: 0 0 22px; }
   .article-body h2 { font-family: var(--font-serif); font-size: 20px; margin: 40px 0 14px; padding-left: 14px; border-left: 4px solid var(--accent); font-weight:700; }
@@ -30,6 +35,7 @@
   .infobox dl { margin: 0; display: grid; grid-template-columns: 84px 1fr; gap: 10px 16px; }
   .infobox dt { color: var(--accent-ink); font-weight: 800; font-size: 14px; }
   .infobox dd { margin: 0; font-size: 15px; }
+
   .article-cta { text-align:center; background: var(--accent); color:#fff; border-radius: 18px; padding: 30px 22px; margin: 34px 0; }
   .article-cta h3 { font-family: var(--font-serif); margin: 0 0 8px; font-size: 20px; }
   .article-cta p { margin: 0 0 18px; opacity:.95; font-size: 14.5px; }
@@ -40,9 +46,20 @@
   .share a { width:38px; height:38px; border-radius:10px; border:1px solid var(--line); display:grid; place-items:center; text-decoration:none; color:var(--ink-soft); font-weight:800; }
   .share a:hover { background: var(--paper-2); color: var(--accent-ink); }
 
+  /* 前後の記事 */
+  .pager { display:grid; grid-template-columns: 1fr 1fr; gap:14px; margin: 30px 0 0; }
+  .pager a { text-decoration:none; color:var(--ink); background: var(--card); border:1px solid var(--line); border-radius: 12px; padding:14px 16px; box-shadow: var(--shadow-sm); }
+  .pager a:hover { background: var(--paper-2); }
+  .pager .lbl { font-size:12px; font-weight:800; color: var(--accent-ink); }
+  .pager .t { font-size:14px; font-weight:700; margin-top:4px; display:block; }
+  .pager a.next { text-align:right; }
+  .pager .empty { visibility:hidden; }
+
   .demo-callout { max-width:760px; margin: 8px auto 40px; padding: 0 22px; }
   .demo-callout .box { background: var(--sun-soft); border: 1.5px dashed var(--sun); border-radius: 14px; padding: 18px 20px; font-size: 13.5px; color: var(--ink); }
   .demo-callout .box strong { color: var(--accent-ink); }
+
+  @media (max-width: 620px) { .pager { grid-template-columns: 1fr; } .pager a.next { text-align:left; } }
 </style>
 </head>
 <body>
@@ -62,49 +79,25 @@
     </div>
   </header>
 
-  <div class="crumbs"><a href="index.html">ホーム</a> ／ <a href="news.html">お知らせ</a> ／ 保護者向け座談会</div>
+  <div class="crumbs"><a href="index.html">ホーム</a> ／ <a href="news.html">お知らせ</a> ／ <span id="crumbTitle">記事</span></div>
 
-  <div class="article-head">
+  <div class="article-head" id="articleHead">
     <div class="wrap">
       <div class="meta">
-        <span class="date">2026.06.22</span>
-        <span class="cat event">イベント</span>
+        <span class="date" id="aDate"></span>
+        <span class="cat" id="aCat"></span>
       </div>
-      <h1>6/29（日）保護者向け座談会を開催します</h1>
+      <h1 id="aTitle"></h1>
     </div>
   </div>
 
   <article class="article">
-    <div class="keyvisual">📷 記事のメイン画像がここに入ります</div>
-
-    <div class="article-body">
-      <p>いつもそらいろのいえを見守っていただき、ありがとうございます。このたび、不登校や子育ての悩みを気軽に話せる「保護者向け座談会」を開催することになりました。</p>
-      <p>「うちの子だけかもしれない」——そんな不安を、同じ立場の保護者やスタッフと分かち合える場です。参加費は無料、途中入退室も自由です。お子さまの同伴もできますので、どうぞ気負わずお越しください。</p>
-
-      <h2>こんな方におすすめです</h2>
-      <ul>
-        <li>お子さまが学校に行きづらく、どう接したらいいか迷っている</li>
-        <li>同じ悩みを持つ保護者と話してみたい</li>
-        <li>フリースクールの雰囲気を知りたい・見学を考えている</li>
-      </ul>
-
-      <h2>開催概要</h2>
-      <div class="infobox">
-        <dl>
-          <dt>日時</dt><dd>2026年6月29日（日）10:00〜11:30</dd>
-          <dt>会場</dt><dd>そらいろのいえ（〇〇市〇〇町1-2-3）</dd>
-          <dt>参加費</dt><dd>無料</dd>
-          <dt>定員</dt><dd>先着10名（お子さま同伴可）</dd>
-          <dt>持ち物</dt><dd>特になし。手ぶらでどうぞ</dd>
-        </dl>
-      </div>
-
-      <p>当日は、スタッフによる簡単な活動紹介のあと、車座になって自由におしゃべりする時間を予定しています。「聞くだけ」の参加ももちろん歓迎です。</p>
-    </div>
+    <div class="keyvisual" id="aKv">📷 記事のメイン画像がここに入ります</div>
+    <div class="article-body" id="aBody"></div>
 
     <div class="article-cta">
-      <h3>ご参加のお申し込み</h3>
-      <p>下のボタンから、お名前と参加人数をお知らせください。ご質問だけでもお気軽にどうぞ。</p>
+      <h3>ご相談・お申し込み</h3>
+      <p>ご質問だけでもお気軽にどうぞ。お名前とご用件をお知らせください。</p>
       <a class="btn primary" href="index.html#contact">申し込み・お問い合わせ</a>
     </div>
 
@@ -116,12 +109,14 @@
         <a href="#" aria-label="リンクをコピー">🔗</a>
       </div>
     </div>
+
+    <nav class="pager" id="pager"></nav>
   </article>
 
   <div class="demo-callout">
     <div class="box">
       💡 <strong>記事ページのしくみ（相談者さん向けメモ）</strong><br>
-      1記事＝この形のページ1枚です。新しい記事を出すときは、実際の作り方によって「管理画面で書く（Wix・microCMS等）」か「このテンプレをコピーして中身を差し替える」のどちらかになります。どの方式にするかは、更新のしやすさと相談しながら決められます。
+      3つのお知らせは、それぞれ固有のURL（例: <code>article.html?id=hogosha-zadankai</code>）を持つ個別ページです。中身は <strong>articles.js</strong> にまとめてあり、同じ id で本文を書き足せば新しい記事ページが増えます（デザインのファイルは触りません）。
     </div>
   </div>
 
@@ -132,8 +127,57 @@
     </div>
   </footer>
 
+  <script src="news-data.js"></script>
+  <script src="articles.js"></script>
   <script>
-    document.getElementById("themeBtn").addEventListener("click", () => {
+    const catClass = { "イベント": "event", "メディア": "media", "お知らせ": "" };
+    const catHeadClass = { "イベント": "cat-event", "メディア": "cat-media", "お知らせ": "" };
+    const fmt = d => { const [y,m,day] = d.split("-"); return `${y}.${m}.${day}`; };
+
+    const params = new URLSearchParams(location.search);
+    // id 未指定なら、最新の記事を表示
+    const sorted = [...window.NEWS].sort((a,b) => b.date.localeCompare(a.date));
+    const id = params.get("id") || (sorted[0] && sorted[0].id);
+    const meta = window.NEWS.find(n => n.id === id);
+    const art = (window.ARTICLES || {})[id];
+
+    const $ = s => document.querySelector(s);
+
+    if (!meta) {
+      $("#aTitle").textContent = "記事が見つかりませんでした";
+      $("#crumbTitle").textContent = "記事が見つかりません";
+      $("#aBody").innerHTML = '<p>お手数ですが、<a href="news.html">お知らせ一覧</a>からもう一度お選びください。</p>';
+      $("#aKv").style.display = "none";
+    } else {
+      document.title = meta.title + "｜そらいろのいえ";
+      $("#crumbTitle").textContent = meta.title;
+      $("#aDate").textContent = fmt(meta.date);
+      $("#aCat").textContent = meta.cat;
+      $("#aCat").className = "cat " + (catClass[meta.cat] ?? "");
+      $("#aTitle").textContent = meta.title;
+      $("#articleHead").className = "article-head " + (catHeadClass[meta.cat] ?? "");
+      $("#aKv").className = "keyvisual " + (catHeadClass[meta.cat] ?? "");
+
+      if (art) {
+        $("#aKv").textContent = art.kvText || "📷 記事のメイン画像がここに入ります";
+        $("#aBody").innerHTML = art.body;
+      } else {
+        $("#aKv").textContent = "📷 記事のメイン画像がここに入ります";
+        $("#aBody").innerHTML = '<p>この記事の本文は準備中です。（デモのため、本文は主要な3記事のみ用意しています）</p>';
+      }
+
+      // 前後の記事リンク（日付順）
+      const idx = sorted.findIndex(n => n.id === id);
+      const prev = sorted[idx + 1]; // 1つ古い
+      const next = sorted[idx - 1]; // 1つ新しい
+      const cell = (n, cls, lbl) => n
+        ? `<a class="${cls}" href="article.html?id=${n.id}"><span class="lbl">${lbl}</span><span class="t">${n.title}</span></a>`
+        : `<span class="empty"></span>`;
+      $("#pager").innerHTML = cell(prev, "prev", "← 前のお知らせ") + cell(next, "next", "次のお知らせ →");
+    }
+
+    // テーマ切り替え
+    $("#themeBtn").addEventListener("click", () => {
       const cur = document.documentElement.getAttribute("data-theme");
       const isDark = cur ? cur === "dark" : matchMedia("(prefers-color-scheme: dark)").matches;
       document.documentElement.setAttribute("data-theme", isDark ? "light" : "dark");
