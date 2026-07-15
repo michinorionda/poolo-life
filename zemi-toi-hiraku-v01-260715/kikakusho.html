@@ -59,6 +59,24 @@
     .ses-num { font-size:30px; }
     .ses-row { grid-template-columns:68px 1fr; }
   }
+  /* 参加者ケース */
+  .case { border:1px solid var(--line); border-radius:4px; padding:26px 24px; margin:20px 0; }
+  .case-head { display:flex; flex-wrap:wrap; align-items:baseline; gap:8px 14px; border-bottom:1px solid var(--line); padding-bottom:13px; margin-bottom:16px; }
+  .case-tag { font-family:var(--head); font-size:11px; font-weight:700; letter-spacing:.08em; color:var(--on-brand); background:var(--brand); padding:3px 10px; border-radius:2px; }
+  .case-name { font-family:var(--mincho); font-weight:700; font-size:18px; color:var(--ink); }
+  .case-attr { font-family:var(--body); font-size:12.5px; color:var(--ink-50); }
+  .case-seed { font-family:var(--body); font-size:13.5px; color:var(--ink-72); line-height:1.9; background:var(--brand-pale); border-radius:3px; padding:12px 15px; margin:0 0 16px; }
+  .case-seed b { color:var(--brand-deep); font-family:var(--head); font-weight:700; }
+  .case-zemi { display:flex; flex-wrap:wrap; align-items:baseline; gap:8px 12px; margin:0 0 14px; }
+  .case-zemi-ttl { font-family:var(--head); font-weight:700; font-size:16px; color:var(--brand-deep); }
+  .case-chip { font-family:var(--en); font-size:11.5px; color:var(--ink-72); border:1px solid var(--line); border-radius:2px; padding:2px 9px; }
+  .canvas-fill { display:grid; gap:0; margin-top:4px; }
+  .cf-row { display:grid; grid-template-columns:156px 1fr; gap:14px; padding:10px 0; border-top:1px solid var(--line); }
+  .cf-row:first-child { border-top:none; }
+  .cf-q { font-family:var(--head); font-weight:700; font-size:12px; color:var(--brand-deep); letter-spacing:.02em; }
+  .cf-q small { display:block; font-family:var(--en); font-weight:600; color:var(--ink-40); font-size:10px; letter-spacing:.06em; margin-top:2px; }
+  .cf-a { font-family:var(--body); font-size:13.5px; color:var(--ink-72); line-height:1.85; margin:0; }
+  @media (max-width:640px) { .cf-row { grid-template-columns:1fr; gap:3px; } }
 </style>
 </head>
 <body>
@@ -92,6 +110,7 @@
         <a href="#outline">08 開催概要</a>
         <a href="#survey">09 事前ヒアリング</a>
         <a href="#schedule">10 スケジュール</a>
+        <a href="#cases">11 参加者ケース</a>
       </nav>
     </div>
   </div>
@@ -512,6 +531,88 @@
           </tbody>
         </table>
         <p class="k-note">＊開講時期は募集サイトの「2026年秋」と整合（＝⑤10月開講の想定）。実日程は②で確定し、募集サイトの【差し替え】箇所に反映する。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 11 参加者ケース（サンプル） ===== -->
+  <section class="sec" id="cases" style="border-bottom:none;">
+    <div class="shell sec-inner" style="padding-top:36px;padding-bottom:36px;">
+      <div class="sec-spine"><div class="sec-num">11</div><span class="sec-en">Cases</span></div>
+      <div>
+        <h2 class="sec-title">参加者は、こう進む。<span class="nb">── 3つのケース</span></h2>
+        <p class="sec-lead">受講生は各回の課題（<b>03 の宿題・ワーク</b>）を通じて、最終的に<b>04 の7つの問い（企画キャンバス）</b>を1枚ずつ埋めていきます。以下は、架空の3人がその課題に取り組んだ<b>記入サンプル</b>です。</p>
+
+        <!-- Case 1 -->
+        <div class="case">
+          <div class="case-head">
+            <span class="case-tag">食・暮らし</span>
+            <span class="case-name">みなと はるか</span>
+            <span class="case-attr">POOLO 9期 ／ 会社員（メーカー）／ 30代</span>
+          </div>
+          <p class="case-seed"><b>旅の原体験（第1回の課題）</b>　タイ・チェンマイの市場の裏路地。常連にまじって食べた、名も知らない家庭料理。「この味、家で再現できないのかな」がずっと忘れられずにいた。</p>
+          <div class="case-zemi">
+            <span class="case-zemi-ttl">創ったゼミ：旅先の台所ゼミ</span>
+            <span class="case-chip">全4回</span><span class="case-chip">2万円</span><span class="case-chip">定員8名</span>
+          </div>
+          <div class="canvas-fill">
+            <div class="cf-row"><span class="cf-q">1. なぜ、私が？<small>WHY ME</small></span><p class="cf-a">20カ国以上の"路地裏の食卓"を訪ね歩いてきた。味には土地の暮らしそのものが宿っていると感じている。</p></div>
+            <div class="cf-row"><span class="cf-q">2. 誰の、どんな変化？<small>FOR WHOM</small></span><p class="cf-a">「消費する旅」に飽きてきた30代の友人。旅を"暮らしごと持ち帰れる"実感を得て帰る。</p></div>
+            <div class="cf-row"><span class="cf-q">3. 一言でいうと？<small>CONCEPT</small></span><p class="cf-a">旅先の家庭料理を、暮らしごと持ち帰るゼミ。</p></div>
+            <div class="cf-row"><span class="cf-q">4. どんな体験の場？<small>DESIGN</small></span><p class="cf-a">①旅の一皿を思い出す →②その土地の"だし"をたどる →③家の道具で再現する →④持ち帰りレシピをつくる</p></div>
+            <div class="cf-row"><span class="cf-q">5. いくらで、何回？<small>PRICE</small></span><p class="cf-a">2万円・全4回（隔週）。少人数8名で、各自の一皿に伴走する。</p></div>
+            <div class="cf-row"><span class="cf-q">6. どう伝える？<small>REACH</small></span><p class="cf-a">告知の3行：「タイの市場の裏路地。名も知らない家庭料理が、忘れられない。／だから、旅の味を暮らしに持ち帰るゼミをひらきます。」</p></div>
+            <div class="cf-row"><span class="cf-q">7. いつ、創る？<small>LAUNCH</small></span><p class="cf-a">2027年2月 第1回（申込＝Googleフォーム／同期のBさんが第1号参加者）</p></div>
+          </div>
+        </div>
+
+        <!-- Case 2 -->
+        <div class="case">
+          <div class="case-head">
+            <span class="case-tag">表現・発信</span>
+            <span class="case-name">佐野 みこと</span>
+            <span class="case-attr">POOLO 11期 ／ フリーランス（Web）／ 40代</span>
+          </div>
+          <p class="case-seed"><b>旅の原体験（第1回の課題）</b>　旅の写真フォルダを見返すと、名所より「何でもない一枚」ばかり見てしまう。バス停の光、路地の洗濯物。そこにこそ、旅の記憶が写っている気がした。</p>
+          <div class="case-zemi">
+            <span class="case-zemi-ttl">創ったゼミ：何でもない一枚の写真ゼミ</span>
+            <span class="case-chip">全3回</span><span class="case-chip">1.5万円</span><span class="case-chip">定員10名</span>
+          </div>
+          <div class="canvas-fill">
+            <div class="cf-row"><span class="cf-q">1. なぜ、私が？<small>WHY ME</small></span><p class="cf-a">名所写真より"余白の一枚"に惹かれ続けてきた。うまい写真でなく、記憶が写る写真を撮りたい。</p></div>
+            <div class="cf-row"><span class="cf-q">2. 誰の、どんな変化？<small>FOR WHOM</small></span><p class="cf-a">「映え」に疲れてきた発信者。撮る動機が"いいね"から"自分の記憶"に戻る。</p></div>
+            <div class="cf-row"><span class="cf-q">3. 一言でいうと？<small>CONCEPT</small></span><p class="cf-a">名所より「何でもない一枚」で、旅を語り直す写真ゼミ。</p></div>
+            <div class="cf-row"><span class="cf-q">4. どんな体験の場？<small>DESIGN</small></span><p class="cf-a">①自分の"何でもない一枚"を持ち寄る →②なぜその一枚かを言葉にする →③次の旅で撮る一枚の"お題"を決める</p></div>
+            <div class="cf-row"><span class="cf-q">5. いくらで、何回？<small>PRICE</small></span><p class="cf-a">1.5万円・全3回。オンラインで写真を見せ合う、対話中心の場。</p></div>
+            <div class="cf-row"><span class="cf-q">6. どう伝える？<small>REACH</small></span><p class="cf-a">告知の3行：「旅の写真を見返すと、名所じゃなく、バス停の光ばかり見てしまう。／その"何でもない一枚"で旅を語るゼミをひらきます。」</p></div>
+            <div class="cf-row"><span class="cf-q">7. いつ、創る？<small>LAUNCH</small></span><p class="cf-a">2027年1月 第1回（申込＝Peatix／試作の"また来たい"札から3名が先行申込）</p></div>
+          </div>
+        </div>
+
+        <!-- Case 3 -->
+        <div class="case">
+          <div class="case-head">
+            <span class="case-tag">生き方・関係性</span>
+            <span class="case-name">桐山 たくみ</span>
+            <span class="case-attr">POOLO 7期 ／ 会社員→独立準備 ／ 40代</span>
+          </div>
+          <p class="case-seed"><b>旅の原体験（第1回の課題）</b>　一人旅の夜、ゲストハウスで年上の旅人と話した「これからの生き方」。旅先だから話せた本音があった。あの時間を、もう一度つくれないか。</p>
+          <div class="case-zemi">
+            <span class="case-zemi-ttl">創ったゼミ：Over35・これからの生き方を語る夜</span>
+            <span class="case-chip">全4回</span><span class="case-chip">2.5万円</span><span class="case-chip">定員6名</span>
+          </div>
+          <div class="canvas-fill">
+            <div class="cf-row"><span class="cf-q">1. なぜ、私が？<small>WHY ME</small></span><p class="cf-a">35歳を過ぎて「このままでいいのか」を、旅先で何度も反芻してきた。答えでなく、問いを分かち合いたい。</p></div>
+            <div class="cf-row"><span class="cf-q">2. 誰の、どんな変化？<small>FOR WHOM</small></span><p class="cf-a">40代で漠然とした違和感を抱える人。答えは出なくても「一人じゃない」と感じて帰る。</p></div>
+            <div class="cf-row"><span class="cf-q">3. 一言でいうと？<small>CONCEPT</small></span><p class="cf-a">旅の夜のように、これからの生き方を本音で語る対話ゼミ。</p></div>
+            <div class="cf-row"><span class="cf-q">4. どんな体験の場？<small>DESIGN</small></span><p class="cf-a">①ライフラインを描く →②旅先で揺れた瞬間を語る →③"降ろしたい荷物"を言葉にする →④小さな次の一歩を宣言する</p></div>
+            <div class="cf-row"><span class="cf-q">5. いくらで、何回？<small>PRICE</small></span><p class="cf-a">2.5万円・全4回。定員6名の少人数で、深く聞き合う。</p></div>
+            <div class="cf-row"><span class="cf-q">6. どう伝える？<small>REACH</small></span><p class="cf-a">告知の3行：「一人旅の夜、知らない旅人と話した"これからの生き方"。／旅先だから話せたあの時間を、もう一度つくるゼミです。」</p></div>
+            <div class="cf-row"><span class="cf-q">7. いつ、創る？<small>LAUNCH</small></span><p class="cf-a">2027年2月 第1回（申込＝Googleフォーム／POOLO告知チャンネルで周知）</p></div>
+          </div>
+        </div>
+
+        <p class="k-note">＊いずれも架空のサンプル。3人ともジャンルは違う（食／表現／生き方）が、<b>入口は必ず「旅の原体験」</b>で、出口は<b>1〜3万円の小さなゼミ</b>という点は共通。これが「テーマは自由・源泉は旅」という設計の狙いどおりに機能している状態。</p>
       </div>
     </div>
   </section>
