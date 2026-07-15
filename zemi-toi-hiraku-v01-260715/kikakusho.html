@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>企画書｜問いを、ひらく。（POOLOゼミ 全6回）</title>
+<meta name="description" content="POOLOゼミ「問いを、ひらく。」の企画書。コンセプト・3つの目的・全6回の設計・集客の仕組み・価格と収支・エコシステムをまとめた共有用ドキュメント。">
+<meta name="robots" content="noindex,nofollow"><!-- 社内共有用：検索避け -->
+<link rel="stylesheet" href="../poolo-ds/tokens.css">
+<link rel="stylesheet" href="../poolo-ds/components.css">
+<style>
+  .doc-head { padding:56px 0 8px; }
+  .doc-eyebrow { font-family:var(--en); letter-spacing:.2em; font-size:12px; color:var(--brand); text-transform:uppercase; }
+  .doc-title { font-family:var(--mincho); font-weight:700; font-size:clamp(30px,5vw,44px); letter-spacing:.02em; margin:.3em 0 .25em; line-height:1.25; }
+  .doc-meta { font-family:var(--body); font-size:13px; color:var(--ink-50); letter-spacing:.05em; }
+  .doc-toc { display:flex; flex-wrap:wrap; gap:8px 16px; margin-top:22px; font-family:var(--head); font-size:12.5px; }
+  .doc-toc a { color:var(--brand-deep); border-bottom:1px solid var(--line-pale); padding-bottom:2px; }
+  .k-table { width:100%; border-collapse:collapse; margin-top:20px; font-family:var(--body); }
+  .k-table th, .k-table td { text-align:left; padding:13px 12px; border-bottom:1px solid var(--line); font-size:14px; letter-spacing:.03em; vertical-align:top; line-height:1.8; }
+  .k-table thead th { font-family:var(--head); font-size:12px; letter-spacing:.12em; color:var(--ink-50); border-bottom:1px solid var(--brand); white-space:nowrap; }
+  .k-table td .accent { font-family:var(--head); color:var(--brand-deep); font-weight:700; }
+  .k-note { font-size:12.5px; color:var(--ink-50); margin-top:12px; letter-spacing:.04em; line-height:1.85; }
+  .canvas-list { list-style:none; padding:0; margin:12px 0 0; counter-reset:c; }
+  .canvas-list li { position:relative; padding:10px 0 10px 42px; border-top:1px solid var(--line); font-family:var(--body); font-size:14.5px; }
+  .canvas-list li:first-child { border-top:none; }
+  .canvas-list li::before { counter-increment:c; content:counter(c); position:absolute; left:0; top:9px; width:26px; height:26px; border-radius:50%; background:var(--brand-pale); color:var(--brand-deep); font-family:var(--en); font-weight:600; font-size:13px; display:flex; align-items:center; justify-content:center; }
+  .canvas-list b { font-family:var(--head); }
+  .flywheel { list-style:none; padding:0; margin:16px 0 0; }
+  .flywheel li { position:relative; padding:0 0 22px 30px; font-family:var(--body); font-size:14.5px; line-height:1.8; }
+  .flywheel li::before { content:""; position:absolute; left:5px; top:6px; width:9px; height:9px; border-radius:50%; background:var(--brand); }
+  .flywheel li::after { content:""; position:absolute; left:9px; top:15px; bottom:0; width:1px; background:var(--line); }
+  .flywheel li:last-child { padding-bottom:0; }
+  .flywheel li:last-child::after { display:none; }
+  .flywheel .loop { color:var(--brand-deep); font-family:var(--head); font-size:12.5px; letter-spacing:.06em; }
+  .backlink { font-family:var(--head); font-size:12.5px; }
+</style>
+</head>
+<body>
+
+<!-- ===== 固定ヘッダー ===== -->
+<header class="brand-row">
+  <div class="shell">
+    <a class="brand-logo" href="index.html"><img src="../event-30s-v01-260720/images/poolo_logo.png" alt="POOLO あたらしい旅の学校"></a>
+    <nav class="header-nav">
+      <a class="header-link" href="index.html">募集サイトを見る<span class="arrow" aria-hidden="true">↗</span></a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <div class="shell">
+
+    <!-- ===== ドキュメントヘッダー ===== -->
+    <div class="doc-head">
+      <div class="doc-eyebrow">POOLO ZEMI ／ 企画書</div>
+      <h1 class="doc-title">問いを、ひらく。</h1>
+      <p class="doc-meta">旅で見つけた問いを、学びの場にひらく3ヶ月・全6回　／　参加費 70,000円・定員15名　／　2026年 版（v1）</p>
+      <nav class="doc-toc">
+        <a href="#concept">01 コンセプト</a>
+        <a href="#goals">02 3つの目的</a>
+        <a href="#program">03 全6回</a>
+        <a href="#canvas">04 持ち帰る型</a>
+        <a href="#support">05 集客の仕組み</a>
+        <a href="#money">06 価格・収支</a>
+        <a href="#eco">07 エコシステム</a>
+        <a href="#outline">08 開催概要</a>
+      </nav>
+    </div>
+  </div>
+
+  <!-- ===== 01 コンセプト ===== -->
+  <section class="sec" id="concept" style="border-bottom:none;">
+    <div class="shell sec-inner" style="padding-top:44px;padding-bottom:36px;">
+      <div class="sec-spine"><div class="sec-num">01</div><span class="sec-en">Concept</span></div>
+      <div>
+        <h2 class="sec-title">問いを、ひらく。</h2>
+        <p class="sec-lead">旅で見つけた問いを、誰かが参加したくなる小さな学びの場にする3ヶ月。</p>
+        <div class="intro-body">
+          <p>核にあるのは<strong>「持つ → ひらく」という転換</strong>。問いは自分の中にあるうちは独り言、他人が入ってこられる形にした瞬間に「場」になります。POOLO生・卒業生が、旅の学びを"受け取る側"から"ひらく側"へ一歩進めるための、ゼミを企画するゼミです。</p>
+          <p class="intro-break">教わる旅から、ひらく旅へ。</p>
+          <p>旅は<span class="quoted">源泉</span>に置きます。テーマ（発酵・写真・哲学対話など）は自由。ただし全員の入口条件は「その問いは、旅のどの瞬間に生まれたか」。これにより、旅をテーマに"できる人"だけでなく、旅を"素材に"できる全員が対象になり、集客の間口も最大化します。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 02 3つの目的 ===== -->
+  <section class="sec" id="goals" style="border-bottom:none;">
+    <div class="shell sec-inner" style="padding-top:36px;padding-bottom:36px;">
+      <div class="sec-spine"><div class="sec-num">02</div><span class="sec-en">Goals</span></div>
+      <div>
+        <h2 class="sec-title">3つの目的を、<span class="nb">1本の動線で叶える。</span></h2>
+        <table class="k-table">
+          <thead><tr><th>目的</th><th>この企画での解き方</th></tr></thead>
+          <tbody>
+            <tr><td><b>① 自分でゼミを企画できるように</b></td><td>一度きりの体験でなく、何度でも使える「7つの問い（企画キャンバス）」を渡す。修了時の成果物＝すぐ開催できる企画書。</td></tr>
+            <tr><td><b>② 「旅を仕事にする」の体現</b></td><td>ゼミ開催そのものが、旅（偏愛・経験）を仕事（有料の場）にする最小実践。1万円の場から始められる。</td></tr>
+            <tr><td><b>③ エンゲージメント／関係人口</b></td><td>修了生のゼミに他の卒業生が参加者として集まる循環を仕込む。卒業して終わりでなく、ひらき続け・通い続ける場に。</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 03 全6回 ===== -->
+  <section class="sec" id="program" style="border-bottom:none;">
+    <div class="shell sec-inner" style="padding-top:36px;padding-bottom:36px;">
+      <div class="sec-spine"><div class="sec-num">03</div><span class="sec-en">Program</span></div>
+      <div>
+        <h2 class="sec-title">全6回の設計。</h2>
+        <p class="sec-lead">隔週・各120分。毎回「① 問い → ② 体験・ワーク → ③ 持ち帰る成果物」で、企画書が1ブロックずつ完成していきます。</p>
+        <table class="k-table">
+          <thead><tr><th>回</th><th>テーマ</th><th>ねらい</th><th>持ち帰る成果物</th></tr></thead>
+          <tbody>
+            <tr><td><b>1</b></td><td>問いをひらく</td><td>旅の棚卸しから、自分だけの問いを掘り当てる</td><td>ゼミの種（仮テーマ＋問い）</td></tr>
+            <tr><td><b>2</b></td><td>問いを"学び"にする</td><td>来てほしい実在の一人を決め、Before→Afterを描く</td><td>コンセプトシート＋最初のお客さん</td></tr>
+            <tr><td><b>3</b></td><td>場を設計する</td><td>対話が生まれる場を、章立てと1回の流れで設計</td><td>ゼミ全体設計図＋体験版台本</td></tr>
+            <tr><td><b>4</b></td><td>試作する（山場）</td><td>1コマをミニ開催し、生のフィードバックを浴びる</td><td>改善版1コマ＋見込み客リスト</td></tr>
+            <tr><td><b>5</b></td><td>伝える・値づけする</td><td>旅の原体験から書く告知＋1〜3万円の値づけ</td><td>告知文ドラフト＋価格プラン</td></tr>
+            <tr><td><b>6</b></td><td>ひらく（開業式）</td><td>お披露目・相互申込・開催日確定まで</td><td>完成企画書＋初期申込＋開催日</td></tr>
+          </tbody>
+        </table>
+        <p class="k-note">＊修了の証は第6回では渡さず、<b>自分のゼミを実際に初開催した日</b>に発行する（「いつかやる」を「やった」まで運ぶ仕掛け）。各回120分の共通フォーマット（チェックイン→実践シェア→ミニレクチャー→メインワーク→相互FB→チェックアウト）自体が、受講生の"1コマの型"になる。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 04 持ち帰る型 ===== -->
+  <section class="sec" id="canvas" style="border-bottom:none;">
+    <div class="shell sec-inner" style="padding-top:36px;padding-bottom:36px;">
+      <div class="sec-spine"><div class="sec-num">04</div><span class="sec-en">Canvas</span></div>
+      <div>
+        <h2 class="sec-title">持ち帰るのは、<span class="nb">再現できる「型」。</span></h2>
+        <p class="sec-lead">「自分たちで企画できるようになる」を担保するのは、講義内容より"持ち帰れる型"。全6回はこの1枚を埋める旅。</p>
+        <ol class="canvas-list">
+          <li><b>なぜ、私が？</b> ── 偏愛・問い（旅のどの瞬間で生まれたか）</li>
+          <li><b>誰の、どんな変化のため？</b> ── 参加者像と Before→After</li>
+          <li><b>一言でいうと？</b> ── コンセプト（タイトル1行）</li>
+          <li><b>どんな体験の場？</b> ── 章立て・1回の流れ・対話の設計</li>
+          <li><b>いくらで、何回？</b> ── 価格と規模の根拠</li>
+          <li><b>どう伝える？</b> ── 旅の原体験から書く告知・集客動線</li>
+          <li><b>いつ、ひらく？</b> ── 初回開催日</li>
+        </ol>
+        <p class="k-note">＊この型に対応した「ゼミ企画書 雛形」と「告知サイト雛形」を別途用意。受講生は修了後、2本目・3本目を自分でひらいていける。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 05 集客の仕組み ===== -->
+  <section class="sec sec-questions" id="support" style="border-bottom:none;">
+    <div class="shell sec-inner" style="padding-top:36px;padding-bottom:36px;">
+      <div class="sec-spine"><div class="sec-num ja small">集客</div><span class="sec-en">Support</span></div>
+      <div>
+        <h2 class="sec-title">集客は、仕組みで支える。</h2>
+        <p class="sec-lead">主宰者がゼロから探さず、旅好きが既にいる場所に、旅の源泉で語りかける。</p>
+        <ul class="canvas-list" style="counter-reset:c;">
+          <li><b>一番弟子制度</b> ── 同期ペアが互いの第1号参加者。最低1席を確定。</li>
+          <li><b>POOLO内の告知の棚</b> ── 告知チャンネル＋告知サイト雛形で、母集団に直接届ける。</li>
+          <li><b>試作の開放</b> ── 第4回を卒業生に開放し、本開催前に先行客の手応えを得る。</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 06 価格・収支 ===== -->
+  <section class="sec" id="money" style="border-bottom:none;">
+    <div class="shell sec-inner" style="padding-top:36px;padding-bottom:36px;">
+      <div class="sec-spine"><div class="sec-num">06</div><span class="sec-en">Economics</span></div>
+      <div>
+        <h2 class="sec-title">受講料は"開業資金"、<span class="nb">狙いは二次収益。</span></h2>
+        <p class="sec-lead">7万円は、最初のゼミ1本でほぼ回収できる（受講生にとっての投資回収）。</p>
+        <table class="k-table">
+          <thead><tr><th>受講生のゼミ（例）</th><th>売上</th><th>企画者取り分(70%)</th><th>7万円に対して</th></tr></thead>
+          <tbody>
+            <tr><td>1万円 × 10人（最小）</td><td>10万円</td><td class="accent">7.0万円</td><td>ちょうど回収</td></tr>
+            <tr><td>2万円 × 10人（標準）</td><td>20万円</td><td class="accent">14.0万円</td><td>2倍</td></tr>
+            <tr><td>3万円 × 8人</td><td>24万円</td><td class="accent">16.8万円</td><td>2.4倍</td></tr>
+          </tbody>
+        </table>
+        <table class="k-table" style="margin-top:28px;">
+          <thead><tr><th>本体の収支（最小催行）</th><th>金額</th></tr></thead>
+          <tbody>
+            <tr><td>受講料 70,000円 × 15人</td><td class="accent">1,050,000円</td></tr>
+            <tr><td>主要コスト（講師設計30／運営伴走15／試作回運営10）</td><td>約 600,000円</td></tr>
+            <tr><td>本体利益</td><td class="accent">約 450,000円</td></tr>
+            <tr><td>二次収益：修了生ゼミ 年10本 × 3万円 × 10人 × POOLO配分30%</td><td class="accent">年 約 900,000円</td></tr>
+          </tbody>
+        </table>
+        <p class="k-note">＊配分70/30・収支の前提は既存の「POOLOゼミ収支モデル」（Googleスプレッドシート）と整合。このゼミは"講座売上"でなく<b>"街道のインフラ投資"</b>として捉える。数字は開講条件により調整。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 07 エコシステム ===== -->
+  <section class="sec" id="eco" style="border-bottom:none;">
+    <div class="shell sec-inner" style="padding-top:36px;padding-bottom:36px;">
+      <div class="sec-spine"><div class="sec-num">07</div><span class="sec-en">Ecosystem</span></div>
+      <div>
+        <h2 class="sec-title">関係人口が、<span class="nb">回り続ける。</span></h2>
+        <p class="sec-lead">単発の学びでなく、卒業生が「ひらく→集まる→また参加する」で循環する設計。</p>
+        <ul class="flywheel">
+          <li>卒業生が「問いを、ひらく。」を受講する</li>
+          <li>自分の1〜3万円ゼミをひらく</li>
+          <li>他の卒業生が参加者として集まる<span class="loop">　← 関係人口が増える</span></li>
+          <li>参加した人が「私もやりたい」と受講側へ<span class="loop">　← エンゲージ再燃</span></li>
+          <li>（最初に戻る）</li>
+        </ul>
+        <p class="k-note">＊15名中10名が開催すれば、年間のべ約100席の学びの場が卒業生コミュニティ内に生まれる。修了生ゼミを一覧化する季刊カタログ、参加スタンプ、次期ゲスト登壇（受ける→ひらく→教えるの三段変化）で回遊を可視化する。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 08 開催概要 ===== -->
+  <section class="summary" id="outline" style="border-bottom:none;">
+    <div class="shell">
+      <dl class="summary-grid">
+        <div class="summary-cell"><dt class="summary-label"><span class="en">Term</span><span class="ja">期間</span></dt><dd class="summary-value">3ヶ月・<span class="nb">全6回（隔週・各120分）</span></dd></div>
+        <div class="summary-cell"><dt class="summary-label"><span class="en">Format</span><span class="ja">形式</span></dt><dd class="summary-value">Zoom（オンライン）</dd></div>
+        <div class="summary-cell"><dt class="summary-label"><span class="en">Seats</span><span class="ja">定員</span></dt><dd class="summary-value">15名（最小催行15名）</dd></div>
+        <div class="summary-cell"><dt class="summary-label"><span class="en">Fee</span><span class="ja">参加費</span></dt><dd class="summary-value">70,000円</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="sec" style="border-bottom:none;">
+    <div class="shell sec-inner" style="padding-top:20px;padding-bottom:44px;">
+      <div class="sec-spine"><div class="sec-num ja small">未確定</div><span class="sec-en">TBD</span></div>
+      <div>
+        <div class="intro-body">
+          <p>次の項目は開講に向けて確定が必要です：<strong>開講時期・各回の曜日/時間・主宰者（メインファシリテーター）・申込フォーム・修了生ゼミの告知棚の運用ルール・POOLO配分の正式値</strong>。</p>
+        </div>
+        <p class="backlink" style="margin-top:22px;"><a href="index.html" style="color:var(--brand-deep);border-bottom:1px solid var(--line-pale);">→ 募集サイト（LP）を見る</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== フッター ===== -->
+  <footer class="footer">
+    <div class="shell footer-inner" style="padding-top:40px;">
+      <div class="footer-top">
+        <span class="mon" aria-hidden="true">
+          <svg viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-linecap="round">
+            <circle cx="60" cy="60" r="57" stroke-width="1.5"/><circle cx="60" cy="60" r="51.5" stroke-width="0.75"/>
+            <circle cx="60" cy="42.5" r="9.5" stroke-width="1.5"/><line x1="30" y1="60.5" x2="46.5" y2="60.5" stroke-width="1.1"/>
+            <line x1="73.5" y1="60.5" x2="90" y2="60.5" stroke-width="1.1"/>
+          </svg>
+        </span>
+        <div class="footer-marks">
+          <a href="https://tabippo.net/poolo/" target="_blank" rel="noopener"><img src="../event-30s-v01-260720/images/poolo_logo03.png" alt="POOLO あたらしい旅の学校"></a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-text">企画書「問いを、ひらく。」／ POOLO ゼミ ／ 株式会社TABIPPO</p>
+        <p class="footer-copy">© POOLO. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+</main>
+</body>
+</html>
