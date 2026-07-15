@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- ============================================================
+     POOLO ゼミ 告知サイト 雛形（テンプレート）
+     「問いを、ひらく。」修了生が、自分のゼミを告知するための1枚。
+
+     ▼ 使い方（修了生向け）
+     1. このフォルダごとコピーして、自分のゼミ名のフォルダにリネーム
+        （例: zemi-tabino-daidokoro-v01-260901）
+     2. 【　】で囲まれた所と、<!-- 差し替え --> のコメントがある所を
+        自分のゼミの言葉に置き換える
+     3. images/ に自分の写真を入れ、img の src を差し替える
+        （写真がまだ無ければ、このサンプルのままでもOK）
+     4. CSS・クラス名は触らない（見た目は poolo-ds が管理）
+
+     ★このテンプレの肝：01セクションの本文を必ず
+       「旅のどの瞬間から、この問いが生まれたか」の3行から始めること。
+       それが一番の集客力になります。
+     ============================================================ -->
+
+<title>旅先の台所ゼミ｜旅先の家庭料理を、暮らしごと持ち帰る全4回</title>
+<meta name="description" content="タイの市場の裏路地で食べた、名前も知らない家庭料理。あの味を暮らしに持ち帰る全4回。POOLO修了生がひらく、旅と食のゼミ。">
+
+<!-- ===== Open Graph（シェアされた時の見え方・差し替え） ===== -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://michinorionda.github.io/poolo-life/zemi-template-v01-260715/">
+<meta property="og:title" content="旅先の台所ゼミ｜旅先の家庭料理を、暮らしごと持ち帰る全4回">
+<meta property="og:description" content="旅先で出会った一皿を、暮らしに持ち帰る。POOLO修了生がひらく、旅と食のゼミ。">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:site_name" content="POOLO LIFE">
+<meta name="twitter:card" content="summary_large_image">
+
+<!-- ===== 検索避け（募集を限定公開にしたい時は下の行を有効化） ===== -->
+<!-- <meta name="robots" content="noindex,nofollow"> -->
+
+<!-- ===== デザインシステム（順序厳守：tokens が先。フォントは tokens 側で読込む） ===== -->
+<link rel="stylesheet" href="../poolo-ds/tokens.css">
+<link rel="stylesheet" href="../poolo-ds/components.css">
+</head>
+<body>
+
+<!-- ===== 追従CTA（.brand-row より前に置く約束・要JS：末尾） ===== -->
+<div class="float-apply" id="floatApply">
+  <div class="shell fa-inner">
+    <div class="fa-texts">
+      <span class="fa-main">旅先の台所ゼミ ・ 全4回</span><!-- 差し替え：ゼミ名 -->
+      <span class="fa-sub">9/10 開講 ・ オンライン ・ 20,000円</span><!-- 差し替え：日程/形式/価格 -->
+    </div>
+    <a class="fa-btn" href="#apply">申し込む</a>
+  </div>
+</div>
+
+<!-- ===== 固定ヘッダー ===== -->
+<header class="brand-row">
+  <div class="shell">
+    <a class="brand-logo" href="#top"><img src="../event-30s-v01-260720/images/poolo_logo.png" alt="POOLO あたらしい旅の学校"></a>
+    <nav class="header-nav">
+      <a class="header-link" href="https://tabippo.net/poolo/" target="_blank" rel="noopener">POOLO とは<span class="arrow" aria-hidden="true">↗</span></a>
+      <a class="header-cta" href="#apply">申し込む</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ===== HERO（編集型サムネ：ゼミの"顔"） ===== -->
+  <section class="hero">
+    <div class="hero-grid">
+      <div class="hero-copy" style="padding-left:clamp(22px,5.4vw,48px);padding-right:clamp(22px,4vw,48px);">
+        <div class="hero-eyebrow">
+          <span class="hero-eyebrow-rule" aria-hidden="true"></span>
+          <span class="hero-eyebrow-ja">旅と食・暮らし</span><!-- 差し替え：ジャンルの一言 -->
+          <span class="hero-eyebrow-en">TASTE OF THE ROAD</span><!-- 差し替え：英字ラベル -->
+        </div>
+        <h1 class="hero-title">
+          <span class="t-sm">旅先の家庭料理を、</span><!-- 差し替え：タイトル上段 -->
+          <span class="t-lg"><span class="nb"><span class="em">暮らしごと</span></span><span class="nb">持ち帰る。</span></span><!-- 差し替え：タイトル下段（強調語は .em） -->
+        </h1>
+        <p class="hero-lead">名所のレストランではなく、路地裏の食卓から。<span class="nb">その土地の"日常の味"を、</span>自分の台所に持ち帰る全4回です。</p><!-- 差し替え：一言リード -->
+        <div class="hero-foot">
+          <span class="mon" aria-hidden="true">
+            <svg viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-linecap="round">
+              <circle cx="60" cy="60" r="57" stroke-width="1.5"/>
+              <circle cx="60" cy="60" r="51.5" stroke-width="0.75"/>
+              <circle cx="60" cy="42.5" r="9.5" stroke-width="1.5"/>
+              <line x1="30" y1="60.5" x2="46.5" y2="60.5" stroke-width="1.1"/>
+              <line x1="73.5" y1="60.5" x2="90" y2="60.5" stroke-width="1.1"/>
+              <path d="M35 78 Q60 66 85 78" stroke-width="1.5"/>
+            </svg>
+          </span>
+          <div class="hero-foot-texts">
+            <span class="hero-foot-ja">旅の記憶を、暮らしの味に。</span><!-- 差し替え -->
+            <span class="hero-foot-en">Kitchen of the Road</span>
+          </div>
+        </div>
+      </div>
+      <figure class="hero-photo">
+        <!-- 差し替え：自分の写真に。images/ に置いて src を変更 -->
+        <img src="../event-30s-v01-260720/images/03_kominka_dialogue.jpg" alt="旅先の台所を囲む場面">
+        <figcaption class="hero-chip">
+          <span class="en nb">Kitchen of the Road</span>
+          <span class="ja nb">路地裏の食卓の記憶をたどる</span>
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ===== ブルー日付帯 ===== -->
+  <div class="hero-band">
+    <div class="shell hero-band-inner">
+      <span class="hero-band-num">9.10<span class="dow nb">水</span></span><!-- 差し替え：初回日付 -->
+      <span class="hero-band-time nb">全4回・隔週</span><!-- 差し替え：回数/頻度 -->
+      <span class="hero-band-meta">
+        <span class="en nb">Zoom Online</span>
+        <span class="nb">20,000円・先着8名</span><!-- 差し替え：価格・定員 -->
+      </span>
+    </div>
+  </div>
+
+  <!-- ===== 開催概要（4カラム） ===== -->
+  <section class="summary">
+    <div class="shell">
+      <dl class="summary-grid">
+        <div class="summary-cell">
+          <dt class="summary-label"><span class="en">Date</span><span class="ja">日程</span></dt>
+          <dd class="summary-value">2026年9月10日〜<span class="nb">隔週・全4回</span></dd><!-- 差し替え -->
+        </div>
+        <div class="summary-cell">
+          <dt class="summary-label"><span class="en">Format</span><span class="ja">形式</span></dt>
+          <dd class="summary-value">Zoom（オンライン）</dd><!-- 差し替え -->
+        </div>
+        <div class="summary-cell">
+          <dt class="summary-label"><span class="en">Seats</span><span class="ja">定員</span></dt>
+          <dd class="summary-value">8名（先着順）</dd><!-- 差し替え -->
+        </div>
+        <div class="summary-cell">
+          <dt class="summary-label"><span class="en">Fee</span><span class="ja">参加費</span></dt>
+          <dd class="summary-value">20,000円（全4回）</dd><!-- 差し替え -->
+        </div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- ===== お知らせバンド（このゼミの位置づけ） ===== -->
+  <section class="notice-bar" aria-label="お知らせ">
+    <div class="shell">
+      <a href="https://tabippo.net/poolo/" target="_blank" rel="noopener">
+        <span class="notice-tag">ゼミについて</span>
+        <span class="notice-text">POOLO修了生が、旅の学びからひらく小さなゼミです。</span>
+        <span class="notice-link">POOLOとは<span class="arrow">↗</span></span>
+      </a>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       01 導入 ★このゼミの肝
+       必ず「旅のどの瞬間から、この問いが生まれたか」の3行から。
+       ============================================================ -->
+  <section class="sec" style="border-bottom:none;">
+    <div class="shell sec-inner" style="padding-top:40px;padding-bottom:40px;">
+      <div class="sec-spine">
+        <div class="sec-num">01</div>
+        <span class="sec-en">Introduction</span>
+      </div>
+      <div>
+        <h2 class="sec-title">旅先で出会った一皿を、<br class="nb">自分の暮らしに<span class="nb">持ち帰る。</span></h2><!-- 差し替え -->
+        <div class="intro-body">
+          <!-- ▼▼ ここが最重要：旅の原体験を3行で ▼▼ -->
+          <p>タイの市場の、裏路地。常連にまじって食べた、名前も知らない家庭料理があった。</p>
+          <p class="intro-break">あの味が、忘れられない。</p>
+          <p>「これ、家で再現できないのかな」。旅から戻るたび、そう思っていました。名所のレストランではなく、<span class="quoted">誰かの台所</span>にこそ、その土地の暮らしが宿っている気がして。</p>
+          <!-- ▲▲ ここまでが旅の源泉。ここから下は、場の説明 ▲▲ -->
+          <p>このゼミは、あなたが旅先で出会った「持ち帰りたい一皿」を起点に、その味を<strong>暮らしの中で再現できるところまで</strong>いっしょに辿る全4回です。レシピを教わる料理教室ではありません。旅の記憶を手がかりに、自分の台所と土地の食卓をつなぎ直す時間です。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 写真ブレイク ===== -->
+  <div class="photo-break photo-break--right" style="border-bottom:none;padding-top:8px;">
+    <figure class="pb-frame">
+      <!-- 差し替え：写真 -->
+      <img src="../event-30s-v01-260720/images/11_laughing_group.jpg" alt="旅先の食卓を囲む一場面">
+    </figure>
+    <figcaption class="shell pb-caption">
+      <span class="pb-caption-en">Scene</span>
+      <span class="pb-caption-rule" aria-hidden="true"></span>
+      <span class="pb-caption-text">その土地の暮らしは、台所から見える</span>
+    </figcaption>
+  </div>
+
+  <!-- ===== 02 このゼミで扱うこと ===== -->
+  <section class="sec" style="border-bottom:none;">
+    <div class="shell sec-inner" style="padding-top:40px;padding-bottom:40px;">
+      <div class="sec-spine">
+        <div class="sec-num">02</div>
+        <span class="sec-en">Theme</span>
+      </div>
+      <div>
+        <h2 class="sec-title">レシピではなく、<span class="nb">記憶からはじめる。</span></h2><!-- 差し替え -->
+        <p class="sec-lead">上手につくることより、その味とつながり直すこと。</p><!-- 差し替え -->
+        <div class="intro-body">
+          <p>調味料の分量や手順は、調べればいくらでも出てきます。このゼミで扱うのは、その手前。<strong>あなたがその一皿と出会った情景</strong>を思い出し、味の記憶をたどり、いまの暮らしの道具で再現できる形に落とし込んでいきます。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 03 全4回の流れ ===== -->
+  <section class="sec" style="border-bottom:none;">
+    <div class="shell sec-inner" style="padding-top:40px;padding-bottom:40px;">
+      <div class="sec-spine">
+        <div class="sec-num">03</div>
+        <span class="sec-en">Program</span>
+      </div>
+      <div>
+        <h2 class="sec-title">全4回の、<span class="nb">流れ。</span></h2>
+        <p class="sec-lead">思い出す → たどる → 再現する → 持ち帰る。旅の一皿を、暮らしの味に。</p>
+        <ul class="flow-list">
+          <li class="flow-item">
+            <span class="flow-time">第 1 回</span>
+            <div>
+              <span class="flow-title">旅の一皿を思い出す</span>
+              <p class="flow-desc">「持ち帰りたい一皿」を、出会った情景ごと言葉にする。参加者どうしで旅の食卓を語り合います。</p>
+            </div>
+          </li>
+          <li class="flow-item">
+            <span class="flow-time">第 2 回</span>
+            <div>
+              <span class="flow-title">その土地の"だし"をたどる</span>
+              <p class="flow-desc">味の土台を分解。何がその土地らしさを作っているのかを、対話しながら探ります。</p>
+            </div>
+          </li>
+          <li class="flow-item">
+            <span class="flow-time">第 3 回</span>
+            <div>
+              <span class="flow-title">家の道具で再現する</span>
+              <p class="flow-desc">特別な器具なしで、いまの台所で作れる形に。各自が試作し、持ち寄ります。</p>
+            </div>
+          </li>
+          <li class="flow-item">
+            <span class="flow-time">第 4 回</span>
+            <div>
+              <span class="flow-title">持ち帰りレシピをつくる</span>
+              <p class="flow-desc">自分の言葉でレシピと物語を1枚にまとめ、暮らしに根づく形にして終わります。</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== いっしょに考える問い ===== -->
+  <section class="sec sec-questions" style="border-bottom:none;">
+    <div class="shell sec-inner" style="padding-top:40px;padding-bottom:40px;">
+      <div class="sec-spine">
+        <div class="sec-num ja">問</div>
+        <span class="sec-en">Questions</span>
+      </div>
+      <div>
+        <ol class="q-list">
+          <li class="q-item">
+            <span class="q-no">Q. <span class="kanji">一</span></span>
+            <div>
+              <p class="q-text">あなたが旅先で「これ、持ち帰りたい」と思った一皿は何ですか？</p>
+              <p class="q-helper">料理名がわからなくても大丈夫。どんな場所で、誰と食べたか、の情景から思い出してみてください。</p>
+            </div>
+          </li>
+          <li class="q-item">
+            <span class="q-no">Q. <span class="kanji">二</span></span>
+            <div>
+              <p class="q-text">その味は、あなたのどんな記憶とセットで残っていますか？</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 主宰者プロフィール ===== -->
+  <section class="about" style="border-bottom:none;">
+    <div class="shell about-inner" style="padding-top:36px;padding-bottom:36px;">
+      <div>
+        <span class="about-en">Facilitator</span>
+        <h2 class="about-title">みなと はるか<span class="nb">（POOLO 9期）</span></h2><!-- 差し替え：主宰者名・期 -->
+        <div class="about-text">
+          <!-- 差し替え：あなたのプロフィール。なぜこのゼミをひらくのか、旅の背景を添えて -->
+          <p>会社員をしながら、20カ国以上の"路地裏の食卓"を訪ね歩いてきました。旅先の家庭料理を記録するうちに、味には土地の暮らしそのものが宿っていると感じるように。POOLOでの学びをきっかけに、その記憶を分かち合う小さな場をひらきます。</p>
+        </div>
+      </div>
+      <div class="about-figs">
+        <figure class="about-fig">
+          <!-- 差し替え：主宰者の写真 or 活動写真 -->
+          <img src="../event-30s-v01-260720/images/12_poolo_keyvisual.jpg" alt="主宰者の活動風景">
+          <figcaption><span class="en">Host</span><span>旅と食の記録者</span></figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FAQ ===== -->
+  <section class="sec" style="border-bottom:none;">
+    <div class="shell sec-inner" style="padding-top:40px;padding-bottom:40px;">
+      <div class="sec-spine">
+        <div class="sec-num ja small">よくある質問</div>
+        <span class="sec-en">FAQ</span>
+      </div>
+      <div>
+        <ul class="faq-list">
+          <li class="faq-item">
+            <p class="faq-q"><span class="m">Q.</span><span>料理が得意ではなくても参加できますか？</span></p>
+            <div class="faq-a"><span class="m">A.</span><p>もちろんです。上手につくることが目的ではありません。旅の味の記憶がひとつあれば、それで十分です。</p></div>
+          </li>
+          <li class="faq-item">
+            <p class="faq-q"><span class="m">Q.</span><span>途中の回に参加できない日があっても大丈夫ですか？</span></p>
+            <div class="faq-a"><span class="m">A.</span><p>録画を共有します。ご自身のペースで追いつけるように進めます。</p></div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 最終CTA（申込導線） ===== -->
+  <section class="cta" id="apply">
+    <div class="shell cta-inner" style="padding-top:48px;padding-bottom:48px;">
+      <div>
+        <span class="cta-en">Application</span>
+        <h2 class="cta-title">先着8名・全4回 20,000円。<br>旅の一皿を、<span class="nb">持ち帰りに来ませんか。</span></h2><!-- 差し替え -->
+      </div>
+      <div class="cta-action">
+        <!-- 差し替え：申込フォームのURL（Google フォーム / Peatix / LINE 等） -->
+        <a href="https://forms.gle/xxxxxxxx" class="cta-btn" target="_blank" rel="noopener">このゼミに申し込む</a>
+        <p class="cta-note">＊お申込みフォームへ遷移します</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== フッター ===== -->
+  <footer class="footer">
+    <div class="shell footer-inner" style="padding-top:40px;">
+      <div class="footer-top">
+        <span class="mon" aria-hidden="true">
+          <svg viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-linecap="round">
+            <circle cx="60" cy="60" r="57" stroke-width="1.5"/>
+            <circle cx="60" cy="60" r="51.5" stroke-width="0.75"/>
+            <circle cx="60" cy="42.5" r="9.5" stroke-width="1.5"/>
+            <line x1="30" y1="60.5" x2="46.5" y2="60.5" stroke-width="1.1"/>
+            <line x1="73.5" y1="60.5" x2="90" y2="60.5" stroke-width="1.1"/>
+          </svg>
+        </span>
+        <div class="footer-marks">
+          <a href="https://tabippo.net/poolo/" target="_blank" rel="noopener"><img src="../event-30s-v01-260720/images/poolo_logo03.png" alt="POOLO あたらしい旅の学校"></a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-text">POOLO 修了生がひらくゼミ ／「問いを、ひらく。」</p>
+        <p class="footer-copy">© 旅先の台所ゼミ</p><!-- 差し替え -->
+      </div>
+    </div>
+  </footer>
+
+</main>
+
+<!-- ===== 追従CTAのJS（poolo-ds README のスニペット） ===== -->
+<script>
+(function () {
+  var bar = document.getElementById('floatApply');
+  if (!bar) return;
+  var hero = document.querySelector('.hero');
+  var sentinels = [document.querySelector('.cta'), document.querySelector('.footer')]
+    .filter(function (el) { return el; });
+  var threshold = 0, ticking = false;
+  function computeThreshold() {
+    if (hero) return hero.offsetTop + hero.offsetHeight - window.innerHeight * 0.4;
+    return window.innerHeight * 0.6;
+  }
+  function update() {
+    var nearEnd = sentinels.some(function (el) {
+      var r = el.getBoundingClientRect();
+      return r.top < window.innerHeight && r.bottom > 0;
+    });
+    bar.classList.toggle('is-visible', window.scrollY > threshold && !nearEnd);
+    ticking = false;
+  }
+  window.addEventListener('scroll', function () {
+    if (!ticking) { window.requestAnimationFrame(update); ticking = true; }
+  }, { passive: true });
+  window.addEventListener('resize', function () { threshold = computeThreshold(); update(); });
+  window.addEventListener('load', function () { threshold = computeThreshold(); update(); });
+  threshold = computeThreshold();
+  update();
+})();
+</script>
+
+</body>
+</html>
