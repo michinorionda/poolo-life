@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="ja"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>POOLO 参加者の声ライブラリ 第二弾｜歴代note深掘り編</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@400;700;900&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--brand:#189BBC;--brand-deep:#127E9A;--brand-mid:#8FC6D6;--brand-pale:#DDECF1;
+--ink:#000;--ink-soft:#1E1E1E;--sub:rgba(0,0,0,.62);--hint:rgba(0,0,0,.42);
+--bg:#F9F9F9;--card:#fff;--line:#E4E4E4;--line-pale:#C2DCE5;
+--mincho:'Zen Old Mincho',serif;--head:'Zen Kaku Gothic New',sans-serif;--body:'Noto Sans JP',sans-serif;--en:'Jost',sans-serif;}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--bg);color:var(--ink-soft);font-family:var(--body);line-height:1.85;-webkit-font-smoothing:antialiased;font-feature-settings:"palt"}
+body{font-size:15px}
+a{color:inherit}
+.shell{max-width:1160px;margin:0 auto;padding:0 clamp(20px,5vw,64px)}
+/* gate */
+#gate{position:fixed;inset:0;background:var(--bg);z-index:1000;display:flex;align-items:center;justify-content:center;padding:24px}
+.gate-card{max-width:440px;width:100%;background:var(--card);border:1px solid var(--line);border-top:3px solid var(--brand);padding:48px 36px;text-align:center}
+.gate-tag{font-family:var(--en);font-size:11px;letter-spacing:.28em;color:var(--brand-deep);font-weight:600;text-transform:uppercase;margin-bottom:18px}
+.gate-title{font-family:var(--mincho);font-size:23px;font-weight:700;line-height:1.5;margin-bottom:12px}
+.gate-sub{font-size:13px;color:var(--sub);margin-bottom:28px}
+.gate-input{width:100%;padding:13px 16px;border:1px solid var(--line);font-size:15px;font-family:var(--body);margin-bottom:14px;border-radius:2px}
+.gate-input:focus{outline:none;border-color:var(--brand)}
+.gate-btn{width:100%;padding:13px;background:var(--brand);color:#fff;border:none;font-size:15px;font-weight:600;font-family:var(--body);cursor:pointer;border-radius:2px}
+.gate-error{color:#b3402e;font-size:12px;margin-top:12px;display:none}
+/* header */
+.top{position:sticky;top:0;z-index:200;background:rgba(249,249,249,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.top-in{display:flex;align-items:center;justify-content:space-between;height:56px}
+.logo{font-family:var(--en);font-weight:600;letter-spacing:.16em;font-size:14px}
+.logo b{color:var(--brand)}
+.top-meta{font-size:11px;color:var(--hint);letter-spacing:.06em}
+/* hero */
+.hero{padding:clamp(48px,8vw,92px) 0 40px;border-bottom:1px solid var(--line)}
+.ey{font-family:var(--en);font-size:11px;letter-spacing:.3em;color:var(--brand-deep);font-weight:600;text-transform:uppercase;margin-bottom:22px}
+.hero h1{font-family:var(--mincho);font-weight:900;font-size:clamp(28px,5vw,50px);line-height:1.28;letter-spacing:.01em;margin-bottom:22px}
+.hero p.lead{font-size:15px;color:var(--sub);max-width:640px;line-height:2}
+.stat-row{display:flex;flex-wrap:wrap;gap:clamp(20px,4vw,52px);margin-top:38px}
+.stat .n{font-family:var(--en);font-size:clamp(34px,5vw,52px);font-weight:600;color:var(--brand);line-height:1}
+.stat .l{font-size:11px;color:var(--sub);letter-spacing:.1em;margin-top:6px}
+/* ki distribution */
+.kibar{display:flex;gap:4px;margin-top:34px;flex-wrap:wrap}
+.kicell{flex:1;min-width:52px;border:1px solid var(--line);border-top:2px solid var(--brand-mid);background:var(--card);padding:10px 4px;text-align:center}
+.kinum{display:block;font-family:var(--en);font-size:20px;font-weight:600;color:var(--brand-deep)}
+.kilab{display:block;font-size:10px;color:var(--hint);letter-spacing:.08em;margin-top:2px}
+/* hero voices */
+.hero-voices{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);margin-top:44px}
+.hero-voice{background:var(--card);padding:28px 26px}
+.hero-voice blockquote{font-family:var(--mincho);font-size:19px;font-weight:700;line-height:1.6;color:var(--ink);margin-bottom:12px}
+.hero-voice cite{font-style:normal;font-size:11px;color:var(--hint);letter-spacing:.06em}
+/* controls */
+.controls{position:sticky;top:56px;z-index:180;background:rgba(249,249,249,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);padding:14px 0}
+.ctl-in{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.search{flex:1;min-width:180px;padding:9px 14px;border:1px solid var(--line);font-family:var(--body);font-size:13px;border-radius:2px}
+.search:focus{outline:none;border-color:var(--brand)}
+.fbtn{font-family:var(--body);font-size:12px;padding:7px 13px;background:var(--card);border:1px solid var(--line);cursor:pointer;border-radius:2px;color:var(--sub);transition:.2s}
+.fbtn span{font-family:var(--en);margin-left:6px;color:var(--brand-deep);font-weight:600}
+.fbtn.on{background:var(--brand);color:#fff;border-color:var(--brand)}
+.fbtn.on span{color:#fff}
+/* sections */
+.sec{padding:52px 0;border-bottom:1px solid var(--line)}
+.sec-head{display:flex;gap:20px;align-items:flex-start;margin-bottom:30px}
+.sec-spine{flex:none;width:44px}
+.sec-cnt{font-family:var(--en);font-size:28px;font-weight:600;color:var(--brand);border-top:2px solid var(--brand);padding-top:6px;display:block}
+.sec-title{font-family:var(--mincho);font-size:clamp(21px,3vw,28px);font-weight:700;line-height:1.4}
+.sec-desc{font-size:13px;color:var(--sub);margin-top:5px}
+.voice-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px}
+.voice{background:var(--card);border:1px solid var(--line);border-top:3px solid var(--brand);padding:22px 24px;display:flex;flex-direction:column}
+.voice-head{display:flex;justify-content:space-between;align-items:baseline;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.voice-name{font-family:var(--head);font-size:13px;font-weight:700;color:var(--ink)}
+.vtags{display:flex;gap:5px;flex-wrap:wrap}
+.vt{font-size:10px;padding:3px 8px;border-radius:10px;letter-spacing:.02em;white-space:nowrap}
+.vt-cat{background:var(--brand-pale);color:var(--brand-deep);font-weight:500}
+.vt-ki{background:rgba(0,0,0,.05);color:var(--hint)}
+.voice-quote{font-family:var(--mincho);font-size:15.5px;line-height:1.9;color:var(--ink);padding:13px 0;border-top:1px dashed var(--line);border-bottom:1px dashed var(--line);margin-bottom:12px;flex:1}
+.voice-foot{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.voice-why{font-size:11.5px;color:var(--sub)}
+.voice-src{font-family:var(--en);font-size:11px;color:var(--brand);text-decoration:none;white-space:nowrap;font-weight:500}
+.voice-src:hover{text-decoration:underline}
+.sec.hide,.voice.hide{display:none}
+.nohit{padding:40px 0;color:var(--hint);text-align:center;font-size:14px;display:none}
+/* footer */
+.foot{padding:52px 0 70px;color:var(--sub);font-size:12.5px;line-height:2}
+.foot .note{background:var(--card);border:1px solid var(--line);border-left:3px solid var(--brand-mid);padding:16px 20px;margin-bottom:24px;color:var(--sub);font-size:12.5px}
+.foot a{color:var(--brand-deep)}
+@media(max-width:640px){.sec-spine{width:34px}.voice-grid{grid-template-columns:1fr}}
+</style></head>
+<body>
+<div id="main">
+<header class="top"><div class="shell top-in">
+<div class="logo"><b>POOLO</b> VOICE LIBRARY <span style="font-family:var(--en);color:var(--brand-deep);font-weight:600">Vol.2</span></div>
+<div class="top-meta">卒業制作＋11期共創期｜1〜11期｜2026.07.15</div>
+</div></header>
+
+<section class="hero"><div class="shell">
+<div class="ey">Marketing Voice Bank Vol.2 ／ deep-dive edition</div>
+<h1>まだ拾いきれていなかった、<br>歴代の「使える声」を、あと104。</h1>
+<p class="lead">第一弾では手薄だった<b>歴代の卒業制作（1〜9期）</b>と、<b>11期の合宿後〜共創期</b>の新しいnoteを追って全文精読。第一弾と重複しない<b>逐語の声</b>だけを、あらためて104件抽出・分類しました。すべて原文ママ＋note原典リンク付き。掲載時は本人許諾と特定回避のうえで使ってください。<br><a href="note-voices-library-260710.html" style="color:var(--brand-deep)">← 第一弾（253声）はこちら</a></p>
+<div class="stat-row">
+<div class="stat"><div class="n">104</div><div class="l">新たに抽出した声</div></div>
+<div class="stat"><div class="n">76</div><div class="l">発信メンバー</div></div>
+<div class="stat"><div class="n">1–11</div><div class="l">対象の期</div></div>
+<div class="stat"><div class="n">249</div><div class="l">今回精読したnote</div></div>
+</div>
+<div class="kibar"><div class="kicell"><span class="kinum">8</span><span class="kilab">1期</span></div><div class="kicell"><span class="kinum">15</span><span class="kilab">2期</span></div><div class="kicell"><span class="kinum">12</span><span class="kilab">3期</span></div><div class="kicell"><span class="kinum">9</span><span class="kilab">5期</span></div><div class="kicell"><span class="kinum">8</span><span class="kilab">6期</span></div><div class="kicell"><span class="kinum">7</span><span class="kilab">7期</span></div><div class="kicell"><span class="kinum">1</span><span class="kilab">8期</span></div><div class="kicell"><span class="kinum">2</span><span class="kilab">9期</span></div><div class="kicell"><span class="kinum">42</span><span class="kilab">11期</span></div></div>
+<div class="hero-voices"><div class="hero-voice"><blockquote>全ては、”人”から。これまでも、これからも、この先も。</blockquote><cite>タム・POOLO 2期</cite></div><div class="hero-voice"><blockquote>今年もPOOLO LIFE11期に参加しているおかげで毎日が濃い。</blockquote><cite>岡田勘一（かにち）・POOLO 11期</cite></div><div class="hero-voice"><blockquote>私はPOOLOでの船旅を通じて、見失っていた灯台を見つけたんだと思う。</blockquote><cite>matcha・POOLO 9期</cite></div><div class="hero-voice"><blockquote>偶然の引き合わせがもたらした、POOLOのパワーは計り知れない。</blockquote><cite>かじゆり・POOLO 1期</cite></div><div class="hero-voice"><blockquote>きっとその先、想像していなかった自分に出会えるよ。</blockquote><cite>葵月みず・POOLO 11期</cite></div><div class="hero-voice"><blockquote>新しいコミュニティや環境に飛び込むことは、旅に似ている。</blockquote><cite>jiezhu・POOLO 11期</cite></div></div>
+</div></section>
+
+<div class="controls"><div class="shell ctl-in">
+<input id="search" class="search" type="text" placeholder="キーワード・名前・期で絞り込み（例: 居場所 / 合宿 / 3期）">
+<button class="fbtn on" data-f="all">すべて<span>104</span></button>
+<button class="fbtn" data-f="hero">ヒーローコピー<span>11</span></button><button class="fbtn" data-f="before_after">変化のビフォーアフター<span>24</span></button><button class="fbtn" data-f="value">コミュニティ価値の言語化<span>46</span></button><button class="fbtn" data-f="decision">入会の決め手・背中押し<span>7</span></button><button class="fbtn" data-f="cost">参加費の価値回収<span>1</span></button><button class="fbtn" data-f="sns">SNS短尺フレーズ<span>15</span></button>
+</div></div>
+
+<main class="shell">
+<section class="sec" data-section="hero">
+<div class="sec-head"><div class="sec-spine"><span class="sec-cnt">11</span></div>
+<div><h2 class="sec-title">ヒーローコピー</h2><p class="sec-desc">一語で立つ、そのまま見出しになる声</p></div></div>
+<div class="voice-grid"><article class="voice" data-cat="hero" data-text="偶然の引き合わせがもたらした、POOLOのパワーは計り知れない。 かじゆり lily_tabi 1期">
+<div class="voice-head"><div class="voice-name">かじゆり</div>
+<div class="vtags"><span class="vt vt-cat vt-hero">ヒーローコピー</span><span class="vt vt-ki">1期</span></div></div>
+<blockquote class="voice-quote">偶然の引き合わせがもたらした、POOLOのパワーは計り知れない。</blockquote>
+<div class="voice-foot"><span class="voice-why">出会いの力</span><a class="voice-src" href="https://note.com/lily_tabi/n/n892325d18f03" target="_blank" rel="noopener">note ↗</a></div>
+</article>
+<article class="voice" data-cat="hero" data-text="どんなに変な経歴になろうと自分の選んだ道！満足のいくまであきらめないで行こうと思います！！ Chai berry_chai_tea 1期">
+<div class="voice-head"><div class="voice-name">Chai</div>
+<div class="vtags"><span class="vt vt-cat vt-hero">ヒーローコピー</span><span class="vt vt-ki">1期</span></div></div>
+<blockquote class="voice-quote">どんなに変な経歴になろうと自分の選んだ道！満足のいくまであきらめないで行こうと思います！！</blockquote>
+<div class="voice-foot"><span class="voice-why">自分の選んだ道</span><a class="voice-src" href="https://note.com/berry_chai_tea/n/nc361dcdf310e" target="_blank" rel="noopener">note ↗</a></div>
+</article>
+<article class="voice" data-cat="hero" data-text="自分は他の誰のものでもない、自分の人生を生きるんだ。 みき m_i_ce 1期">
+<div class="voice-head"><div class="voice-name">みき</div>
+<div class="vtags"><span class="vt vt-cat vt-hero">ヒーローコピー</span><span class="vt vt-ki">1期</span></div></div>
+<blockquote class="voice-quote">自分は他の誰のものでもない、自分の人生を生きるんだ。</blockquote>
+<div class="voice-foot"><span class="voice-why">自分の人生を生きる</span><a class="voice-src" href="https://note.com/m_i_ce/n/n005eaaeb93a0" target="_blank" rel="noopener">note ↗</a></div>
+</article>
+<article class="voice" data-cat="hero" data-text="全ては、”人”から。これまでも、これからも、この先も。 タム tamukazu 2期">
+<div class="voice-head"><div class="voice-name">タム</div>
+<div class="vtags"><span class="vt vt-cat vt-hero">ヒーローコピー</span><span class="vt vt-ki">2期</span></div></div>
+<blockquote class="voice-quote">全ては、”人”から。これまでも、これからも、この先も。</blockquote>
+<div class="voice-foot"><span class="voice-why">全ては人から</span><a class="voice-src" href="https://note.com/tamukazu/n/ne9e4f47293fb" target="_blank" rel="noopener">note ↗</a></div>
+</article>
+<article class="voice" data-cat="hero" data-text="みんなと過ごした9ヶ月間は、どの瞬間も煌めきで溢れていた。 はる | デンマーク🇩🇰ワーホリ komarigao 3期">
+<div class="voice-head"><div class="voice-name">はる | デンマーク🇩🇰ワーホリ</div>
+<div class="vtags"><span class="vt vt-cat vt-hero">ヒーローコピー</span><span class="vt vt-ki">3期</span></div></div>
+<blockquote class="voice-quote">みんなと過ごした9ヶ月間は、どの瞬間も煌めきで溢れていた。</blockquote>
+<div class="voice-foot"><span class="voice-why">煌めきの日々</span><a class="voice-src" href="https://note.com/komarigao/n/n63b3f0685912" target="_blank" rel="noopener">note ↗</a></div>
+</article>
+<article class="voice" data-cat="hero" data-text="今の自分も、未来の自分も、そして過去の自分もまるごと愛したい。 はーちゃん ha_chan_ruka 5期">
+<div class="voice-head"><div class="voice-name">はーちゃん</div>
+<div class="vtags"><span class="vt vt-cat vt-hero">ヒーローコピー</span><span class="vt vt-ki">5期</span></div></div>
+<blockquote class="voice-quote">今の自分も、未来の自分も、そして過去の自分もまるごと愛したい。</blockquote>
+<div class="voice-foot"><span class="voice-why">自分をまるごと愛す</span><a class="voice-src" href="https://note.com/ha_chan_ruka/n/n33b745943fc7" target="_blank" rel="noopener">note ↗</a></div>
+</article>
+<article class="voice" data-cat="hero" data-text="私はPOOLOでの船旅を通じて、見失っていた灯台を見つけたんだと思う。 まっちゃ_POOLO9期生 matcha_journey 9期">
+<div class="voice-head"><div class="voice-name">まっちゃ_POOLO9期生</div>
+<div class="vtags"><span class="vt vt-cat vt-hero">ヒーローコピー</span><span class="vt vt-ki">9期</span></div></div>
+<blockquote class="voice-quote">私はPOOLOでの船旅を通じて、見失っていた灯台を見つけたんだと思う。</blockquote>
+<div class="voice-foot"><span class="voice-why">見失った灯台を見つけた</span><a class="voice-src" href="https://note.com/matcha_journey/n/nb4b6150f5dce" target="_blank" rel="noopener">note ↗</a></div>
+</article>
+<article class="voice" data-cat="hero" data-text="きっとその先、想像していなかった自分に出会えるよ。 葵月みず｜Aotsuki Mizu moon_3zu 11期">
+<div class="voice-head"><div class="voice-name">葵月みず｜Aotsuki Mizu</div>
+<div class="vtags"><span class="vt vt-cat vt-hero">ヒーローコピー</span><span class="vt vt-ki">11期</span></div></div>
+<blockquote class="voice-quote">きっとその先、想像していなかった自分に出会えるよ。</blockquote>
+<div class="voice-foot"><span class="voice-why">想像を超える自分に出会う</span><a class="voice-src" href="https://note.com/moon_3zu/n/nc2f2164e4c20" target="_blank" rel="noopener">note ↗</a></div>
+</article>
+<article class="voice" data-cat="hero" data-text="新しいコミュニティや環境に飛び込むことは、旅に似ている。 jiezhu jiezhu1991 11期">
+<div class="voice-head"><div class="voice-name">jiezhu</div>
+<div class="vtags"><span class="vt vt-cat vt-hero">ヒーローコピー</span><span class="vt vt-ki">11期</span></div></div>
+<blockquote class="voice-quote">新しいコミュニティや環境に飛び込むことは、旅に似ている。</blockquote>
+<div class="voice-foot"><span class="voice-why">POOLO=旅というメタファー</span><a class="voice-src" href="https://note.com/jiezhu1991/n/n56ec315e889d" target="_blank" rel="noopener">note ↗</a></div>
+</article>
+<article class="voice" data-cat="hero" data-text="今年もPOOLO LIFE11期に参加しているおかげで毎日が濃い。 岡田勘一（かにち）| 旅する編集者 kanichi0203 11期">
+<div class="voice-head"><div class="voice-name">岡田勘一（かにち）| 旅する編集者</div>
+<div class="vtags"><span class="vt vt-cat vt-hero">ヒーローコピー</span><span class="vt vt-ki">11期</span></div></div>
+<blockquote class="voice-quote">今年もPOOLO LIFE11期に参加しているおかげで毎日が濃い。</blockquote>
+<div class="voice-foot"><span class="voice-why">毎日が濃い</span><a class="voice-src" href="https://note.com/kanichi0203/n/n570659f7e897" target="_blank" rel="noopener">note ↗</a></div>
+</article>
+<article class="voice" data-cat="hero" data-text="結局POOLOでの活動のことばかり考えている。もうここまでくると悔しい。なんでこんなに夢中なのだろう。 Marriettee marriettee_log 11期">
+<div class="voice-head"><div class="voice-name">Marriettee</div>
+<div class="vtags"><span class="vt vt-cat vt-hero">ヒーローコピー</span><span class="vt vt-ki">11期</span></div></div>
+<blockquote class="voice-quote">結局POOLOでの活動のことばかり考えている。もうここまでくると悔しい。なんでこんなに夢中なのだろう。</blockquote>
+<div class="voice-foot"><span class="voice-why">POOLOに夢中</span><a class="voice-src" href="https://note.com/marriettee_log/n/n39bfcde6e944" target="_blank" rel="noopener">note ↗</a></div>
+</article></div></section>
+<section class="sec" data-section="before_after">
+<div class="sec-head"><div class="sec-spine"><span class="sec-cnt">24</span></div>
+<div><h2 class="sec-title">変化のビフォーアフター</h2><p class="sec-desc">入る前と後で、何が変わったか</p></div></div>
+<div class="voice-grid"><article class="voice" data-cat="before_after" data-text="何者かになる必要もないんだとこの1年の活動を通して感じた。 かじゆり lily_tabi 1期">
+<div class="voice-head"><div class="voice-name">かじゆり</div>
+<div class="vtags"><span class="vt vt-cat vt-before_after">変化のビフォーアフター</span><span class="vt vt-ki">1期</span></div></div>
+<blockquote class="voice-quote">何者かになる必要もないんだとこの1年の活動を通して感じた。</blockquote>
+<div class="voice-foot"><span class="voice-why">背伸びからの解放</span><a class="voice-src" href="https://note.com/lily_tabi/n/n892325d18f03" target="_blank" rel="noopener">note ↗</a></div>
+</article>
+<article class="voice" data-cat="before_after" data-text="新しいことにチャレンジするハードルがみんなのおかげで下がったし、自分のやりたいことを素直に話せるようになった。 ちーちゃん chirorun723 2期">
+<div class="voice-head"><div class="voice-name">ちーちゃん</div>
+<div class="vtags"><span class="vt vt-cat vt-before_after">変化のビフォーアフター</span><span class="vt vt-ki">2期</span></div></div>
+<blockquote class="voice-quote">新しいことにチャレンジするハードルがみんなのおかげで下がったし、自分のやりたいことを素直に話せるようになった。</blockquote>
+<div class="voice-foot"><span class="voice-why">挑戦のハードル低下</span><a class="voice-src" href="https://note.com/chirorun723/n/nff43fc71951e" target="_blank" rel="noopener">note ↗</a></div>
+</article>
+<article class="voice" data-cat="before_after" data-text="この1年を通して、自分の失敗や弱さを認めてみたら、前よりとっても気が楽になりました。 つな｜アウトドア×旅🇨🇦 takk27 2期">
+<div class="voice-head"><div class="voice-name">つな｜アウトドア×旅🇨🇦</div>
+<div class="vtags"><span class="vt vt-cat vt-before_after">変化のビフォーアフター</span><span class="vt vt-ki">2期</span></div></div>
+<blockquote class="voice-quote">この1年を通して、自分の失敗や弱さを認めてみたら、前よりとっても気が楽になりました。</blockquote>
+<div class="voice-foot"><span class="voice-why">弱さを認めて楽に</span><a class="voice-src" href="https://note.com/takk27/n/n3d3b52a60fe5" target="_blank" rel="noopener">note ↗</a></div>
+</article>
+<article class="voice" data-cat="before_after" data-text="私は人が好きなのだ。そして人を好きでいる自分が好きなのだ。 takako🌙 ajt02580 2期">
+<div class="voice-head"><div class="voice-name">takako🌙</div>
+<div class="vtags"><span class="vt vt-cat vt-before_after">変化のビフォーアフター</span><span class="vt vt-ki">2期</span></div></div>
+<blockquote class="voice-quote">私は人が好きなのだ。そして人を好きでいる自分が好きなのだ。</blockquote>
+<div class="voice-foot"><span class="voice-why">人を好きになれた</span><a class="voice-src" href="https://note.com/ajt02580/n/n3f7746591640" target="_blank" rel="noopener">note ↗</a></div>
+</article>
+<article class="voice" data-cat="before_after" data-text="今までよりも自分を好きになれた。 こーへいの独り言 koheychildren 2期">
+<div class="voice-head"><div class="voice-name">こーへいの独り言</div>
+<div class="vtags"><span class="vt vt-cat vt-before_after">変化のビフォーアフター</span><span class="vt vt-ki">2期</span></div></div>
+<blockquote class="voice-quote">今までよりも自分を好きになれた。</blockquote>
+<div class="voice-foot"><span class="voice-why">自分を好きに</span><a class="voice-src" href="https://note.com/koheychildren/n/na76eba5a08d2" target="_blank" rel="noopener">note ↗</a></div>
+</article>
+<article class="voice" data-cat="before_after" data-text="人は1年もあれば変われるのではなかろうか？ただ、そこには意志と環境と時間があれば。 おたけ kuchibiru0000 2期">
+<div class="voice-head"><div class="voice-name">おたけ</div>
+<div class="vtags"><span class="vt vt-cat vt-before_after">変化のビフォーアフター</span><span class="vt vt-ki">2期</span></div></div>
+<blockquote class="voice-quote">人は1年もあれば変われるのではなかろうか？ただ、そこには意志と環境と時間があれば。</blockquote>
+<div class="voice-foot"><span class="voice-why">1年で変われる</span><a class="voice-src" href="https://note.com/kuchibiru0000/n/n8a8b40859439" target="_blank" rel="noopener">note ↗</a></div>
+</article>
+<article class="voice" data-cat="before_after" data-text="20代にはもう戻れないけど、30代をもっと充実して過ごすためにどういう生き方、考え方をすべきか考えるきっかけをくれた。 みね mine454509 2期">
+<div class="voice-head"><div class="voice-name">みね</div>
+<div class="vtags"><span class="vt vt-cat vt-before_after">変化のビフォーアフター</span><span class="vt vt-ki">2期</span></div></div>
+<blockquote class="voice-quote">20代にはもう戻れないけど、30代をもっと充実して過ごすためにどういう生き方、考え方をすべきか考えるきっかけをくれた。</blockquote>
+<div class="voice-foot"><span class="voice-why">30代の指針</span><a class="voice-src" href="https://note.com/mine454509/n/n55716cecff3a" target="_blank" rel="noopener">note ↗</a></div>
+</article>
+<article class="voice" data-cat="before_after" data-text="仲間たちと対話することで、君は知らない間に自分自身とも深く対話して、他の誰との比較でもない「自分自身の魅力」に目覚めることになるんだ。 ちびハム navisto70042 3期">
+<div class="voice-head"><div class="voice-name">ちびハム</div>
+<div class="vtags"><span class="vt vt-cat vt-before_after">変化のビフォーアフター</span><span class="vt vt-ki">3期</span></div></div>
+<blockquote class="voice-quote">仲間たちと対話することで、君は知らない間に自分自身とも深く対話して、他の誰との比較でもない「自分自身の魅力」に目覚めることになるんだ。</blockquote>
+<div class="voice-foot"><span class="voice-why">対話が自己理解に</span><a class="voice-src" href="https://note.com/navisto70042/n/n1396ea7a4774" target="_blank" rel="noopener">note ↗</a></div>
+</article>
+<article class="voice" data-cat="before_after" data-text="一言で表すと、人生の器が広がった。自分を知り、相手を知り、違いを受容できるようになった。 まっさん massanpo_tokyo 3期">
+<div class="voice-head"><div class="voice-name">まっさん</div>
+<div class="vtags"><span class="vt vt-cat vt-before_after">変化のビフォーアフター</span><span class="vt vt-ki">3期</span></div></div>
+<blockquote class="voice-quote">一言で表すと、人生の器が広がった。自分を知り、相手を知り、違いを受容できるようになった。</blockquote>
+<div class="voice-foot"><span class="voice-why">人生の器が広がる</span><a class="voice-src" href="https://note.com/massanpo_tokyo/n/na826517c6bab" target="_blank" rel="noopener">note ↗</a></div>
+</article>
+<article class="voice" data-cat="before_after" data-text="他人に縋る人生ではなく、自分に問う人生にしていこう。 Rikako yckd3 3期">
+<div class="voice-head"><div class="voice-name">Rikako</div>
+<div class="vtags"><span class="vt vt-cat vt-before_after">変化のビフォーアフター</span><span class="vt vt-ki">3期</span></div></div>
+<blockquote class="voice-quote">他人に縋る人生ではなく、自分に問う人生にしていこう。</blockquote>
+<div class="voice-foot"><span class="voice-why">他人軸から自分軸へ</span><a class="voice-src" href="https://note.com/yckd3/n/nd472fc7e51e2" target="_blank" rel="noopener">note ↗</a></div>
+</article>
+<article class="voice" data-cat="before_after" data-text="〈じぶん〉は〈じぶん〉で、それ以上でも以下でもないんだなと気づいて、悲しくて嬉しかった。 はーちゃん ha_chan_ruka 5期">
+<div class="voice-head"><div class="voice-name">はーちゃん</div>
+<div class="vtags"><span class="vt vt-cat vt-before_after">変化のビフォーアフター</span><span class="vt vt-ki">5期</span></div></div>
+<blockquote class="voice-quote">〈じぶん〉は〈じぶん〉で、それ以上でも以下でもないんだなと気づいて、悲しくて嬉しかった。</blockquote>
+<div class="voice-foot"><span class="voice-why">ありのままの自分</span><a class="voice-src" href="https://note.com/ha_chan_ruka/n/nc3c0f5cfea08" target="_blank" rel="noopener">note ↗</a></div>
+</article>
+<article class="voice" data-cat="before_after" data-text="自分の中でネガティブだと思っていたことを、ポジティブに考えられるようになったことが本当に大きい！ はる haruka__1211 5期">
+<div class="voice-head"><div class="voice-name">はる</div>
+<div class="vtags"><span class="vt vt-cat vt-before_after">変化のビフォーアフター</span><span class="vt vt-ki">5期</span></div></div>
+<blockquote class="voice-quote">自分の中でネガティブだと思っていたことを、ポジティブに考えられるようになったことが本当に大きい！</blockquote>
+<div class="voice-foot"><span class="voice-why">短所が長所に変わる</span><a class="voice-src" href="https://note.com/haruka__1211/n/n6a8bf1771306" target="_blank" rel="noopener">note ↗</a></div>
+</article>
+<article class="voice" data-cat="before_after" data-text="自分を知り、想いを発信することで人生を動かすことができるんだと実感できたのもPOOLOのおかげだと思う。 しおんちゅ shionchu_oknw 6期">
+<div class="voice-head"><div class="voice-name">しおんちゅ</div>
+<div class="vtags"><span class="vt vt-cat vt-before_after">変化のビフォーアフター</span><span class="vt vt-ki">6期</span></div></div>
+<blockquote class="voice-quote">自分を知り、想いを発信することで人生を動かすことができるんだと実感できたのもPOOLOのおかげだと思う。</blockquote>
+<div class="voice-foot"><span class="voice-why">自分を知り人生を動かす</span><a class="voice-src" href="https://note.com/shionchu_oknw/n/n457efdc35858" target="_blank" rel="noopener">note ↗</a></div>
+</article>
+<article class="voice" data-cat="before_after" data-text="気づけば自分らしさを出せるようになっていた Kanna brainy_quince625 6期">
+<div class="voice-head"><div class="voice-name">Kanna</div>
+<div class="vtags"><span class="vt vt-cat vt-before_after">変化のビフォーアフター</span><span class="vt vt-ki">6期</span></div></div>
+<blockquote class="voice-quote">気づけば自分らしさを出せるようになっていた</blockquote>
+<div class="voice-foot"><span class="voice-why">自分らしさが出せた</span><a class="voice-src" href="https://note.com/brainy_quince625/n/n4d6972847f20" target="_blank" rel="noopener">note ↗</a></div>
+</article>
+<article class="voice" data-cat="before_after" data-text="以前よりもその自意識が薄れて、柔らかい自分のまま話せているような気がするのだ。 湯子｜パリを放浪 _yuko_05 6期">
+<div class="voice-head"><div class="voice-name">湯子｜パリを放浪</div>
+<div class="vtags"><span class="vt vt-cat vt-before_after">変化のビフォーアフター</span><span class="vt vt-ki">6期</span></div></div>
+<blockquote class="voice-quote">以前よりもその自意識が薄れて、柔らかい自分のまま話せているような気がするのだ。</blockquote>
+<div class="voice-foot"><span class="voice-why">柔らかい自分で話せる</span><a class="voice-src" href="https://note.com/_yuko_05/n/n5e2c442b55f0" target="_blank" rel="noopener">note ↗</a></div>
+</article>
+<article class="voice" data-cat="before_after" data-text="POOLOに入る前は自分以外の人間が何を考えているのか見えなくなっていたが、同世代の仲間の思いが見えてホッとした。 ばばちゃん suisai_works 7期">
+<div class="voice-head"><div class="voice-name">ばばちゃん</div>
+<div class="vtags"><span class="vt vt-cat vt-before_after">変化のビフォーアフター</span><span class="vt vt-ki">7期</span></div></div>
+<blockquote class="voice-quote">POOLOに入る前は自分以外の人間が何を考えているのか見えなくなっていたが、同世代の仲間の思いが見えてホッとした。</blockquote>
+<div class="voice-foot"><span class="voice-why">仲間の思いが見えてホッと</span><a class="voice-src" href="https://note.com/suisai_works/n/nb81970a8c4d3" target="_blank" rel="noopener">note ↗</a></div>
+</article>
+<article class="voice" data-cat="before_after" data-text="何だか悩んでいた人生が すっと、楽になった気がしています。 TOSHI toshi3312 7期">
+<div class="voice-head"><div class="voice-name">TOSHI</div>
+<div class="vtags"><span class="vt vt-cat vt-before_after">変化のビフォーアフター</span><span class="vt vt-ki">7期</span></div></div>
+<blockquote class="voice-quote">何だか悩んでいた人生が すっと、楽になった気がしています。</blockquote>
+<div class="voice-foot"><span class="voice-why">悩みがすっと楽に</span><a class="voice-src" href="https://note.com/toshi3312/n/n00506c320db1" target="_blank" rel="noopener">note ↗</a></div>
+</article>
+<article class="voice" data-cat="before_after" data-text="相手の話しをちゃんと聞こう、違う考えであってもいったん受け入れてみようと思えるようになってきました。 Kae famous_cosmos574 8期">
+<div class="voice-head"><div class="voice-name">Kae</div>
+<div class="vtags"><span class="vt vt-cat vt-before_after">変化のビフォーアフター</span><span class="vt vt-ki">8期</span></div></div>
+<blockquote class="voice-quote">相手の話しをちゃんと聞こう、違う考えであってもいったん受け入れてみようと思えるようになってきました。</blockquote>
+<div class="voice-foot"><span class="voice-why">違いを受け入れられる</span><a class="voice-src" href="https://note.com/famous_cosmos574/n/na40f18f1d888" target="_blank" rel="noopener">note ↗</a></div>
+</article>
+<article class="voice" data-cat="before_after" data-text="POOLOに入って特に変わったことは、自己受容ができるようになったことだと思う。 まっちゃ_POOLO9期生 matcha_journey 9期">
+<div class="voice-head"><div class="voice-name">まっちゃ_POOLO9期生</div>
+<div class="vtags"><span class="vt vt-cat vt-before_after">変化のビフォーアフター</span><span class="vt vt-ki">9期</span></div></div>
+<blockquote class="voice-quote">POOLOに入って特に変わったことは、自己受容ができるようになったことだと思う。</blockquote>
+<div class="voice-foot"><span class="voice-why">自己受容ができた</span><a class="voice-src" href="https://note.com/matcha_journey/n/nb4b6150f5dce" target="_blank" rel="noopener">note ↗</a></div>
+</article>
+<article class="voice" data-cat="before_after" data-text="傷こそが私の個性であり、私の味であり、良さである。 Marie omarimari_62 11期">
+<div class="voice-head"><div class="voice-name">Marie</div>
+<div class="vtags"><span class="vt vt-cat vt-before_after">変化のビフォーアフター</span><span class="vt vt-ki">11期</span></div></div>
+<blockquote class="voice-quote">傷こそが私の個性であり、私の味であり、良さである。</blockquote>
+<div class="voice-foot"><span class="voice-why">過去を肯定できる自己受容</span><a class="voice-src" href="https://note.com/omarimari_62/n/n42168b79276b" target="_blank" rel="noopener">note ↗</a></div>
+</article>
+<article class="voice" data-cat="before_after" data-text="実際に広がったのは外の世界ではなく、自分自身だった づっきー｜本音と寄り道 39serendipity_m 11期">
+<div class="voice-head"><div class="voice-name">づっきー｜本音と寄り道</div>
+<div class="vtags"><span class="vt vt-cat vt-before_after">変化のビフォーアフター</span><span class="vt vt-ki">11期</span></div></div>
+<blockquote class="voice-quote">実際に広がったのは外の世界ではなく、自分自身だった</blockquote>
+<div class="voice-foot"><span class="voice-why">外ではなく内側が広がった</span><a class="voice-src" href="https://note.com/39serendipity_m/n/n78e6a6da3396" target="_blank" rel="noopener">note ↗</a></div>
+</article>
+<article class="voice" data-cat="before_after" data-text="人といる時間が楽しくて幸せって、本当に最高な日々。そんな人生を歩むなんて、信じられなかったよ。 葵月みず｜Aotsuki Mizu moon_3zu 11期">
+<div class="voice-head"><div class="voice-name">葵月みず｜Aotsuki Mizu</div>
+<div class="vtags"><span class="vt vt-cat vt-before_after">変化のビフォーアフター</span><span class="vt vt-ki">11期</span></div></div>
+<blockquote class="voice-quote">人といる時間が楽しくて幸せって、本当に最高な日々。そんな人生を歩むなんて、信じられなかったよ。</blockquote>
+<div class="voice-foot"><span class="voice-why">人が怖かった私の変化</span><a class="voice-src" href="https://note.com/moon_3zu/n/nfa1231456b94" target="_blank" rel="noopener">note ↗</a></div>
+</article>
+<article class="voice" data-cat="before_after" data-text="私は集団という「カタマリ」が苦手なだけであって、1対1の「個別」であれば、ちゃんと人と深く話せていた。 ひかりん 22_mimoza_77 11期">
+<div class="voice-head"><div class="voice-name">ひかりん</div>
+<div class="vtags"><span class="vt vt-cat vt-before_after">変化のビフォーアフター</span><span class="vt vt-ki">11期</span></div></div>
+<blockquote class="voice-quote">私は集団という「カタマリ」が苦手なだけであって、1対1の「個別」であれば、ちゃんと人と深く話せていた。</blockquote>
+<div class="voice-foot"><span class="voice-why">集団が苦手でも対話できた合宿</span><a class="voice-src" href="https://note.com/22_mimoza_77/n/n5cb51883a625" target="_blank" rel="noopener">note ↗</a></div>
+</article>
+<article class="voice" data-cat="before_after" data-text="円安で飛行機代が高くなっているこのタイミングで、一人で海外に行くなんて発想、2025年の自分には1ミリもなかった。 浅野紘毅/Asano.Hiroki hirokiasano0414 11期">
+<div class="voice-head"><div class="voice-name">浅野紘毅/Asano.Hiroki</div>
+<div class="vtags"><span class="vt vt-cat vt-before_after">変化のビフォーアフター</span><span class="vt vt-ki">11期</span></div></div>
+<blockquote class="voice-quote">円安で飛行機代が高くなっているこのタイミングで、一人で海外に行くなんて発想、2025年の自分には1ミリもなかった。</blockquote>
+<div class="voice-foot"><span class="voice-why">背中を押された海外初挑戦</span><a class="voice-src" href="https://note.com/hirokiasano0414/n/n66922ad169a3" target="_blank" rel="noopener">note ↗</a></div>
+</article></div></section>
+<section class="sec" data-section="value">
+<div class="sec-head"><div class="sec-spine"><span class="sec-cnt">46</span></div>
+<div><h2 class="sec-title">コミュニティ価値の言語化</h2><p class="sec-desc">この場所で、何が起きるのか</p></div></div>
+<div class="voice-grid"><article class="voice" data-cat="value" data-text="新しい環境に飛び込んだからこそ得られた出会いと経験。きっとこの先忘れないと思う。 SAE sunshinesae 1期">
+<div class="voice-head"><div class="voice-name">SAE</div>
+<div class="vtags"><span class="vt vt-cat vt-value">コミュニティ価値の言語化</span><span class="vt vt-ki">1期</span></div></div>
+<blockquote class="voice-quote">新しい環境に飛び込んだからこそ得られた出会いと経験。きっとこの先忘れないと思う。</blockquote>
+<div class="voice-foot"><span class="voice-why">出会いと経験</span><a class="voice-src" href="https://note.com/sunshinesae/n/ne0989ba7ac92" target="_blank" rel="noopener">note ↗</a></div>
+</article>
+<article class="voice" data-cat="value" data-text="いざPOOLOに入ると、自分に素直な人が多くてその空気感がとても心地良かった。 NOBU🇯🇵 nobulog 1期">
+<div class="voice-head"><div class="voice-name">NOBU🇯🇵</div>
+<div class="vtags"><span class="vt vt-cat vt-value">コミュニティ価値の言語化</span><span class="vt vt-ki">1期</span></div></div>
+<blockquote class="voice-quote">いざPOOLOに入ると、自分に素直な人が多くてその空気感がとても心地良かった。</blockquote>
+<div class="voice-foot"><span class="voice-why">素直な人の心地よさ</span><a class="voice-src" href="https://note.com/nobulog/n/n82e17d140006" target="_blank" rel="noopener">note ↗</a></div>
+</article>
+<article class="voice" data-cat="value" data-text="この居場所を私は手放したくないと切に思うほどに。 miii michamaimo_o 2期">
+<div class="voice-head"><div class="voice-name">miii</div>
+<div class="vtags"><span class="vt vt-cat vt-value">コミュニティ価値の言語化</span><span class="vt vt-ki">2期</span></div></div>
+<blockquote class="voice-quote">この居場所を私は手放したくないと切に思うほどに。</blockquote>
+<div class="voice-foot"><span class="voice-why">手放したくない居場所</span><a class="voice-src" href="https://note.com/michamaimo_o/n/nb6b1ac048b90" target="_blank" rel="noopener">note ↗</a></div>
+</article>
+<article class="voice" data-cat="value" data-text="会社も年齢も全部バラバラな人達が等しい目線で議論するからこそ毎回新たな気づきがあってすごく楽しかった。 kakeru_bump kakeru_bump 2期">
+<div class="voice-head"><div class="voice-name">kakeru_bump</div>
+<div class="vtags"><span class="vt vt-cat vt-value">コミュニティ価値の言語化</span><span class="vt vt-ki">2期</span></div></div>
+<blockquote class="voice-quote">会社も年齢も全部バラバラな人達が等しい目線で議論するからこそ毎回新たな気づきがあってすごく楽しかった。</blockquote>
+<div class="voice-foot"><span class="voice-why">対等な対話の楽しさ</span><a class="voice-src" href="https://note.com/kakeru_bump/n/n26956dcb3eea" target="_blank" rel="noopener">note ↗</a></div>
+</article>
+<article class="voice" data-cat="value" data-text="周りを幸せにしたいなら、まずは自分を幸せにしなければならない。 うりぼーのポレポレ日記 0uik2s3poolo 2期">
+<div class="voice-head"><div class="voice-name">うりぼーのポレポレ日記</div>
+<div class="vtags"><span class="vt vt-cat vt-value">コミュニティ価値の言語化</span><span class="vt vt-ki">2期</span></div></div>
+<blockquote class="voice-quote">周りを幸せにしたいなら、まずは自分を幸せにしなければならない。</blockquote>
+<div class="voice-foot"><span class="voice-why">まず自分を幸せに</span><a class="voice-src" href="https://note.com/0uik2s3poolo/n/n2c58291b09a7" target="_blank" rel="noopener">note ↗</a></div>
+</article>
+<article class="voice" data-cat="value" data-text="得たものは、卒業とかの期間を超えての友達。 オガジ Geeeeeeeee geeeokaji 2期">
+<div class="voice-head"><div class="voice-name">オガジ Geeeeeeeee</div>
+<div class="vtags"><span class="vt vt-cat vt-value">コミュニティ価値の言語化</span><span class="vt vt-ki">2期</span></div></div>
+<blockquote class="voice-quote">得たものは、卒業とかの期間を超えての友達。</blockquote>
+<div class="voice-foot"><span class="voice-why">期を超える友達</span><a class="voice-src" href="https://note.com/geeeokaji/n/n298c05527227" target="_blank" rel="noopener">note ↗</a></div>
+</article>
+<article class="voice" data-cat="value" data-text="参加ができない日が続いても「久しぶり」と画面でみんなが待っていてくれた。仕事から帰ってきて何度その笑顔に癒されたか。 わき waki_ 2期">
+<div class="voice-head"><div class="voice-name">わき</div>
+<div class="vtags"><span class="vt vt-cat vt-value">コミュニティ価値の言語化</span><span class="vt vt-ki">2期</span></div></div>
+<blockquote class="voice-quote">参加ができない日が続いても「久しぶり」と画面でみんなが待っていてくれた。仕事から帰ってきて何度その笑顔に癒されたか。</blockquote>
+<div class="voice-foot"><span class="voice-why">待っていてくれる居場所</span><a class="voice-src" href="https://note.com/waki_/n/n77eeaa2b2dd0" target="_blank" rel="noopener">note ↗</a></div>
+</article>
+<article class="voice" data-cat="value" data-text="一緒にいていいよ、こっちおいでって言ってくれる人たちだった。だから、一生一緒に繋がっていたいなって思う。 のすけ ikaton1997 3期">
+<div class="voice-head"><div class="voice-name">のすけ</div>
+<div class="vtags"><span class="vt vt-cat vt-value">コミュニティ価値の言語化</span><span class="vt vt-ki">3期</span></div></div>
+<blockquote class="voice-quote">一緒にいていいよ、こっちおいでって言ってくれる人たちだった。だから、一生一緒に繋がっていたいなって思う。</blockquote>
+<div class="voice-foot"><span class="voice-why">迎え入れてくれる仲間</span><a class="voice-src" href="https://note.com/ikaton1997/n/n45546ca39f7d" target="_blank" rel="noopener">note ↗</a></div>
+</article>
+<article class="voice" data-cat="value" data-text="みんながみんなを認め合っていた。無理をしない、懐の広い場所だったと思う。 のすけ ikaton1997 3期">
+<div class="voice-head"><div class="voice-name">のすけ</div>
+<div class="vtags"><span class="vt vt-cat vt-value">コミュニティ価値の言語化</span><span class="vt vt-ki">3期</span></div></div>
+<blockquote class="voice-quote">みんながみんなを認め合っていた。無理をしない、懐の広い場所だったと思う。</blockquote>
+<div class="voice-foot"><span class="voice-why">認め合える場</span><a class="voice-src" href="https://note.com/ikaton1997/n/n45546ca39f7d" target="_blank" rel="noopener">note ↗</a></div>
+</article>
+<article class="voice" data-cat="value" data-text="共に学び、共に遊び、共に創る。それを今後もやっていきたい仲間ができた。 岡村幸治 koji1533 3期">
+<div class="voice-head"><div class="voice-name">岡村幸治</div>
+<div class="vtags"><span class="vt vt-cat vt-value">コミュニティ価値の言語化</span><span class="vt vt-ki">3期</span></div></div>
+<blockquote class="voice-quote">共に学び、共に遊び、共に創る。それを今後もやっていきたい仲間ができた。</blockquote>
+<div class="voice-foot"><span class="voice-why">一生の仲間</span><a class="voice-src" href="https://note.com/koji1533/n/ne5f00a16f909" target="_blank" rel="noopener">note ↗</a></div>
+</article>
+<article class="voice" data-cat="value" data-text="新しいチャレンジをする際、まるで自分のことのように応援してくれる。そして苦しい時や助けてほしい時など助けてくれる。 おむ/Would Wide Omu omu_the_world 3期">
+<div class="voice-head"><div class="voice-name">おむ/Would Wide Omu</div>
+<div class="vtags"><span class="vt vt-cat vt-value">コミュニティ価値の言語化</span><span class="vt vt-ki">3期</span></div></div>
+<blockquote class="voice-quote">新しいチャレンジをする際、まるで自分のことのように応援してくれる。そして苦しい時や助けてほしい時など助けてくれる。</blockquote>
+<div class="voice-foot"><span class="voice-why">応援し合う空気</span><a class="voice-src" href="https://note.com/omu_the_world/n/nf4b3496e44ce" target="_blank" rel="noopener">note ↗</a></div>
+</article>
+<article class="voice" data-cat="value" data-text="一部の価値観に縛られずに、当たり前に捉われず、自分が一番輝ける生き方を模索していっていいんだな ゆうか oguogu_yuka 5期">
+<div class="voice-head"><div class="voice-name">ゆうか</div>
+<div class="vtags"><span class="vt vt-cat vt-value">コミュニティ価値の言語化</span><span class="vt vt-ki">5期</span></div></div>
+<blockquote class="voice-quote">一部の価値観に縛られずに、当たり前に捉われず、自分が一番輝ける生き方を模索していっていいんだな</blockquote>
+<div class="voice-foot"><span class="voice-why">生き方の自由</span><a class="voice-src" href="https://note.com/oguogu_yuka/n/n52f1f4bb996d" target="_blank" rel="noopener">note ↗</a></div>
+</article>
+<article class="voice" data-cat="value" data-text="多分、物事はシンプルで、大切なものは外ではなくずっとそばにあるんだと思う。 ヒロシ hiroshi_8221 5期">
+<div class="voice-head"><div class="voice-name">ヒロシ</div>
+<div class="vtags"><span class="vt vt-cat vt-value">コミュニティ価値の言語化</span><span class="vt vt-ki">5期</span></div></div>
+<blockquote class="voice-quote">多分、物事はシンプルで、大切なものは外ではなくずっとそばにあるんだと思う。</blockquote>
+<div class="voice-foot"><span class="voice-why">大切なものは近くに</span><a class="voice-src" href="https://note.com/hiroshi_8221/n/n58d795975c83" target="_blank" rel="noopener">note ↗</a></div>
+</article>
+<article class="voice" data-cat="value" data-text="緩くつながり続けられるコミュニティのスタートラインに立てたということで安心しているんだと思います。 Yayoi Nakamura yayoi_nakamura 5期">
+<div class="voice-head"><div class="voice-name">Yayoi Nakamura</div>
+<div class="vtags"><span class="vt vt-cat vt-value">コミュニティ価値の言語化</span><span class="vt vt-ki">5期</span></div></div>
+<blockquote class="voice-quote">緩くつながり続けられるコミュニティのスタートラインに立てたということで安心しているんだと思います。</blockquote>
+<div class="voice-foot"><span class="voice-why">ゆるく続く居場所</span><a class="voice-src" href="https://note.com/yayoi_nakamura/n/n6dcc07b1d464" target="_blank" rel="noopener">note ↗</a></div>
+</article>
+<article class="voice" data-cat="value" data-text="なんとなくでも自分の興味があることや、やりたいことに出会わせてくれたのがPOOLOだったな あおい｜複業フリーランス aaaooo82 5期">
+<div class="voice-head"><div class="voice-name">あおい｜複業フリーランス</div>
+<div class="vtags"><span class="vt vt-cat vt-value">コミュニティ価値の言語化</span><span class="vt vt-ki">5期</span></div></div>
+<blockquote class="voice-quote">なんとなくでも自分の興味があることや、やりたいことに出会わせてくれたのがPOOLOだったな</blockquote>
+<div class="voice-foot"><span class="voice-why">やりたいことに出会う</span><a class="voice-src" href="https://note.com/aaaooo82/n/ne09e7670f219" target="_blank" rel="noopener">note ↗</a></div>
+</article>
+<article class="voice" data-cat="value" data-text="卒業だけど終わりではない。POOLO入る前のワクワクした感情と同じ、これからが新しいスタート。だから悲しくなんてない。ちょっと寂しいだけ。 JUN juuunnn 5期">
+<div class="voice-head"><div class="voice-name">JUN</div>
+<div class="vtags"><span class="vt vt-cat vt-value">コミュニティ価値の言語化</span><span class="vt vt-ki">5期</span></div></div>
+<blockquote class="voice-quote">卒業だけど終わりではない。POOLO入る前のワクワクした感情と同じ、これからが新しいスタート。だから悲しくなんてない。ちょっと寂しいだけ。</blockquote>
+<div class="voice-foot"><span class="voice-why">卒業は新しいスタート</span><a class="voice-src" href="https://note.com/juuunnn/n/n8e0ef57973e9" target="_blank" rel="noopener">note ↗</a></div>
+</article>
+<article class="voice" data-cat="value" data-text="自分が安心して帰られる場所があるって、冒険をする上でものすごく大切だなって実感した。 太陽氣生　サニーのワクワク學びLabo shasheng_tw_jp 5期">
+<div class="voice-head"><div class="voice-name">太陽氣生　サニーのワクワク學びLabo</div>
+<div class="vtags"><span class="vt vt-cat vt-value">コミュニティ価値の言語化</span><span class="vt vt-ki">5期</span></div></div>
+<blockquote class="voice-quote">自分が安心して帰られる場所があるって、冒険をする上でものすごく大切だなって実感した。</blockquote>
+<div class="voice-foot"><span class="voice-why">安心して帰れる場所</span><a class="voice-src" href="https://note.com/shasheng_tw_jp/n/ndfc5b7977bd2" target="_blank" rel="noopener">note ↗</a></div>
+</article>
+<article class="voice" data-cat="value" data-text="本当に心の底から出会って良かったと思える旅友ができた。 すーさん susan022568 6期">
+<div class="voice-head"><div class="voice-name">すーさん</div>
+<div class="vtags"><span class="vt vt-cat vt-value">コミュニティ価値の言語化</span><span class="vt vt-ki">6期</span></div></div>
+<blockquote class="voice-quote">本当に心の底から出会って良かったと思える旅友ができた。</blockquote>
+<div class="voice-foot"><span class="voice-why">一生の旅友</span><a class="voice-src" href="https://note.com/susan022568/n/n71bc6c0ca1ec" target="_blank" rel="noopener">note ↗</a></div>
+</article>
+<article class="voice" data-cat="value" data-text="Pooloに入ってから”豊か”という言葉が好きになりました。 Keity keity_6 6期">
+<div class="voice-head"><div class="voice-name">Keity</div>
+<div class="vtags"><span class="vt vt-cat vt-value">コミュニティ価値の言語化</span><span class="vt vt-ki">6期</span></div></div>
+<blockquote class="voice-quote">Pooloに入ってから”豊か”という言葉が好きになりました。</blockquote>
+<div class="voice-foot"><span class="voice-why">豊かという言葉が好きに</span><a class="voice-src" href="https://note.com/keity_6/n/n0fae1c3cb662" target="_blank" rel="noopener">note ↗</a></div>
+</article>
+<article class="voice" data-cat="value" data-text="どんな自分でいても受け入れてくれる温かいメンバーのおかげでありのままの自分をより愛せるようになったし、幸せな瞬間が増えた。 くわ kuwa_chan7 6期">
+<div class="voice-head"><div class="voice-name">くわ</div>
+<div class="vtags"><span class="vt vt-cat vt-value">コミュニティ価値の言語化</span><span class="vt vt-ki">6期</span></div></div>
+<blockquote class="voice-quote">どんな自分でいても受け入れてくれる温かいメンバーのおかげでありのままの自分をより愛せるようになったし、幸せな瞬間が増えた。</blockquote>
+<div class="voice-foot"><span class="voice-why">ありのままを愛せる</span><a class="voice-src" href="https://note.com/kuwa_chan7/n/n81be088134ee" target="_blank" rel="noopener">note ↗</a></div>
+</article>
+<article class="voice" data-cat="value" data-text="POOLOとは、「旅が好き」というコンセプトを軸に、様々なバックグラウンドを持つ人と濃く深く関れる場所。自分のもう一つの居場所。 Keiko🍹 ponikos2777 6期">
+<div class="voice-head"><div class="voice-name">Keiko🍹</div>
+<div class="vtags"><span class="vt vt-cat vt-value">コミュニティ価値の言語化</span><span class="vt vt-ki">6期</span></div></div>
+<blockquote class="voice-quote">POOLOとは、「旅が好き」というコンセプトを軸に、様々なバックグラウンドを持つ人と濃く深く関れる場所。自分のもう一つの居場所。</blockquote>
+<div class="voice-foot"><span class="voice-why">もう一つの居場所</span><a class="voice-src" href="https://note.com/ponikos2777/n/na1a448852620" target="_blank" rel="noopener">note ↗</a></div>
+</article>
+<article class="voice" data-cat="value" data-text="仕事以外の、利害関係のないメンバーと過ごす日々はとても新鮮で、楽しかった。 じぬ | 場づくりプロデューサー aoi_jinushi 7期">
+<div class="voice-head"><div class="voice-name">じぬ | 場づくりプロデューサー</div>
+<div class="vtags"><span class="vt vt-cat vt-value">コミュニティ価値の言語化</span><span class="vt vt-ki">7期</span></div></div>
+<blockquote class="voice-quote">仕事以外の、利害関係のないメンバーと過ごす日々はとても新鮮で、楽しかった。</blockquote>
+<div class="voice-foot"><span class="voice-why">利害関係のない仲間</span><a class="voice-src" href="https://note.com/aoi_jinushi/n/n8be6e55ec787" target="_blank" rel="noopener">note ↗</a></div>
+</article>
+<article class="voice" data-cat="value" data-text="POOLOの仲間や活動を通して、視野が広がり、自分や世界を今までと違った視点で見ることができた。 None moimoi_123 7期">
+<div class="voice-head"><div class="voice-name">None</div>
+<div class="vtags"><span class="vt vt-cat vt-value">コミュニティ価値の言語化</span><span class="vt vt-ki">7期</span></div></div>
+<blockquote class="voice-quote">POOLOの仲間や活動を通して、視野が広がり、自分や世界を今までと違った視点で見ることができた。</blockquote>
+<div class="voice-foot"><span class="voice-why">視野が広がった</span><a class="voice-src" href="https://note.com/moimoi_123/n/na0cd0c41dbc7" target="_blank" rel="noopener">note ↗</a></div>
+</article>
+<article class="voice" data-cat="value" data-text="自分の“好き”を追及すること、他の人とシェアできることはきっと最高なことなんだろうな たも h_tamae 7期">
+<div class="voice-head"><div class="voice-name">たも</div>
+<div class="vtags"><span class="vt vt-cat vt-value">コミュニティ価値の言語化</span><span class="vt vt-ki">7期</span></div></div>
+<blockquote class="voice-quote">自分の“好き”を追及すること、他の人とシェアできることはきっと最高なことなんだろうな</blockquote>
+<div class="voice-foot"><span class="voice-why">好きをシェアする喜び</span><a class="voice-src" href="https://note.com/h_tamae/n/n0569926a8222" target="_blank" rel="noopener">note ↗</a></div>
+</article>
+<article class="voice" data-cat="value" data-text="たくさんの価値観に触れたからこそ、自分が求めているものが見えてきた。 moeka | 日々の気づき帖 moe___life 11期">
+<div class="voice-head"><div class="voice-name">moeka | 日々の気づき帖</div>
+<div class="vtags"><span class="vt vt-cat vt-value">コミュニティ価値の言語化</span><span class="vt vt-ki">11期</span></div></div>
+<blockquote class="voice-quote">たくさんの価値観に触れたからこそ、自分が求めているものが見えてきた。</blockquote>
+<div class="voice-foot"><span class="voice-why">多様な価値観との対話</span><a class="voice-src" href="https://note.com/moe___life/n/n5aa22f154e52" target="_blank" rel="noopener">note ↗</a></div>
+</article>
+<article class="voice" data-cat="value" data-text="そして何より、人は思っている以上に優しい。 Mai maihappiness1228 11期">
+<div class="voice-head"><div class="voice-name">Mai</div>
+<div class="vtags"><span class="vt vt-cat vt-value">コミュニティ価値の言語化</span><span class="vt vt-ki">11期</span></div></div>
+<blockquote class="voice-quote">そして何より、人は思っている以上に優しい。</blockquote>
+<div class="voice-foot"><span class="voice-why">仲間の優しさ</span><a class="voice-src" href="https://note.com/maihappiness1228/n/n91099ab04376" target="_blank" rel="noopener">note ↗</a></div>
+</article>
+<article class="voice" data-cat="value" data-text="毎日悩んでいるのは自分だけじゃないんだなと安心感があった natsu🇨🇭 konatsu312 11期">
+<div class="voice-head"><div class="voice-name">natsu🇨🇭</div>
+<div class="vtags"><span class="vt vt-cat vt-value">コミュニティ価値の言語化</span><span class="vt vt-ki">11期</span></div></div>
+<blockquote class="voice-quote">毎日悩んでいるのは自分だけじゃないんだなと安心感があった</blockquote>
+<div class="voice-foot"><span class="voice-why">悩みの開示と安心感</span><a class="voice-src" href="https://note.com/konatsu312/n/ne1e104bba44d" target="_blank" rel="noopener">note ↗</a></div>
+</article>
+<article class="voice" data-cat="value" data-text="POOLOにいると、今までの仕事や学校生活では感じられなかった、「人間そのもののようなものに触れている感覚になる」 Marie omarimari_62 11期">
+<div class="voice-head"><div class="voice-name">Marie</div>
+<div class="vtags"><span class="vt vt-cat vt-value">コミュニティ価値の言語化</span><span class="vt vt-ki">11期</span></div></div>
+<blockquote class="voice-quote">POOLOにいると、今までの仕事や学校生活では感じられなかった、「人間そのもののようなものに触れている感覚になる」</blockquote>
+<div class="voice-foot"><span class="voice-why">人間そのものに触れる場</span><a class="voice-src" href="https://note.com/omarimari_62/n/nd11598c36d73" target="_blank" rel="noopener">note ↗</a></div>
+</article>
+<article class="voice" data-cat="value" data-text="自分にとって、POOLO LIFEは良い嵐になってくれた。 岡田勘一（かにち）| 旅する編集者 kanichi0203 11期">
+<div class="voice-head"><div class="voice-name">岡田勘一（かにち）| 旅する編集者</div>
+<div class="vtags"><span class="vt vt-cat vt-value">コミュニティ価値の言語化</span><span class="vt vt-ki">11期</span></div></div>
+<blockquote class="voice-quote">自分にとって、POOLO LIFEは良い嵐になってくれた。</blockquote>
+<div class="voice-foot"><span class="voice-why">停滞を動かす嵐</span><a class="voice-src" href="https://note.com/kanichi0203/n/n6274c4936a1c" target="_blank" rel="noopener">note ↗</a></div>
+</article>
+<article class="voice" data-cat="value" data-text="不安になった時に対話してくれる人がいる。 ひかりん 22_mimoza_77 11期">
+<div class="voice-head"><div class="voice-name">ひかりん</div>
+<div class="vtags"><span class="vt vt-cat vt-value">コミュニティ価値の言語化</span><span class="vt vt-ki">11期</span></div></div>
+<blockquote class="voice-quote">不安になった時に対話してくれる人がいる。</blockquote>
+<div class="voice-foot"><span class="voice-why">弱音が対話で返ってくる</span><a class="voice-src" href="https://note.com/22_mimoza_77/n/ncd623c16b010" target="_blank" rel="noopener">note ↗</a></div>
+</article>
+<article class="voice" data-cat="value" data-text="普段あまり口にしない話題が、気がついたら言葉になっている。 浅野紘毅/Asano.Hiroki hirokiasano0414 11期">
+<div class="voice-head"><div class="voice-name">浅野紘毅/Asano.Hiroki</div>
+<div class="vtags"><span class="vt vt-cat vt-value">コミュニティ価値の言語化</span><span class="vt vt-ki">11期</span></div></div>
+<blockquote class="voice-quote">普段あまり口にしない話題が、気がついたら言葉になっている。</blockquote>
+<div class="voice-foot"><span class="voice-why">合宿の深夜対話</span><a class="voice-src" href="https://note.com/hirokiasano0414/n/nd5d30049413a" target="_blank" rel="noopener">note ↗</a></div>
+</article>
+<article class="voice" data-cat="value" data-text="POOLOって、みんな優しいんだよね　みんな、意見を尊重してくれるし言いたいことを言える環境が整っている いぶくん ekvi_2791 11期">
+<div class="voice-head"><div class="voice-name">いぶくん</div>
+<div class="vtags"><span class="vt vt-cat vt-value">コミュニティ価値の言語化</span><span class="vt vt-ki">11期</span></div></div>
+<blockquote class="voice-quote">POOLOって、みんな優しいんだよね　みんな、意見を尊重してくれるし言いたいことを言える環境が整っている</blockquote>
+<div class="voice-foot"><span class="voice-why">心理的安全性</span><a class="voice-src" href="https://note.com/ekvi_2791/n/nfc9971f469e0" target="_blank" rel="noopener">note ↗</a></div>
+</article>
+<article class="voice" data-cat="value" data-text="答えを出さなくてよい（決断を求められない）問いが心地よかった。 じょん pura_vida_ 11期">
+<div class="voice-head"><div class="voice-name">じょん</div>
+<div class="vtags"><span class="vt vt-cat vt-value">コミュニティ価値の言語化</span><span class="vt vt-ki">11期</span></div></div>
+<blockquote class="voice-quote">答えを出さなくてよい（決断を求められない）問いが心地よかった。</blockquote>
+<div class="voice-foot"><span class="voice-why">逃げ場所としての問い</span><a class="voice-src" href="https://note.com/pura_vida_/n/nc3385305c04d" target="_blank" rel="noopener">note ↗</a></div>
+</article>
+<article class="voice" data-cat="value" data-text="それぞれが、自身にとって価値のある関わり方ができるのがPOOLOの良さだと思う。その違いを許容できる人たちが集まっているから、それが成り立つ。 jiezhu jiezhu1991 11期">
+<div class="voice-head"><div class="voice-name">jiezhu</div>
+<div class="vtags"><span class="vt vt-cat vt-value">コミュニティ価値の言語化</span><span class="vt vt-ki">11期</span></div></div>
+<blockquote class="voice-quote">それぞれが、自身にとって価値のある関わり方ができるのがPOOLOの良さだと思う。その違いを許容できる人たちが集まっているから、それが成り立つ。</blockquote>
+<div class="voice-foot"><span class="voice-why">多様な関わり方を許容する場</span><a class="voice-src" href="https://note.com/jiezhu1991/n/n56ec315e889d" target="_blank" rel="noopener">note ↗</a></div>
+</article>
+<article class="voice" data-cat="value" data-text="また会いたいという願いは、人を強くすると知っている。 葵月みず｜Aotsuki Mizu moon_3zu 11期">
+<div class="voice-head"><div class="voice-name">葵月みず｜Aotsuki Mizu</div>
+<div class="vtags"><span class="vt vt-cat vt-value">コミュニティ価値の言語化</span><span class="vt vt-ki">11期</span></div></div>
+<blockquote class="voice-quote">また会いたいという願いは、人を強くすると知っている。</blockquote>
+<div class="voice-foot"><span class="voice-why">再会を願う繋がりの力</span><a class="voice-src" href="https://note.com/moon_3zu/n/n67c650a00eb1" target="_blank" rel="noopener">note ↗</a></div>
+</article>
+<article class="voice" data-cat="value" data-text="話せば話すほど相手のことを知りたくなる yonekame yone87728 11期">
+<div class="voice-head"><div class="voice-name">yonekame</div>
+<div class="vtags"><span class="vt vt-cat vt-value">コミュニティ価値の言語化</span><span class="vt vt-ki">11期</span></div></div>
+<blockquote class="voice-quote">話せば話すほど相手のことを知りたくなる</blockquote>
+<div class="voice-foot"><span class="voice-why">対話が深まる関係</span><a class="voice-src" href="https://note.com/yone87728/n/n3a7250fab8a5" target="_blank" rel="noopener">note ↗</a></div>
+</article>
+<article class="voice" data-cat="value" data-text="面白がって一歩離れたところから見ているだけではなく、自分から矢面に立つようにして関わっていった。 岡田勘一（かにち）| 旅する編集者 kanichi0203 11期">
+<div class="voice-head"><div class="voice-name">岡田勘一（かにち）| 旅する編集者</div>
+<div class="vtags"><span class="vt vt-cat vt-value">コミュニティ価値の言語化</span><span class="vt vt-ki">11期</span></div></div>
+<blockquote class="voice-quote">面白がって一歩離れたところから見ているだけではなく、自分から矢面に立つようにして関わっていった。</blockquote>
+<div class="voice-foot"><span class="voice-why">主体的に関わる</span><a class="voice-src" href="https://note.com/kanichi0203/n/n570659f7e897" target="_blank" rel="noopener">note ↗</a></div>
+</article>
+<article class="voice" data-cat="value" data-text="こんなに毎日がわくわくできる日々が私にとっては最高の場所である。 Marriettee marriettee_log 11期">
+<div class="voice-head"><div class="voice-name">Marriettee</div>
+<div class="vtags"><span class="vt vt-cat vt-value">コミュニティ価値の言語化</span><span class="vt vt-ki">11期</span></div></div>
+<blockquote class="voice-quote">こんなに毎日がわくわくできる日々が私にとっては最高の場所である。</blockquote>
+<div class="voice-foot"><span class="voice-why">毎日がわくわく</span><a class="voice-src" href="https://note.com/marriettee_log/n/n138d6a756cfb" target="_blank" rel="noopener">note ↗</a></div>
+</article>
+<article class="voice" data-cat="value" data-text="pooloの7ヶ月はもうすぐ半分らしいです。あなたは残りの半分を「も」と捉えるか「しか」と捉えるか、どちらでしょうか？ Yuga Kamano komekome521 11期">
+<div class="voice-head"><div class="voice-name">Yuga Kamano</div>
+<div class="vtags"><span class="vt vt-cat vt-value">コミュニティ価値の言語化</span><span class="vt vt-ki">11期</span></div></div>
+<blockquote class="voice-quote">pooloの7ヶ月はもうすぐ半分らしいです。あなたは残りの半分を「も」と捉えるか「しか」と捉えるか、どちらでしょうか？</blockquote>
+<div class="voice-foot"><span class="voice-why">折り返しの捉え方</span><a class="voice-src" href="https://note.com/komekome521/n/nbea1a4406470" target="_blank" rel="noopener">note ↗</a></div>
+</article>
+<article class="voice" data-cat="value" data-text="無性に好きな場所ってなんなんだろうね！？という軽すぎる問いかけから、語り合うだけの、ゴールがないとわかっているMTGを実施することに。 だてだてお nattu18 11期">
+<div class="voice-head"><div class="voice-name">だてだてお</div>
+<div class="vtags"><span class="vt vt-cat vt-value">コミュニティ価値の言語化</span><span class="vt vt-ki">11期</span></div></div>
+<blockquote class="voice-quote">無性に好きな場所ってなんなんだろうね！？という軽すぎる問いかけから、語り合うだけの、ゴールがないとわかっているMTGを実施することに。</blockquote>
+<div class="voice-foot"><span class="voice-why">共創・語り合い</span><a class="voice-src" href="https://note.com/nattu18/n/nac02056cceff" target="_blank" rel="noopener">note ↗</a></div>
+</article>
+<article class="voice" data-cat="value" data-text="探求しているテーマと、自分の生き方（仕事なり、生活なり、チーム活動なり）をいい感じにチューニングして、重ねられたら、莫大な化学反応が起きうるんだな！と感じました。体験しました。 kimi_ rosy_mole2548 11期">
+<div class="voice-head"><div class="voice-name">kimi_</div>
+<div class="vtags"><span class="vt vt-cat vt-value">コミュニティ価値の言語化</span><span class="vt vt-ki">11期</span></div></div>
+<blockquote class="voice-quote">探求しているテーマと、自分の生き方（仕事なり、生活なり、チーム活動なり）をいい感じにチューニングして、重ねられたら、莫大な化学反応が起きうるんだな！と感じました。体験しました。</blockquote>
+<div class="voice-foot"><span class="voice-why">対話と化学反応</span><a class="voice-src" href="https://note.com/rosy_mole2548/n/n7d1e0e82597b" target="_blank" rel="noopener">note ↗</a></div>
+</article>
+<article class="voice" data-cat="value" data-text="だから偽る必要はないし、隠す必要はないし、その本音を持って人と繋がる。 hayato.sugita / 杉田颯斗 hayato_marv 11期">
+<div class="voice-head"><div class="voice-name">hayato.sugita / 杉田颯斗</div>
+<div class="vtags"><span class="vt vt-cat vt-value">コミュニティ価値の言語化</span><span class="vt vt-ki">11期</span></div></div>
+<blockquote class="voice-quote">だから偽る必要はないし、隠す必要はないし、その本音を持って人と繋がる。</blockquote>
+<div class="voice-foot"><span class="voice-why">本音で繋がる</span><a class="voice-src" href="https://note.com/hayato_marv/n/n0b2d6c686379" target="_blank" rel="noopener">note ↗</a></div>
+</article>
+<article class="voice" data-cat="value" data-text="私たちの弱さや迷いは、消すべきものではなく、誰かとつながるための大切な一部なのかもしれない。 moeka | 日々の気づき帖 moe___life 11期">
+<div class="voice-head"><div class="voice-name">moeka | 日々の気づき帖</div>
+<div class="vtags"><span class="vt vt-cat vt-value">コミュニティ価値の言語化</span><span class="vt vt-ki">11期</span></div></div>
+<blockquote class="voice-quote">私たちの弱さや迷いは、消すべきものではなく、誰かとつながるための大切な一部なのかもしれない。</blockquote>
+<div class="voice-foot"><span class="voice-why">弱さとつながり</span><a class="voice-src" href="https://note.com/moe___life/n/n2aaecec58342" target="_blank" rel="noopener">note ↗</a></div>
+</article>
+<article class="voice" data-cat="value" data-text="今の私に必要なのは、「私はどう生きたいのか」を知ることなのかもしれない。 づっきー｜“もっと”の先へ 39serendipity_m 11期">
+<div class="voice-head"><div class="voice-name">づっきー｜“もっと”の先へ</div>
+<div class="vtags"><span class="vt vt-cat vt-value">コミュニティ価値の言語化</span><span class="vt vt-ki">11期</span></div></div>
+<blockquote class="voice-quote">今の私に必要なのは、「私はどう生きたいのか」を知ることなのかもしれない。</blockquote>
+<div class="voice-foot"><span class="voice-why">問い・生き方</span><a class="voice-src" href="https://note.com/39serendipity_m/n/n98785c2e9432" target="_blank" rel="noopener">note ↗</a></div>
+</article>
+<article class="voice" data-cat="value" data-text="「喋れないから行けない」は違う。「行ったら喋れるようになりたくなる」が正解でした。 浅野紘毅/Asano.Hiroki hirokiasano0414 11期">
+<div class="voice-head"><div class="voice-name">浅野紘毅/Asano.Hiroki</div>
+<div class="vtags"><span class="vt vt-cat vt-value">コミュニティ価値の言語化</span><span class="vt vt-ki">11期</span></div></div>
+<blockquote class="voice-quote">「喋れないから行けない」は違う。「行ったら喋れるようになりたくなる」が正解でした。</blockquote>
+<div class="voice-foot"><span class="voice-why">一歩踏み出す学び</span><a class="voice-src" href="https://note.com/hirokiasano0414/n/n8d04b6d480cc" target="_blank" rel="noopener">note ↗</a></div>
+</article>
+<article class="voice" data-cat="value" data-text="海外に行って何がしたいとか明確な目的がないことに悩んでいたけれど、知りたいって気持ちだけでいいのかもしれない。 rena po_yoo9 11期">
+<div class="voice-head"><div class="voice-name">rena</div>
+<div class="vtags"><span class="vt vt-cat vt-value">コミュニティ価値の言語化</span><span class="vt vt-ki">11期</span></div></div>
+<blockquote class="voice-quote">海外に行って何がしたいとか明確な目的がないことに悩んでいたけれど、知りたいって気持ちだけでいいのかもしれない。</blockquote>
+<div class="voice-foot"><span class="voice-why">対話で不安と向き合う</span><a class="voice-src" href="https://note.com/po_yoo9/n/nce90dd4d0139" target="_blank" rel="noopener">note ↗</a></div>
+</article></div></section>
+<section class="sec" data-section="decision">
+<div class="sec-head"><div class="sec-spine"><span class="sec-cnt">7</span></div>
+<div><h2 class="sec-title">入会の決め手・背中押し</h2><p class="sec-desc">一歩を踏み出させた言葉</p></div></div>
+<div class="voice-grid"><article class="voice" data-cat="decision" data-text="ありのままの自分を受け入れてもらえないのであれば入る意味がないと思った。 かっちゃん_ZJ jskazu 1期">
+<div class="voice-head"><div class="voice-name">かっちゃん_ZJ</div>
+<div class="vtags"><span class="vt vt-cat vt-decision">入会の決め手・背中押し</span><span class="vt vt-ki">1期</span></div></div>
+<blockquote class="voice-quote">ありのままの自分を受け入れてもらえないのであれば入る意味がないと思った。</blockquote>
+<div class="voice-foot"><span class="voice-why">ありのままで入会</span><a class="voice-src" href="https://note.com/jskazu/n/n7d8953d3a78b" target="_blank" rel="noopener">note ↗</a></div>
+</article>
+<article class="voice" data-cat="decision" data-text="「今を逃したらPOOLOというコミュニティに永遠に関わる機会が無くなる、それは嫌だ！」と直感的に感じて応募を決めた はまでぃー hamad1985 2期">
+<div class="voice-head"><div class="voice-name">はまでぃー</div>
+<div class="vtags"><span class="vt vt-cat vt-decision">入会の決め手・背中押し</span><span class="vt vt-ki">2期</span></div></div>
+<blockquote class="voice-quote">「今を逃したらPOOLOというコミュニティに永遠に関わる機会が無くなる、それは嫌だ！」と直感的に感じて応募を決めた</blockquote>
+<div class="voice-foot"><span class="voice-why">今を逃したくない</span><a class="voice-src" href="https://note.com/hamad1985/n/ne63241a67fb7" target="_blank" rel="noopener">note ↗</a></div>
+</article>
+<article class="voice" data-cat="decision" data-text="勝手に素晴らしい新しい出会いがあると確信していたし、それは思った通り現実になった。 Yukako unacasita 3期">
+<div class="voice-head"><div class="voice-name">Yukako</div>
+<div class="vtags"><span class="vt vt-cat vt-decision">入会の決め手・背中押し</span><span class="vt vt-ki">3期</span></div></div>
+<blockquote class="voice-quote">勝手に素晴らしい新しい出会いがあると確信していたし、それは思った通り現実になった。</blockquote>
+<div class="voice-foot"><span class="voice-why">直感が的中した</span><a class="voice-src" href="https://note.com/unacasita/n/nea4257fe4374" target="_blank" rel="noopener">note ↗</a></div>
+</article>
+<article class="voice" data-cat="decision" data-text="今いる安心安全のコンフォートゾーンから抜け出し続ける人生がいい。 じぬ | 場づくりプロデューサー aoi_jinushi 7期">
+<div class="voice-head"><div class="voice-name">じぬ | 場づくりプロデューサー</div>
+<div class="vtags"><span class="vt vt-cat vt-decision">入会の決め手・背中押し</span><span class="vt vt-ki">7期</span></div></div>
+<blockquote class="voice-quote">今いる安心安全のコンフォートゾーンから抜け出し続ける人生がいい。</blockquote>
+<div class="voice-foot"><span class="voice-why">コンフォートゾーンを出る</span><a class="voice-src" href="https://note.com/aoi_jinushi/n/n8be6e55ec787" target="_blank" rel="noopener">note ↗</a></div>
+</article>
+<article class="voice" data-cat="decision" data-text="体験会で背中を押してくれたから気づけたことが全ての始まりなのかもしれない。 たっつん hiro860419 11期">
+<div class="voice-head"><div class="voice-name">たっつん</div>
+<div class="vtags"><span class="vt vt-cat vt-decision">入会の決め手・背中押し</span><span class="vt vt-ki">11期</span></div></div>
+<blockquote class="voice-quote">体験会で背中を押してくれたから気づけたことが全ての始まりなのかもしれない。</blockquote>
+<div class="voice-foot"><span class="voice-why">体験会が始まりだった</span><a class="voice-src" href="https://note.com/hiro860419/n/n8748f1ee6e7a" target="_blank" rel="noopener">note ↗</a></div>
+</article>
+<article class="voice" data-cat="decision" data-text="少なくともPOOLO内では否定や失敗を恐れず果敢に取り組もう いぶくん ekvi_2791 11期">
+<div class="voice-head"><div class="voice-name">いぶくん</div>
+<div class="vtags"><span class="vt vt-cat vt-decision">入会の決め手・背中押し</span><span class="vt vt-ki">11期</span></div></div>
+<blockquote class="voice-quote">少なくともPOOLO内では否定や失敗を恐れず果敢に取り組もう</blockquote>
+<div class="voice-foot"><span class="voice-why">自己開示の決意</span><a class="voice-src" href="https://note.com/ekvi_2791/n/n0f331bdd1ca8" target="_blank" rel="noopener">note ↗</a></div>
+</article>
+<article class="voice" data-cat="decision" data-text="自分の人生をちゃんと自分で選びたい づっきー｜“もっと”の先へ 39serendipity_m 11期">
+<div class="voice-head"><div class="voice-name">づっきー｜“もっと”の先へ</div>
+<div class="vtags"><span class="vt vt-cat vt-decision">入会の決め手・背中押し</span><span class="vt vt-ki">11期</span></div></div>
+<blockquote class="voice-quote">自分の人生をちゃんと自分で選びたい</blockquote>
+<div class="voice-foot"><span class="voice-why">自分で選ぶ</span><a class="voice-src" href="https://note.com/39serendipity_m/n/n98785c2e9432" target="_blank" rel="noopener">note ↗</a></div>
+</article></div></section>
+<section class="sec" data-section="cost">
+<div class="sec-head"><div class="sec-spine"><span class="sec-cnt">1</span></div>
+<div><h2 class="sec-title">参加費の価値回収</h2><p class="sec-desc">お金・時間の価値をどう回収したか</p></div></div>
+<div class="voice-grid"><article class="voice" data-cat="cost" data-text="「会いたい人に会いに行く」ことにお金を使いたい たっす/ 週16本ラジオ配信中 ticket_tassu 3期">
+<div class="voice-head"><div class="voice-name">たっす/ 週16本ラジオ配信中</div>
+<div class="vtags"><span class="vt vt-cat vt-cost">参加費の価値回収</span><span class="vt vt-ki">3期</span></div></div>
+<blockquote class="voice-quote">「会いたい人に会いに行く」ことにお金を使いたい</blockquote>
+<div class="voice-foot"><span class="voice-why">旅とお金の使い道</span><a class="voice-src" href="https://note.com/ticket_tassu/n/n535511adf9d8" target="_blank" rel="noopener">note ↗</a></div>
+</article></div></section>
+<section class="sec" data-section="sns">
+<div class="sec-head"><div class="sec-spine"><span class="sec-cnt">15</span></div>
+<div><h2 class="sec-title">SNS短尺フレーズ</h2><p class="sec-desc">そのまま投稿できる短い一言</p></div></div>
+<div class="voice-grid"><article class="voice" data-cat="sns" data-text="私は、私のペースで生きていく。 miri mirimiri0962 1期">
+<div class="voice-head"><div class="voice-name">miri</div>
+<div class="vtags"><span class="vt vt-cat vt-sns">SNS短尺フレーズ</span><span class="vt vt-ki">1期</span></div></div>
+<blockquote class="voice-quote">私は、私のペースで生きていく。</blockquote>
+<div class="voice-foot"><span class="voice-why">自分のペースで</span><a class="voice-src" href="https://note.com/mirimiri0962/n/n5137488bfb91" target="_blank" rel="noopener">note ↗</a></div>
+</article>
+<article class="voice" data-cat="sns" data-text="終わりからまた、はじめよう！ りょうこ ryokosu555 2期">
+<div class="voice-head"><div class="voice-name">りょうこ</div>
+<div class="vtags"><span class="vt vt-cat vt-sns">SNS短尺フレーズ</span><span class="vt vt-ki">2期</span></div></div>
+<blockquote class="voice-quote">終わりからまた、はじめよう！</blockquote>
+<div class="voice-foot"><span class="voice-why">卒業は始まり</span><a class="voice-src" href="https://note.com/ryokosu555/n/nb00fcf1f4080" target="_blank" rel="noopener">note ↗</a></div>
+</article>
+<article class="voice" data-cat="sns" data-text="理由なんかない。私はみんなのことが大好きです。 nariごと nari_929 2期">
+<div class="voice-head"><div class="voice-name">nariごと</div>
+<div class="vtags"><span class="vt vt-cat vt-sns">SNS短尺フレーズ</span><span class="vt vt-ki">2期</span></div></div>
+<blockquote class="voice-quote">理由なんかない。私はみんなのことが大好きです。</blockquote>
+<div class="voice-foot"><span class="voice-why">仲間への愛</span><a class="voice-src" href="https://note.com/nari_929/n/n5bd202df4e05" target="_blank" rel="noopener">note ↗</a></div>
+</article>
+<article class="voice" data-cat="sns" data-text="100オンラインは、1オフラインにしかず えみぞう amy_amy_ 3期">
+<div class="voice-head"><div class="voice-name">えみぞう</div>
+<div class="vtags"><span class="vt vt-cat vt-sns">SNS短尺フレーズ</span><span class="vt vt-ki">3期</span></div></div>
+<blockquote class="voice-quote">100オンラインは、1オフラインにしかず</blockquote>
+<div class="voice-foot"><span class="voice-why">オンラインより対面の価値</span><a class="voice-src" href="https://note.com/amy_amy_/n/n0151db019b24" target="_blank" rel="noopener">note ↗</a></div>
+</article>
+<article class="voice" data-cat="sns" data-text="POOLO3期は卒業する。POOLOerに入学する。 まっさん massanpo_tokyo 3期">
+<div class="voice-head"><div class="voice-name">まっさん</div>
+<div class="vtags"><span class="vt vt-cat vt-sns">SNS短尺フレーズ</span><span class="vt vt-ki">3期</span></div></div>
+<blockquote class="voice-quote">POOLO3期は卒業する。POOLOerに入学する。</blockquote>
+<div class="voice-foot"><span class="voice-why">卒業は始まり</span><a class="voice-src" href="https://note.com/massanpo_tokyo/n/na826517c6bab" target="_blank" rel="noopener">note ↗</a></div>
+</article>
+<article class="voice" data-cat="sns" data-text="『今が一番楽しい』を何度更新し続けただろうか。 くわ kuwa_chan7 6期">
+<div class="voice-head"><div class="voice-name">くわ</div>
+<div class="vtags"><span class="vt vt-cat vt-sns">SNS短尺フレーズ</span><span class="vt vt-ki">6期</span></div></div>
+<blockquote class="voice-quote">『今が一番楽しい』を何度更新し続けただろうか。</blockquote>
+<div class="voice-foot"><span class="voice-why">今が一番楽しいの更新</span><a class="voice-src" href="https://note.com/kuwa_chan7/n/n81be088134ee" target="_blank" rel="noopener">note ↗</a></div>
+</article>
+<article class="voice" data-cat="sns" data-text="「ないものではなく、あるものに目を向けよう」 None moimoi_123 7期">
+<div class="voice-head"><div class="voice-name">None</div>
+<div class="vtags"><span class="vt vt-cat vt-sns">SNS短尺フレーズ</span><span class="vt vt-ki">7期</span></div></div>
+<blockquote class="voice-quote">「ないものではなく、あるものに目を向けよう」</blockquote>
+<div class="voice-foot"><span class="voice-why">あるものに目を向ける</span><a class="voice-src" href="https://note.com/moimoi_123/n/na0cd0c41dbc7" target="_blank" rel="noopener">note ↗</a></div>
+</article>
+<article class="voice" data-cat="sns" data-text="人生は案外、知らない店に入ることから変わるのかもしれない Mai maihappiness1228 11期">
+<div class="voice-head"><div class="voice-name">Mai</div>
+<div class="vtags"><span class="vt vt-cat vt-sns">SNS短尺フレーズ</span><span class="vt vt-ki">11期</span></div></div>
+<blockquote class="voice-quote">人生は案外、知らない店に入ることから変わるのかもしれない</blockquote>
+<div class="voice-foot"><span class="voice-why">一歩踏み出す気づき</span><a class="voice-src" href="https://note.com/maihappiness1228/n/nf78a6125c7f1" target="_blank" rel="noopener">note ↗</a></div>
+</article>
+<article class="voice" data-cat="sns" data-text="やりたいと思ったら、もう叶えるしかないんだと思う natsu🇨🇭 konatsu312 11期">
+<div class="voice-head"><div class="voice-name">natsu🇨🇭</div>
+<div class="vtags"><span class="vt vt-cat vt-sns">SNS短尺フレーズ</span><span class="vt vt-ki">11期</span></div></div>
+<blockquote class="voice-quote">やりたいと思ったら、もう叶えるしかないんだと思う</blockquote>
+<div class="voice-foot"><span class="voice-why">やりたいに素直になる</span><a class="voice-src" href="https://note.com/konatsu312/n/nb38750ca7ac9" target="_blank" rel="noopener">note ↗</a></div>
+</article>
+<article class="voice" data-cat="sns" data-text="夜なのに、皆んなで歩くと怖くない。 かなのノート stayhumble315 11期">
+<div class="voice-head"><div class="voice-name">かなのノート</div>
+<div class="vtags"><span class="vt vt-cat vt-sns">SNS短尺フレーズ</span><span class="vt vt-ki">11期</span></div></div>
+<blockquote class="voice-quote">夜なのに、皆んなで歩くと怖くない。</blockquote>
+<div class="voice-foot"><span class="voice-why">仲間といる安心感</span><a class="voice-src" href="https://note.com/stayhumble315/n/nacdfc63c1e02" target="_blank" rel="noopener">note ↗</a></div>
+</article>
+<article class="voice" data-cat="sns" data-text="人前で泣いてもいい世界線がある yonekame yone87728 11期">
+<div class="voice-head"><div class="voice-name">yonekame</div>
+<div class="vtags"><span class="vt vt-cat vt-sns">SNS短尺フレーズ</span><span class="vt vt-ki">11期</span></div></div>
+<blockquote class="voice-quote">人前で泣いてもいい世界線がある</blockquote>
+<div class="voice-foot"><span class="voice-why">本音を出せる安全な場</span><a class="voice-src" href="https://note.com/yone87728/n/n3a7250fab8a5" target="_blank" rel="noopener">note ↗</a></div>
+</article>
+<article class="voice" data-cat="sns" data-text="僕の旅はまだ始まったばかりだ。 いぶくん ekvi_2791 11期">
+<div class="voice-head"><div class="voice-name">いぶくん</div>
+<div class="vtags"><span class="vt vt-cat vt-sns">SNS短尺フレーズ</span><span class="vt vt-ki">11期</span></div></div>
+<blockquote class="voice-quote">僕の旅はまだ始まったばかりだ。</blockquote>
+<div class="voice-foot"><span class="voice-why">旅のはじまり</span><a class="voice-src" href="https://note.com/ekvi_2791/n/n0f331bdd1ca8" target="_blank" rel="noopener">note ↗</a></div>
+</article>
+<article class="voice" data-cat="sns" data-text="優しい人は、傷ついたことのある人だよ。 葵月みず｜Aotsuki Mizu moon_3zu 11期">
+<div class="voice-head"><div class="voice-name">葵月みず｜Aotsuki Mizu</div>
+<div class="vtags"><span class="vt vt-cat vt-sns">SNS短尺フレーズ</span><span class="vt vt-ki">11期</span></div></div>
+<blockquote class="voice-quote">優しい人は、傷ついたことのある人だよ。</blockquote>
+<div class="voice-foot"><span class="voice-why">やさしさ</span><a class="voice-src" href="https://note.com/moon_3zu/n/nc25194fc7b8d" target="_blank" rel="noopener">note ↗</a></div>
+</article>
+<article class="voice" data-cat="sns" data-text="やっぱりやってみるって大事。失敗もデータなのじゃ！！！ ほのか honoka_1014 11期">
+<div class="voice-head"><div class="voice-name">ほのか</div>
+<div class="vtags"><span class="vt vt-cat vt-sns">SNS短尺フレーズ</span><span class="vt vt-ki">11期</span></div></div>
+<blockquote class="voice-quote">やっぱりやってみるって大事。失敗もデータなのじゃ！！！</blockquote>
+<div class="voice-foot"><span class="voice-why">やってみる姿勢</span><a class="voice-src" href="https://note.com/honoka_1014/n/nee35846458e1" target="_blank" rel="noopener">note ↗</a></div>
+</article>
+<article class="voice" data-cat="sns" data-text="100通のLINEより、1通の手紙。 ひかりん 22_mimoza_77 11期">
+<div class="voice-head"><div class="voice-name">ひかりん</div>
+<div class="vtags"><span class="vt vt-cat vt-sns">SNS短尺フレーズ</span><span class="vt vt-ki">11期</span></div></div>
+<blockquote class="voice-quote">100通のLINEより、1通の手紙。</blockquote>
+<div class="voice-foot"><span class="voice-why">手紙で伝える</span><a class="voice-src" href="https://note.com/22_mimoza_77/n/n08a759f8d723" target="_blank" rel="noopener">note ↗</a></div>
+</article></div></section>
+<div class="nohit" id="nohit">該当する声がありません。</div>
+</main>
+
+<footer class="foot"><div class="shell">
+<div class="note"><b>この資料について</b><br>「参加者の声ライブラリ 第二弾」。第一弾（253声）でカバーが薄かった<b>歴代卒業制作（1〜9期・106本）</b>と<b>11期の合宿後〜共創期</b>のnoteを追加精読し、第一弾と<b>重複しない</b>新しい声だけを104件抽出しました。引用は原文ママ。実際の広告・LP掲載時は、①ご本人への掲載許諾、②氏名・所属が特定されない形への加工（属性のみ添える）を行ってください。文脈は各note原典で必ず確認を。</div>
+出典：TABIPPO公式noteマガジン＋ハッシュタグ #POOLO ＋ note検索「POOLO卒業制作」／ 一次資料は Obsidian「🎙️ 参加者アーカイブ司令塔」。今回精読249本・抽出104声・76名。<br>
+参照：<a href="note-voices-library-260710.html">参加者の声ライブラリ 第一弾</a>　｜　<a href="https://michinorionda.github.io/poolo-life/">マスターダッシュボード</a>　by TABIPPO・POOLO
+</div></footer>
+</div>
+
+<script>
+var curF='all',curQ='';
+function apply(){
+  var secs=document.querySelectorAll('.sec');var anyHit=false;
+  secs.forEach(function(sec){
+    var cards=sec.querySelectorAll('.voice');var shown=0;
+    cards.forEach(function(c){
+      var okF=(curF==='all'||c.dataset.cat===curF);
+      var okQ=(!curQ||c.dataset.text.toLowerCase().indexOf(curQ)>=0);
+      if(okF&&okQ){c.classList.remove('hide');shown++;}else{c.classList.add('hide');}
+    });
+    if(shown>0){sec.classList.remove('hide');anyHit=true;}else{sec.classList.add('hide');}
+  });
+  document.getElementById('nohit').style.display=anyHit?'none':'block';
+}
+document.querySelectorAll('.fbtn').forEach(function(b){
+  b.addEventListener('click',function(){
+    document.querySelectorAll('.fbtn').forEach(function(x){x.classList.remove('on')});
+    b.classList.add('on');curF=b.dataset.f;apply();
+  });
+});
+document.getElementById('search').addEventListener('input',function(e){curQ=e.target.value.toLowerCase().trim();apply();});
+</script>
+</body></html>
