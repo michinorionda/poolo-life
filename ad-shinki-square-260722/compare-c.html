@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>POOLO 新期募集 スクエア広告 C家系 3案比較</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@400;700;900&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&family=Jost:wght@400;500;600&display=swap');
+  :root{ --brand:#189BBC; --ink:#000; --line:#E4E4E4; --off:#F9F9F9; }
+  *{ box-sizing:border-box; }
+  body{ margin:0; background:var(--off); color:var(--ink);
+        font-family:'Noto Sans JP',sans-serif; -webkit-text-size-adjust:100%; }
+  header{ padding:28px 20px 8px; text-align:center; }
+  .en{ font-family:'Jost',sans-serif; letter-spacing:.16em; color:var(--brand);
+       font-weight:600; font-size:12px; }
+  h1{ font-family:'Zen Old Mincho',serif; font-weight:900; font-size:22px;
+      margin:6px 0 2px; }
+  .sub{ font-size:12px; color:rgba(0,0,0,.55); margin:0 0 18px; line-height:1.7; }
+  .grid{ max-width:520px; margin:0 auto; padding:0 16px 60px; }
+  .card{ background:#fff; border:1px solid var(--line); margin-bottom:26px; }
+  .cap{ padding:14px 16px; border-bottom:1px solid var(--line); }
+  .cap .tag{ font-family:'Jost',sans-serif; font-weight:600; font-size:11px;
+             letter-spacing:.12em; color:var(--brand); }
+  .cap .ttl{ font-family:'Zen Kaku Gothic New',sans-serif; font-weight:700;
+             font-size:16px; margin:3px 0 4px; }
+  .cap .note{ font-size:12px; color:rgba(0,0,0,.6); line-height:1.7; margin:0; }
+  .frame{ position:relative; width:100%; aspect-ratio:1/1; overflow:hidden; background:#fff; }
+  .frame iframe{ position:absolute; top:0; left:0; width:1080px; height:1080px;
+                 border:0; transform-origin:top left; }
+  .open{ display:block; text-align:center; padding:12px; font-size:13px;
+         font-family:'Zen Kaku Gothic New',sans-serif; font-weight:500;
+         color:var(--brand); text-decoration:none; border-top:1px solid var(--line); }
+  .back{ display:block; text-align:center; font-size:12px; color:rgba(0,0,0,.5);
+         padding:0 0 40px; }
+</style>
+</head>
+<body>
+<header>
+  <div class="en">CONCEPT C — VARIATIONS</div>
+  <h1>擬・非広告（C家系）3案</h1>
+  <p class="sub">広告に擬態してフィードで止める。<br>擬態する"面"を横にずらした3方向 ／ 1080×1080</p>
+</header>
+
+<div class="grid">
+  <div class="card">
+    <div class="cap">
+      <span class="tag">C-1 BOARDING PASS</span>
+      <div class="ttl">搭乗券</div>
+      <p class="note">紙のボーディングパスに擬態。FROM 毎日 → TO 生き方、便名POOLO12、ミシン目の半券。旅ブランド直結。</p>
+    </div>
+    <div class="frame"><iframe src="c1-boarding.html" scrolling="no" loading="lazy"></iframe></div>
+    <a class="open" href="c1-boarding.html" target="_blank">単体で開く ↗</a>
+  </div>
+
+  <div class="card">
+    <div class="cap">
+      <span class="tag">C-2 NOTIFICATION</span>
+      <div class="ttl">スマホ通知</div>
+      <p class="note">ロック画面の通知スタックに擬態。深夜0:00「"いつか"まだ来てない」→POOLO通知が答えとして着地。</p>
+    </div>
+    <div class="frame"><iframe src="c2-notif.html" scrolling="no" loading="lazy"></iframe></div>
+    <a class="open" href="c2-notif.html" target="_blank">単体で開く ↗</a>
+  </div>
+
+  <div class="card">
+    <div class="cap">
+      <span class="tag">C-3 ROUTE SEARCH</span>
+      <div class="ttl">乗換案内</div>
+      <p class="note">経路検索の結果に擬態。現在地"毎日"→目的地"生き方"、POOLO経由/所要1年。移動のメタファー。</p>
+    </div>
+    <div class="frame"><iframe src="c3-route.html" scrolling="no" loading="lazy"></iframe></div>
+    <a class="open" href="c3-route.html" target="_blank">単体で開く ↗</a>
+  </div>
+</div>
+
+<a class="back" href="compare.html">← 最初の3案(A/B/C原案)にもどる</a>
+
+<script>
+  function fit(){
+    document.querySelectorAll('.frame').forEach(function(f){
+      var s = f.clientWidth / 1080;
+      f.querySelector('iframe').style.transform = 'scale(' + s + ')';
+    });
+  }
+  window.addEventListener('load', fit);
+  window.addEventListener('resize', fit);
+</script>
+</body>
+</html>

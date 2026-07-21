@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>POOLO 12期 — 経路検索 (C-3)</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@400;700;900&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&family=Jost:wght@400;500;600&display=swap');
+
+:root{
+  --brand:#189BBC;
+  --brand-deep:#127E9A;
+  --brand-mid:#8FC6D6;
+  --brand-pale:#DDECF1;
+  --ink:#000;
+  --bg:#FFF;
+  --bg-off:#F9F9F9;
+  --line:#E4E4E4;
+  --mincho:'Zen Old Mincho','Hiragino Mincho ProN',serif;
+  --head:'Zen Kaku Gothic New','Hiragino Kaku Gothic ProN',sans-serif;
+  --body:'Noto Sans JP','Hiragino Kaku Gothic ProN',sans-serif;
+  --en:'Jost',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{margin:0;background:#666;font-family:var(--body);color:var(--ink);-webkit-font-smoothing:antialiased;}
+
+.square{
+  width:1080px;height:1080px;overflow:hidden;
+  background:var(--bg-off);
+  display:flex;flex-direction:column;
+}
+
+/* ============ App bar ============ */
+.appbar{
+  height:76px;flex:none;
+  background:var(--brand);color:#FFF;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 44px;
+}
+.appbar .app-title{display:flex;align-items:center;gap:16px;}
+.appbar .app-title svg{display:block;}
+.appbar .app-name{font-family:var(--head);font-weight:700;font-size:28px;letter-spacing:0.06em;}
+.appbar .app-sub{font-family:var(--en);font-weight:500;font-size:17px;letter-spacing:0.22em;color:rgba(255,255,255,0.75);margin-left:6px;}
+.appbar .app-time{display:flex;align-items:baseline;gap:14px;}
+.appbar .app-date{font-family:var(--head);font-weight:500;font-size:21px;color:rgba(255,255,255,0.88);}
+.appbar .app-clock{font-family:var(--en);font-weight:500;font-size:27px;letter-spacing:0.04em;}
+
+/* ============ Search panel ============ */
+.search{flex:none;padding:28px 44px 22px;background:var(--bg-off);}
+.field-group{
+  position:relative;
+  background:var(--bg);
+  border:1px solid var(--line);
+  border-radius:8px;
+}
+.field{
+  height:87px;
+  display:flex;align-items:center;gap:22px;
+  padding:0 100px 0 26px;
+}
+.field + .field{border-top:1px solid var(--line);}
+.field .pt{width:40px;flex:none;display:flex;justify-content:center;position:relative;z-index:2;}
+.pt-from{width:18px;height:18px;border:5px solid var(--brand);border-radius:50%;background:#FFF;}
+.pt-to{width:26px;height:26px;background:var(--brand);border-radius:50%;position:relative;}
+.pt-to::after{content:"";position:absolute;inset:8px;background:#FFF;border-radius:50%;}
+.connector{
+  position:absolute;left:45px;top:62px;bottom:62px;width:0;
+  border-left:4px dotted var(--brand-mid);z-index:1;
+}
+.field .ft{display:flex;flex-direction:column;gap:6px;min-width:0;}
+.field .fl{display:flex;align-items:baseline;gap:12px;}
+.field .fl .jp{font-family:var(--head);font-weight:500;font-size:19px;color:rgba(0,0,0,0.5);letter-spacing:0.1em;}
+.field .fl .en{font-family:var(--en);font-weight:500;font-size:14px;letter-spacing:0.26em;color:var(--brand);}
+.field .fv{font-family:var(--mincho);font-weight:700;font-size:41px;line-height:1;letter-spacing:0.04em;white-space:nowrap;}
+.field.to .fv{font-weight:900;color:var(--brand);}
+.swap{
+  position:absolute;right:26px;top:50%;transform:translateY(-50%);
+  width:58px;height:58px;border-radius:50%;
+  background:#FFF;border:1px solid var(--line);
+  display:flex;align-items:center;justify-content:center;z-index:3;
+}
+.controls{margin-top:18px;display:flex;align-items:center;gap:14px;}
+.chip{
+  height:54px;display:flex;align-items:center;gap:10px;
+  background:#FFF;border:1px solid var(--line);border-radius:6px;
+  padding:0 22px;
+  font-family:var(--head);font-weight:500;font-size:23px;color:rgba(0,0,0,0.72);
+  letter-spacing:0.04em;
+}
+.chip .caret{font-size:15px;color:rgba(0,0,0,0.4);}
+.btn-search{
+  margin-left:auto;height:54px;
+  display:flex;align-items:center;gap:12px;
+  background:var(--brand);color:#FFF;border-radius:6px;
+  padding:0 40px;
+  font-family:var(--head);font-weight:700;font-size:25px;letter-spacing:0.14em;
+}
+
+/* ============ Results header ============ */
+.results-head{
+  flex:none;padding:0 48px 12px;
+  display:flex;align-items:baseline;justify-content:space-between;
+}
+.results-head .count{font-family:var(--head);font-weight:500;font-size:21px;color:rgba(0,0,0,0.55);letter-spacing:0.06em;}
+.results-head .sorts{display:flex;gap:26px;font-family:var(--head);font-size:21px;letter-spacing:0.06em;}
+.results-head .sorts .on{font-weight:700;color:var(--brand);border-bottom:3px solid var(--brand);padding-bottom:4px;}
+.results-head .sorts .off{font-weight:500;color:rgba(0,0,0,0.4);}
+
+/* ============ Result card ============ */
+.card{
+  flex:1;margin:0 44px 22px;
+  background:#FFF;border:1px solid var(--line);border-radius:8px;
+  border-top:6px solid var(--brand);
+  padding:26px 40px 0;
+  display:flex;flex-direction:column;justify-content:space-between;
+  min-height:0;
+}
+.card-top{display:flex;align-items:center;gap:14px;}
+.rank{font-family:var(--en);font-weight:600;font-size:37px;color:var(--brand);line-height:1;margin-right:6px;}
+.badge{
+  font-family:var(--head);font-weight:700;font-size:20px;letter-spacing:0.1em;
+  border-radius:4px;padding:6px 14px;line-height:1;
+}
+.badge.fill{background:var(--brand);color:#FFF;}
+.badge.line{border:2px solid var(--brand);color:var(--brand);padding:4px 12px;}
+.card-top .span{margin-left:auto;font-family:var(--head);font-weight:500;font-size:23px;color:rgba(0,0,0,0.6);letter-spacing:0.05em;}
+.card-top .span b{font-weight:700;color:var(--ink);}
+
+.timerow{display:flex;align-items:baseline;gap:28px;margin-top:2px;}
+.timerow .cap{font-family:var(--head);font-weight:500;font-size:20px;color:rgba(0,0,0,0.5);letter-spacing:0.14em;}
+.t-num{font-family:var(--en);font-weight:500;font-size:116px;line-height:0.9;color:var(--brand);letter-spacing:-0.01em;}
+.t-unit{font-family:var(--mincho);font-weight:900;font-size:56px;line-height:1;color:var(--brand);}
+.timerow .tf{display:flex;align-items:baseline;gap:4px;}
+.timerow .sub{font-family:var(--head);font-weight:700;font-size:29px;color:var(--ink);letter-spacing:0.05em;}
+.timerow .sub small{font-weight:500;font-size:22px;color:rgba(0,0,0,0.5);margin-right:8px;letter-spacing:0.1em;}
+
+/* --- route diagram --- */
+.route{display:flex;align-items:flex-start;padding:12px 6px 0;}
+.station{flex:none;display:flex;flex-direction:column;align-items:center;gap:16px;}
+.crow{height:52px;display:flex;align-items:center;justify-content:center;}
+.node{width:30px;height:30px;border-radius:50%;background:#FFF;border:7px solid var(--brand);}
+.node.hub{width:52px;height:52px;border:9px solid var(--brand);position:relative;}
+.node.hub::after{content:"";position:absolute;inset:5px;border-radius:50%;background:var(--brand);}
+.sname{font-family:var(--head);font-weight:700;font-size:26px;letter-spacing:0.06em;color:var(--ink);white-space:nowrap;}
+.station.hub-st .sname{font-family:var(--en);font-weight:600;font-size:33px;letter-spacing:0.08em;color:var(--brand);}
+.hub-tag{
+  font-family:var(--head);font-weight:700;font-size:17px;letter-spacing:0.18em;
+  background:var(--brand);color:#FFF;border-radius:4px;padding:4px 12px;line-height:1;
+  margin-top:-4px;
+}
+.seg{flex:1;position:relative;height:52px;min-width:0;}
+.seg::before{content:"";position:absolute;left:-8px;right:-8px;top:22px;height:8px;background:var(--brand);border-radius:4px;}
+.seg .leg{
+  position:absolute;left:50%;top:26px;transform:translate(-50%,-50%);
+  background:#FFF;border:3px solid var(--brand);border-radius:6px;
+  padding:7px 24px;line-height:1;
+  font-family:var(--head);font-weight:700;font-size:26px;letter-spacing:0.3em;text-indent:0.3em;color:var(--brand);
+  white-space:nowrap;
+}
+
+/* --- meta row --- */
+.meta{
+  border-top:1px solid var(--line);
+  display:grid;grid-template-columns:1fr 1fr 1.35fr;
+  padding:20px 0 24px;
+}
+.meta > div{padding:0 26px;display:flex;flex-direction:column;gap:9px;}
+.meta > div:first-child{padding-left:6px;}
+.meta > div + div{border-left:1px solid var(--line);}
+.meta .ml{font-family:var(--head);font-weight:500;font-size:19px;color:rgba(0,0,0,0.5);letter-spacing:0.16em;}
+.meta .mv{font-family:var(--head);font-weight:700;font-size:28px;letter-spacing:0.04em;color:var(--ink);white-space:nowrap;}
+
+/* ============ CTA ============ */
+.cta{flex:none;background:var(--brand);color:#FFF;}
+.cta-main{
+  padding:30px 44px 26px;
+  display:flex;align-items:center;justify-content:space-between;gap:30px;
+}
+.cta-btn{
+  flex:none;display:flex;align-items:center;gap:18px;
+  background:#FFF;color:var(--brand);border-radius:6px;
+  padding:20px 38px;
+  font-family:var(--head);font-weight:700;font-size:31px;letter-spacing:0.1em;
+  line-height:1;
+}
+.cta-copy{text-align:right;display:flex;flex-direction:column;gap:8px;}
+.cta-copy .en{font-family:var(--en);font-weight:500;font-size:16px;letter-spacing:0.34em;color:rgba(255,255,255,0.75);}
+.cta-copy .jp{font-family:var(--head);font-weight:700;font-size:33px;letter-spacing:0.08em;line-height:1.2;}
+.cta-copy .jp .en-num{font-family:var(--en);font-weight:600;}
+.cta-sign{
+  border-top:1px solid rgba(255,255,255,0.3);
+  padding:13px 44px 16px;
+  display:flex;justify-content:center;align-items:baseline;gap:14px;
+}
+.cta-sign .p{font-family:var(--en);font-weight:600;font-size:19px;letter-spacing:0.3em;}
+.cta-sign .t{font-family:var(--en);font-weight:400;font-size:15px;letter-spacing:0.24em;color:rgba(255,255,255,0.75);}
+</style>
+</head>
+<body>
+<div class="square">
+
+  <!-- App bar -->
+  <header class="appbar">
+    <div class="app-title">
+      <svg width="30" height="30" viewBox="0 0 30 30" fill="none">
+        <circle cx="6" cy="24" r="4" stroke="#FFF" stroke-width="3"/>
+        <circle cx="24" cy="6" r="4" stroke="#FFF" stroke-width="3"/>
+        <path d="M9 21 L21 9" stroke="#FFF" stroke-width="3" stroke-linecap="round" stroke-dasharray="1 6"/>
+      </svg>
+      <span class="app-name">経路検索</span>
+      <span class="app-sub">TRANSIT</span>
+    </div>
+    <div class="app-time">
+      <span class="app-date">7/22（水）</span>
+      <span class="app-clock">07:22</span>
+    </div>
+  </header>
+
+  <!-- Search inputs -->
+  <section class="search">
+    <div class="field-group">
+      <div class="connector"></div>
+      <div class="field from">
+        <span class="pt"><span class="pt-from"></span></span>
+        <span class="ft">
+          <span class="fl"><span class="jp">現在地</span><span class="en">FROM</span></span>
+          <span class="fv">予定通りの毎日</span>
+        </span>
+      </div>
+      <div class="field to">
+        <span class="pt"><span class="pt-to"></span></span>
+        <span class="ft">
+          <span class="fl"><span class="jp">目的地</span><span class="en">TO</span></span>
+          <span class="fv">自分の、生き方</span>
+        </span>
+      </div>
+      <div class="swap">
+        <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
+          <path d="M8 3 L8 20 M8 3 L3.5 8 M8 3 L12.5 8" stroke="#189BBC" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M18 23 L18 6 M18 23 L13.5 18 M18 23 L22.5 18" stroke="#189BBC" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+    </div>
+    <div class="controls">
+      <span class="chip">出発　いま <span class="caret">▼</span></span>
+      <span class="chip">片道</span>
+      <span class="btn-search">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+          <circle cx="10" cy="10" r="6.5" stroke="#FFF" stroke-width="3"/>
+          <path d="M15 15 L21 21" stroke="#FFF" stroke-width="3" stroke-linecap="round"/>
+        </svg>
+        検索
+      </span>
+    </div>
+  </section>
+
+  <!-- Results header -->
+  <div class="results-head">
+    <span class="count">検索結果　1件</span>
+    <span class="sorts">
+      <span class="on">おすすめ順</span>
+      <span class="off">早い順</span>
+      <span class="off">安い順</span>
+    </span>
+  </div>
+
+  <!-- Result card -->
+  <article class="card">
+
+    <div class="card-top">
+      <span class="rank">1</span>
+      <span class="badge fill">おすすめ</span>
+      <span class="badge line">楽</span>
+      <span class="badge line">濃</span>
+      <span class="span">いま発 → <b>1年後</b> の自分着</span>
+    </div>
+
+    <div class="timerow">
+      <span class="cap">所要時間</span>
+      <span class="tf"><span class="t-num">1</span><span class="t-unit">年</span></span>
+      <span class="sub"><small>乗換</small>1回</span>
+    </div>
+
+    <!-- Route diagram -->
+    <div class="route">
+      <div class="station">
+        <span class="crow"><span class="node"></span></span>
+        <span class="sname">今の毎日</span>
+      </div>
+      <div class="seg"><span class="leg">旅</span></div>
+      <div class="station hub-st">
+        <span class="crow"><span class="node hub"></span></span>
+        <span class="sname">POOLO</span>
+        <span class="hub-tag">のりかえ</span>
+      </div>
+      <div class="seg"><span class="leg">学び</span></div>
+      <div class="station">
+        <span class="crow"><span class="node"></span></span>
+        <span class="sname">生き方</span>
+      </div>
+    </div>
+
+    <!-- Meta -->
+    <div class="meta">
+      <div>
+        <span class="ml">運賃</span>
+        <span class="mv">じぶんの時間</span>
+      </div>
+      <div>
+        <span class="ml">距離</span>
+        <span class="mv">一歩ぶん</span>
+      </div>
+      <div>
+        <span class="ml">同行者</span>
+        <span class="mv">利害のない仲間</span>
+      </div>
+    </div>
+
+  </article>
+
+  <!-- CTA -->
+  <footer class="cta">
+    <div class="cta-main">
+      <span class="cta-btn">
+        この経路で行く
+        <svg width="30" height="22" viewBox="0 0 30 22" fill="none">
+          <path d="M2 11 L26 11 M18 3 L26 11 L18 19" stroke="#189BBC" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </span>
+      <span class="cta-copy">
+        <span class="en">NEW MEMBERS WANTED</span>
+        <span class="jp">POOLO <span class="en-num">12</span>期　新期メンバー募集中</span>
+      </span>
+    </div>
+    <div class="cta-sign">
+      <span class="p">POOLO</span>
+      <span class="t">by TABIPPO</span>
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>

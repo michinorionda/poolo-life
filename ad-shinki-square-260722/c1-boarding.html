@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>POOLO 12期募集 Meta広告 C-1 搭乗券</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@400;700;900&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&family=Jost:wght@400;500;600&display=swap');
+
+:root{
+  --blue:#189BBC;
+  --ink:#000;
+  --paper:#F9F9F9;
+  --hair:#E4E4E4;
+  --mincho:'Zen Old Mincho',serif;
+  --kaku:'Zen Kaku Gothic New',sans-serif;
+  --noto:'Noto Sans JP',sans-serif;
+  --jost:'Jost',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{margin:0;background:#fff;}
+
+.square{
+  width:1080px;height:1080px;overflow:hidden;
+  background:#EDF3F5;
+  padding:40px;
+  position:relative;
+}
+
+/* ---------- 券本体 ---------- */
+.ticket{
+  width:1000px;height:1000px;
+  background:var(--paper);
+  border:1px solid var(--hair);
+  border-radius:2px;
+  display:flex;
+  position:relative;
+  overflow:hidden;
+}
+
+/* ミシン目ノッチ（上下の半円） */
+.notch{
+  position:absolute;
+  width:30px;height:30px;
+  border-radius:50%;
+  background:#EDF3F5;
+  border:1px solid var(--hair);
+  left:calc(100% - 250px - 16px);
+  z-index:5;
+}
+.notch-t{top:-16px;}
+.notch-b{bottom:-16px;}
+
+/* ミシン目 */
+.perf{
+  width:0;
+  border-left:2px dashed #CFCFCF;
+}
+
+/* ---------- 上部の帯（エアラインバンド） ---------- */
+.band{
+  height:66px;
+  background:var(--blue);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 44px;
+  flex-shrink:0;
+}
+.airline{display:flex;align-items:baseline;gap:14px;}
+.airline .an{
+  font-family:var(--jost);font-weight:600;font-size:27px;
+  letter-spacing:.14em;color:#fff;
+}
+.airline .by{
+  font-family:var(--jost);font-weight:500;font-size:14px;
+  letter-spacing:.1em;color:rgba(255,255,255,.75);
+}
+.bp{
+  font-family:var(--jost);font-weight:500;font-size:14px;
+  letter-spacing:.32em;color:#fff;
+  border:1px solid rgba(255,255,255,.55);
+  padding:7px 12px 7px 16px;
+  display:flex;align-items:center;gap:10px;
+}
+.bp .bp-jp{
+  font-family:var(--kaku);font-weight:500;font-size:12px;
+  letter-spacing:.2em;color:rgba(255,255,255,.85);
+}
+
+/* ---------- 券面メイン ---------- */
+.main{
+  flex:1;
+  display:flex;flex-direction:column;
+  min-width:0;
+}
+.body{
+  flex:1;
+  display:flex;flex-direction:column;
+  padding:36px 44px 30px;
+}
+
+/* FROM → TO */
+.route{
+  flex:1;
+  display:flex;flex-direction:column;
+  justify-content:center;
+  gap:0;
+}
+.slabel{
+  font-family:var(--jost);font-weight:600;font-size:15px;
+  letter-spacing:.3em;color:var(--blue);
+  display:flex;align-items:baseline;gap:10px;
+}
+.slabel .jp{
+  font-family:var(--kaku);font-weight:500;font-size:12px;
+  letter-spacing:.24em;color:#9A9A9A;
+}
+.place{
+  font-family:var(--mincho);font-weight:900;
+  font-feature-settings:"palt";
+  color:var(--ink);
+  line-height:1.18;
+  white-space:nowrap;
+  margin-top:10px;
+}
+.from .place{font-size:66px;letter-spacing:.02em;}
+.to .place{font-size:74px;letter-spacing:.01em;color:var(--blue);}
+
+/* フライトパス（点線＋飛行機） */
+.path{
+  display:flex;align-items:center;
+  margin:44px 4px 46px;
+}
+.path .dash{
+  flex:1;height:0;
+  border-top:2px dashed var(--blue);
+  opacity:.55;
+}
+.path .dot{
+  width:10px;height:10px;border-radius:50%;
+  border:2px solid var(--blue);
+  background:var(--paper);
+  flex-shrink:0;
+}
+.path .dot-fill{background:var(--blue);}
+.path svg{
+  flex-shrink:0;
+  margin:0 18px;
+  transform:rotate(90deg);
+}
+
+/* 一行コピー */
+.copy{
+  margin-top:56px;
+  font-family:var(--mincho);font-weight:700;
+  font-size:31px;letter-spacing:.06em;
+  color:var(--ink);
+  display:flex;align-items:center;gap:16px;
+  white-space:nowrap;
+}
+.copy .rule{
+  display:inline-block;width:42px;height:2px;
+  background:var(--blue);flex-shrink:0;
+}
+
+/* 情報欄 */
+.info{
+  border-top:1px solid var(--hair);
+  margin-top:34px;
+  padding-top:26px;
+  display:flex;
+}
+.field{
+  flex:1;
+  padding-left:20px;
+  border-left:1px solid var(--hair);
+}
+.field:first-child{padding-left:0;border-left:none;}
+.flabel{
+  font-family:var(--jost);font-weight:600;font-size:13px;
+  letter-spacing:.22em;color:#9A9A9A;
+  display:flex;align-items:baseline;gap:8px;
+}
+.flabel .jp{
+  font-family:var(--kaku);font-weight:500;font-size:11px;
+  letter-spacing:.18em;
+}
+.fval{
+  margin-top:10px;
+  font-size:27px;color:var(--ink);
+  white-space:nowrap;
+}
+.fval.en{font-family:var(--jost);font-weight:600;letter-spacing:.05em;font-size:29px;}
+.fval.jp{font-family:var(--kaku);font-weight:700;letter-spacing:.04em;}
+.fval.blue{color:var(--blue);}
+
+/* 署名 */
+.sig{
+  margin-top:26px;
+  display:flex;justify-content:space-between;align-items:baseline;
+}
+.sig .name{
+  font-family:var(--noto);font-weight:500;font-size:15px;
+  letter-spacing:.08em;color:#8A8A8A;
+}
+.sig .code{
+  font-family:var(--jost);font-weight:500;font-size:13px;
+  letter-spacing:.24em;color:#B5B5B5;
+}
+
+/* ---------- 半券（stub） ---------- */
+.stub{
+  width:248px;flex-shrink:0;
+  display:flex;flex-direction:column;
+}
+.band-stub{
+  padding:0;
+  justify-content:center;
+  gap:10px;
+}
+.band-stub .jp{
+  font-family:var(--kaku);font-weight:500;font-size:13px;
+  letter-spacing:.3em;color:#fff;
+}
+.band-stub .en{
+  font-family:var(--jost);font-weight:500;font-size:10px;
+  letter-spacing:.26em;color:rgba(255,255,255,.7);
+}
+.stub-body{
+  flex:1;
+  display:flex;flex-direction:column;
+  padding:34px 26px 28px;
+}
+.sfield{margin-bottom:28px;}
+.sfield .flabel{font-size:12px;}
+.sfield .sval{
+  margin-top:8px;
+  white-space:nowrap;
+}
+.sval.en{font-family:var(--jost);font-weight:600;font-size:30px;letter-spacing:.04em;color:var(--ink);}
+.sval.blue{color:var(--blue);}
+.sval.jp{font-family:var(--kaku);font-weight:700;font-size:24px;color:var(--ink);}
+
+.sroute{
+  margin-top:2px;
+  padding-top:22px;
+  border-top:1px solid var(--hair);
+  font-family:var(--kaku);font-weight:500;font-size:14px;
+  letter-spacing:.04em;color:#8A8A8A;
+  display:flex;align-items:center;gap:8px;
+  white-space:nowrap;
+}
+.sroute .ar{color:var(--blue);font-family:var(--jost);font-weight:600;}
+
+.stub-spacer{flex:1;}
+
+/* バーコード */
+.barcode{
+  display:flex;
+  justify-content:space-between;
+  align-items:stretch;
+  height:88px;
+}
+.barcode i{
+  display:block;
+  background:var(--blue);
+}
+.stub-code{
+  margin-top:12px;
+  text-align:center;
+  font-family:var(--jost);font-weight:500;font-size:12px;
+  letter-spacing:.3em;color:#9A9A9A;
+  white-space:nowrap;
+}
+</style>
+</head>
+<body>
+<div class="square">
+  <div class="ticket">
+
+    <!-- 券面メイン -->
+    <div class="main">
+      <div class="band">
+        <div class="airline">
+          <span class="an">POOLO AIRLINES</span>
+          <span class="by">by TABIPPO</span>
+        </div>
+        <div class="bp">BOARDING PASS <span class="bp-jp">搭乗券</span></div>
+      </div>
+
+      <div class="body">
+        <div class="route">
+          <div class="from">
+            <div class="slabel">FROM <span class="jp">出発地</span></div>
+            <div class="place">予定通りの、毎日</div>
+          </div>
+
+          <div class="path">
+            <span class="dot"></span>
+            <span class="dash"></span>
+            <svg width="42" height="42" viewBox="0 0 24 24" fill="#189BBC" xmlns="http://www.w3.org/2000/svg">
+              <path d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/>
+            </svg>
+            <span class="dash"></span>
+            <span class="dot dot-fill"></span>
+          </div>
+
+          <div class="to">
+            <div class="slabel">TO <span class="jp">到着地</span></div>
+            <div class="place">生き方の、問い直し</div>
+          </div>
+
+          <div class="copy"><span class="rule"></span>その〝いつか〟に、搭乗しませんか。</div>
+        </div>
+
+        <div class="info">
+          <div class="field">
+            <div class="flabel">FLIGHT <span class="jp">便名</span></div>
+            <div class="fval en blue">POOLO&nbsp;12</div>
+          </div>
+          <div class="field">
+            <div class="flabel">GATE <span class="jp">搭乗口</span></div>
+            <div class="fval en">NOW&nbsp;OPEN</div>
+          </div>
+          <div class="field">
+            <div class="flabel">DATE <span class="jp">日付</span></div>
+            <div class="fval jp">新期募集中</div>
+          </div>
+          <div class="field">
+            <div class="flabel">SEAT <span class="jp">座席</span></div>
+            <div class="fval jp">あなたの分</div>
+          </div>
+        </div>
+
+        <div class="sig">
+          <span class="name">POOLO 12期 新期メンバー募集 ／ by TABIPPO</span>
+          <span class="code">TYO&thinsp;/&thinsp;POOLO-12</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ミシン目 -->
+    <div class="perf"></div>
+
+    <!-- 半券 -->
+    <div class="stub">
+      <div class="band band-stub">
+        <span class="jp">搭乗券</span>
+        <span class="en">BOARDING PASS</span>
+      </div>
+      <div class="stub-body">
+        <div class="sfield">
+          <div class="flabel">FLIGHT <span class="jp">便名</span></div>
+          <div class="sval en blue">POOLO&nbsp;12</div>
+        </div>
+        <div class="sfield">
+          <div class="flabel">GATE <span class="jp">搭乗口</span></div>
+          <div class="sval en">NOW&nbsp;OPEN</div>
+        </div>
+        <div class="sfield">
+          <div class="flabel">SEAT <span class="jp">座席</span></div>
+          <div class="sval jp">あなたの分</div>
+        </div>
+
+        <div class="sroute">毎日 <span class="ar">→</span> 問い直し</div>
+
+        <div class="stub-spacer"></div>
+
+        <div class="barcode">
+          <i style="width:3px"></i><i style="width:6px"></i><i style="width:2px"></i><i style="width:4px"></i><i style="width:8px"></i><i style="width:2px"></i><i style="width:3px"></i><i style="width:5px"></i><i style="width:2px"></i><i style="width:7px"></i><i style="width:3px"></i><i style="width:2px"></i><i style="width:6px"></i><i style="width:4px"></i><i style="width:2px"></i><i style="width:8px"></i><i style="width:3px"></i><i style="width:2px"></i><i style="width:5px"></i><i style="width:2px"></i><i style="width:4px"></i><i style="width:7px"></i><i style="width:2px"></i><i style="width:3px"></i><i style="width:6px"></i><i style="width:2px"></i>
+        </div>
+        <div class="stub-code">POOLO&nbsp;12</div>
+      </div>
+    </div>
+
+    <i class="notch notch-t"></i>
+    <i class="notch notch-b"></i>
+  </div>
+</div>
+</body>
+</html>
