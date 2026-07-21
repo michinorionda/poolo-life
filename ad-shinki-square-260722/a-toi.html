@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>POOLO 12th — 案A：問い一本（1080×1080）</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@400;700;900&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&family=Jost:wght@400;500;600&display=swap');
+
+/* =========================================================
+   POOLO 12th 新期メンバー募集 — Meta広告スクエア
+   案A「問い一本」：明朝の問いと余白だけで止める
+   poolo-ds 準拠：#189BBC / 純黒 / 純白 / ヘアライン#E4E4E4
+   ========================================================= */
+
+:root{
+  --brand:#189BBC;
+  --ink:#000000;
+  --ink-66:rgba(0,0,0,.66);
+  --ink-40:rgba(0,0,0,.40);
+  --bg:#FFFFFF;
+  --line:#E4E4E4;
+  --mincho:'Zen Old Mincho','Hiragino Mincho ProN','Yu Mincho',serif;
+  --body:'Noto Sans JP','Hiragino Kaku Gothic ProN',sans-serif;
+  --en:'Jost',sans-serif;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+body{margin:0;background:#F2F2F2;font-family:var(--body);}
+
+.square{
+  position:relative;
+  width:1080px;
+  height:1080px;
+  overflow:hidden;
+  background:var(--bg);
+  color:var(--ink);
+}
+
+/* ---------- 上部：英字ラベル＋ヘアライン ---------- */
+.top{
+  position:absolute;
+  top:92px;
+  left:92px;
+  right:92px;
+  display:flex;
+  align-items:center;
+  gap:26px;
+}
+.top .tick{
+  width:14px;
+  height:14px;
+  background:var(--brand);
+  flex:none;
+}
+.top .label{
+  font-family:var(--en);
+  font-weight:500;
+  font-size:26px;
+  letter-spacing:.34em;
+  color:var(--ink);
+  white-space:nowrap;
+  flex:none;
+}
+.top .label .open{color:var(--brand);}
+.top .rule{
+  height:1px;
+  background:var(--line);
+  flex:1;
+}
+
+/* ---------- 家紋的ワンポイント：12期の印 ---------- */
+.crest{
+  position:absolute;
+  top:180px;
+  right:92px;
+  width:104px;
+  height:104px;
+  border:1px solid var(--brand);
+  border-radius:50%;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:2px;
+}
+.crest .num{
+  font-family:var(--en);
+  font-weight:400;
+  font-size:38px;
+  line-height:1;
+  color:var(--brand);
+  letter-spacing:.02em;
+}
+.crest .th{
+  font-family:var(--en);
+  font-weight:500;
+  font-size:13px;
+  line-height:1;
+  letter-spacing:.42em;
+  text-indent:.42em;
+  color:var(--brand);
+}
+
+/* ---------- 主役：問い ---------- */
+.question{
+  position:absolute;
+  left:92px;
+  top:352px;
+  font-family:var(--mincho);
+  font-weight:700;
+  font-size:112px;
+  line-height:1.58;
+  letter-spacing:.045em;
+  color:var(--ink);
+  font-feature-settings:'palt';
+}
+.question .em{
+  color:var(--brand);
+}
+.question .quote{
+  font-weight:400;
+}
+
+/* 問いの直後の短い導線罫（編集の手つき） */
+.leader{
+  position:absolute;
+  left:96px;
+  top:788px;
+  width:56px;
+  height:2px;
+  background:var(--brand);
+}
+
+/* ---------- 右端：縦の英字マイクロコピー ---------- */
+.side{
+  position:absolute;
+  right:100px;
+  bottom:242px;
+  writing-mode:vertical-rl;
+  font-family:var(--en);
+  font-weight:400;
+  font-size:16px;
+  letter-spacing:.52em;
+  color:var(--ink-40);
+  white-space:nowrap;
+}
+
+/* ---------- 下部：補助行＋署名 ---------- */
+.sub{
+  position:absolute;
+  left:92px;
+  bottom:172px;
+  font-family:var(--body);
+  font-weight:500;
+  font-size:26px;
+  letter-spacing:.14em;
+  color:var(--ink-66);
+}
+
+.foot{
+  position:absolute;
+  left:92px;
+  right:92px;
+  bottom:92px;
+  border-top:1px solid var(--line);
+  padding-top:30px;
+  display:flex;
+  align-items:baseline;
+  justify-content:space-between;
+}
+.foot .recruit{
+  font-family:var(--body);
+  font-weight:700;
+  font-size:24px;
+  letter-spacing:.2em;
+  color:var(--ink);
+}
+.foot .brandname{
+  font-family:var(--en);
+  font-weight:500;
+  font-size:22px;
+  letter-spacing:.26em;
+  color:var(--ink-66);
+}
+.foot .brandname strong{
+  font-weight:600;
+  color:var(--brand);
+}
+</style>
+</head>
+<body>
+<div class="square">
+
+  <!-- 上部ラベル -->
+  <div class="top">
+    <span class="tick"></span>
+    <span class="label">POOLO 12th — <span class="open">NOW OPEN</span></span>
+    <span class="rule"></span>
+  </div>
+
+  <!-- 12期の印（家紋的ワンポイント） -->
+  <div class="crest">
+    <span class="num">12</span>
+    <span class="th">TH</span>
+  </div>
+
+  <!-- 主役の問い -->
+  <h1 class="question">
+    その<span class="quote">&ldquo;</span>いつか<span class="quote">&rdquo;</span>、<br>
+    <span class="em">何期目</span>ですか。
+  </h1>
+
+  <!-- 導線罫 -->
+  <div class="leader"></div>
+
+  <!-- 右端の縦英字 -->
+  <div class="side">TRAVEL, AND THE WAY YOU LIVE</div>
+
+  <!-- 補助の一行 -->
+  <p class="sub">旅を通して、生き方を問い直す1年間。</p>
+
+  <!-- 署名 -->
+  <div class="foot">
+    <span class="recruit">新期メンバー募集</span>
+    <span class="brandname"><strong>POOLO</strong>&ensp;by TABIPPO</span>
+  </div>
+
+</div>
+</body>
+</html>

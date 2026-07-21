@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>POOLO 新期メンバー募集｜案C 擬・非広告（検索UI）1080×1080</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@400;700;900&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&family=Jost:wght@400;500;600&display=swap');
+
+/* =========================================================
+   POOLO 新期メンバー募集 Meta広告 スクエア 案C
+   「広告に見えない広告」— 検索エンジンUI擬態（パターン割り込み）
+   brand: #189BBC / ink: #000 / bg: #FFF / off: #F9F9F9 / line: #E4E4E4
+   ========================================================= */
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: #FFFFFF;
+  font-family: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif;
+  color: #000000;
+  -webkit-font-smoothing: antialiased;
+}
+
+.square {
+  width: 1080px;
+  height: 1080px;
+  overflow: hidden;
+  position: relative;
+  background: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ---------- 検索バーエリア ---------- */
+.search-area {
+  padding: 92px 88px 0;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  gap: 26px;
+  width: 100%;
+  height: 98px;
+  padding: 0 40px;
+  background: #F9F9F9;
+  border: 1.5px solid #E4E4E4;
+  border-radius: 49px; /* 検索UIの記号としての角丸（本案のみ許容） */
+}
+
+.search-bar svg {
+  flex: none;
+  display: block;
+}
+
+.search-query {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 40px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: #000000;
+  white-space: nowrap;
+}
+
+/* 点滅カーソル */
+.caret {
+  display: inline-block;
+  width: 3px;
+  height: 44px;
+  margin-left: 8px;
+  vertical-align: -8px;
+  background: #189BBC;
+  animation: blink 1.1s steps(1, end) infinite;
+}
+@keyframes blink {
+  0%, 55%  { opacity: 1; }
+  56%, 100% { opacity: 0; }
+}
+
+/* ---------- タブ行（すべて/画像/…）---------- */
+.tabs {
+  display: flex;
+  gap: 46px;
+  margin-top: 44px;
+  padding: 0 88px 0 130px;
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 25px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  color: rgba(0, 0, 0, 0.50);
+}
+.tabs .active {
+  color: #189BBC;
+  font-weight: 700;
+  position: relative;
+  padding-bottom: 18px;
+}
+.tabs .active::after {
+  content: "";
+  position: absolute;
+  left: -4px;
+  right: -4px;
+  bottom: 0;
+  height: 4px;
+  background: #189BBC;
+}
+
+.tab-rule {
+  border: none;
+  border-top: 1px solid #E4E4E4;
+  margin: 0;
+}
+
+/* ---------- 検索結果件数 ---------- */
+.result-count {
+  padding: 26px 88px 0 130px;
+  font-family: 'Jost', 'Noto Sans JP', sans-serif;
+  font-size: 23px;
+  font-weight: 400;
+  letter-spacing: 0.03em;
+  color: rgba(0, 0, 0, 0.40);
+}
+
+/* ---------- 検索結果 1件目 ＝ 答え ---------- */
+.result {
+  padding: 58px 88px 0 130px;
+}
+
+.result-source {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.favicon {
+  flex: none;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: #189BBC;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Jost', sans-serif;
+  font-size: 28px;
+  font-weight: 600;
+  color: #FFFFFF;
+  letter-spacing: 0;
+}
+
+.source-lines .site-name {
+  font-family: 'Jost', 'Noto Sans JP', sans-serif;
+  font-size: 25px;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  color: rgba(0, 0, 0, 0.72);
+  line-height: 1.2;
+}
+
+.source-lines .site-url {
+  font-family: 'Jost', 'Noto Sans JP', sans-serif;
+  font-size: 23px;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  color: rgba(0, 0, 0, 0.50);
+  line-height: 1.4;
+  margin-top: 4px;
+}
+
+.result-title {
+  margin-top: 34px;
+  font-family: 'Zen Old Mincho', 'Hiragino Mincho ProN', serif;
+  font-size: 58px;
+  font-weight: 700;
+  line-height: 1.52;
+  letter-spacing: 0.02em;
+  color: #189BBC;
+}
+
+.result-snippet {
+  margin-top: 32px;
+  max-width: 830px;
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 30px;
+  font-weight: 400;
+  line-height: 1.92;
+  letter-spacing: 0.03em;
+  color: rgba(0, 0, 0, 0.66);
+}
+
+/* 検索エンジンの「一致キーワード太字」の作法で、query語を強調 */
+.result-snippet b {
+  font-weight: 700;
+  color: rgba(0, 0, 0, 0.86);
+}
+.result-snippet .em-brand {
+  font-weight: 700;
+  color: #189BBC;
+}
+
+/* ---------- 最下部の署名 ---------- */
+.signature {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 66px;
+  text-align: center;
+  font-family: 'Jost', 'Noto Sans JP', sans-serif;
+  font-size: 24px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  color: rgba(0, 0, 0, 0.40);
+}
+.signature .brand {
+  color: #189BBC;
+  font-weight: 600;
+}
+</style>
+</head>
+<body>
+
+<div class="square">
+
+  <!-- 検索バー：本音のキーワード -->
+  <div class="search-area">
+    <div class="search-bar">
+      <!-- 虫めがね（インラインSVG） -->
+      <svg width="38" height="38" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <circle cx="10.5" cy="10.5" r="6.75" stroke="rgba(0,0,0,0.42)" stroke-width="2"/>
+        <line x1="15.6" y1="15.6" x2="21" y2="21" stroke="rgba(0,0,0,0.42)" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+      <span class="search-query">会社 辞めたい&#12288;旅&#12288;生き方<span class="caret"></span></span>
+    </div>
+  </div>
+
+  <!-- タブ行 -->
+  <div class="tabs">
+    <span class="active">すべて</span>
+    <span>画像</span>
+    <span>動画</span>
+    <span>地図</span>
+    <span>ニュース</span>
+  </div>
+  <hr class="tab-rule">
+
+  <!-- 件数表示 -->
+  <div class="result-count">約 2,180,000 件 &nbsp;(0.38 秒)</div>
+
+  <!-- 検索結果1件目 ＝ POOLOという答え -->
+  <div class="result">
+    <div class="result-source">
+      <div class="favicon">P</div>
+      <div class="source-lines">
+        <div class="site-name">POOLO</div>
+        <div class="site-url">poolo.life &rsaquo; 新期メンバー募集</div>
+      </div>
+    </div>
+
+    <h1 class="result-title">その検索、"逃げ"じゃなくて<br>"問い直し"かもしれない。</h1>
+
+    <p class="result-snippet">POOLOは、<b>旅</b>を通して<b>生き方</b>を問い直す1年間のコミュニティ。利害のない仲間と、"いつか"を"今"にする。<span class="em-brand">12期、新期メンバー募集中。</span></p>
+  </div>
+
+  <!-- 署名 -->
+  <div class="signature"><span class="brand">POOLO</span>&#12288;／&#12288;by TABIPPO</div>
+
+</div>
+
+</body>
+</html>

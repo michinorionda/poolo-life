@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>POOLO 新期募集 スクエア広告 3案比較</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@400;700;900&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&family=Jost:wght@400;500;600&display=swap');
+  :root{ --brand:#189BBC; --ink:#000; --line:#E4E4E4; --off:#F9F9F9; }
+  *{ box-sizing:border-box; }
+  body{ margin:0; background:var(--off); color:var(--ink);
+        font-family:'Noto Sans JP',sans-serif; -webkit-text-size-adjust:100%; }
+  header{ padding:28px 20px 8px; text-align:center; }
+  .en{ font-family:'Jost',sans-serif; letter-spacing:.16em; color:var(--brand);
+       font-weight:600; font-size:12px; }
+  h1{ font-family:'Zen Old Mincho',serif; font-weight:900; font-size:22px;
+      margin:6px 0 2px; }
+  .sub{ font-size:12px; color:rgba(0,0,0,.55); margin:0 0 18px; }
+  .grid{ max-width:520px; margin:0 auto; padding:0 16px 60px; }
+  .card{ background:#fff; border:1px solid var(--line); margin-bottom:26px; }
+  .cap{ padding:14px 16px; border-bottom:1px solid var(--line); }
+  .cap .tag{ font-family:'Jost',sans-serif; font-weight:600; font-size:11px;
+             letter-spacing:.12em; color:var(--brand); }
+  .cap .ttl{ font-family:'Zen Kaku Gothic New',sans-serif; font-weight:700;
+             font-size:16px; margin:3px 0 4px; }
+  .cap .note{ font-size:12px; color:rgba(0,0,0,.6); line-height:1.7; margin:0; }
+  .frame{ position:relative; width:100%; aspect-ratio:1/1; overflow:hidden;
+          background:#fff; }
+  /* 1080四方の中身を各カード幅に縮小表示 */
+  .frame iframe{ position:absolute; top:0; left:0; width:1080px; height:1080px;
+                 border:0; transform-origin:top left; }
+  .open{ display:block; text-align:center; padding:12px; font-size:13px;
+         font-family:'Zen Kaku Gothic New',sans-serif; font-weight:500;
+         color:var(--brand); text-decoration:none; border-top:1px solid var(--line); }
+</style>
+</head>
+<body>
+<header>
+  <div class="en">POOLO 12th — CREATIVE OPTIONS</div>
+  <h1>新期募集・スクエア広告 3案</h1>
+  <p class="sub">水平思考で振り切った3方向 ／ Meta広告 1080×1080</p>
+</header>
+
+<div class="grid">
+  <div class="card">
+    <div class="cap">
+      <span class="tag">CONCEPT A</span>
+      <div class="ttl">問い一本</div>
+      <p class="note">商品説明ゼロ。明朝の問いと大量の余白だけで、饒舌なフィードの中で"静けさ"が手を止める。</p>
+    </div>
+    <div class="frame"><iframe src="a-toi.html" scrolling="no" loading="lazy"></iframe></div>
+    <a class="open" href="a-toi.html" target="_blank">単体で開く ↗</a>
+  </div>
+
+  <div class="card">
+    <div class="cap">
+      <span class="tag">CONCEPT B</span>
+      <div class="ttl">自己診断フック</div>
+      <p class="note">募集ではなく"あなたの話"に。チェックリストで自己診断させ、当てはまった瞬間に自分ごと化。</p>
+    </div>
+    <div class="frame"><iframe src="b-checklist.html" scrolling="no" loading="lazy"></iframe></div>
+    <a class="open" href="b-checklist.html" target="_blank">単体で開く ↗</a>
+  </div>
+
+  <div class="card">
+    <div class="cap">
+      <span class="tag">CONCEPT C</span>
+      <div class="ttl">擬・非広告（検索窓）</div>
+      <p class="note">広告に見えない広告。検索UIに擬態しパターン割り込みで止め、"答え"としてPOOLOを差し出す。</p>
+    </div>
+    <div class="frame"><iframe src="c-search.html" scrolling="no" loading="lazy"></iframe></div>
+    <a class="open" href="c-search.html" target="_blank">単体で開く ↗</a>
+  </div>
+</div>
+
+<script>
+  // 各カードの実寸(1080)を表示幅にフィットさせる
+  function fit(){
+    document.querySelectorAll('.frame').forEach(function(f){
+      var s = f.clientWidth / 1080;
+      var ifr = f.querySelector('iframe');
+      ifr.style.transform = 'scale(' + s + ')';
+    });
+  }
+  window.addEventListener('load', fit);
+  window.addEventListener('resize', fit);
+</script>
+</body>
+</html>
