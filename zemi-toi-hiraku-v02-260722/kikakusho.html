@@ -1,0 +1,1074 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>企画書｜学びの場を、創る。（POOLOゼミ 全7回）</title>
+<meta name="description" content="POOLOゼミ「学びの場を、創る。」の企画書。コンセプト・3つの目的・全7回の設計・集客の仕組み・価格と収支・エコシステムをまとめた共有用ドキュメント。">
+<meta name="robots" content="noindex,nofollow"><!-- 社内共有用：検索避け -->
+<link rel="stylesheet" href="../poolo-ds/tokens.css">
+<link rel="stylesheet" href="../poolo-ds/components.css">
+<style>
+  .doc-head { padding:56px 0 8px; }
+  .doc-eyebrow { font-family:var(--en); letter-spacing:.2em; font-size:12px; color:var(--brand); text-transform:uppercase; }
+  .doc-title { font-family:var(--mincho); font-weight:700; font-size:clamp(30px,5vw,44px); letter-spacing:.02em; margin:.3em 0 .25em; line-height:1.25; }
+  .doc-meta { font-family:var(--body); font-size:13px; color:var(--ink-50); letter-spacing:.05em; }
+  .doc-toc { display:flex; flex-wrap:wrap; gap:8px 16px; margin-top:22px; font-family:var(--head); font-size:12.5px; }
+  .doc-toc a { color:var(--brand-deep); border-bottom:1px solid var(--line-pale); padding-bottom:2px; }
+  .k-table { width:100%; border-collapse:collapse; margin-top:20px; font-family:var(--body); }
+  .k-table th, .k-table td { text-align:left; padding:13px 12px; border-bottom:1px solid var(--line); font-size:14px; letter-spacing:.03em; vertical-align:top; line-height:1.8; }
+  .k-table thead th { font-family:var(--head); font-size:12px; letter-spacing:.12em; color:var(--ink-50); border-bottom:1px solid var(--brand); white-space:nowrap; }
+  .k-table td .accent { font-family:var(--head); color:var(--brand-deep); font-weight:700; }
+  .k-note { font-size:12.5px; color:var(--ink-50); margin-top:12px; letter-spacing:.04em; line-height:1.85; }
+  .canvas-list { list-style:none; padding:0; margin:12px 0 0; counter-reset:c; }
+  .canvas-list li { position:relative; padding:10px 0 10px 42px; border-top:1px solid var(--line); font-family:var(--body); font-size:14.5px; }
+  .canvas-list li:first-child { border-top:none; }
+  .canvas-list li::before { counter-increment:c; content:counter(c); position:absolute; left:0; top:9px; width:26px; height:26px; border-radius:50%; background:var(--brand-pale); color:var(--brand-deep); font-family:var(--en); font-weight:600; font-size:13px; display:flex; align-items:center; justify-content:center; }
+  .canvas-list b { font-family:var(--head); }
+  .flywheel { list-style:none; padding:0; margin:16px 0 0; }
+  .flywheel li { position:relative; padding:0 0 22px 30px; font-family:var(--body); font-size:14.5px; line-height:1.8; }
+  .flywheel li::before { content:""; position:absolute; left:5px; top:6px; width:9px; height:9px; border-radius:50%; background:var(--brand); }
+  .flywheel li::after { content:""; position:absolute; left:9px; top:15px; bottom:0; width:1px; background:var(--line); }
+  .flywheel li:last-child { padding-bottom:0; }
+  .flywheel li:last-child::after { display:none; }
+  .flywheel .loop { color:var(--brand-deep); font-family:var(--head); font-size:12.5px; letter-spacing:.06em; }
+  .backlink { font-family:var(--head); font-size:12.5px; }
+  /* 共通フォーマット（120分の流れ） */
+  .fmt-wrap { margin:20px 0 8px; }
+  .fmt-cap { font-family:var(--head); font-weight:700; font-size:12.5px; letter-spacing:.06em; color:var(--brand-deep); margin:0 0 10px; }
+  .fmt { display:grid; grid-template-columns:repeat(6,1fr); gap:8px; }
+  .fmt-cell { border:1px solid var(--line); border-radius:2px; padding:10px 6px; text-align:center; }
+  .fmt-t { font-family:var(--en); font-size:12px; color:var(--brand); font-weight:600; letter-spacing:.02em; }
+  .fmt-l { display:block; font-family:var(--body); font-size:10.5px; color:var(--ink-72); margin-top:3px; line-height:1.5; }
+  /* 各回カード */
+  .ses { display:grid; grid-template-columns:104px 1fr; gap:24px; padding:28px 0; border-top:1px solid var(--line); }
+  .ses:first-of-type { border-top:2px solid var(--brand); }
+  .ses-num { font-family:var(--en); font-weight:600; font-size:36px; color:var(--brand); line-height:1; }
+  .ses-ph { display:block; font-family:var(--head); font-size:11px; letter-spacing:.12em; color:var(--ink-50); margin-top:9px; text-transform:uppercase; }
+  .ses-time { display:block; font-family:var(--body); font-size:11px; color:var(--ink-40); margin-top:6px; line-height:1.6; }
+  .ses-theme { font-family:var(--mincho); font-weight:700; font-size:19px; color:var(--ink); letter-spacing:.02em; margin:0 0 6px; }
+  .ses-aim { font-family:var(--body); font-size:14px; color:var(--ink-72); line-height:1.9; margin:0 0 15px; }
+  .ses-rows { display:grid; gap:10px; }
+  .ses-row { display:grid; grid-template-columns:82px 1fr; gap:12px; align-items:start; }
+  .ses-k { font-family:var(--head); font-weight:700; font-size:11.5px; letter-spacing:.03em; color:var(--brand-deep); padding-top:2px; }
+  .ses-v { font-family:var(--body); font-size:13.5px; color:var(--ink-72); line-height:1.85; margin:0; }
+  .ses-v .q { color:var(--brand-deep); font-style:normal; }
+  @media (max-width:640px) {
+    .fmt { grid-template-columns:repeat(3,1fr); }
+    .ses { grid-template-columns:1fr; gap:12px; }
+    .ses-num { font-size:30px; }
+    .ses-row { grid-template-columns:68px 1fr; }
+  }
+  /* 参加者ケース */
+  .case { border:1px solid var(--line); border-radius:4px; padding:26px 24px; margin:20px 0; }
+  .case-head { display:flex; flex-wrap:wrap; align-items:baseline; gap:8px 14px; border-bottom:1px solid var(--line); padding-bottom:13px; margin-bottom:16px; }
+  .case-tag { font-family:var(--head); font-size:11px; font-weight:700; letter-spacing:.08em; color:var(--on-brand); background:var(--brand); padding:3px 10px; border-radius:2px; }
+  .case-name { font-family:var(--mincho); font-weight:700; font-size:18px; color:var(--ink); }
+  .case-attr { font-family:var(--body); font-size:12.5px; color:var(--ink-50); }
+  .case-seed { font-family:var(--body); font-size:13.5px; color:var(--ink-72); line-height:1.9; background:var(--brand-pale); border-radius:3px; padding:12px 15px; margin:0 0 16px; }
+  .case-seed b { color:var(--brand-deep); font-family:var(--head); font-weight:700; }
+  .case-zemi { display:flex; flex-wrap:wrap; align-items:baseline; gap:8px 12px; margin:0 0 14px; }
+  .case-zemi-ttl { font-family:var(--head); font-weight:700; font-size:16px; color:var(--brand-deep); }
+  .case-chip { font-family:var(--en); font-size:11.5px; color:var(--ink-72); border:1px solid var(--line); border-radius:2px; padding:2px 9px; }
+  .canvas-fill { display:grid; gap:0; margin-top:4px; }
+  .cf-row { display:grid; grid-template-columns:156px 1fr; gap:14px; padding:10px 0; border-top:1px solid var(--line); }
+  .cf-row:first-child { border-top:none; }
+  .cf-q { font-family:var(--head); font-weight:700; font-size:12px; color:var(--brand-deep); letter-spacing:.02em; }
+  .cf-q small { display:block; font-family:var(--en); font-weight:600; color:var(--ink-40); font-size:10px; letter-spacing:.06em; margin-top:2px; }
+  .cf-a { font-family:var(--body); font-size:13.5px; color:var(--ink-72); line-height:1.85; margin:0; }
+  @media (max-width:640px) { .cf-row { grid-template-columns:1fr; gap:3px; } }
+</style>
+</head>
+<body>
+
+<!-- ===== 固定ヘッダー ===== -->
+<header class="brand-row">
+  <div class="shell">
+    <a class="brand-logo" href="index.html"><img src="../event-30s-v01-260720/images/poolo_logo.png" alt="POOLO あたらしい旅の学校"></a>
+    <nav class="header-nav">
+      <a class="header-link" href="index.html">募集サイトを見る<span class="arrow" aria-hidden="true">↗</span></a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <div class="shell">
+
+    <!-- ===== ドキュメントヘッダー ===== -->
+    <div class="doc-head">
+      <div class="doc-eyebrow">POOLO ZEMI ／ 企画書</div>
+      <h1 class="doc-title">学びの場を、創る。</h1>
+      <p class="doc-meta">旅で見つけた問いから、学びの場を創る3ヶ月・全7回　／　参加費 70,000円・定員15名　／　2026年 版（v2・2026.07.22 更新）</p>
+      <nav class="doc-toc">
+        <a href="#concept">01 コンセプト</a>
+        <a href="#goals">02 3つの目的</a>
+        <a href="#program">03 全7回</a>
+        <a href="#canvas">04 持ち帰る型</a>
+        <a href="#support">05 集客の仕組み</a>
+        <a href="#money">06 価格・収支</a>
+        <a href="#eco">07 エコシステム</a>
+        <a href="#outline">08 開催概要</a>
+        <a href="#survey">09 事前ヒアリング</a>
+        <a href="#schedule">10 スケジュール</a>
+        <a href="#cases">11 参加者ケース</a>
+        <a href="#designs">12 設計例集</a>
+      </nav>
+    </div>
+  </div>
+
+  <!-- ===== 01 コンセプト ===== -->
+  <section class="sec" id="concept" style="border-bottom:none;">
+    <div class="shell sec-inner" style="padding-top:44px;padding-bottom:36px;">
+      <div class="sec-spine"><div class="sec-num">01</div><span class="sec-en">Concept</span></div>
+      <div>
+        <h2 class="sec-title">学びの場を、創る。</h2>
+        <p class="sec-lead">旅で見つけた問いを、誰かが参加したくなる小さな学びの場にする3ヶ月。</p>
+        <div class="intro-body">
+          <p>核にあるのは<strong>「問いを持つ → 学びの場を創る」という転換</strong>。問いは自分の中にあるうちは独り言、他人が入ってこられる形にした瞬間に「学びの場」になります。POOLO生・卒業生が、旅の学びを"受け取る側"から"創る側"へ一歩進めるための、ゼミを企画するゼミです。</p>
+          <p class="intro-break">旅から学び、小さな学び場を創る。</p>
+          <p>旅は<span class="quoted">源泉</span>に置きます。テーマ（発酵・写真・哲学対話など）は自由。ただし全員の入口条件は「その問いは、旅のどの瞬間に生まれたか」。これにより、旅をテーマに"できる人"だけでなく、旅を"素材に"できる全員が対象になり、集客の間口も最大化します。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 02 3つの目的 ===== -->
+  <section class="sec" id="goals" style="border-bottom:none;">
+    <div class="shell sec-inner" style="padding-top:36px;padding-bottom:36px;">
+      <div class="sec-spine"><div class="sec-num">02</div><span class="sec-en">Goals</span></div>
+      <div>
+        <h2 class="sec-title">3つの目的を、<span class="nb">1本の動線で叶える。</span></h2>
+        <p class="sec-lead">つくる（企画力）・稼ぐ（旅を仕事に）・つながる（関係人口）。別々にでなく、ひとつの流れで同時に回す。</p>
+
+        <div class="ses">
+          <div><span class="ses-num">1</span><span class="ses-ph">Enablement</span></div>
+          <div>
+            <p class="ses-theme">自分で、ゼミを企画できるように</p>
+            <p class="ses-aim">一度きりの受講で終わらせず、修了後も自分で企画し続けられる"自走状態"をつくる。</p>
+            <div class="ses-rows">
+              <div class="ses-row"><span class="ses-k">課題</span><p class="ses-v">単発の学びは、その場では満足しても再現できない。翌月には動けなくなる。</p></div>
+              <div class="ses-row"><span class="ses-k">解き方</span><p class="ses-v">何度でも使える「7つの問い（企画キャンバス）」を"型"として渡す。修了時の成果物＝すぐ開催できる企画書。</p></div>
+              <div class="ses-row"><span class="ses-k">確かめ方</span><p class="ses-v">修了後3ヶ月以内に、自分のゼミを1本開催した人の割合。</p></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="ses">
+          <div><span class="ses-num">2</span><span class="ses-ph">Livelihood</span></div>
+          <div>
+            <p class="ses-theme">「旅を仕事にする」を、体現する</p>
+            <p class="ses-aim">壮大な起業でなく、1万円の小さな場から「旅を仕事に」を始められるようにする。</p>
+            <div class="ses-rows">
+              <div class="ses-row"><span class="ses-k">課題</span><p class="ses-v">「旅を仕事に」は理想として語られても、最初の一歩が大きすぎて踏み出せない。</p></div>
+              <div class="ses-row"><span class="ses-k">解き方</span><p class="ses-v">ゼミ開催そのものが、旅（偏愛・経験）を有料の場に変える最小実践。参加費1〜3万円から始められる。</p></div>
+              <div class="ses-row"><span class="ses-k">確かめ方</span><p class="ses-v">修了生ゼミの開催数と、そこで生まれた売上。</p></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="ses">
+          <div><span class="ses-num">3</span><span class="ses-ph">Community</span></div>
+          <div>
+            <p class="ses-theme">エンゲージメント／関係人口</p>
+            <p class="ses-aim">卒業して終わりでなく、創り続け・通い続ける関係へ。POOLOに「戻ってくる用事」をつくる。</p>
+            <div class="ses-rows">
+              <div class="ses-row"><span class="ses-k">課題</span><p class="ses-v">卒業後、コミュニティとの接点が薄れ、関係がゆるやかに切れていく。</p></div>
+              <div class="ses-row"><span class="ses-k">解き方</span><p class="ses-v">修了生のゼミに、他の卒業生が参加者として集まる循環を仕込む（→ 07 エコシステム）。</p></div>
+              <div class="ses-row"><span class="ses-k">確かめ方</span><p class="ses-v">修了生ゼミへの、卒業生の延べ参加人数（＝関係人口）。</p></div>
+            </div>
+          </div>
+        </div>
+
+        <p class="k-note">＊要は<b>「受講 → 開催 → 参加 → また受講」</b>という1本の動線。3つの目的が別々でなく、この循環の中で同時に回るのがこの企画の設計思想。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 03 全7回 ===== -->
+  <section class="sec" id="program" style="border-bottom:none;">
+    <div class="shell sec-inner" style="padding-top:36px;padding-bottom:36px;">
+      <div class="sec-spine"><div class="sec-num">03</div><span class="sec-en">Program</span></div>
+      <div>
+        <h2 class="sec-title">全7回の設計。</h2>
+        <p class="sec-lead">隔週・各120分（第5回のみ個別メンタリング）。毎回「① 問い → ② 体験・ワーク → ③ 持ち帰る成果物」で、企画書が1ブロックずつ完成し、最終回には"開ける状態"になります。<b>第3回（学びの場の設計）と第6回（集客）は、外部知を入れる講義回。</b></p>
+
+        <!-- 共通フォーマット -->
+        <div class="fmt-wrap">
+          <p class="fmt-cap">毎回120分の共通フォーマット　── この型自体が、受講生の"1コマの型"になる</p>
+          <div class="fmt">
+            <div class="fmt-cell"><span class="fmt-t">15'</span><span class="fmt-l">チェックイン</span></div>
+            <div class="fmt-cell"><span class="fmt-t">15'</span><span class="fmt-l">実践シェア</span></div>
+            <div class="fmt-cell"><span class="fmt-t">15'</span><span class="fmt-l">ミニレクチャー</span></div>
+            <div class="fmt-cell"><span class="fmt-t">50'</span><span class="fmt-l">メインワーク</span></div>
+            <div class="fmt-cell"><span class="fmt-t">15'</span><span class="fmt-l">相互フィードバック</span></div>
+            <div class="fmt-cell"><span class="fmt-t">10'</span><span class="fmt-l">チェックアウト＋宿題</span></div>
+          </div>
+        </div>
+
+        <!-- 各回 -->
+        <div class="ses">
+          <div><span class="ses-num">1</span><span class="ses-ph">Dig</span><span class="ses-time">隔週・120分</span></div>
+          <div>
+            <p class="ses-theme">問いを掘る ── 旅の棚卸し</p>
+            <p class="ses-aim">教えられることを探すのではなく、「つい語ってしまうこと」を掘り当てる。自分の内側に資源があると気づく回。</p>
+            <div class="ses-rows">
+              <div class="ses-row"><span class="ses-k">主なワーク</span><p class="ses-v">旅で一番人に話した話・心が動いた瞬間を10個書き出す／3類型・6ケースの実例カタログ（11・12）で「こんな偏愛が3万円の学びの場になる」感覚を掴む／問いの原石を1つに絞る</p></div>
+              <div class="ses-row"><span class="ses-k">問いかけ例</span><p class="ses-v"><span class="q">「あなたが黙っていられなくなるのは、どんな話題のとき？」「その話、なぜ人にしたくなる？」</span></p></div>
+              <div class="ses-row"><span class="ses-k">宿題</span><p class="ses-v">選んだ問いを、POOLO内の誰か1人に雑談で"試し語り"してみる</p></div>
+              <div class="ses-row"><span class="ses-k">持ち帰り</span><p class="ses-v">ゼミの種シート（仮テーマ＋自分だけの問い）</p></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="ses">
+          <div><span class="ses-num">2</span><span class="ses-ph">For Whom</span><span class="ses-time">隔週・120分</span></div>
+          <div>
+            <p class="ses-theme">問いを"学び"にする ── たった一人へ</p>
+            <p class="ses-aim">偏愛（独り言）を、誰かの変化のための場に変える分岐点を越える。"自己満"と"人が来る場"の分かれ道を体験する。</p>
+            <div class="ses-rows">
+              <div class="ses-row"><span class="ses-k">主なワーク</span><p class="ses-v">来てほしい「実在の一人」を名前まで決める／その人のBefore→Afterを一文で書く／コンセプトを1行に圧縮し、15人で相互批評</p></div>
+              <div class="ses-row"><span class="ses-k">問いかけ例</span><p class="ses-v"><span class="q">「その人は、参加した後どんな顔で帰る？」「あなたの場が無かったら、その人は何に困ったまま？」</span></p></div>
+              <div class="ses-row"><span class="ses-k">宿題</span><p class="ses-v">その実名の相手に、30分の"試し語り会"を実施する</p></div>
+              <div class="ses-row"><span class="ses-k">持ち帰り</span><p class="ses-v">コンセプトシート（1行タイトル＋最初のお客さん）</p></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="ses">
+          <div><span class="ses-num">3</span><span class="ses-ph">Guest ◎外部講義</span><span class="ses-time">隔週・120分<br>外部ゲスト</span></div>
+          <div>
+            <p class="ses-theme">学びの場を、設計する ── ゲスト講義</p>
+            <p class="ses-aim">自己流でなく、場づくり／ワークショップデザインの専門家から「積み上がる学び」の設計を学び、自分の企画に即適用する。単発の雑談を、回を追って深まる構造へ。</p>
+            <div class="ses-rows">
+              <div class="ses-row"><span class="ses-k">ゲスト</span><p class="ses-v">場づくり・ワークショップデザインの実践者（自由大学等でゼミを設計・運営してきた人を想定）。</p></div>
+              <div class="ses-row"><span class="ses-k">主なワーク</span><p class="ses-v">試し語り会の報告（何が刺さり、何が滑ったか）／ゲストの設計フレームで全回シラバスを組む／1コマ90分のタイムラインを1枚完成</p></div>
+              <div class="ses-row"><span class="ses-k">問いかけ例</span><p class="ses-v"><span class="q">「沈黙が生まれても大丈夫な問いはどれ？」「あなたが話さなくても場が回るのは、どこ？」</span></p></div>
+              <div class="ses-row"><span class="ses-k">宿題</span><p class="ses-v">第4回で出す「20分ミニ体験版」を組み立ててくる</p></div>
+              <div class="ses-row"><span class="ses-k">持ち帰り</span><p class="ses-v">ゼミ全体設計図＋第1回の体験版台本</p></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="ses">
+          <div><span class="ses-num">4</span><span class="ses-ph">Prototype ★</span><span class="ses-time">隔週・120分</span></div>
+          <div>
+            <p class="ses-theme">試作する（山場）── ミニ開催</p>
+            <p class="ses-aim">机上の企画を身体で確かめ、生の反応を浴びる。「本当に開ける企画」へ変わる最大の山場。</p>
+            <div class="ses-rows">
+              <div class="ses-row"><span class="ses-k">主なワーク</span><p class="ses-v">全員が20分のミニ体験版を相互開催（屋台形式）／<b>5軸ルーブリック（変化・一次性・構造・実践・持ち帰り）で相互採点</b>し、「これは3万円の価値があるか／どこが足りないか」を付箋で返す</p></div>
+              <div class="ses-row"><span class="ses-k">問いかけ例</span><p class="ses-v"><span class="q">「参加者として、一番心が動いた瞬間は？」「主催者が"やりすぎ"だった所は？」</span></p></div>
+              <div class="ses-row"><span class="ses-k">宿題</span><p class="ses-v">フィードバックを反映してシラバスを更新する</p></div>
+              <div class="ses-row"><span class="ses-k">持ち帰り</span><p class="ses-v">改善版1コマ＋見込み客リスト（「また来たい」札の名前）</p></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="ses">
+          <div><span class="ses-num">5</span><span class="ses-ph">Mentoring</span><span class="ses-time">別日程・1対1<br>30〜45分／人</span></div>
+          <div>
+            <p class="ses-theme">個別メンタリング ── 1対1で磨く</p>
+            <p class="ses-aim">試作でのつまずきや不安を、個別に解きほぐす。全体では言いにくい迷いを、1対1で一段深く掘る回。</p>
+            <div class="ses-rows">
+              <div class="ses-row"><span class="ses-k">進め方</span><p class="ses-v">主宰者と1対1（オンライン）。試作フィードバックの棚卸し → ボトルネックの特定 → 第6回に向けた次アクションの合意</p></div>
+              <div class="ses-row"><span class="ses-k">見る観点</span><p class="ses-v">コンセプトの一貫性／集客動線の現実性／本人の不安の正体（自信・時間・お金のどれか）</p></div>
+              <div class="ses-row"><span class="ses-k">持ち帰り</span><p class="ses-v">磨き込んだ企画・不安の解消・具体的な次アクション</p></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="ses">
+          <div><span class="ses-num">6</span><span class="ses-ph">Marketing ◎講義</span><span class="ses-time">隔週・120分<br>集客講義</span></div>
+          <div>
+            <p class="ses-theme">集客する ── 自分の場に、人を集める</p>
+            <p class="ses-aim">「本当に集まるのか」を根性でなく技術に。修了後も自分で集客し続けられる力を、届け方・告知・値づけ・動線の設計として持ち帰る。告知ページ作成もここに含める。</p>
+            <div class="ses-rows">
+              <div class="ses-row"><span class="ses-k">講義の柱</span><p class="ses-v">① 旅好きコミュニティへの届け方（Shelf＝POOLO告知棚の使い方）／② 原体験から書く告知文の3行／③ "回数×価値"で決める値づけ／④ 申込までの動線設計</p></div>
+              <div class="ses-row"><span class="ses-k">主なワーク</span><p class="ses-v">収支シミュレーターに自分のゼミを入力／告知の最初の3行を「旅のどの瞬間からこの問いが生まれたか」から書く／告知ページ雛形に下書きを流し込む</p></div>
+              <div class="ses-row"><span class="ses-k">問いかけ例</span><p class="ses-v"><span class="q">「この値段を言うとき、後ろめたい？ それはなぜ？」「あなたの告知は、誰の"あるある"に刺さる？」</span></p></div>
+              <div class="ses-row"><span class="ses-k">宿題</span><p class="ses-v">告知文と告知ページ下書きを同期3人に見せてフィードバックをもらう</p></div>
+              <div class="ses-row"><span class="ses-k">持ち帰り</span><p class="ses-v">集客プラン＋価格プラン＋告知文ドラフト＋告知ページ下書き</p></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="ses">
+          <div><span class="ses-num">7</span><span class="ses-ph">Launch</span><span class="ses-time">隔週・120分</span></div>
+          <div>
+            <p class="ses-theme">創る（開業式）── ひらいて、送り出す</p>
+            <p class="ses-aim">卒業でなく"開業"。その場で申込が動く状態で送り出す。「いつかやる」を「来月やる」に変えて修了する。</p>
+            <div class="ses-rows">
+              <div class="ses-row"><span class="ses-k">主なワーク</span><p class="ses-v">1人5分の企画プレゼン（企画書お披露目）／初回開催日をその場でカレンダーに入れる</p></div>
+              <div class="ses-row"><span class="ses-k">儀式</span><p class="ses-v">同期どうしが互いの「第1号参加者」になる（孤独な開業を防ぐ）</p></div>
+              <div class="ses-row"><span class="ses-k">持ち帰り</span><p class="ses-v">完成企画書＋初期申込＋開催日の確定</p></div>
+            </div>
+          </div>
+        </div>
+
+        <p class="k-note">＊<b>第3回・第6回は外部ゲスト／講義回</b>（学びの場の設計・集客）。第5回の個別メンタリングのみ1対1・別日程。修了の証は第7回では渡さず、<b>自分のゼミを実際に初開催した日</b>に発行する（「いつかやる」を「やった」まで運ぶ仕掛け）。ワークで埋めていく成果物は、そのまま<b>04 の企画キャンバス（7つの問い）</b>に対応している。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 04 持ち帰る型 ===== -->
+  <section class="sec" id="canvas" style="border-bottom:none;">
+    <div class="shell sec-inner" style="padding-top:36px;padding-bottom:36px;">
+      <div class="sec-spine"><div class="sec-num">04</div><span class="sec-en">Canvas</span></div>
+      <div>
+        <h2 class="sec-title">持ち帰るのは、<span class="nb">再現できる「型」。</span></h2>
+        <p class="sec-lead">「自分たちで企画できるようになる」を担保するのは、講義内容より"持ち帰れる型"。全7回はこの1枚を埋める旅。</p>
+        <ol class="canvas-list">
+          <li><b>なぜ、私が？</b> ── 偏愛・問い（旅のどの瞬間で生まれたか）</li>
+          <li><b>誰の、どんな変化のため？</b> ── 参加者像と Before→After</li>
+          <li><b>一言でいうと？</b> ── コンセプト（タイトル1行）</li>
+          <li><b>どんな体験の場？</b> ── 章立て・1回の流れ・対話の設計</li>
+          <li><b>いくらで、何回？</b> ── 価格と規模の根拠</li>
+          <li><b>どう伝える？</b> ── 旅の原体験から書く告知・集客動線</li>
+          <li><b>いつ、創る？</b> ── 初回開催日</li>
+        </ol>
+
+        <p style="font-family:var(--head);font-weight:700;font-size:13.5px;letter-spacing:.06em;color:var(--brand-deep);margin:28px 0 2px;">各回の設計項目 ── 問い④「どんな体験の場？」を、全3〜4回に具体化する</p>
+        <table class="k-table">
+          <thead><tr><th style="width:32%;">項目</th><th>各回（1コマ）で決めること</th></tr></thead>
+          <tbody>
+            <tr><td><b>テーマ（1行）</b></td><td>その回のタイトル。参加者が一目で「今日は何をするか」分かる言葉に。</td></tr>
+            <tr><td><b>今日の問い</b></td><td>その回の中心に置く、たった一つの問い。</td></tr>
+            <tr><td><b>ねらい</b></td><td>この回で参加者に起きる変化（Before → After）。</td></tr>
+            <tr><td><b>ワーク・対話</b></td><td>進め方（個人ワーク／少人数対話／全体シェアの組み合わせ）。</td></tr>
+            <tr><td><b>時間配分</b></td><td>1コマ90分の目安（例：問い10分 → 個人ワーク20分 → 対話40分 → 持ち帰り20分）。</td></tr>
+            <tr><td><b>持ち帰り</b></td><td>宿題・その回のアウトプット（次の回につながるもの）。</td></tr>
+          </tbody>
+        </table>
+        <p class="k-note">＊この6項目を<b>全3〜4回ぶん</b>埋めると、ゼミの全体設計図になる（本体ゼミ 第3回のワークに対応）。下に、この項目に沿った<b>モデルの全4回設計例（旅先の台所ゼミ）</b>を示す。</p>
+
+        <p style="font-family:var(--head);font-weight:700;font-size:13.5px;letter-spacing:.06em;color:var(--brand-deep);margin:30px 0 4px;">モデル設計例：旅先の台所ゼミ（全4回・2万円）</p>
+        <p class="ses-aim" style="margin:0 0 6px;">旅先で出会った一皿を、暮らしごと持ち帰る。「思い出す → たどる → 再現する → 持ち帰る」の4回。</p>
+
+        <div class="ses">
+          <div><span class="ses-num">1</span><span class="ses-ph">Recall</span><span class="ses-time">90分</span></div>
+          <div>
+            <p class="ses-theme">旅の一皿を思い出す</p>
+            <div class="ses-rows">
+              <div class="ses-row"><span class="ses-k">今日の問い</span><p class="ses-v"><span class="q">あなたが旅先で「持ち帰りたい」と思った一皿は？</span></p></div>
+              <div class="ses-row"><span class="ses-k">ねらい</span><p class="ses-v">料理名でなく"情景ごと"の記憶を掘り起こす。旅の食卓を語り合い、場があたたまる。</p></div>
+              <div class="ses-row"><span class="ses-k">ワーク・対話</span><p class="ses-v">チェックイン → 個人ワーク（一皿の記憶を書く）→ 少人数で語り合い → 全体シェア</p></div>
+              <div class="ses-row"><span class="ses-k">時間配分</span><p class="ses-v">問い10 → 個人ワーク15 → 対話40 → 全体シェア15 → 持ち帰り10</p></div>
+              <div class="ses-row"><span class="ses-k">持ち帰り</span><p class="ses-v">「持ち帰りたい一皿」を情景ごと1枚に。次回までに味の記憶をもう少し思い出す。</p></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="ses">
+          <div><span class="ses-num">2</span><span class="ses-ph">Trace</span><span class="ses-time">90分</span></div>
+          <div>
+            <p class="ses-theme">その土地の"だし"をたどる</p>
+            <div class="ses-rows">
+              <div class="ses-row"><span class="ses-k">今日の問い</span><p class="ses-v"><span class="q">その味の"土台"は、何でできている？</span></p></div>
+              <div class="ses-row"><span class="ses-k">ねらい</span><p class="ses-v">味を分解し、その土地らしさの正体（だし・発酵・香辛料）を探る。再現の手がかりをつかむ。</p></div>
+              <div class="ses-row"><span class="ses-k">ワーク・対話</span><p class="ses-v">ミニレクチャー（味を分解する視点）→ 個人ワーク（自分の一皿を分解）→ 対話（仮説を出し合う）</p></div>
+              <div class="ses-row"><span class="ses-k">時間配分</span><p class="ses-v">問い5 → レクチャー15 → 個人ワーク20 → 対話35 → 持ち帰り15</p></div>
+              <div class="ses-row"><span class="ses-k">持ち帰り</span><p class="ses-v">自分の一皿の"味の設計図"（仮説）。次回までに一度、家で試作する。</p></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="ses">
+          <div><span class="ses-num">3</span><span class="ses-ph">Recreate</span><span class="ses-time">90分</span></div>
+          <div>
+            <p class="ses-theme">家の道具で再現する</p>
+            <div class="ses-rows">
+              <div class="ses-row"><span class="ses-k">今日の問い</span><p class="ses-v"><span class="q">特別な器具なしで、いまの台所で作れる形は？</span></p></div>
+              <div class="ses-row"><span class="ses-k">ねらい</span><p class="ses-v">試作を持ち寄り、"日常の道具で作れる版"へ落とす。うまくいかなかった所こそ学びにする。</p></div>
+              <div class="ses-row"><span class="ses-k">ワーク・対話</span><p class="ses-v">試作報告（写真・味の感想）→ 相互フィードバック → 改善案を対話 → レシピ修正</p></div>
+              <div class="ses-row"><span class="ses-k">時間配分</span><p class="ses-v">チェックイン10 → 試作報告25 → 相互FB30 → 修正ワーク15 → 持ち帰り10</p></div>
+              <div class="ses-row"><span class="ses-k">持ち帰り</span><p class="ses-v">改善した再現レシピ。次回までにもう一度作り、写真を撮る。</p></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="ses">
+          <div><span class="ses-num">4</span><span class="ses-ph">Compile</span><span class="ses-time">90分</span></div>
+          <div>
+            <p class="ses-theme">持ち帰りレシピをつくる</p>
+            <div class="ses-rows">
+              <div class="ses-row"><span class="ses-k">今日の問い</span><p class="ses-v"><span class="q">この味と物語を、どう1枚にまとめる？</span></p></div>
+              <div class="ses-row"><span class="ses-k">ねらい</span><p class="ses-v">レシピを"自分の言葉と物語"でまとめ、暮らしに根づく形にして終える。</p></div>
+              <div class="ses-row"><span class="ses-k">ワーク・対話</span><p class="ses-v">各自のレシピ発表 → 旅の記憶（物語）を添える → 相互に感想 → 次に作りたい一皿を宣言</p></div>
+              <div class="ses-row"><span class="ses-k">時間配分</span><p class="ses-v">問い5 → 発表準備15 → 発表・共有40 → 相互感想20 → クロージング10</p></div>
+              <div class="ses-row"><span class="ses-k">持ち帰り</span><p class="ses-v">「旅先の台所レシピ」1枚（味＋物語）。日常で作り続ける宣言。</p></div>
+            </div>
+          </div>
+        </div>
+
+        <p class="k-note">＊これは修了生がつくる側のゼミ（全4回）の設計例。受講生は本体ゼミの第3〜4回で、この粒度まで自分のゼミを設計する。他5ケースの設計例は <b>12 設計例集</b> にまとめた。</p>
+
+        <p class="k-note">＊この型に対応した「ゼミ企画書 雛形」と「告知サイト雛形」を別途用意。受講生は修了後、2本目・3本目を自分で創っていける。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 05 集客の仕組み ===== -->
+  <section class="sec sec-questions" id="support" style="border-bottom:none;">
+    <div class="shell sec-inner" style="padding-top:36px;padding-bottom:36px;">
+      <div class="sec-spine"><div class="sec-num ja small">集客</div><span class="sec-en">Support</span></div>
+      <div>
+        <h2 class="sec-title">集客は、仕組みで支える。</h2>
+        <p class="sec-lead">「本当に集まるだろうか」の不安を、根性でなく設計で消す。主宰者がゼロから探さず、旅好きが既にいる場所に語りかける。</p>
+
+        <div class="ses">
+          <div><span class="ses-num">1</span><span class="ses-ph">Buddy</span></div>
+          <div>
+            <p class="ses-theme">一番弟子制度</p>
+            <p class="ses-aim">「ゼロから知らない人を集める」孤独と不安を、制度でまるごと引き受ける。</p>
+            <div class="ses-rows">
+              <div class="ses-row"><span class="ses-k">課題</span><p class="ses-v">初開催の最大の壁は、集客そのものより「本当に人が来るのか」という孤独と不安。</p></div>
+              <div class="ses-row"><span class="ses-k">仕組み</span><p class="ses-v">受講生どうしがペアを組み、互いのゼミの「第1号参加者 兼 運営補佐」になる。</p></div>
+              <div class="ses-row"><span class="ses-k">効果</span><p class="ses-v">最低1席が確定した状態で開業できる。伴走者がいるので、企画倒れ・離脱も防げる。</p></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="ses">
+          <div><span class="ses-num">2</span><span class="ses-ph">Shelf</span></div>
+          <div>
+            <p class="ses-theme">POOLO内の告知の棚</p>
+            <p class="ses-aim">旅好きが既に集まっている場所に、直接届ける。集客を運任せにしない。</p>
+            <div class="ses-rows">
+              <div class="ses-row"><span class="ses-k">課題</span><p class="ses-v">主宰者個人のSNSだけでは届く母集団が小さく、集客が運任せになりやすい。</p></div>
+              <div class="ses-row"><span class="ses-k">仕組み</span><p class="ses-v">修了生ゼミを告知・開催できる「棚」を用意（Slack告知チャンネル＋告知サイト雛形）。</p></div>
+              <div class="ses-row"><span class="ses-k">効果</span><p class="ses-v">旅好きが集まるPOOLOの母集団に、旅の源泉で語りかけられる。集客の再現性が出る。</p></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="ses">
+          <div><span class="ses-num">3</span><span class="ses-ph">Preview</span></div>
+          <div>
+            <p class="ses-theme">試作の開放</p>
+            <p class="ses-aim">本開催の前に、"先行客の手応え"を得ておく。独りよがりを避ける。</p>
+            <div class="ses-rows">
+              <div class="ses-row"><span class="ses-k">課題</span><p class="ses-v">企画が独りよがりになっていないか、実際に開けてみるまで分からない。</p></div>
+              <div class="ses-row"><span class="ses-k">仕組み</span><p class="ses-v">第4回の試作を、受講生だけでなく卒業生にも一部開放する。</p></div>
+              <div class="ses-row"><span class="ses-k">効果</span><p class="ses-v">「また参加したい」札＝見込み客リストが、本開催の前に手に入る。</p></div>
+            </div>
+          </div>
+        </div>
+
+        <p class="k-note">＊この3点が揃うと、主宰者は<b>知らない人をゼロから探すのでなく、旅好きが既にいる場所に、旅の源泉で語りかける</b>状態になる。ここに「集まる」の再現性が生まれる。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 06 価格・収支 ===== -->
+  <section class="sec" id="money" style="border-bottom:none;">
+    <div class="shell sec-inner" style="padding-top:36px;padding-bottom:36px;">
+      <div class="sec-spine"><div class="sec-num">06</div><span class="sec-en">Economics</span></div>
+      <div>
+        <h2 class="sec-title">受講料は"開業資金"、<span class="nb">狙いは二次収益。</span></h2>
+        <p class="sec-lead">7万円は、しっかり設計した3万円のゼミ1本で回収し、黒字になる（受講生にとっての投資回収）。<b>水準を上げるほど、回収は確実になる。</b></p>
+        <table class="k-table">
+          <thead><tr><th>修了生のゼミ（例）</th><th>売上</th><th>企画者取り分(40%)</th><th>7万円に対して</th></tr></thead>
+          <tbody>
+            <tr><td>2万円 × 10人（類型A・体験共有）</td><td>20万円</td><td class="accent">8.0万円</td><td>ほぼ回収</td></tr>
+            <tr><td>2.5万円 × 10人（類型B・地域探究）</td><td>25万円</td><td class="accent">10.0万円</td><td>+3万円</td></tr>
+            <tr><td><b>3万円 × 10人（類型C・スキル変容）</b></td><td>30万円</td><td class="accent">12.0万円</td><td><b>+5万円（1.7倍）</b></td></tr>
+          </tbody>
+        </table>
+        <p class="k-note" style="margin-top:10px;">＊<b>「水準を上げる」ことが、そのまま「旅を仕事に（Livelihood）」を数字で裏づける</b>。ライトな2万円ゼミでは受講料の回収がやっと。3万円レベルに引き上げれば1本で+5万円が残り、2本目からは純収益になる（→ 11 のケースは3万円レベルを主役に据えている）。</p>
+        <table class="k-table" style="margin-top:28px;">
+          <thead><tr><th>本体の売上（最小催行）</th><th>金額</th></tr></thead>
+          <tbody>
+            <tr><td>受講料 70,000円 × 15人</td><td class="accent">1,050,000円</td></tr>
+            <tr><td>二次収益：修了生ゼミ 年10本 × 3万円 × 10人 × POOLO配分60%</td><td class="accent">年 約 1,800,000円</td></tr>
+          </tbody>
+        </table>
+        <p class="k-note">＊配分は本企画で <b>企画者40% / POOLO 60%</b> に設定（既存の「POOLOゼミ収支モデル」の前提値から変更）。POOLO側の取り分が大きい分、二次収益がコミュニティ運営を支える。このゼミは"講座売上"でなく<b>"街道のインフラ投資"</b>として捉える。数字は開講条件により調整。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 07 エコシステム ===== -->
+  <section class="sec" id="eco" style="border-bottom:none;">
+    <div class="shell sec-inner" style="padding-top:36px;padding-bottom:36px;">
+      <div class="sec-spine"><div class="sec-num">07</div><span class="sec-en">Ecosystem</span></div>
+      <div>
+        <h2 class="sec-title">関係人口が、<span class="nb">回り続ける。</span></h2>
+        <p class="sec-lead">単発の学びでなく、卒業生が「創る→集まる→また参加する」で循環する設計。</p>
+        <ul class="flywheel">
+          <li>卒業生が「学びの場を、創る。」を受講する</li>
+          <li>自分の1〜3万円ゼミを創る</li>
+          <li>他の卒業生が参加者として集まる<span class="loop">　← 関係人口が増える</span></li>
+          <li>参加した人が「私もやりたい」と受講側へ<span class="loop">　← エンゲージ再燃</span></li>
+          <li>（最初に戻る）</li>
+        </ul>
+        <p class="k-note">＊15名中10名が開催すれば、年間のべ約100席の学びの場が卒業生コミュニティ内に生まれる。修了生ゼミを一覧化する季刊カタログ、参加スタンプ、次期ゲスト登壇（受ける→創る→教えるの三段変化）で回遊を可視化する。</p>
+        <p class="k-note">＊<b>実証モデル：自由大学</b>（8学部・累計359講義・卒業生3万人超）。コミュニティのメンバーが"講師"になって学びの場を提供し合うエコシステムが成立している先行例で、POOLOゼミが目指す循環の、スケールした姿。テーマは学部（世界を旅する／暮らしをつくる／自分をひらく／表現する…）で束ねると、一つひとつのゼミが"体系の中の一講義"に見え、水準が上がる。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 08 開催概要 ===== -->
+  <section class="summary" id="outline" style="border-bottom:none;">
+    <div class="shell">
+      <dl class="summary-grid">
+        <div class="summary-cell"><dt class="summary-label"><span class="en">Term</span><span class="ja">期間</span></dt><dd class="summary-value">3ヶ月・<span class="nb">全7回（隔週・各120分＋個別メンタリング）</span></dd></div>
+        <div class="summary-cell"><dt class="summary-label"><span class="en">Format</span><span class="ja">形式</span></dt><dd class="summary-value">Zoom（オンライン）</dd></div>
+        <div class="summary-cell"><dt class="summary-label"><span class="en">Seats</span><span class="ja">定員</span></dt><dd class="summary-value">15名（最小催行15名）</dd></div>
+        <div class="summary-cell"><dt class="summary-label"><span class="en">Fee</span><span class="ja">参加費</span></dt><dd class="summary-value">70,000円</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- ===== 09 事前ヒアリング（アンケート） ===== -->
+  <section class="sec" id="survey" style="border-bottom:none;">
+    <div class="shell sec-inner" style="padding-top:36px;padding-bottom:36px;">
+      <div class="sec-spine"><div class="sec-num">09</div><span class="sec-en">Survey</span></div>
+      <div>
+        <h2 class="sec-title">開講前に、<span class="nb">POOLOメンバーに聞く。</span></h2>
+        <p class="sec-lead">需要（創る意欲・テーマの種・価格受容・不安）と、参加者側の関心を確かめてから、企画を確定します。</p>
+        <table class="k-table">
+          <thead><tr><th>項目</th><th>設定</th></tr></thead>
+          <tbody>
+            <tr><td>目的</td><td>①「創る側」の意欲とテーマの種の把握 ②価格（7万円）の受容度 ③参加者側の関心（関係人口の検証）</td></tr>
+            <tr><td>対象</td><td>POOLO生・卒業生</td></tr>
+            <tr><td>形式・所要</td><td>Googleフォーム／5〜7分／匿名回答可</td></tr>
+            <tr><td>回収目標</td><td>30〜50件（催行判断の目安）</td></tr>
+            <tr><td>配布</td><td>POOLO Slack・告知棚・各期チャンネル</td></tr>
+          </tbody>
+        </table>
+
+        <p style="font-family:var(--head);font-weight:700;font-size:13.5px;letter-spacing:.06em;color:var(--brand-deep);margin:30px 0 2px;">A. あなたについて</p>
+        <table class="k-table">
+          <thead><tr><th style="width:44%;">設問</th><th style="width:16%;">形式</th><th>選択肢・記入例</th></tr></thead>
+          <tbody>
+            <tr><td>Q1. POOLOの期は？</td><td>記述</td><td>（例）11期</td></tr>
+            <tr><td>Q2. 現在のPOOLOとの関わりは？</td><td>単一選択</td><td>在籍中／卒業生／休会中</td></tr>
+            <tr><td>Q3. 直近のPOOLOへの参加頻度は？</td><td>単一選択</td><td>週1以上／月に数回／年に数回／ほぼ関わっていない</td></tr>
+          </tbody>
+        </table>
+
+        <p style="font-family:var(--head);font-weight:700;font-size:13.5px;letter-spacing:.06em;color:var(--brand-deep);margin:26px 0 2px;">B. 「創る側」への関心</p>
+        <table class="k-table">
+          <thead><tr><th style="width:44%;">設問</th><th style="width:16%;">形式</th><th>選択肢・記入例</th></tr></thead>
+          <tbody>
+            <tr><td>Q4. 自分で学びの場（ゼミ）を企画してみたいと思う？</td><td>5段階</td><td>とても思う〜まったく思わない</td></tr>
+            <tr><td>Q5. 旅の中で、つい人に話してしまう問い・偏愛はありますか？　<b>★テーマの種</b></td><td>記述（任意）</td><td>自由記述（企画のヒントに）</td></tr>
+            <tr><td>Q6. 創るとしたら、どのジャンルに近い？</td><td>複数選択</td><td>表現／問い・内省／地域・関係人口／旅の技術／食・暮らし／生き方・働き方／体・心／関係性</td></tr>
+            <tr><td>Q7. 企画・開催で不安なことは？</td><td>複数選択</td><td>集客／自信がない／時間がない／お金・値づけ／進め方がわからない／一緒にやる仲間</td></tr>
+          </tbody>
+        </table>
+
+        <p style="font-family:var(--head);font-weight:700;font-size:13.5px;letter-spacing:.06em;color:var(--brand-deep);margin:26px 0 2px;">C. このゼミ「学びの場を、創る。」への関心</p>
+        <table class="k-table">
+          <thead><tr><th style="width:44%;">設問</th><th style="width:16%;">形式</th><th>選択肢・記入例</th></tr></thead>
+          <tbody>
+            <tr><td>Q8. 全7回・3ヶ月・7万円のこのゼミに参加したい？</td><td>5段階</td><td>とても参加したい〜参加しない</td></tr>
+            <tr><td>Q9. 7万円という価格について</td><td>単一選択</td><td>高い／妥当／安い／「開業資金として回収できる」なら変わる</td></tr>
+            <tr><td>Q10. 希望する開催の曜日・時間帯は？</td><td>複数選択</td><td>平日夜／週末の午前／週末の午後／どれでも可</td></tr>
+            <tr><td>Q11. 参加の後押しになるものは？</td><td>記述（任意）</td><td>自由記述</td></tr>
+          </tbody>
+        </table>
+
+        <p style="font-family:var(--head);font-weight:700;font-size:13.5px;letter-spacing:.06em;color:var(--brand-deep);margin:26px 0 2px;">D. 「参加する側」としての関心（関係人口の検証）</p>
+        <table class="k-table">
+          <thead><tr><th style="width:44%;">設問</th><th style="width:16%;">形式</th><th>選択肢・記入例</th></tr></thead>
+          <tbody>
+            <tr><td>Q12. 他の卒業生が創る1〜3万円のゼミに参加してみたい？</td><td>5段階</td><td>とても参加したい〜参加しない</td></tr>
+            <tr><td>Q13. どんなテーマなら参加したい？</td><td>記述（任意）</td><td>自由記述</td></tr>
+            <tr><td>Q14. 1講座（数回）に払ってもいい金額は？</td><td>単一選択</td><td>〜1万円／1〜2万円／2〜3万円／内容次第</td></tr>
+          </tbody>
+        </table>
+
+        <p style="font-family:var(--head);font-weight:700;font-size:13.5px;letter-spacing:.06em;color:var(--brand-deep);margin:26px 0 2px;">E. 自由記述</p>
+        <table class="k-table">
+          <thead><tr><th style="width:44%;">設問</th><th style="width:16%;">形式</th><th>選択肢・記入例</th></tr></thead>
+          <tbody>
+            <tr><td>Q15. この企画への期待・意見・不安があれば</td><td>記述（任意）</td><td>自由記述</td></tr>
+          </tbody>
+        </table>
+        <p class="k-note">＊分析の主眼は、Q4×Q8（創る意欲×このゼミへの関心）で<b>受講見込み15名</b>が立つか、Q5・Q6で<b>テーマの多様性</b>が出るか、Q12・Q14で<b>参加者側の需要（関係人口）</b>が確かめられるか。この3点で開講可否とカリキュラムを最終調整する。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 10 スケジュール ===== -->
+  <section class="sec" id="schedule" style="border-bottom:none;">
+    <div class="shell sec-inner" style="padding-top:36px;padding-bottom:36px;">
+      <div class="sec-spine"><div class="sec-num">10</div><span class="sec-en">Schedule</span></div>
+      <div>
+        <h2 class="sec-title">開講までの、<span class="nb">道のり。</span></h2>
+        <p class="sec-lead">ヒアリング → 企画確定 → 募集 → 開講 → 修了生の初開催 → 循環。※日付はすべて仮。</p>
+        <table class="k-table">
+          <thead><tr><th style="width:12%;">フェーズ</th><th style="width:26%;">時期（仮）</th><th>内容</th></tr></thead>
+          <tbody>
+            <tr><td><b>① 事前ヒアリング</b></td><td>2026年7月下旬〜8月上旬</td><td>アンケートを配布・回収（約2週間）。needsとテーマの種を集める。</td></tr>
+            <tr><td><b>② 集計・企画確定</b></td><td>2026年8月中旬</td><td>需要を分析し、カリキュラム・価格・日程・主宰者を最終確定。</td></tr>
+            <tr><td><b>③ 募集開始</b></td><td>2026年8月下旬〜9月中旬</td><td>募集LP公開。Slack・告知棚・各期チャンネルで周知。</td></tr>
+            <tr><td><b>④ 締切・催行判定</b></td><td>2026年9月下旬</td><td>申込締切、最小15名の催行判定。一番弟子ペアの仮組み。</td></tr>
+            <tr><td><b>⑤ 開講（全7回）</b></td><td>2026年10月〜12月</td><td>隔週・各120分。第5回は個別メンタリング（別日程）。</td></tr>
+            <tr><td><b>⑥ 修了・初開催</b></td><td>2026年12月〜2027年初</td><td>修了生が自分のゼミを順次初開催。開催日にあわせて修了の証を発行。</td></tr>
+            <tr><td><b>⑦ 循環（関係人口）</b></td><td>2027年〜</td><td>修了生ゼミに卒業生が参加。次期ヒアリングへつなぐ。</td></tr>
+          </tbody>
+        </table>
+        <p class="k-note">＊開講時期は募集サイトの「2026年秋」と整合（＝⑤10月開講の想定）。実日程は②で確定し、募集サイトの【差し替え】箇所に反映する。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 11 参加者ケース（サンプル） ===== -->
+  <section class="sec" id="cases" style="border-bottom:none;">
+    <div class="shell sec-inner" style="padding-top:36px;padding-bottom:36px;">
+      <div class="sec-spine"><div class="sec-num">11</div><span class="sec-en">Cases</span></div>
+      <div>
+        <h2 class="sec-title">修了生は、こう創る。<span class="nb">── 6つのケース</span></h2>
+        <p class="sec-lead">入口は「旅の偏愛」でも、出口は<b>"人が数万円払って変わる学びの場"</b>。以下は、修了生が <b>04 の7つの問い（企画キャンバス）</b>を埋めて創った、架空6人の<b>記入サンプル</b>です。ライトな偏愛シェアで終わらせないため、<b>地域探究(B)・スキル変容(C)を主役</b>に据えています。</p>
+
+        <p style="font-family:var(--head);font-weight:700;font-size:13.5px;letter-spacing:.06em;color:var(--brand-deep);margin:28px 0 2px;">ゼミの3類型 ── "上"を可視化して、水準を引き上げる</p>
+        <table class="k-table">
+          <thead><tr><th style="width:20%;">類型</th><th style="width:16%;">価格帯</th><th>水準を保つ鍵</th></tr></thead>
+          <tbody>
+            <tr><td><b>A 体験共有型</b><br><small style="color:var(--ink-50);">偏愛・原体験を分かち合う</small></td><td>1〜2万円</td><td>⑤「再現できる持ち帰り」を必須にして、感想会にしない</td></tr>
+            <tr><td><b>B 地域探究型</b><br><small style="color:var(--ink-50);">地域・文化を体系的に</small></td><td>2〜3万円</td><td>②一次情報・現地ゲスト、③積み上がる多層構造</td></tr>
+            <tr><td><b>C スキル変容型</b><br><small style="color:var(--ink-50);">「できるようになる」を約束</small></td><td>3万円〜</td><td>①変化の約束＋④実践の反復＋専門知の裏づけ</td></tr>
+          </tbody>
+        </table>
+        <p class="k-note">＊自由大学（8学部・累計359講義・卒業生3万人超）の学部に翻訳すると、B＝〈世界を旅する／日本を楽しむ〉、C＝〈自分をひらく／表現する〉、A＝〈暮らしをつくる〉に対応する。</p>
+
+        <p style="font-family:var(--head);font-weight:700;font-size:13.5px;letter-spacing:.06em;color:var(--brand-deep);margin:26px 0 2px;">POOLOゼミ認定基準 ── 5軸ルーブリック（第4回の相互審査で使用）</p>
+        <table class="k-table">
+          <thead><tr><th style="width:22%;">軸</th><th style="width:39%;">ライト（弱い）</th><th>しっかり（3万円レベル）</th></tr></thead>
+          <tbody>
+            <tr><td><b>① 変化</b></td><td>「楽しかった」で終わる</td><td>参加者の Before→After が言語化されている</td></tr>
+            <tr><td><b>② 一次性</b></td><td>ググれば出る情報</td><td>企画者にしか語れない一次体験・現地ネットワーク</td></tr>
+            <tr><td><b>③ 構造</b></td><td>単発の雑談・回がバラバラ</td><td>回を追って積み上がる設計</td></tr>
+            <tr><td><b>④ 実践</b></td><td>聞くだけ</td><td>手を動かし、フィードバックを受ける</td></tr>
+            <tr><td><b>⑤ 持ち帰り</b></td><td>感想のみ</td><td>再現可能な成果物が残る</td></tr>
+          </tbody>
+        </table>
+        <p class="k-note">＊修了の証は、この基準を満たしたゼミを<b>実際に初開催した日</b>に発行する。だから「POOLOゼミ修了生」の看板に、水準の裏づけが宿る。</p>
+
+        <!-- Case 1 -->
+        <div class="case">
+          <div class="case-head">
+            <span class="case-tag">自分をひらく</span>
+            <span class="case-name">柏木 りく</span>
+            <span class="case-attr">POOLO 9期 ／ 人材・研修 ／ 30代</span>
+          </div>
+          <p class="case-seed"><b>旅の原体験（第1回の課題）</b>　一人旅の長距離バスで隣り合った旅人に、気づけば3時間、自分でも忘れていた本音を話していた。相手はただ問いを返しただけ。「問いには、人を動かす力がある」と体で知った。</p>
+          <div class="case-zemi">
+            <span class="case-zemi-ttl">創ったゼミ：ひらく問い ── 旅の対話から学ぶコーチング</span>
+            <span class="case-chip">類型C・スキル変容</span><span class="case-chip">全4回</span><span class="case-chip">3万円</span><span class="case-chip">定員8名</span>
+          </div>
+          <div class="canvas-fill">
+            <div class="cf-row"><span class="cf-q">1. なぜ、私が？<small>WHY ME</small></span><p class="cf-a">前職で1on1に悩み続けた。旅先の深い対話で"問いの力"に開眼し、以来コーチングを学び実践してきた。教えるのでなく、引き出す側に立ちたい。</p></div>
+            <div class="cf-row"><span class="cf-q">2. 誰の、どんな変化？<small>FOR WHOM</small></span><p class="cf-a">後輩・家族・チームとの対話を変えたい人。Before「つい助言してしまい、沈黙が怖い」→ After「相手が自分で答えにたどり着く問いを立てられる」。</p></div>
+            <div class="cf-row"><span class="cf-q">3. 一言でいうと？<small>CONCEPT</small></span><p class="cf-a">旅の対話のように、"聴く"と"訊く"で相手の答えを引き出すコーチングゼミ。</p></div>
+            <div class="cf-row"><span class="cf-q">4. どんな体験の場？<small>DESIGN</small></span><p class="cf-a">①聴く（ジャッジを外す傾聴）→②訊く（答えでなく問いを返す）→③待つ（沈黙と余白を扱う）→④場をひらく（相互コーチング実践＋自分の問いリスト）</p></div>
+            <div class="cf-row"><span class="cf-q">5. いくらで、何回？<small>PRICE</small></span><p class="cf-a">3万円・全4回・定員8名。毎回ロールプレイ実践＋個別フィードバックで"できるようになる"。</p></div>
+            <div class="cf-row"><span class="cf-q">6. どう伝える？<small>REACH</small></span><p class="cf-a">告知の3行：「旅先のバスで、見知らぬ人に3時間も本音を話していた。相手はただ問いを返しただけ。／その"問いの力"を、聴くと訊くのコーチングとして分かち合います。」</p></div>
+            <div class="cf-row"><span class="cf-q">7. いつ、創る？<small>LAUNCH</small></span><p class="cf-a">2027年2月 第1回（申込＝Googleフォーム／Buddyペアが第1号＋試作の"また受けたい"札から2名）</p></div>
+          </div>
+          <p class="case-seed" style="background:var(--bg-off);border-left:3px solid var(--brand);"><b>水準</b>　類型C（スキル変容）。3万円の根拠＝<b>①変化の明確さ・④実践の反復・⑤持ち帰る問いリスト</b>。習得型ゼミの市場相場（3〜5万円）に対し、卒業生価格で3万円。</p>
+        </div>
+
+        <!-- Case 2 -->
+        <div class="case">
+          <div class="case-head">
+            <span class="case-tag">自分をひらく</span>
+            <span class="case-name">三宅 あさひ</span>
+            <span class="case-attr">POOLO 7期 ／ メーカー→複業 ／ 40代</span>
+          </div>
+          <p class="case-seed"><b>旅の原体験（第1回の課題）</b>　40歳目前、南米を3ヶ月旅した。毎晩ノートに"これからどう生きたいか"を書いた。日本に戻ると慌ただしい日常でその問いは消えたが、あのノートの熱は本物だった。</p>
+          <div class="case-zemi">
+            <span class="case-zemi-ttl">創ったゼミ：40歳の地図 ── 旅の問いで、これからの生き方を言葉にする</span>
+            <span class="case-chip">類型C・スキル変容</span><span class="case-chip">全4回</span><span class="case-chip">3万円</span><span class="case-chip">定員6名</span>
+          </div>
+          <div class="canvas-fill">
+            <div class="cf-row"><span class="cf-q">1. なぜ、私が？<small>WHY ME</small></span><p class="cf-a">35歳の転機を長期旅で見つめ直し、対話ファシリの手応えを得た。答えを授けるのでなく、本人の言葉を引き出す伴走がしたい。</p></div>
+            <div class="cf-row"><span class="cf-q">2. 誰の、どんな変化？<small>FOR WHOM</small></span><p class="cf-a">キャリア・生き方の踊り場にいる35歳以上。Before「なんとなくモヤモヤして言葉にならない」→ After「自分の軸と"次の一歩"を言語化できる」。</p></div>
+            <div class="cf-row"><span class="cf-q">3. 一言でいうと？<small>CONCEPT</small></span><p class="cf-a">旅の問いを使って、これからの生き方を自分の言葉にする対話ゼミ。</p></div>
+            <div class="cf-row"><span class="cf-q">4. どんな体験の場？<small>DESIGN</small></span><p class="cf-a">①棚卸し（旅と人生の交差点）→②問い（本当に大事にしたいこと）→③実験（小さく試す次の一歩を設計）→④宣言（自分の地図を描き、仲間の前で宣言）</p></div>
+            <div class="cf-row"><span class="cf-q">5. いくらで、何回？<small>PRICE</small></span><p class="cf-a">3万円・全4回・定員6名。深い内省と対話に、じっくり伴走する少人数。</p></div>
+            <div class="cf-row"><span class="cf-q">6. どう伝える？<small>REACH</small></span><p class="cf-a">告知の3行：「40歳目前、南米で毎晩"どう生きたいか"を書いた。日常に戻ると消えたけれど、あの熱は本物だった。／旅の問いで、これからを言葉にするゼミです。」</p></div>
+            <div class="cf-row"><span class="cf-q">7. いつ、創る？<small>LAUNCH</small></span><p class="cf-a">2027年1月 第1回（申込＝Googleフォーム／同期Buddyが第1号）</p></div>
+          </div>
+          <p class="case-seed" style="background:var(--bg-off);border-left:3px solid var(--brand);"><b>水準</b>　類型C（スキル変容）。3万円の根拠＝<b>①生き方の言語化という変化・④対話の実践・⑤持ち帰る"自分の地図"</b>。踊り場層に高付加価値。</p>
+        </div>
+
+        <!-- Case 3 -->
+        <div class="case">
+          <div class="case-head">
+            <span class="case-tag">表現する</span>
+            <span class="case-name">佐野 みこと</span>
+            <span class="case-attr">POOLO 11期 ／ フリーランス（Web）／ 40代</span>
+          </div>
+          <p class="case-seed"><b>旅の原体験（第1回の課題）</b>　旅の写真を見返すと、名所より「何でもない一枚」ばかり見てしまう。バス停の光、路地の洗濯物。ただ、"なぜ良いのか"を言葉にできず、人にも教えられなかった。</p>
+          <div class="case-zemi">
+            <span class="case-zemi-ttl">創ったゼミ：余白の写真術 ── 名所より、"何でもない一枚"で旅を語る</span>
+            <span class="case-chip">類型C・スキル変容</span><span class="case-chip">全4回</span><span class="case-chip">2.5万円</span><span class="case-chip">定員10名</span>
+          </div>
+          <div class="canvas-fill">
+            <div class="cf-row"><span class="cf-q">1. なぜ、私が？<small>WHY ME</small></span><p class="cf-a">映え写真に飽き、"余白の一枚"で旅を語り直す視点を磨いてきた。感覚を"再現できる技術"に翻訳して渡したい。</p></div>
+            <div class="cf-row"><span class="cf-q">2. 誰の、どんな変化？<small>FOR WHOM</small></span><p class="cf-a">いい写真が撮れない・SNSで旅をうまく伝えられない人。Before「映えを狙って似た写真ばかり」→ After「自分の視点で撮り、言葉を添えて物語れる」。</p></div>
+            <div class="cf-row"><span class="cf-q">3. 一言でいうと？<small>CONCEPT</small></span><p class="cf-a">名所でなく"何でもない一枚"を、撮って・選んで・語れるようになる写真ゼミ。</p></div>
+            <div class="cf-row"><span class="cf-q">4. どんな体験の場？<small>DESIGN</small></span><p class="cf-a">①見る（映えの外の被写体の見つけ方）→②撮る（光・余白・引き算／各自の撮影課題）→③選ぶ（30枚→3枚の編集眼）→④語る（写真＋短い言葉で綴る／作品講評会）</p></div>
+            <div class="cf-row"><span class="cf-q">5. いくらで、何回？<small>PRICE</small></span><p class="cf-a">2.5万円・全4回。毎回の撮影課題＋講評で"撮れるようになる"技術習得型。</p></div>
+            <div class="cf-row"><span class="cf-q">6. どう伝える？<small>REACH</small></span><p class="cf-a">告知の3行：「旅の写真を見返すと、名所じゃなく、バス停の光ばかり見てしまう。／その"何でもない一枚"を撮り、語れるようになる写真ゼミです。」</p></div>
+            <div class="cf-row"><span class="cf-q">7. いつ、創る？<small>LAUNCH</small></span><p class="cf-a">2027年1月 第1回（申込＝Peatix／試作の"また来たい"札から3名先行）</p></div>
+          </div>
+          <p class="case-seed" style="background:var(--bg-off);border-left:3px solid var(--brand);"><b>水準</b>　類型C（スキル変容）。2.5万円の根拠＝<b>④毎回の撮影課題＋講評の反復・⑤持ち帰る作品集</b>。「感性」を再現可能な技術に翻訳している点でライトを脱する。</p>
+        </div>
+
+        <!-- Case 4 -->
+        <div class="case">
+          <div class="case-head">
+            <span class="case-tag">世界を旅する</span>
+            <span class="case-name">工藤 なお</span>
+            <span class="case-attr">POOLO 10期 ／ 食品メーカー ／ 30代（道産子）</span>
+          </div>
+          <p class="case-seed"><b>旅の原体験（第1回の課題）</b>　実家が北海道。観光客が「広い・美味しい」で帰るたび、その裏にある開拓の歴史と生産者の物語が語られないのが、ずっともどかしかった。</p>
+          <div class="case-zemi">
+            <span class="case-zemi-ttl">創ったゼミ：北海道、食の裏側 ── 開拓史と生産者から読み解く</span>
+            <span class="case-chip">類型B・地域探究</span><span class="case-chip">全5回</span><span class="case-chip">3万円</span><span class="case-chip">定員10名</span>
+          </div>
+          <div class="canvas-fill">
+            <div class="cf-row"><span class="cf-q">1. なぜ、私が？<small>WHY ME</small></span><p class="cf-a">北海道に生まれ通い続け、生産者と直接つながってきた。ガイドブックの北海道でなく、"成り立ち"から語れる一次情報を持っている。</p></div>
+            <div class="cf-row"><span class="cf-q">2. 誰の、どんな変化？<small>FOR WHOM</small></span><p class="cf-a">旅では見えない"その土地の成り立ち"を知りたい人。Before「観光地とグルメの北海道」→ After「食から歴史・風土・人を語れる」。</p></div>
+            <div class="cf-row"><span class="cf-q">3. 一言でいうと？<small>CONCEPT</small></span><p class="cf-a">一皿の裏の開拓史と生産者から、北海道を体系的に読み解くゼミ。</p></div>
+            <div class="cf-row"><span class="cf-q">4. どんな体験の場？<small>DESIGN</small></span><p class="cf-a">①開拓（なぜ北海道の食はこうなったか／一次資料）→②乳と土（酪農・畑作の風土／現地生産者ゲスト登壇）→③海（漁と流通の物語）→④発酵と保存（寒冷地の知恵）→⑤編む（自分の"北海道の一皿ストーリー"）</p></div>
+            <div class="cf-row"><span class="cf-q">5. いくらで、何回？<small>PRICE</small></span><p class="cf-a">3万円・全5回・定員10名。一次資料＋現地ゲスト＋体系で、情報の深さに価格の根拠を置く。</p></div>
+            <div class="cf-row"><span class="cf-q">6. どう伝える？<small>REACH</small></span><p class="cf-a">告知の3行：「実家の北海道に来る人は、みんな"広い・美味しい"で帰っていく。／その裏の開拓史と生産者の物語から、北海道を読み解くゼミです。」</p></div>
+            <div class="cf-row"><span class="cf-q">7. いつ、創る？<small>LAUNCH</small></span><p class="cf-a">2027年3月 第1回（申込＝Peatix／生産者ゲスト2名の登壇確定）</p></div>
+          </div>
+          <p class="case-seed" style="background:var(--bg-off);border-left:3px solid var(--brand);"><b>水準</b>　類型B（地域探究）。3万円の根拠＝<b>②一次資料・現地生産者ゲスト・③開拓→海→発酵の多層構造</b>。「ググれば出る北海道」を超える深さで差別化。</p>
+        </div>
+
+        <!-- Case 5 -->
+        <div class="case">
+          <div class="case-head">
+            <span class="case-tag">世界を旅する</span>
+            <span class="case-name">園田 かい</span>
+            <span class="case-attr">POOLO 8期 ／ 出版・編集 ／ 30代</span>
+          </div>
+          <p class="case-seed"><b>旅の原体験（第1回の課題）</b>　トカラ列島の小さな島で数日過ごしたとき、"中央から見た日本"が全く違って見えた。辺境は、中央を映す鏡だった。</p>
+          <div class="case-zemi">
+            <span class="case-zemi-ttl">創ったゼミ：島が問う ── 鹿児島の"辺境"から日本を見る</span>
+            <span class="case-chip">類型B・地域探究</span><span class="case-chip">全4回</span><span class="case-chip">2.5万円</span><span class="case-chip">定員8名</span>
+          </div>
+          <div class="canvas-fill">
+            <div class="cf-row"><span class="cf-q">1. なぜ、私が？<small>WHY ME</small></span><p class="cf-a">鹿児島の離島を巡り、薩摩の歴史を偏愛してきた。"辺境から中央を相対化する"視点を、編集者として言葉にできる。</p></div>
+            <div class="cf-row"><span class="cf-q">2. 誰の、どんな変化？<small>FOR WHOM</small></span><p class="cf-a">中央目線の歴史観に飽きた人・"辺境"の視点を得たい人。Before「西郷どんと桜島の鹿児島」→ After「辺境から中央を相対化する視点」。</p></div>
+            <div class="cf-row"><span class="cf-q">3. 一言でいうと？<small>CONCEPT</small></span><p class="cf-a">鹿児島の辺境（薩摩・離島・焼酎）を素材に、日本を問い直すゼミ。</p></div>
+            <div class="cf-row"><span class="cf-q">4. どんな体験の場？<small>DESIGN</small></span><p class="cf-a">①薩摩（なぜ辺境から維新が起きたか）→②島（奄美・トカラ、複数の文化圏／島の人ゲスト）→③焼酎（一つの酒に映る風土と交易）→④見立てる（自分の地元を"辺境の目"で編集し直す）</p></div>
+            <div class="cf-row"><span class="cf-q">5. いくらで、何回？<small>PRICE</small></span><p class="cf-a">2.5万円・全4回・定員8名。歴史×一次情報×"問い"の設計で、地域を思考の素材にする。</p></div>
+            <div class="cf-row"><span class="cf-q">6. どう伝える？<small>REACH</small></span><p class="cf-a">告知の3行：「トカラの小さな島で数日過ごすと、"中央から見た日本"が全く違って見えた。／辺境から日本を問い直す、鹿児島のゼミです。」</p></div>
+            <div class="cf-row"><span class="cf-q">7. いつ、創る？<small>LAUNCH</small></span><p class="cf-a">2027年2月 第1回（申込＝Googleフォーム／島の知人がゲスト参加）</p></div>
+          </div>
+          <p class="case-seed" style="background:var(--bg-off);border-left:3px solid var(--brand);"><b>水準</b>　類型B（地域探究）。2.5万円の根拠＝<b>①"辺境の目"という視点の変化・②島の一次情報とゲスト</b>。地域を"観光"でなく"思考の素材"に引き上げている。</p>
+        </div>
+
+        <!-- Case 6 -->
+        <div class="case">
+          <div class="case-head">
+            <span class="case-tag">暮らしをつくる</span>
+            <span class="case-name">みなと はるか</span>
+            <span class="case-attr">POOLO 9期 ／ 会社員（メーカー）／ 30代</span>
+          </div>
+          <p class="case-seed"><b>旅の原体験（第1回の課題）</b>　タイ・チェンマイの市場の裏路地。常連にまじって食べた、名も知らない家庭料理。「この味、家で再現できないのかな」がずっと忘れられずにいた。</p>
+          <div class="case-zemi">
+            <span class="case-zemi-ttl">創ったゼミ：旅先の台所 ── 家の道具で、あの一皿を再現する</span>
+            <span class="case-chip">類型A・体験共有</span><span class="case-chip">全4回</span><span class="case-chip">2万円</span><span class="case-chip">定員8名</span>
+          </div>
+          <div class="canvas-fill">
+            <div class="cf-row"><span class="cf-q">1. なぜ、私が？<small>WHY ME</small></span><p class="cf-a">20カ国以上の"路地裏の食卓"を訪ね歩いてきた。味には土地の暮らしそのものが宿っていると感じている。</p></div>
+            <div class="cf-row"><span class="cf-q">2. 誰の、どんな変化？<small>FOR WHOM</small></span><p class="cf-a">旅の記憶を"味"で持ち帰りたい人。Before「現地で食べて終わり」→ After「家で再現し、人に振る舞える一皿を持つ」。</p></div>
+            <div class="cf-row"><span class="cf-q">3. 一言でいうと？<small>CONCEPT</small></span><p class="cf-a">旅先の家庭料理を、家の道具で再現し暮らしごと持ち帰るゼミ。</p></div>
+            <div class="cf-row"><span class="cf-q">4. どんな体験の場？<small>DESIGN</small></span><p class="cf-a">①Recall（旅の一皿を思い出す）→②Trace（その土地の"だし"をたどる）→③Recreate（家の道具で再現／実習）→④Compile（持ち帰りレシピを冊子化）</p></div>
+            <div class="cf-row"><span class="cf-q">5. いくらで、何回？<small>PRICE</small></span><p class="cf-a">2万円・全4回・定員8名。実習と相互試食で、"再現できる一皿＋レシピ冊子"を必ず持ち帰る。</p></div>
+            <div class="cf-row"><span class="cf-q">6. どう伝える？<small>REACH</small></span><p class="cf-a">告知の3行：「タイの市場の裏路地。名も知らない家庭料理が、忘れられない。／その味を家で再現し、暮らしに持ち帰るゼミをひらきます。」</p></div>
+            <div class="cf-row"><span class="cf-q">7. いつ、創る？<small>LAUNCH</small></span><p class="cf-a">2027年2月 第1回（申込＝Googleフォーム／Buddyが第1号）</p></div>
+          </div>
+          <p class="case-seed" style="background:var(--bg-off);border-left:3px solid var(--brand);"><b>水準</b>　類型A（体験共有）。2万円の根拠＝<b>④家の道具での実習・⑤持ち帰る"レシピ冊子"</b>。A型でも「再現できる成果物」を必須化して、感想会に落とさない。</p>
+        </div>
+
+        <p class="k-note">＊いずれも架空のサンプル。<b>C（スキル変容）×3・B（地域探究）×2・A（体験共有）×1</b>の構成で、卒業生ゼミ＝ライトな偏愛シェアという印象を初見で覆すことを狙う。各ケースの全回設計は <b>12 設計例集</b> に（旅先の台所は 04 に）掲載。</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===== 12 設計例集 ===== -->
+  <section class="sec" id="designs" style="border-bottom:none;">
+    <div class="shell sec-inner" style="padding-top:36px;padding-bottom:36px;">
+      <div class="sec-spine"><div class="sec-num">12</div><span class="sec-en">Designs</span></div>
+      <div>
+        <h2 class="sec-title">設計例集 ── <span class="nb">全ケースの、各回設計。</span></h2>
+        <p class="sec-lead">11 の各ケースを、<b>04 の6項目</b>に沿って各回に具体化した設計例。修了生が自分のゼミをどこまで設計するかの見本。<b>旅先の台所ゼミ（類型A）は 04 に掲載。</b>ここでは C・B の5本を示す。</p>
+
+        <!-- ひらく問い（コーチング） -->
+        <p style="font-family:var(--head);font-weight:700;font-size:14px;letter-spacing:.04em;color:var(--brand-deep);margin:30px 0 4px;">◯ ひらく問い ── 旅の対話から学ぶコーチング　<span style="font-family:var(--en);font-weight:600;font-size:11px;color:var(--ink-50);">類型C ・ 全4回 ・ 3万円 ・ 定員8名</span></p>
+        <div class="ses">
+          <div><span class="ses-num">1</span><span class="ses-ph">Listen</span><span class="ses-time">90分</span></div>
+          <div><p class="ses-theme">聴く ── ジャッジを外す</p><div class="ses-rows">
+            <div class="ses-row"><span class="ses-k">今日の問い</span><p class="ses-v"><span class="q">あなたは"聞く"とき、頭の中で何をしている？</span></p></div>
+            <div class="ses-row"><span class="ses-k">ねらい</span><p class="ses-v">助言・評価を止め、ただ受けとる傾聴を体感する。</p></div>
+            <div class="ses-row"><span class="ses-k">ワーク・対話</span><p class="ses-v">傾聴の型レクチャー → ペアで3分ずつ傾聴 → ふりかえり対話</p></div>
+            <div class="ses-row"><span class="ses-k">時間配分</span><p class="ses-v">問い10 → レクチャー15 → 実践45 → 対話20</p></div>
+            <div class="ses-row"><span class="ses-k">持ち帰り</span><p class="ses-v">"口を挟みたくなった瞬間"の記録。日常で1回、ただ聴く。</p></div>
+          </div></div>
+        </div>
+        <div class="ses">
+          <div><span class="ses-num">2</span><span class="ses-ph">Ask</span><span class="ses-time">90分</span></div>
+          <div><p class="ses-theme">訊く ── 答えでなく問いを返す</p><div class="ses-rows">
+            <div class="ses-row"><span class="ses-k">今日の問い</span><p class="ses-v"><span class="q">相手を動かす問いと、追い詰める問いは何が違う？</span></p></div>
+            <div class="ses-row"><span class="ses-k">ねらい</span><p class="ses-v">効果的な問いの立て方を、実践で掴む。</p></div>
+            <div class="ses-row"><span class="ses-k">ワーク・対話</span><p class="ses-v">良い問い／悪い問いの分類 → ペアで"問いだけ"の対話 → フィードバック</p></div>
+            <div class="ses-row"><span class="ses-k">時間配分</span><p class="ses-v">問い10 → レクチャー15 → 実践45 → 対話20</p></div>
+            <div class="ses-row"><span class="ses-k">持ち帰り</span><p class="ses-v">使える問い10個のリスト（初期版）。</p></div>
+          </div></div>
+        </div>
+        <div class="ses">
+          <div><span class="ses-num">3</span><span class="ses-ph">Wait</span><span class="ses-time">90分</span></div>
+          <div><p class="ses-theme">待つ ── 沈黙と余白を扱う</p><div class="ses-rows">
+            <div class="ses-row"><span class="ses-k">今日の問い</span><p class="ses-v"><span class="q">沈黙が怖いのは、誰のため？</span></p></div>
+            <div class="ses-row"><span class="ses-k">ねらい</span><p class="ses-v">沈黙を"相手が考える時間"として扱えるようになる。</p></div>
+            <div class="ses-row"><span class="ses-k">ワーク・対話</span><p class="ses-v">沈黙を挟む対話演習 → 旅の"間"の話 → フィードバック</p></div>
+            <div class="ses-row"><span class="ses-k">時間配分</span><p class="ses-v">問い10 → 実践50 → 対話30 → 持ち帰り10</p></div>
+            <div class="ses-row"><span class="ses-k">持ち帰り</span><p class="ses-v">沈黙を待てた場面の記録。</p></div>
+          </div></div>
+        </div>
+        <div class="ses">
+          <div><span class="ses-num">4</span><span class="ses-ph">Open</span><span class="ses-time">90分</span></div>
+          <div><p class="ses-theme">場をひらく ── 相互コーチング</p><div class="ses-rows">
+            <div class="ses-row"><span class="ses-k">今日の問い</span><p class="ses-v"><span class="q">あなたの"問いの型"は何？</span></p></div>
+            <div class="ses-row"><span class="ses-k">ねらい</span><p class="ses-v">実践を統合し、自分のコーチングスタイルを言語化する。</p></div>
+            <div class="ses-row"><span class="ses-k">ワーク・対話</span><p class="ses-v">相互コーチング本番 → 相互フィードバック → 問いリスト完成</p></div>
+            <div class="ses-row"><span class="ses-k">時間配分</span><p class="ses-v">問い5 → 実践60 → FB35 → クロージング20</p></div>
+            <div class="ses-row"><span class="ses-k">持ち帰り</span><p class="ses-v">自分の問いリスト（完成版）＋実践の手応え。</p></div>
+          </div></div>
+        </div>
+
+        <!-- 40歳の地図 -->
+        <p style="font-family:var(--head);font-weight:700;font-size:14px;letter-spacing:.04em;color:var(--brand-deep);margin:34px 0 4px;">◯ 40歳の地図 ── 旅の問いで生き方を言葉にする　<span style="font-family:var(--en);font-weight:600;font-size:11px;color:var(--ink-50);">類型C ・ 全4回 ・ 3万円 ・ 定員6名</span></p>
+        <div class="ses">
+          <div><span class="ses-num">1</span><span class="ses-ph">Cross</span><span class="ses-time">90分</span></div>
+          <div><p class="ses-theme">棚卸し ── 旅と人生の交差点</p><div class="ses-rows">
+            <div class="ses-row"><span class="ses-k">今日の問い</span><p class="ses-v"><span class="q">あなたの人生が動いた旅の瞬間は？</span></p></div>
+            <div class="ses-row"><span class="ses-k">ねらい</span><p class="ses-v">旅の記憶を手がかりに、自分史を俯瞰する素地をつくる。</p></div>
+            <div class="ses-row"><span class="ses-k">ワーク・対話</span><p class="ses-v">旅×人生の年表づくり → 少人数で共有 → 傾聴</p></div>
+            <div class="ses-row"><span class="ses-k">時間配分</span><p class="ses-v">チェックイン15 → 作成20 → 共有40 → 持ち帰り15</p></div>
+            <div class="ses-row"><span class="ses-k">持ち帰り</span><p class="ses-v">旅×人生の交差点マップ1枚。</p></div>
+          </div></div>
+        </div>
+        <div class="ses">
+          <div><span class="ses-num">2</span><span class="ses-ph">Core</span><span class="ses-time">90分</span></div>
+          <div><p class="ses-theme">問い ── 本当に大事にしたいこと</p><div class="ses-rows">
+            <div class="ses-row"><span class="ses-k">今日の問い</span><p class="ses-v"><span class="q">誰にも見られないなら、何を選ぶ？</span></p></div>
+            <div class="ses-row"><span class="ses-k">ねらい</span><p class="ses-v">世間の"べき"を外し、自分の価値観の核に触れる。</p></div>
+            <div class="ses-row"><span class="ses-k">ワーク・対話</span><p class="ses-v">価値観の書き出し → 対話で深掘り → 言語化</p></div>
+            <div class="ses-row"><span class="ses-k">時間配分</span><p class="ses-v">問い10 → 個人20 → 対話40 → 持ち帰り10</p></div>
+            <div class="ses-row"><span class="ses-k">持ち帰り</span><p class="ses-v">大事にしたいこと3つ（暫定）。</p></div>
+          </div></div>
+        </div>
+        <div class="ses">
+          <div><span class="ses-num">3</span><span class="ses-ph">Try</span><span class="ses-time">90分</span></div>
+          <div><p class="ses-theme">実験 ── 小さく試す次の一歩</p><div class="ses-rows">
+            <div class="ses-row"><span class="ses-k">今日の問い</span><p class="ses-v"><span class="q">明日から試せる、いちばん小さな実験は？</span></p></div>
+            <div class="ses-row"><span class="ses-k">ねらい</span><p class="ses-v">決意でなく"実験"として次の一歩を設計する。</p></div>
+            <div class="ses-row"><span class="ses-k">ワーク・対話</span><p class="ses-v">実験デザイン → 相互に現実性を点検 → 計画化</p></div>
+            <div class="ses-row"><span class="ses-k">時間配分</span><p class="ses-v">問い5 → 設計25 → 対話40 → 持ち帰り20</p></div>
+            <div class="ses-row"><span class="ses-k">持ち帰り</span><p class="ses-v">2週間の小さな実験プラン。</p></div>
+          </div></div>
+        </div>
+        <div class="ses">
+          <div><span class="ses-num">4</span><span class="ses-ph">Map</span><span class="ses-time">90分</span></div>
+          <div><p class="ses-theme">宣言 ── 自分の地図を描く</p><div class="ses-rows">
+            <div class="ses-row"><span class="ses-k">今日の問い</span><p class="ses-v"><span class="q">これからの地図を、一枚に描くと？</span></p></div>
+            <div class="ses-row"><span class="ses-k">ねらい</span><p class="ses-v">軸と次の一歩を一枚に統合し、仲間の前で宣言する。</p></div>
+            <div class="ses-row"><span class="ses-k">ワーク・対話</span><p class="ses-v">地図づくり → 全体で宣言 → 相互応援</p></div>
+            <div class="ses-row"><span class="ses-k">時間配分</span><p class="ses-v">問い5 → 作成20 → 宣言・共有45 → クロージング20</p></div>
+            <div class="ses-row"><span class="ses-k">持ち帰り</span><p class="ses-v">自分の地図1枚＋宣言。</p></div>
+          </div></div>
+        </div>
+
+        <!-- 余白の写真術 -->
+        <p style="font-family:var(--head);font-weight:700;font-size:14px;letter-spacing:.04em;color:var(--brand-deep);margin:34px 0 4px;">◯ 余白の写真術 ── "何でもない一枚"で旅を語る　<span style="font-family:var(--en);font-weight:600;font-size:11px;color:var(--ink-50);">類型C ・ 全4回 ・ 2.5万円 ・ 定員10名</span></p>
+        <div class="ses">
+          <div><span class="ses-num">1</span><span class="ses-ph">See</span><span class="ses-time">90分</span></div>
+          <div><p class="ses-theme">見る ── 映えの外を見つける</p><div class="ses-rows">
+            <div class="ses-row"><span class="ses-k">今日の問い</span><p class="ses-v"><span class="q">名所の外で、あなたが足を止めるのはどこ？</span></p></div>
+            <div class="ses-row"><span class="ses-k">ねらい</span><p class="ses-v">"映え"の枠を外し、自分が惹かれる被写体に気づく。</p></div>
+            <div class="ses-row"><span class="ses-k">ワーク・対話</span><p class="ses-v">過去の"何でもない一枚"を持ち寄り → なぜ惹かれるか対話</p></div>
+            <div class="ses-row"><span class="ses-k">時間配分</span><p class="ses-v">問い5 → 共有40 → 対話30 → 持ち帰り15</p></div>
+            <div class="ses-row"><span class="ses-k">持ち帰り</span><p class="ses-v">惹かれる被写体の傾向メモ。次回まで街で3枚撮る。</p></div>
+          </div></div>
+        </div>
+        <div class="ses">
+          <div><span class="ses-num">2</span><span class="ses-ph">Shoot</span><span class="ses-time">90分</span></div>
+          <div><p class="ses-theme">撮る ── 光・余白・引き算</p><div class="ses-rows">
+            <div class="ses-row"><span class="ses-k">今日の問い</span><p class="ses-v"><span class="q">引き算で、写真はどう変わる？</span></p></div>
+            <div class="ses-row"><span class="ses-k">ねらい</span><p class="ses-v">構図の技術（光・余白・引き算）を実技で身につける。</p></div>
+            <div class="ses-row"><span class="ses-k">ワーク・対話</span><p class="ses-v">ミニレクチャー → 撮影課題の講評 → 撮り直し方針</p></div>
+            <div class="ses-row"><span class="ses-k">時間配分</span><p class="ses-v">問い5 → レクチャー20 → 講評45 → 持ち帰り20</p></div>
+            <div class="ses-row"><span class="ses-k">持ち帰り</span><p class="ses-v">撮影課題（テーマ指定）。</p></div>
+          </div></div>
+        </div>
+        <div class="ses">
+          <div><span class="ses-num">3</span><span class="ses-ph">Select</span><span class="ses-time">90分</span></div>
+          <div><p class="ses-theme">選ぶ ── 30枚を3枚に</p><div class="ses-rows">
+            <div class="ses-row"><span class="ses-k">今日の問い</span><p class="ses-v"><span class="q">この30枚から、なぜその3枚？</span></p></div>
+            <div class="ses-row"><span class="ses-k">ねらい</span><p class="ses-v">撮るより難しい"選ぶ"編集眼を養う。</p></div>
+            <div class="ses-row"><span class="ses-k">ワーク・対話</span><p class="ses-v">セレクト実習 → 相互に選評 → 基準の言語化</p></div>
+            <div class="ses-row"><span class="ses-k">時間配分</span><p class="ses-v">問い5 → 実習30 → 相互評35 → 持ち帰り20</p></div>
+            <div class="ses-row"><span class="ses-k">持ち帰り</span><p class="ses-v">ベスト3枚＋選んだ基準。</p></div>
+          </div></div>
+        </div>
+        <div class="ses">
+          <div><span class="ses-num">4</span><span class="ses-ph">Tell</span><span class="ses-time">90分</span></div>
+          <div><p class="ses-theme">語る ── 写真＋言葉で綴る</p><div class="ses-rows">
+            <div class="ses-row"><span class="ses-k">今日の問い</span><p class="ses-v"><span class="q">その一枚に、どんな言葉を添える？</span></p></div>
+            <div class="ses-row"><span class="ses-k">ねらい</span><p class="ses-v">写真と短い言葉で、旅を物語れるようになる。</p></div>
+            <div class="ses-row"><span class="ses-k">ワーク・対話</span><p class="ses-v">作品（写真＋文）制作 → 講評会 → 次のお題</p></div>
+            <div class="ses-row"><span class="ses-k">時間配分</span><p class="ses-v">問い5 → 制作25 → 講評会45 → クロージング15</p></div>
+            <div class="ses-row"><span class="ses-k">持ち帰り</span><p class="ses-v">作品集（写真＋言葉）＋次の撮影お題。</p></div>
+          </div></div>
+        </div>
+
+        <!-- 北海道、食の裏側 -->
+        <p style="font-family:var(--head);font-weight:700;font-size:14px;letter-spacing:.04em;color:var(--brand-deep);margin:34px 0 4px;">◯ 北海道、食の裏側 ── 開拓史と生産者から読み解く　<span style="font-family:var(--en);font-weight:600;font-size:11px;color:var(--ink-50);">類型B ・ 全5回 ・ 3万円 ・ 定員10名</span></p>
+        <div class="ses">
+          <div><span class="ses-num">1</span><span class="ses-ph">Frontier</span><span class="ses-time">90分</span></div>
+          <div><p class="ses-theme">開拓 ── なぜこの食になったか</p><div class="ses-rows">
+            <div class="ses-row"><span class="ses-k">今日の問い</span><p class="ses-v"><span class="q">北海道の食は、どんな歴史から生まれた？</span></p></div>
+            <div class="ses-row"><span class="ses-k">ねらい</span><p class="ses-v">開拓史という土台から、食を捉え直す。</p></div>
+            <div class="ses-row"><span class="ses-k">ワーク・対話</span><p class="ses-v">一次資料レクチャー → 年表で読み解き → 対話</p></div>
+            <div class="ses-row"><span class="ses-k">時間配分</span><p class="ses-v">問い5 → レクチャー25 → 対話40 → 持ち帰り20</p></div>
+            <div class="ses-row"><span class="ses-k">持ち帰り</span><p class="ses-v">開拓史メモ。気になる食材を1つ選ぶ。</p></div>
+          </div></div>
+        </div>
+        <div class="ses">
+          <div><span class="ses-num">2</span><span class="ses-ph">Land ◎ゲスト</span><span class="ses-time">90分</span></div>
+          <div><p class="ses-theme">乳と土 ── 生産者に聞く</p><div class="ses-rows">
+            <div class="ses-row"><span class="ses-k">今日の問い</span><p class="ses-v"><span class="q">その一杯の牛乳の裏に、どんな暮らしがある？</span></p></div>
+            <div class="ses-row"><span class="ses-k">ねらい</span><p class="ses-v">現地生産者の生の声から、風土と労働を知る。</p></div>
+            <div class="ses-row"><span class="ses-k">ワーク・対話</span><p class="ses-v">現地生産者ゲスト登壇 → Q&amp;A → 気づきの対話</p></div>
+            <div class="ses-row"><span class="ses-k">時間配分</span><p class="ses-v">チェックイン10 → ゲスト50 → 対話40 → 持ち帰り20</p></div>
+            <div class="ses-row"><span class="ses-k">持ち帰り</span><p class="ses-v">ゲストの話の要点＋自分の問い。</p></div>
+          </div></div>
+        </div>
+        <div class="ses">
+          <div><span class="ses-num">3</span><span class="ses-ph">Sea</span><span class="ses-time">90分</span></div>
+          <div><p class="ses-theme">海 ── 漁と流通の物語</p><div class="ses-rows">
+            <div class="ses-row"><span class="ses-k">今日の問い</span><p class="ses-v"><span class="q">北の海の恵みは、どう運ばれ食卓に届く？</span></p></div>
+            <div class="ses-row"><span class="ses-k">ねらい</span><p class="ses-v">漁業と流通から、食の背後の仕組みを知る。</p></div>
+            <div class="ses-row"><span class="ses-k">ワーク・対話</span><p class="ses-v">レクチャー → 事例で読み解き → 対話</p></div>
+            <div class="ses-row"><span class="ses-k">時間配分</span><p class="ses-v">問い5 → レクチャー25 → 対話40 → 持ち帰り20</p></div>
+            <div class="ses-row"><span class="ses-k">持ち帰り</span><p class="ses-v">海の食の流通メモ。</p></div>
+          </div></div>
+        </div>
+        <div class="ses">
+          <div><span class="ses-num">4</span><span class="ses-ph">Ferment</span><span class="ses-time">90分</span></div>
+          <div><p class="ses-theme">発酵と保存 ── 寒冷地の知恵</p><div class="ses-rows">
+            <div class="ses-row"><span class="ses-k">今日の問い</span><p class="ses-v"><span class="q">寒さは、食にどんな知恵を生んだ？</span></p></div>
+            <div class="ses-row"><span class="ses-k">ねらい</span><p class="ses-v">保存・発酵の技術から、風土の知恵を捉える。</p></div>
+            <div class="ses-row"><span class="ses-k">ワーク・対話</span><p class="ses-v">レクチャー → 自分の一皿への応用対話</p></div>
+            <div class="ses-row"><span class="ses-k">時間配分</span><p class="ses-v">問い5 → レクチャー25 → 対話40 → 持ち帰り20</p></div>
+            <div class="ses-row"><span class="ses-k">持ち帰り</span><p class="ses-v">発酵・保存の知恵メモ。</p></div>
+          </div></div>
+        </div>
+        <div class="ses">
+          <div><span class="ses-num">5</span><span class="ses-ph">Weave</span><span class="ses-time">90分</span></div>
+          <div><p class="ses-theme">編む ── 一皿のストーリー</p><div class="ses-rows">
+            <div class="ses-row"><span class="ses-k">今日の問い</span><p class="ses-v"><span class="q">あなたの"北海道の一皿"を、どう物語る？</span></p></div>
+            <div class="ses-row"><span class="ses-k">ねらい</span><p class="ses-v">5回の学びを、自分の一皿の物語に編み上げる。</p></div>
+            <div class="ses-row"><span class="ses-k">ワーク・対話</span><p class="ses-v">ストーリー制作 → 発表 → 相互フィードバック</p></div>
+            <div class="ses-row"><span class="ses-k">時間配分</span><p class="ses-v">問い5 → 制作25 → 発表・共有45 → クロージング15</p></div>
+            <div class="ses-row"><span class="ses-k">持ち帰り</span><p class="ses-v">「北海道の一皿ストーリー」1本。</p></div>
+          </div></div>
+        </div>
+
+        <!-- 島が問う（鹿児島） -->
+        <p style="font-family:var(--head);font-weight:700;font-size:14px;letter-spacing:.04em;color:var(--brand-deep);margin:34px 0 4px;">◯ 島が問う ── 鹿児島の"辺境"から日本を見る　<span style="font-family:var(--en);font-weight:600;font-size:11px;color:var(--ink-50);">類型B ・ 全4回 ・ 2.5万円 ・ 定員8名</span></p>
+        <div class="ses">
+          <div><span class="ses-num">1</span><span class="ses-ph">Satsuma</span><span class="ses-time">90分</span></div>
+          <div><p class="ses-theme">薩摩 ── 辺境から維新</p><div class="ses-rows">
+            <div class="ses-row"><span class="ses-k">今日の問い</span><p class="ses-v"><span class="q">なぜ、辺境から時代が変わった？</span></p></div>
+            <div class="ses-row"><span class="ses-k">ねらい</span><p class="ses-v">中央／辺境の視点で薩摩史を読み直す。</p></div>
+            <div class="ses-row"><span class="ses-k">ワーク・対話</span><p class="ses-v">レクチャー → 史料で読み解き → 対話</p></div>
+            <div class="ses-row"><span class="ses-k">時間配分</span><p class="ses-v">問い5 → レクチャー25 → 対話40 → 持ち帰り20</p></div>
+            <div class="ses-row"><span class="ses-k">持ち帰り</span><p class="ses-v">"辺境の目"のメモ。</p></div>
+          </div></div>
+        </div>
+        <div class="ses">
+          <div><span class="ses-num">2</span><span class="ses-ph">Island ◎ゲスト</span><span class="ses-time">90分</span></div>
+          <div><p class="ses-theme">島 ── 複数の文化圏</p><div class="ses-rows">
+            <div class="ses-row"><span class="ses-k">今日の問い</span><p class="ses-v"><span class="q">ひとつの県に、いくつの"日本"がある？</span></p></div>
+            <div class="ses-row"><span class="ses-k">ねらい</span><p class="ses-v">奄美・トカラの多文化から、単一でない日本を知る。</p></div>
+            <div class="ses-row"><span class="ses-k">ワーク・対話</span><p class="ses-v">島の人ゲスト登壇 → 対話 → 問い直し</p></div>
+            <div class="ses-row"><span class="ses-k">時間配分</span><p class="ses-v">チェックイン10 → ゲスト50 → 対話40 → 持ち帰り20</p></div>
+            <div class="ses-row"><span class="ses-k">持ち帰り</span><p class="ses-v">島から見た日本の気づき。</p></div>
+          </div></div>
+        </div>
+        <div class="ses">
+          <div><span class="ses-num">3</span><span class="ses-ph">Shochu</span><span class="ses-time">90分</span></div>
+          <div><p class="ses-theme">焼酎 ── 一杯に映る交易</p><div class="ses-rows">
+            <div class="ses-row"><span class="ses-k">今日の問い</span><p class="ses-v"><span class="q">一杯の焼酎に、どんな歴史が溶けている？</span></p></div>
+            <div class="ses-row"><span class="ses-k">ねらい</span><p class="ses-v">一つの酒から風土・交易・人の動きを読む。</p></div>
+            <div class="ses-row"><span class="ses-k">ワーク・対話</span><p class="ses-v">レクチャー → 焼酎を軸に地域を読む対話</p></div>
+            <div class="ses-row"><span class="ses-k">時間配分</span><p class="ses-v">問い5 → レクチャー25 → 対話40 → 持ち帰り20</p></div>
+            <div class="ses-row"><span class="ses-k">持ち帰り</span><p class="ses-v">焼酎から読む地域メモ。</p></div>
+          </div></div>
+        </div>
+        <div class="ses">
+          <div><span class="ses-num">4</span><span class="ses-ph">Reframe</span><span class="ses-time">90分</span></div>
+          <div><p class="ses-theme">見立てる ── 自分の地元を辺境の目で</p><div class="ses-rows">
+            <div class="ses-row"><span class="ses-k">今日の問い</span><p class="ses-v"><span class="q">あなたの地元を"辺境の目"で見ると？</span></p></div>
+            <div class="ses-row"><span class="ses-k">ねらい</span><p class="ses-v">得た視点を、自分の土地の再編集に応用する。</p></div>
+            <div class="ses-row"><span class="ses-k">ワーク・対話</span><p class="ses-v">地元の再編集ワーク → 発表 → 相互フィードバック</p></div>
+            <div class="ses-row"><span class="ses-k">時間配分</span><p class="ses-v">問い5 → 制作25 → 発表・共有45 → クロージング15</p></div>
+            <div class="ses-row"><span class="ses-k">持ち帰り</span><p class="ses-v">自分の地元の"辺境視点"編集1枚。</p></div>
+          </div></div>
+        </div>
+
+        <p class="k-note">＊6ケースぶんの設計例（04＝旅先の台所＋本節の5本）。テーマ・回数・価格は違っても、全て「今日の問い → 実践・対話 → 再現できる持ち帰り」の同じ型で組まれ、<b>11 の5軸ルーブリック</b>を満たすよう設計されている。これが受講生に渡す"再現できる型"の実物。</p>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="sec" style="border-bottom:none;">
+    <div class="shell sec-inner" style="padding-top:20px;padding-bottom:44px;">
+      <div class="sec-spine"><div class="sec-num ja small">未確定</div><span class="sec-en">TBD</span></div>
+      <div>
+        <div class="intro-body">
+          <p>次の項目は開講に向けて確定が必要です：<strong>開講時期・各回の曜日/時間・主宰者（メインファシリテーター）・申込フォーム・修了生ゼミの告知棚の運用ルール・POOLO配分の正式値</strong>。</p>
+        </div>
+        <p class="backlink" style="margin-top:22px;"><a href="index.html" style="color:var(--brand-deep);border-bottom:1px solid var(--line-pale);">→ 募集サイト（LP）を見る</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== フッター ===== -->
+  <footer class="footer">
+    <div class="shell footer-inner" style="padding-top:40px;">
+      <div class="footer-top">
+        <span class="mon" aria-hidden="true">
+          <svg viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-linecap="round">
+            <circle cx="60" cy="60" r="57" stroke-width="1.5"/><circle cx="60" cy="60" r="51.5" stroke-width="0.75"/>
+            <circle cx="60" cy="42.5" r="9.5" stroke-width="1.5"/><line x1="30" y1="60.5" x2="46.5" y2="60.5" stroke-width="1.1"/>
+            <line x1="73.5" y1="60.5" x2="90" y2="60.5" stroke-width="1.1"/>
+          </svg>
+        </span>
+        <div class="footer-marks">
+          <a href="https://tabippo.net/poolo/" target="_blank" rel="noopener"><img src="../event-30s-v01-260720/images/poolo_logo03.png" alt="POOLO あたらしい旅の学校"></a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-text">企画書「学びの場を、創る。」／ POOLO ゼミ ／ 株式会社TABIPPO</p>
+        <p class="footer-copy">© POOLO. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+</main>
+</body>
+</html>
