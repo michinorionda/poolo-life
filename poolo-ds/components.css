@@ -334,7 +334,8 @@ img { display: block; max-width: 100%; }
 }
 .summary-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  /* minmax(0,…)：長い値が入っても列がはみ出さないようにする */
+  grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 .summary-cell {
   padding: 26px clamp(18px, 2.6vw, 34px) 28px;
@@ -381,7 +382,7 @@ img { display: block; max-width: 100%; }
   margin-top: 2px;
 }
 @media (max-width: 860px) {
-  .summary-grid { grid-template-columns: 1fr 1fr; }
+  .summary-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
   .summary-cell { padding: 20px 22px 22px; }
   .summary-cell:nth-child(odd) { border-left: none; padding-left: 0; }
   .summary-cell:nth-child(n+3) { border-top: 1px solid var(--line); }
@@ -1084,6 +1085,218 @@ img { display: block; max-width: 100%; }
 /* 追従CTA表示中はヘッダー右上の申込ボタンを隠す（重複回避）
    ※ DOM順：.float-apply → .brand-row（後続兄弟セレクタが効く並びにする） */
 .float-apply.is-visible ~ .brand-row .header-cta { visibility: hidden; }
+
+
+/* ============ 開催日程一覧（.date-list） ============ */
+/* 複数回にわたる講座・ゼミの日程を、回数＋日付＋内容の3列で並べる。 */
+.date-list {
+  list-style: none;
+  border-top: 1px solid var(--ink);
+  max-width: 760px;
+}
+.date-item {
+  display: grid;
+  grid-template-columns: 4.6em minmax(0, 13em) minmax(0, 1fr);
+  column-gap: clamp(14px, 2vw, 26px);
+  align-items: baseline;
+  padding: 17px 0;
+  border-bottom: 1px solid var(--line);
+}
+.date-no {
+  font-family: var(--en);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  color: var(--brand);
+  white-space: nowrap;
+}
+.date-when {
+  font-family: var(--head);
+  font-weight: 700;
+  font-feature-settings: "palt";
+  font-size: 14px;
+  letter-spacing: 0.06em;
+  line-height: 1.7;
+  color: var(--ink);
+}
+.date-when .dow { font-family: var(--en); font-weight: 500; letter-spacing: 0.06em; }
+.date-when .time {
+  display: block;
+  font-family: var(--en);
+  font-size: 11.5px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  color: var(--ink-50);
+  margin-top: 2px;
+}
+.date-what {
+  font-size: 13px;
+  line-height: 1.95;
+  letter-spacing: 0.06em;
+  color: var(--ink-72);
+}
+.date-item.is-special { background: var(--brand-pale); }
+.date-item.is-special .date-no { color: var(--brand-deep); }
+.date-note {
+  margin-top: 18px;
+  font-size: 11.5px;
+  line-height: 1.95;
+  letter-spacing: 0.1em;
+  color: var(--ink-50);
+  max-width: 40em;
+}
+@media (max-width: 640px) {
+  .date-item {
+    grid-template-columns: 4.2em minmax(0, 1fr);
+    row-gap: 6px;
+    padding: 15px 0;
+  }
+  .date-what { grid-column: 2 / 3; font-size: 12.5px; }
+}
+
+
+/* ============ 向き・不向き（.fit-grid） ============ */
+/* 「こんな人へ」「今回は向かないかも」を並置し、ミスマッチ申込を減らす。 */
+.fit-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(18px, 2.6vw, 32px);
+}
+.fit-col {
+  border-top: 1px solid var(--line);
+  padding-top: 20px;
+}
+.fit-col--yes { border-top-color: var(--brand); }
+.fit-head {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  font-family: var(--head);
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.08em;
+  color: var(--ink);
+  margin-bottom: 16px;
+}
+.fit-head .en {
+  font-family: var(--en);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--brand);
+}
+.fit-col--no .fit-head .en { color: var(--ink-40); }
+.fit-items { list-style: none; display: grid; gap: 12px; }
+.fit-items li {
+  display: grid;
+  grid-template-columns: 1.5em minmax(0, 1fr);
+  align-items: baseline;
+  font-size: 13px;
+  line-height: 1.95;
+  letter-spacing: 0.06em;
+  color: var(--ink-72);
+}
+.fit-items li::before {
+  content: '―';
+  font-family: var(--en);
+  color: var(--brand);
+}
+.fit-col--no .fit-items li::before { content: '―'; color: var(--ink-40); }
+@media (max-width: 640px) {
+  .fit-grid { grid-template-columns: 1fr; gap: 26px; }
+}
+
+
+/* ============ 申込ステップ（.apply-steps） ============ */
+/* 申込から受講開始までの手順。番号は Jost、区切りはヘアラインのみ。 */
+.apply-steps {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0;
+  border-top: 1px solid var(--ink);
+}
+.apply-step {
+  padding: 22px clamp(14px, 1.8vw, 22px) 24px;
+  border-left: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+.apply-step:first-child { border-left: none; padding-left: 0; }
+.apply-step-num {
+  display: block;
+  font-family: var(--en);
+  font-size: 21px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  line-height: 1;
+  color: var(--brand);
+  margin-bottom: 14px;
+}
+.apply-step-title {
+  font-family: var(--head);
+  font-weight: 700;
+  font-feature-settings: "palt";
+  font-size: 13.5px;
+  letter-spacing: 0.06em;
+  line-height: 1.75;
+  color: var(--ink);
+  margin-bottom: 8px;
+}
+.apply-step-desc {
+  font-size: 12.5px;
+  line-height: 1.95;
+  letter-spacing: 0.06em;
+  color: var(--ink-66);
+}
+@media (max-width: 860px) {
+  .apply-steps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .apply-step:nth-child(odd) { border-left: none; padding-left: 0; }
+  .apply-step:nth-child(even) { padding-right: 0; }
+}
+@media (max-width: 560px) {
+  .apply-steps { grid-template-columns: 1fr; }
+  .apply-step { border-left: none; padding-left: 0; padding-right: 0; }
+  .apply-step-num { margin-bottom: 10px; }
+}
+
+
+/* ============ 募集要項（.terms-list） ============ */
+/* 締切・支払い・キャンセルなど、契約に関わる情報を定義リストで明示する。 */
+.terms-list {
+  border-top: 1px solid var(--ink);
+  max-width: 760px;
+}
+.terms-row {
+  display: grid;
+  grid-template-columns: minmax(0, 9em) minmax(0, 1fr);
+  column-gap: clamp(16px, 2.4vw, 32px);
+  padding: 18px 0;
+  border-bottom: 1px solid var(--line);
+}
+.terms-k {
+  font-family: var(--head);
+  font-weight: 700;
+  font-size: 12.5px;
+  letter-spacing: 0.1em;
+  line-height: 2;
+  color: var(--brand-deep);
+}
+.terms-v {
+  font-size: 13px;
+  line-height: 2;
+  letter-spacing: 0.06em;
+  color: var(--ink-72);
+}
+.terms-v strong { font-weight: 700; color: var(--ink); }
+.terms-v ul { list-style: none; display: grid; gap: 4px; }
+.terms-v ul li { display: grid; grid-template-columns: 1.4em minmax(0, 1fr); align-items: baseline; }
+.terms-v ul li::before { content: '・'; color: var(--ink-40); }
+@media (max-width: 640px) {
+  .terms-row { grid-template-columns: 1fr; row-gap: 4px; padding: 15px 0; }
+  .terms-k { line-height: 1.8; }
+  .terms-v { font-size: 12.5px; }
+}
 
 
 /* ============ フッター（.footer） ============ */

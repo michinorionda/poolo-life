@@ -92,6 +92,10 @@ group はカタログの `@dsCard group="…"` と対応。
 | `.voice-list` / `.voice-item` / `.voice-quote`(.vq-mark) / `.voice-attr` / `.voice-note` | 参加者の声（引用＝明朝・属性＝Noto・掲載注記） | Content |
 | `.about` / `.about-inner` / `.about-title` / `.about-text` / `.about-figs` / `.about-fig` | About POOLO（企画者・信頼の小コーナー） | Content |
 | `.faq-list` / `.faq-item` / `.faq-q`(.m) / `.faq-a`(.m) | FAQ（Q/A ヘアライン区切り） | Content |
+| `.date-list` / `.date-item`(.is-special) / `.date-no` / `.date-when`(.dow/.time) / `.date-what` / `.date-note` | 開催日程一覧（複数回の講座・ゼミ。別日程の回は `.is-special`） | Application |
+| `.fit-grid` / `.fit-col`(--yes/--no) / `.fit-head`(.en) / `.fit-items` | 向き・不向き（こんな方へ／今回は向かないかも の2カラム） | Application |
+| `.apply-steps` / `.apply-step` / `.apply-step-num` / `.apply-step-title` / `.apply-step-desc` | 申込ステップ（申込→受講開始までの4手順） | Application |
+| `.terms-list` / `.terms-row` / `.terms-k` / `.terms-v` | 募集要項（締切・支払い・キャンセルポリシー） | Application |
 | `.cta` / `.cta-inner` / `.cta-en` / `.cta-title` / `.cta-btn` / `.cta-note` | 中間・最終CTA（ブルーのベタ面＋白ボタン） | CTA |
 | `.float-apply` / `.fa-inner` / `.fa-texts`(.fa-main/.fa-sub) / `.fa-btn` | 追従CTA（`.is-visible` で出現・要JS） | CTA |
 | `.footer` / `.footer-top` / `.footer-marks` / `.footer-bottom` / `.footer-copy` | フッター（家紋＋2社ロゴ＋コピーライト） | Meta |

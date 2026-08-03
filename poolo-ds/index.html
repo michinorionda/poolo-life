@@ -530,6 +530,109 @@
 
 
 <!-- ============================================================
+     GROUP: Application（date-list / fit-grid / apply-steps / terms-list）
+     連続講座・ゼミなど「申し込んで受講する」ページ用のブロック群。
+     ============================================================ -->
+<section class="cat-group">
+  <div class="cat-group-head"><span class="num">P</span><h2>Application</h2></div>
+
+  <!-- @dsCard group="Application" -->
+  <div class="cat-card">
+    <div class="cat-card-label"><span class="name">開催日程一覧</span><span class="cls">.date-list / .date-item(.is-special) / .date-no / .date-when(.dow/.time) / .date-what / .date-note</span><span class="use">複数回の講座の日程。回数＝Jost、日付＝Zen Kaku、内容＝Noto。別日程の回は .is-special で淡ブルー。</span></div>
+    <div class="cat-card-preview" style="padding:8px 24px 24px;">
+      <ul class="date-list">
+        <li class="date-item">
+          <span class="date-no">第 1 回</span>
+          <span class="date-when">10月6日<span class="dow">（火）</span><span class="time">20:00–22:00</span></span>
+          <span class="date-what">問いを掘る ── 旅の棚卸し</span>
+        </li>
+        <li class="date-item is-special">
+          <span class="date-no">第 2 回</span>
+          <span class="date-when">別日程<span class="time">30–45分／人</span></span>
+          <span class="date-what">個別メンタリング（1対1・日程は個別に調整）</span>
+        </li>
+      </ul>
+      <p class="date-note">＊やむを得ず欠席された回は、録画とワークシートを共有します。</p>
+    </div>
+  </div>
+
+  <!-- @dsCard group="Application" -->
+  <div class="cat-card">
+    <div class="cat-card-label"><span class="name">向き・不向き</span><span class="cls">.fit-grid / .fit-col(--yes/--no) / .fit-head / .fit-items</span><span class="use">「こんな人へ」と「今回は向かないかも」を並置。断ることで、来る人の納得度を上げる。</span></div>
+    <div class="cat-card-preview" style="padding:8px 24px 24px;">
+      <div class="fit-grid">
+        <div class="fit-col fit-col--yes">
+          <p class="fit-head"><span class="en">For</span><span>こんな方へ</span></p>
+          <ul class="fit-items">
+            <li>旅の話をすると、つい前のめりになってしまう方</li>
+            <li>受け取る側から、創る側に回ってみたい方</li>
+          </ul>
+        </div>
+        <div class="fit-col fit-col--no">
+          <p class="fit-head"><span class="en">Not for</span><span>今回は、向かないかもしれません</span></p>
+          <ul class="fit-items">
+            <li>完成された講義ノウハウだけを受け取りたい方</li>
+            <li>3ヶ月のあいだ、手を動かす時間が取れない方</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- @dsCard group="Application" -->
+  <div class="cat-card">
+    <div class="cat-card-label"><span class="name">申込ステップ</span><span class="cls">.apply-steps / .apply-step / .apply-step-num / .apply-step-title / .apply-step-desc</span><span class="use">申込から受講開始までの手順。4ステップ想定（860pxで2列、560pxで1列）。</span></div>
+    <div class="cat-card-preview" style="padding:8px 24px 24px;">
+      <ol class="apply-steps">
+        <li class="apply-step">
+          <span class="apply-step-num">01</span>
+          <p class="apply-step-title">LINE公式アカウントを友だち追加</p>
+          <p class="apply-step-desc">ページ内のボタンから追加できます。</p>
+        </li>
+        <li class="apply-step">
+          <span class="apply-step-num">02</span>
+          <p class="apply-step-title">申込フォームに回答</p>
+          <p class="apply-step-desc">5分ほど。いまの問いを一言だけ添えていただきます。</p>
+        </li>
+        <li class="apply-step">
+          <span class="apply-step-num">03</span>
+          <p class="apply-step-title">事務局から受付のご連絡</p>
+          <p class="apply-step-desc">3営業日以内に、お支払い方法をご案内します。</p>
+        </li>
+        <li class="apply-step">
+          <span class="apply-step-num">04</span>
+          <p class="apply-step-title">お支払い・受講確定</p>
+          <p class="apply-step-desc">確認後、事前案内と当日URLをお送りします。</p>
+        </li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- @dsCard group="Application" -->
+  <div class="cat-card">
+    <div class="cat-card-label"><span class="name">募集要項</span><span class="cls">.terms-list / .terms-row / .terms-k / .terms-v</span><span class="use">締切・支払い・キャンセルなど契約に関わる情報。断定を避けず、事実だけを書く。</span></div>
+    <div class="cat-card-preview" style="padding:8px 24px 24px;">
+      <dl class="terms-list">
+        <div class="terms-row">
+          <dt class="terms-k">申込締切</dt>
+          <dd class="terms-v"><strong>2026年9月27日（日）23:59</strong>／定員に達し次第、締切前でも受付を終了します。</dd>
+        </div>
+        <div class="terms-row">
+          <dt class="terms-k">お支払い</dt>
+          <dd class="terms-v">
+            <ul>
+              <li>クレジットカード（一括）</li>
+              <li>銀行振込（振込手数料はご負担ください）</li>
+            </ul>
+          </dd>
+        </div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
      GROUP: CTA（cta / float-apply）
      ============================================================ -->
 <section class="cat-group">
