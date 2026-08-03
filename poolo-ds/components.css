@@ -34,6 +34,28 @@ a { color: inherit; text-decoration: none; }
 img { display: block; max-width: 100%; }
 .nb { white-space: nowrap; } /* 泣き別れ（行末禁則）対策の折り返し禁止 */
 
+/* ---- 日本語の改行則 ----------------------------------------------------
+   word-break:auto-phrase … 文節単位で改行する（「消費ではな／く」のような
+     語の途中での泣き別れを防ぐ）。<html lang="ja"> が必須。
+     非対応ブラウザでは従来どおりの改行に戻るだけなので安全。
+   text-wrap:pretty … 最終行が1〜2文字だけ残る「取り残し」を減らす。
+   ピンポイントで改行位置を固定したいときは、従来どおり .nb を併用する。 */
+.hero-title, .hero-lead, .hero-foot-ja,
+.sec-title, .sec-lead, .intro-body p, .intro-break,
+.flow-title, .flow-desc, .q-text, .q-helper,
+.notice-text, .summary-value,
+.voice-quote, .about-title, .about-text p,
+.faq-q, .faq-a p,
+.date-what, .date-note, .fit-items li, .fit-head,
+.apply-step-title, .apply-step-desc, .terms-v,
+.cta-title, .cta-note, .fa-main, .fa-sub {
+  word-break: auto-phrase;
+  text-wrap: pretty;
+}
+/* ※ text-wrap:balance は和文見出しだと1行目が極端に短くなりやすく、
+   意味の切れ目より行長を優先してしまうため使わない。
+   意図した位置で改行したいときは <br> と .nb で明示する。 */
+
 /* 版面（シェル）：全セクション共通の中央寄せ＋左右パディング */
 .shell {
   max-width: var(--shell-max);
