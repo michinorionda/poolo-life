@@ -37,6 +37,8 @@
   .ex-ttl { font-family:var(--mincho); font-weight:700; font-size:16px; color:var(--ink); line-height:1.5; margin:0 0 8px; }
   .ex-desc { font-family:var(--body); font-size:12.5px; color:var(--ink-72); line-height:1.85; margin:0 0 14px; flex:1; }
   .ex-meta { font-family:var(--en); font-size:11px; color:var(--ink-50); letter-spacing:.04em; border-top:1px solid var(--line); padding-top:10px; }
+  /* 和文の改行則（poolo-ds と同じ方針。page-local クラスなのでここで指定） */
+  .ex-ttl, .ex-desc, .pillar-ttl, .pillar-txt, .price-note { word-break:auto-phrase; text-wrap:pretty; }
   @media (max-width:760px) { .ex-grid { grid-template-columns:1fr; } }
 </style>
 </head>
@@ -336,15 +338,15 @@
         <p class="sec-lead">テーマは自由。入口は、あなたの旅の原体験。ジャンルが違っても、<span class="nb">みんな「旅で見つけた問い」</span>から始まります。</p>
         <div class="ex-grid">
           <div class="ex-card">
-            <span class="ex-tag">食・暮らし</span>
-            <p class="ex-ttl">旅先の台所ゼミ</p>
-            <p class="ex-desc">タイの市場の裏路地で食べた家庭料理。あの味を、暮らしごと持ち帰る。</p>
+            <span class="ex-tag">地域・鹿児島</span>
+            <p class="ex-ttl">鹿児島・灰の降る町ゼミ</p>
+            <p class="ex-desc">灰が降っても平然と暮らす、桜島のふもとの町へ。不便と折り合う知恵を、<span class="nb">聞き書きする。</span></p>
             <p class="ex-meta">全4回 ・ 2万円 ・ 定員8名</p>
           </div>
           <div class="ex-card">
-            <span class="ex-tag">表現・発信</span>
-            <p class="ex-ttl">何でもない一枚の写真ゼミ</p>
-            <p class="ex-desc">名所ではなく「何でもない一枚」で、旅を語り直す。映えから、記憶へ。</p>
+            <span class="ex-tag">地域・北海道</span>
+            <p class="ex-ttl">北海道・冬にこもるゼミ</p>
+            <p class="ex-desc">雪に閉ざされる半年は、耐える季節なのか。北の暮らしに学ぶ、こもって深める時間のつくり方。</p>
             <p class="ex-meta">全3回 ・ 1.5万円 ・ 定員10名</p>
           </div>
           <div class="ex-card">
