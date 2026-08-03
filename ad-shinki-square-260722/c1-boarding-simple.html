@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>POOLO 12th ボーディングパス（シンプル）</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@400;700;900&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&family=Jost:wght@400;500;600&display=swap');
+  :root{
+    --brand:#189BBC; --ink:#000; --line:#E4E4E4;
+    --mincho:'Zen Old Mincho',serif;
+    --head:'Zen Kaku Gothic New',sans-serif;
+    --body:'Noto Sans JP',sans-serif;
+    --en:'Jost',sans-serif;
+  }
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  html,body{ background:#F2F3F4; }
+  body{ display:flex; align-items:center; justify-content:center; }
+
+  .square{
+    width:1080px; height:1080px; background:#fff; overflow:hidden;
+    position:relative; display:flex; flex-direction:column;
+    padding:96px 104px 0;
+  }
+
+  /* ── ヘッダー：最小限のチケット記号 ── */
+  .head{
+    display:flex; justify-content:space-between; align-items:baseline;
+    padding-bottom:26px; border-bottom:1px solid var(--line);
+  }
+  .head .label{
+    font-family:var(--en); font-weight:600; font-size:21px;
+    letter-spacing:.28em; color:var(--brand);
+  }
+  .head .flight{
+    font-family:var(--en); font-weight:500; font-size:19px;
+    letter-spacing:.14em; color:rgba(0,0,0,.5);
+  }
+  .head .flight b{ color:var(--ink); font-weight:600; }
+
+  /* ── 本体：FROM → TO が主役 ── */
+  .body{ flex:1; display:flex; flex-direction:column; justify-content:center; }
+
+  .leg{ display:flex; flex-direction:column; gap:10px; }
+  .leg .en{
+    font-family:var(--en); font-weight:600; font-size:20px;
+    letter-spacing:.24em; color:var(--brand);
+  }
+  .from .val{
+    font-family:var(--head); font-weight:500; font-size:56px;
+    color:rgba(0,0,0,.62); letter-spacing:.02em;
+  }
+  .conn{
+    height:78px; margin:14px 0 14px 3px;
+    border-left:2px solid var(--brand); position:relative;
+  }
+  .conn::after{
+    content:"↓"; position:absolute; left:-13px; bottom:-6px;
+    font-family:var(--en); font-size:30px; color:var(--brand); line-height:1;
+  }
+  .to .val{
+    font-family:var(--mincho); font-weight:900; font-size:168px;
+    color:var(--brand); line-height:1; letter-spacing:.02em;
+  }
+
+  /* ── 明朝の一行（発見） ── */
+  .caption{
+    font-family:var(--mincho); font-weight:700; font-size:41px;
+    color:var(--ink); letter-spacing:.04em; line-height:1.5;
+    margin-top:58px;
+  }
+
+  /* ── ミシン目＋半券 ── */
+  .perf{
+    margin:0 -104px; border-top:2px dashed var(--line);
+    position:relative;
+  }
+  .perf::before,.perf::after{
+    content:""; position:absolute; top:-24px; width:48px; height:48px;
+    background:#F2F3F4; border-radius:50%;
+  }
+  .perf::before{ left:-24px; }
+  .perf::after{ right:-24px; }
+
+  .stub{
+    padding:40px 0 46px;
+    display:flex; align-items:center; gap:34px;
+  }
+  .barcode{
+    width:150px; height:64px; flex:none;
+    background:repeating-linear-gradient(90deg,
+      #000 0 3px, #fff 3px 6px, #000 6px 12px, #fff 12px 15px,
+      #000 15px 17px, #fff 17px 22px, #000 22px 27px, #fff 27px 30px);
+  }
+  .stub-text{ display:flex; flex-direction:column; gap:7px; }
+  .stub-text .main{
+    font-family:var(--head); font-weight:700; font-size:27px; color:var(--ink);
+    letter-spacing:.03em;
+  }
+  .stub-text .sub{
+    font-family:var(--body); font-weight:400; font-size:19px;
+    color:rgba(0,0,0,.55); letter-spacing:.03em;
+  }
+  .stub .by{
+    margin-left:auto; font-family:var(--en); font-weight:500; font-size:18px;
+    letter-spacing:.14em; color:rgba(0,0,0,.45);
+  }
+</style>
+</head>
+<body>
+  <div class="square">
+
+    <div class="head">
+      <span class="label">BOARDING PASS</span>
+      <span class="flight">FLIGHT <b>POOLO&nbsp;12</b> ・ ONE WAY</span>
+    </div>
+
+    <div class="body">
+      <div class="leg from">
+        <span class="en">FROM</span>
+        <span class="val">いつもの毎日</span>
+      </div>
+
+      <div class="conn"></div>
+
+      <div class="leg to">
+        <span class="en">TO</span>
+        <span class="val">自分</span>
+      </div>
+
+      <p class="caption">いちばん遠い目的地は、たぶん自分だ。</p>
+    </div>
+
+    <div class="perf"></div>
+
+    <div class="stub">
+      <div class="barcode"></div>
+      <div class="stub-text">
+        <span class="main">POOLO 12期・新期メンバー募集</span>
+        <span class="sub">旅を通して、生き方を問い直す1年間。</span>
+      </div>
+      <span class="by">by TABIPPO</span>
+    </div>
+
+  </div>
+</body>
+</html>
