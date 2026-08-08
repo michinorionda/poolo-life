@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>ブース卓上ポスター｜旅の重心を、5分で。</title>
+<link rel="stylesheet" href="../poolo-ds/tokens.css">
+<style>
+/* ブース卓上に立てる A4 縦 1枚。画面で確認 → そのまま印刷。 */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  background: var(--bg-off);
+  color: var(--ink-soft);
+  font-family: var(--body);
+  letter-spacing: 0.05em;
+  padding: 24px;
+  display: grid;
+  place-items: start center;
+  -webkit-font-smoothing: antialiased;
+}
+.sheet {
+  width: 210mm;
+  height: 297mm;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  padding: 26mm 20mm 18mm;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.eyebrow {
+  font-family: var(--en);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.44em;
+  color: var(--brand-deep);
+  margin-bottom: 14mm;
+}
+.title {
+  font-family: var(--mincho);
+  font-weight: 700;
+  font-feature-settings: "palt";
+  font-size: 46px;
+  line-height: 1.62;
+  letter-spacing: 0.04em;
+  color: var(--ink);
+}
+.title .em { color: var(--brand); }
+.rule { width: 34px; height: 2px; background: var(--brand); margin: 9mm 0; }
+.lead {
+  font-size: 15px;
+  line-height: 2.0;
+  color: var(--ink-72);
+  max-width: 128mm;
+}
+.qr {
+  margin: 12mm 0 7mm;
+  padding: 8mm;
+  border: 1px solid var(--line);
+}
+.qr img { display: block; width: 62mm; height: 62mm; }
+.scan {
+  font-family: var(--head);
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--ink);
+}
+.url {
+  font-family: var(--en);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: var(--ink-40);
+  margin-top: 5mm;
+  word-break: break-all;
+}
+.facts {
+  display: flex;
+  gap: 0;
+  margin-top: auto;
+  width: 100%;
+  border-top: 1px solid var(--line);
+}
+.fact {
+  flex: 1;
+  padding: 7mm 4mm 0;
+  border-left: 1px solid var(--line);
+}
+.fact:first-child { border-left: none; }
+.fact b {
+  display: block;
+  font-family: var(--en);
+  font-size: 30px;
+  font-weight: 500;
+  line-height: 1.2;
+  color: var(--brand);
+}
+.fact span {
+  display: block;
+  font-family: var(--head);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  color: var(--ink-60);
+  margin-top: 3px;
+}
+.fact.note b { font-family: var(--mincho); font-size: 20px; font-weight: 700; color: var(--ink); }
+.brandline {
+  margin-top: 8mm;
+  font-family: var(--en);
+  font-size: 10px;
+  letter-spacing: 0.34em;
+  color: var(--ink-40);
+}
+
+@media print {
+  @page { size: A4 portrait; margin: 0; }
+  body { background: none; padding: 0; display: block; }
+  .sheet { border: none; width: 210mm; height: 297mm; }
+}
+</style>
+</head>
+<body>
+<div class="sheet">
+  <span class="eyebrow">POOLO / Travel Worksheet</span>
+
+  <h1 class="title">旅の重心を、<br><span class="em">5分</span>で言葉にする。</h1>
+  <span class="rule"></span>
+  <p class="lead">
+    行きたい場所は、なんとなくある。<br>
+    でも、なぜそこなんだろう。<br>
+    5つの問いに答えると、あなたの「旅の重心」がカードになります。
+  </p>
+
+  <div class="qr"><img src="qr.png" alt="ワークシートのQRコード"></div>
+  <p class="scan">スマホのカメラで読み取ってください</p>
+  <p class="url">michinorionda.github.io/poolo-life/worksheet-booth-v01-260808/</p>
+
+  <div class="facts">
+    <div class="fact"><b>5</b><span>つの問い</span></div>
+    <div class="fact"><b>5</b><span>分ほど</span></div>
+    <div class="fact note"><b>送信なし</b><span>端末の中だけに残ります</span></div>
+  </div>
+
+  <p class="brandline">POOLO — by TABIPPO</p>
+</div>
+</body>
+</html>
