@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>旅の重心を、5分で。｜POOLO 体験ワーク</title>
+<meta name="description" content="海外旅行に興味があるあなたへ。5つの問いに答えると、あなたの「旅の重心」がカードになります。所要5分・送信はしません。">
+<link rel="stylesheet" href="../poolo-ds/tokens.css">
+<link rel="stylesheet" href="../poolo-ds/components.css">
+<style>
+/* =========================================================================
+   Booth Worksheet（ブース用 個別ワークシート）— ページ固有レイヤー
+   色・書体・角丸・遷移はすべて poolo-ds のトークン参照。生値は書かない。
+   ========================================================================= */
+
+/* 改行則：DS の対象リストにない、このページ固有のテキスト要素に適用 */
+.ws-q-text, .ws-q-helper, .ws-lead, .ws-note,
+.ws-card-line, .ws-card-a, .ws-axis-name, .ws-done-title {
+  word-break: auto-phrase;
+  text-wrap: pretty;
+}
+
+/* ---- ヘッダー右の小さなメタ ---- */
+.ws-headmeta {
+  font-family: var(--en);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.24em;
+  color: var(--ink-50);
+  white-space: nowrap;
+}
+
+/* ---- 進捗バー（ヘッダー直下に固定） ---- */
+.ws-progress {
+  position: fixed;
+  top: var(--header-h);
+  left: 0;
+  right: 0;
+  z-index: var(--z-header);
+  height: 2px;
+  background: var(--line);
+}
+.ws-progress-fill {
+  height: 100%;
+  width: 0;
+  background: var(--brand);
+  transition: width var(--trans-base);
+}
+
+/* ---- ヒーロー（写真なしのテキスト版） ---- */
+.ws-hero { border-bottom: 1px solid var(--line); }
+.ws-hero-inner {
+  padding-top: clamp(44px, 7vh, 84px);
+  padding-bottom: clamp(38px, 6vh, 72px);
+  max-width: 720px;
+}
+.ws-eyebrow {
+  display: block;
+  font-family: var(--en);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.42em;
+  color: var(--brand-deep);
+  margin-bottom: 18px;
+}
+.ws-title {
+  font-family: var(--mincho);
+  font-weight: 700;
+  font-feature-settings: "palt";
+  font-size: clamp(28px, 7.4vw, 46px);
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  color: var(--ink);
+  margin-bottom: 22px;
+}
+.ws-title .em { color: var(--brand); }
+.ws-lead {
+  font-size: 14px;
+  line-height: 2.0;
+  color: var(--ink-72);
+}
+
+/* ---- ブルー帯（要点） ---- */
+.ws-band { background: var(--brand); color: var(--on-brand); }
+.ws-band-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  column-gap: clamp(18px, 4vw, 40px);
+  row-gap: 6px;
+  padding-top: 20px;
+  padding-bottom: 22px;
+}
+.ws-band-item {
+  font-family: var(--head);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+}
+.ws-band-item b {
+  font-family: var(--en);
+  font-weight: 600;
+  font-size: 22px;
+  letter-spacing: 0.06em;
+  margin-right: 4px;
+}
+.ws-band-item.sub { color: var(--on-brand-75); font-size: 12px; }
+
+/* ---- 本体の版面（フォームは細い1カラム） ---- */
+.ws-main { max-width: 720px; }
+
+/* ---- ニックネーム ---- */
+.ws-name {
+  padding-top: clamp(30px, 5vh, 48px);
+  padding-bottom: clamp(26px, 4vh, 40px);
+  border-bottom: 1px solid var(--line);
+}
+.ws-label {
+  display: block;
+  font-family: var(--head);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: var(--ink-60);
+  margin-bottom: 10px;
+}
+
+/* ---- 入力要素 ---- */
+.ws-input, .ws-textarea {
+  width: 100%;
+  background: var(--bg);
+  color: var(--ink-soft);
+  font-family: var(--body);
+  font-size: 16px;           /* iOS の自動ズームを防ぐため 16px 以上 */
+  line-height: 1.9;
+  letter-spacing: 0.04em;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 13px 14px;
+  transition: border-color var(--trans-fast);
+  -webkit-appearance: none;
+}
+.ws-textarea { min-height: 116px; resize: vertical; }
+.ws-input:focus, .ws-textarea:focus {
+  outline: none;
+  border-color: var(--brand);
+}
+.ws-input::placeholder, .ws-textarea::placeholder { color: var(--ink-40); }
+
+/* ---- 問い（1問＝1ブロック） ---- */
+.ws-q {
+  padding-top: clamp(38px, 6vh, 60px);
+  padding-bottom: clamp(38px, 6vh, 60px);
+  border-bottom: 1px solid var(--line);
+}
+.ws-q-head {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  margin-bottom: 16px;
+}
+.ws-q-no {
+  font-family: var(--en);
+  font-weight: 500;
+  font-size: 12px;
+  letter-spacing: 0.3em;
+  color: var(--brand-deep);
+  white-space: nowrap;
+}
+.ws-q-no .kanji { font-family: var(--mincho); font-weight: 700; font-size: 15px; }
+.ws-q-text {
+  font-family: var(--mincho);
+  font-weight: 700;
+  font-feature-settings: "palt";
+  font-size: clamp(19px, 4.8vw, 24px);
+  line-height: 1.72;
+  letter-spacing: 0.03em;
+  color: var(--ink);
+}
+.ws-q-helper {
+  font-size: 13px;
+  line-height: 1.95;
+  color: var(--ink-55);
+  margin-bottom: 16px;
+}
+
+/* ---- ★配分（問二） ---- */
+.ws-alloc { border-top: 1px solid var(--line); }
+.ws-axis {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 13px 0;
+  border-bottom: 1px solid var(--line);
+}
+.ws-axis-name {
+  font-family: var(--head);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.6;
+  letter-spacing: 0.04em;
+  color: var(--ink);
+}
+.ws-axis-name small {
+  display: block;
+  font-family: var(--body);
+  font-size: 11.5px;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  color: var(--ink-50);
+}
+.ws-stars { display: flex; gap: 2px; flex-shrink: 0; }
+.ws-star {
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font-size: 19px;
+  line-height: 1;
+  color: var(--brand-mid);
+  transition: color var(--trans-fast);
+  -webkit-tap-highlight-color: transparent;
+}
+.ws-star.is-on { color: var(--brand); }
+.ws-star:focus-visible { outline: 1px solid var(--brand); outline-offset: -3px; }
+
+.ws-total {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 16px;
+  padding: 11px 14px;
+  background: var(--bg-off);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+.ws-total-label {
+  font-family: var(--head);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  color: var(--ink-60);
+}
+.ws-total-num { font-family: var(--en); font-weight: 600; font-size: 17px; color: var(--ink); }
+.ws-total.is-done { background: var(--brand-pale); border-color: var(--line-pale); }
+.ws-total.is-done .ws-total-label,
+.ws-total.is-done .ws-total-num { color: var(--brand-deep); }
+
+/* ---- 送信ボタン ---- */
+.ws-submit-wrap {
+  padding-top: clamp(34px, 5vh, 52px);
+  padding-bottom: clamp(52px, 8vh, 88px);
+}
+.ws-btn {
+  display: block;
+  width: 100%;
+  background: var(--brand);
+  color: var(--on-brand);
+  font-family: var(--head);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  text-indent: 0.3em;
+  text-align: center;
+  padding: 20px;
+  border: 1px solid var(--brand);
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: background var(--trans-base), color var(--trans-base);
+}
+.ws-btn:hover { background: var(--brand-deep); border-color: var(--brand-deep); }
+.ws-btn--ghost {
+  background: var(--bg);
+  color: var(--brand-deep);
+  border-color: var(--line);
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  padding: 15px 20px;
+  font-size: 13px;
+}
+.ws-btn--ghost:hover { background: var(--bg-off); border-color: var(--brand); color: var(--brand-deep); }
+.ws-note {
+  font-size: 12px;
+  line-height: 1.9;
+  color: var(--ink-50);
+  text-align: center;
+  margin-top: 14px;
+}
+
+/* ---- 完成カード ---- */
+.ws-done { display: none; }
+.ws-done.is-visible { display: block; }
+.ws-form.is-hidden { display: none; }
+
+.ws-done-head {
+  padding-top: clamp(40px, 6vh, 68px);
+  padding-bottom: clamp(26px, 4vh, 40px);
+}
+.ws-done-title {
+  font-family: var(--mincho);
+  font-weight: 700;
+  font-feature-settings: "palt";
+  font-size: clamp(22px, 5.6vw, 32px);
+  line-height: 1.6;
+  letter-spacing: 0.04em;
+  color: var(--ink);
+}
+.ws-done-title .em { color: var(--brand); }
+
+.ws-card {
+  border: 1px solid var(--ink);
+  border-radius: var(--radius);
+  background: var(--bg);
+  overflow: hidden;
+}
+.ws-card-top {
+  background: var(--brand);
+  color: var(--on-brand);
+  padding: 15px 20px 17px;
+}
+.ws-card-who {
+  display: block;
+  font-family: var(--head);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.5;
+  letter-spacing: 0.06em;
+  overflow-wrap: anywhere;   /* 長いニックネームでも溢れさせない */
+}
+.ws-card-en {
+  display: block;
+  font-family: var(--en);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.3em;
+  color: var(--on-brand-75);
+  margin-bottom: 4px;
+}
+
+.ws-card-sec { padding: 22px 20px; border-top: 1px solid var(--line); }
+.ws-card-sec:first-of-type { border-top: none; }
+.ws-card-k {
+  font-family: var(--head);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: var(--brand-deep);
+  margin-bottom: 12px;
+}
+.ws-card-line {
+  font-family: var(--mincho);
+  font-weight: 700;
+  font-size: clamp(17px, 4.4vw, 21px);
+  line-height: 1.7;
+  letter-spacing: 0.03em;
+  color: var(--ink);
+  margin-bottom: 16px;
+}
+.ws-card-q {
+  font-family: var(--head);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  color: var(--ink-55);
+  margin-bottom: 5px;
+}
+.ws-card-a {
+  font-size: 14px;
+  line-height: 1.95;
+  color: var(--ink-soft);
+  white-space: pre-wrap;
+}
+.ws-card-a.is-empty { color: var(--ink-40); }
+.ws-card-a + .ws-card-q { margin-top: 18px; }
+
+/* 旅の重心バー */
+.ws-bar-row {
+  display: grid;
+  grid-template-columns: 74px 1fr 24px;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 0;
+}
+.ws-bar-name {
+  font-family: var(--head);
+  font-size: 12.5px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--ink-72);
+}
+/* span を grid 直下に置くだけでは中の fill が inline のままで高さを持たないため、
+   track / fill とも block を明示する */
+.ws-bar-track { display: block; height: 8px; background: var(--brand-pale); }
+.ws-bar-fill { display: block; height: 100%; background: var(--brand); }
+.ws-bar-val {
+  font-family: var(--en);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--ink-55);
+  text-align: right;
+}
+
+.ws-handoff {
+  margin-top: 26px;
+  padding: 20px;
+  background: var(--brand-pale);
+  border: 1px solid var(--line-pale);
+  border-radius: var(--radius);
+}
+.ws-handoff-title {
+  font-family: var(--mincho);
+  font-weight: 700;
+  font-size: 17px;
+  line-height: 1.7;
+  letter-spacing: 0.03em;
+  color: var(--brand-deep);
+  margin-bottom: 8px;
+}
+.ws-handoff-text { font-size: 13px; line-height: 1.95; color: var(--ink-72); }
+
+.ws-done-foot { padding-top: 24px; padding-bottom: clamp(52px, 8vh, 88px); }
+
+@media (max-width: 560px) {
+  .ws-axis { flex-wrap: wrap; }
+  .ws-star { width: 30px; height: 30px; font-size: 18px; }
+  .ws-bar-row { grid-template-columns: 66px 1fr 22px; }
+}
+
+@media print {
+  .brand-row, .ws-progress, .ws-hero, .ws-band, .ws-done-foot, .footer { display: none; }
+  body { padding-top: 0; }
+}
+</style>
+</head>
+<body>
+
+<!-- ============ 固定ヘッダー ============ -->
+<header class="brand-row">
+  <div class="shell">
+    <a class="brand-logo" href="https://poolo.jp/" target="_blank" rel="noopener">
+      <img src="../event-30s-v01-260720/images/poolo_logo.png" alt="POOLO あたらしい旅の学校">
+    </a>
+    <span class="ws-headmeta">5 QUESTIONS</span>
+  </div>
+</header>
+<div class="ws-progress" aria-hidden="true"><div class="ws-progress-fill" id="progressFill"></div></div>
+
+<!-- ============ ヒーロー ============ -->
+<section class="ws-hero">
+  <div class="shell ws-hero-inner">
+    <span class="ws-eyebrow">Travel Worksheet</span>
+    <h1 class="ws-title">旅の重心を、<br class="nb"><span class="em">5分</span>で言葉にする。</h1>
+    <p class="ws-lead">
+      行きたい場所は、なんとなくある。<span class="quoted">でも、なぜそこなんだろう。</span><br>
+      POOLO がいつも体験会でやっているワークを、ブース用に5問だけ持ってきました。うまく書こうとしなくて大丈夫です。書けたところから、スタッフと話しましょう。
+    </p>
+  </div>
+</section>
+
+<div class="ws-band">
+  <div class="shell ws-band-inner">
+    <span class="ws-band-item"><b>5</b>つの問い</span>
+    <span class="ws-band-item"><b>5</b>分ほど</span>
+    <span class="ws-band-item sub">書いた内容は送信されません</span>
+  </div>
+</div>
+
+<!-- ============ フォーム ============ -->
+<div class="ws-form" id="wsForm">
+  <div class="shell ws-main">
+
+    <div class="ws-name">
+      <label class="ws-label" for="nick">ニックネーム（任意）</label>
+      <input class="ws-input" type="text" id="nick" placeholder="みっちー＠新潟" autocomplete="off">
+    </div>
+
+    <!-- 問一 -->
+    <section class="ws-q">
+      <div class="ws-q-head">
+        <span class="ws-q-no">Q. <span class="kanji">一</span></span>
+        <h2 class="ws-q-text">いま、いちばん行きたい場所はどこですか？</h2>
+      </div>
+      <p class="ws-q-helper">国でも、街でも、あの宿でも。「なぜそこなのか」まで書けたら、もう半分は言葉になっています。</p>
+      <textarea class="ws-textarea" id="q1" data-count placeholder="例）ポルトガル。人が海を見ている時間の長さに惹かれる。"></textarea>
+    </section>
+
+    <!-- 問二 -->
+    <section class="ws-q">
+      <div class="ws-q-head">
+        <span class="ws-q-no">Q. <span class="kanji">二</span></span>
+        <h2 class="ws-q-text">あなたが旅に求めているものは、どれですか？</h2>
+      </div>
+      <p class="ws-q-helper">★を合計10コになるように、6つに配ってください。全部に配らなくても構いません。偏っているほど、あなたらしさが出ます。</p>
+      <div class="ws-alloc" id="alloc"></div>
+      <div class="ws-total" id="total">
+        <span class="ws-total-label">配った★の合計</span>
+        <span><span class="ws-total-num" id="totalNum">0</span><span class="ws-total-label"> / 10</span></span>
+      </div>
+    </section>
+
+    <!-- 問三 -->
+    <section class="ws-q">
+      <div class="ws-q-head">
+        <span class="ws-q-no">Q. <span class="kanji">三</span></span>
+        <h2 class="ws-q-text">自分を揺さぶった旅・体験は、何ですか？</h2>
+      </div>
+      <p class="ws-q-helper">大きな旅でなくて構いません。何かが動いた瞬間を、ひとつだけ。</p>
+      <textarea class="ws-textarea" id="q3" data-count placeholder="例）ベトナムの一人旅。知らない人と当たり前に喋れた三日目のこと。"></textarea>
+    </section>
+
+    <!-- 問四 -->
+    <section class="ws-q">
+      <div class="ws-q-head">
+        <span class="ws-q-no">Q. <span class="kanji">四</span></span>
+        <h2 class="ws-q-text">理想の旅と、いまの仕事。<br class="nb">もやもやしていることは？</h2>
+      </div>
+      <p class="ws-q-helper">きれいにまとめなくて大丈夫です。ぶっちゃけで。ここがいちばん、話が深くなるところです。</p>
+      <textarea class="ws-textarea" id="q4" data-count placeholder="例）行きたい時に行けない。休みは取れるけど、戻ってきた後のことを考えると動けない。"></textarea>
+    </section>
+
+    <!-- 問五 -->
+    <section class="ws-q">
+      <div class="ws-q-head">
+        <span class="ws-q-no">Q. <span class="kanji">五</span></span>
+        <h2 class="ws-q-text">1ヶ月、自由な時間があったら？</h2>
+      </div>
+      <p class="ws-q-helper">現実的かどうかは、いったん脇に置いてみてください。</p>
+      <textarea class="ws-textarea" id="q5" data-count placeholder="例）ひとつの町に住んでみる。language school に通ってみる。"></textarea>
+    </section>
+
+    <div class="ws-submit-wrap">
+      <button class="ws-btn" type="button" id="makeCard">カードをつくる</button>
+      <p class="ws-note">書いた内容はこの端末の中だけに残ります。どこにも送信されません。</p>
+    </div>
+
+  </div>
+</div>
+
+<!-- ============ 完成カード ============ -->
+<div class="ws-done" id="wsDone">
+  <div class="shell ws-main">
+
+    <div class="ws-done-head">
+      <h2 class="ws-done-title">できました。<br class="nb">ここから<span class="em">話しましょう</span>。</h2>
+    </div>
+
+    <div class="ws-card">
+      <div class="ws-card-top">
+        <span class="ws-card-en">POOLO / Travel Worksheet</span>
+        <span class="ws-card-who" id="cardWho">ゲスト</span>
+      </div>
+
+      <div class="ws-card-sec">
+        <p class="ws-card-k">あなたの旅の重心</p>
+        <p class="ws-card-line" id="cardCenter">—</p>
+        <div id="cardBars"></div>
+      </div>
+
+      <div class="ws-card-sec">
+        <p class="ws-card-k">言葉になったこと</p>
+        <p class="ws-card-q">いちばん行きたい場所</p>
+        <p class="ws-card-a" id="cardQ1"></p>
+        <p class="ws-card-q">自分を揺さぶった旅・体験</p>
+        <p class="ws-card-a" id="cardQ3"></p>
+        <p class="ws-card-q">いま、もやもやしていること</p>
+        <p class="ws-card-a" id="cardQ4"></p>
+        <p class="ws-card-q">1ヶ月あったら、やってみたいこと</p>
+        <p class="ws-card-a" id="cardQ5"></p>
+      </div>
+    </div>
+
+    <div class="ws-handoff">
+      <p class="ws-handoff-title">この画面を、ブースのスタッフに見せてください。</p>
+      <p class="ws-handoff-text">重心の偏りと、もやもやのところ。この2つを手がかりに、5分ほど一緒に考えます。持ち帰りたい方は、スクリーンショットをどうぞ。</p>
+    </div>
+
+    <div class="ws-done-foot">
+      <button class="ws-btn ws-btn--ghost" type="button" id="backToForm">書き直す</button>
+    </div>
+
+  </div>
+</div>
+
+<!-- ============ フッター ============ -->
+<footer class="footer">
+  <div class="shell footer-inner">
+    <div class="footer-top">
+      <span class="mon" aria-hidden="true">
+        <svg viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-linecap="round">
+          <circle cx="60" cy="60" r="57" stroke-width="1.5"/>
+          <circle cx="60" cy="60" r="51.5" stroke-width="0.75"/>
+          <circle cx="60" cy="42.5" r="9.5" stroke-width="1.5"/>
+          <line x1="30" y1="60.5" x2="46.5" y2="60.5" stroke-width="1.1"/>
+          <line x1="73.5" y1="60.5" x2="90" y2="60.5" stroke-width="1.1"/>
+          <path d="M35 78 Q60 66 85 78" stroke-width="1.5"/>
+          <path d="M44 88 Q60 81 76 88" stroke-width="0.9"/>
+        </svg>
+      </span>
+      <div class="footer-marks">
+        <a href="https://poolo.jp/" target="_blank" rel="noopener"><img src="../event-30s-v01-260720/images/poolo_logo03.png" alt="POOLO あたらしい旅の学校"></a>
+        <span class="footer-divider" aria-hidden="true"></span>
+        <a href="https://tabippo.net/" target="_blank" rel="noopener"><img src="../event-30s-v01-260720/images/tabippo_logo.png" alt="TABIPPO"></a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-text">旅と人生をつなぐ、大人の学び／株式会社TABIPPO</p>
+      <p class="footer-copy">© POOLO. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  'use strict';
+
+  /* 旅に求めること（体験会シート原本の6軸をそのまま使う） */
+  var AXES = [
+    { key: 'A', name: '差異',   desc: '未知の濃さに触れたい' },
+    { key: 'B', name: '余白',   desc: '切り替え・内省の時間がほしい' },
+    { key: 'C', name: '出会い', desc: '人との出会いがほしい' },
+    { key: 'D', name: '創作',   desc: '何かを創りたい' },
+    { key: 'E', name: '自然',   desc: '自然とふれあいたい' },
+    { key: 'F', name: '身体',   desc: '健康を取り戻したい' }
+  ];
+  var STORE = 'poolo-booth-ws-260808';
+  var TEXT_IDS = ['q1', 'q3', 'q4', 'q5'];
+  var stars = {};
+  AXES.forEach(function (a) { stars[a.key] = 0; });
+
+  /* ---- ★配分UIの生成 ---- */
+  var alloc = document.getElementById('alloc');
+  AXES.forEach(function (a) {
+    var row = document.createElement('div');
+    row.className = 'ws-axis';
+
+    var name = document.createElement('span');
+    name.className = 'ws-axis-name';
+    name.innerHTML = a.name + '<small>' + a.desc + '</small>';
+
+    var box = document.createElement('div');
+    box.className = 'ws-stars';
+    box.setAttribute('role', 'group');
+    box.setAttribute('aria-label', a.name + '（' + a.desc + '）に配る★の数');
+
+    for (var i = 1; i <= 5; i++) {
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'ws-star';
+      b.dataset.axis = a.key;
+      b.dataset.n = i;
+      b.textContent = '★';
+      b.setAttribute('aria-label', a.name + ' ' + i);
+      box.appendChild(b);
+    }
+    row.appendChild(name);
+    row.appendChild(box);
+    alloc.appendChild(row);
+  });
+
+  alloc.addEventListener('click', function (e) {
+    var btn = e.target.closest('.ws-star');
+    if (!btn) return;
+    var axis = btn.dataset.axis;
+    var n = parseInt(btn.dataset.n, 10);
+    /* 同じ★をもう一度押したら 0 に戻す */
+    stars[axis] = (stars[axis] === n) ? 0 : n;
+    render();
+    save();
+  });
+
+  /* ---- 表示の更新 ---- */
+  var totalBox = document.getElementById('total');
+  var totalNum = document.getElementById('totalNum');
+  var progressFill = document.getElementById('progressFill');
+
+  function starTotal() {
+    return AXES.reduce(function (s, a) { return s + stars[a.key]; }, 0);
+  }
+
+  function render() {
+    Array.prototype.forEach.call(alloc.querySelectorAll('.ws-star'), function (b) {
+      var on = parseInt(b.dataset.n, 10) <= stars[b.dataset.axis];
+      b.classList.toggle('is-on', on);
+      b.textContent = on ? '★' : '☆';
+    });
+    var t = starTotal();
+    totalNum.textContent = t;
+    totalBox.classList.toggle('is-done', t === 10);
+
+    /* 進捗＝5問のうち手がついた数 */
+    var done = TEXT_IDS.filter(function (id) {
+      return document.getElementById(id).value.trim() !== '';
+    }).length + (t > 0 ? 1 : 0);
+    progressFill.style.width = (done / 5 * 100) + '%';
+  }
+
+  /* ---- 自動保存（この端末のみ・送信なし） ---- */
+  function save() {
+    try {
+      var data = { nick: document.getElementById('nick').value, stars: stars };
+      TEXT_IDS.forEach(function (id) { data[id] = document.getElementById(id).value; });
+      localStorage.setItem(STORE, JSON.stringify(data));
+    } catch (err) { /* プライベートモード等では保存しないだけ */ }
+  }
+
+  function load() {
+    try {
+      var raw = localStorage.getItem(STORE);
+      if (!raw) return;
+      var data = JSON.parse(raw);
+      document.getElementById('nick').value = data.nick || '';
+      TEXT_IDS.forEach(function (id) { document.getElementById(id).value = data[id] || ''; });
+      if (data.stars) {
+        AXES.forEach(function (a) { stars[a.key] = data.stars[a.key] || 0; });
+      }
+    } catch (err) { /* 壊れていたら初期状態のまま */ }
+  }
+
+  document.getElementById('nick').addEventListener('input', save);
+  TEXT_IDS.forEach(function (id) {
+    document.getElementById(id).addEventListener('input', function () { render(); save(); });
+  });
+
+  /* ---- カード生成 ---- */
+  var form = document.getElementById('wsForm');
+  var done = document.getElementById('wsDone');
+
+  function setAnswer(el, value, placeholder) {
+    var v = (value || '').trim();
+    el.textContent = v || placeholder;
+    el.classList.toggle('is-empty', !v);
+  }
+
+  document.getElementById('makeCard').addEventListener('click', function () {
+    var nick = document.getElementById('nick').value.trim();
+    document.getElementById('cardWho').textContent = nick || 'ゲスト';
+
+    /* 重心の見出し：上位2軸を言葉にする */
+    var ranked = AXES.slice().sort(function (x, y) { return stars[y.key] - stars[x.key]; });
+    var top = ranked.filter(function (a) { return stars[a.key] > 0; });
+    var centerEl = document.getElementById('cardCenter');
+    if (top.length === 0) {
+      centerEl.textContent = 'まだ配っていません。スタッフと一緒に考えてみましょう。';
+    } else if (top.length === 1) {
+      centerEl.textContent = 'あなたの旅は「' + top[0].name + '」に寄っています。';
+    } else {
+      centerEl.textContent = 'あなたの旅は「' + top[0].name + '」と「' + top[1].name + '」に寄っています。';
+    }
+
+    /* バー：最大値を基準にした相対長さ */
+    var max = Math.max.apply(null, AXES.map(function (a) { return stars[a.key]; }));
+    var bars = document.getElementById('cardBars');
+    bars.innerHTML = '';
+    ranked.forEach(function (a) {
+      var v = stars[a.key];
+      var row = document.createElement('div');
+      row.className = 'ws-bar-row';
+      var w = max > 0 ? (v / max * 100) : 0;
+      row.innerHTML =
+        '<span class="ws-bar-name"></span>' +
+        '<span class="ws-bar-track"><span class="ws-bar-fill" style="width:' + w + '%"></span></span>' +
+        '<span class="ws-bar-val"></span>';
+      row.querySelector('.ws-bar-name').textContent = a.name;
+      row.querySelector('.ws-bar-val').textContent = v;
+      bars.appendChild(row);
+    });
+
+    setAnswer(document.getElementById('cardQ1'), document.getElementById('q1').value, '（未記入）');
+    setAnswer(document.getElementById('cardQ3'), document.getElementById('q3').value, '（未記入）');
+    setAnswer(document.getElementById('cardQ4'), document.getElementById('q4').value, '（未記入）');
+    setAnswer(document.getElementById('cardQ5'), document.getElementById('q5').value, '（未記入）');
+
+    form.classList.add('is-hidden');
+    done.classList.add('is-visible');
+    window.scrollTo(0, 0);
+  });
+
+  document.getElementById('backToForm').addEventListener('click', function () {
+    done.classList.remove('is-visible');
+    form.classList.remove('is-hidden');
+    window.scrollTo(0, 0);
+  });
+
+  load();
+  render();
+})();
+</script>
+
+</body>
+</html>
