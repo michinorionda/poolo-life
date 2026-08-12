@@ -19,12 +19,6 @@
 <link rel="stylesheet" href="../poolo-ds/components.css">
 <style>
   /* このページ固有の軽い追加（poolo-ds 未収録・すべて var(--) 参照） */
-  .pillar-list { list-style:none; padding:0; margin:8px 0 0; display:grid; gap:0; }
-  .pillar-item { display:grid; grid-template-columns:auto 1fr; gap:16px; padding:18px 0; border-top:1px solid var(--line); }
-  .pillar-item:first-child { border-top:none; }
-  .pillar-no { font-family:var(--en); font-size:22px; color:var(--brand); font-weight:600; line-height:1.1; }
-  .pillar-ttl { font-family:var(--head); font-weight:700; font-size:15.5px; margin:0 0 4px; letter-spacing:.02em; }
-  .pillar-txt { font-family:var(--body); font-size:13.5px; color:var(--ink-72); margin:0; line-height:1.85; }
   /* 生まれるゼミの例 */
   .ex-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:22px; }
   .ex-card { border:1px solid var(--line); border-radius:3px; padding:20px 18px; display:flex; flex-direction:column; }
@@ -32,10 +26,35 @@
   .ex-ttl { font-family:var(--mincho); font-weight:700; font-size:16px; color:var(--ink); line-height:1.5; margin:0 0 8px; }
   .ex-desc { font-family:var(--body); font-size:12.5px; color:var(--ink-72); line-height:1.85; margin:0 0 14px; flex:1; }
   .ex-meta { font-family:var(--en); font-size:11px; color:var(--ink-50); letter-spacing:.04em; border-top:1px solid var(--line); padding-top:10px; }
+  /* ワーク抜粋（ワークシート集からの引用カード） */
+  .wsx-list { display:grid; gap:16px; margin-top:24px; }
+  .wsx { border:1px solid var(--line); border-radius:4px; padding:22px 20px; }
+  .wsx-top { display:grid; grid-template-columns:44px 1fr; gap:14px; align-items:start; border-bottom:1px solid var(--line); padding-bottom:14px; margin-bottom:14px; }
+  .wsx-num { font-family:var(--en); font-weight:600; font-size:32px; color:var(--brand); line-height:1; }
+  .wsx-phase { font-family:var(--head); font-weight:700; font-size:10.5px; letter-spacing:.1em; color:var(--ink-50); }
+  .wsx-ttl { font-family:var(--mincho); font-weight:700; font-size:18px; color:var(--ink); margin:4px 0 6px; letter-spacing:.02em; }
+  .wsx-goal { font-family:var(--body); font-size:12.5px; color:var(--ink-72); line-height:1.85; margin:0; }
+  .wsx-sheet { border:1px dashed var(--brand-mid); border-radius:3px; background:var(--bg-off); padding:16px 16px 6px; }
+  .wsx-cap { font-family:var(--head); font-weight:700; font-size:11px; letter-spacing:.04em; color:var(--brand-deep); margin:0 0 8px; }
+  .wsx-field { display:grid; grid-template-columns:196px 1fr; gap:14px; padding:9px 0; border-top:1px solid var(--line); }
+  .wsx-field:first-of-type { border-top:none; }
+  .wsx-l { font-family:var(--head); font-weight:700; font-size:11.5px; color:var(--ink-soft); letter-spacing:.02em; line-height:1.7; }
+  .wsx-v { font-family:var(--body); font-size:13px; color:var(--brand-deep); line-height:1.85; margin:0; }
+  .wsx-v.big { font-family:var(--mincho); font-size:15px; font-weight:700; }
+  .wsx-fill { list-style:none; margin:0; padding:0; }
+  .wsx-fill li { font-family:var(--body); font-size:12.5px; color:var(--brand-deep); line-height:1.9; padding-left:16px; position:relative; }
+  .wsx-fill li::before { content:"—"; position:absolute; left:0; color:var(--brand-mid); }
+  @media (max-width:640px) {
+    .wsx-top { grid-template-columns:1fr; gap:6px; }
+    .wsx-num { font-size:26px; }
+    .wsx-field { grid-template-columns:1fr; gap:3px; }
+    .wsx-l { color:var(--brand-deep); }
+  }
   /* 和文の改行則（poolo-ds と同じ方針。page-local クラスなのでここで指定） */
-  .ex-ttl, .ex-desc, .pillar-ttl, .pillar-txt,
+  .ex-ttl, .ex-desc,
   .fig-cap-text, .fig-note, .jr-verb, .jr-sub, .jr-phase, .jr-loop-text,
-  .cv-q, .cv-help { word-break:auto-phrase; text-wrap:pretty; }
+  .cv-q, .cv-help,
+  .wsx-ttl, .wsx-goal, .wsx-l, .wsx-v, .wsx-fill li { word-break:auto-phrase; text-wrap:pretty; }
   @media (max-width:760px) { .ex-grid { grid-template-columns:1fr; } }
 
   /* ============================================================
@@ -579,39 +598,63 @@
     </div>
   </section>
 
-  <!-- ===== 04 集客は仕組みで支える ===== -->
+  <!-- ===== 04 取り組むワークとワーク例 ===== -->
   <section class="sec" style="border-bottom:none;">
     <div class="shell sec-inner" style="padding-top:40px;padding-bottom:40px;">
       <div class="sec-spine">
         <div class="sec-num">04</div>
-        <span class="sec-en">Support</span>
+        <span class="sec-en">Worksheets</span>
       </div>
       <div>
-        <h2 class="sec-title">「集まるだろうか」の不安は、<br class="nb">仕組みで<span class="nb">支えます。</span></h2>
-        <p class="sec-lead">ゼロから知らない人を探すのではなく、旅好きが<span class="nb">既にいる場所に、</span><span class="nb">旅の源泉で語りかける。</span></p>
-        <ul class="pillar-list">
-          <li class="pillar-item">
-            <span class="pillar-no">01</span>
-            <div>
-              <p class="pillar-ttl">一番弟子制度</p>
-              <p class="pillar-txt">同期どうしがペアを組み、互いのゼミの第1号参加者になります。最低1席は確定した状態で、開業できます。</p>
+        <h2 class="sec-title">取り組むワークと、<span class="nb">ワーク例。</span></h2>
+        <p class="sec-lead">毎回、白紙のワークシートが1枚。<span class="nb">埋めたシートが積み上がって、</span><span class="nb">最終回に1枚の企画書になります。</span>ここでは第1回・第2回を抜粋します（<span class="nb">青字＝記入例</span>）。</p>
+
+        <div class="wsx-list">
+          <div class="wsx">
+            <div class="wsx-top">
+              <span class="wsx-num">1</span>
+              <div>
+                <span class="wsx-phase">Dig ／ 問いを掘る</span>
+                <p class="wsx-ttl">ゼミの種シート</p>
+                <p class="wsx-goal">教えられることでなく「つい語ってしまうこと」を掘り当て、問いの原石を1つに絞る。</p>
+              </div>
             </div>
-          </li>
-          <li class="pillar-item">
-            <span class="pillar-no">02</span>
-            <div>
-              <p class="pillar-ttl">POOLO内の告知の棚</p>
-              <p class="pillar-txt">修了生のゼミを告知・開催できる場（告知チャンネル／告知サイト雛形）を用意。旅好きが既に集まる母集団に、直接届きます。</p>
+            <div class="wsx-sheet">
+              <p class="wsx-cap">配布ワークシート（青字＝記入例）</p>
+              <div class="wsx-field">
+                <span class="wsx-l">① 旅で「つい人に話した／心が動いた」瞬間を10個</span>
+                <ul class="wsx-fill">
+                  <li>長距離バスで隣の旅人に、気づけば3時間も本音を話していた</li>
+                  <li>助言をやめて聴いたら、相手のほうが勝手に動き出した</li>
+                  <li>言葉が通じない旅先で、問いと沈黙だけで通じ合えた</li>
+                  <li>…（あと7つ）</li>
+                </ul>
+              </div>
+              <div class="wsx-field"><span class="wsx-l">② この中で「黙っていられない」原石を1つ ◯</span><p class="wsx-v">◯「問いには、人を動かす力がある」</p></div>
+              <div class="wsx-field"><span class="wsx-l">③ 仮テーマ（1行）</span><p class="wsx-v">旅の対話から学ぶ、"聴く"と"訊く"のコーチング</p></div>
             </div>
-          </li>
-          <li class="pillar-item">
-            <span class="pillar-no">03</span>
-            <div>
-              <p class="pillar-ttl">試作を、卒業生に開く</p>
-              <p class="pillar-txt">第4回の試作を卒業生にも開放。本開催の前に「また参加したい」という先行客の手応えが得られます。</p>
+          </div>
+
+          <div class="wsx">
+            <div class="wsx-top">
+              <span class="wsx-num">2</span>
+              <div>
+                <span class="wsx-phase">For Whom ／ 誰を、どう変えるか</span>
+                <p class="wsx-ttl">コンセプト＋変化シート</p>
+                <p class="wsx-goal">来てほしい具体的な人を思い浮かべ、その人のBefore→Afterを言葉にする。</p>
+              </div>
             </div>
-          </li>
-        </ul>
+            <div class="wsx-sheet">
+              <p class="wsx-cap">配布ワークシート（青字＝記入例）</p>
+              <div class="wsx-field"><span class="wsx-l">来てほしい「具体的な一人」（名前・状況）</span><p class="wsx-v">後輩の田中さん。部下との1on1で「つい助言してしまう」と悩んでいる</p></div>
+              <div class="wsx-field"><span class="wsx-l">Before（来る前）</span><p class="wsx-v">相手が話しても結局アドバイスしてしまい、沈黙が怖くて埋めてしまう</p></div>
+              <div class="wsx-field"><span class="wsx-l">After（帰るとき）</span><p class="wsx-v">相手が自分で答えにたどり着く問いを立て、沈黙を待てるようになる</p></div>
+              <div class="wsx-field"><span class="wsx-l">コンセプト（1行タイトル）</span><p class="wsx-v big">ひらく問い ── 旅の対話から学ぶ、"聴く"と"訊く"のコーチング</p></div>
+            </div>
+          </div>
+        </div>
+
+        <p class="fig-note">＊記入例は、修了生がつくる想定のイメージ例です。ワークシートは全7回ぶん、毎回1枚ずつお渡しします。</p>
       </div>
     </div>
   </section>
