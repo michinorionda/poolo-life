@@ -1210,10 +1210,12 @@ img { display: block; max-width: 100%; }
 }
 .fit-col--no .fit-head .en { color: var(--ink-40); }
 .fit-items { list-style: none; display: grid; gap: 12px; }
+/* ※ li は display:grid にしない。grid にすると li 内の <span class="nb"> 等の
+   インライン要素が「独立したグリッドアイテム」に昇格し、1.5em のダッシュ列に
+   落ちて本文と重なる。ぶら下げインデントは padding-left ＋ 絶対配置で作る。 */
 .fit-items li {
-  display: grid;
-  grid-template-columns: 1.5em minmax(0, 1fr);
-  align-items: baseline;
+  position: relative;
+  padding-left: 1.5em;
   font-size: 13px;
   line-height: 1.95;
   letter-spacing: 0.06em;
@@ -1221,6 +1223,9 @@ img { display: block; max-width: 100%; }
 }
 .fit-items li::before {
   content: '―';
+  position: absolute;
+  left: 0;
+  top: 0;
   font-family: var(--en);
   color: var(--brand);
 }

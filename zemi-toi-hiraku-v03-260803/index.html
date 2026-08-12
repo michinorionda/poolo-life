@@ -19,11 +19,6 @@
 <link rel="stylesheet" href="../poolo-ds/components.css">
 <style>
   /* このページ固有の軽い追加（poolo-ds 未収録・すべて var(--) 参照） */
-  .price-table { width:100%; border-collapse:collapse; margin-top:22px; font-family:var(--body); }
-  .price-table th, .price-table td { text-align:left; padding:13px 12px; border-bottom:1px solid var(--line); font-size:14px; letter-spacing:.03em; }
-  .price-table thead th { font-family:var(--head); font-size:12px; letter-spacing:.14em; color:var(--ink-50); border-bottom:1px solid var(--brand); }
-  .price-table td .accent { font-family:var(--head); color:var(--brand-deep); font-weight:700; }
-  .price-note { font-size:12.5px; color:var(--ink-50); margin-top:12px; letter-spacing:.04em; }
   .pillar-list { list-style:none; padding:0; margin:8px 0 0; display:grid; gap:0; }
   .pillar-item { display:grid; grid-template-columns:auto 1fr; gap:16px; padding:18px 0; border-top:1px solid var(--line); }
   .pillar-item:first-child { border-top:none; }
@@ -38,8 +33,104 @@
   .ex-desc { font-family:var(--body); font-size:12.5px; color:var(--ink-72); line-height:1.85; margin:0 0 14px; flex:1; }
   .ex-meta { font-family:var(--en); font-size:11px; color:var(--ink-50); letter-spacing:.04em; border-top:1px solid var(--line); padding-top:10px; }
   /* 和文の改行則（poolo-ds と同じ方針。page-local クラスなのでここで指定） */
-  .ex-ttl, .ex-desc, .pillar-ttl, .pillar-txt, .price-note { word-break:auto-phrase; text-wrap:pretty; }
+  .ex-ttl, .ex-desc, .pillar-ttl, .pillar-txt,
+  .fig-cap-text, .fig-note, .jr-verb, .jr-sub, .jr-phase, .jr-loop-text,
+  .cv-q, .cv-help { word-break:auto-phrase; text-wrap:pretty; }
   @media (max-width:760px) { .ex-grid { grid-template-columns:1fr; } }
+
+  /* ============================================================
+     図版（fig）本文の合間に挟む線画ダイアグラム
+     色は --brand 系のみ／面はフラット／罫は 1px。影・グラデは使わない。
+     ============================================================ */
+  .fig { margin:clamp(30px,4.6vh,48px) 0 clamp(28px,3.6vh,42px); }
+  .fig-cap { display:flex; flex-wrap:wrap; align-items:center; gap:11px; margin:0 0 clamp(20px,3vh,28px); }
+  .fig-cap-en { font-family:var(--en); font-size:11px; font-weight:500; letter-spacing:.2em; color:var(--brand); flex:none; }
+  .fig-cap-rule { display:block; width:24px; height:1px; background:var(--brand); flex:none; }
+  .fig-cap-text { font-family:var(--head); font-weight:700; font-size:12.5px; letter-spacing:.06em; color:var(--ink-72); min-width:0; }
+  .fig-note { font-family:var(--body); font-size:12px; line-height:1.85; letter-spacing:.04em; color:var(--ink-50); margin:16px 0 0; }
+
+  /* ===== Fig.01 全7回の導線（journey rail） ===== */
+  .jr { --jr-verb-h:34px; --jr-dot:26px; }
+  .jr-track { display:grid; grid-template-columns:repeat(7,1fr); position:relative; }
+  .jr-track::before {
+    content:""; position:absolute; left:0; right:0;
+    top:calc(var(--jr-verb-h) + var(--jr-dot) / 2);
+    height:1px; background:var(--line);
+  }
+  .jr-step { display:grid; grid-template-rows:var(--jr-verb-h) var(--jr-dot) auto auto; justify-items:center; position:relative; padding:0 3px; min-width:0; }
+  .jr-verb { font-family:var(--mincho); font-weight:700; font-size:clamp(12.5px,1.15vw,15px); line-height:1.35; color:var(--ink); text-align:center; align-self:end; padding-bottom:8px; font-feature-settings:"palt"; }
+  .jr-dot {
+    width:var(--jr-dot); height:var(--jr-dot); border-radius:50%;
+    border:1px solid var(--brand); background:var(--bg); color:var(--brand);
+    font-family:var(--en); font-size:12px; font-weight:500; letter-spacing:.02em;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .jr-step.is-peak .jr-dot { background:var(--brand); border-color:var(--brand); color:var(--on-brand); }
+  .jr-sub { font-family:var(--body); font-size:10.5px; line-height:1.6; letter-spacing:.02em; color:var(--ink-50); text-align:center; padding-top:9px; }
+  .jr-tag { font-family:var(--head); font-size:9.5px; font-weight:700; letter-spacing:.08em; color:var(--brand-deep); background:var(--brand-pale); padding:2px 6px; border-radius:var(--radius); margin-top:7px; white-space:nowrap; }
+  .jr-phases { display:grid; grid-template-columns:repeat(7,1fr); gap:3px; margin-top:clamp(20px,3vh,28px); }
+  .jr-phase {
+    background:var(--brand-pale); color:var(--brand-deep);
+    font-family:var(--head); font-weight:700; font-size:11px; letter-spacing:.08em;
+    text-align:center; padding:7px 4px; border-radius:var(--radius);
+  }
+  .jr-phase--a { grid-column:1 / 3; }
+  .jr-phase--b { grid-column:3 / 6; }
+  .jr-phase--c { grid-column:6 / 8; }
+  .jr-loop { position:relative; height:40px; margin:16px 6% 0; border:1px dashed var(--brand-mid); border-top:none; border-radius:0 0 46px 46px; }
+  .jr-loop-head { position:absolute; left:-5px; top:-7px; width:10px; height:8px; color:var(--brand-mid); }
+  .jr-loop-text {
+    position:absolute; left:50%; bottom:-10px; transform:translateX(-50%);
+    background:var(--bg); padding:0 12px; white-space:nowrap;
+    font-family:var(--head); font-weight:700; font-size:11.5px; letter-spacing:.06em; color:var(--brand-deep);
+  }
+  @media (max-width:860px) {
+    /* 縦組みに切り替え：左に縦罫、右に回の内容 */
+    .jr-track { grid-template-columns:1fr; row-gap:0; }
+    .jr-track::before { left:calc(var(--jr-dot) / 2); right:auto; top:12px; bottom:12px; width:1px; height:auto; }
+    .jr-step { grid-template-rows:auto; grid-template-columns:var(--jr-dot) 1fr; justify-items:start; align-items:center; column-gap:16px; padding:11px 0; }
+    .jr-verb { font-size:15px; align-self:center; padding-bottom:0; grid-column:2; grid-row:1; text-align:left; }
+    .jr-dot { grid-column:1; grid-row:1 / span 2; align-self:start; }
+    .jr-sub { grid-column:2; grid-row:2; padding-top:3px; text-align:left; font-size:11.5px; }
+    .jr-tag { grid-column:2; grid-row:3; margin-top:6px; }
+    .jr-phases { grid-template-columns:1fr; gap:5px; }
+    .jr-phase { grid-column:auto !important; text-align:left; padding:9px 12px; }
+    .jr-phase::before { content:attr(data-range) "　"; font-family:var(--en); font-weight:500; letter-spacing:.14em; color:var(--brand); }
+    .jr-loop { margin-inline:0; }
+    .jr-loop-text { white-space:normal; text-align:center; max-width:88%; }
+  }
+
+  /* ===== Fig.02 企画キャンバス（7つの問い） ===== */
+  .cv { position:relative; padding:15px; }
+  .cv-marks { position:absolute; inset:0; pointer-events:none; }
+  .cv::before, .cv::after, .cv-marks::before, .cv-marks::after {
+    content:""; position:absolute; width:13px; height:13px; border:0 solid var(--brand);
+  }
+  .cv::before       { top:0; left:0;      border-top-width:1px;    border-left-width:1px; }
+  .cv::after        { bottom:0; right:0;  border-bottom-width:1px; border-right-width:1px; }
+  .cv-marks::before { top:0; right:0;     border-top-width:1px;    border-right-width:1px; }
+  .cv-marks::after  { bottom:0; left:0;   border-bottom-width:1px; border-left-width:1px; }
+  .cv-grid { display:grid; grid-template-columns:repeat(6,1fr); gap:1px; background:var(--line); border:1px solid var(--line); }
+  .cv-cell { background:var(--bg); padding:16px 15px 18px; display:flex; flex-direction:column; min-height:102px; min-width:0; }
+  .cv-cell--origin { background:var(--brand-pale); }
+  .cv-no { font-family:var(--en); font-size:11px; font-weight:500; letter-spacing:.18em; color:var(--brand); margin-bottom:9px; }
+  .cv-q { font-family:var(--mincho); font-weight:700; font-size:clamp(15px,1.5vw,17.5px); line-height:1.5; color:var(--ink); font-feature-settings:"palt"; }
+  .cv-help { font-family:var(--body); font-size:12px; line-height:1.8; letter-spacing:.03em; color:var(--ink-72); margin:9px 0 0; }
+  .cv-01 { grid-column:span 2; grid-row:span 2; }
+  .cv-02, .cv-03, .cv-05, .cv-06, .cv-07 { grid-column:span 2; }
+  .cv-04 { grid-column:span 4; }
+  @media (max-width:900px) {
+    .cv-grid { grid-template-columns:repeat(2,1fr); }
+    .cv-01 { grid-row:auto; }
+    .cv-01, .cv-02, .cv-03, .cv-04, .cv-05, .cv-06, .cv-07 { grid-column:span 1; }
+    .cv-04 { grid-column:span 2; }
+  }
+  @media (max-width:560px) {
+    .cv { padding:11px; }
+    .cv-grid { grid-template-columns:1fr; }
+    .cv-01, .cv-02, .cv-03, .cv-04, .cv-05, .cv-06, .cv-07 { grid-column:span 1; }
+    .cv-cell { min-height:0; padding:15px 14px 16px; }
+  }
 </style>
 </head>
 <body>
@@ -83,7 +174,6 @@
         <div class="hero-eyebrow">
           <span class="hero-eyebrow-rule" aria-hidden="true"></span>
           <span class="hero-eyebrow-ja">学びの場を創る人になる</span>
-          <span class="hero-eyebrow-en">POOLO ZEMI</span>
         </div>
         <h1 class="hero-title">
           <span class="t-sm">旅で見つけた問いから</span>
@@ -91,19 +181,8 @@
         </h1>
         <p class="hero-lead">あなたのひとつの問いを、誰かが参加したくなる<span class="nb">小さな学びの場にする、</span>3ヶ月・全7回。</p>
         <div class="hero-foot">
-          <span class="mon" aria-hidden="true">
-            <svg viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-linecap="round">
-              <circle cx="60" cy="60" r="57" stroke-width="1.5"/>
-              <circle cx="60" cy="60" r="51.5" stroke-width="0.75"/>
-              <circle cx="60" cy="42.5" r="9.5" stroke-width="1.5"/>
-              <line x1="30" y1="60.5" x2="46.5" y2="60.5" stroke-width="1.1"/>
-              <line x1="73.5" y1="60.5" x2="90" y2="60.5" stroke-width="1.1"/>
-              <path d="M35 78 Q60 66 85 78" stroke-width="1.5"/>
-            </svg>
-          </span>
           <div class="hero-foot-texts">
             <span class="hero-foot-ja">旅から学び、小さな学び場を創る。</span>
-            <span class="hero-foot-en">Create Your Class</span>
           </div>
         </div>
       </div>
@@ -190,9 +269,59 @@
       <div>
         <h2 class="sec-title"><span class="nb">一度きりの企画ではなく、</span><br><span class="nb">連続した学びの場を作る</span></h2>
         <div class="intro-body">
-          <p>このゼミで手にするのは、今回つくる1本のゼミ企画だけではありません。旅の問いから学びの場を創るための<strong>7つの問い（企画キャンバス）</strong>——「なぜ私が／誰のため／一言でいうと／どんな体験／いくらで／どう伝える／いつ創る」——を、繰り返し使える形で持ち帰ります。</p>
-          <p>だから、修了後も2本目・3本目のゼミを自分でひらいていける。旅の学びをアウトプットし、あたらしい人と出会い続けられる状態を、ここでつくります。</p>
+          <p>このゼミで手にするのは、今回つくる1本のゼミ企画だけではありません。旅の問いから学びの場を創るための<strong>7つの問い（企画キャンバス）</strong>を、繰り返し使える形で持ち帰ります。「なぜ私が／誰のため／一言でいうと／どんな体験／いくらで／どう伝える／いつ創る」の7つです。</p>
+          <p>だから、修了後も2本目・3本目のゼミを自分でひらいていける。旅の学びをアウトプットし、あたらしい人と出会い続けられる状態を、でつくります。</p>
         </div>
+
+        <!-- Fig.02 企画キャンバス -->
+        <figure class="fig">
+          <figcaption class="fig-cap">
+            <span class="fig-cap-en">Fig. 02</span>
+            <span class="fig-cap-rule" aria-hidden="true"></span>
+            <span class="fig-cap-text">持ち帰るのは、この1枚。企画キャンバスの7つの問い</span>
+          </figcaption>
+          <div class="cv">
+            <span class="cv-marks" aria-hidden="true"></span>
+            <div class="cv-grid">
+              <div class="cv-cell cv-cell--origin cv-01">
+                <span class="cv-no">01</span>
+                <span class="cv-q">なぜ私が</span>
+                <p class="cv-help">旅のどの経験が、この問いの根っこにあるのか。根本の想いを深堀ります。</p>
+              </div>
+              <div class="cv-cell cv-02">
+                <span class="cv-no">02</span>
+                <span class="cv-q">誰のために</span>
+                <p class="cv-help">来てほしい一人を、具体的に思い浮かべる。</p>
+              </div>
+              <div class="cv-cell cv-03">
+                <span class="cv-no">03</span>
+                <span class="cv-q">一言でいうと</span>
+                <p class="cv-help">参加者が友人に説明できる、ひとつの文に。</p>
+              </div>
+              <div class="cv-cell cv-04">
+                <span class="cv-no">04</span>
+                <span class="cv-q">どんな体験を</span>
+                <p class="cv-help">何回で、何をして、終わったときにその人がどうなっているか。</p>
+              </div>
+              <div class="cv-cell cv-05">
+                <span class="cv-no">05</span>
+                <span class="cv-q">いくらで</span>
+                <p class="cv-help">価値と、続けられる値段のつり合い。</p>
+              </div>
+              <div class="cv-cell cv-06">
+                <span class="cv-no">06</span>
+                <span class="cv-q">どう伝えるか</span>
+                <p class="cv-help">どこで、どんな言葉で届けるか。</p>
+              </div>
+              <div class="cv-cell cv-07">
+                <span class="cv-no">07</span>
+                <span class="cv-q">いつ創るか</span>
+                <p class="cv-help">初回の開催日を、カレンダーに入れる。</p>
+              </div>
+            </div>
+          </div>
+          <p class="fig-note">＊全7回は、この7つの問いを1つずつ埋めていく3ヶ月です。埋め終えたキャンバスは手元に残るので、2本目以降の企画も作れるようになります。</p>
+        </figure>
       </div>
     </div>
   </section>
@@ -218,59 +347,120 @@
       </div>
       <div>
         <h2 class="sec-title">全7回の、<span class="nb">流れ。</span></h2>
-        <p class="sec-lead">問いを掘る → 学びにする → 設計する → 試作する → <span class="nb">集客する → 創る。</span>毎回、あなたの企画に扉がひとつ増えていきます。<span class="nb">第3回と第6回</span>は、外部の実践者を招く講義回です。</p>
+        <p class="sec-lead">問いを掘る → 学びにする → 設計する → 試作する → <span class="nb">集客する → 創る。</span><span class="nb">第3回と第6回</span>は、外部の実践者を招く講義回です。</p>
+
+        <!-- Fig.01 全7回の導線 -->
+        <figure class="fig">
+          <figcaption class="fig-cap">
+            <span class="fig-cap-en">Fig. 01</span>
+            <span class="fig-cap-rule" aria-hidden="true"></span>
+            <span class="fig-cap-text">問いが、ひらける企画になるまで</span>
+          </figcaption>
+          <div class="jr">
+            <div class="jr-track">
+              <div class="jr-step">
+                <span class="jr-verb">掘る</span>
+                <span class="jr-dot">1</span>
+                <span class="jr-sub">旅の棚卸し</span>
+              </div>
+              <div class="jr-step">
+                <span class="jr-verb"><span class="nb">学びに</span>する</span>
+                <span class="jr-dot">2</span>
+                <span class="jr-sub">たった一人へ</span>
+              </div>
+              <div class="jr-step">
+                <span class="jr-verb">設計する</span>
+                <span class="jr-dot">3</span>
+                <span class="jr-sub">場のつくり方</span>
+                <span class="jr-tag">ゲスト</span>
+              </div>
+              <div class="jr-step is-peak">
+                <span class="jr-verb">試作する</span>
+                <span class="jr-dot">4</span>
+                <span class="jr-sub">ミニ開催</span>
+                <span class="jr-tag">山場</span>
+              </div>
+              <div class="jr-step">
+                <span class="jr-verb">磨く</span>
+                <span class="jr-dot">5</span>
+                <span class="jr-sub">1対1</span>
+                <span class="jr-tag">別日程</span>
+              </div>
+              <div class="jr-step">
+                <span class="jr-verb">集める</span>
+                <span class="jr-dot">6</span>
+                <span class="jr-sub">届け方の設計</span>
+                <span class="jr-tag">ゲスト</span>
+              </div>
+              <div class="jr-step">
+                <span class="jr-verb">創る</span>
+                <span class="jr-dot">7</span>
+                <span class="jr-sub">開業式</span>
+              </div>
+            </div>
+            <div class="jr-phases">
+              <div class="jr-phase jr-phase--a" data-range="1–2">問いを見つける</div>
+              <div class="jr-phase jr-phase--b" data-range="3–5">かたちにする</div>
+              <div class="jr-phase jr-phase--c" data-range="6–7">ひらく</div>
+            </div>
+            <div class="jr-loop">
+              <svg class="jr-loop-head" viewBox="0 0 10 8" aria-hidden="true"><path d="M5 0 L10 8 L0 8 Z" fill="currentColor"/></svg>
+              <span class="jr-loop-text">型は手元に残る。2本目、3本目へ。</span>
+            </div>
+          </div>
+        </figure>
+
         <ul class="flow-list">
           <li class="flow-item">
             <span class="flow-time">第 1 回</span>
             <div>
-              <span class="flow-title">問いを掘る ── 旅の棚卸し</span>
-              <p class="flow-desc">「旅で一番人に話した話」から、自分だけの問いを掘り当てる。教えられることではなく、つい語ってしまうことを起点にします。</p>
+              <span class="flow-title">旅の棚卸しから、問いを掘る</span>
+              <p class="flow-desc">「旅の原体験の深堀り」から、自分だけの問いを決めます。自分がついつい語ってしまうことを起点にします。</p>
             </div>
           </li>
           <li class="flow-item">
             <span class="flow-time">第 2 回</span>
             <div>
-              <span class="flow-title">問いを"学び"にする ── たった一人へ</span>
+              <span class="flow-title">たった一人に向けて、問いを"学び"にする</span>
               <p class="flow-desc">来てほしい実在の一人を思い浮かべ、その人のBefore→Afterを描く。独り言が、誰かのための場に変わる回です。</p>
             </div>
           </li>
           <li class="flow-item">
             <span class="flow-time">第 3 回<small>ゲスト講義</small></span>
             <div>
-              <span class="flow-title">学びの場を、設計する ── ゲスト講義</span>
+              <span class="flow-title">学びの場を、設計する</span>
               <p class="flow-desc">場づくり・ワークショップデザインの実践者を招き、自己流でない設計を学びます。単発の雑談ではなく、回を追って深まる構造へ。</p>
             </div>
           </li>
           <li class="flow-item">
             <span class="flow-time">第 4 回</span>
             <div>
-              <span class="flow-title">試作する ── ミニ開催（山場）</span>
+              <span class="flow-title">ミニ開催で、試作する（山場）</span>
               <p class="flow-desc">自分のゼミの1コマを、受講生どうしで実際に開いてみる。「これは3万円の価値があるか」を5つの軸で相互に審査し、机上の企画を開ける企画に変えます。</p>
             </div>
           </li>
           <li class="flow-item">
             <span class="flow-time">第 5 回</span>
             <div>
-              <span class="flow-title">個別メンタリング ── 1対1で磨く</span>
+              <span class="flow-title">1対1で、企画を磨く</span>
               <p class="flow-desc">試作で受けたフィードバックをもとに、あなたの企画を主宰者と1対1で磨きます。つまずきや不安を、個別にほどく時間です（別日程・オンライン）。</p>
             </div>
           </li>
           <li class="flow-item">
             <span class="flow-time">第 6 回<small>集客講義</small></span>
             <div>
-              <span class="flow-title">集客する ── 自分の場に、人を集める</span>
+              <span class="flow-title">自分の場に、人を集める</span>
               <p class="flow-desc">「本当に集まるのか」を根性ではなく技術に。届け方・告知文・値づけ・申込までの動線を、まとめて設計します。告知ページの下書きもここで。</p>
             </div>
           </li>
           <li class="flow-item">
             <span class="flow-time">第 7 回</span>
             <div>
-              <span class="flow-title">創る（開業式）── ひらいて、送り出す</span>
+              <span class="flow-title">ひらいて、送り出す（開業式）</span>
               <p class="flow-desc">卒業ではなく"開業"。企画をお披露目し、同期どうしが互いの第1号参加者に。初回開催日をその場でカレンダーに入れて送り出します。</p>
             </div>
           </li>
         </ul>
-        <p class="date-note">＊修了の証は、第7回では渡しません。<b>あなたが自分のゼミを実際に初開催した日</b>に発行します。「いつかやる」を「やった」まで運ぶための約束です。</p>
       </div>
     </div>
   </section>
@@ -283,43 +473,43 @@
         <span class="sec-en">Schedule</span>
       </div>
       <div>
-        <h2 class="sec-title">火曜の夜、<span class="nb">隔週で10週間。</span></h2>
+        <h2 class="sec-title"><span class="nb">3ヶ月・全7回。</span></h2>
         <p class="sec-lead">すべてオンライン（Zoom）。第5回の個別メンタリングのみ、<span class="nb">別日程で1対1の時間</span>を取ります。</p>
         <ul class="date-list">
           <li class="date-item">
             <span class="date-no">第 1 回</span>
             <span class="date-when">10月13日<span class="dow">（火）</span><span class="time">20:00–22:00</span></span>
-            <span class="date-what">問いを掘る ── 旅の棚卸し</span>
+            <span class="date-what">旅の棚卸しから、問いを掘る</span>
           </li>
           <li class="date-item">
             <span class="date-no">第 2 回</span>
             <span class="date-when">10月27日<span class="dow">（火）</span><span class="time">20:00–22:00</span></span>
-            <span class="date-what">問いを"学び"にする ── たった一人へ</span>
+            <span class="date-what">たった一人に向けて、問いを"学び"にする</span>
           </li>
           <li class="date-item">
             <span class="date-no">第 3 回</span>
             <span class="date-when">11月10日<span class="dow">（火）</span><span class="time">20:00–22:00</span></span>
-            <span class="date-what">学びの場を、設計する ── ゲスト講義</span>
+            <span class="date-what">学びの場を、設計する（ゲスト講義）</span>
           </li>
           <li class="date-item">
             <span class="date-no">第 4 回</span>
             <span class="date-when">11月24日<span class="dow">（火）</span><span class="time">20:00–22:00</span></span>
-            <span class="date-what">試作する ── ミニ開催（山場）</span>
+            <span class="date-what">ミニ開催で、試作する（山場）</span>
           </li>
           <li class="date-item is-special">
             <span class="date-no">第 5 回</span>
             <span class="date-when">別日程<span class="time">11/25–12/6 のうち 30–45分</span></span>
-            <span class="date-what">個別メンタリング ── 1対1で磨く<span class="nb">（日程は個別に調整します）</span></span>
+            <span class="date-what">1対1で、企画を磨く<span class="nb">（日程は個別に調整します）</span></span>
           </li>
           <li class="date-item">
             <span class="date-no">第 6 回</span>
             <span class="date-when">12月8日<span class="dow">（火）</span><span class="time">20:00–22:00</span></span>
-            <span class="date-what">集客する ── 自分の場に、人を集める</span>
+            <span class="date-what">自分の場に、人を集める（集客講義）</span>
           </li>
           <li class="date-item">
             <span class="date-no">第 7 回</span>
             <span class="date-when">12月22日<span class="dow">（火）</span><span class="time">20:00–22:00</span></span>
-            <span class="date-what">創る（開業式）── ひらいて、送り出す</span>
+            <span class="date-what">ひらいて、送り出す（開業式）</span>
           </li>
         </ul>
         <p class="date-note">＊やむを得ず欠席された回は、録画とワークシートを共有します。ただし第4回（試作）は相互に開き合う回のため、できるだけご参加ください。<br>＊日程は変更になる場合があります。変更時は、お申込みいただいた方へ個別にご連絡します。</p>
@@ -426,36 +616,11 @@
     </div>
   </section>
 
-  <!-- ===== 05 価格の考え方 ===== -->
+  <!-- ===== 05 参加対象 ===== -->
   <section class="sec" style="border-bottom:none;">
     <div class="shell sec-inner" style="padding-top:40px;padding-bottom:40px;">
       <div class="sec-spine">
         <div class="sec-num">05</div>
-        <span class="sec-en">Investment</span>
-      </div>
-      <div>
-        <h2 class="sec-title">7万円は、消費ではなく<span class="nb">"開業資金"。</span></h2>
-        <p class="sec-lead">標準的な2万円のゼミを1本開催すれば、<span class="nb">受講料は回収できる設計です。</span></p>
-        <table class="price-table">
-          <thead>
-            <tr><th>あなたのゼミ（例）</th><th>売上</th><th>企画者の取り分</th></tr>
-          </thead>
-          <tbody>
-            <tr><td>1万円 × 10人（最小構成）</td><td>10万円</td><td><span class="accent">4.0万円</span>（約6割）</td></tr>
-            <tr><td>2万円 × 10人（標準）</td><td>20万円</td><td><span class="accent">8.0万円</span>（回収）</td></tr>
-            <tr><td>3万円 × 8人</td><td>24万円</td><td><span class="accent">9.6万円</span>（1.4倍）</td></tr>
-          </tbody>
-        </table>
-        <p class="price-note">＊企画者の取り分は40%で試算（残り60%はPOOLOコミュニティへ）。型は手元に残るので、2本目以降はまるごと積み上がっていきます。</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== 06 参加対象 ===== -->
-  <section class="sec" style="border-bottom:none;">
-    <div class="shell sec-inner" style="padding-top:40px;padding-bottom:40px;">
-      <div class="sec-spine">
-        <div class="sec-num">06</div>
         <span class="sec-en">For Whom</span>
       </div>
       <div>
@@ -494,7 +659,7 @@
         <span class="about-en">About POOLO</span>
         <h2 class="about-title">旅を入り口に、生き方を問い直す<span class="nb">大人の学び場。</span></h2>
         <div class="about-text">
-          <p>あたらしい旅の学校POOLOは、旅を入り口に自分の生き方・働き方を問い直す<strong>大人の学び場</strong>として、7年以上続いてきました。このゼミは、その学びを「受け取る」から「創る」へと一歩進めるための、卒業生のための場です。運営は株式会社TABIPPO。</p>
+          <p>あたらしい旅の学校POOLOは、旅を入り口に自分の生き方・働き方を問い直す<strong>大人の学び場</strong>として、7年以上続いてきました。このゼミは、その学びを「受け取る」から「創る」へと一歩進めるための、卒業生のための場です。運営は株式会社TABIPPO＆CODOLI。</p>
         </div>
       </div>
       <div class="about-figs">
@@ -581,22 +746,14 @@
             <dd class="terms-v">
               お申し込み後、事務局よりご案内します。
               <ul>
-                <li>クレジットカード（一括）</li>
                 <li>銀行振込（振込手数料はご負担ください）</li>
               </ul>
-              お支払い期限は、ご案内から2週間以内（開講日が近い場合は開講日前日まで）です。
+              お支払い期限は、ご案内から1週間以内（開講日が近い場合は開講日前日まで）です。
             </dd>
           </div>
           <div class="terms-row">
-            <dt class="terms-k">キャンセル</dt>
-            <dd class="terms-v">
-              <ul>
-                <li>開講日の14日前まで ── 全額返金</li>
-                <li>開講日の13日前〜前日 ── 半額返金</li>
-                <li>開講日以降 ── 返金不可</li>
-              </ul>
-              いずれも振込手数料を差し引いてのご返金となります。
-            </dd>
+            <dt class="terms-k">キャンセルポリシー</dt>
+            <dd class="terms-v">ご入金後、お客様のご都合による返金はございません。（開講を見送る場合の扱いは、下記「開講条件」をご覧ください）</dd>
           </div>
           <div class="terms-row">
             <dt class="terms-k">開講条件</dt>
@@ -608,7 +765,7 @@
           </div>
           <div class="terms-row">
             <dt class="terms-k">主催・お問い合わせ</dt>
-            <dd class="terms-v">株式会社TABIPPO（あたらしい旅の学校 POOLO）／ご質問はPOOLO公式LINEのトークからお気軽にどうぞ。</dd>
+            <dd class="terms-v">あたらしい旅の学校 POOLO（株式会社TABIPPO＆CODOLI）／ご質問はPOOLO公式LINEのトークからお気軽にどうぞ。</dd>
           </div>
         </dl>
       </div>
@@ -647,7 +804,7 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <p class="footer-text">学びの場を、創る。／ POOLO ゼミ ／ 株式会社TABIPPO</p>
+        <p class="footer-text">学びの場を、創る。／ POOLO ゼミ ／ 株式会社TABIPPO＆CODOLI</p>
         <p class="footer-copy">© POOLO. All rights reserved.</p>
       </div>
     </div>
