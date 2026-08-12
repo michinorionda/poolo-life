@@ -36,19 +36,24 @@
   .wsx-goal { font-family:var(--body); font-size:12.5px; color:var(--ink-72); line-height:1.85; margin:0; }
   .wsx-sheet { border:1px dashed var(--brand-mid); border-radius:3px; background:var(--bg-off); padding:16px 16px 6px; }
   .wsx-cap { font-family:var(--head); font-weight:700; font-size:11px; letter-spacing:.04em; color:var(--brand-deep); margin:0 0 8px; }
-  .wsx-field { display:grid; grid-template-columns:196px 1fr; gap:14px; padding:9px 0; border-top:1px solid var(--line); }
-  .wsx-field:first-of-type { border-top:none; }
+  .wsx-field { display:grid; grid-template-columns:168px 1fr 1fr; gap:14px; padding:9px 0; border-top:1px solid var(--line); }
+  .wsx-cases { display:grid; grid-template-columns:168px 1fr 1fr; gap:14px; padding-bottom:7px; }
+  .wsx-case { font-family:var(--head); font-weight:700; font-size:11px; letter-spacing:.06em; color:var(--brand-deep); background:var(--brand-pale); border-radius:var(--radius); padding:5px 9px; }
+  .wsx-case i { font-style:normal; font-family:var(--en); letter-spacing:.1em; color:var(--brand); margin-right:7px; }
   .wsx-l { font-family:var(--head); font-weight:700; font-size:11.5px; color:var(--ink-soft); letter-spacing:.02em; line-height:1.7; }
-  .wsx-v { font-family:var(--body); font-size:13px; color:var(--brand-deep); line-height:1.85; margin:0; }
-  .wsx-v.big { font-family:var(--mincho); font-size:15px; font-weight:700; }
+  .wsx-v { font-family:var(--body); font-size:12.5px; color:var(--brand-deep); line-height:1.85; margin:0; }
+  .wsx-v.big { font-family:var(--mincho); font-size:14.5px; font-weight:700; }
+  .wsx-v::before, .wsx-fill::before { content:attr(data-case); display:none; font-family:var(--head); font-weight:700; font-size:10.5px; letter-spacing:.08em; color:var(--ink-50); margin-bottom:2px; }
   .wsx-fill { list-style:none; margin:0; padding:0; }
   .wsx-fill li { font-family:var(--body); font-size:12.5px; color:var(--brand-deep); line-height:1.9; padding-left:16px; position:relative; }
   .wsx-fill li::before { content:"—"; position:absolute; left:0; color:var(--brand-mid); }
-  @media (max-width:640px) {
+  @media (max-width:760px) {
     .wsx-top { grid-template-columns:1fr; gap:6px; }
     .wsx-num { font-size:26px; }
-    .wsx-field { grid-template-columns:1fr; gap:3px; }
+    .wsx-field { grid-template-columns:1fr; gap:6px; }
     .wsx-l { color:var(--brand-deep); }
+    .wsx-cases { display:none; }
+    .wsx-v::before, .wsx-fill::before { display:block; }
   }
   /* 和文の改行則（poolo-ds と同じ方針。page-local クラスなのでここで指定） */
   .ex-ttl, .ex-desc,
@@ -607,7 +612,7 @@
       </div>
       <div>
         <h2 class="sec-title">取り組むワークと、<span class="nb">ワーク例。</span></h2>
-        <p class="sec-lead">毎回、白紙のワークシートが1枚。<span class="nb">埋めたシートが積み上がって、</span><span class="nb">最終回に1枚の企画書になります。</span>ここでは第1回・第2回を抜粋します（<span class="nb">青字＝記入例</span>）。</p>
+        <p class="sec-lead">毎回、白紙のワークシートが1枚。<span class="nb">埋めたシートが積み上がって、</span><span class="nb">最終回に1枚の企画書になります。</span>ここでは第1回・第2回を、<span class="nb">タイプの違う2ケースの記入例</span>で抜粋します。</p>
 
         <div class="wsx-list">
           <div class="wsx">
@@ -621,17 +626,36 @@
             </div>
             <div class="wsx-sheet">
               <p class="wsx-cap">配布ワークシート（青字＝記入例）</p>
+              <div class="wsx-cases">
+                <span></span>
+                <span class="wsx-case"><i>CASE 1</i>対話・コーチング／ひらく問い</span>
+                <span class="wsx-case"><i>CASE 2</i>鹿児島・地域探究／島が問う</span>
+              </div>
               <div class="wsx-field">
                 <span class="wsx-l">① 旅で「つい人に話した／心が動いた」瞬間を10個</span>
-                <ul class="wsx-fill">
+                <ul class="wsx-fill" data-case="CASE 1 ひらく問い">
                   <li>長距離バスで隣の旅人に、気づけば3時間も本音を話していた</li>
                   <li>助言をやめて聴いたら、相手のほうが勝手に動き出した</li>
                   <li>言葉が通じない旅先で、問いと沈黙だけで通じ合えた</li>
                   <li>…（あと7つ）</li>
                 </ul>
+                <ul class="wsx-fill" data-case="CASE 2 島が問う">
+                  <li>トカラ列島の小さな島で数日過ごし、"中央から見た日本"が全く違って見えた</li>
+                  <li>薩摩の史跡で「なぜ辺境から維新が起きたのか」に取り憑かれた</li>
+                  <li>焼酎蔵で、一杯の酒に交易と風土が詰まっていると知った</li>
+                  <li>…（あと7つ）</li>
+                </ul>
               </div>
-              <div class="wsx-field"><span class="wsx-l">② この中で「黙っていられない」原石を1つ ◯</span><p class="wsx-v">◯「問いには、人を動かす力がある」</p></div>
-              <div class="wsx-field"><span class="wsx-l">③ 仮テーマ（1行）</span><p class="wsx-v">旅の対話から学ぶ、"聴く"と"訊く"のコーチング</p></div>
+              <div class="wsx-field">
+                <span class="wsx-l">② この中で「黙っていられない」原石を1つ ◯</span>
+                <p class="wsx-v" data-case="CASE 1 ひらく問い">◯「問いには、人を動かす力がある」</p>
+                <p class="wsx-v" data-case="CASE 2 島が問う">◯「辺境は、中央を映す鏡だ」</p>
+              </div>
+              <div class="wsx-field">
+                <span class="wsx-l">③ 仮テーマ（1行）</span>
+                <p class="wsx-v" data-case="CASE 1 ひらく問い">旅の対話から学ぶ、"聴く"と"訊く"のコーチング</p>
+                <p class="wsx-v" data-case="CASE 2 島が問う">鹿児島の"辺境"（薩摩・島・焼酎）から、日本を見る</p>
+              </div>
             </div>
           </div>
 
@@ -646,15 +670,36 @@
             </div>
             <div class="wsx-sheet">
               <p class="wsx-cap">配布ワークシート（青字＝記入例）</p>
-              <div class="wsx-field"><span class="wsx-l">来てほしい「具体的な一人」（名前・状況）</span><p class="wsx-v">後輩の田中さん。部下との1on1で「つい助言してしまう」と悩んでいる</p></div>
-              <div class="wsx-field"><span class="wsx-l">Before（来る前）</span><p class="wsx-v">相手が話しても結局アドバイスしてしまい、沈黙が怖くて埋めてしまう</p></div>
-              <div class="wsx-field"><span class="wsx-l">After（帰るとき）</span><p class="wsx-v">相手が自分で答えにたどり着く問いを立て、沈黙を待てるようになる</p></div>
-              <div class="wsx-field"><span class="wsx-l">コンセプト（1行タイトル）</span><p class="wsx-v big">ひらく問い ── 旅の対話から学ぶ、"聴く"と"訊く"のコーチング</p></div>
+              <div class="wsx-cases">
+                <span></span>
+                <span class="wsx-case"><i>CASE 1</i>対話・コーチング／ひらく問い</span>
+                <span class="wsx-case"><i>CASE 2</i>鹿児島・地域探究／島が問う</span>
+              </div>
+              <div class="wsx-field">
+                <span class="wsx-l">来てほしい「具体的な一人」（名前・状況）</span>
+                <p class="wsx-v" data-case="CASE 1 ひらく問い">後輩の田中さん。部下との1on1で「つい助言してしまう」と悩んでいる</p>
+                <p class="wsx-v" data-case="CASE 2 島が問う">読書会仲間の岡田さん。歴史好きだが、中央目線の"司馬史観"に少し飽きている</p>
+              </div>
+              <div class="wsx-field">
+                <span class="wsx-l">Before（来る前）</span>
+                <p class="wsx-v" data-case="CASE 1 ひらく問い">相手が話しても結局アドバイスしてしまい、沈黙が怖くて埋めてしまう</p>
+                <p class="wsx-v" data-case="CASE 2 島が問う">西郷どんと桜島の、観光地としての鹿児島しか知らない</p>
+              </div>
+              <div class="wsx-field">
+                <span class="wsx-l">After（帰るとき）</span>
+                <p class="wsx-v" data-case="CASE 1 ひらく問い">相手が自分で答えにたどり着く問いを立て、沈黙を待てるようになる</p>
+                <p class="wsx-v" data-case="CASE 2 島が問う">辺境から中央を相対化でき、自分の地元も"辺境の目"で見直せる</p>
+              </div>
+              <div class="wsx-field">
+                <span class="wsx-l">コンセプト（1行タイトル）</span>
+                <p class="wsx-v big" data-case="CASE 1 ひらく問い">ひらく問い ── 旅の対話から学ぶ、"聴く"と"訊く"のコーチング</p>
+                <p class="wsx-v big" data-case="CASE 2 島が問う">島が問う ── 鹿児島の"辺境"から日本を見る</p>
+              </div>
             </div>
           </div>
         </div>
 
-        <p class="fig-note">＊記入例は、修了生がつくる想定のイメージ例です。ワークシートは全7回ぶん、毎回1枚ずつお渡しします。</p>
+        <p class="fig-note">＊記入例は、修了生がつくる想定のイメージ例です（CASE 2「島が問う」は、上の<span class="nb">「生まれるゼミの例」</span>と同じ企画）。ワークシートは全7回ぶん、毎回1枚ずつお渡しします。</p>
       </div>
     </div>
   </section>
