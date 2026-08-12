@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>POOLOゼミ ゲスト講義 依頼書｜第3回 学びの場の設計</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --c-blue: #1B99B7;
+    --c-blue-deep: #157A98;
+    --c-blue-pale: #B8E0EB;
+    --c-blue-mist: #E8F4F7;
+    --c-base: #FAFCFD;
+    --c-base-deep: #F0F6F8;
+    --c-text: #2C3E47;
+    --c-text-soft: #6B8392;
+    --c-line: #D5E2E8;
+    --font-jp: 'Noto Sans JP', sans-serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font-jp);
+    font-weight: 400;
+    color: var(--c-text);
+    background: var(--c-base);
+    line-height: 1.9;
+    letter-spacing: 0.03em;
+    font-feature-settings: "palt";
+  }
+
+  img { display: block; max-width: 100%; height: auto; }
+
+  .container {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  /* Hero */
+  .hero {
+    text-align: center;
+    padding: 80px 0 48px;
+  }
+  .hero__title {
+    font-weight: 500;
+    font-size: 30px;
+    color: var(--c-blue-deep);
+    letter-spacing: 0.1em;
+    line-height: 1.6;
+    margin-bottom: 16px;
+  }
+  .hero__sub {
+    font-size: 14px;
+    color: var(--c-text-soft);
+    letter-spacing: 0.12em;
+  }
+  .hero__visual {
+    max-width: 100%;
+    margin: 40px auto 0;
+  }
+  .hero__visual img {
+    width: 100%;
+    border-radius: 6px;
+  }
+
+  /* Sender */
+  .sender {
+    padding: 56px 0;
+    text-align: center;
+    border-top: 1px solid var(--c-line);
+    border-bottom: 1px solid var(--c-line);
+  }
+  .sender__name {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--c-blue-deep);
+    margin-bottom: 12px;
+    letter-spacing: 0.06em;
+  }
+  .sender__contact {
+    font-size: 13px;
+    color: var(--c-text-soft);
+    line-height: 2;
+  }
+  .sender__contact a {
+    color: var(--c-blue);
+    text-decoration: none;
+    border-bottom: 1px solid var(--c-blue-pale);
+  }
+
+  /* Section */
+  section { padding: 88px 0; border-bottom: 1px solid var(--c-line); }
+  section:last-of-type { border-bottom: none; }
+
+  .section-title {
+    font-weight: 500;
+    font-size: 22px;
+    color: var(--c-blue-deep);
+    letter-spacing: 0.08em;
+    line-height: 1.6;
+    margin-bottom: 36px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--c-blue);
+    display: inline-block;
+  }
+
+  .lead {
+    font-size: 15px;
+    line-height: 2.0;
+    color: var(--c-text);
+    margin-bottom: 32px;
+  }
+
+  .visual-block {
+    margin: 40px 0;
+  }
+  .visual-block img {
+    width: 100%;
+    border-radius: 6px;
+  }
+  .visual-block__caption {
+    font-size: 12px;
+    color: var(--c-text-soft);
+    margin-top: 12px;
+    text-align: center;
+    letter-spacing: 0.08em;
+  }
+
+  /* Addressee (ゲスト宛名) */
+  .addressee {
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--c-blue-deep);
+    letter-spacing: 0.08em;
+    margin-bottom: 32px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid var(--c-blue-pale);
+  }
+
+  /* Variable card (運営記入欄) */
+  .var-card {
+    background: var(--c-blue-mist);
+    border: 1px solid var(--c-blue-pale);
+    border-radius: 6px;
+    padding: 28px 32px;
+    margin: 0 0 32px;
+  }
+  .var-card__title {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--c-blue-deep);
+    margin-bottom: 18px;
+    letter-spacing: 0.08em;
+  }
+  .var-list {
+    list-style: none;
+    font-size: 14px;
+    line-height: 2.2;
+  }
+  .var-list li {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: 16px;
+    border-bottom: 1px dashed var(--c-blue-pale);
+    padding: 6px 0;
+  }
+  .var-list li:last-child { border-bottom: none; }
+  .var-list .label { color: var(--c-text-soft); font-size: 13px; }
+  .var-list .value { color: var(--c-blue-deep); font-weight: 500; }
+  .var { color: var(--c-blue); font-weight: 500; }
+
+  /* Definition list */
+  .def-list { list-style: none; }
+  .def-list > li {
+    padding: 22px 0;
+    border-bottom: 1px solid var(--c-line);
+  }
+  .def-list > li:last-child { border-bottom: none; }
+  .def-list .term {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--c-blue-deep);
+    letter-spacing: 0.06em;
+    margin-bottom: 8px;
+  }
+  .def-list .desc {
+    font-size: 14px;
+    color: var(--c-text);
+    line-height: 1.9;
+  }
+  .def-list .desc ul {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 8px;
+  }
+  .def-list .desc ul li {
+    position: relative;
+    padding-left: 18px;
+    font-size: 13.5px;
+  }
+  .def-list .desc ul li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 14px;
+    width: 8px;
+    height: 1px;
+    background: var(--c-blue);
+  }
+
+  /* Outline table */
+  .outline {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+  }
+  .outline th, .outline td {
+    text-align: left;
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--c-line);
+    letter-spacing: 0.04em;
+  }
+  .outline th {
+    width: 30%;
+    font-weight: 500;
+    color: var(--c-text-soft);
+    background: var(--c-base-deep);
+    font-size: 13px;
+  }
+  .outline td {
+    color: var(--c-blue-deep);
+    font-weight: 500;
+  }
+  .outline tr:last-child th, .outline tr:last-child td { border-bottom: none; }
+
+  /* Phase cards */
+  .phase-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .phase {
+    border: 1px solid var(--c-line);
+    border-left: 3px solid var(--c-blue);
+    border-radius: 4px;
+    padding: 24px 28px;
+    background: var(--c-base);
+  }
+  .phase__num {
+    font-size: 13px;
+    color: var(--c-blue);
+    letter-spacing: 0.1em;
+    font-weight: 500;
+    margin-bottom: 6px;
+  }
+  .phase__title {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--c-blue-deep);
+    letter-spacing: 0.06em;
+    margin-bottom: 10px;
+  }
+  .phase__desc {
+    font-size: 14px;
+    line-height: 1.95;
+    color: var(--c-text);
+  }
+
+  /* Layer steps */
+  .layers {
+    list-style: none;
+    counter-reset: layer;
+    border-left: 1px solid var(--c-blue-pale);
+    padding-left: 32px;
+    margin-left: 8px;
+  }
+  .layers li {
+    counter-increment: layer;
+    position: relative;
+    padding: 14px 0;
+  }
+  .layers li::before {
+    content: counter(layer);
+    position: absolute;
+    left: -45px;
+    top: 16px;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: var(--c-blue);
+    color: #fff;
+    font-size: 13px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .layers .term {
+    font-weight: 500;
+    color: var(--c-blue-deep);
+    margin-right: 12px;
+  }
+
+  /* Stance / 3 items list */
+  .stance {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 14px;
+    margin-bottom: 32px;
+  }
+  .stance li {
+    border-left: 2px solid var(--c-blue);
+    padding: 6px 18px;
+    background: var(--c-base);
+  }
+  .stance .term {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--c-blue-deep);
+    letter-spacing: 0.06em;
+    margin-bottom: 4px;
+  }
+  .stance .desc { font-size: 13.5px; color: var(--c-text-soft); }
+
+  /* Sub heading */
+  .sub-heading {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--c-blue);
+    letter-spacing: 0.1em;
+    margin-bottom: 12px;
+  }
+
+  /* Note (用語補足) */
+  .note {
+    background: var(--c-base-deep);
+    border-left: 3px solid var(--c-blue-pale);
+    padding: 22px 26px;
+    margin: 24px 0;
+    border-radius: 0 4px 4px 0;
+  }
+  .note__head {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--c-blue);
+    letter-spacing: 0.12em;
+    margin-bottom: 12px;
+  }
+  .note dl { font-size: 13.5px; line-height: 1.9; }
+  .note dt {
+    font-weight: 500;
+    color: var(--c-blue-deep);
+    margin-top: 12px;
+    margin-bottom: 4px;
+  }
+  .note dt:first-of-type { margin-top: 0; }
+  .note dd { color: var(--c-text-soft); }
+
+  /* Core concept (関心探究型 × 引力場) */
+  .core-grid {
+    display: grid;
+    grid-template-columns: 1fr 56px 1fr;
+    gap: 12px;
+    align-items: stretch;
+    margin: 28px 0 8px;
+  }
+  .core-card {
+    background: var(--c-base);
+    border: 1px solid var(--c-blue-pale);
+    border-radius: 8px;
+    padding: 32px 24px 28px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .core-card__multiply {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    font-weight: 300;
+    color: var(--c-blue);
+    letter-spacing: 0;
+  }
+  .core-card__symbol {
+    width: 96px;
+    height: 96px;
+    position: relative;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .symbol--explorer {
+    border: 1px solid var(--c-blue-pale);
+    border-radius: 50%;
+  }
+  .symbol--explorer::before {
+    content: '';
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    border: 1px dashed var(--c-blue-pale);
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .symbol--explorer::after {
+    content: '';
+    width: 16px;
+    height: 16px;
+    background: var(--c-blue);
+    border-radius: 50%;
+    position: relative;
+    z-index: 1;
+  }
+  .symbol--field::before {
+    content: '';
+    width: 16px;
+    height: 16px;
+    background: var(--c-blue);
+    border-radius: 50%;
+    position: relative;
+    z-index: 2;
+  }
+  .symbol--field::after {
+    content: '';
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: transparent;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow:
+      34px 0 0 var(--c-blue-pale),
+      -34px 0 0 var(--c-blue-pale),
+      0 34px 0 var(--c-blue-pale),
+      0 -34px 0 var(--c-blue-pale),
+      24px 24px 0 var(--c-blue-pale),
+      -24px -24px 0 var(--c-blue-pale),
+      24px -24px 0 var(--c-blue-pale),
+      -24px 24px 0 var(--c-blue-pale);
+  }
+  .core-card__title {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--c-blue-deep);
+    letter-spacing: 0.06em;
+    margin-bottom: 10px;
+  }
+  .core-card__desc {
+    font-size: 13.5px;
+    line-height: 1.9;
+    color: var(--c-text);
+  }
+  .core-essence {
+    text-align: center;
+    font-size: 12px;
+    color: var(--c-text-soft);
+    letter-spacing: 0.12em;
+    margin-top: 16px;
+  }
+
+  /* Highlight quote */
+  .quote {
+    text-align: center;
+    padding: 36px 24px;
+    margin: 28px 0;
+    background: var(--c-blue-mist);
+    border-radius: 6px;
+  }
+  .quote__text {
+    font-size: 17px;
+    font-weight: 500;
+    color: var(--c-blue-deep);
+    letter-spacing: 0.08em;
+    line-height: 2.0;
+  }
+
+  /* Steps */
+  .steps {
+    list-style: none;
+    counter-reset: step;
+  }
+  .steps li {
+    counter-increment: step;
+    padding: 18px 0 18px 56px;
+    border-bottom: 1px solid var(--c-line);
+    position: relative;
+  }
+  .steps li:last-child { border-bottom: none; }
+  .steps li::before {
+    content: counter(step, decimal-leading-zero);
+    font-size: 17px;
+    font-weight: 500;
+    color: var(--c-blue);
+    position: absolute;
+    left: 0;
+    top: 18px;
+    letter-spacing: 0.08em;
+  }
+  .steps .term {
+    font-weight: 500;
+    color: var(--c-blue-deep);
+    margin-bottom: 4px;
+    font-size: 14.5px;
+  }
+  .steps .desc { font-size: 13.5px; color: var(--c-text-soft); line-height: 1.9; }
+
+  /* Profile request */
+  .profile-list { list-style: none; }
+  .profile-list > li {
+    padding: 18px 0;
+    border-bottom: 1px solid var(--c-line);
+  }
+  .profile-list > li:last-child { border-bottom: none; }
+  .profile-list .term {
+    font-weight: 500;
+    color: var(--c-blue-deep);
+    margin-bottom: 6px;
+  }
+  .profile-list .sub {
+    list-style: none;
+    margin-top: 6px;
+  }
+  .profile-list .sub li {
+    font-size: 13px;
+    color: var(--c-text-soft);
+    padding-left: 16px;
+    position: relative;
+  }
+  .profile-list .sub li::before {
+    content: '–';
+    position: absolute;
+    left: 0;
+    color: var(--c-blue);
+  }
+
+  /* CTA button (申込リンク) */
+  .cta {
+    display: inline-block;
+    background: var(--c-blue);
+    color: #fff;
+    padding: 14px 32px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-decoration: none;
+    margin-top: 16px;
+    transition: background 0.2s;
+  }
+  .cta:hover { background: var(--c-blue-deep); }
+
+  /* Past guests */
+  .past-guests {
+    list-style: none;
+    font-size: 14px;
+    max-height: 320px;
+    overflow-y: auto;
+    border: 1px solid var(--c-line);
+    border-radius: 6px;
+    padding: 4px 18px;
+  }
+  .past-guests::-webkit-scrollbar { width: 6px; }
+  .past-guests::-webkit-scrollbar-track { background: var(--c-base-deep); border-radius: 3px; }
+  .past-guests::-webkit-scrollbar-thumb { background: var(--c-blue-pale); border-radius: 3px; }
+  .past-guests::-webkit-scrollbar-thumb:hover { background: var(--c-blue); }
+  .past-guests li {
+    padding: 10px 0;
+    border-bottom: 1px dashed var(--c-line);
+    color: var(--c-blue-deep);
+  }
+  .past-guests li:last-child { border-bottom: none; }
+  .past-guests .role {
+    color: var(--c-text-soft);
+    font-size: 12.5px;
+    margin-left: 8px;
+  }
+
+  /* Closing */
+  .closing {
+    padding: 88px 0;
+    text-align: center;
+    background: var(--c-blue-mist);
+  }
+  .closing__body {
+    font-size: 15px;
+    line-height: 2.1;
+    color: var(--c-text);
+    max-width: 640px;
+    margin: 0 auto 24px;
+  }
+  .closing__sign {
+    font-size: 14px;
+    color: var(--c-blue-deep);
+    font-weight: 500;
+    margin-top: 24px;
+  }
+
+  /* Footer */
+  footer {
+    padding: 32px 0 48px;
+    text-align: center;
+    font-size: 12px;
+    color: var(--c-text-soft);
+    letter-spacing: 0.08em;
+  }
+
+  /* Tax box */
+  .tax-box {
+    background: var(--c-base-deep);
+    border-radius: 6px;
+    padding: 20px 24px;
+    margin-top: 16px;
+    font-size: 13.5px;
+    line-height: 1.9;
+    color: var(--c-text-soft);
+  }
+  .tax-box strong {
+    color: var(--c-blue-deep);
+    font-weight: 500;
+  }
+
+  /* Mobile */
+  @media (max-width: 720px) {
+    .container { padding: 0 24px; }
+    .hero { padding: 56px 0 32px; }
+    .hero__title { font-size: 22px; }
+    section { padding: 56px 0; }
+    .section-title { font-size: 19px; margin-bottom: 24px; }
+    .var-list li { grid-template-columns: 1fr; gap: 4px; }
+    .outline th { width: 35%; padding: 12px 14px; font-size: 12px; }
+    .outline td { padding: 12px 14px; font-size: 13px; }
+    .var-card { padding: 22px 20px; }
+    .phase, .note { padding: 20px 22px; }
+    .closing { padding: 56px 0; }
+    .core-grid { grid-template-columns: 1fr; gap: 12px; }
+    .core-card__multiply { padding: 4px 0; }
+  }
+
+  /* Print */
+  @media print {
+    body { background: white; }
+    section, .closing { padding: 40px 0; page-break-inside: avoid; }
+    .hero { padding: 40px 0 24px; }
+    a { color: var(--c-text-soft); }
+    .cta { background: var(--c-base-deep); color: var(--c-blue-deep); }
+  }
+</style>
+</head>
+<body>
+
+<!-- Hero -->
+<header class="hero">
+  <div class="container">
+    <h1 class="hero__title">POOLOゼミ「学びの場を、創る。」<br>ゲスト講義 依頼書</h1>
+    <div class="hero__sub">あたらしい旅の学校 POOLO ｜ 卒業生が、学びの場を創るゼミ</div>
+    <div class="hero__visual">
+      <img src="images/12_poolo_keyvisual.jpg" alt="POOLO 旅と人生をつなぐ大人の学び">
+    </div>
+  </div>
+</header>
+
+<!-- Sender -->
+<div class="sender">
+  <div class="container">
+    <div class="sender__name">株式会社TABIPPO 取締役 ／ 株式会社CODOLI 代表取締役　恩田倫孝</div>
+    <div class="sender__contact">
+      携帯：080-4206-0036<br>
+      MAIL：<a href="mailto:michi@tabippo.net">michi@tabippo.net</a><br>
+      募集ページ：<a href="https://michinorionda.github.io/poolo-life/zemi-toi-hiraku-v03-260803/" target="_blank">https://michinorionda.github.io/poolo-life/zemi-toi-hiraku-v03-260803/</a>
+    </div>
+  </div>
+</div>
+
+<!-- Lead -->
+<section>
+  <div class="container">
+    <p class="addressee">アフロマンス 様</p>
+    <p class="lead">
+      お世話になります、TABIPPO（タビッポ）／CODOLI（コオドリ）の恩田倫孝です。<br><br>
+      2026年10月から12月にかけて、あたらしい旅の学校・POOLOの卒業生に向けて、<strong>自分の学びの場（ゼミ）を企画・開催できるようになる全7回のプログラム</strong>を開講します。その第3回「学びの場を、設計する」を、ぜひアフロマンス様にお願いしたく、ご連絡いたしました。<br><br>
+      本書の前半に依頼概要、後半にプログラムの背景を記しました。最後までお目通しいただけますと幸いです。
+    </p>
+  </div>
+</section>
+
+<!-- 依頼概要 -->
+<section>
+  <div class="container">
+    <h2 class="section-title">依頼概要</h2>
+    <ul class="def-list">
+      <li><div class="term">担当回</div><div class="desc">全7回のうち <strong>第3回「学びの場を、設計する」</strong></div></li>
+      <li><div class="term">日時</div><div class="desc"><strong>2026年11月10日（火）20:00〜22:00</strong><br>10分前のZoom入室をお願いいたします（計約2時間10分）。<br>この日程でご都合が合わない場合は、<span class="var">前後の回との入れ替えを含めて調整いたします</span>。</div></li>
+      <li><div class="term">内容</div><div class="desc">講義 約45分＋質疑・受講生の企画への当てはめ 約30分（計75分）<br>残りの時間は主宰者が進行します。</div></li>
+      <li><div class="term">形式</div><div class="desc">オンライン（Zoom）／投影資料はあってもなくても構いません</div></li>
+      <li>
+        <div class="term">講義テーマ案</div>
+        <div class="desc">
+          <ul>
+            <li><span class="var">「行ってみたい」と思わせる場は、どこから発想されているのか</span></li>
+            <li><span class="var">参加者が受け身にならない、体験の組み立て方</span></li>
+            <li><span class="var">コンセプトを、当日の細部まで落とし込む方法</span></li>
+            <li><span class="var">予算も知名度もない状態で、小さく場を立ち上げる</span></li>
+            <li>※ご意向に合わせてご相談させてください</li>
+          </ul>
+        </div>
+      </li>
+      <li>
+        <div class="term">謝礼</div>
+        <div class="desc">
+          <strong>50,000円（税込）</strong>／諸経費一切込みでご用意いたします。<br>
+          ご意向に合わせて調整可能です。
+          <div class="tax-box">
+            <strong>源泉所得税の取り扱い</strong><br>
+            個人事業主・個人の方は、所得税法に基づき源泉徴収税（10.21%）の控除が必要となります。お手数ですが、<strong>源泉徴収税を控除した金額にて請求書をご発行ください</strong>。法人の方は、源泉徴収不要のため、満額にて請求書をご発行ください。
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- なぜお願いしたいか -->
+<section>
+  <div class="container">
+    <h2 class="section-title">なぜ、この回をお願いしたいのか</h2>
+    <p class="lead">
+      受講生は第1回・第2回で「自分の問い」と「来てほしいたった一人」を決めてきます。ここまでは、自分の内側を掘る作業なので、伴走でどうにかなります。<br><br>
+      つまずくのは、その次です。<strong>語りたいことはあるのに、それが「1回で終わる雑談」から先に進まない。</strong>回を追って深まる構造、参加者どうしの対話が生まれる問いの設計、主催者が話しすぎない配分。このあたりは、自己流でやると必ず崩れます。旅の話が面白い人ほど、自分が喋って終わってしまう。<br><br>
+      だからこの回だけは、私たちの経験談ではなく、<strong>場づくり・ワークショップデザインを実践してこられた方の設計の型</strong>を、そのまま受講生に渡したいと考えています。ここが、卒業生のゼミを「ライトな偏愛シェア」から「お金をいただける学びの場」に引き上げる分岐点になります。<br><br>
+      そのうえで、アフロマンス様にお願いしたい理由があります。<br><br>
+      泡パ、脳汁横丁、早朝フェス、秒で沖縄に行けるバー。どれも「聞いた瞬間に行きたくなる」場ばかりで、しかも参加者が説明されるより先に自分から動き出しています。<strong>人が集まる場は、思いつきではなく設計でつくられている</strong>ということを、これほど具体的に語れる方はいないと考えました。<br><br>
+      受講生がつくろうとしているのは、定員6〜10名の小さな学びの場です。規模はまったく違いますが、<strong>「その場に居たい」と思わせる設計の原理は同じ</strong>だと私たちは考えています。むしろ大きなフェスから小さな講座まで手がけられているアフロマンス様だからこそ、受講生が自分のサイズに翻訳できる話をしていただけるはずです。
+    </p>
+  </div>
+</section>
+
+<!-- 当日の流れ -->
+<section>
+  <div class="container">
+    <h2 class="section-title">当日の流れ（120分）</h2>
+    <ol class="steps">
+      <li><div class="term">15分｜チェックイン</div><div class="desc">主宰者が進行します。</div></li>
+      <li><div class="term">15分｜受講生の実践シェア</div><div class="desc">前回の宿題「試し語り会」の報告。何が刺さり、何が滑ったかを共有します。ここで受講生の現在地をご覧いただけます。</div></li>
+      <li><div class="term">45分｜ゲスト講義</div><div class="desc">場づくり・学びの場の設計についてお話しいただきます。</div></li>
+      <li><div class="term">30分｜質疑＋自分の企画への当てはめ</div><div class="desc">受講生が自分の企画に引きつけて質問します。可能な範囲でコメントをいただけますと幸いです。</div></li>
+      <li><div class="term">15分｜相互フィードバック・チェックアウト</div><div class="desc">主宰者が進行します。ご都合により途中でのご退出も可能です。</div></li>
+    </ol>
+    <p class="lead" style="margin-top:20px;font-size:13.5px;">
+      この回の受講生の持ち帰りは<strong>「ゼミ全体の設計図＋第1回の台本」</strong>です。次の第4回で、受講生どうしが20分のミニ体験版を実際に開き、相互に審査します。つまり<strong>この回で学んだことが、2週間後に必ず実行される</strong>構成になっています。
+    </p>
+  </div>
+</section>
+
+<!-- プログラム概要 -->
+<section>
+  <div class="container">
+    <h2 class="section-title">プログラム概要</h2>
+    <table class="outline">
+      <tr><th>名称</th><td>POOLOゼミ「学びの場を、創る。」</td></tr>
+      <tr><th>人数</th><td>定員15名</td></tr>
+      <tr><th>参加費</th><td>70,000円（全7回）</td></tr>
+      <tr><th>参加者</th><td>あたらしい旅の学校 POOLO の在校生・卒業生（20〜40代の社会人）</td></tr>
+      <tr><th>プログラム期間</th><td>3ヶ月・全7回（2026年10月13日〜12月22日）</td></tr>
+      <tr><th>形式</th><td>オンライン／Zoom（火曜 20:00–22:00・隔週）</td></tr>
+      <tr><th>主催</th><td>あたらしい旅の学校 POOLO（株式会社TABIPPO＆CODOLI）</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- このゼミについて -->
+<section>
+  <div class="container">
+    <h2 class="section-title">このゼミについて</h2>
+    <p class="lead">
+      POOLOは、旅を入り口に自分の生き方・働き方を問い直す大人の学び場として、7年以上続いてきました。卒業生は1,000名を超えます。<br><br>
+      一方で、卒業後は学びを「受け取る側」で終わってしまう人がほとんどでした。このゼミは、そこを一歩進めるためのものです。旅の中で見つけたひとつの問いを、誰かが「参加したい」と思う小さな学びの場に変える。修了時には、参加費1〜3万円・全3〜5回の講座を自分でひらける状態になっていることをゴールにしています。<br><br>
+      修了生が実際にゼミをひらき、そこに他の卒業生が参加者として集まる。「受講 → 開催 → 参加 → また受講」という循環を、コミュニティの中に立ち上げたいと考えています。先行例として自由大学（8学部・累計359講義・卒業生3万人超）を参照しています。
+    </p>
+  </div>
+</section>
+
+<!-- 参加者想定 -->
+<section>
+  <div class="container">
+    <h2 class="section-title">参加者想定</h2>
+    <ul class="def-list">
+      <li>
+        <div class="term">人数／属性</div>
+        <div class="desc">定員15名。POOLOの在校生・卒業生で、20代後半〜40代が中心です。旅の経験を、自分の言葉や場に変えていきたいと考える、熱量の高い方が集まります。</div>
+      </li>
+      <li>
+        <div class="term">受講の動機</div>
+        <div class="desc">「語りたいことはあるが、どう場にすればいいか分からない」「旅を仕事にしたいが、最初の一歩が大きすぎる」という段階の方が中心です。企画・運営の経験がない方も多く含まれます。</div>
+      </li>
+      <li>
+        <div class="term">開催方法</div>
+        <div class="desc">オンライン開催（Zoom）。Zoomのダウンロードとwifi、PC環境のご準備をお願いいたします。</div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- スケジュール -->
+<section>
+  <div class="container">
+    <h2 class="section-title">当日までの準備とスケジュール</h2>
+    <ol class="steps">
+      <li>
+        <div class="term">ご快諾・テーマのすり合わせ｜開催6週間前まで</div>
+        <div class="desc">ご希望のメッセージツールで、講義テーマと当日の役割をすり合わせます。対面やZoomでのお打ち合わせもご相談可能です。</div>
+      </li>
+      <li>
+        <div class="term">受講生の状況を共有｜開催2週間前</div>
+        <div class="desc">受講生15名がどんな企画を考えているか、一覧にしてお送りします。具体例に触れながらお話しいただけるようにするためです。</div>
+      </li>
+      <li>
+        <div class="term">最終確認｜開催1週間前</div>
+        <div class="desc">当日の流れと投影資料の有無を、メール・メッセンジャーでご確認いただきます。</div>
+      </li>
+      <li>
+        <div class="term">当日</div>
+        <div class="desc">開始10分前にZoomへご入室をお願いいたします。主宰者がファシリテーションを担当します。</div>
+      </li>
+      <li>
+        <div class="term">終了後</div>
+        <div class="desc">当日のレポートをお送りします。謝礼のお支払いのため、請求書をご送付ください。</div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- 謝礼 -->
+<section>
+  <div class="container">
+    <h2 class="section-title">謝礼とお支払いの期日</h2>
+    <ul class="def-list">
+      <li>
+        <div class="term">お支払い期日</div>
+        <div class="desc">開催翌々月末</div>
+      </li>
+      <li>
+        <div class="term">請求書ご送付について</div>
+        <div class="desc">登壇月の月末までに、下記アドレスへ請求書をご送付ください。送付が遅れますと、ご送付日の翌々月末日払いとなりますのでご注意ください。</div>
+      </li>
+      <li>
+        <div class="term">送付先</div>
+        <div class="desc"><a href="mailto:info@codoli.net">info@codoli.net</a></div>
+      </li>
+      <li>
+        <div class="term">源泉所得税の取り扱い</div>
+        <div class="desc">
+          個人事業主・個人の方は、所得税法に基づき源泉徴収税（10.21%）の控除が必要となります。お手数ですが、<strong style="color: var(--c-blue-deep); font-weight: 500;">源泉徴収税を控除した金額にて請求書をご発行ください</strong>。<br>
+          法人の方は、源泉徴収不要のため、満額にて請求書をご発行ください。
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- プロフィール素材 -->
+<section>
+  <div class="container">
+    <h2 class="section-title">プロフィール素材のご依頼</h2>
+    <p class="lead">
+      募集ページおよびPOOLO内の告知に【ゲスト講師】として掲載させていただきたく、下記3点の素材をお送りください。
+    </p>
+    <ul class="profile-list">
+      <li>
+        <div class="term">① プロフィールお写真</div>
+        <ul class="sub">
+          <li>できるだけ大きな画像データでお願いいたします</li>
+          <li>丸型で切り抜いて使用いたします</li>
+        </ul>
+      </li>
+      <li>
+        <div class="term">② プロフィール説明文（300文字以内）</div>
+        <ul class="sub">
+          <li>300文字を超える場合はこちらでリライトいたします</li>
+        </ul>
+      </li>
+      <li>
+        <div class="term">③ 掲載するお名前と肩書</div>
+        <ul class="sub">
+          <li>例）名前：清水直哉／肩書：株式会社TABIPPO 代表取締役</li>
+        </ul>
+      </li>
+    </ul>
+    <p class="lead" style="margin-top: 24px; font-size: 13px; color: var(--c-text-soft);">
+      頂いた写真は、募集ページ・各種記事画像・告知用バナーで使用させていただく場合があります。メールにてご送付ください。
+    </p>
+  </div>
+</section>
+
+<!-- Closing -->
+<div class="closing">
+  <div class="container">
+    <p class="closing__body">
+      ご多忙中とは存じますが、よろしくご検討の上、ご出演の可否についてお返事を頂けましたら幸いです。<br>
+      ご検討のほど、何卒よろしくお願いいたします。
+    </p>
+    <div class="closing__sign">恩田倫孝</div>
+  </div>
+</div>
+
+<footer>
+  POOLOゼミ「学びの場を、創る。」ゲスト講義 依頼書｜株式会社TABIPPO
+</footer>
+
+</body>
+</html>
