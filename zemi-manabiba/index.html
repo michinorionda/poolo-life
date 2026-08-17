@@ -59,8 +59,25 @@
   .ex-ttl, .ex-desc,
   .fig-cap-text, .fig-note, .jr-verb, .jr-sub, .jr-phase, .jr-loop-text,
   .cv-q, .cv-help,
-  .wsx-ttl, .wsx-goal, .wsx-l, .wsx-v, .wsx-fill li { word-break:auto-phrase; text-wrap:pretty; }
+  .wsx-ttl, .wsx-goal, .wsx-l, .wsx-v, .wsx-fill li,
+  .gst-name, .gst-role, .gst-bio { word-break:auto-phrase; text-wrap:pretty; }
   @media (max-width:760px) { .ex-grid { grid-template-columns:1fr; } }
+
+  /* ===== ゲスト講師（.gst） ===== */
+  .gst-list { display:grid; gap:clamp(32px,5vh,52px); margin-top:clamp(24px,4vh,38px); }
+  .gst { display:grid; grid-template-columns:clamp(176px,21vw,236px) minmax(0,1fr); gap:clamp(22px,3vw,38px); align-items:start; border-top:1px solid var(--line); padding-top:clamp(26px,3.6vh,36px); }
+  .gst:first-child { border-top:none; padding-top:0; }
+  .gst-photo { margin:0; }
+  .gst-photo img { display:block; width:100%; height:auto; aspect-ratio:1/1; object-fit:cover; border-radius:var(--radius); }
+  .gst-round { display:inline-block; font-family:var(--head); font-size:11px; font-weight:700; letter-spacing:.08em; color:var(--brand-deep); background:var(--brand-pale); padding:4px 11px; border-radius:var(--radius); margin-bottom:15px; }
+  .gst-name { font-family:var(--mincho); font-weight:700; font-size:clamp(20px,2.3vw,26px); line-height:1.4; color:var(--ink); margin:0 0 7px; font-feature-settings:"palt"; }
+  .gst-role { font-family:var(--head); font-size:12.5px; font-weight:700; letter-spacing:.06em; color:var(--brand); margin:0 0 17px; }
+  .gst-bio { font-family:var(--body); font-size:13px; line-height:2; letter-spacing:.05em; color:var(--ink-72); margin:0; }
+  .gst-bio + .gst-bio { margin-top:13px; }
+  @media (max-width:700px) {
+    .gst { grid-template-columns:1fr; gap:18px; }
+    .gst-photo img { max-width:220px; }
+  }
 
   /* ============================================================
      図版（fig）本文の合間に挟む線画ダイアグラム
@@ -261,7 +278,7 @@
     <div class="shell">
       <a href="#apply">
         <span class="notice-tag">公開準備中</span>
-        <span class="notice-text">第3回・第6回の<strong>ゲスト2名は来週公開予定</strong>です。お申し込みの受付は<strong>8月19日（水）から</strong>開始します（申込締切は9月27日）。</span>
+        <span class="notice-text">第3回・第6回の<strong>ゲスト2名を公開しました</strong>。お申し込みの受付は<strong>8月19日（水）から</strong>開始します（申込締切は9月27日）。</span>
       </a>
     </div>
   </section>
@@ -484,6 +501,51 @@
             </div>
           </li>
         </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ゲスト講師 ===== -->
+  <section class="sec" style="border-bottom:none;">
+    <div class="shell sec-inner" style="padding-top:40px;padding-bottom:40px;">
+      <div class="sec-spine">
+        <div class="sec-num ja small">ゲスト</div>
+        <span class="sec-en">Guests</span>
+      </div>
+      <div>
+        <h2 class="sec-title">2つの回に、<span class="nb">実践者を招きます。</span></h2>
+        <p class="sec-lead">自己流でつまずきやすいのが、<span class="nb">「場の設計」と「人の集め方」</span>の2つです。この2回だけは私たちの経験談ではなく、実際にやってきた方から直接受け取ります。</p>
+        <div class="gst-list">
+
+          <article class="gst">
+            <figure class="gst-photo">
+              <img src="images/guest-afromance.jpg" alt="アフロマンス" loading="lazy" width="800" height="800">
+            </figure>
+            <div class="gst-body">
+              <span class="gst-round">第3回｜学びの場を、設計する</span>
+              <h3 class="gst-name">アフロマンス</h3>
+              <p class="gst-role">株式会社 Afro&amp;Co. CCO</p>
+              <p class="gst-bio">1985年鹿児島県生まれ。京都大学工学部建築学科卒。体験をつくるクリエイター、クリエイティブディレクター、イベントプロデューサー、DJ。Afro&amp;Co. Founder。</p>
+              <p class="gst-bio">「世の中に、もっとワクワクを。」を掲げ、空間、体験、話題性を掛け合わせた独創的なプロジェクトを全国で企画・プロデュース。「脳汁銭湯」「SAKURA CHILL BAR by 佐賀」「アリタ・マシュマロ・クリスマス」「喰種レストラン」などを手がける。</p>
+            </div>
+          </article>
+
+          <article class="gst">
+            <figure class="gst-photo">
+              <img src="images/guest-ruimaeda.jpg" alt="ルイス前田" loading="lazy" width="800" height="800">
+            </figure>
+            <div class="gst-body">
+              <span class="gst-round">第6回｜自分の場に、人を集める</span>
+              <h3 class="gst-name">ルイス前田</h3>
+              <p class="gst-role">株式会社ノマドニア 代表取締役</p>
+              <p class="gst-bio">大阪府生まれ、三重県育ち。慶應義塾大学商学部卒。パソコン1台で働きながら、世界中を旅する「海外ノマド」。また、1人10種類の収入源を持つ「スラッシュワーカー」としても活動する。</p>
+              <p class="gst-bio">2010年から旅をはじめ、120ヶ国に渡航。世界一周を経て、株式会社TABIPPOを創業し、同社の編集長を長年務める。現在は、1ヶ月で10種類のデジタルワークを体験する海外ノマド体験プログラム『ノマドニア』や、複業実現コミュニティ『スラッシュワーカーズ』を主宰し、株式会社ノマドニアおよび株式会社スラッシュワーカーズの代表取締役を務める。</p>
+              <p class="gst-bio">「場所・時間・人間関係」に縛られないライフスタイルを広める活動は注目を集め、『日本経済新聞』への掲載や『Abema Prime』への出演などメディア実績も多数。海外ノマドを「憧れ」で終わらせず、実践的な体験を通じて「リアルな働き方」へと変える支援を続けている。</p>
+              <p class="gst-bio">著書にAmazonランキングで「地政学」「起業・開業」など5部門で1位を獲得した『海外ノマド入門 ここではない場所で生きていく』（扶桑社）がある。</p>
+            </div>
+          </article>
+
+        </div>
       </div>
     </div>
   </section>
