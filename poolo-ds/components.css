@@ -48,7 +48,12 @@ img { display: block; max-width: 100%; }
 .faq-q, .faq-a p,
 .date-what, .date-note, .fit-items li, .fit-head,
 .apply-step-title, .apply-step-desc, .terms-v,
-.cta-title, .cta-note, .fa-main, .fa-sub {
+.cta-title, .cta-lead, .cta-note, .fa-main, .fa-sub,
+.ps-title, .ps-desc, .ps-meta,
+.person-name, .person-bio, .person-role,
+.point-title, .point-desc, .ba-items li, .ba-label,
+.fee-note, .fee-add-desc, .fee-foot,
+.step-band-head .ja, .step-title, .step-desc {
   word-break: auto-phrase;
   text-wrap: pretty;
 }
@@ -349,6 +354,81 @@ img { display: block; max-width: 100%; }
 }
 
 
+/* ============ プログラム要約帯（.step-band） ============ */
+/* 日付帯の直下に置く、3ステップの横並び要約。ファーストビューのうちに
+   「単発イベントではない」ことを見せる。詳細は .program-steps で展開する。 */
+.step-band { border-bottom: 1px solid var(--line); background: var(--bg); }
+.step-band-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 0.68fr) repeat(3, minmax(0, 1fr));
+  padding-top: clamp(24px, 3.8vh, 38px);
+  padding-bottom: clamp(26px, 4.2vh, 42px);
+}
+.step-band-head { padding-right: clamp(14px, 2vw, 26px); }
+.step-band-head .en {
+  display: block;
+  font-family: var(--en);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.36em;
+  text-transform: uppercase;
+  color: var(--brand);
+}
+.step-band-head .ja {
+  display: block;
+  font-family: var(--mincho);
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  line-height: 1.7;
+  color: var(--ink);
+  margin-top: 6px;
+}
+.step-cell {
+  border-left: 1px solid var(--line);
+  padding-left: clamp(16px, 2.4vw, 30px);
+  padding-right: clamp(12px, 1.8vw, 24px);
+}
+.step-no {
+  font-family: var(--en);
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.3em;
+  color: var(--brand);
+}
+.step-no .ja {
+  font-family: var(--body);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  color: var(--ink-50);
+  margin-left: 0.9em;
+}
+.step-title {
+  font-family: var(--head);
+  font-size: 14.5px;
+  font-weight: 700;
+  font-feature-settings: "palt";
+  letter-spacing: 0.05em;
+  line-height: 1.6;
+  color: var(--ink);
+  margin-top: 7px;
+}
+.step-desc {
+  font-family: var(--body);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  line-height: 1.9;
+  color: var(--ink-55);
+  margin-top: 4px;
+}
+@media (max-width: 860px) {
+  .step-band-inner { grid-template-columns: minmax(0, 1fr); row-gap: 0; }
+  .step-band-head { padding-right: 0; padding-bottom: 14px; }
+  .step-cell { border-left: none; border-top: 1px solid var(--line); padding: 13px 0 14px; }
+}
+
+
 /* ============ イベント要点（.summary） ============ */
 .summary {
   border-bottom: 1px solid var(--line);
@@ -627,6 +707,16 @@ img { display: block; max-width: 100%; }
   padding-top: 16px;
   padding-bottom: 20px;
 }
+/* キャプションは写真と同じ側にインデントを合わせる。
+   これが無いと画面端に張り付き、版面から飛び出して見える。 */
+.photo-break--right .pb-caption {
+  padding-left: clamp(22px, 10vw, 160px);
+  padding-right: var(--shell-pad);
+}
+.photo-break--left .pb-caption {
+  padding-left: var(--shell-pad);
+  padding-right: clamp(22px, 10vw, 160px);
+}
 .pb-caption-en {
   font-family: var(--en);
   font-size: 10px;
@@ -655,6 +745,8 @@ img { display: block; max-width: 100%; }
   .photo-break::before { height: 96px; }
   .photo-break--right .pb-frame { padding-left: 22px; }
   .photo-break--left .pb-frame { padding-right: 22px; }
+  .photo-break--right .pb-caption { padding-left: 22px; padding-right: 22px; }
+  .photo-break--left .pb-caption { padding-left: 22px; padding-right: 22px; }
   .pb-frame img { height: clamp(220px, 42vh, 320px); }
   .pb-caption { flex-wrap: wrap; gap: 10px; padding-top: 12px; padding-bottom: 16px; }
   .pb-caption-text { font-size: 11px; letter-spacing: 0.08em; }
@@ -996,6 +1088,15 @@ img { display: block; max-width: 100%; }
   line-height: 1.8;
   color: var(--on-brand);
 }
+.cta-lead {
+  font-family: var(--body);
+  font-size: 13.5px;
+  line-height: 2.05;
+  letter-spacing: 0.06em;
+  color: var(--on-brand-88);
+  max-width: 40em;
+  margin-top: clamp(20px, 2.6vw, 28px);
+}
 .cta-action { text-align: left; }
 .cta-btn {
   display: block;
@@ -1323,6 +1424,465 @@ img { display: block; max-width: 100%; }
   .terms-row { grid-template-columns: 1fr; row-gap: 4px; padding: 15px 0; }
   .terms-k { line-height: 1.8; }
   .terms-v { font-size: 12.5px; }
+}
+
+
+/* ============ プログラムの3ステップ（.program-steps） ============ */
+/* 「事前 → 現地 → 事後」のように、単発イベントではなく前後を含む一連の
+   プログラムであることを見せる縦フロー。主役の回は .is-main で淡面にする。 */
+.program-steps {
+  list-style: none;
+  display: grid;
+  gap: 0;
+  max-width: 860px;
+}
+.program-step {
+  position: relative;
+  border-top: 1px solid var(--line);
+  padding: 26px 0 30px;
+}
+.program-step:first-child { border-top: 1px solid var(--ink); }
+.program-step:last-child { border-bottom: 1px solid var(--line); }
+/* ステップ間の矢印（最後の項目には出さない） */
+.program-step:not(:last-child)::after {
+  content: '↓';
+  position: absolute;
+  left: 50%;
+  bottom: -11px;
+  transform: translateX(-50%);
+  z-index: 1;
+  font-family: var(--en);
+  font-size: 15px;
+  line-height: 1;
+  color: var(--brand);
+  background: var(--bg);
+  padding: 3px 8px;
+}
+.program-step.is-main {
+  background: var(--brand-pale);
+  padding-inline: clamp(18px, 2.6vw, 30px);
+}
+.program-step.is-main:not(:last-child)::after { background: var(--brand-pale); }
+.ps-head {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-bottom: 12px;
+}
+.ps-num {
+  font-family: var(--en);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--brand);
+}
+.ps-tag {
+  font-family: var(--head);
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: var(--on-brand);
+  background: var(--brand);
+  border-radius: var(--radius);
+  padding: 4px 10px;
+}
+.ps-tag.is-quiet {
+  color: var(--brand-deep);
+  background: transparent;
+  border: 1px solid var(--brand-mid);
+}
+.ps-title {
+  font-family: var(--mincho);
+  font-weight: 700;
+  font-feature-settings: "palt";
+  font-size: clamp(18px, 2.4vw, 23px);
+  letter-spacing: 0.06em;
+  line-height: 1.75;
+  color: var(--ink);
+  margin-bottom: 12px;
+}
+.ps-desc {
+  font-size: 13.5px;
+  line-height: 2;
+  letter-spacing: 0.06em;
+  color: var(--ink-72);
+  max-width: 46em;
+}
+.ps-desc + .ps-desc { margin-top: 10px; }
+.ps-meta {
+  font-family: var(--head);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  color: var(--ink-55);
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
+  max-width: 46em;
+}
+.program-step.is-main .ps-meta { border-top-color: var(--line-pale); }
+@media (max-width: 560px) {
+  .program-step { padding: 22px 0 26px; }
+  .ps-desc { font-size: 13px; }
+}
+
+
+/* ============ 登壇者・出会う人（.people-list） ============ */
+/* 「誰に会えるのか」を人単位で見せる。写真＋肩書＋名前＋略歴＋外部リンク。 */
+.people-list {
+  list-style: none;
+  display: grid;
+  gap: clamp(30px, 4.4vw, 48px);
+}
+.person {
+  display: grid;
+  grid-template-columns: minmax(0, 260px) minmax(0, 1fr);
+  gap: clamp(22px, 3.4vw, 40px);
+  align-items: start;
+  border-top: 1px solid var(--line);
+  padding-top: clamp(24px, 3.4vw, 34px);
+}
+.people-list > .person:first-child { border-top: 1px solid var(--ink); }
+.person-photo {
+  border-top: 3px solid var(--brand); /* ブルーの額装（上辺だけの細い罫） */
+  background: var(--bg-off);
+}
+.person-photo img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+}
+/* 写真が未入稿のときのプレースホルダ */
+.person-photo.is-empty {
+  aspect-ratio: 4 / 5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--line);
+  border-top: 3px solid var(--brand-mid);
+  font-family: var(--head);
+  font-size: 11.5px;
+  letter-spacing: 0.12em;
+  color: var(--ink-40);
+  text-align: center;
+  padding: 12px;
+}
+.person-role {
+  font-family: var(--head);
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: var(--brand-deep);
+  margin-bottom: 8px;
+}
+.person-name {
+  font-family: var(--mincho);
+  font-weight: 700;
+  font-feature-settings: "palt";
+  font-size: clamp(21px, 2.8vw, 27px);
+  letter-spacing: 0.08em;
+  line-height: 1.5;
+  color: var(--ink);
+  margin-bottom: 16px;
+}
+.person-name .ruby {
+  display: block;
+  font-family: var(--en);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.24em;
+  color: var(--ink-50);
+  margin-top: 7px;
+}
+.person-bio {
+  font-size: 13px;
+  line-height: 2.05;
+  letter-spacing: 0.06em;
+  color: var(--ink-72);
+}
+.person-bio + .person-bio { margin-top: 10px; }
+.person-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  margin-top: 16px;
+}
+.person-links a {
+  font-family: var(--head);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--brand-deep);
+  border-bottom: 1px solid var(--brand);
+  padding-bottom: 2px;
+  transition: color var(--trans-fast);
+}
+.person-links a:hover { color: var(--brand); }
+.person-links .arrow { font-family: var(--en); margin-left: 0.4em; }
+@media (max-width: 640px) {
+  .person { grid-template-columns: 1fr; gap: 20px; }
+  .person-photo { max-width: 260px; }
+  .person-photo.is-empty { max-width: 260px; }
+}
+
+
+/* ============ 体験の要点（.point-list） ============ */
+/* 「この旅で体験する4つのこと」のような、番号付きの価値訴求を2列で並べる。 */
+.point-list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0;
+  border-top: 1px solid var(--ink);
+}
+.point-item {
+  padding: clamp(22px, 2.8vw, 30px) clamp(18px, 2.4vw, 30px) clamp(26px, 3.2vw, 34px);
+  border-bottom: 1px solid var(--line);
+  border-left: 1px solid var(--line);
+}
+.point-item:nth-child(odd) { border-left: none; padding-left: 0; }
+.point-item:nth-child(even) { padding-right: 0; }
+.point-num {
+  display: block;
+  font-family: var(--en);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--brand);
+  margin-bottom: 14px;
+}
+.point-num .no {
+  display: inline-block;
+  font-size: 22px;
+  letter-spacing: 0.08em;
+  margin-left: 0.5em;
+  vertical-align: -2px;
+}
+.point-title {
+  font-family: var(--mincho);
+  font-weight: 700;
+  font-feature-settings: "palt";
+  font-size: clamp(17px, 2.1vw, 20px);
+  letter-spacing: 0.06em;
+  line-height: 1.8;
+  color: var(--ink);
+  margin-bottom: 12px;
+}
+.point-desc {
+  font-size: 13px;
+  line-height: 2;
+  letter-spacing: 0.06em;
+  color: var(--ink-72);
+}
+.point-desc .quoted { color: var(--brand-deep); font-weight: 500; }
+@media (max-width: 640px) {
+  .point-list { grid-template-columns: 1fr; }
+  .point-item { border-left: none; padding-left: 0; padding-right: 0; }
+}
+
+
+/* ============ 旅の前と後（.ba-flow） ============ */
+/* Before → After。約束ではなく「変化の幅」を静かに示すための対比。 */
+.ba-flow {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  align-items: stretch;
+  gap: clamp(16px, 2.4vw, 28px);
+}
+.ba-col { padding-top: 20px; border-top: 1px solid var(--line); }
+.ba-col--after {
+  border-top-color: var(--brand);
+  background: var(--brand-pale);
+  padding: 20px clamp(16px, 2.2vw, 24px) clamp(18px, 2.2vw, 24px);
+}
+.ba-label {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  font-family: var(--head);
+  font-weight: 700;
+  font-size: 13.5px;
+  letter-spacing: 0.08em;
+  color: var(--ink);
+  margin-bottom: 16px;
+}
+.ba-label .en {
+  font-family: var(--en);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--ink-40);
+}
+.ba-col--after .ba-label .en { color: var(--brand); }
+.ba-items { list-style: none; display: grid; gap: 12px; }
+.ba-items li {
+  position: relative;
+  padding-left: 1.5em;
+  font-size: 13px;
+  line-height: 1.95;
+  letter-spacing: 0.06em;
+  color: var(--ink-72);
+}
+.ba-items li::before {
+  content: '―';
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-family: var(--en);
+  color: var(--ink-40);
+}
+.ba-col--after .ba-items li::before { color: var(--brand); }
+.ba-arrow {
+  align-self: center;
+  font-family: var(--en);
+  font-size: 20px;
+  line-height: 1;
+  color: var(--brand);
+}
+@media (max-width: 720px) {
+  .ba-flow { grid-template-columns: 1fr; gap: 12px; }
+  .ba-arrow { justify-self: center; transform: rotate(90deg); padding: 6px 0; }
+}
+
+
+/* ============ 日別の見出し（.day-head） ============ */
+/* 複数日程のスケジュールで、.flow-list の直前に置く日の見出し。 */
+.day-head {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 16px;
+  border-bottom: 1px solid var(--ink);
+  padding-bottom: 10px;
+  margin-bottom: 4px;
+}
+.day-head + .flow-list { margin-top: 0; }
+.day-num {
+  font-family: var(--en);
+  font-size: clamp(20px, 2.6vw, 26px);
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  line-height: 1;
+  color: var(--brand);
+}
+.day-date {
+  font-family: var(--head);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--ink);
+}
+.day-note {
+  font-size: 12.5px;
+  letter-spacing: 0.06em;
+  color: var(--ink-55);
+  margin-left: auto;
+}
+.day-block + .day-block { margin-top: clamp(38px, 5vw, 56px); }
+@media (max-width: 560px) {
+  .day-note { margin-left: 0; width: 100%; }
+}
+
+
+/* ============ 参加費（.fee-grid / .fee-add） ============ */
+/* 「プログラム参加費」と「現地で支払う実費」を明確に分けて示す。
+   合算した金額を主役にしない（旅行商品に見せないため）。 */
+.fee-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(16px, 2.4vw, 26px);
+}
+.fee-card {
+  border: 1px solid var(--line);
+  border-top: 3px solid var(--brand);
+  padding: clamp(20px, 2.6vw, 26px);
+}
+.fee-card--sub { border-top-color: var(--brand-mid); }
+.fee-label {
+  display: block;
+  font-family: var(--head);
+  font-size: 12.5px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--ink);
+  margin-bottom: 12px;
+}
+.fee-price {
+  display: block;
+  font-family: var(--en);
+  font-size: clamp(32px, 4.6vw, 42px);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  line-height: 1.1;
+  color: var(--brand);
+}
+.fee-price small {
+  font-family: var(--head);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  margin-left: 0.2em;
+}
+.fee-note {
+  font-size: 12.5px;
+  line-height: 1.9;
+  letter-spacing: 0.06em;
+  color: var(--ink-66);
+  margin-top: 12px;
+}
+.fee-add {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: clamp(16px, 2.4vw, 30px);
+  background: var(--brand-pale);
+  padding: clamp(18px, 2.4vw, 24px) clamp(18px, 2.6vw, 28px);
+  margin-top: clamp(16px, 2.2vw, 22px);
+}
+.fee-add-label {
+  display: block;
+  font-family: var(--head);
+  font-size: 12.5px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--brand-deep);
+  margin-bottom: 8px;
+}
+.fee-add-desc {
+  font-size: 12.5px;
+  line-height: 1.9;
+  letter-spacing: 0.06em;
+  color: var(--ink-72);
+}
+.fee-add-price {
+  font-family: var(--en);
+  font-size: clamp(26px, 3.4vw, 32px);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  line-height: 1.1;
+  color: var(--brand-deep);
+  white-space: nowrap;
+}
+.fee-add-price small {
+  font-family: var(--head);
+  font-size: 13px;
+  font-weight: 700;
+  margin-left: 0.2em;
+}
+.fee-foot {
+  font-size: 12.5px;
+  line-height: 1.95;
+  letter-spacing: 0.06em;
+  color: var(--ink-60);
+  margin-top: 16px;
+}
+@media (max-width: 640px) {
+  .fee-grid { grid-template-columns: 1fr; gap: 14px; }
+  .fee-add { grid-template-columns: 1fr; gap: 12px; }
 }
 
 

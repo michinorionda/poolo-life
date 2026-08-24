@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>瀬戸内海の暮らしから、これからのキャリアを考える。｜POOLO 鞆の浦・走島【案B】</title>
+<meta name="description" content="鞆の浦・走島で、さまざまな働き方と生き方に触れる1泊2日の暮らし観光。2026年11月21日（土）〜22日（日）、定員10名。">
+<meta name="robots" content="noindex">
+
+<!-- POOLO Design System（単一ソース。順序厳守：tokens → components） -->
+<link rel="stylesheet" href="../../poolo-ds/tokens.css">
+<link rel="stylesheet" href="../../poolo-ds/components.css">
+
+<style>
+/* ===== 案B（情緒・余白）：最小限のページ内上書き ==================
+   写真の面積と余白を最大化し、明朝の大見出しを縦に大きく積む。
+   値はすべてトークン参照。生値のカラーコードは書かない。 */
+
+/* 余白：コピー面の天地をひらき、視線の速度を落とす */
+.hero-copy {
+  padding-top: clamp(64px, 11vh, 132px);
+  padding-bottom: clamp(64px, 11vh, 132px);
+}
+.hero-eyebrow { margin-bottom: clamp(36px, 6.4vh, 68px); }
+
+/* 級数コントラスト：大見出しを3行で縦に積み、一段大きく */
+.hero-title .t-lg {
+  font-size: clamp(42px, 5.4vw, 76px);
+  line-height: 1.4;
+}
+
+/* 写真面積の最大化（モバイルはDSの高さ指定に任せる） */
+@media (min-width: 861px) {
+  .hero-photo img { min-height: min(76vh, 740px); }
+}
+
+/* サブタイトル：明朝の小さな立て看板（タイトルと本文のあいだの間） */
+.hero-sub {
+  margin-top: clamp(22px, 3.6vh, 34px);
+  font-family: var(--mincho);
+  font-size: 13.5px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  line-height: 2.1;
+  color: var(--ink-72);
+  max-width: 24em;
+  word-break: auto-phrase;
+  text-wrap: pretty;
+}
+
+/* 日付帯のなかの和文（「集合」「解散」）は .dow と同じ作法で受ける */
+.hero-band-time .ja {
+  font-family: var(--head);
+  font-size: 0.66em;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  margin-left: 0.2em;
+}
+
+/* 要点の足元に、締切と主催を静かに一行 */
+.summary-note {
+  font-family: var(--body);
+  font-size: 12px;
+  letter-spacing: 0.07em;
+  color: var(--ink-55);
+  border-top: 1px solid var(--line);
+  padding: 14px 0 24px;
+}
+</style>
+</head>
+<body>
+
+<!-- ===== Brand row（固定ヘッダー） ===== -->
+<header class="brand-row">
+  <div class="shell">
+    <a class="brand-logo" href="#">
+      <img src="../images/poolo_logo.png" alt="POOLO あたらしい旅の学校">
+    </a>
+    <nav class="header-nav">
+      <a class="header-link" href="#">POOLO とは<span class="arrow" aria-hidden="true">↗</span></a>
+      <a class="header-cta" href="#">申し込む</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ===== HERO（案B：情緒・余白 — 写真と間で伝える） ===== -->
+<section class="hero">
+  <div class="hero-grid">
+
+    <div class="hero-copy">
+      <div class="hero-eyebrow">
+        <span class="hero-eyebrow-rule" aria-hidden="true"></span>
+        <span class="hero-eyebrow-ja">海のそばで、立ち止まる二日間</span>
+        <span class="hero-eyebrow-en">SETOUCHI, HIROSHIMA</span>
+      </div>
+
+      <h1 class="hero-title">
+        <span class="t-sm">瀬戸内海の暮らしから、</span>
+        <span class="t-lg"><span class="nb">これからの</span><br><span class="nb">キャリアを</span><br><span class="nb"><span class="em">考える</span>。</span></span>
+      </h1>
+
+      <p class="hero-sub">鞆の浦・走島で、さまざまな働き方と生き方に触れる1泊2日の暮らし観光</p>
+
+      <p class="hero-lead">答えを持ち帰る旅では、ありません。海のそばで、立ち止まる。知らない暮らしに、出会う。考えたいことの輪郭が少し見えてくる、そんな二日間です。</p>
+
+      <div class="hero-foot">
+        <span class="mon" aria-hidden="true">
+          <svg viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-linecap="round">
+            <circle cx="60" cy="60" r="57" stroke-width="1.5"/>
+            <circle cx="60" cy="60" r="51.5" stroke-width="0.75"/>
+            <circle cx="60" cy="42.5" r="9.5" stroke-width="1.5"/>
+            <line x1="30" y1="60.5" x2="46.5" y2="60.5" stroke-width="1.1"/>
+            <line x1="73.5" y1="60.5" x2="90" y2="60.5" stroke-width="1.1"/>
+            <path d="M35 78 Q60 66 85 78" stroke-width="1.5"/>
+            <path d="M44 88 Q60 81 76 88" stroke-width="0.9"/>
+          </svg>
+        </span>
+        <div class="hero-foot-texts">
+          <span class="hero-foot-ja">旅と、暮らしのあいだで。</span>
+          <span class="hero-foot-en">Living Tourism</span>
+        </div>
+      </div>
+    </div>
+
+    <figure class="hero-photo">
+      <img src="../images/hero_setouchi.jpg" alt="走島の浜辺。瀬戸内の穏やかな海と島影を、ひとり座って眺めている">
+      <figcaption class="hero-chip">
+        <span class="en nb">Hashirijima, Setouchi</span>
+        <span class="ja nb">走島の浜辺から、海と島影を眺める</span>
+      </figcaption>
+    </figure>
+
+  </div>
+
+  <!-- ブルーの日付帯（全幅） -->
+  <div class="hero-band">
+    <div class="shell hero-band-inner">
+      <span class="hero-band-num">11.21<span class="dow nb">土</span> – 22<span class="dow nb">日</span></span>
+      <span class="hero-band-time nb">12:30<span class="ja">集合</span> – 16:00<span class="ja">解散</span></span>
+      <span class="hero-band-meta">
+        <span class="en nb">Tomonoura &amp; Hashirijima</span>
+        <span class="nb">広島県福山市・鞆の浦</span>
+        <span class="nb">1泊2日・定員10名</span>
+      </span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== イベント要点 ===== -->
+<section class="summary">
+  <div class="shell">
+    <dl class="summary-grid">
+      <div class="summary-cell">
+        <dt class="summary-label"><span class="en">Dates</span><span class="ja">日程</span></dt>
+        <dd class="summary-value">2026年11月21日（土）12:30 集合<br>〜11月22日（日）16:00 解散<small>事前オンライン → 現地1泊2日 → 事後オンラインの3ステップ</small></dd>
+      </div>
+      <div class="summary-cell">
+        <dt class="summary-label"><span class="en">Place</span><span class="ja">集合・解散</span></dt>
+        <dd class="summary-value">広島県福山市 鞆の浦「ありそろう」<small>1泊は走島の一棟貸し宿「KAI」に泊まります</small></dd>
+      </div>
+      <div class="summary-cell">
+        <dt class="summary-label"><span class="en">Seats</span><span class="ja">定員</span></dt>
+        <dd class="summary-value">10名<small>旅が好きな20〜30代を中心に、どなたでもご参加いただけます</small></dd>
+      </div>
+      <div class="summary-cell">
+        <dt class="summary-label"><span class="en">Fee</span><span class="ja">参加費</span></dt>
+        <dd class="summary-value">20,000円<small>POOLO生は17,000円。別途、宿泊・食事等 15,000円を現地で回収します</small></dd>
+      </div>
+    </dl>
+    <p class="summary-note">申込締切：2026年10月30日（金）／主催：あたらしい旅の学校 POOLO・合同会社コト暮らし</p>
+  </div>
+</section>
+
+</body>
+</html>

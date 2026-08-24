@@ -98,6 +98,7 @@ group はカタログの `@dsCard group="…"` と対応。
 | `.hero` / `.hero-grid` / `.hero-copy` / `.hero-photo` / `.hero-chip` | 写真ドリブンHero（左コピー＋右裁ち落とし写真） | Hero |
 | `.hero-eyebrow` / `.hero-title`(.t-sm/.t-lg .em) / `.hero-lead` / `.hero-foot` | Hero内のコピー要素（見出しは明朝、強調語だけブルー） | Hero |
 | `.hero-band` / `.hero-band-num`(.dow) / `.hero-band-time` / `.hero-band-meta` | ブルーの全幅日付帯 | Hero |
+| `.step-band` / `.step-band-head` / `.step-cell` / `.step-no` / `.step-title` / `.step-desc` | プログラム要約帯（日付帯の直下。3ステップを横並びで先に見せる） | Hero |
 | `.sec` / `.sec-inner` / `.sec-spine` / `.sec-num`(.ja/.small) / `.sec-en` / `.sec-title` / `.sec-lead` | セクション枠＋非対称スパイン（連番／和文ラベル＋明朝見出し） | Sections |
 | `.intro-body` / `.intro-break` / `.quoted` | 導入本文＋一言ブレイク＋引用色 | Sections |
 | `.flow-list` / `.flow-item` / `.flow-time` / `.flow-title` / `.flow-desc` | 当日の流れ（4フェーズ・時刻＋タイトル＋説明） | Sections |
@@ -108,11 +109,17 @@ group はカタログの `@dsCard group="…"` と対応。
 | `.voice-list` / `.voice-item` / `.voice-quote`(.vq-mark) / `.voice-attr` / `.voice-note` | 参加者の声（引用＝明朝・属性＝Noto・掲載注記） | Content |
 | `.about` / `.about-inner` / `.about-title` / `.about-text` / `.about-figs` / `.about-fig` | About POOLO（企画者・信頼の小コーナー） | Content |
 | `.faq-list` / `.faq-item` / `.faq-q`(.m) / `.faq-a`(.m) | FAQ（Q/A ヘアライン区切り） | Content |
+| `.program-steps` / `.program-step`(.is-main) / `.ps-num` / `.ps-tag`(.is-quiet) / `.ps-title` / `.ps-desc` / `.ps-meta` | プログラムの3ステップ（事前→現地→事後のような、前後を含む一連の流れ。主役の回は `.is-main`） | Sections |
+| `.point-list` / `.point-item` / `.point-num`(.no) / `.point-title` / `.point-desc` | 体験の要点（「この体験で得られる4つのこと」を2列で） | Sections |
+| `.ba-flow` / `.ba-col`(--after) / `.ba-label`(.en) / `.ba-items` / `.ba-arrow` | 旅の前と後（Before → After。成果を約束せず変化の幅を示す） | Sections |
+| `.day-block` / `.day-head` / `.day-num` / `.day-date` / `.day-note` | 日別の見出し（複数日のスケジュールで `.flow-list` の直前に置く） | Sections |
+| `.people-list` / `.person` / `.person-photo`(.is-empty) / `.person-role` / `.person-name`(.ruby) / `.person-bio` / `.person-links` | 出会う人・登壇者（写真＋肩書＋名前＋略歴＋外部リンク。未入稿は `.is-empty`） | Content |
+| `.fee-grid` / `.fee-card`(--sub) / `.fee-label` / `.fee-price` / `.fee-note` / `.fee-add` / `.fee-foot` | 参加費（プログラム参加費と現地実費を分けて示す。合算を主役にしない） | Application |
 | `.date-list` / `.date-item`(.is-special) / `.date-no` / `.date-when`(.dow/.time) / `.date-what` / `.date-note` | 開催日程一覧（複数回の講座・ゼミ。別日程の回は `.is-special`） | Application |
 | `.fit-grid` / `.fit-col`(--yes/--no) / `.fit-head`(.en) / `.fit-items` | 向き・不向き（こんな方へ／今回は向かないかも の2カラム） | Application |
 | `.apply-steps` / `.apply-step` / `.apply-step-num` / `.apply-step-title` / `.apply-step-desc` | 申込ステップ（申込→受講開始までの4手順） | Application |
 | `.terms-list` / `.terms-row` / `.terms-k` / `.terms-v` | 募集要項（締切・支払い・キャンセルポリシー） | Application |
-| `.cta` / `.cta-inner` / `.cta-en` / `.cta-title` / `.cta-btn` / `.cta-note` | 中間・最終CTA（ブルーのベタ面＋白ボタン） | CTA |
+| `.cta` / `.cta-inner` / `.cta-en` / `.cta-title` / `.cta-lead` / `.cta-btn` / `.cta-note` | 中間・最終CTA（ブルーのベタ面＋白ボタン。`.cta-lead` は最終CTAのクロージング文） | CTA |
 | `.float-apply` / `.fa-inner` / `.fa-texts`(.fa-main/.fa-sub) / `.fa-btn` | 追従CTA（`.is-visible` で出現・要JS） | CTA |
 | `.footer` / `.footer-top` / `.footer-marks` / `.footer-bottom` / `.footer-copy` | フッター（家紋＋2社ロゴ＋コピーライト） | Meta |
 

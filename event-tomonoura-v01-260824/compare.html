@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>ヒーロー3案の比較｜鞆の浦・走島 LP｜POOLO × コト暮らし</title>
+<link rel="stylesheet" href="../poolo-ds/tokens.css">
+<link rel="stylesheet" href="../poolo-ds/components.css">
+<style>
+/* 比較ページ専用の枠（DSには含めない） */
+.cmp-hero { background: var(--brand); color: var(--on-brand); padding: clamp(48px,8vh,76px) var(--shell-pad) clamp(38px,6vh,56px); }
+.cmp-hero-inner { max-width: var(--shell-max); margin-inline: auto; }
+.cmp-eyebrow { font-family: var(--en); font-size: 11px; font-weight: 500; letter-spacing: 0.42em; text-transform: uppercase; color: var(--on-brand-92); margin-bottom: 20px; }
+.cmp-hero h1 { font-family: var(--mincho); font-weight: 900; font-feature-settings: "palt"; font-size: clamp(26px,4.2vw,44px); letter-spacing: 0.06em; line-height: 1.55; margin-bottom: 18px; }
+.cmp-hero p { font-family: var(--body); font-size: 13.5px; line-height: 2.05; letter-spacing: 0.06em; color: var(--on-brand-88); max-width: 46em; }
+.cmp-wrap { max-width: 1240px; margin-inline: auto; padding: clamp(44px,6vh,68px) var(--shell-pad) 100px; }
+.cmp-block { margin-bottom: clamp(52px,7vw,84px); }
+.cmp-head { display: flex; align-items: baseline; flex-wrap: wrap; gap: 16px; border-bottom: 1px solid var(--ink); padding-bottom: 12px; margin-bottom: 18px; }
+.cmp-key { font-family: var(--en); font-size: 26px; font-weight: 600; letter-spacing: 0.1em; color: var(--brand); line-height: 1; }
+.cmp-name { font-family: var(--mincho); font-size: clamp(19px,2.4vw,24px); font-weight: 700; letter-spacing: 0.09em; color: var(--ink); }
+.cmp-badge { font-family: var(--head); font-size: 10.5px; font-weight: 700; letter-spacing: 0.16em; color: var(--on-brand); background: var(--brand); border-radius: var(--radius); padding: 4px 10px; }
+.cmp-open { margin-left: auto; font-family: var(--head); font-size: 12.5px; font-weight: 700; letter-spacing: 0.08em; color: var(--brand-deep); border-bottom: 1px solid var(--brand); padding-bottom: 2px; }
+.cmp-note { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: clamp(16px,2.4vw,30px); margin-bottom: 22px; }
+.cmp-note dt { font-family: var(--head); font-size: 11px; font-weight: 700; letter-spacing: 0.18em; color: var(--brand); margin-bottom: 7px; }
+.cmp-note dd { font-size: 12.5px; line-height: 1.95; letter-spacing: 0.06em; color: var(--ink-72); }
+.cmp-frame { border: 1px solid var(--line); background: var(--bg-off); }
+.cmp-frame iframe { width: 100%; height: 820px; border: 0; display: block; background: var(--bg); }
+.cmp-verdict { background: var(--brand-pale); padding: clamp(26px,3.4vw,38px); border-top: 3px solid var(--brand); }
+.cmp-verdict h2 { font-family: var(--mincho); font-size: clamp(20px,2.6vw,26px); font-weight: 700; letter-spacing: 0.08em; line-height: 1.7; color: var(--ink); margin-bottom: 16px; }
+.cmp-verdict p { font-size: 13.5px; line-height: 2.05; letter-spacing: 0.06em; color: var(--ink-72); max-width: 52em; }
+.cmp-verdict p + p { margin-top: 12px; }
+.cmp-verdict strong { color: var(--ink); font-weight: 700; }
+@media (max-width: 860px) {
+  .cmp-note { grid-template-columns: 1fr; gap: 14px; }
+  .cmp-frame iframe { height: 620px; }
+  .cmp-open { margin-left: 0; width: 100%; }
+}
+</style>
+</head>
+<body>
+
+<section class="cmp-hero">
+  <div class="cmp-hero-inner">
+    <div class="cmp-eyebrow">Hero Variants — A / B / C</div>
+    <h1>ファーストビュー、3案。</h1>
+    <p>鞆の浦・走島 1泊2日「瀬戸内海の暮らしから、これからのキャリアを考える。」のLP。ファーストビューだけを3通りの狙いで実装し、横並びで比較できるようにしました。3案とも poolo-ds（tokens.css / components.css）を参照して組んでおり、色・書体・余白はブランド基準のままです。差がついているのは、<strong>何を最初に差し出すか</strong>だけです。</p>
+  </div>
+</section>
+
+<div class="cmp-wrap">
+
+  <!-- 案A -->
+  <div class="cmp-block">
+    <div class="cmp-head">
+      <span class="cmp-key">A</span>
+      <span class="cmp-name">問い訴求</span>
+      <a class="cmp-open" href="hero-variants/hero-a.html" target="_blank" rel="noopener">単体で開く ↗</a>
+    </div>
+    <dl class="cmp-note">
+      <div>
+        <dt>狙い</dt>
+        <dd>風景より先に、読み手の状態を言い当てにいく。h1を「このままで、いいんだっけ。」にして、旅の告知ではなく問いの提示として組む。</dd>
+      </div>
+      <div>
+        <dt>効きそうなところ</dt>
+        <dd>「今の仕事が嫌なわけではないが、このままでいいのか」という層に、最初の1秒で刺さる。SNSからの流入で離脱を止める力は3案でいちばん強い。</dd>
+      </div>
+      <div>
+        <dt>トレードオフ</dt>
+        <dd>依頼書で決まっているメインタイトル「瀬戸内海の暮らしから、これからのキャリアを考える。」がh1から降りる。何の会なのかは、スクロールしないと分からない。</dd>
+      </div>
+    </dl>
+    <div class="cmp-frame"><iframe src="hero-variants/hero-a.html" title="案A：問い訴求" loading="lazy"></iframe></div>
+  </div>
+
+  <!-- 案B -->
+  <div class="cmp-block">
+    <div class="cmp-head">
+      <span class="cmp-key">B</span>
+      <span class="cmp-name">情緒・余白</span>
+      <a class="cmp-open" href="hero-variants/hero-b.html" target="_blank" rel="noopener">単体で開く ↗</a>
+    </div>
+    <dl class="cmp-note">
+      <div>
+        <dt>狙い</dt>
+        <dd>説得ではなく「間」。見出しを3行に縦積みして級数を上げ、写真の面積を最大化する。読み手の身体が先に反応する状態をつくる。</dd>
+      </div>
+      <div>
+        <dt>効きそうなところ</dt>
+        <dd>POOLOの世界観がいちばん濃く出る。写真が良ければ強い。「行ってみたい」が理屈より先に来るタイプの読み手には効く。</dd>
+      </div>
+      <div>
+        <dt>トレードオフ</dt>
+        <dd>写真の質にページの説得力が乗る。いまは暫定写真なので、真価は差し替え後にしか分からない。また、事実（3ステップ・出会う人）は下までスクロールしないと出てこない。</dd>
+      </div>
+    </dl>
+    <div class="cmp-frame"><iframe src="hero-variants/hero-b.html" title="案B：情緒・余白" loading="lazy"></iframe></div>
+  </div>
+
+  <!-- 案C -->
+  <div class="cmp-block">
+    <div class="cmp-head">
+      <span class="cmp-key">C</span>
+      <span class="cmp-name">事実・信頼</span>
+      <span class="cmp-badge">推奨</span>
+      <a class="cmp-open" href="hero-variants/hero-c.html" target="_blank" rel="noopener">単体で開く ↗</a>
+    </div>
+    <dl class="cmp-note">
+      <div>
+        <dt>狙い</dt>
+        <dd>この企画の2大特徴——「1泊2日ではなく3ステップ」「実際にそこで暮らし働く人に会える」——をファーストビューのうちに見せきる。日付帯の直下に3ステップの横並び帯を置く。</dd>
+      </div>
+      <div>
+        <dt>効きそうなところ</dt>
+        <dd>依頼書が「必ず3ステップとして見せてほしい」「情報は迷わない構成に」と明記している要件を、スクロールなしで満たす。定員10名・有料という条件では、判断材料が早いほど申込につながりやすい。</dd>
+      </div>
+      <div>
+        <dt>トレードオフ</dt>
+        <dd>情報量が多く、余白は3案でいちばん少ない。詰め込みすぎると「説明的なページ」に寄るので、コピーの静けさで支える必要がある。</dd>
+      </div>
+    </dl>
+    <div class="cmp-frame"><iframe src="hero-variants/hero-c.html" title="案C：事実・信頼" loading="lazy"></iframe></div>
+  </div>
+
+  <div class="cmp-verdict">
+    <h2>推奨：案C（事実・信頼）をベースに、案Aのコピーを本文へ回す。</h2>
+    <p>3案のうち、<strong>案Cを推します</strong>。理由は2つです。ひとつは、依頼書が「事前・現地・事後をひとつの体験として必ず見せる」ことを、この企画の価値の大きな部分だと明言していること。案Cはそれをファーストビューで果たします。もうひとつは、メインタイトルが依頼書で確定していること。案Aはh1を問いに差し替える構成なので、決まったタイトルが主役から降りてしまいます。</p>
+    <p>ただし、案Aが書いた問いのコピーは捨てるにはもったいないので、<strong>LP本体では2番目のセクション「こんなことを、考えることはありませんか。」に回して</strong>います。ファーストビューで事実を渡し、その直後に問いで引き込む——という順序です。案Bの「写真を大きく、文字を少なく」という判断は、鞆の浦の写真が入稿されたタイミングで再検討する価値があります。</p>
+    <p>採用済みのLP本体は <a href="index.html" style="color:var(--brand-deep);border-bottom:1px solid var(--brand);">index.html</a>、制作の背景・調査・仕様は <a href="review.html" style="color:var(--brand-deep);border-bottom:1px solid var(--brand);">review.html</a> にまとめています。案A・案Bに切り替えたい場合、差し替えるのは <code>&lt;section class="hero"&gt;</code> ブロックだけで済みます。</p>
+  </div>
+
+</div>
+
+</body>
+</html>

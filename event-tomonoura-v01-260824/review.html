@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>制作レビュー｜鞆の浦・走島 LP｜POOLO × コト暮らし</title>
+<link rel="stylesheet" href="../poolo-ds/tokens.css">
+<link rel="stylesheet" href="../poolo-ds/components.css">
+<style>
+/* レビューページ専用の枠（DSには含めない） */
+.rv-hero { background: var(--brand); color: var(--on-brand); padding: clamp(48px,8vh,80px) var(--shell-pad) clamp(38px,6vh,58px); }
+.rv-inner { max-width: 1080px; margin-inline: auto; }
+.rv-eyebrow { font-family: var(--en); font-size: 11px; font-weight: 500; letter-spacing: 0.42em; text-transform: uppercase; color: var(--on-brand-92); margin-bottom: 20px; }
+.rv-hero h1 { font-family: var(--mincho); font-weight: 900; font-feature-settings: "palt"; font-size: clamp(26px,4.2vw,44px); letter-spacing: 0.06em; line-height: 1.55; margin-bottom: 18px; }
+.rv-hero p { font-family: var(--body); font-size: 13.5px; line-height: 2.05; letter-spacing: 0.06em; color: var(--on-brand-88); max-width: 46em; }
+.rv-links { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+.rv-links a { font-family: var(--head); font-size: 12.5px; font-weight: 700; letter-spacing: 0.08em; color: var(--brand-deep); background: var(--bg); border-radius: var(--radius); padding: 10px 18px; transition: opacity var(--trans-fast); }
+.rv-links a:hover { opacity: 0.82; }
+
+.rv-wrap { max-width: 1080px; margin-inline: auto; padding: 0 var(--shell-pad) 110px; }
+.rv-sec { padding-top: clamp(48px,7vh,78px); }
+.rv-sec-head { display: flex; align-items: baseline; gap: 16px; border-bottom: 1px solid var(--ink); padding-bottom: 12px; margin-bottom: 26px; }
+.rv-sec-num { font-family: var(--en); font-size: 13px; font-weight: 600; letter-spacing: 0.24em; color: var(--brand); }
+.rv-sec-head h2 { font-family: var(--mincho); font-size: clamp(20px,2.6vw,27px); font-weight: 700; letter-spacing: 0.09em; color: var(--ink); }
+.rv-body p { font-size: 13.5px; line-height: 2.05; letter-spacing: 0.06em; color: var(--ink-72); max-width: 52em; }
+.rv-body p + p { margin-top: 13px; }
+.rv-body strong { color: var(--ink); font-weight: 700; }
+.rv-body a { color: var(--brand-deep); border-bottom: 1px solid var(--brand); }
+.rv-quote { font-family: var(--mincho); font-size: clamp(16px,2vw,19px); font-weight: 700; letter-spacing: 0.07em; line-height: 1.95; color: var(--brand-deep); border-left: 3px solid var(--brand); padding: 4px 0 4px 20px; margin: 22px 0; max-width: 44em; }
+
+.rv-table { width: 100%; border-collapse: collapse; border-top: 1px solid var(--ink); font-size: 12.5px; }
+.rv-table th, .rv-table td { text-align: left; vertical-align: top; padding: 13px 14px 13px 0; border-bottom: 1px solid var(--line); line-height: 1.9; letter-spacing: 0.05em; }
+.rv-table th { font-family: var(--head); font-weight: 700; color: var(--ink); white-space: nowrap; }
+.rv-table td { color: var(--ink-72); }
+.rv-table td code, .rv-body code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 11.5px; color: var(--brand-deep); background: var(--bg-off); border: 1px solid var(--line); border-radius: var(--radius); padding: 1px 5px; }
+.rv-table .ok { color: var(--brand-deep); font-weight: 700; }
+
+.rv-cards { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: clamp(16px,2.4vw,26px); }
+.rv-card { border: 1px solid var(--line); border-top: 3px solid var(--brand); padding: clamp(18px,2.4vw,24px); }
+.rv-card--warn { border-top-color: #C8892E; }
+.rv-card h3 { font-family: var(--head); font-size: 13.5px; font-weight: 700; letter-spacing: 0.08em; color: var(--ink); margin-bottom: 10px; }
+.rv-card p, .rv-card li { font-size: 12.5px; line-height: 1.95; letter-spacing: 0.05em; color: var(--ink-72); }
+.rv-card ul { list-style: none; display: grid; gap: 7px; }
+.rv-card li { position: relative; padding-left: 1.3em; }
+.rv-card li::before { content: '―'; position: absolute; left: 0; color: var(--brand); font-family: var(--en); }
+
+.rv-check { list-style: none; display: grid; gap: 10px; border-top: 1px solid var(--ink); padding-top: 18px; }
+.rv-check li { position: relative; padding-left: 2em; font-size: 13px; line-height: 1.95; letter-spacing: 0.05em; color: var(--ink-72); }
+.rv-check li::before { content: '☐'; position: absolute; left: 0; top: 0; color: var(--brand); font-size: 14px; }
+.rv-check strong { color: var(--ink); }
+
+.rv-srcs { list-style: none; display: grid; gap: 11px; }
+.rv-srcs li { font-size: 12.5px; line-height: 1.9; letter-spacing: 0.05em; color: var(--ink-72); padding-left: 1.4em; position: relative; }
+.rv-srcs li::before { content: '↗'; position: absolute; left: 0; color: var(--brand); font-family: var(--en); font-size: 11px; }
+.rv-srcs a { color: var(--brand-deep); border-bottom: 1px solid var(--brand); word-break: break-all; }
+
+@media (max-width: 720px) {
+  .rv-cards { grid-template-columns: 1fr; }
+  .rv-table, .rv-table tbody, .rv-table tr, .rv-table th, .rv-table td { display: block; width: 100%; }
+  .rv-table th { border-bottom: none; padding-bottom: 2px; }
+  .rv-table td { padding-top: 0; }
+}
+</style>
+</head>
+<body>
+
+<section class="rv-hero">
+  <div class="rv-inner">
+    <div class="rv-eyebrow">Design Review — Tomonoura / Hashirijima</div>
+    <h1>瀬戸内海の暮らしから、<br>これからのキャリアを考える。</h1>
+    <p>鞆の浦・走島 1泊2日「暮らし観光」LPの制作レビュー。なぜこの構成にしたのか、何を調べたのか、どの案を採ったのか、そして<strong>入稿待ちの項目はどれか</strong>を1枚にまとめています。2026年8月24日時点の版。</p>
+    <div class="rv-links">
+      <a href="index.html">LP本体を見る</a>
+      <a href="compare.html">ヒーロー3案の比較</a>
+      <a href="https://app.notion.com/p/LP-3c31a12d78298017b2a1d319b801cdd2" target="_blank" rel="noopener">元の依頼書（Notion） ↗</a>
+    </div>
+  </div>
+</section>
+
+<div class="rv-wrap">
+
+  <!-- 01 背景と狙い -->
+  <section class="rv-sec">
+    <div class="rv-sec-head"><span class="rv-sec-num">01</span><h2>この企画で、何を伝えるページなのか</h2></div>
+    <div class="rv-body">
+      <p>依頼書がいちばん強く求めているのは「イベント概要ページを作らないこと」でした。読んだ人が<strong>「これは自分のための企画かもしれない」→「なぜ鞆の浦・走島でキャリアを考えるのか分かった」→「この体験に参加してみたい」</strong>という順で気持ちが動くこと。つまり、情報の網羅ではなく順序の設計が本体です。</p>
+      <p>そして、ページ全体を貫くべき思想として、依頼書はこう書いています。</p>
+      <blockquote class="rv-quote">キャリアについて考えるとき、転職サイトを開いたり、自己分析をしたりするだけが方法ではない。知らない土地へ行き、自分とは違う暮らしをしている人と話す。「こんな生き方もあるんだ」と知ったとき、初めて見えてくる自分の価値観があるかもしれない。</blockquote>
+      <p>この一段落を、LPの<strong>Conceptのセクション（01）と最終CTA</strong>の2箇所に置き直しました。冒頭で「なぜ旅なのか」を答え、最後にもう一度、今度は行動の手前で思い出してもらう構造です。</p>
+    </div>
+  </section>
+
+  <!-- 02 守るべき制約 -->
+  <section class="rv-sec">
+    <div class="rv-sec-head"><span class="rv-sec-num">02</span><h2>依頼書の「やらないでほしい」を、どう守ったか</h2></div>
+    <div class="rv-body">
+      <p>この依頼書の特徴は、禁止事項がはっきり書かれていることでした。守り方を明示しておきます。</p>
+    </div>
+    <table class="rv-table">
+      <tbody>
+        <tr>
+          <th>キャリアの答えを約束しない</th>
+          <td>「やりたいことが見つかる」「キャリアが決まる」は一度も書いていません。Before→Afterのセクションでも、冒頭に<strong>「お約束はしません」</strong>と明記したうえで、依頼書のAfter像（＝「言葉になった」「考えたいことが分かった」）をそのまま並べています。</td>
+        </tr>
+        <tr>
+          <th>35,000円の旅行商品に見せない</th>
+          <td>参加費は<code>.fee-grid</code>で <strong>20,000円／17,000円</strong> を主役として置き、宿泊・食事等の15,000円は<code>.fee-add</code>という別の面（現地でお支払いいただくもの）に分離しました。合算金額はページ内のどこにも書いていません。</td>
+        </tr>
+        <tr>
+          <th>3ステップとして見せる</th>
+          <td>2箇所で見せています。ファーストビュー直下の<code>.step-band</code>（横並びの要約帯）で先に構造を伝え、本文の<code>.program-steps</code>（縦フロー・STEP2だけ淡ブルー面）で詳細を展開します。「1泊2日だけでは、ありません。」を見出しに立てました。</td>
+        </tr>
+        <tr>
+          <th>「なぜ鞆の浦？」を必ず説明</th>
+          <td>独立セクション（02 Why Tomonoura）を立て、「<strong>けれど、理由は景色ではありません。</strong>」で一度切ってから、その土地に暮らす人に会える距離感の話に入る構成にしました。</td>
+        </tr>
+        <tr>
+          <th>旅行会社・自己啓発・情報商材のトーン禁止</th>
+          <td>「絶景」「満喫」「人気観光地」「今すぐ」「残りわずか」「人生が変わる」「市場価値」は不使用。CTAも命令形にせず「気になった方は、お早めに。」に留めています。</td>
+        </tr>
+        <tr>
+          <th>推測で埋めない</th>
+          <td>事実が与えられていない箇所は <code>[要確認：〜]</code> のままページ上に残しています（下の <a href="#todo">05 入稿・確認待ち</a> に一覧）。FAQの「現地までのアクセス」「雨天時」は、一般的な情報で埋めることもできましたが、依頼書の指示どおり空けています。</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- 03 調査 -->
+  <section class="rv-sec">
+    <div class="rv-sec-head"><span class="rv-sec-num">03</span><h2>調べたこと（出典つき）</h2></div>
+    <div class="rv-body">
+      <p>「暮らし観光」はLPで初めてこの言葉に触れる人にも伝わる必要があるため、長田さん自身の定義にあたりました。長田さんはnoteで、暮らし観光を<strong>「暮らしを体感する観光のあり方」「まちに当たり前にある『暮らし』を感じれる体験をベースにして、まちの人や日常の流れを感じ、些細なところにある豊かさを見つける観光」</strong>と説明しています。従来の観光との違いは「観光事業者と地元民がお互い他人事」という分断への問題意識にあり、目指すのは「消費的な関わりではなく、共に価値を生み出していく共創的な関係」。</p>
+      <p>また、鞆の浦というまちの性格についても、<strong>年間200万人が訪れる観光地でありながら「昔ながらの地域の付き合いや文化が色濃く残っていて、おせっかいな人もたくさんいて」「異様に高いシビックプライド」を持つ</strong>と書かれています。LPの04セクションで「まちを歩けば、話しかけられる。商店の人と立ち話が始まる」と書いたのは、この記述が根拠です。</p>
+      <p>競合ジャンルとしては「地域 × キャリア」の合宿型プログラム（ローカルキャリア等）がありますが、それらは<strong>スキル習得や移住・転職を出口に置く</strong>のが定型でした。今回は出口を用意しない——「考えたいことの輪郭が見える」で止める——ことがむしろ差別化になります。LPでも、他社が置きがちな「実績」「卒業後の進路」のセクションは意図的に作っていません。</p>
+      <ul class="rv-srcs">
+        <li><a href="https://note.com/nagataryo76/n/n9c4131aca559" target="_blank" rel="noopener">「暮らし観光」とは？僕らが鞆の浦でやりたいこと｜長田 涼（note）</a></li>
+        <li><a href="https://note.com/nagataryo76/n/n66b9dcb441dc" target="_blank" rel="noopener">鞆の浦「暮らし観光」の現在｜長田 涼（note）</a></li>
+        <li><a href="https://greenz.jp/2024/09/10/local-kaigyo-college_nagata/" target="_blank" rel="noopener">自分の生き方を表現する商いを始める。広島・鞆の浦の長田夫妻が「ローカル開業」で見つけた自分たちの生き方（greenz.jp）</a></li>
+        <li><a href="https://localcareer.jp/" target="_blank" rel="noopener">ローカルキャリア（比較対象として参照）</a></li>
+        <li><a href="https://setouchi-hotel-kai.com/" target="_blank" rel="noopener">バケーションレンタルホテルKAI（宿泊先）</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 04 案と選択 -->
+  <section class="rv-sec">
+    <div class="rv-sec-head"><span class="rv-sec-num">04</span><h2>ファーストビュー3案と、採った案</h2></div>
+    <div class="rv-body">
+      <p>ファーストビューだけを3通りの狙いで実装し、比較しました（→ <a href="compare.html">3案の比較ページ</a>）。3案とも poolo-ds を参照しているので、差がついているのは「何を最初に差し出すか」だけです。</p>
+    </div>
+    <div class="rv-cards" style="margin-top:20px;">
+      <div class="rv-card">
+        <h3>A｜問い訴求</h3>
+        <p>h1を「このままで、いいんだっけ。」にして、読み手の状態から入る。刺さりは最も強いが、依頼書で確定しているメインタイトルがh1から降りる。</p>
+      </div>
+      <div class="rv-card">
+        <h3>B｜情緒・余白</h3>
+        <p>見出しを3行に縦積みし、写真面積を最大化。世界観は濃いが、写真の質にページの説得力が乗る。事実は下までスクロールしないと出てこない。</p>
+      </div>
+      <div class="rv-card">
+        <h3 style="color:var(--brand-deep);">C｜事実・信頼（採用）</h3>
+        <p>「3ステップである」「その土地で暮らし働く人に会える」をファーストビューで見せきる。依頼書の必須要件を、スクロールなしで満たせる。</p>
+      </div>
+      <div class="rv-card rv-card--warn">
+        <h3>採用の仕方</h3>
+        <p>Cをベースに、Aが書いた問いのコピーは<strong>2番目のセクション</strong>へ回しました。事実を先に渡し、直後に問いで引き込む順序です。案A・Bへの切替は<code>&lt;section class="hero"&gt;</code>の差し替えだけで済みます。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 05 要確認 -->
+  <section class="rv-sec" id="todo">
+    <div class="rv-sec-head"><span class="rv-sec-num">05</span><h2>入稿・確認待ちの項目</h2></div>
+    <div class="rv-body">
+      <p>推測で埋めず、ページ上に <code>[要確認]</code> として残してあります。埋まり次第、該当箇所だけ差し替えれば公開できます。</p>
+    </div>
+    <table class="rv-table">
+      <tbody>
+        <tr><th>申込フォームURL</th><td>ヘッダー／追従CTA／中間CTA／最終CTAの<strong>4つのボタン</strong>が <code>href="#"</code> のダミーです。開催概要の「申込方法」にもURLの記載欄があります。Googleフォームができ次第、まとめて差し替えます。</td></tr>
+        <tr><th>事前・事後オンラインの日時</th><td>3ステップのセクションと開催概要で <code>[要確認：後日決定]</code>。</td></tr>
+        <tr><th>鞆の浦の写真</th><td>ヒーローと写真ブレイク1が、いまは<strong>走島の浜辺／宿KAIの写真</strong>で暫定です。まち並み・路地・商店の写真が入ると、04「なぜ鞆の浦・走島なのか」の説得力が一段上がります。</td></tr>
+        <tr><th>ヒーローに人物が写ることの可否</th><td>暫定のヒーロー写真には濱上さんご本人が大きく写っています。差し替え前提ですが、このまま使う場合はご本人確認が必要です。</td></tr>
+        <tr><th>西原由弥佳さんの写真・プロフィール</th><td>「今回出会う人たち」で<code>.person-photo.is-empty</code>のプレースホルダにしています。依頼書に「登壇者・プロフィールは後日追加」とあるため、当日の登壇者名も未確定として扱っています。スタジオのWebサイトURLも未取得。</td></tr>
+        <tr><th>お名前の表記</th><td>依頼書内で「浜上さん」と「濱上 京大」が混在しています。LPでは<strong>「濱上 京大（はまがみ きょうた）」</strong>で統一しました。ご本人の表記に合わせて要確認。</td></tr>
+        <tr><th>宿の部屋割り</th><td>一棟貸しのため相部屋か個室かが読み取れず、FAQと開催概要で <code>[要確認]</code>。申込の意思決定に直結するので、優先度は高めです。</td></tr>
+        <tr><th>現地までのアクセス</th><td>FAQで空欄。最寄り駅からの所要時間と、推奨の到着便（12:30集合に間に合う便）を書けると親切です。</td></tr>
+        <tr><th>雨天・欠航時の扱い</th><td>FAQで空欄。船で島へ渡るため、欠航時の代替は明記しておきたい項目です。</td></tr>
+        <tr><th>事前・事後オンラインの必須／任意</th><td>「参加を前提としています」と書いたうえで、やむを得ず参加できない場合の扱い（録画共有の有無など）を <code>[要確認]</code>。</td></tr>
+        <tr><th>POOLO生の定義</th><td>17,000円の対象が在籍生のみか卒業生も含むかが未記載のため <code>[要確認]</code>。</td></tr>
+        <tr><th>各プログラムの時刻</th><td>依頼書に時刻の記載があるのは12:30集合と16:00解散のみ。スケジュールは「午後／夕方／夜／朝」の粒度で組み、詳細は後日確定としています。</td></tr>
+        <tr><th>OG画像</th><td>未作成。いまはヒーロー写真をOGに指定しています。公開前に <code>images/og.png</code>（2400×1260）を用意して差し替えます。</td></tr>
+        <tr><th>コト暮らしのロゴ</th><td>フッターはPOOLO＋TABIPPOのロゴのみ。共催なので、コト暮らしのロゴをいただければ並べられます（いまはテキスト表記）。</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- 06 仕様 -->
+  <section class="rv-sec">
+    <div class="rv-sec-head"><span class="rv-sec-num">06</span><h2>ページ仕様（セクションと使用コンポーネント）</h2></div>
+    <table class="rv-table">
+      <thead>
+        <tr><th style="width:9em;">セクション</th><th>内容</th><th style="width:16em;">使用コンポーネント</th></tr>
+      </thead>
+      <tbody>
+        <tr><th>ファーストビュー</th><td>タイトル／サブタイトル／写真／日付帯</td><td><code>.hero</code> <code>.hero-band</code></td></tr>
+        <tr><th>3ステップ帯</th><td>事前→現地→事後を先に見せる</td><td><code>.step-band</code> <span class="ok">新規</span></td></tr>
+        <tr><th>イベント要点</th><td>日程／集合・解散／定員／参加費</td><td><code>.summary</code></td></tr>
+        <tr><th>02 問い</th><td>こんなことを、考えることはありませんか。</td><td><code>.sec-questions</code> <code>.q-list</code></td></tr>
+        <tr><th>01 Concept</th><td>なぜ旅でキャリアを考えるのか</td><td><code>.intro-body</code> <code>.intro-break</code></td></tr>
+        <tr><th>02 Why</th><td>なぜ、鞆の浦・走島なのか</td><td><code>.intro-body</code> <code>.photo-break</code></td></tr>
+        <tr><th>暮らし観光</th><td>初見の人向けの説明</td><td><code>.sec-questions</code> <code>.intro-body</code></td></tr>
+        <tr><th>03 Program</th><td>3ステップの詳細</td><td><code>.program-steps</code> <span class="ok">新規</span></td></tr>
+        <tr><th>04 Points</th><td>体験する4つのこと</td><td><code>.point-list</code> <span class="ok">新規</span></td></tr>
+        <tr><th>人 People</th><td>長田さん／濱上さん／西原さん</td><td><code>.people-list</code> <span class="ok">新規</span></td></tr>
+        <tr><th>05 Timetable</th><td>DAY1／DAY2のスケジュール</td><td><code>.day-block</code> <span class="ok">新規</span> ＋ <code>.flow-list</code></td></tr>
+        <tr><th>06 After</th><td>持ち帰ってほしいもの（Before→After）</td><td><code>.ba-flow</code> <span class="ok">新規</span></td></tr>
+        <tr><th>向き・不向き</th><td>こんな人におすすめ／向かないかも</td><td><code>.fit-grid</code></td></tr>
+        <tr><th>POOLO × コト暮らし</th><td>なぜこの2者で行うのか</td><td><code>.about</code></td></tr>
+        <tr><th>07 Details</th><td>開催概要／参加費／費用の内訳</td><td><code>.terms-list</code> <code>.fee-grid</code> <span class="ok">新規</span> <code>.fit-grid</code></td></tr>
+        <tr><th>FAQ</th><td>9問（うち3問は[要確認]）</td><td><code>.faq-list</code></td></tr>
+        <tr><th>CTA</th><td>中間＋最終＋追従</td><td><code>.cta</code> <code>.cta-lead</code> <span class="ok">新規</span> <code>.float-apply</code></td></tr>
+      </tbody>
+    </table>
+    <div class="rv-body" style="margin-top:22px;">
+      <p><strong>依頼書の推奨構成から変えた点がひとつあります。</strong>依頼書では「02 こんなことを考えることはありませんか？ → 03 コンセプト」の順ですが、その手前にファーストビュー直下の3ステップ帯を足しました。定員10名・有料・遠方という条件では、「何をする会なのか」を先に渡したほうが、モヤモヤの描写が読まれやすくなると判断したためです。不要であれば<code>.step-band</code>のブロックを削除するだけで依頼書どおりの並びに戻ります。</p>
+      <p>また、「こんな人におすすめ」には依頼書にない<strong>「今回は、向かないかもしれません」の列</strong>を追加しました。答えを約束しない企画なので、期待値がずれた方の申込を先に減らすほうが、当日の場が守られると考えたためです。こちらも不要なら片方の<code>.fit-col</code>を削るだけです。</p>
+    </div>
+  </section>
+
+  <!-- 07 デザインシステムへの還元 -->
+  <section class="rv-sec">
+    <div class="rv-sec-head"><span class="rv-sec-num">07</span><h2>デザインシステム（poolo-ds）へ還元したもの</h2></div>
+    <div class="rv-body">
+      <p>このLPで必要になった新しいパーツは、ページに書きっぱなしにせず <code>poolo-ds</code> 側へ入れました。<code>components.css</code>・カタログ（<code>index.html</code>の<code>@dsCard</code>）・<code>README.md</code>の3点セットを更新済みです。次に別のイベントページを作るときも、同じマークアップを写して使えます。</p>
+    </div>
+    <div class="rv-cards" style="margin-top:20px;">
+      <div class="rv-card">
+        <h3>新規コンポーネント（7つ）</h3>
+        <ul>
+          <li><code>.step-band</code>／日付帯直下の3ステップ要約帯</li>
+          <li><code>.program-steps</code>／前後を含む一連のプログラムの縦フロー</li>
+          <li><code>.people-list</code>／登壇者・出会う人（写真未入稿の<code>.is-empty</code>付き）</li>
+          <li><code>.point-list</code>／体験の要点を2列で</li>
+          <li><code>.ba-flow</code>／Before → After</li>
+          <li><code>.day-block</code>／複数日スケジュールの日別見出し</li>
+          <li><code>.fee-grid</code>／参加費と現地実費を分けて示す</li>
+        </ul>
+      </div>
+      <div class="rv-card rv-card--warn">
+        <h3>既存の不具合をひとつ直しました</h3>
+        <p><code>.pb-caption</code>（写真ブレイクのキャプション）に版面のインデントが無く、画面の左端に張り付いて見切れていました。写真と同じ側にインデントを合わせるよう<code>components.css</code>を修正しています。既存ページはこのキャプションを使っていなかったため、影響はありません。</p>
+        <p style="margin-top:10px;">あわせて、最終CTAのクロージング文用に<code>.cta-lead</code>を追加しました。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 08 公開前チェック -->
+  <section class="rv-sec">
+    <div class="rv-sec-head"><span class="rv-sec-num">08</span><h2>公開前のチェックリスト</h2></div>
+    <ul class="rv-check">
+      <li><strong>申込フォームURLを入れる</strong>（4つのボタン＋開催概要の「申込方法」欄）</li>
+      <li><strong><code>&lt;meta name="robots" content="noindex"&gt;</code> を外す</strong>（いまは確定前なので検索避けを入れています）</li>
+      <li>OG画像 <code>images/og.png</code>（2400×1260）を作成し、<code>og:image</code> と <code>twitter:image</code> を差し替える</li>
+      <li>鞆の浦の写真を入稿し、ヒーローと写真ブレイクを差し替える</li>
+      <li>西原さんの写真・プロフィールを入れ、<code>.is-empty</code> のプレースホルダを外す</li>
+      <li>お名前の表記（濱上／浜上）をご本人に確認する</li>
+      <li>FAQの <code>[要確認]</code> 3問（アクセス・雨天時・オンライン必須可否）を埋める</li>
+      <li>部屋割り・POOLO生の定義・オンライン回の日時を埋める</li>
+      <li>コト暮らしのロゴをフッターに追加する（いただけた場合）</li>
+      <li>長田さん・濱上さんに、掲載内容と写真の最終確認をとる</li>
+    </ul>
+  </section>
+
+</div>
+
+</body>
+</html>

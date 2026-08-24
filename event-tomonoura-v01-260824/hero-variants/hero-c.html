@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>瀬戸内海の暮らしから、これからのキャリアを考える。｜POOLO 鞆の浦・走島 1泊2日</title>
+<meta name="description" content="鞆の浦・走島で、さまざまな働き方と生き方に触れる1泊2日の暮らし観光。事前・事後のオンラインを合わせた3ステップのプログラム。2026年11月21日（土）〜22日（日）、定員10名。">
+<link rel="stylesheet" href="../../poolo-ds/tokens.css">
+<link rel="stylesheet" href="../../poolo-ds/components.css">
+<style>
+/* ===== 案C 固有：3ステップ帯（日付帯直下）＋ 要点6セル対応。トークン参照のみ ===== */
+.steps { border-bottom: 1px solid var(--line); background: var(--bg); }
+.steps-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 0.68fr) repeat(3, minmax(0, 1fr));
+  padding-top: clamp(24px, 3.8vh, 38px);
+  padding-bottom: clamp(26px, 4.2vh, 42px);
+}
+.steps-head { padding-right: clamp(14px, 2vw, 26px); }
+.steps-head .en {
+  display: block;
+  font-family: var(--en);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.36em;
+  text-transform: uppercase;
+  color: var(--brand);
+}
+.steps-head .ja {
+  display: block;
+  font-family: var(--mincho);
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: var(--ink);
+  margin-top: 6px;
+}
+.step-cell {
+  border-left: 1px solid var(--line);
+  padding-left: clamp(16px, 2.4vw, 30px);
+  padding-right: clamp(12px, 1.8vw, 24px);
+}
+.step-no {
+  font-family: var(--en);
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.3em;
+  color: var(--brand);
+}
+.step-no .ja {
+  font-family: var(--body);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  color: var(--ink-50);
+  margin-left: 0.9em;
+}
+.step-title {
+  font-family: var(--head);
+  font-size: 14.5px;
+  font-weight: 700;
+  font-feature-settings: 'palt';
+  letter-spacing: 0.05em;
+  line-height: 1.6;
+  color: var(--ink);
+  margin-top: 7px;
+}
+.step-desc {
+  font-family: var(--body);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  line-height: 1.9;
+  color: var(--ink-55);
+  margin-top: 4px;
+  word-break: auto-phrase;
+  text-wrap: pretty;
+}
+@media (max-width: 860px) {
+  .steps-inner { grid-template-columns: minmax(0, 1fr); row-gap: 0; }
+  .steps-head { padding-right: 0; padding-bottom: 14px; }
+  .step-cell {
+    border-left: none;
+    border-top: 1px solid var(--line);
+    padding: 13px 0 14px;
+  }
+}
+/* 要点を6セルにする場合の2段目（既存 .summary の4カラムを維持したまま） */
+@media (min-width: 861px) {
+  .summary--six .summary-cell:nth-child(n+5) { border-top: 1px solid var(--line); }
+  .summary--six .summary-cell:nth-child(5) { border-left: none; padding-left: 0; }
+}
+@media (max-width: 860px) {
+  .summary--six .summary-cell:nth-child(n+5) { border-top: 1px solid var(--line); }
+}
+</style>
+</head>
+<body>
+
+<!-- ===== Brand row（固定ヘッダー） ===== -->
+<header class="brand-row">
+  <div class="shell">
+    <a class="brand-logo" href="https://tabippo.net/poolo/" target="_blank" rel="noopener">
+      <img src="../images/poolo_logo.png" alt="POOLO あたらしい旅の学校">
+    </a>
+    <nav class="header-nav">
+      <a class="header-link" href="https://tabippo.net/poolo/" target="_blank" rel="noopener">POOLO とは<span class="arrow" aria-hidden="true">↗</span></a>
+      <a class="header-cta" href="#">申し込む</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ===== HERO（写真ドリブン／案C：事実・信頼） ===== -->
+<section class="hero">
+  <div class="hero-grid">
+
+    <div class="hero-copy">
+      <div class="hero-eyebrow">
+        <span class="hero-eyebrow-rule" aria-hidden="true"></span>
+        <span class="hero-eyebrow-ja">旅が好きな20〜30代へ</span>
+        <span class="hero-eyebrow-en">TOMONOURA / HASHIRIJIMA</span>
+      </div>
+
+      <h1 class="hero-title">
+        <span class="t-sm">瀬戸内海の暮らしから、</span>
+        <span class="t-lg"><span class="nb">これからの</span><br><span class="nb"><span class="em">キャリア</span>を</span><span class="nb">考える。</span></span>
+      </h1>
+
+      <p class="hero-lead">鞆の浦・走島で、さまざまな働き方と生き方に触れる1泊2日の暮らし観光。事前と事後のオンラインを合わせた、3ステップのプログラムです。現地では、その土地で実際に暮らし、働く人に会いに行きます。</p>
+
+      <div class="hero-foot">
+        <span class="mon" aria-hidden="true">
+          <svg viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-linecap="round">
+            <circle cx="60" cy="60" r="57" stroke-width="1.5"/>
+            <circle cx="60" cy="60" r="51.5" stroke-width="0.75"/>
+            <circle cx="60" cy="42.5" r="9.5" stroke-width="1.5"/>
+            <line x1="30" y1="60.5" x2="46.5" y2="60.5" stroke-width="1.1"/>
+            <line x1="73.5" y1="60.5" x2="90" y2="60.5" stroke-width="1.1"/>
+            <path d="M35 78 Q60 66 85 78" stroke-width="1.5"/>
+            <path d="M44 88 Q60 81 76 88" stroke-width="0.9"/>
+          </svg>
+        </span>
+        <div class="hero-foot-texts">
+          <span class="hero-foot-ja">知らない暮らしに、会いに行く。</span>
+          <span class="hero-foot-en">Tomonoura &amp; Hashirijima</span>
+        </div>
+      </div>
+    </div>
+
+    <figure class="hero-photo">
+      <img src="../images/hero_setouchi.jpg" alt="走島の浜辺。瀬戸内の海と島影を前に、ひとりの人が静かに腰を下ろしている">
+      <figcaption class="hero-chip">
+        <span class="en nb">Setouchi</span>
+        <span class="ja nb">瀬戸内海・走島の浜辺</span>
+      </figcaption>
+    </figure>
+
+  </div>
+
+  <!-- ブルーの日付帯（全幅） -->
+  <div class="hero-band">
+    <div class="shell hero-band-inner">
+      <span class="hero-band-num">11.21<span class="dow nb">土</span>–22<span class="dow nb">日</span></span>
+      <span class="hero-band-time nb">12:30 – 16:00</span>
+      <span class="hero-band-meta">
+        <span class="nb">21日 12:30 集合・22日 16:00 解散</span>
+        <span class="nb">広島・鞆の浦／定員10名</span>
+      </span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 3ステップ（案C：プログラムの全体像を先に見せる） ===== -->
+<section class="steps" aria-label="プログラムの3ステップ">
+  <div class="shell steps-inner">
+    <div class="steps-head">
+      <span class="en">Program</span>
+      <span class="ja">1泊2日で終わらない、3ステップの旅。</span>
+    </div>
+    <div class="step-cell">
+      <div class="step-no">STEP 1<span class="ja">事前オンライン</span></div>
+      <div class="step-title">旅のテーマ・問いを決める</div>
+      <p class="step-desc">出発の前に、自分が何を見たいのかを言葉にしておきます。</p>
+    </div>
+    <div class="step-cell">
+      <div class="step-no">STEP 2<span class="ja">現地</span></div>
+      <div class="step-title">鞆の浦・走島 1泊2日</div>
+      <p class="step-desc">移住した人、漁師、ヨガの先生。その土地で暮らし、働く人に会います。</p>
+    </div>
+    <div class="step-cell">
+      <div class="step-no">STEP 3<span class="ja">事後オンライン</span></div>
+      <div class="step-title">旅の気づきを日常につなげる</div>
+      <p class="step-desc">持ち帰ったものを話し、これからの暮らしに置きなおします。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== イベント要点 ===== -->
+<section class="summary summary--six">
+  <div class="shell">
+    <dl class="summary-grid">
+      <div class="summary-cell">
+        <dt class="summary-label"><span class="en">Date</span><span class="ja">日程</span></dt>
+        <dd class="summary-value">2026年11月21日（土）<span class="nb">〜22日（日）</span><small>21日 12:30 集合／22日 16:00 解散</small></dd>
+      </div>
+      <div class="summary-cell">
+        <dt class="summary-label"><span class="en">Place</span><span class="ja">集合・解散</span></dt>
+        <dd class="summary-value">鞆の浦「ありそろう」<small>広島県福山市。宿泊は走島の一棟貸し宿「KAI」</small></dd>
+      </div>
+      <div class="summary-cell">
+        <dt class="summary-label"><span class="en">Seats</span><span class="ja">定員</span></dt>
+        <dd class="summary-value">10名<small>旅が好きな20〜30代が中心。どなたでも参加できます</small></dd>
+      </div>
+      <div class="summary-cell">
+        <dt class="summary-label"><span class="en">Fee</span><span class="ja">参加費</span></dt>
+        <dd class="summary-value">20,000円<small>POOLO生は17,000円。別途、宿泊・食事等 15,000円（現地で回収）</small></dd>
+      </div>
+      <div class="summary-cell">
+        <dt class="summary-label"><span class="en">Deadline</span><span class="ja">申込締切</span></dt>
+        <dd class="summary-value">2026年10月30日（金）</dd>
+      </div>
+      <div class="summary-cell">
+        <dt class="summary-label"><span class="en">Hosts</span><span class="ja">主催</span></dt>
+        <dd class="summary-value"><span class="nb">あたらしい旅の学校 POOLO</span><br><span class="nb">合同会社コト暮らし</span></dd>
+      </div>
+    </dl>
+  </div>
+</section>
+
+</body>
+</html>
