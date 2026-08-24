@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>告知ページの型、3パターン｜POOLO Design System</title>
+<link rel="stylesheet" href="../poolo-ds/tokens.css">
+<link rel="stylesheet" href="../poolo-ds/components.css">
+<style>
+/* 比較ページ専用の枠（DSには含めない） */
+.pp-hero { background: var(--brand); color: var(--on-brand); padding: clamp(48px,8vh,80px) var(--shell-pad) clamp(38px,6vh,58px); }
+.pp-inner { max-width: 1180px; margin-inline: auto; }
+.pp-eyebrow { font-family: var(--en); font-size: 11px; font-weight: 500; letter-spacing: 0.42em; text-transform: uppercase; color: var(--on-brand-92); margin-bottom: 20px; }
+.pp-hero h1 { font-family: var(--mincho); font-weight: 900; font-feature-settings: "palt"; font-size: clamp(26px,4.2vw,46px); letter-spacing: 0.06em; line-height: 1.55; margin-bottom: 18px; }
+.pp-hero p { font-family: var(--body); font-size: 13.5px; line-height: 2.05; letter-spacing: 0.06em; color: var(--on-brand-88); max-width: 48em; }
+.pp-hero p + p { margin-top: 12px; }
+.pp-hero strong { color: var(--on-brand); font-weight: 700; }
+
+.pp-wrap { max-width: 1180px; margin-inline: auto; padding: clamp(44px,6vh,68px) var(--shell-pad) 110px; }
+.pp-sec { padding-top: clamp(40px,6vh,64px); }
+.pp-sec:first-child { padding-top: 0; }
+.pp-sec-head { display: flex; align-items: baseline; gap: 16px; border-bottom: 1px solid var(--ink); padding-bottom: 12px; margin-bottom: 24px; }
+.pp-sec-num { font-family: var(--en); font-size: 13px; font-weight: 600; letter-spacing: 0.24em; color: var(--brand); }
+.pp-sec-head h2 { font-family: var(--mincho); font-size: clamp(20px,2.6vw,27px); font-weight: 700; letter-spacing: 0.09em; color: var(--ink); }
+.pp-body p { font-size: 13.5px; line-height: 2.05; letter-spacing: 0.06em; color: var(--ink-72); max-width: 52em; }
+.pp-body p + p { margin-top: 13px; }
+.pp-body strong { color: var(--ink); font-weight: 700; }
+.pp-body a { color: var(--brand-deep); border-bottom: 1px solid var(--brand); }
+.pp-body code, .pp-table code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 11.5px; color: var(--brand-deep); background: var(--bg-off); border: 1px solid var(--line); border-radius: var(--radius); padding: 1px 5px; }
+
+/* 使い分け表 */
+.pp-table { width: 100%; border-collapse: collapse; border-top: 1px solid var(--ink); font-size: 12.5px; }
+.pp-table th, .pp-table td { text-align: left; vertical-align: top; padding: 13px 16px 13px 0; border-bottom: 1px solid var(--line); line-height: 1.9; letter-spacing: 0.05em; }
+.pp-table thead th { font-family: var(--head); font-weight: 700; color: var(--ink); font-size: 11.5px; letter-spacing: 0.14em; }
+.pp-table tbody th { font-family: var(--body); font-weight: 400; color: var(--ink-72); }
+.pp-table td { color: var(--ink-72); }
+.pp-pick { font-family: var(--head); font-weight: 700; color: var(--brand-deep); white-space: nowrap; }
+
+/* 型ブロック */
+.pp-block { margin-top: clamp(44px,6vw,72px); }
+.pp-head { display: flex; align-items: baseline; flex-wrap: wrap; gap: 16px; border-bottom: 1px solid var(--ink); padding-bottom: 12px; margin-bottom: 20px; }
+.pp-key { font-family: var(--en); font-size: 26px; font-weight: 600; letter-spacing: 0.1em; color: var(--brand); line-height: 1; }
+.pp-name { font-family: var(--mincho); font-size: clamp(19px,2.4vw,25px); font-weight: 700; letter-spacing: 0.09em; color: var(--ink); }
+.pp-name small { font-family: var(--en); font-size: 12px; font-weight: 500; letter-spacing: 0.2em; color: var(--ink-50); margin-left: 0.9em; }
+.pp-open { margin-left: auto; font-family: var(--head); font-size: 12.5px; font-weight: 700; letter-spacing: 0.08em; color: var(--brand-deep); border-bottom: 1px solid var(--brand); padding-bottom: 2px; }
+.pp-note { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: clamp(16px,2.4vw,30px); margin-bottom: 22px; }
+.pp-note dt { font-family: var(--head); font-size: 11px; font-weight: 700; letter-spacing: 0.18em; color: var(--brand); margin-bottom: 7px; }
+.pp-note dd { font-size: 12.5px; line-height: 1.95; letter-spacing: 0.06em; color: var(--ink-72); }
+.pp-note .no dt { color: var(--ink-40); }
+.pp-frame { border: 1px solid var(--line); background: var(--bg-off); }
+.pp-frame iframe { width: 100%; height: 760px; border: 0; display: block; background: var(--bg); }
+
+.pp-verdict { background: var(--brand-pale); padding: clamp(26px,3.4vw,40px); border-top: 3px solid var(--brand); margin-top: clamp(48px,6vw,72px); }
+.pp-verdict h2 { font-family: var(--mincho); font-size: clamp(20px,2.6vw,27px); font-weight: 700; letter-spacing: 0.08em; line-height: 1.7; color: var(--ink); margin-bottom: 16px; }
+.pp-verdict p { font-size: 13.5px; line-height: 2.05; letter-spacing: 0.06em; color: var(--ink-72); max-width: 54em; }
+.pp-verdict p + p { margin-top: 12px; }
+.pp-verdict strong { color: var(--ink); font-weight: 700; }
+.pp-verdict a { color: var(--brand-deep); border-bottom: 1px solid var(--brand); }
+
+.pp-check { list-style: none; display: grid; gap: 10px; border-top: 1px solid var(--ink); padding-top: 18px; }
+.pp-check li { position: relative; padding-left: 2em; font-size: 13px; line-height: 1.95; letter-spacing: 0.05em; color: var(--ink-72); }
+.pp-check li::before { content: '☐'; position: absolute; left: 0; top: 0; color: var(--brand); font-size: 14px; }
+.pp-check strong { color: var(--ink); }
+
+@media (max-width: 860px) {
+  .pp-note { grid-template-columns: 1fr; gap: 14px; }
+  .pp-frame iframe { height: 560px; }
+  .pp-open { margin-left: 0; width: 100%; }
+  .pp-table, .pp-table thead, .pp-table tbody, .pp-table tr, .pp-table th, .pp-table td { display: block; width: 100%; }
+  .pp-table thead { display: none; }
+  .pp-table tbody th { border-bottom: none; padding-bottom: 2px; font-weight: 700; color: var(--ink); }
+  .pp-table td { padding-top: 0; }
+}
+</style>
+</head>
+<body>
+
+<section class="pp-hero">
+  <div class="pp-inner">
+    <div class="pp-eyebrow">Page Patterns — A / B / C</div>
+    <h1>告知ページの型を、<br>3つに分ける。</h1>
+    <p>POOLOの告知ページは、いまひとつの型で作っています。写真ドリブンのヒーロー → 日付帯 → 要点 → 導入 → 流れ → 問い → 声 → FAQ → CTA。この型は完成度が高い一方で、<strong>回の性質に関係なく同じ形になる</strong>という問題を抱えています。90分の無料ワークショップも、1泊2日の現地プログラムも、写真が1枚もない新企画も、同じ骨格で作ることになる。</p>
+    <p>そこで、型を3つに分けました。3案とも <code style="background:var(--on-brand-40);border:none;color:var(--on-brand);">poolo-ds</code> のトークンとコンポーネントを参照していて、<strong>ブランドの色・書体・ヘアラインは一切変えていません</strong>。振っているのは、レイアウト・写真の使い方・情報の密度・余白の取り方だけです。</p>
+    <p>比較のため、<strong>3案とも中身はまったく同じ</strong>にしてあります（サンプル：架空日程の90分ワークショップ）。差はすべて型の差です。</p>
+  </div>
+</section>
+
+<div class="pp-wrap">
+
+  <!-- 使い分け -->
+  <section class="pp-sec">
+    <div class="pp-sec-head"><span class="pp-sec-num">01</span><h2>回の性質で、型を選ぶ</h2></div>
+    <table class="pp-table">
+      <thead>
+        <tr><th style="width:22%;">こういう回</th><th style="width:14%;">選ぶ型</th><th>理由</th></tr>
+      </thead>
+      <tbody>
+        <tr><th>90分の無料ワークショップ（毎週の量産）</th><td class="pp-pick">A｜Standard</td><td>読み手は数秒で「行けるか」を判断する。日付・場所・定員・参加費が1画面目に入っていることが最優先。作る側の工数も最小。</td></tr>
+        <tr><th>写真が用意できない新企画・初回開催</th><td class="pp-pick">B｜Editorial</td><td>写真の穴を余白と組版で埋める。明朝の大見出しと罫線だけでファーストビューを成立させる型。</td></tr>
+        <tr><th>長い思想を読ませたい回</th><td class="pp-pick">B｜Editorial</td><td>本文が主役。1行の文字数と行間を読み物として設計してあるので、長文でも疲れない。</td></tr>
+        <tr><th>現地開催・合宿・旅のプログラム</th><td class="pp-pick">C｜Immersive</td><td>その場の空気ごと伝える必要がある回。写真の面積を最大化し、密度を落として「めくらせる」。</td></tr>
+        <tr><th>有料・高単価で、判断に時間がかかる回</th><td class="pp-pick">C｜Immersive</td><td>世界観で惹きつけたうえで、事実（日程・費用）を明快に置く。<a href="../event-tomonoura-v01-260824/">鞆の浦のLP</a>はこの型に近い作りです。</td></tr>
+        <tr><th>複数回の講座・ゼミ（日程表が主役）</th><td class="pp-pick">A＋日程一覧</td><td>型Aをベースに <code>.date-list</code> と <code>.apply-steps</code> を足す。既存のゼミページがこの形です。</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- 実測 -->
+  <section class="pp-sec">
+    <div class="pp-sec-head"><span class="pp-sec-num">02</span><h2>密度の差を、実測する</h2></div>
+    <div class="pp-body" style="margin-bottom:22px;">
+      <p>「密度が高い／低い」を感覚で語らないよう、実際に測りました。画面幅1440×900pxで、<strong>ページ上端から各要素までの距離</strong>と<strong>ページ全体の高さ</strong>です。ヘッダーが64pxあるので、<strong>836px以内なら1画面目に入る</strong>と考えてください。</p>
+    </div>
+    <table class="pp-table">
+      <thead>
+        <tr><th style="width:26%;">型</th><th style="width:18%;">日付帯まで</th><th style="width:18%;">要点4セルまで</th><th style="width:18%;">ページ全高</th><th>1画面目に要点は入るか</th></tr>
+      </thead>
+      <tbody>
+        <tr><th>A｜Standard</th><td>606px</td><td>735px</td><td>7,481px</td><td class="pp-pick">入る</td></tr>
+        <tr><th>B｜Editorial</th><td>729px</td><td>881px</td><td>7,879px</td><td>日付帯までは入る</td></tr>
+        <tr><th>C｜Immersive</th><td>1,309px</td><td>1,461px</td><td>10,931px</td><td>入らない（スクロール前提）</td></tr>
+        <tr><th>参考：現行の型<br><small style="color:var(--ink-50);">event-2030s-osaka-v02</small></th><td>738px</td><td>890px</td><td>9,006px</td><td>日付帯までは入る</td></tr>
+      </tbody>
+    </table>
+    <div class="pp-body" style="margin-top:16px;">
+      <p style="font-size:12.5px;color:var(--ink-60);">＊現行の型だけは掲載内容が少し違います（お知らせバンドと写真ブレイクが1枚多い）。全高の比較は参考値として見てください。型A・B・Cの3つは中身が完全に同じなので、数値の差はそのまま型の差です。</p>
+    </div>
+  </section>
+
+  <!-- 型A -->
+  <div class="pp-block">
+    <div class="pp-head">
+      <span class="pp-key">A</span>
+      <span class="pp-name">Standard／要点先行<small>For weekly workshops</small></span>
+      <a class="pp-open" href="pattern-a-standard.html" target="_blank" rel="noopener">単体で開く ↗</a>
+    </div>
+    <dl class="pp-note">
+      <div>
+        <dt>狙い</dt>
+        <dd>短時間・無料・先着の回を、最小工数で量産する型。ヒーローの上下余白と写真の高さを詰め、<strong>日付帯（606px）と要点4セル（735px）をファーストビューの中に引き上げた</strong>。セクション間の余白も詰め、お知らせバンドと写真ブレイク1枚を落として、写真はヒーロー＋ブレイクの計2枚で成立する設計にしている。</dd>
+      </div>
+      <div>
+        <dt>向いている回</dt>
+        <dd>90分のワークショップ、オンライン開催、写真が2枚しかない回、毎週の量産。判断材料が早く出るほど申込につながる回。</dd>
+      </div>
+      <div class="no">
+        <dt>向かない回</dt>
+        <dd>合宿・宿泊など情緒で惹きつける必要がある回。密度が高いぶん、余韻は残りにくい。</dd>
+      </div>
+    </dl>
+    <div class="pp-frame"><iframe src="pattern-a-standard.html" title="型A：Standard／要点先行" loading="lazy"></iframe></div>
+  </div>
+
+  <!-- 型B -->
+  <div class="pp-block">
+    <div class="pp-head">
+      <span class="pp-key">B</span>
+      <span class="pp-name">Editorial／読ませる<small>No photos needed</small></span>
+      <a class="pp-open" href="pattern-b-editorial.html" target="_blank" rel="noopener">単体で開く ↗</a>
+    </div>
+    <dl class="pp-note">
+      <div>
+        <dt>狙い</dt>
+        <dd>写真がなくても成立させる型。ヒーローに写真を置かず、明朝の大見出し（最大80px）・罫線・家紋だけでファーストビューを組む。導入は本文カラム＋右の傍注カラムの2段構成で、<strong>傍注を丸ごと外してもレイアウトが崩れない</strong>。「そんなとき、ふと。」のような転換の一言を上下罫つきの大引用として独立させ、ページのリズムを引用でつくる。</dd>
+      </div>
+      <div>
+        <dt>向いている回</dt>
+        <dd>新企画・初回開催で写真がない回。オンラインのみの回。思想やコンセプトを長めに読ませたい回。急ぎで出したい回（写真の手配が要らない）。</dd>
+      </div>
+      <div class="no">
+        <dt>向かない回</dt>
+        <dd>会場や土地の魅力が申込理由になる回。文字量が多いぶん、流し読みでは伝わりにくい。</dd>
+      </div>
+    </dl>
+    <div class="pp-frame"><iframe src="pattern-b-editorial.html" title="型B：Editorial／読ませる" loading="lazy"></iframe></div>
+  </div>
+
+  <!-- 型C -->
+  <div class="pp-block">
+    <div class="pp-head">
+      <span class="pp-key">C</span>
+      <span class="pp-name">Immersive／写真主導<small>For real places</small></span>
+      <a class="pp-open" href="pattern-c-immersive.html" target="_blank" rel="noopener">単体で開く ↗</a>
+    </div>
+    <dl class="pp-note">
+      <div>
+        <dt>狙い</dt>
+        <dd>その場の空気ごと伝える型。白い面に置いたことばから始まり、そのまま全幅の写真へ流れ込む。写真ブレイクを3回はさみ、ページのリズムを写真がつくる。1画面に1メッセージ。3つの型でいちばん密度が低く、全高は型Aの1.5倍になる。</dd>
+      </div>
+      <div>
+        <dt>向いている回</dt>
+        <dd>現地開催・合宿・旅のプログラム。有料で、判断に時間がかかる回。会場そのものが魅力になる回。</dd>
+      </div>
+      <div class="no">
+        <dt>向かない回</dt>
+        <dd>いい写真がない回（この型は写真の質がそのままページの質になる）。ページが長くなるため、毎週の量産には重い。</dd>
+      </div>
+    </dl>
+    <div class="pp-frame"><iframe src="pattern-c-immersive.html" title="型C：Immersive／写真主導" loading="lazy"></iframe></div>
+  </div>
+
+  <!-- 提案 -->
+  <div class="pp-verdict">
+    <h2>提案：1つを選ぶのではなく、3つを使い分けるセットとして持つ。</h2>
+    <p>この3案は「どれかを選んで残り2つを捨てる」ものではありません。<strong>回の性質が違えば、最適な型も違う</strong>——それがこの比較でいちばん確かめたかったことです。3つとも poolo-ds の上に乗っているので、併存させても運用は破綻しません。</p>
+    <p>そのうえで、<strong>量産のデフォルトは型A</strong>にするのを推します。POOLOがいちばん多く作るのは90分のワークショップ告知で、そこでは「日付・場所・定員・参加費が1画面目に入っていること」が申込率に直結します。型Bと型Cは、条件が揃ったときに指名で使う型として持っておく——という位置づけです。</p>
+    <p>採用するなら、次のステップは<strong>3つの型を poolo-ds 側に登録すること</strong>です。型ごとの骨格（どのコンポーネントをどの順に置くか）をREADMEに書き、カタログにも型見本を足せば、次回から「今回は型Bで」と指定するだけで作れるようになります。</p>
+  </div>
+
+  <!-- 次の一手 -->
+  <section class="pp-sec">
+    <div class="pp-sec-head"><span class="pp-sec-num">03</span><h2>採用後にやること</h2></div>
+    <ul class="pp-check">
+      <li><strong>使う型を決める</strong>（3つ全部か、絞るか）</li>
+      <li>型ごとの骨格を <code>poolo-ds/README.md</code> に追記する（どのコンポーネントをどの順に置くか）</li>
+      <li>各型で共通して使った固有CSSのうち、汎用性のあるものを <code>components.css</code> に還元する</li>
+      <li>カタログ（<code>poolo-ds/index.html</code>）に型見本へのリンクを足す</li>
+      <li><code>BRAND.md</code> の「ページ構成の型」を、1つの型から3つの型の使い分けに書き換える</li>
+      <li>次の告知ページを、決めた型で1本作ってみる（型が実運用に耐えるかの検証）</li>
+    </ul>
+  </section>
+
+</div>
+
+</body>
+</html>

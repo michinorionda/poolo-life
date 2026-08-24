@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>型B｜Editorial／読ませる — POOLO 告知ページの型</title>
+<meta name="robots" content="noindex">
+<meta name="description" content="POOLO イベント告知ページの型・比較用（型B：Editorial／読ませる）。写真素材が乏しい回でも、余白と組版だけで成立させる型。">
+
+<!-- POOLO Design System（単一ソース。順序厳守：tokens → components） -->
+<link rel="stylesheet" href="../poolo-ds/tokens.css">
+<link rel="stylesheet" href="../poolo-ds/components.css">
+
+<style>
+/* =============================================================
+   型B：Editorial／読ませる — ページ固有CSS（最小限）
+   写真ゼロでも成立させる。振っているのはレイアウト・級数・余白だけ。
+   色・書体・角丸はすべて poolo-ds のトークン参照。生値は書かない。
+   ============================================================= */
+
+/* ---- テキストのみヒーロー：写真の代わりに、明朝の級数と罫で面を立てる ---- */
+.ed-hero-inner {
+  padding-top: clamp(64px, 11vh, 132px);
+  padding-bottom: clamp(52px, 9vh, 104px);
+}
+.ed-hero .hero-eyebrow { margin-bottom: clamp(36px, 6.5vh, 68px); }
+.ed-hero-title {
+  font-family: var(--mincho);
+  font-weight: 900;
+  font-feature-settings: "palt";
+  font-size: clamp(30px, 7vw, 80px);
+  letter-spacing: 0.05em;
+  line-height: 1.44;
+  color: var(--ink);
+  word-break: auto-phrase;
+  text-wrap: pretty;
+}
+.ed-hero-title .em { color: var(--brand); }
+/* 見出しの下：罫1本を挟み、左に家紋の結び・右にリード（雑誌のデッキ位置） */
+.ed-hero-below {
+  margin-top: clamp(44px, 7.5vh, 84px);
+  border-top: 1px solid var(--line);
+  padding-top: clamp(26px, 4.5vh, 40px);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 31em);
+  column-gap: clamp(32px, 6vw, 96px);
+  align-items: center;
+}
+.ed-hero-lead {
+  grid-column: 2;
+  grid-row: 1;
+  font-family: var(--body);
+  font-size: 13.5px;
+  line-height: 2.3;
+  letter-spacing: 0.08em;
+  color: var(--ink-72);
+  word-break: auto-phrase;
+  text-wrap: pretty;
+}
+.ed-hero-below .hero-foot {
+  grid-column: 1;
+  grid-row: 1;
+  margin-top: 0;
+  border-top: none;
+  padding-top: 0;
+}
+@media (max-width: 860px) {
+  .ed-hero-inner { padding-top: 52px; padding-bottom: 44px; }
+  .ed-hero-below { grid-template-columns: 1fr; row-gap: 30px; }
+  .ed-hero-lead { grid-column: 1; }
+  .ed-hero-below .hero-foot { grid-column: 1; grid-row: auto; }
+}
+
+/* ---- 導入：本文37em＋右の傍注カラム（雑誌のマージンノート） ---- */
+.ed-intro {
+  display: grid;
+  /* 本文は伸縮させ、傍注は最低幅を確保する。本文を 37em で固定すると
+     残りが痩せて傍注が1文字ずつ折り返すため、fr と minmax で持たせる。 */
+  grid-template-columns: minmax(0, 1fr) minmax(184px, 232px);
+  column-gap: clamp(28px, 3.6vw, 56px);
+  align-items: start;
+}
+.ed-intro > .intro-body { max-width: 37em; }
+.ed-margin { padding-top: 6px; }
+.ed-margin-fig img { width: 100%; height: auto; }
+.ed-margin-cap {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  border-top: 1px solid var(--line);
+  margin-top: 12px;
+  padding-top: 10px;
+  font-family: var(--body);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  color: var(--ink-60);
+}
+.ed-margin-cap .en {
+  font-family: var(--en);
+  font-size: 9.5px;
+  font-weight: 500;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--brand-deep);
+  white-space: nowrap;
+}
+.ed-margin-note {
+  margin-top: 26px;
+  border-left: 2px solid var(--brand);
+  padding-left: 16px;
+  font-family: var(--body);
+  font-size: 11.5px;
+  line-height: 2.15;
+  letter-spacing: 0.08em;
+  color: var(--ink-55);
+  word-break: auto-phrase;
+}
+/* 版面が狭くなると本文と傍注が両方痩せるので、早めに1カラムへ落とす */
+@media (max-width: 1080px) {
+  .ed-intro { grid-template-columns: 1fr; row-gap: 40px; }
+  .ed-margin { max-width: 440px; }
+}
+
+/* ---- 転換の一言：明朝の大きな引用として独立させる（型Bの呼吸） ---- */
+.intro-body .ed-pull {
+  /* 本文カラム（最大37em）に1行で収まる級数に留める。ここが折れると
+     「転換の一言」としての効きが落ちる。 */
+  font-size: clamp(24px, 2.6vw, 34px);
+  letter-spacing: 0.2em;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: clamp(30px, 5.5vh, 52px) 0;
+  margin-top: 2.4em;
+  margin-bottom: 2.4em;
+}
+
+/* ---- 参加者の声：引用を主役の級数に上げる ---- */
+.ed-voices .voice-list { max-width: 740px; }
+.ed-voices .voice-quote {
+  font-size: clamp(15.5px, 2vw, 19px);
+  line-height: 2.25;
+}
+
+/* ---- 小さな注記（問いの下の※） ---- */
+.ed-note {
+  margin-top: 30px;
+  font-family: var(--body);
+  font-size: 11.5px;
+  line-height: 2;
+  letter-spacing: 0.1em;
+  color: var(--ink-55);
+}
+</style>
+</head>
+<body>
+
+<!-- ===== 追従CTA（.brand-row より前に置く：~ セレクタでヘッダーCTAを隠すため） ===== -->
+<div class="float-apply" id="floatApply">
+  <div class="shell fa-inner">
+    <div class="fa-texts">
+      <span class="fa-main">働く意味・生きる意味を問い直す 90分</span>
+      <span class="fa-sub">10/17(土) 15:30〜 ・ 東京・表参道 ・ 無料</span>
+    </div>
+    <a class="fa-btn" href="#">申し込む</a>
+  </div>
+</div>
+
+<!-- ===== Brand row（固定ヘッダー） ===== -->
+<header class="brand-row">
+  <div class="shell">
+    <a class="brand-logo" href="https://tabippo.net/poolo/" target="_blank" rel="noopener">
+      <img src="images/poolo_logo.png" alt="POOLO あたらしい旅の学校">
+    </a>
+    <nav class="header-nav">
+      <a class="header-link" href="https://tabippo.net/poolo/" target="_blank" rel="noopener">POOLO とは<span class="arrow" aria-hidden="true">↗</span></a>
+      <a class="header-cta" href="#">申し込む</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ===== HERO（テキストのみ：明朝の級数・罫・余白でファーストビューを組む） ===== -->
+<section class="hero ed-hero">
+  <div class="shell ed-hero-inner">
+
+    <div class="hero-eyebrow">
+      <span class="hero-eyebrow-rule" aria-hidden="true"></span>
+      <span class="hero-eyebrow-ja">20代・30代の方へ</span>
+      <span class="hero-eyebrow-en">REAL EVENT — TOKYO</span>
+    </div>
+
+    <h1 class="ed-hero-title">働く意味・生きる意味を<br><span class="em">問い直す</span>、<span class="nb">90分。</span></h1>
+
+    <div class="ed-hero-below">
+      <p class="ed-hero-lead">対話と問いを行き来する、ワークショップ。誰かの正解をなぞるのではなく、自分のなかから湧いてくる手がかりを、ゆっくりことばにしていく時間です。</p>
+      <div class="hero-foot">
+        <span class="mon" aria-hidden="true">
+          <svg viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-linecap="round">
+            <circle cx="60" cy="60" r="57" stroke-width="1.5"/>
+            <circle cx="60" cy="60" r="51.5" stroke-width="0.75"/>
+            <circle cx="60" cy="42.5" r="9.5" stroke-width="1.5"/>
+            <line x1="30" y1="60.5" x2="46.5" y2="60.5" stroke-width="1.1"/>
+            <line x1="73.5" y1="60.5" x2="90" y2="60.5" stroke-width="1.1"/>
+            <path d="M35 78 Q60 66 85 78" stroke-width="1.5"/>
+            <path d="M44 88 Q60 81 76 88" stroke-width="0.9"/>
+          </svg>
+        </span>
+        <div class="hero-foot-texts">
+          <span class="hero-foot-ja">対話と、内省と、好奇心と。</span>
+          <span class="hero-foot-en">Quiet Dialogue</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ブルーの日付帯（全幅） -->
+  <div class="hero-band">
+    <div class="shell hero-band-inner">
+      <span class="hero-band-num">10.17<span class="dow nb">土</span></span>
+      <span class="hero-band-time nb">15:30 – 17:00</span>
+      <span class="hero-band-meta">
+        <span class="nb">東京・表参道</span>
+        <span class="nb">無料・先着10名</span>
+      </span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== イベント要点（4セル） ===== -->
+<section class="summary">
+  <div class="shell">
+    <dl class="summary-grid">
+      <div class="summary-cell">
+        <dt class="summary-label"><span class="en">Date</span><span class="ja">日時</span></dt>
+        <dd class="summary-value">2026年10月17日（土）<span class="nb">15:30〜17:00</span></dd>
+      </div>
+      <div class="summary-cell">
+        <dt class="summary-label"><span class="en">Format</span><span class="ja">会場</span></dt>
+        <dd class="summary-value">会場開催<small>東京・表参道（表参道駅 徒歩5分）</small></dd>
+      </div>
+      <div class="summary-cell">
+        <dt class="summary-label"><span class="en">Seats</span><span class="ja">定員</span></dt>
+        <dd class="summary-value">10名（先着順）</dd>
+      </div>
+      <div class="summary-cell">
+        <dt class="summary-label"><span class="en">Fee</span><span class="ja">参加費</span></dt>
+        <dd class="summary-value">無料</dd>
+      </div>
+    </dl>
+  </div>
+</section>
+
+<!-- ===== 01 導入（読み物として長め・本文が主役） ===== -->
+<section class="sec">
+  <div class="shell sec-inner">
+    <div class="sec-spine">
+      <div class="sec-num">01</div>
+      <span class="sec-en">Introduction</span>
+    </div>
+    <div>
+      <h2 class="sec-title">働く意味・生きる意味を、<br class="nb">自分のことばで<span class="nb">見つけにいく。</span></h2>
+      <div class="ed-intro">
+        <div class="intro-body">
+          <p>仕事をずっと頑張ってきたこの数年間。仕事がある程度はでき、人生にもある程度満足はできるようになっているけれど、何か深い所に違和感があるような気がする。</p>
+          <p class="intro-break ed-pull">そんなとき、ふと。</p>
+          <p>このまま進んだ先に、自分は何を見たいのか？働くって、生きるって、自分にとってどんな意味があるのか？そんな問いが、ふと湧いてくることがあります。20代でも、30代でも。</p>
+          <p>このワークショップは、ワークと対話を通して、<strong>働く意味・生きる意味を、自分のことばで見つけにいく</strong>場として設計しました。誰かの<span class="quoted">正解</span>をなぞるのではなく、自分のなかから湧いてくる手がかりを、ゆっくり言葉にしていく時間です。</p>
+          <p>年収やポジション、まわりとの比較といった外側の基準はいったん脇に置いて、「自分の内側の手応え」を、対話のなかでゆっくりことばにしていきます。</p>
+        </div>
+        <!-- 傍注カラム：写真は1枚だけ。丸ごと外してもレイアウトは崩れない -->
+        <aside class="ed-margin">
+          <figure class="ed-margin-fig">
+            <img src="images/03_kominka_dialogue.jpg" alt="円卓を囲み、ゆっくりとことばを交わす対話の場面">
+            <figcaption class="ed-margin-cap"><span class="en">Scene</span><span>対話の時間</span></figcaption>
+          </figure>
+          <p class="ed-margin-note">10月17日（土）15:30–17:00<br>東京・表参道（表参道駅 徒歩5分）<br>無料・先着10名</p>
+        </aside>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 02 当日の流れ（8フェーズ） ===== -->
+<section class="sec">
+  <div class="shell sec-inner">
+    <div class="sec-spine">
+      <div class="sec-num">02</div>
+      <span class="sec-en">Timetable</span>
+    </div>
+    <div>
+      <h2 class="sec-title">90分の流れ</h2>
+      <ul class="flow-list">
+        <li class="flow-item">
+          <span class="flow-time">0 — 5<small>分</small></span>
+          <div>
+            <span class="flow-title">オープニング</span>
+            <p class="flow-desc">進め方と、この場で大切にしている対話のルールの共有から始めます。</p>
+          </div>
+        </li>
+        <li class="flow-item">
+          <span class="flow-time">5 — 10<small>分</small></span>
+          <div><span class="flow-title">自己紹介ワーク</span></div>
+        </li>
+        <li class="flow-item">
+          <span class="flow-time">10 — 20<small>分</small></span>
+          <div><span class="flow-title">対話①／3〜4人組の自己紹介</span></div>
+        </li>
+        <li class="flow-item">
+          <span class="flow-time">20 — 30<small>分</small></span>
+          <div><span class="flow-title">本題のワーク</span></div>
+        </li>
+        <li class="flow-item">
+          <span class="flow-time">30 — 50<small>分</small></span>
+          <div><span class="flow-title">対話②</span></div>
+        </li>
+        <li class="flow-item">
+          <span class="flow-time">50 — 60<small>分</small></span>
+          <div><span class="flow-title">探究テーマワーク</span></div>
+        </li>
+        <li class="flow-item">
+          <span class="flow-time">60 — 75<small>分</small></span>
+          <div><span class="flow-title">対話③</span></div>
+        </li>
+        <li class="flow-item">
+          <span class="flow-time">75 — 90<small>分</small></span>
+          <div>
+            <span class="flow-title">クロージング</span>
+            <p class="flow-desc">振り返りをして、時間どおりに終わります。</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 当日の問い（3問・抜粋） ===== -->
+<section class="sec sec-questions">
+  <div class="shell sec-inner">
+    <div class="sec-spine">
+      <div class="sec-num ja">問</div>
+      <span class="sec-en">Questions</span>
+    </div>
+    <div>
+      <h2 class="sec-title">当日の問い</h2>
+      <ol class="q-list">
+        <li class="q-item">
+          <span class="q-no">Q. <span class="kanji">一</span></span>
+          <div>
+            <p class="q-text">ここまで走ってきたなかで、自分が思っていた以上に手応えのあった瞬間は、どんなときでしたか？</p>
+            <p class="q-helper">「あの時、なぜか嬉しかった」みたいな小さな感覚で大丈夫です。うまく言葉にしなくてOK。</p>
+          </div>
+        </li>
+        <li class="q-item">
+          <span class="q-no">Q. <span class="kanji">二</span></span>
+          <div>
+            <p class="q-text">いま、自分のなかで気になっている「働く意味」「生きる意味」の問いを、ひとつだけ書き出してみてください。</p>
+            <p class="q-helper">きれいな問いにしなくて大丈夫です。気になっている言葉や場面を、そのまま書いてみてください。</p>
+          </div>
+        </li>
+        <li class="q-item">
+          <span class="q-no">Q. <span class="kanji">三</span></span>
+          <div>
+            <p class="q-text">過去に、誰かに頼まれたわけでもないのに、自然と夢中になれた経験は、どんなものでしたか？</p>
+            <p class="q-helper">仕事のことでも、遊びでも、人間関係でも、なんでも構いません。ひとつ思い出してみてください。</p>
+          </div>
+        </li>
+      </ol>
+      <p class="ed-note">※当日は計13問のワークシートに、自分のペースで書き込みながら進めます。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 参加者の声（引用が主役） ===== -->
+<section class="sec ed-voices">
+  <div class="shell sec-inner">
+    <div class="sec-spine">
+      <div class="sec-num ja">声</div>
+      <span class="sec-en">Voices</span>
+    </div>
+    <div>
+      <h2 class="sec-title">参加者の声</h2>
+      <ul class="voice-list">
+        <li class="voice-item">
+          <p class="voice-quote"><span class="vq-mark">「</span>10年以上今の会社に勤めていますが、同期が次々と転職していき、自分はこのままでいいのか？ともやもやしていました。もやもやを脱して、自分らしいキャリアを描くきっかけが得られたら嬉しいです。<span class="vq-mark">」</span></p>
+          <p class="voice-attr">メーカー・企画職／30代・体験会参加者</p>
+        </li>
+        <li class="voice-item">
+          <p class="voice-quote"><span class="vq-mark">「</span>これ誰にも言えてなかったんですけど、仕事というものに熱中できなくなってきてしまっている気がしてて、一通り経験して面倒になった？飽きた？昔の方がパフォーマンスもよかった気がする・・年のせい・・？<span class="vq-mark">」</span></p>
+          <p class="voice-attr">メーカー・企画開発職／30代・体験会参加者</p>
+        </li>
+        <li class="voice-item">
+          <p class="voice-quote"><span class="vq-mark">「</span>周りはライフステージがどんどん進んでるけど、自分は変わってなくて焦る。SNS見てるとモヤモヤする。本当にライフステージ変えたいのかわからない。今の状態でも幸せだけど、周りからの見え方が気になる。<span class="vq-mark">」</span></p>
+          <p class="voice-attr">在宅ワーク・事務職／30代・体験会参加者</p>
+        </li>
+      </ul>
+      <p class="voice-note">＊体験会で参加者ご本人が書いてくださったことばです。ご本人が特定されない形で掲載しています。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== About POOLO（図版なしでも成立する組み） ===== -->
+<section class="about">
+  <div class="shell about-inner">
+    <div>
+      <span class="about-en">About POOLO</span>
+      <h2 class="about-title">旅を入り口に、生き方を問い直す<span class="nb">大人の学び場。</span></h2>
+      <div class="about-text">
+        <p>あたらしい旅の学校POOLO（ポーロ）は、旅を入り口に自分の生き方・働き方を問い直す<strong>大人の学び場</strong>として、7年以上続いてきました。運営しているのは、旅に関する事業を広く手がけてきた株式会社TABIPPOと株式会社CODOLI。</p>
+        <p>今回のワークショップは、POOLOが運営する8ヶ月のプログラム<strong>POOLO LIFE</strong>のエッセンスを90分に凝縮したものです。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section class="sec">
+  <div class="shell sec-inner">
+    <div class="sec-spine">
+      <div class="sec-num ja small">よくある質問</div>
+      <span class="sec-en">FAQ</span>
+    </div>
+    <div>
+      <ul class="faq-list">
+        <li class="faq-item">
+          <p class="faq-q"><span class="m">Q.</span><span>当日は何を持っていけばいいですか？</span></p>
+          <div class="faq-a"><span class="m">A.</span><p>特にありません。ワークシートと筆記具はこちらでご用意するので、手ぶらでお越しください。</p></div>
+        </li>
+        <li class="faq-item">
+          <p class="faq-q"><span class="m">Q.</span><span>ひとりでの参加でも大丈夫ですか？</span></p>
+          <div class="faq-a"><span class="m">A.</span><p>ほとんどの方が、おひとりでの参加です。知らない人同士だからこそ、ふだん言えないことも話せます。安心してお越しください。</p></div>
+        </li>
+        <li class="faq-item">
+          <p class="faq-q"><span class="m">Q.</span><span>遅れて参加できますか？</span></p>
+          <div class="faq-a"><span class="m">A.</span><p>ワークは時間どおりに始まるため、開始時刻までに会場へお越しください（受付は開始10分前からです）。なお、無断でのご欠席はご遠慮いただいています。</p></div>
+        </li>
+        <li class="faq-item">
+          <p class="faq-q"><span class="m">Q.</span><span>初対面の人と、うまく話せるか不安です。</span></p>
+          <div class="faq-a"><span class="m">A.</span><p>うまく話す必要はありません。まとまっていない言葉こそ歓迎される場です。この場で聞いた話は外に持ち出さない、という約束のうえで進めるので、まずは聞くところから始めて大丈夫です。</p></div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 中間CTA ===== -->
+<section class="cta">
+  <div class="shell cta-inner">
+    <div>
+      <span class="cta-en">Application</span>
+      <h2 class="cta-title"><span class="nb">10/17（土）15:30–17:00</span> <span class="nb">＠東京・表参道。</span><br>参加無料・先着10名。<span class="nb">気になった方は、お早めに。</span></h2>
+    </div>
+    <div class="cta-action">
+      <a href="#" class="cta-btn">イベントに申し込む</a>
+      <p class="cta-note">＊申込ページへ遷移します</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="shell footer-inner">
+    <div class="footer-top">
+      <span class="mon" aria-hidden="true">
+        <svg viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-linecap="round">
+          <circle cx="60" cy="60" r="57" stroke-width="1.5"/>
+          <circle cx="60" cy="60" r="51.5" stroke-width="0.75"/>
+          <circle cx="60" cy="42.5" r="9.5" stroke-width="1.5"/>
+          <line x1="30" y1="60.5" x2="46.5" y2="60.5" stroke-width="1.1"/>
+          <line x1="73.5" y1="60.5" x2="90" y2="60.5" stroke-width="1.1"/>
+          <path d="M35 78 Q60 66 85 78" stroke-width="1.5"/>
+          <path d="M44 88 Q60 81 76 88" stroke-width="0.9"/>
+        </svg>
+      </span>
+      <div class="footer-marks">
+        <a href="https://tabippo.net/poolo/" target="_blank" rel="noopener"><img src="images/poolo_logo03.png" alt="POOLO あたらしい旅の学校"></a>
+        <span class="footer-divider" aria-hidden="true"></span>
+        <a href="https://tabippo.net/" target="_blank" rel="noopener"><img src="images/tabippo_logo.png" alt="TABIPPO"></a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-text">旅と人生をつなぐ、大人の学び／株式会社TABIPPO／株式会社CODOLI</p>
+      <p class="footer-copy">© POOLO. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var bar = document.getElementById('floatApply');
+  if (!bar) return;
+  var hero = document.querySelector('.hero');
+  // 最終CTA・フッターが視界に入ったら追従バーを退避（重複回避）
+  var sentinels = [document.querySelector('.cta'), document.querySelector('.footer')]
+    .filter(function (el) { return el; });
+  var threshold = 0;
+  var ticking = false;
+
+  function computeThreshold() {
+    // ヒーロー（写真＋日付帯）の下端が画面上部 40vh を切った頃に出現。
+    if (hero) {
+      return hero.offsetTop + hero.offsetHeight - window.innerHeight * 0.4;
+    }
+    return window.innerHeight * 0.6; // .hero が無い場合のフォールバック
+  }
+
+  function update() {
+    var nearEnd = sentinels.some(function (el) {
+      var r = el.getBoundingClientRect();
+      return r.top < window.innerHeight && r.bottom > 0;
+    });
+    bar.classList.toggle('is-visible', window.scrollY > threshold && !nearEnd);
+    ticking = false;
+  }
+
+  window.addEventListener('scroll', function () {
+    if (!ticking) { window.requestAnimationFrame(update); ticking = true; }
+  }, { passive: true });
+  window.addEventListener('resize', function () { threshold = computeThreshold(); update(); });
+  window.addEventListener('load', function () { threshold = computeThreshold(); update(); });
+
+  threshold = computeThreshold();
+  update();
+})();
+</script>
+
+</body>
+</html>
