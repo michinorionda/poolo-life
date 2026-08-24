@@ -87,6 +87,13 @@ img { display: block; max-width: 100%; }
   padding-top: 0;
   padding-bottom: 0;
 }
+/* ロゴは画像の高さだけだとタップ領域が30px弱になる。
+   ヘッダー高（64px / 狭幅54px）の中で最低44pxの当たり判定を確保する。 */
+.brand-logo {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+}
 .brand-logo img { height: 30px; width: auto; }
 .header-nav {
   display: flex;
@@ -112,7 +119,10 @@ img { display: block; max-width: 100%; }
 }
 .header-link:hover { color: var(--brand-deep); border-bottom-color: var(--brand); }
 .header-cta {
-  display: inline-block;
+  /* タップ領域を44px確保する（inline-block＋paddingだけだと42pxで届かない） */
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
   background: var(--brand);
   color: var(--on-brand);
   font-family: var(--head);
@@ -130,7 +140,7 @@ img { display: block; max-width: 100%; }
   .brand-logo img { height: 22px; }
   .header-nav { gap: 14px; }
   .header-link { display: none; } /* モバイルは申込ボタンを優先 */
-  .header-cta { font-size: 11.5px; padding: 9px 20px; letter-spacing: 0.16em; text-indent: 0.16em; }
+  .header-cta { font-size: 11.5px; padding: 9px 20px; letter-spacing: 0.16em; text-indent: 0.16em; min-height: 44px; }
 }
 
 
@@ -270,7 +280,7 @@ img { display: block; max-width: 100%; }
   letter-spacing: 0.18em;
 }
 @media (max-width: 860px) {
-  .hero-grid { grid-template-columns: 1fr; }
+  .hero-grid { grid-template-columns: minmax(0, 1fr); }
   .hero-copy {
     padding-left: var(--shell-pad);
     padding-right: var(--shell-pad);
@@ -613,7 +623,7 @@ img { display: block; max-width: 100%; }
 }
 @media (max-width: 860px) {
   .sec-inner {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     row-gap: 34px;
     padding-top: 64px;
     padding-bottom: 64px;
@@ -852,7 +862,7 @@ img { display: block; max-width: 100%; }
   max-width: 33em;
 }
 @media (max-width: 640px) {
-  .q-item { grid-template-columns: 1fr; row-gap: 10px; padding: 28px 0; }
+  .q-item { grid-template-columns: minmax(0, 1fr); row-gap: 10px; padding: 28px 0; }
   .q-no { line-height: 1.6; }
   .sec-questions .sec-spine { border-bottom-color: var(--line-pale); }
 }
@@ -1033,7 +1043,7 @@ img { display: block; max-width: 100%; }
 }
 @media (max-width: 860px) {
   .about-inner {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     row-gap: 40px;
     padding-top: 60px;
     padding-bottom: 60px;
@@ -1124,7 +1134,7 @@ img { display: block; max-width: 100%; }
 }
 @media (max-width: 860px) {
   .cta-inner {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     row-gap: 44px;
     align-items: start;
     padding-top: 68px;
@@ -1166,6 +1176,8 @@ img { display: block; max-width: 100%; }
   gap: 18px;
   min-width: 0;
 }
+/* 主文・副文は nowrap のまま、狭幅では溢れずに末尾を省略する。
+   320px 端末でテキストが画面外へ飛び出すのを防ぐ。 */
 .fa-main {
   font-family: var(--head);
   font-weight: 700;
@@ -1174,6 +1186,9 @@ img { display: block; max-width: 100%; }
   letter-spacing: 0.08em;
   color: var(--ink);
   white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
 }
 .fa-sub {
   font-family: var(--body);
@@ -1181,6 +1196,9 @@ img { display: block; max-width: 100%; }
   letter-spacing: 0.1em;
   color: var(--ink-60);
   white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
 }
 .fa-btn {
   flex: 0 0 auto;
@@ -1203,6 +1221,11 @@ img { display: block; max-width: 100%; }
   .fa-main { font-size: 12px; letter-spacing: 0.06em; }
   .fa-sub { font-size: 10px; letter-spacing: 0.06em; }
   .fa-btn { font-size: 12px; padding: 11px 22px; letter-spacing: 0.14em; text-indent: 0.14em; }
+}
+@media (max-width: 360px) {
+  /* 極小端末では副文を落とし、主文と申込ボタンだけを残す */
+  .fa-sub { display: none; }
+  .fa-btn { padding: 11px 16px; letter-spacing: 0.1em; text-indent: 0.1em; }
 }
 
 /* 追従CTA表示中はヘッダー右上の申込ボタンを隠す（重複回避）
@@ -1332,7 +1355,7 @@ img { display: block; max-width: 100%; }
 }
 .fit-col--no .fit-items li::before { content: '―'; color: var(--ink-40); }
 @media (max-width: 640px) {
-  .fit-grid { grid-template-columns: 1fr; gap: 26px; }
+  .fit-grid { grid-template-columns: minmax(0, 1fr); gap: 26px; }
 }
 
 
@@ -1383,7 +1406,7 @@ img { display: block; max-width: 100%; }
   .apply-step:nth-child(even) { padding-right: 0; }
 }
 @media (max-width: 560px) {
-  .apply-steps { grid-template-columns: 1fr; }
+  .apply-steps { grid-template-columns: minmax(0, 1fr); }
   .apply-step { border-left: none; padding-left: 0; padding-right: 0; }
   .apply-step-num { margin-bottom: 10px; }
 }
@@ -1421,7 +1444,7 @@ img { display: block; max-width: 100%; }
 .terms-v ul li { display: grid; grid-template-columns: 1.4em minmax(0, 1fr); align-items: baseline; }
 .terms-v ul li::before { content: '・'; color: var(--ink-40); }
 @media (max-width: 640px) {
-  .terms-row { grid-template-columns: 1fr; row-gap: 4px; padding: 15px 0; }
+  .terms-row { grid-template-columns: minmax(0, 1fr); row-gap: 4px; padding: 15px 0; }
   .terms-k { line-height: 1.8; }
   .terms-v { font-size: 12.5px; }
 }
@@ -1622,7 +1645,7 @@ img { display: block; max-width: 100%; }
 .person-links a:hover { color: var(--brand); }
 .person-links .arrow { font-family: var(--en); margin-left: 0.4em; }
 @media (max-width: 640px) {
-  .person { grid-template-columns: 1fr; gap: 20px; }
+  .person { grid-template-columns: minmax(0, 1fr); gap: 20px; }
   .person-photo { max-width: 260px; }
   .person-photo.is-empty { max-width: 260px; }
 }
@@ -1679,7 +1702,7 @@ img { display: block; max-width: 100%; }
 }
 .point-desc .quoted { color: var(--brand-deep); font-weight: 500; }
 @media (max-width: 640px) {
-  .point-list { grid-template-columns: 1fr; }
+  .point-list { grid-template-columns: minmax(0, 1fr); }
   .point-item { border-left: none; padding-left: 0; padding-right: 0; }
 }
 
@@ -1744,7 +1767,7 @@ img { display: block; max-width: 100%; }
   color: var(--brand);
 }
 @media (max-width: 720px) {
-  .ba-flow { grid-template-columns: 1fr; gap: 12px; }
+  .ba-flow { grid-template-columns: minmax(0, 1fr); gap: 12px; }
   .ba-arrow { justify-self: center; transform: rotate(90deg); padding: 6px 0; }
 }
 
@@ -1881,12 +1904,15 @@ img { display: block; max-width: 100%; }
   margin-top: 16px;
 }
 @media (max-width: 640px) {
-  .fee-grid { grid-template-columns: 1fr; gap: 14px; }
-  .fee-add { grid-template-columns: 1fr; gap: 12px; }
+  .fee-grid { grid-template-columns: minmax(0, 1fr); gap: 14px; }
+  .fee-add { grid-template-columns: minmax(0, 1fr); gap: 12px; }
 }
 
 
 /* ============ フッター（.footer） ============ */
+/* フッターのロゴもタップ領域を44px確保する */
+.footer-marks a { display: inline-flex; align-items: center; min-height: 44px; }
+
 .footer {
   background: var(--bg-off);
   color: var(--ink-66);

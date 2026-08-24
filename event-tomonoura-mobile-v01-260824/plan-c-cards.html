@@ -1,0 +1,1132 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- ▼公開時に外す：確定前のプレビューのため検索避け -->
+<meta name="robots" content="noindex">
+<title>案C｜カード／横スワイプ — 鞆の浦LP スマホ版</title>
+<meta name="description" content="鞆の浦・走島で、さまざまな働き方と生き方に触れる1泊2日の暮らし観光。2026年11月21日（土）〜22日（日）、定員10名。POOLO × コト暮らし。">
+
+<!-- POOLO Design System（トークン → コンポーネントの順。値はコピペせず参照する） -->
+<link rel="stylesheet" href="../poolo-ds/tokens.css">
+<link rel="stylesheet" href="../poolo-ds/components.css">
+
+<style>
+/* =============================================================
+   案C：カード／横スワイプ（スマホファースト）
+   並列な情報（人・ステップ・ポイント・スケジュール）を
+   CSSスクロールスナップの横カルーセルに逃がし、縦の長さを削る。
+   横に動くのはカルーセルの内側だけ。body は絶対に横に動かさない。
+   ============================================================= */
+
+/* ---- スマホの本文最低サイズ（spec: 本文14px以上）---- */
+.sec-lead { font-size: 14px; }
+.q-helper { font-size: 14px; }
+.faq-q { font-size: 15px; }
+.faq-a { font-size: 14px; }
+.terms-v { font-size: 14px; }
+.fit-items li { font-size: 14px; }
+.ba-items li { font-size: 14px; }
+.cta-lead { font-size: 14px; }
+.fee-note, .fee-add-desc { font-size: 14px; }
+
+/* ---- 横スクロールの保険（bodyは横に動かない）---- */
+html, body { overflow-x: clip; }
+
+/* =========================================================
+   HERO（縦積み・テキスト先行 → 縦位置写真 → 日付帯 → 要点）
+   ========================================================= */
+.mhero { border-bottom: 1px solid var(--line); }
+.mhero-copy { padding-top: clamp(30px, 6vw, 56px); padding-bottom: clamp(24px, 5vw, 40px); }
+.mhero-eyebrow {
+  display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap;
+  margin-bottom: 18px;
+}
+.mhero-eyebrow .ja {
+  font-family: var(--head); font-size: 11px; font-weight: 700;
+  letter-spacing: 0.2em; color: var(--brand-deep);
+}
+.mhero-eyebrow .en {
+  font-family: var(--en); font-size: 10px; font-weight: 500;
+  letter-spacing: 0.3em; text-transform: uppercase; color: var(--ink-50);
+}
+.mhero-title {
+  font-family: var(--mincho); font-weight: 700; font-feature-settings: "palt";
+  font-size: clamp(26px, 7.2vw, 40px); line-height: 1.7; letter-spacing: 0.06em;
+  color: var(--ink);
+}
+.mhero-title .em { color: var(--brand); }
+.mhero-lead {
+  margin-top: 18px; font-size: 14px; line-height: 2.05; letter-spacing: 0.05em;
+  color: var(--ink-66); max-width: 34em;
+}
+.mhero-photo {
+  position: relative;
+  /* スマホでは裁ち落とし（シェル余白ぶん左右に食み出す） */
+  margin-inline: calc(-1 * var(--shell-pad));
+}
+.mhero-photo img {
+  width: 100%; aspect-ratio: 4 / 5; object-fit: cover; display: block;
+}
+.mhero-chip {
+  position: absolute; left: 0; bottom: 0;
+  background: var(--bg); border-top: 1px solid var(--line);
+  padding: 8px 16px 8px var(--shell-pad);
+  display: flex; align-items: baseline; gap: 12px;
+}
+.mhero-chip .en {
+  font-family: var(--en); font-size: 10px; font-weight: 500;
+  letter-spacing: 0.28em; text-transform: uppercase; color: var(--brand);
+}
+.mhero-chip .ja { font-family: var(--head); font-size: 11px; letter-spacing: 0.1em; color: var(--ink-60); }
+
+/* ブルーの日付帯 */
+.mband { background: var(--brand); color: var(--on-brand); }
+.mband-inner { padding-top: 22px; padding-bottom: 24px; }
+.mband-num {
+  font-family: var(--en); font-weight: 500;
+  font-size: clamp(40px, 11vw, 64px); line-height: 1.05; letter-spacing: 0.04em;
+}
+.mband-num .dow {
+  font-family: var(--head); font-size: 0.32em; font-weight: 700;
+  letter-spacing: 0.1em; margin: 0 0.35em; vertical-align: 0.32em;
+  border: 1px solid var(--on-brand-40); border-radius: var(--radius); padding: 2px 6px;
+}
+.mband-meta {
+  margin-top: 10px; display: flex; flex-wrap: wrap; column-gap: 18px; row-gap: 4px;
+  font-family: var(--head); font-size: 12px; font-weight: 500;
+  letter-spacing: 0.12em; color: var(--on-brand-92);
+}
+
+/* いつ・どこ・いくら（縦の導線。カルーセルにしない） */
+.facts { background: var(--bg-off); border-bottom: 1px solid var(--line); }
+.facts-inner { padding-top: clamp(26px, 5vw, 40px); padding-bottom: clamp(26px, 5vw, 40px); }
+.facts-list { max-width: 640px; border-top: 1px solid var(--ink); }
+.fact-row {
+  display: grid; grid-template-columns: 6em minmax(0, 1fr);
+  column-gap: 14px; padding: 13px 0; border-bottom: 1px solid var(--line);
+  align-items: baseline;
+}
+.fact-k {
+  font-family: var(--head); font-size: 11px; font-weight: 700;
+  letter-spacing: 0.14em; color: var(--brand-deep); line-height: 2;
+}
+.fact-v { font-size: 14px; line-height: 1.9; letter-spacing: 0.04em; color: var(--ink-72); }
+.fact-v strong { font-weight: 700; color: var(--ink); }
+.fact-v small { display: block; font-size: 11px; letter-spacing: 0.06em; color: var(--ink-50); }
+.fact-map {
+  display: inline-flex; align-items: center; gap: 4px;
+  min-height: 44px; padding: 0 4px;
+  font-family: var(--head); font-size: 12px; font-weight: 700; letter-spacing: 0.08em;
+  color: var(--brand-deep); border-bottom: 1px solid var(--brand);
+}
+.fact-map .arrow { font-family: var(--en); color: var(--brand); }
+
+/* =========================================================
+   カルーセル（CSSスクロールスナップのみ。JSは位置表示だけ）
+   ・カード右端を画面外に少しはみ出させ「まだ続きがある」を示す
+   ・860px以上ではグリッドに組み替え、スワイプUIは消す
+   ========================================================= */
+.swipe { margin-top: clamp(6px, 1.5vw, 14px); }
+.swipe-track {
+  list-style: none;
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  scroll-padding-left: var(--shell-pad);
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  /* シェルの左右余白ぶん食み出し、カードの「続き」を見せる */
+  margin-inline: calc(-1 * var(--shell-pad));
+  padding-inline: var(--shell-pad);
+  padding-bottom: 4px;
+}
+.swipe-track::-webkit-scrollbar { display: none; }
+.swipe-track::after { /* 末尾余白（Safariのpadding-right無視対策） */
+  content: ''; flex: 0 0 1px;
+}
+.swipe-card {
+  flex: 0 0 82%;
+  max-width: 340px;
+  min-width: 0;
+  scroll-snap-align: start;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-top: 2px solid var(--brand);
+  border-radius: var(--radius);
+  padding: 20px 18px 22px;
+  display: flex; flex-direction: column;
+}
+
+/* 位置インジケータ（ドット＋ 1 / N） */
+.swipe-ui {
+  display: flex; align-items: center; gap: 14px;
+  margin-top: 14px;
+}
+.swipe-dots { display: flex; gap: 6px; }
+.swipe-dots .dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--line); transition: background var(--trans-fast);
+}
+.swipe-dots .dot.is-on { background: var(--brand); }
+.swipe-count {
+  font-family: var(--en); font-size: 11px; font-weight: 500;
+  letter-spacing: 0.18em; color: var(--ink-55);
+}
+.swipe-hint {
+  margin-left: auto;
+  font-family: var(--head); font-size: 11px; font-weight: 500;
+  letter-spacing: 0.14em; color: var(--ink-50);
+}
+.swipe-hint .ar { font-family: var(--en); color: var(--brand); margin-left: 0.4em; }
+
+/* ---- カードの中身：3ステップ ---- */
+.swc-head { display: flex; align-items: baseline; gap: 10px; margin-bottom: 14px; }
+.swc-num {
+  font-family: var(--en); font-size: 13px; font-weight: 500;
+  letter-spacing: 0.2em; color: var(--brand);
+}
+.swc-tag {
+  font-family: var(--head); font-size: 11px; font-weight: 700;
+  letter-spacing: 0.12em; color: var(--ink-55);
+  border: 1px solid var(--line); border-radius: var(--radius); padding: 2px 8px;
+}
+.swc-tag.is-main { color: var(--on-brand); background: var(--brand); border-color: var(--brand); }
+.swc-title {
+  font-family: var(--mincho); font-weight: 700; font-feature-settings: "palt";
+  font-size: 17px; line-height: 1.75; letter-spacing: 0.05em; color: var(--ink);
+  margin-bottom: 10px;
+}
+.swc-desc { font-size: 14px; line-height: 1.95; letter-spacing: 0.04em; color: var(--ink-66); }
+.swc-meta {
+  margin-top: auto; padding-top: 14px;
+  font-size: 11px; letter-spacing: 0.08em; color: var(--ink-50);
+  border-top: 1px solid var(--line);
+}
+
+/* ---- カードの中身：人 ---- */
+.swp-photo { margin: -20px -18px 16px; }
+.swp-photo img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; display: block; }
+.swp-photo.is-empty {
+  aspect-ratio: 4 / 5; background: var(--brand-pale);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--head); font-size: 11px; letter-spacing: 0.14em;
+  color: var(--ink-55); text-align: center; line-height: 2;
+}
+.swp-role { font-size: 11px; letter-spacing: 0.1em; color: var(--ink-55); margin-bottom: 6px; }
+.swp-name {
+  font-family: var(--mincho); font-weight: 700; font-feature-settings: "palt";
+  font-size: 20px; letter-spacing: 0.08em; line-height: 1.5; color: var(--ink);
+  margin-bottom: 12px;
+}
+.swp-name .ruby {
+  display: inline-block; margin-left: 10px;
+  font-family: var(--body); font-size: 11px; font-weight: 400;
+  letter-spacing: 0.14em; color: var(--ink-50);
+}
+.swp-bio { font-size: 14px; line-height: 1.95; letter-spacing: 0.04em; color: var(--ink-66); }
+.swp-bio + .swp-bio { margin-top: 10px; }
+.swp-links { margin-top: auto; padding-top: 14px; display: flex; flex-wrap: wrap; gap: 8px; }
+.swp-links a {
+  display: inline-flex; align-items: center; gap: 4px;
+  min-height: 44px; padding: 0 14px;
+  border: 1px solid var(--line); border-radius: var(--radius);
+  font-family: var(--head); font-size: 12px; font-weight: 700;
+  letter-spacing: 0.08em; color: var(--ink-72);
+  transition: color var(--trans-fast), border-color var(--trans-fast);
+}
+.swp-links a .arrow { font-family: var(--en); color: var(--brand); }
+.swp-links a:hover { color: var(--brand-deep); border-color: var(--brand); }
+
+/* ---- カードの中身：4つのこと ---- */
+.swt-num {
+  font-family: var(--en); font-size: 12px; font-weight: 500;
+  letter-spacing: 0.22em; color: var(--brand); margin-bottom: 12px;
+}
+.swt-num .no { font-size: 21px; letter-spacing: 0.08em; margin-left: 8px; }
+.swt-title {
+  font-family: var(--head); font-weight: 700; font-feature-settings: "palt";
+  font-size: 15px; line-height: 1.8; letter-spacing: 0.05em; color: var(--ink);
+  margin-bottom: 8px;
+}
+
+/* ---- カードの中身：スケジュール ---- */
+.swipe--flow .swipe-card { flex-basis: 74%; max-width: 300px; border-top-width: 1px; border-top-color: var(--line); }
+.swf-time {
+  display: flex; align-items: center; gap: 12px; margin-bottom: 12px;
+  font-family: var(--en); font-size: 15px; font-weight: 500;
+  letter-spacing: 0.14em; color: var(--brand-deep);
+}
+.swf-time::after { content: ''; height: 1px; flex: 1; background: var(--line); }
+.swf-title {
+  font-family: var(--head); font-weight: 700; font-feature-settings: "palt";
+  font-size: 15px; line-height: 1.75; letter-spacing: 0.05em; color: var(--ink);
+  margin-bottom: 8px;
+}
+.swf-desc { font-size: 14px; line-height: 1.9; letter-spacing: 0.04em; color: var(--ink-66); }
+.swipe + .day-block { margin-top: clamp(36px, 7vw, 56px); }
+
+/* =========================================================
+   その他ページ内調整
+   ========================================================= */
+/* 写真ブレイクはスマホでは縦位置トリミング（spec 9） */
+@media (max-width: 859.98px) {
+  .pb-frame img { height: auto; aspect-ratio: 4 / 5; }
+  .photo-break--right .pb-frame { padding-left: clamp(22px, 8vw, 60px); }
+  .photo-break--left .pb-frame { padding-right: clamp(22px, 8vw, 60px); }
+}
+
+/* 追従CTA：文字サイズ最低ライン */
+.fa-main { font-size: 13px; }
+.fa-sub { font-size: 11px; }
+@media (max-width: 640px) {
+  .fa-main { font-size: 13px; }
+  .fa-sub { font-size: 11px; }
+  .fa-btn { padding: 13px 22px; } /* タップ領域44px確保 */
+}
+
+/* =========================================================
+   PC（860px以上）：横スワイプは不自然なのでグリッドに組み替え
+   ========================================================= */
+@media (min-width: 860px) {
+  .swipe-track {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+    overflow: visible;
+    margin-inline: 0;
+    padding-inline: 0;
+  }
+  .swipe-track::after { display: none; }
+  .swipe-card { max-width: none; }
+  .swipe--points .swipe-track { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .swipe--flow .swipe-track { grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); }
+  .swipe-ui { display: none; }
+  .swp-photo img, .swp-photo.is-empty { aspect-ratio: 4 / 3; }
+
+  .mhero-grid {
+    display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    align-items: center; column-gap: clamp(32px, 4vw, 64px);
+  }
+  .mhero-photo { margin-inline: 0; }
+  .mhero-photo img { aspect-ratio: auto; height: 100%; min-height: 440px; max-height: 560px; }
+  .mhero-chip { padding-left: 20px; }
+  .mband-inner { display: flex; align-items: baseline; gap: 32px; flex-wrap: wrap; }
+  .mband-meta { margin-top: 0; }
+}
+</style>
+</head>
+<body>
+
+<!-- ===== 追従CTA（.brand-row より前に置く／スクロール開始直後から出す） ===== -->
+<div class="float-apply" id="floatApply">
+  <div class="shell fa-inner">
+    <div class="fa-texts">
+      <span class="fa-main">鞆の浦・走島 1泊2日の暮らし観光</span>
+      <span class="fa-sub">11/21(土)–22(日)・定員10名・締切 10/30(金)</span>
+    </div>
+    <!-- ▼[要差し替え] 申込GoogleフォームのURL -->
+    <a class="fa-btn" href="#">参加を申し込む</a>
+  </div>
+</div>
+
+<!-- ===== 固定ヘッダー ===== -->
+<header class="brand-row">
+  <div class="shell">
+    <a class="brand-logo" href="https://tabippo.net/poolo/" target="_blank" rel="noopener">
+      <img src="images/poolo_logo.png" alt="POOLO あたらしい旅の学校">
+    </a>
+    <nav class="header-nav">
+      <a class="header-link" href="https://tabippo.net/poolo/course/life/" target="_blank" rel="noopener">POOLO とは<span class="arrow" aria-hidden="true">↗</span></a>
+      <!-- ▼[要差し替え] 申込GoogleフォームのURL -->
+      <a class="header-cta" href="#">申し込む</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ===== HERO（縦積み：コピー → 縦位置写真 → 日付帯） ===== -->
+<section class="mhero">
+  <div class="shell mhero-grid">
+    <div class="mhero-copy">
+      <p class="mhero-eyebrow">
+        <span class="ja">20〜30代の方へ</span>
+        <span class="en">POOLO × KOTOGURASHI</span>
+      </p>
+      <h1 class="mhero-title">瀬戸内海の暮らしから、<br>これからの<span class="em">キャリア</span>を<br>考える。</h1>
+      <p class="mhero-lead">鞆の浦・走島で、さまざまな働き方と生き方に触れる1泊2日の暮らし観光。転職でも、スキルアップでもなく、誰かの暮らしのそばで、自分のこれからを考えてみる旅です。</p>
+    </div>
+    <!-- ▼[要差し替え] 鞆の浦のまち並み写真に差し替え予定 -->
+    <figure class="mhero-photo">
+      <img src="images/hero_setouchi.jpg" alt="走島の浜辺。穏やかな瀬戸内海と、沖に浮かぶ島影">
+      <figcaption class="mhero-chip">
+        <span class="en">Setouchi</span>
+        <span class="ja">鞆の浦から船で20分、走島</span>
+      </figcaption>
+    </figure>
+  </div>
+  <div class="mband">
+    <div class="shell mband-inner">
+      <p class="mband-num">11.21<span class="dow">土</span>–22<span class="dow">日</span></p>
+      <p class="mband-meta">
+        <span>12:30 集合 – 16:00 解散</span>
+        <span>広島・鞆の浦＋走島</span>
+        <span>1泊2日・定員10名</span>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== いつ・どこ・いくら（縦の導線。スワイプしなくても分かる） ===== -->
+<section class="facts" aria-label="開催の要点">
+  <div class="shell facts-inner">
+    <dl class="facts-list">
+      <div class="fact-row">
+        <dt class="fact-k">日程</dt>
+        <dd class="fact-v"><strong>2026年11月21日（土）12:30 〜 22日（日）16:00</strong><small>ほかに事前・事後のオンライン回があります</small></dd>
+      </div>
+      <div class="fact-row">
+        <dt class="fact-k">集合・解散</dt>
+        <dd class="fact-v">鞆の浦「ありそろう」<small>〒720-0202 広島県福山市鞆町鞆715</small>
+          <a class="fact-map" href="https://www.google.com/maps/search/?api=1&amp;query=%E5%BA%83%E5%B3%B6%E7%9C%8C%E7%A6%8F%E5%B1%B1%E5%B8%82%E9%9E%86%E7%94%BA%E9%9E%86715" target="_blank" rel="noopener">地図アプリで開く<span class="arrow">↗</span></a>
+        </dd>
+      </div>
+      <div class="fact-row">
+        <dt class="fact-k">参加費</dt>
+        <dd class="fact-v"><strong>20,000円</strong>（POOLO生 17,000円）<small>別途、宿泊・食事等 15,000円を現地で回収します</small></dd>
+      </div>
+      <div class="fact-row">
+        <dt class="fact-k">定員・締切</dt>
+        <dd class="fact-v"><strong>10名</strong>／申込締切 <strong>2026年10月30日（金）</strong><small>主催：あたらしい旅の学校 POOLO ／ 合同会社コト暮らし</small></dd>
+      </div>
+    </dl>
+  </div>
+</section>
+
+<!-- ===== 問（縦のまま。カルーセルにしない） ===== -->
+<section class="sec sec-questions">
+  <div class="shell sec-inner">
+    <div class="sec-spine">
+      <div class="sec-num ja">問</div>
+      <span class="sec-en">Before</span>
+    </div>
+    <div>
+      <h2 class="sec-title">こんなことを、考えることはありませんか。</h2>
+      <ol class="q-list">
+        <li class="q-item">
+          <span class="q-no"><span class="kanji">一</span></span>
+          <div>
+            <p class="q-text">今の仕事が嫌なわけではない。でも「このままでいいのかな」と感じることが、少しずつ増えてきた。</p>
+            <p class="q-helper">大きな不満があるわけではない。だからこそ、誰かに相談するほどのことでもない気がしてしまう。</p>
+          </div>
+        </li>
+        <li class="q-item">
+          <span class="q-no"><span class="kanji">二</span></span>
+          <div>
+            <p class="q-text">やりたいことは、なんとなくある。けれど、動き出すほどの確信がまだない。</p>
+            <p class="q-helper">「もう少し考えてから」と思っているうちに、また同じ季節が巡ってくる。</p>
+          </div>
+        </li>
+        <li class="q-item">
+          <span class="q-no"><span class="kanji">三</span></span>
+          <div>
+            <p class="q-text">ひとりで考えていると、いつも同じところをぐるぐるしてしまう。</p>
+            <p class="q-helper">自己分析はやってみた。本も読んだ。それでも、答えらしいものはまだ出てこない。</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 01 導入（縦のまま） ===== -->
+<section class="sec">
+  <div class="shell sec-inner">
+    <div class="sec-spine">
+      <div class="sec-num">01</div>
+      <span class="sec-en">Concept</span>
+    </div>
+    <div>
+      <h2 class="sec-title">瀬戸内海の暮らしから、キャリアを考えてみる。</h2>
+      <div class="intro-body">
+        <p>これからのキャリアを考えるとき、多くの人は転職サイトを開いたり、自己分析のシートを埋めたりします。それも、もちろん有効な方法のひとつです。</p>
+        <p class="intro-break">ただ、しかし。</p>
+        <p>「どんな仕事をするか」だけを考えていても、答えが出ないことがあります。<strong>どんな場所で暮らしたいのか。どんな働き方をしたいのか。何を大切にして生きたいのか。</strong>そこまで含めて、はじめて「これから」の話になる。</p>
+        <p>今回の旅で大切にしたいのは、<span class="quoted">誰かの暮らしや人生の歩み方から、自分のキャリアを考えること</span>です。この旅は、答えを決めるためのものではありません。<strong>自分がこれから考えていきたい問いと、小さな次の一歩を持ち帰るための旅</strong>です。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PHOTO BREAK 1 ===== -->
+<!-- ▼[要差し替え] 鞆の浦のまち並み・路地の写真に差し替え予定 -->
+<div class="photo-break photo-break--right">
+  <figure class="pb-frame">
+    <img src="images/hashirijima_kai.jpg" alt="走島の浜辺に立つ、今回の宿泊先である一棟貸しの宿" loading="lazy">
+  </figure>
+  <figcaption class="pb-caption">
+    <span class="pb-caption-en">Hashirijima</span>
+    <span class="pb-caption-rule" aria-hidden="true"></span>
+    <span class="pb-caption-text">1泊するのは、走島の浜辺に立つ一棟貸しの宿「KAI」。</span>
+  </figcaption>
+</div>
+
+<!-- ===== 02 なぜ鞆の浦・走島か（縦のまま） ===== -->
+<section class="sec">
+  <div class="shell sec-inner">
+    <div class="sec-spine">
+      <div class="sec-num">02</div>
+      <span class="sec-en">Why Tomonoura</span>
+    </div>
+    <div>
+      <h2 class="sec-title">なぜ、鞆の浦・走島なのか。</h2>
+      <div class="intro-body">
+        <p>鞆の浦は、広島県福山市の南端にある港町。江戸時代の港のかたちが今も残る、瀬戸内海に面したまちです。</p>
+        <p class="intro-break">けれど、理由は景色ではありません。</p>
+        <p>このまちには、東京から移住してきた人、家業を継いだ人、地元で店を開いた人が、それぞれの理由で暮らしています。そして何より、<strong>その人たちに実際に会いにいける距離感がある</strong>。まちを歩けば、話しかけられる。商店の人と立ち話が始まる。そういうまちです。</p>
+        <p>鞆の浦から船で20分ほど沖には、走島（はしりじま）という小さな島。今回はこの島にも渡って一泊します。まちと、島。ふたつの場所で、違う選択をした人たちの人生に触れる。だから、鞆の浦・走島を選びました。</p>
+        <p>有名な観光名所を巡るだけでなく、その土地で暮らす人や日常のほうに触れる旅を、共催する合同会社コト暮らしは<strong>「暮らし観光」</strong>と呼んでいます。今回の1泊2日も、この考え方に沿って組み立てています。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 03 3ステップ（カルーセル） ===== -->
+<section class="sec">
+  <div class="shell sec-inner">
+    <div class="sec-spine">
+      <div class="sec-num">03</div>
+      <span class="sec-en">Program</span>
+    </div>
+    <div>
+      <h2 class="sec-title">1泊2日だけでは、ありません。</h2>
+      <p class="sec-lead">旅の前と後にオンラインで集まる、3つのステップでひとつの体験として設計しています。</p>
+      <div class="swipe" aria-label="プログラムの3ステップ">
+        <ol class="swipe-track">
+          <li class="swipe-card">
+            <div class="swc-head">
+              <span class="swc-num">Step 01</span>
+              <span class="swc-tag">事前・オンライン</span>
+            </div>
+            <h3 class="swc-title">旅に出る前から、旅は始まる。</h3>
+            <p class="swc-desc">長田涼さんから、暮らし観光とは何か、鞆の浦とはどんなまちなのかを聞きます。そして「今回の旅で、自分は何について考えてみたいだろう？」——旅のテーマや問いを、ひとつ持って出発します。</p>
+            <p class="swc-meta">実施：オンライン ／ 日時：[要確認：後日決定]</p>
+          </li>
+          <li class="swipe-card">
+            <div class="swc-head">
+              <span class="swc-num">Step 02</span>
+              <span class="swc-tag is-main">現地・1泊2日</span>
+            </div>
+            <h3 class="swc-title">鞆の浦・走島で、暮らしのなかへ。</h3>
+            <p class="swc-desc">まちを歩き、人に会い、話を聞く。船で島へ渡り、島の時間のなかでもう一度考える。参加者同士で話す時間と、ひとりで考える余白の、両方を置いた2日間です。</p>
+            <p class="swc-meta">実施：広島・鞆の浦＋走島 ／ 11月21日（土）12:30 〜 22日（日）16:00</p>
+          </li>
+          <li class="swipe-card">
+            <div class="swc-head">
+              <span class="swc-num">Step 03</span>
+              <span class="swc-tag">事後・オンライン</span>
+            </div>
+            <h3 class="swc-title">旅を、日常と切り離さない。</h3>
+            <p class="swc-desc">帰ったあと、もう一度オンラインで集まります。何が印象に残ったのか。誰の言葉が残っているのか。旅で得た気づきを、日常へつなげるところまでをプログラムに含めます。</p>
+            <p class="swc-meta">実施：オンライン ／ 日時：[要確認：後日決定]</p>
+          </li>
+        </ol>
+        <div class="swipe-ui">
+          <span class="swipe-dots" aria-hidden="true"></span>
+          <span class="swipe-count" aria-hidden="true">1 / 3</span>
+          <span class="swipe-hint">横にスワイプ<span class="ar">→</span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 04 この旅で体験する4つのこと（カルーセル） ===== -->
+<section class="sec">
+  <div class="shell sec-inner">
+    <div class="sec-spine">
+      <div class="sec-num">04</div>
+      <span class="sec-en">Points</span>
+    </div>
+    <div>
+      <h2 class="sec-title">この旅で体験する、4つのこと</h2>
+      <div class="swipe swipe--points" aria-label="この旅で体験する4つのこと">
+        <ol class="swipe-track">
+          <li class="swipe-card">
+            <p class="swt-num">Point<span class="no">01</span></p>
+            <h3 class="swt-title">さまざまな働き方・生き方をしている人に会う</h3>
+            <p class="swc-desc">キャリア講師から正解を教えてもらうのではありません。実際にその土地で人生を営んでいる人から、直接、話を聞きます。</p>
+          </li>
+          <li class="swipe-card">
+            <p class="swt-num">Point<span class="no">02</span></p>
+            <h3 class="swt-title">観光ではなく、「暮らし」を旅する</h3>
+            <p class="swc-desc">有名なスポットを巡るだけではありません。商店、路地、人との会話。その土地の日常のほうへ入っていきます。</p>
+          </li>
+          <li class="swipe-card">
+            <p class="swt-num">Point<span class="no">03</span></p>
+            <h3 class="swt-title">参加者同士で、ゆっくり話す</h3>
+            <p class="swc-desc">人の話を聞いて終わりにはしません。<span class="quoted">「自分だったら、どうだろう？」</span>——そこまで、参加者同士で話しながら考えます。</p>
+          </li>
+          <li class="swipe-card">
+            <p class="swt-num">Point<span class="no">04</span></p>
+            <h3 class="swt-title">一人で考える余白もつくる</h3>
+            <p class="swc-desc">島での自由時間、朝のジャーナリング。予定は詰め込みません。人と話す時間と、ひとりで考える時間の両方をつくります。</p>
+          </li>
+        </ol>
+        <div class="swipe-ui">
+          <span class="swipe-dots" aria-hidden="true"></span>
+          <span class="swipe-count" aria-hidden="true">1 / 4</span>
+          <span class="swipe-hint">横にスワイプ<span class="ar">→</span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 人｜今回出会う人たち（カルーセル） ===== -->
+<section class="sec">
+  <div class="shell sec-inner">
+    <div class="sec-spine">
+      <div class="sec-num ja">人</div>
+      <span class="sec-en">People</span>
+    </div>
+    <div>
+      <h2 class="sec-title">今回、出会う人たち</h2>
+      <p class="sec-lead">それぞれ違う道を通って、いまこの土地で暮らし、働いている3人です。</p>
+      <div class="swipe" aria-label="今回出会う人たち">
+        <ul class="swipe-track">
+          <li class="swipe-card">
+            <figure class="swp-photo">
+              <img src="images/person_nagata.jpg" alt="長田涼さんのポートレート" loading="lazy">
+            </figure>
+            <p class="swp-role">合同会社コト暮らし 共同代表</p>
+            <h3 class="swp-name">長田 涼<span class="ruby">ながた りょう</span></h3>
+            <p class="swp-bio">1991年、京都生まれ。ユニクロ、IT企業などを経て、2022年に東京から鞆の浦へ移住。2023年に夫婦で「コト暮らし」を設立し、鞆の浦「暮らし観光」の事業に取り組む。2025年に『ともたち』を出版。</p>
+            <p class="swp-bio">リモートワーク、パン屋、子育て、地域での活動。複数の営みを組み合わせながら暮らす長田さんに、なぜ移住したのか、何を大切に働いているのかを聞きます。</p>
+            <p class="swp-links">
+              <a href="https://x.com/SsfRn" target="_blank" rel="noopener">X<span class="arrow">↗</span></a>
+              <a href="https://kotogurashi.studio.site/" target="_blank" rel="noopener">コト暮らし<span class="arrow">↗</span></a>
+            </p>
+          </li>
+          <li class="swipe-card">
+            <figure class="swp-photo">
+              <img src="images/person_hamagami.jpg" alt="濱上京大さんのポートレート。走島の浜辺にて" loading="lazy">
+            </figure>
+            <p class="swp-role">漁師／一棟貸ホテル「バケーションレンタルホテルKAI」</p>
+            <h3 class="swp-name">濱上 京大<span class="ruby">はまがみ きょうた</span></h3>
+            <p class="swp-bio">1988年、走島生まれ。大阪・福山で製造業や食品営業などを経験し、30歳を機に脱サラして生まれ故郷の走島へ。2022年11月に一棟貸ホテル「KAI」を開業しました。</p>
+            <p class="swp-bio">家業、島での仕事、地域との関わり。<strong>「地域で生きる」という選択</strong>について聞きます。今回の宿泊先も、濱上さんが営むこのKAIです。</p>
+            <p class="swp-links">
+              <a href="https://setouchi-hotel-kai.com/" target="_blank" rel="noopener">KAI<span class="arrow">↗</span></a>
+            </p>
+          </li>
+          <li class="swipe-card">
+            <!-- 写真は未入稿。入稿後に .is-empty を img に差し替える -->
+            <div class="swp-photo is-empty">写真は<br>[要確認：後日追加]</div>
+            <p class="swp-role">niki yoga 主宰／ヨガインストラクター</p>
+            <h3 class="swp-name">西原 由弥佳<span class="ruby">にしはら ゆみか</span></h3>
+            <p class="swp-bio">鞆出身のヨガインストラクター。人を元気にする明るいキャラクターと、独自の世界観を持っているのが魅力です。2024年にヨガスタジオ「niki -間-」を開業しました。</p>
+            <p class="swp-bio">2日目にスタジオを訪ね、地域で仕事をつくること、キャリア、地域との関わりについて話を聞きます。[要確認：詳細プロフィール・スタジオのWebサイトURL]</p>
+          </li>
+        </ul>
+        <div class="swipe-ui">
+          <span class="swipe-dots" aria-hidden="true"></span>
+          <span class="swipe-count" aria-hidden="true">1 / 3</span>
+          <span class="swipe-hint">横にスワイプ<span class="ar">→</span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PHOTO BREAK 2 ===== -->
+<!-- ▼[要差し替え] 鞆の浦のまち歩き・対話の写真に差し替え予定 -->
+<div class="photo-break photo-break--left">
+  <figure class="pb-frame">
+    <img src="images/05_garden_talk.jpg" alt="話を聞き、ゆっくりと言葉を探す時間" loading="lazy">
+  </figure>
+  <figcaption class="pb-caption">
+    <span class="pb-caption-en">Dialogue</span>
+    <span class="pb-caption-rule" aria-hidden="true"></span>
+    <span class="pb-caption-text">話を聞いたら、参加者同士で話す。そして、ひとりで考える。</span>
+  </figcaption>
+</div>
+
+<!-- ===== 05 スケジュール（DAY1・DAY2 をそれぞれカルーセル） ===== -->
+<section class="sec">
+  <div class="shell sec-inner">
+    <div class="sec-spine">
+      <div class="sec-num">05</div>
+      <span class="sec-en">Timetable</span>
+    </div>
+    <div>
+      <h2 class="sec-title">1泊2日の流れ</h2>
+      <p class="sec-lead">集合から解散まで。予定を詰め込みすぎず、考える余白を挟みながら進みます。集合・解散の時刻は下の日付見出しのとおりです。［各プログラムの詳細な時刻は[要確認：後日確定]］</p>
+
+      <div class="day-block">
+        <div class="day-head">
+          <span class="day-num">Day 1</span>
+          <span class="day-date">11月21日（土）</span>
+          <span class="day-note">12:30 鞆の浦「ありそろう」集合</span>
+        </div>
+        <div class="swipe swipe--flow" aria-label="1日目のスケジュール">
+          <ol class="swipe-track">
+            <li class="swipe-card">
+              <p class="swf-time">12:30</p>
+              <h3 class="swf-title">集合・自己紹介</h3>
+              <p class="swf-desc">鞆の浦「ありそろう」に集合。旅で考えてみたいテーマを、参加者同士で共有するところから始めます。</p>
+            </li>
+            <li class="swipe-card">
+              <p class="swf-time">午後</p>
+              <h3 class="swf-title">長田涼さんのキャリア・生き方を聞く</h3>
+              <p class="swf-desc">複数の営みを組み合わせながら暮らす長田さんの、これまでと現在地を聞きます。</p>
+            </li>
+            <li class="swipe-card">
+              <p class="swf-time">午後</p>
+              <h3 class="swf-title">長田さんと鞆の浦をまち歩き</h3>
+              <p class="swf-desc">商店、路地、日常の風景を歩きながら「鞆の浦で暮らす」ということに触れます。偶然の出会いや寄り道も、大切に。</p>
+            </li>
+            <li class="swipe-card">
+              <p class="swf-time">夕方</p>
+              <h3 class="swf-title">船で走島へ渡る</h3>
+              <p class="swf-desc">鞆の浦から船に乗って、20分ほど。走島へ移動します。</p>
+            </li>
+            <li class="swipe-card">
+              <p class="swf-time">夕方</p>
+              <h3 class="swf-title">濱上京大さんの話を聞く</h3>
+              <p class="swf-desc">家業、島での仕事、これまでの人生を通して「地域で生きる」という選択に触れます。</p>
+            </li>
+            <li class="swipe-card">
+              <p class="swf-time">夕方</p>
+              <h3 class="swf-title">島での振り返り・自由時間</h3>
+              <p class="swf-desc">海辺を歩く。ひとりで考える。ぼーっとする。そうした余白も、大切なプログラムです。</p>
+            </li>
+            <li class="swipe-card">
+              <p class="swf-time">夜</p>
+              <h3 class="swf-title">夕食・交流</h3>
+              <p class="swf-desc">みんなで食事を囲みながら、一日を振り返ります。宿泊は、走島の一棟貸しの宿「KAI」。</p>
+            </li>
+          </ol>
+          <div class="swipe-ui">
+            <span class="swipe-dots" aria-hidden="true"></span>
+            <span class="swipe-count" aria-hidden="true">1 / 7</span>
+            <span class="swipe-hint">横にスワイプ<span class="ar">→</span></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="day-block">
+        <div class="day-head">
+          <span class="day-num">Day 2</span>
+          <span class="day-date">11月22日（日）</span>
+          <span class="day-note">16:00 鞆の浦「ありそろう」解散</span>
+        </div>
+        <div class="swipe swipe--flow" aria-label="2日目のスケジュール">
+          <ol class="swipe-track">
+            <li class="swipe-card">
+              <p class="swf-time">朝</p>
+              <h3 class="swf-title">朝のジャーナリング</h3>
+              <p class="swf-desc">前日に感じたこと、心に残った言葉、生まれた問いを書き出します。</p>
+            </li>
+            <li class="swipe-card">
+              <p class="swf-time">朝</p>
+              <h3 class="swf-title">朝食</h3>
+            </li>
+            <li class="swipe-card">
+              <p class="swf-time">午前</p>
+              <h3 class="swf-title">走島から鞆の浦へ</h3>
+            </li>
+            <li class="swipe-card">
+              <p class="swf-time">午前</p>
+              <h3 class="swf-title">niki yoga を訪問</h3>
+              <p class="swf-desc">西原由弥佳さんのスタジオ「niki -間-」へ。地域で仕事をつくることについて話を聞きます。</p>
+            </li>
+            <li class="swipe-card">
+              <p class="swf-time">昼</p>
+              <h3 class="swf-title">鞆の浦をもう一度歩く</h3>
+              <p class="swf-desc">1日目とは少し違う視点で。今度は、自分のなかに生まれた問いを持って。</p>
+            </li>
+            <li class="swipe-card">
+              <p class="swf-time">昼</p>
+              <h3 class="swf-title">少人数でランチ・自由散策</h3>
+              <p class="swf-desc">少人数に分かれて、それぞれ気になった場所へ。</p>
+            </li>
+            <li class="swipe-card">
+              <p class="swf-time">午後</p>
+              <h3 class="swf-title">最後の振り返り</h3>
+              <p class="swf-desc">個人ワーク → 3〜4人での対話 → 全員で共有。感じたことを自分の言葉にしていきます。</p>
+            </li>
+            <li class="swipe-card">
+              <p class="swf-time">16:00</p>
+              <h3 class="swf-title">鞆の浦「ありそろう」解散</h3>
+            </li>
+          </ol>
+          <div class="swipe-ui">
+            <span class="swipe-dots" aria-hidden="true"></span>
+            <span class="swipe-count" aria-hidden="true">1 / 8</span>
+            <span class="swipe-hint">横にスワイプ<span class="ar">→</span></span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== 06 持ち帰ってほしいもの（縦のまま） ===== -->
+<section class="sec">
+  <div class="shell sec-inner">
+    <div class="sec-spine">
+      <div class="sec-num">06</div>
+      <span class="sec-en">After</span>
+    </div>
+    <div>
+      <h2 class="sec-title">旅を終えたとき、持ち帰ってほしいもの</h2>
+      <p class="sec-lead">この2日間で「理想のキャリアが決まる」とも「やりたいことが見つかる」とも、お約束はしません。目指しているのは、もう少し手前の変化です。</p>
+      <div class="ba-flow">
+        <div class="ba-col">
+          <span class="ba-label"><span class="en">Before</span>旅に出る前</span>
+          <ul class="ba-items">
+            <li>「何か変えたい」と思っているが、何を変えたいのかは分からない</li>
+            <li>やりたいことはなんとなくあるが、動くほどの確信はない</li>
+            <li>モヤモヤはあるが、人に話すほどではないと思っている</li>
+            <li>早くキャリアの答えを出さなければ、と思っている</li>
+          </ul>
+        </div>
+        <span class="ba-arrow" aria-hidden="true">→</span>
+        <div class="ba-col ba-col--after">
+          <span class="ba-label"><span class="en">After</span>旅を終えたあと</span>
+          <ul class="ba-items">
+            <li>ずっとモヤモヤしていたことが、少し言葉になった</li>
+            <li>こんな働き方もあるんだ、と知った</li>
+            <li>自分はこういう暮らしに惹かれるんだ、と気づいた</li>
+            <li>まずこれだけやってみよう、と思った</li>
+          </ul>
+        </div>
+      </div>
+      <div class="intro-body" style="margin-top: clamp(26px, 3.4vw, 38px);">
+        <p>知らない働き方・暮らし方・価値観に触れることで、<strong>自分がこれから考えたいことの輪郭が少し見え、小さな次の一歩を持って日常に戻る</strong>。そこまでを、この旅のゴールにしています。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 向き・不向き（縦のまま） ===== -->
+<section class="sec">
+  <div class="shell sec-inner">
+    <div class="sec-spine">
+      <div class="sec-num ja small">向き・不向き</div>
+      <span class="sec-en">For You</span>
+    </div>
+    <div>
+      <h2 class="sec-title">こんな人に、おすすめです</h2>
+      <div class="fit-grid">
+        <div class="fit-col fit-col--yes">
+          <div class="fit-head"><span class="en">Recommended</span>こんな方へ</div>
+          <ul class="fit-items">
+            <li>今の仕事が嫌なわけではない。でも「このままでいいのかな」と感じることが増えた</li>
+            <li>転職を決めているわけではないが、これからどう働き、どう生きたいかを考えたい</li>
+            <li>一人で考えていると、同じところをぐるぐるしてしまう</li>
+            <li>他人の人生や仕事の話を聞くことが好き。自分とは違う価値観に触れたい</li>
+            <li>地方での暮らしや働き方に少し興味がある</li>
+            <li>旅先では、有名な観光地より喫茶店や商店、路地を歩くのが好き</li>
+          </ul>
+        </div>
+        <div class="fit-col fit-col--no">
+          <div class="fit-head"><span class="en">Not for</span>今回は、向かないかもしれません</div>
+          <ul class="fit-items">
+            <li>キャリアの正解や、具体的な転職の道筋をこの2日間で決めたい方</li>
+            <li>効率よく情報収集がしたい方（余白を多めに取っているため、予定は詰め込みません）</li>
+            <li>有名な観光地を巡る旅を期待している方</li>
+            <li>人脈づくりや商談の場を求めている方</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 中間CTA ===== -->
+<section class="cta">
+  <div class="shell cta-inner">
+    <div>
+      <span class="cta-en">Application</span>
+      <h2 class="cta-title">11/21（土）〜22（日）、広島・鞆の浦と走島へ。<br>定員10名。気になった方は、お早めに。</h2>
+    </div>
+    <div class="cta-action">
+      <!-- ▼[要差し替え] 申込GoogleフォームのURL -->
+      <a href="#" class="cta-btn">参加を申し込む</a>
+      <p class="cta-note">＊申込締切：2026年10月30日（金）</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 07 開催概要・参加費（縦のまま） ===== -->
+<section class="sec">
+  <div class="shell sec-inner">
+    <div class="sec-spine">
+      <div class="sec-num">07</div>
+      <span class="sec-en">Details</span>
+    </div>
+    <div>
+      <h2 class="sec-title">開催概要</h2>
+      <dl class="terms-list">
+        <div class="terms-row">
+          <dt class="terms-k">イベント名</dt>
+          <dd class="terms-v"><strong>瀬戸内海の暮らしから、これからのキャリアを考える。</strong><br>鞆の浦・走島で、さまざまな働き方と生き方に触れる1泊2日の暮らし観光</dd>
+        </div>
+        <div class="terms-row">
+          <dt class="terms-k">日程</dt>
+          <dd class="terms-v"><strong>2026年11月21日（土）12:30 〜 11月22日（日）16:00</strong><br>※このほかに、事前オンライン・事後オンラインの回があります（日時は[要確認：後日決定]）</dd>
+        </div>
+        <div class="terms-row">
+          <dt class="terms-k">集合・解散</dt>
+          <dd class="terms-v">鞆の浦「ありそろう」<br>〒720-0202 広島県福山市鞆町鞆715<br>
+            <a class="fact-map" href="https://www.google.com/maps/search/?api=1&amp;query=%E5%BA%83%E5%B3%B6%E7%9C%8C%E7%A6%8F%E5%B1%B1%E5%B8%82%E9%9E%86%E7%94%BA%E9%9E%86715" target="_blank" rel="noopener">地図アプリで開く<span class="arrow">↗</span></a>
+            <a class="fact-map" href="https://kotogurashi.studio.site/arisorou" target="_blank" rel="noopener">ありそろうについて<span class="arrow">↗</span></a>
+          </dd>
+        </div>
+        <div class="terms-row">
+          <dt class="terms-k">宿泊</dt>
+          <dd class="terms-v">走島の一棟貸し「バケーションレンタルホテルKAI」（鞆の浦から船で20分）<br>
+            <a class="fact-map" href="https://setouchi-hotel-kai.com/" target="_blank" rel="noopener">KAI について<span class="arrow">↗</span></a><br>※部屋割り（相部屋／個室）については[要確認]</dd>
+        </div>
+        <div class="terms-row">
+          <dt class="terms-k">定員</dt>
+          <dd class="terms-v"><strong>10名</strong></dd>
+        </div>
+        <div class="terms-row">
+          <dt class="terms-k">主な対象</dt>
+          <dd class="terms-v">旅が好きな20〜30代<br>※20代・30代限定ではありません。一般参加が可能です。</dd>
+        </div>
+        <div class="terms-row">
+          <dt class="terms-k">申込締切</dt>
+          <dd class="terms-v"><strong>2026年10月30日（金）</strong></dd>
+        </div>
+        <div class="terms-row">
+          <dt class="terms-k">申込方法</dt>
+          <dd class="terms-v">Googleフォームからお申し込みください。<br>[要差し替え：申込フォームURL]</dd>
+        </div>
+        <div class="terms-row">
+          <dt class="terms-k">キャンセル</dt>
+          <dd class="terms-v">お申し込み後の返金はいたしかねます。宿や現地の受け入れ準備の都合によるものです。ご了承のうえ、お申し込みください。</dd>
+        </div>
+        <div class="terms-row">
+          <dt class="terms-k">主催</dt>
+          <dd class="terms-v">あたらしい旅の学校 POOLO<br>合同会社コト暮らし</dd>
+        </div>
+      </dl>
+
+      <h2 class="sec-title" style="margin-top: clamp(48px, 6vw, 72px);">参加費</h2>
+      <p class="sec-lead">プログラムの参加費と、現地でお支払いいただく実費は分かれています。</p>
+      <div class="fee-grid">
+        <div class="fee-card">
+          <span class="fee-label">一般参加</span>
+          <span class="fee-price">20,000<small>円</small></span>
+          <p class="fee-note">事前オンライン・現地1泊2日・事後オンラインを含む、プログラム参加費です。</p>
+        </div>
+        <div class="fee-card fee-card--sub">
+          <span class="fee-label">POOLO生</span>
+          <span class="fee-price">17,000<small>円</small></span>
+          <p class="fee-note">POOLOの各コースに在籍中の方の参加費です。<br>［卒業生の扱いは[要確認]］</p>
+        </div>
+      </div>
+      <div class="fee-add">
+        <div>
+          <span class="fee-add-label">＋ 現地でお支払いいただくもの</span>
+          <p class="fee-add-desc">宿泊（走島の一棟貸し「KAI」）・夕食・朝食など。参加費とは別に、現地で回収します。</p>
+        </div>
+        <span class="fee-add-price">15,000<small>円</small></span>
+      </div>
+      <p class="fee-foot">＊このほか、<strong>鞆の浦までの往復交通費</strong>は各自でご負担ください。</p>
+
+      <div class="fit-grid" style="margin-top: clamp(34px, 4.4vw, 48px);">
+        <div class="fit-col fit-col--yes">
+          <div class="fit-head"><span class="en">Included</span>費用に含まれるもの</div>
+          <ul class="fit-items">
+            <li>プログラム参加費（事前オンライン・現地1泊2日・事後オンライン）</li>
+          </ul>
+        </div>
+        <div class="fit-col fit-col--no">
+          <div class="fit-head"><span class="en">Not included</span>費用に含まれないもの</div>
+          <ul class="fit-items">
+            <li>鞆の浦までの往復交通費</li>
+            <li>現地での交通</li>
+            <li>宿泊・夕食・朝食（別途15,000円を現地で回収します）</li>
+            <li>その他、各自で購入する飲食物</li>
+            <li>お土産</li>
+            <li>その他、個人的な支出</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FAQ（縦のまま） ===== -->
+<section class="sec">
+  <div class="shell sec-inner">
+    <div class="sec-spine">
+      <div class="sec-num ja small">よくある質問</div>
+      <span class="sec-en">FAQ</span>
+    </div>
+    <div>
+      <h2 class="sec-title">参加前の、小さな気がかりに</h2>
+      <ul class="faq-list">
+        <li class="faq-item">
+          <p class="faq-q"><span class="m">Q.</span><span>一人で参加しても大丈夫ですか？</span></p>
+          <div class="faq-a"><span class="m">A.</span><p>はい。おひとりでの参加を想定しています。初日の自己紹介から、参加者同士で話す時間を丁寧に置いていますので、初対面の方ばかりでも大丈夫です。</p></div>
+        </li>
+        <li class="faq-item">
+          <p class="faq-q"><span class="m">Q.</span><span>POOLOに参加したことがなくても参加できますか？</span></p>
+          <div class="faq-a"><span class="m">A.</span><p>はい。一般参加が可能です。POOLOに関わったことがない方も歓迎しています。</p></div>
+        </li>
+        <li class="faq-item">
+          <p class="faq-q"><span class="m">Q.</span><span>20代・30代以外でも参加できますか？</span></p>
+          <div class="faq-a"><span class="m">A.</span><p>はい。主な対象は旅が好きな20〜30代ですが、年齢の制限は設けていません。</p></div>
+        </li>
+        <li class="faq-item">
+          <p class="faq-q"><span class="m">Q.</span><span>キャリアについて明確な悩みがなくても参加できますか？</span></p>
+          <div class="faq-a"><span class="m">A.</span><p>はい。むしろ「はっきりした悩みではないけれど、なんとなく考えたい」という方を想定しています。悩みを整理してから来る必要はありません。</p></div>
+        </li>
+        <li class="faq-item">
+          <p class="faq-q"><span class="m">Q.</span><span>宿泊はどのような形ですか？</span></p>
+          <div class="faq-a"><span class="m">A.</span><p>走島にある一棟貸しの宿「バケーションレンタルホテルKAI」に、参加者全員で宿泊します。部屋割り（相部屋／個室）や持ち物については[要確認：後日ご案内]。</p></div>
+        </li>
+        <li class="faq-item">
+          <p class="faq-q"><span class="m">Q.</span><span>現地まではどうやって行けばいいですか？</span></p>
+          <div class="faq-a"><span class="m">A.</span><p>[要確認：鞆の浦へのおすすめのアクセス（最寄り駅・所要時間・推奨の到着便）を追記します]</p></div>
+        </li>
+        <li class="faq-item">
+          <p class="faq-q"><span class="m">Q.</span><span>雨天の場合はどうなりますか？</span></p>
+          <div class="faq-a"><span class="m">A.</span><p>[要確認：雨天時のプログラム変更・船の欠航時の対応を追記します]</p></div>
+        </li>
+        <li class="faq-item">
+          <p class="faq-q"><span class="m">Q.</span><span>キャンセルした場合は返金されますか？</span></p>
+          <div class="faq-a"><span class="m">A.</span><p>お申し込み後の返金はいたしかねます。宿や現地の受け入れ準備の都合によるものです。ご了承のうえ、お申し込みください。</p></div>
+        </li>
+        <li class="faq-item">
+          <p class="faq-q"><span class="m">Q.</span><span>事前・事後オンラインへの参加は必須ですか？</span></p>
+          <div class="faq-a"><span class="m">A.</span><p>事前・事後のオンラインは、1泊2日と合わせてひとつのプログラムとして設計しています。そのため、どちらもご参加いただくことを前提としています。[要確認：やむを得ず参加できない場合の扱い（録画共有の有無など）]</p></div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 最終CTA ===== -->
+<section class="cta" id="finalCta">
+  <div class="shell cta-inner">
+    <div>
+      <span class="cta-en">Join us</span>
+      <h2 class="cta-title">答えを決めるためではなく、これから考えたい問いを、持ち帰るために。</h2>
+      <p class="cta-lead">鞆の浦と走島で、誰かの暮らしや人生に触れながら、自分のこれからについて考えてみる。2日間で、答えは出ないかもしれません。それでも、帰りの船やバスの中で、少しだけ違うことを考えている自分がいるはずです。</p>
+    </div>
+    <div class="cta-action">
+      <!-- ▼[要差し替え] 申込GoogleフォームのURL -->
+      <a href="#" class="cta-btn">参加を申し込む</a>
+      <p class="cta-note">＊定員10名／申込締切：2026年10月30日（金）</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="shell footer-inner">
+    <div class="footer-top">
+      <span class="mon" aria-hidden="true">
+        <svg viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-linecap="round">
+          <circle cx="60" cy="60" r="57" stroke-width="1.5"/>
+          <circle cx="60" cy="60" r="51.5" stroke-width="0.75"/>
+          <circle cx="60" cy="42.5" r="9.5" stroke-width="1.5"/>
+          <line x1="30" y1="60.5" x2="46.5" y2="60.5" stroke-width="1.1"/>
+          <line x1="73.5" y1="60.5" x2="90" y2="60.5" stroke-width="1.1"/>
+          <path d="M35 78 Q60 66 85 78" stroke-width="1.5"/>
+          <path d="M44 88 Q60 81 76 88" stroke-width="0.9"/>
+        </svg>
+      </span>
+      <div class="footer-marks">
+        <a href="https://tabippo.net/poolo/" target="_blank" rel="noopener"><img src="images/poolo_logo03.png" alt="POOLO あたらしい旅の学校" loading="lazy"></a>
+        <span class="footer-divider" aria-hidden="true"></span>
+        <a href="https://tabippo.net/" target="_blank" rel="noopener"><img src="images/tabippo_logo.png" alt="TABIPPO" loading="lazy"></a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-text">主催：あたらしい旅の学校 POOLO ／ 合同会社コト暮らし</p>
+      <p class="footer-copy">© POOLO. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ===== 追従CTA：スクロール開始直後から表示。最終CTA・フッター付近では退避 ===== */
+(function () {
+  var bar = document.getElementById('floatApply');
+  if (!bar) return;
+  var sentinels = Array.prototype.slice.call(document.querySelectorAll('.cta, .footer'));
+  var ticking = false;
+
+  function update() {
+    var nearEnd = sentinels.some(function (el) {
+      var r = el.getBoundingClientRect();
+      return r.top < window.innerHeight && r.bottom > 0;
+    });
+    /* スマホでは待たせない：わずかに動いたら出す */
+    bar.classList.toggle('is-visible', window.scrollY > 40 && !nearEnd);
+    ticking = false;
+  }
+  window.addEventListener('scroll', function () {
+    if (!ticking) { window.requestAnimationFrame(update); ticking = true; }
+  }, { passive: true });
+  window.addEventListener('resize', update);
+  window.addEventListener('load', update);
+  update();
+})();
+
+/* ===== カルーセルの位置インジケータ（ドット＋ 1 / N）=====
+   スワイプ自体は CSS スクロールスナップのみ。JSは現在位置の表示だけを担う。 */
+(function () {
+  var swipes = document.querySelectorAll('.swipe');
+  Array.prototype.forEach.call(swipes, function (sw) {
+    var track = sw.querySelector('.swipe-track');
+    var dotsWrap = sw.querySelector('.swipe-dots');
+    var count = sw.querySelector('.swipe-count');
+    if (!track || !dotsWrap) return;
+    var cards = track.querySelectorAll('.swipe-card');
+    var n = cards.length;
+    if (!n) return;
+
+    var dots = [];
+    for (var i = 0; i < n; i++) {
+      var d = document.createElement('span');
+      d.className = 'dot' + (i === 0 ? ' is-on' : '');
+      dotsWrap.appendChild(d);
+      dots.push(d);
+    }
+
+    var ticking = false;
+    function step() {
+      var s = window.getComputedStyle(track);
+      var gap = parseFloat(s.columnGap || s.gap) || 0;
+      return cards[0].getBoundingClientRect().width + gap;
+    }
+    function update() {
+      var idx = Math.round(track.scrollLeft / step());
+      idx = Math.max(0, Math.min(n - 1, idx));
+      dots.forEach(function (d, i) { d.classList.toggle('is-on', i === idx); });
+      if (count) count.textContent = (idx + 1) + ' / ' + n;
+      ticking = false;
+    }
+    track.addEventListener('scroll', function () {
+      if (!ticking) { window.requestAnimationFrame(update); ticking = true; }
+    }, { passive: true });
+    window.addEventListener('resize', update);
+    update();
+  });
+})();
+</script>
+
+</body>
+</html>

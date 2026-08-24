@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>鞆の浦LP スマホ版 3案｜POOLO × コト暮らし</title>
+<link rel="stylesheet" href="../poolo-ds/tokens.css">
+<link rel="stylesheet" href="../poolo-ds/components.css">
+<style>
+/* 比較ページ専用の枠（DSには含めない） */
+.mp-hero { background: var(--brand); color: var(--on-brand); padding: clamp(44px,7vh,76px) var(--shell-pad) clamp(34px,5vh,54px); }
+.mp-inner { max-width: 1320px; margin-inline: auto; }
+.mp-eyebrow { font-family: var(--en); font-size: 11px; font-weight: 500; letter-spacing: 0.4em; text-transform: uppercase; color: var(--on-brand-92); margin-bottom: 18px; }
+.mp-hero h1 { font-family: var(--mincho); font-weight: 900; font-feature-settings: "palt"; font-size: clamp(25px,4vw,44px); letter-spacing: 0.06em; line-height: 1.55; margin-bottom: 16px; }
+.mp-hero p { font-family: var(--body); font-size: 13.5px; line-height: 2.05; letter-spacing: 0.06em; color: var(--on-brand-88); max-width: 48em; }
+.mp-hero p + p { margin-top: 11px; }
+.mp-hero strong { color: var(--on-brand); font-weight: 700; }
+
+.mp-wrap { max-width: 1320px; margin-inline: auto; padding: clamp(40px,5vh,60px) var(--shell-pad) 110px; }
+.mp-sec { padding-top: clamp(38px,5.5vh,60px); }
+.mp-sec:first-child { padding-top: 0; }
+.mp-sec-head { display: flex; align-items: baseline; gap: 15px; border-bottom: 1px solid var(--ink); padding-bottom: 11px; margin-bottom: 22px; }
+.mp-sec-num { font-family: var(--en); font-size: 13px; font-weight: 600; letter-spacing: 0.24em; color: var(--brand); }
+.mp-sec-head h2 { font-family: var(--mincho); font-size: clamp(19px,2.5vw,26px); font-weight: 700; letter-spacing: 0.09em; color: var(--ink); }
+.mp-body p { font-size: 13.5px; line-height: 2.05; letter-spacing: 0.06em; color: var(--ink-72); max-width: 52em; }
+.mp-body p + p { margin-top: 12px; }
+.mp-body strong { color: var(--ink); font-weight: 700; }
+.mp-body a { color: var(--brand-deep); border-bottom: 1px solid var(--brand); }
+.mp-body code, .mp-table code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 11.5px; color: var(--brand-deep); background: var(--bg-off); border: 1px solid var(--line); border-radius: var(--radius); padding: 1px 5px; }
+
+.mp-table { width: 100%; border-collapse: collapse; border-top: 1px solid var(--ink); font-size: 12.5px; }
+.mp-table th, .mp-table td { text-align: left; vertical-align: top; padding: 12px 14px 12px 0; border-bottom: 1px solid var(--line); line-height: 1.9; letter-spacing: 0.05em; }
+.mp-table thead th { font-family: var(--head); font-weight: 700; color: var(--ink); font-size: 11.5px; letter-spacing: 0.13em; }
+.mp-table tbody th { font-family: var(--body); font-weight: 400; color: var(--ink-72); }
+.mp-table td { color: var(--ink-72); }
+.mp-good { font-family: var(--head); font-weight: 700; color: var(--brand-deep); }
+.mp-warn { color: var(--ink-50); }
+
+/* スマホ実寸の並べ */
+.mp-phones { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(18px,2.4vw,34px); }
+.mp-phone-head { display: flex; align-items: baseline; gap: 12px; border-bottom: 1px solid var(--ink); padding-bottom: 9px; margin-bottom: 14px; }
+.mp-phone-key { font-family: var(--en); font-size: 20px; font-weight: 600; letter-spacing: 0.08em; color: var(--brand); line-height: 1; }
+.mp-phone-name { font-family: var(--mincho); font-size: 17px; font-weight: 700; letter-spacing: 0.08em; color: var(--ink); }
+/* 390px の実寸を、比率を保ったまま枠幅に収める。
+   iframe 自体は 390px のままなので、中のページは本物のスマホ幅として
+   メディアクエリを評価する（幅を 100% にすると枠幅で評価されてしまう）。 */
+.mp-screen {
+  border: 1px solid var(--line);
+  background: var(--bg);
+  overflow: hidden;
+  height: calc(720px * 0.88);
+}
+.mp-screen iframe {
+  width: 390px;
+  height: 720px;
+  border: 0;
+  display: block;
+  transform: scale(0.88);
+  transform-origin: top left;
+}
+.mp-cap { font-size: 12px; line-height: 1.9; letter-spacing: 0.05em; color: var(--ink-66); margin-top: 12px; }
+.mp-open { display: inline-flex; align-items: center; min-height: 44px; font-family: var(--head); font-size: 12.5px; font-weight: 700; letter-spacing: 0.08em; color: var(--brand-deep); border-bottom: 1px solid var(--brand); margin-top: 4px; }
+
+.mp-block { margin-top: clamp(40px,5vw,64px); }
+.mp-note { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: clamp(16px,2.2vw,28px); margin-bottom: 20px; }
+.mp-note dt { font-family: var(--head); font-size: 11px; font-weight: 700; letter-spacing: 0.17em; color: var(--brand); margin-bottom: 6px; }
+.mp-note dd { font-size: 12.5px; line-height: 1.95; letter-spacing: 0.06em; color: var(--ink-72); }
+.mp-note .no dt { color: var(--ink-40); }
+
+.mp-verdict { background: var(--brand-pale); padding: clamp(24px,3.2vw,38px); border-top: 3px solid var(--brand); margin-top: clamp(44px,5.5vw,68px); }
+.mp-verdict h2 { font-family: var(--mincho); font-size: clamp(19px,2.5vw,26px); font-weight: 700; letter-spacing: 0.08em; line-height: 1.7; color: var(--ink); margin-bottom: 15px; }
+.mp-verdict p { font-size: 13.5px; line-height: 2.05; letter-spacing: 0.06em; color: var(--ink-72); max-width: 54em; }
+.mp-verdict p + p { margin-top: 12px; }
+.mp-verdict strong { color: var(--ink); font-weight: 700; }
+.mp-verdict a { color: var(--brand-deep); border-bottom: 1px solid var(--brand); }
+
+.mp-check { list-style: none; display: grid; gap: 9px; border-top: 1px solid var(--ink); padding-top: 17px; }
+.mp-check li { position: relative; padding-left: 2em; font-size: 13px; line-height: 1.95; letter-spacing: 0.05em; color: var(--ink-72); }
+.mp-check li::before { content: '☐'; position: absolute; left: 0; top: 0; color: var(--brand); font-size: 14px; }
+.mp-check strong { color: var(--ink); }
+
+@media (max-width: 900px) {
+  /* 1カラムに落ちたら枠幅が足りるので、実寸のまま表示する */
+  .mp-screen { height: 720px; max-width: 390px; }
+  .mp-screen iframe { transform: none; }
+  .mp-phones { grid-template-columns: 1fr; gap: 40px; }
+  .mp-note { grid-template-columns: 1fr; gap: 13px; }
+  .mp-table, .mp-table thead, .mp-table tbody, .mp-table tr, .mp-table th, .mp-table td { display: block; width: 100%; }
+  .mp-table thead { display: none; }
+  .mp-table tbody th { border-bottom: none; padding-bottom: 2px; font-weight: 700; color: var(--ink); }
+  .mp-table td { padding-top: 0; }
+}
+</style>
+</head>
+<body>
+
+<section class="mp-hero">
+  <div class="mp-inner">
+    <div class="mp-eyebrow">Mobile First — A / B / C</div>
+    <h1>スマホで、迷わず<br>申し込めるように。</h1>
+    <p>鞆の浦・走島 1泊2日のLPを、<strong>スマホで見やすく・申し込みやすくすること</strong>だけを目的に3通り組み直しました。掲載する事実は既存LPと同じ。変えたのは構成・情報量・導線・操作方法です。</p>
+    <p>読み手はほぼ全員スマホ（Instagram / LINE / X からの流入）。片手で、電車の中で、数十秒だけ見る。<strong>その条件で申し込みまで運べるか</strong>を唯一の評価軸にしています。</p>
+    <p>3案とも <strong>390px（iPhone 14/15）の実寸で計測済み</strong>。横スクロールの発生、タップ領域、文字サイズ、追従CTAの出現までを機械的に検査しています。</p>
+  </div>
+</section>
+
+<div class="mp-wrap">
+
+  <!-- 実測 -->
+  <section class="mp-sec">
+    <div class="mp-sec-head"><span class="mp-sec-num">01</span><h2>まず、数字で見る</h2></div>
+    <div class="mp-body" style="margin-bottom:20px;">
+      <p>いちばん効くのは<strong>スクロール量</strong>です。既存のPC起点LPをそのままスマホで開くと、下まで26,000px以上ある。指で20回以上スワイプしないと申込ボタンに届きません。3案はここを解きにいっています。</p>
+    </div>
+    <table class="mp-table">
+      <thead>
+        <tr><th style="width:20%;">案</th><th style="width:16%;">全高（390px時）</th><th style="width:14%;">既存比</th><th style="width:15%;">横スクロール</th><th style="width:17%;">44px未満のタップ</th><th>小さすぎる本文</th></tr>
+      </thead>
+      <tbody>
+        <tr><th>A｜一本道</th><td>11,835px</td><td class="mp-good">55%減</td><td class="mp-good">なし</td><td class="mp-good">0件</td><td>16件</td></tr>
+        <tr><th>B｜折りたたみ</th><td class="mp-good">6,115px（閉じた状態）</td><td class="mp-good">77%減</td><td class="mp-good">なし</td><td>5件（本文中のリンク）</td><td class="mp-good">10件</td></tr>
+        <tr><th>C｜カード</th><td>18,542px</td><td>30%減</td><td class="mp-good">なし（縦は動かない）</td><td class="mp-good">0件</td><td>16件</td></tr>
+        <tr><th>参考：既存のPC版LP</th><td class="mp-warn">26,425px</td><td class="mp-warn">—</td><td class="mp-warn">なし</td><td class="mp-warn">8件</td><td class="mp-warn">93件</td></tr>
+      </tbody>
+    </table>
+    <div class="mp-body" style="margin-top:15px;">
+      <p style="font-size:12.5px;color:var(--ink-60);">＊「小さすぎる本文」＝13.5px未満の <code>p</code>／<code>li</code> の数。＊案Bに残る5件は本文中に埋め込まれた外部リンク（「X ↗」など）です。ここを44pxにすると行組みが崩れるため、主要導線（申込ボタン・地図リンク）だけ44pxを確保する方針にしています。＊追従CTAは3案とも、スクロール開始直後に出て、最終CTA付近で退避することを確認済みです。</p>
+    </div>
+  </section>
+
+  <!-- 実寸並べ -->
+  <section class="mp-sec">
+    <div class="mp-sec-head"><span class="mp-sec-num">02</span><h2>390pxの実寸で、並べて見る</h2></div>
+    <div class="mp-body" style="margin-bottom:22px;">
+      <p>下の3つは、iPhoneの幅そのままで表示しています。枠の中はスクロールできます。実機に近い見え方で比べてください。</p>
+    </div>
+    <div class="mp-phones">
+
+      <div>
+        <div class="mp-phone-head"><span class="mp-phone-key">A</span><span class="mp-phone-name">一本道</span></div>
+        <div class="mp-screen"><iframe src="plan-a-flow.html" title="案A" loading="lazy"></iframe></div>
+        <p class="mp-cap">分岐をつくらず、上から下へ読ませる。そのかわり15セクションを8つに削っている。</p>
+        <a class="mp-open" href="plan-a-flow.html" target="_blank" rel="noopener">単体で開く ↗</a>
+      </div>
+
+      <div>
+        <div class="mp-phone-head"><span class="mp-phone-key">B</span><span class="mp-phone-name">折りたたみ</span></div>
+        <div class="mp-screen"><iframe src="plan-b-fold.html" title="案B" loading="lazy"></iframe></div>
+        <p class="mp-cap">情報を削らず畳む。24個の <code>&lt;details&gt;</code> はすべて閉じた状態で始まる。</p>
+        <a class="mp-open" href="plan-b-fold.html" target="_blank" rel="noopener">単体で開く ↗</a>
+      </div>
+
+      <div>
+        <div class="mp-phone-head"><span class="mp-phone-key">C</span><span class="mp-phone-name">カード</span></div>
+        <div class="mp-screen"><iframe src="plan-c-cards.html" title="案C" loading="lazy"></iframe></div>
+        <p class="mp-cap">並列な情報を横スワイプに逃がす。25枚のカードが5つのカルーセルに入っている。</p>
+        <a class="mp-open" href="plan-c-cards.html" target="_blank" rel="noopener">単体で開く ↗</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 各案の詳細 -->
+  <div class="mp-block">
+    <div class="mp-phone-head"><span class="mp-phone-key">A</span><span class="mp-phone-name">一本道スクロール</span></div>
+    <dl class="mp-note">
+      <div>
+        <dt>やったこと</dt>
+        <dd>15セクションを8つに統合。notice-bar／4つのPoint／Before→After／向き・不向き／About POOLO を落とし、「なぜ鞆の浦」と「暮らし観光」は1本にまとめた。FAQは9問→5問、人物略歴は2文、スケジュールは時刻＋タイトルのみ。</dd>
+      </div>
+      <div>
+        <dt>強いところ</dt>
+        <dd>操作の学習コストがゼロ。開く・送るがなく、下に進むだけ。読み手がどこにいるか常に分かる。3案でいちばん実装がシンプルで、崩れる余地が少ない。</dd>
+      </div>
+      <div class="no">
+        <dt>弱いところ</dt>
+        <dd><strong>情報が実際に減っている</strong>。とくに「向き・不向き」と Before→After を落としたぶん、期待値のずれた申込を止める力が弱い。答えを約束しない企画なので、ここは効いていた部分。</dd>
+      </div>
+    </dl>
+  </div>
+
+  <div class="mp-block">
+    <div class="mp-phone-head"><span class="mp-phone-key">B</span><span class="mp-phone-name">折りたたみ／全部読ませない</span></div>
+    <dl class="mp-note">
+      <div>
+        <dt>やったこと</dt>
+        <dd>ネイティブの <code>&lt;details&gt;</code> を24個。旅の趣旨・プログラム・登壇者・費用内訳・FAQ をすべて閉じた状態で置き、<code>&lt;summary&gt;</code> は「見出し＋一言要約」の2行にして、閉じたまま目次として読めるようにした。ヒーロー直下に「日程／場所／参加費／定員・締切」の常設欄。</dd>
+      </div>
+      <div>
+        <dt>強いところ</dt>
+        <dd><strong>情報を削らずにスクロールが最短</strong>（6,115px＝既存の23%）。閉じたまま「いつ・どこ・いくら・どう申し込む」が完結する。<code>&lt;details&gt;</code> はネイティブ要素なので、キーボード操作もスクリーンリーダーもそのまま効く。</dd>
+      </div>
+      <div class="no">
+        <dt>弱いところ</dt>
+        <dd>開かないと中身に到達しない。読み手が「開く」操作をしてくれる前提に乗っている。全部開くと結局長い。本文中のリンク5件がタップ領域29px。</dd>
+      </div>
+    </dl>
+  </div>
+
+  <div class="mp-block">
+    <div class="mp-phone-head"><span class="mp-phone-key">C</span><span class="mp-phone-name">カード／横スワイプ</span></div>
+    <dl class="mp-note">
+      <div>
+        <dt>やったこと</dt>
+        <dd>並列な情報（3ステップ・4つのこと・出会う人3人・DAY1の7項目・DAY2の8項目）を計25枚のカードにして、5つの横スワイプに逃がした。CSSの <code>scroll-snap</code> のみで実装し、位置表示のドットだけJS。費用・日程・申込は縦の導線に残してある。</dd>
+      </div>
+      <div>
+        <dt>強いところ</dt>
+        <dd>指で送る操作が気持ちいい。InstagramやNetflixに慣れた層には自然。スワイプしなくても重要情報には到達できる設計になっている。860px以上ではグリッドに組み替わる。</dd>
+      </div>
+      <div class="no">
+        <dt>弱いところ</dt>
+        <dd><strong>全高18,542px と3案でいちばん長い</strong>。横に逃がしたぶん縦が減るはずが、カードの余白で相殺されている。また、送らなかった人はカードの2枚目以降を見ない。</dd>
+      </div>
+    </dl>
+  </div>
+
+  <!-- 推奨 -->
+  <div class="mp-verdict">
+    <h2>推奨：案B（折りたたみ）。ただし案Aの削る判断を一部持ち込む。</h2>
+    <p>「スマホで見やすい・申し込みしやすい」が第一優先なら、<strong>案Bを推します</strong>。決め手は、<strong>情報を削らずにスクロールを77%減らせている</strong>ことです。案Aも軽いのですが、軽さの理由が「内容を落としたから」なので、後から「やっぱりこれも載せたい」となったときに一本道が長くなって元に戻ります。案Bは畳んであるだけなので、載せる量が増えても閉じた状態の長さはほとんど変わりません。</p>
+    <p>加えて、この企画は<strong>答えを約束しない</strong>という性格上、期待値のずれた申込を減らす情報（向き・不向き、Before→After、費用の内訳）を落としたくない。案Bならそれらを畳んだまま持てます。</p>
+    <p>そのうえで、案Aから<strong>「FAQを9問から絞る」「人物略歴を2文にする」</strong>という判断は持ち込む価値があります。畳めるからといって全部載せると、開いた人が疲れます。</p>
+    <p>案Cは、写真が揃ってから再評価したい案です。いまは暫定写真なのでカードの魅力が出きっていません。鞆の浦のまち並み写真が入ると、印象がかなり変わる可能性があります。</p>
+  </div>
+
+  <!-- 次 -->
+  <section class="mp-sec">
+    <div class="mp-sec-head"><span class="mp-sec-num">03</span><h2>決めたあとにやること</h2></div>
+    <ul class="mp-check">
+      <li><strong>案を1つ選ぶ</strong>（または案Bベース＋案Aの削り方、というハイブリッドを指定する）</li>
+      <li>選んだ案を <code>event-tomonoura-v01-260824/index.html</code> に統合する（PC表示も含めて1本にする）</li>
+      <li><strong>実機で触って確認する</strong>（iPhone実機での追従CTAの出方、<code>&lt;details&gt;</code> の開閉、横スワイプの感触は、実機でしか分からない）</li>
+      <li>申込フォームURLを入れる（現在すべて <code>href="#"</code>）</li>
+      <li>鞆の浦のまち並み写真に差し替える（3案とも暫定写真のまま）</li>
+      <li><code>noindex</code> を外す</li>
+    </ul>
+    <div class="mp-body" style="margin-top:20px;">
+      <p>関連：<a href="../event-tomonoura-v01-260824/">既存のLP本体</a>／<a href="../event-tomonoura-v01-260824/review.html">制作レビューと入稿待ち一覧</a>／<a href="../page-patterns-v01-260824/">告知ページの型3パターン</a></p>
+    </div>
+  </section>
+
+</div>
+
+</body>
+</html>
