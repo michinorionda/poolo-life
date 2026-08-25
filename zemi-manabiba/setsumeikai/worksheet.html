@@ -219,7 +219,7 @@
   </div>
 
   <div class="save">
-    <button class="primary" id="btnSubmit" hidden>書いた内容を送る</button>
+    <button class="primary" id="btnSubmit">書いた内容を送る</button>
     <button id="btnCopy">コピーする</button>
     <button id="btnPrint">印刷／PDF</button>
     <span class="save-note" id="saveNote">入力内容はこの端末に自動保存されます</span>
@@ -327,8 +327,9 @@
   });
 
   var btnSubmit = document.getElementById('btnSubmit');
-  if (ENDPOINT) {
-    btnSubmit.hidden = false;
+  if (!ENDPOINT) {
+    btnSubmit.hidden = true;   // 送信先が未設定のときだけ隠す
+  } else {
     btnSubmit.addEventListener('click', function () {
       var d = collect();
       if (!d.s2 && !d.s3 && !d.s1.length) { flash('まだ何も書かれていないようです'); return; }
