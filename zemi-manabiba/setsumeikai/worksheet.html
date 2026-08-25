@@ -94,6 +94,32 @@
 
   .jp { word-break:auto-phrase; text-wrap:pretty; }
 
+  /* ===== タッチ端末での入力体験 =====
+     iOS Safari は入力欄の文字が16px未満だとフォーカス時に自動でズームする。
+     16px以上にすることでズームを止める（maximum-scale で拡大を禁じるのは
+     視力の弱い人が拡大できなくなるため使わない）。 */
+  @media (hover:none) and (pointer:coarse) {
+    .row input,
+    .single input,
+    .single textarea,
+    .who input { font-size:16px; padding-top:14px; padding-bottom:14px; }
+
+    .row input::placeholder,
+    .single input::placeholder,
+    .single textarea::placeholder,
+    .who input::placeholder { font-size:14px; }
+
+    .row { grid-template-columns:30px 1fr; }
+    .row-n { font-size:12px; }
+
+    /* 追従バーに隠れないよう、フォーカス時の余白を確保 */
+    .row input, .single input, .single textarea, .who input { scroll-margin-bottom:96px; }
+
+    .wrap { padding-bottom:40px; }
+    .save { padding:11px 0 calc(11px + env(safe-area-inset-bottom)); }
+    .save button { padding:11px 16px; }
+  }
+
   @media print {
     .save { display:none; }
     .rule, .row-n, .take { background:#fff !important; }
@@ -263,6 +289,24 @@
   });
 
   document.getElementById('btnPrint').addEventListener('click', function () { window.print(); });
+
+  /* ---------------------------------------------------------
+     スマホでの打ちやすさ
+     10個の書き出しを、変換確定後のEnterで次の行へ送る。
+     （日本語入力の変換中Enterは isComposing で除外する）
+     --------------------------------------------------------- */
+  var rowInputs = Array.prototype.slice.call(document.querySelectorAll('#step1 input'));
+  rowInputs.forEach(function (el, idx) {
+    el.setAttribute('enterkeyhint', idx === rowInputs.length - 1 ? 'done' : 'next');
+    el.setAttribute('autocapitalize', 'off');
+    el.setAttribute('autocorrect', 'off');
+    el.addEventListener('keydown', function (ev) {
+      if (ev.key !== 'Enter' || ev.isComposing || ev.keyCode === 229) return;
+      ev.preventDefault();
+      var nxt = rowInputs[idx + 1];
+      if (nxt) { nxt.focus(); } else { el.blur(); }
+    });
+  });
 
   /* ---------------------------------------------------------
      送信（GASウェブアプリ）
