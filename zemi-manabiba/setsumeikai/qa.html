@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>想定Q&A｜POOLOゼミ 説明会</title>
+<meta name="description" content="POOLOゼミ「学びの場を、創る。」説明会の想定質問と回答集。カテゴリ別に50問。運営判断が必要な項目には印を付けている。">
+<meta name="robots" content="noindex,nofollow">
+<link rel="stylesheet" href="../../poolo-ds/tokens.css">
+<link rel="stylesheet" href="../../poolo-ds/components.css">
+<style>
+  body { background:var(--bg); color:var(--ink-soft); }
+  .wrap { max-width:880px; margin:0 auto; padding:0 clamp(18px,5vw,40px) 90px; }
+
+  .dh { padding:46px 0 24px; border-bottom:2px solid var(--brand); }
+  .dh-eyebrow { font-family:var(--en); letter-spacing:.2em; font-size:11.5px; color:var(--brand); text-transform:uppercase; }
+  .dh-title { font-family:var(--mincho); font-weight:700; font-size:clamp(26px,4.4vw,38px); letter-spacing:.02em; margin:.3em 0 .35em; line-height:1.3; color:var(--ink); }
+  .dh-meta { font-family:var(--head); font-size:12.5px; color:var(--ink-50); letter-spacing:.05em; line-height:2; }
+
+  /* 答え方の原則 */
+  .creed { background:var(--brand-pale); border-radius:var(--radius); padding:22px 22px 18px; margin:26px 0 0; }
+  .creed-cap { font-family:var(--head); font-weight:700; font-size:11.5px; letter-spacing:.1em; color:var(--brand-deep); margin:0 0 12px; }
+  .creed ol { margin:0; padding-left:20px; }
+  .creed li { font-family:var(--body); font-size:13.5px; line-height:2; color:var(--ink-72); margin-bottom:8px; }
+  .creed li b { color:var(--brand-deep); }
+
+  /* 目次 */
+  .toc { display:flex; flex-wrap:wrap; gap:8px; margin:28px 0 0; }
+  .toc a {
+    font-family:var(--head); font-weight:700; font-size:12px; letter-spacing:.04em;
+    color:var(--brand-deep); background:var(--bg-off); border:1px solid var(--line);
+    padding:8px 13px; border-radius:var(--radius); text-decoration:none;
+  }
+  .toc a:hover { border-color:var(--brand); }
+  .toc a i { font-style:normal; font-family:var(--en); color:var(--brand); margin-right:7px; letter-spacing:.08em; }
+
+  /* カテゴリ */
+  .cat { margin-top:56px; scroll-margin-top:20px; }
+  .cat-bar { display:flex; align-items:baseline; gap:13px; border-bottom:1px solid var(--brand); padding-bottom:9px; margin-bottom:4px; flex-wrap:wrap; }
+  .cat-no { font-family:var(--en); font-weight:600; font-size:19px; color:var(--brand); letter-spacing:.08em; }
+  .cat-ttl { font-family:var(--mincho); font-weight:700; font-size:clamp(18px,2.4vw,23px); color:var(--ink); letter-spacing:.02em; }
+  .cat-note { font-family:var(--body); font-size:12.5px; color:var(--ink-50); line-height:1.9; margin:10px 0 6px; letter-spacing:.03em; }
+
+  /* Q&A */
+  .qa { border-bottom:1px solid var(--line); padding:20px 0; }
+  .qa-q { font-family:var(--head); font-weight:700; font-size:14.5px; color:var(--ink); line-height:1.75; margin:0 0 11px; letter-spacing:.02em; display:flex; gap:10px; }
+  .qa-q .n { font-family:var(--en); font-weight:600; color:var(--brand); flex:none; letter-spacing:.04em; }
+  .qa-a { font-family:var(--body); font-size:13.5px; line-height:2.05; color:var(--ink-72); margin:0 0 9px 26px; letter-spacing:.035em; }
+  .qa-a b { color:var(--brand-deep); font-weight:700; }
+  .qa-hint { font-family:var(--body); font-size:12px; line-height:1.95; color:var(--ink-50); margin:9px 0 0 26px; padding-left:14px; border-left:2px solid var(--brand-mid); letter-spacing:.03em; }
+  .qa-hint b { color:var(--brand-deep); }
+  .qa-ng { border-left-color:#D9A441; }
+
+  .flag {
+    display:inline-block; font-family:var(--head); font-weight:700; font-size:10px; letter-spacing:.08em;
+    color:#8A6A16; background:#FBF0D5; padding:3px 8px; border-radius:var(--radius); margin-left:8px; white-space:nowrap; vertical-align:2px;
+  }
+
+  .warn { border:1px solid #E6D3A3; background:#FDF8EC; border-radius:var(--radius); padding:19px 20px; margin:26px 0 0; }
+  .warn-cap { font-family:var(--head); font-weight:700; font-size:11.5px; letter-spacing:.08em; color:#8A6A16; margin:0 0 10px; }
+  .warn p { font-family:var(--body); font-size:13px; line-height:2; color:var(--ink-72); margin:0 0 8px; letter-spacing:.03em; }
+  .warn p:last-child { margin-bottom:0; }
+  .warn ul { margin:8px 0 0; padding-left:19px; }
+  .warn li { font-family:var(--body); font-size:12.5px; line-height:1.95; color:var(--ink-72); margin-bottom:5px; }
+
+  .jp { word-break:auto-phrase; text-wrap:pretty; line-break:strict; }
+
+  @media print {
+    .creed, .warn, .toc a { background:#fff !important; }
+    .qa, .cat { break-inside:avoid; }
+    .toc { display:none; }
+  }
+  @media (max-width:620px) {
+    .qa-a, .qa-hint { margin-left:0; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="dh">
+    <div class="dh-eyebrow">Anticipated Questions</div>
+    <h1 class="dh-title jp">想定Q&amp;A　50問<br>「学びの場を、創る。」説明会</h1>
+    <p class="dh-meta">
+      2026年8月25日（火）／ 9月1日（火）　説明会用<br>
+      別ウィンドウで開いたまま、Q&amp;Aの時間に参照してください
+    </p>
+  </header>
+
+  <div class="creed">
+    <p class="creed-cap">答え方の4原則</p>
+    <ol>
+      <li class="jp"><b>保証しない。</b>「絶対に開催できます」「必ず集まります」は言わない。過剰な保証は、その場では効いても後で信用を失います。「設計としてこうしています。それでもやらない人はゼロにはなりません」が正しい答え方です。</li>
+      <li class="jp"><b>引き止めない。</b>「高い」「迷う」に食い下がった瞬間、営業になります。<b>「今回は見送るという判断も全然ありだと思います」</b>と一度引く。引いた分だけ、後から戻ってきます。</li>
+      <li class="jp"><b>数字で答える。</b>「大丈夫です」だけでは不安は消えません。「隔週2時間＋宿題1時間、月6時間ほど」のように、必ず量を添えてください。</li>
+      <li class="jp"><b>知らないことは、知らないと言う。</b>その場で決められないことを約束しないでください。<span class="flag">要確認</span> の付いた質問は、<b>「確認して個別にご連絡します」</b>で必ず持ち帰ること。</li>
+    </ol>
+  </div>
+
+  <div class="warn">
+    <p class="warn-cap">その場で答えを作らないでほしい項目</p>
+    <p class="jp">以下は運営としての判断が必要で、口頭で約束すると後から動けなくなります。この資料では <span class="flag">要確認</span> を付けています。</p>
+    <ul>
+      <li class="jp">分割払いの可否（Q22）</li>
+      <li class="jp">POOLOが集客を手伝うのか、どこまで（Q38・Q39）</li>
+      <li class="jp">POOLOの名前・ロゴを使って開催してよいか（Q40）</li>
+      <li class="jp">修了後の継続的なサポートの有無（Q41）</li>
+      <li class="jp">選考で落とすことがあるのか（Q46）</li>
+    </ul>
+  </div>
+
+  <nav class="toc">
+    <a href="#a"><i>A</i>自分にできるか</a>
+    <a href="#b"><i>B</i>テーマと企画</a>
+    <a href="#c"><i>C</i>お金</a>
+    <a href="#d"><i>D</i>時間と日程</a>
+    <a href="#e"><i>E</i>進め方</a>
+    <a href="#f"><i>F</i>集客と開催後</a>
+    <a href="#g"><i>G</i>参加資格</a>
+    <a href="#h"><i>H</i>答えにくい質問</a>
+  </nav>
+
+  <!-- ============ A ============ -->
+  <section class="cat" id="a">
+    <div class="cat-bar"><span class="cat-no">A</span><h2 class="cat-ttl jp">自分にできるか</h2></div>
+    <p class="cat-note jp">いちばん多く、いちばん深い不安。ここは論理で説得しようとせず、<b>今日のワークで本人が書いたものを引用して返す</b>のが最強です。</p>
+
+    <div class="qa">
+      <p class="qa-q"><span class="n">01</span><span class="jp">人前で教えた経験がありません。大丈夫でしょうか。</span></p>
+      <p class="qa-a jp">大丈夫です。このゼミが作るのは「教える講義」ではなく<b>「問いを囲む場」</b>です。あなたが正解を持っている必要はありません。むしろ<b>教えないための設計</b>を一緒に学びます。</p>
+      <p class="qa-hint jp"><b>返しのコツ：</b>今日のワークを引き合いに出す。「さっき〇〇さんが話してくれたあの話、あれは"教える"じゃなくて"分かち合う"でしたよね。あれでいいんです」</p>
+    </div>
+
+    <div class="qa">
+      <p class="qa-q"><span class="n">02</span><span class="jp">話すのが得意ではありません。</span></p>
+      <p class="qa-a jp">得意である必要はありません。むしろ<b>喋りすぎる人のほうが、場づくりでは苦労します</b>。参加者が話す時間をどう作るかが設計の中心なので、聞くほうが得意な人は有利です。</p>
+      <p class="qa-hint jp"><b>返しのコツ：</b>これは実感として言い切っていい部分です。700回の経験から「うまい人の場が良い場とは限らなかった」と添えると説得力が出ます。</p>
+    </div>
+
+    <div class="qa">
+      <p class="qa-q"><span class="n">03</span><span class="jp">専門家ではないので、人に教えられることがありません。</span></p>
+      <p class="qa-a jp">専門性ではなく<b>体温で選んでください</b>。第1回で掘るのは「詳しいこと」ではなく「黙っていられないこと」です。詳しさは調べれば足せますが、黙っていられない気持ちは足せません。</p>
+      <p class="qa-hint jp"><b>返しのコツ：</b>「むしろ専門家じゃないほうが、参加者との距離が近くて良い場になることが多いです」。専門家の講義は、参加者を受け身にします。</p>
+    </div>
+
+    <div class="qa">
+      <p class="qa-q"><span class="n">04</span><span class="jp">世界一周のような大きな旅の経験がありません。</span></p>
+      <p class="qa-a jp">関係ありません。<b>移動距離と、問いの深さは比例しません。</b>国内の一泊の旅で見つけた問いのほうが、鋭いことはよくあります。今日のワークも、10個のうち何個が海外でしたか、という話ではないので。</p>
+    </div>
+
+    <div class="qa">
+      <p class="qa-q"><span class="n">05</span><span class="jp">自分の話に、お金を払う価値があるとは思えません。</span></p>
+      <p class="qa-a jp">今はそれで正常です。<b>価値があると思えるようになるまでの3ヶ月</b>だと思ってください。第4回で実際に受講生どうしで開いてみて、「これは3万円の価値があるか」を相互に審査します。<b>他人からの評価を受け取って初めて、自分の価値は見えます。</b></p>
+      <p class="qa-hint jp"><b>返しのコツ：</b>「僕も最初の頃、自分のイベントに1,000円もらうのが怖かったです」のような一人称の失敗談があれば、ここで出すと一気に距離が縮まります。</p>
+    </div>
+
+    <div class="qa">
+      <p class="qa-q"><span class="n">06</span><span class="jp">人を巻き込むのが苦手です。</span></p>
+      <p class="qa-a jp">つくるのは定員6〜10名の小さな場です。<b>巻き込む相手は、大勢ではなく数人</b>。第2回では「来てほしいたった一人」を実名で思い浮かべるところから始めます。その一人に届けば成立する規模設計にしています。</p>
+    </div>
+
+    <div class="qa">
+      <p class="qa-q"><span class="n">07</span><span class="jp">以前イベントを開いて、人が集まらなかった経験があります。</span></p>
+      <p class="qa-a jp">それは<b>この3ヶ月でいちばん活きる経験</b>です。何が足りなかったかを知っている人は、第6回の集客講義の吸収がまったく違います。よければ、そのときのことを聞かせてください。</p>
+      <p class="qa-hint jp"><b>返しのコツ：</b>ここは質問ではなく打ち明け話です。<b>必ず一度受け止めて、詳しく聞いてください。</b>すぐ解決策を返さないこと。聞いてもらえた経験そのものが、このゼミへの信頼になります。</p>
+    </div>
+
+    <div class="qa">
+      <p class="qa-q"><span class="n">08</span><span class="jp">年齢が上（下）ですが、浮きませんか。</span></p>
+      <p class="qa-a jp">15名それぞれテーマが違うので、年齢で固まる場ではありません。むしろ<b>「40歳の地図」のように、年齢そのものが強いテーマになる</b>こともあります。年代の違いは、企画の幅としてプラスに働きます。</p>
+    </div>
+  </section>
+
+  <!-- ============ B ============ -->
+  <section class="cat" id="b">
+    <div class="cat-bar"><span class="cat-no">B</span><h2 class="cat-ttl jp">テーマと企画</h2></div>
+    <p class="cat-note jp">「決まっていない」は歓迎、「もう決まっている」も歓迎。どちらにも居場所があると伝えるのがこのブロックの役目です。</p>
+
+    <div class="qa">
+      <p class="qa-q"><span class="n">09</span><span class="jp">やりたいテーマが、まだ決まっていません。</span></p>
+      <p class="qa-a jp">手ぶらで来ていただいて大丈夫です。<b>第1回がまさに、旅の棚卸しから問いを掘り当てる回</b>です。というより、今日すでにひとつ見つかりましたよね。</p>
+      <p class="qa-hint jp"><b>返しのコツ：</b>今日ワークをやった人には、これが最強の返しです。<b>本人が○をつけた言葉をそのまま引用して</b>返してください。</p>
+    </div>
+
+    <div class="qa">
+      <p class="qa-q"><span class="n">10</span><span class="jp">テーマが複数あって、絞れません。</span></p>
+      <p class="qa-a jp">今回は<b>1本に絞ってもらいます</b>。ただし捨てるわけではありません。企画キャンバスは手元に残るので、2本目以降を自分で作れるようになります。<b>絞るのは、諦めることではなく順番をつけること</b>です。</p>
+    </div>
+
+    <div class="qa">
+      <p class="qa-q"><span class="n">11</span><span class="jp">旅とあまり関係ないテーマでもいいですか。</span></p>
+      <p class="qa-a jp">入口が旅であれば大丈夫です。コーチング、地域探究、食、生き方——実際に生まれうる形はかなり幅があります。<b>「旅で見つけた問い」が根っこにあるかどうか</b>だけが条件です。</p>
+      <p class="qa-hint jp"><b>返しのコツ：</b>スライドの「たとえば、こんなゼミが生まれる」の3例を見せると早いです。ジャンルが全部違うことが一目で分かります。</p>
+    </div>
+
+    <div class="qa">
+      <p class="qa-q"><span class="n">12</span><span class="jp">他の人とテーマが被ったらどうなりますか。</span></p>
+      <p class="qa-a jp">被っても問題ありません。<b>同じテーマでも、根っこにある原体験が違えば、まったく別の場になります。</b>むしろ近いテーマの人がいると、第4回の相互フィードバックが濃くなります。</p>
+    </div>
+
+    <div class="qa">
+      <p class="qa-q"><span class="n">13</span><span class="jp">オンラインではなく、リアルで集まる場を作りたいのですが。</span></p>
+      <p class="qa-a jp">大丈夫です。<b>ゼミ本体はオンラインですが、あなたが作る場の形式は自由</b>です。リアルの場を作りたい方は、第3回のゲスト講義（体験設計）がそのまま効きます。会場費が乗るぶん、第5回の1対1で値づけを個別に詰めましょう。</p>
+    </div>
+
+    <div class="qa">
+      <p class="qa-q"><span class="n">14</span><span class="jp">旅そのもの（ツアー型）を企画したいのですが。</span></p>
+      <p class="qa-a jp">企画としては作れます。<b>ただし1点だけ正直にお伝えすると</b>、有償で旅程を組んで募集する形は、旅行業法にかかわる場合があります。企画の立て方によって扱いが変わるので、<b>第5回の1対1で、具体的な形を一緒に確認させてください。</b></p>
+      <p class="qa-hint qa-ng jp"><b>言い切らないこと：</b>「大丈夫です」も「できません」も断定しない。形態次第で変わる領域です。<b>持ち帰って確認する姿勢</b>を見せるほうが信頼されます。</p>
+    </div>
+
+    <div class="qa">
+      <p class="qa-q"><span class="n">15</span><span class="jp">無料で開きたいのですが、それでもいいですか。</span></p>
+      <p class="qa-a jp">構いません。ただ<b>第5回で一度、有料にした場合の設計も一緒に考えさせてください。</b>お金を取るかどうかより、「これは対価をもらえる価値がある」と自分で思えるかどうかが、続けられるかを分けるので。それを確かめたうえで無料にするなら、それは強い選択です。</p>
+    </div>
+
+    <div class="qa">
+      <p class="qa-q"><span class="n">16</span><span class="jp">すでに企画を持っています。持ち込んでもいいですか。</span></p>
+      <p class="qa-a jp">歓迎します。むしろ進みが早いです。ただ<b>第1回の棚卸しは、企画がある方にもやっていただきます。</b>すでにある企画の根っこを掘り直すと、たいてい「本当に言いたかったこと」が別にあることが分かります。そこが見つかると、企画が一段強くなります。</p>
+    </div>
+
+    <div class="qa">
+      <p class="qa-q"><span class="n">17</span><span class="jp">商売ではなく、仲間内の集まりのような場でもいいですか。</span></p>
+      <p class="qa-a jp">いいです。<b>このゼミがつくるのは、事業ではなく場</b>です。参加費1〜3万円という目安は「続けられる規模」の話であって、大きくすることを目指してはいません。</p>
+    </div>
+  </section>
+
+  <!-- ============ C ============ -->
+  <section class="cat" id="c">
+    <div class="cat-bar"><span class="cat-no">C</span><h2 class="cat-ttl jp">お金</h2></div>
+    <p class="cat-note jp">避けないこと。<b>自分から先に切り出す</b>のが最善で、聞かれてから守勢に回るのが最悪です。「安くはないと思います」と自分で言えるかどうかで空気が決まります。</p>
+
+    <div class="qa">
+      <p class="qa-q"><span class="n">18</span><span class="jp">77,000円は、正直高いと感じます。</span></p>
+      <p class="qa-a jp">安くはないと思います。判断材料は2つで、<b>1本目で回収圏に入る規模設計</b>であることと、<b>型が手元に残って2本目以降も作れる</b>ことです。ただ、無理をして入る場ではないので、<b>今回は見送るという判断も全然ありだと思っています。</b></p>
+      <p class="qa-hint qa-ng jp"><b>やってはいけないこと：</b>ここで食い下がる。値引きをほのめかす。「でも」で始める。<b>一度引いてください。</b>引かれた人は、締切前に戻ってくることが多いです。</p>
+    </div>
+
+    <div class="qa">
+      <p class="qa-q"><span class="n">19</span><span class="jp">この価格の内訳を教えてください。</span></p>
+      <p class="qa-a jp">全7回・14時間の講義、外部ゲスト2名、<b>個別メンタリング（1対1で30〜45分）</b>、全7回分のワークシート、同期15名からのフィードバック、そして第7回での相互申込。<b>1回あたり11,000円</b>で、そこにゲストと1対1が入っている形です。</p>
+    </div>
+
+    <div class="qa">
+      <p class="qa-q"><span class="n">20</span><span class="jp">元は取れますか。</span></p>
+      <p class="qa-a jp">1本目の想定規模が<b>2.5万円×定員8名＝20万円</b>なので、数字の上では回収圏です。<b>ただしこれは埋まればの話です。</b>1本目から満席になる保証はありません。だから第6回で集客を扱いますし、第7回で同期が互いの第1号参加者になる設計にしています。</p>
+      <p class="qa-hint jp"><b>返しのコツ：</b>但し書きを必ずセットにすること。数字だけ出すと営業に聞こえ、後で「話が違う」になります。<b>そのうえで</b>「僕がいちばん大きいと思っているのは、お金より"自分の場を持っている人になる"ことのほうです」と続けると、着地がきれいです。</p>
+    </div>
+
+    <div class="qa">
+      <p class="qa-q"><span class="n">21</span><span class="jp">他の起業塾やコミュニティと比べて、どう違うのですか。</span></p>
+      <p class="qa-a jp">大きく2つです。ひとつは<b>ゴールが「開業」まで具体的</b>なこと。第7回で初回開催日をカレンダーに入れて終わります。もうひとつは<b>入口が旅の原体験に限定されている</b>こと。ノウハウから入らず、あなたの中にあるものから始めます。</p>
+    </div>
+
+    <div class="qa">
+      <p class="qa-q"><span class="n">22</span><span class="jp">分割払いはできますか。<span class="flag">要確認</span></span></p>
+      <p class="qa-a jp">お支払い方法は事務局からご案内しています。<b>分割については、確認して個別にご連絡させてください。</b></p>
+      <p class="qa-hint qa-ng jp"><b>その場で答えないこと：</b>告知ページでは銀行振込・一括・案内から1週間以内としています。<b>ここを口頭で緩めると事務局が困ります。</b>必ず持ち帰ってください。</p>
+    </div>
+
+    <div class="qa">
+      <p class="qa-q"><span class="n">23</span><span class="jp">領収書は出ますか。経費にできますか。</span></p>
+      <p class="qa-a jp">領収書は発行できます。事務局にお申し付けください。経費として処理できるかは、お立場や税務の考え方によるので、<b>そこはご自身で顧問の方にご確認ください。</b></p>
+    </div>
+
+    <div class="qa">
+      <p class="qa-q"><span class="n">24</span><span class="jp">途中でやめた場合、返金はありますか。</span></p>
+      <p class="qa-a jp">ご入金後、ご都合による返金はお受けしていません。<b>ただし、こちらの都合で開講を見送る場合は全額返金します。</b>最少催行人数に満たない場合は9月30日までにご連絡します。</p>
+      <p class="qa-hint jp"><b>返しのコツ：</b>返金なしを先に言い、開講条件の返金を後に言う。順序を逆にすると、印象が「返金なし」だけで終わります。</p>
+    </div>
+  </section>
+
+  <!-- ============ D ============ -->
+  <section class="cat" id="d">
+    <div class="cat-bar"><span class="cat-no">D</span><h2 class="cat-ttl jp">時間と日程</h2></div>
+    <p class="cat-note jp">ここは<b>必ず数字で答える</b>ブロック。「大丈夫です」だけで返すと、不安が残ったまま持ち帰られます。</p>
+
+    <div class="qa">
+      <p class="qa-q"><span class="n">25</span><span class="jp">3ヶ月、時間が取れるか不安です。</span></p>
+      <p class="qa-a jp">隔週2時間の講義と、宿題が1回あたり1時間ほど。<b>月に換算すると6時間ほど</b>です。ただし<b>第4回の試作までに、20分ぶんの準備時間</b>だけは確保してください。そこだけは削れません。</p>
+    </div>
+
+    <div class="qa">
+      <p class="qa-q"><span class="n">26</span><span class="jp">火曜20時に、どうしても出られない回があります。</span></p>
+      <p class="qa-a jp">欠席回は<b>録画とワークシートを共有</b>します。ただし<b>第4回だけは、できるだけ出てください。</b>受講生どうしで実際に開き合う回なので、録画では代わりになりません。</p>
+      <p class="qa-hint jp"><b>返しのコツ：</b>何回まで休めるか聞かれたら、「回数で線を引いてはいません。ただ3回以上落ちると、正直きついと思います」と実感で答えるほうが誠実です。</p>
+    </div>
+
+    <div class="qa">
+      <p class="qa-q"><span class="n">27</span><span class="jp">宿題はどれくらい出ますか。</span></p>
+      <p class="qa-a jp">毎回ワークシートが1枚です。<b>1時間ほどで埋まる分量</b>にしています。埋めたシートが積み上がって、最終回に1枚の企画書になる作りです。</p>
+    </div>
+
+    <div class="qa">
+      <p class="qa-q"><span class="n">28</span><span class="jp">海外にいます。時差があっても参加できますか。</span></p>
+      <p class="qa-a jp">日本時間の火曜20時が現地で何時になるかを、先に確認してください。<b>厳しい時間帯なら、録画で追う前提になります。</b>その場合でも第5回の1対1は時差に合わせて調整できますし、第4回だけは無理をしてでも出ていただく形になります。</p>
+    </div>
+
+    <div class="qa">
+      <p class="qa-q"><span class="n">29</span><span class="jp">途中で仕事が忙しくなったら、どうなりますか。</span></p>
+      <p class="qa-a jp">よくあることなので、想定しています。<b>そのために第5回の1対1があります。</b>遅れている人ほど、この回で立て直します。ただ正直に言うと、<b>3ヶ月まったく手が動かないと、修了しても開業には届きません。</b>そこは無理をせず、次の期を待つ判断もあると思います。</p>
+    </div>
+
+    <div class="qa">
+      <p class="qa-q"><span class="n">30</span><span class="jp">第5回の個別メンタリングは、いつありますか。</span></p>
+      <p class="qa-a jp">11月25日から12月6日のあいだで、<b>30〜45分を個別に調整</b>します。第4回の試作が終わってすぐのタイミングです。</p>
+    </div>
+  </section>
+
+  <!-- ============ E ============ -->
+  <section class="cat" id="e">
+    <div class="cat-bar"><span class="cat-no">E</span><h2 class="cat-ttl jp">進め方・中身</h2></div>
+
+    <div class="qa">
+      <p class="qa-q"><span class="n">31</span><span class="jp">第4回の「ミニ開催」では、具体的に何をするのですか。</span></p>
+      <p class="qa-a jp">自分のゼミの<b>1コマを20分ぶん、受講生どうしで実際に開いてみます。</b>そのあと「これは3万円の価値があるか」を5つの軸で相互に審査します。<b>机上の企画が、開ける企画に変わる回</b>です。ここが3ヶ月の山場です。</p>
+    </div>
+
+    <div class="qa">
+      <p class="qa-q"><span class="n">32</span><span class="jp">個別メンタリングは、どなたが担当しますか。</span></p>
+      <p class="qa-a jp">メンター2名——新朱華と、私（恩田）です。<b>テーマとの相性を見て割り振ります。</b>ご希望があれば伺います。</p>
+    </div>
+
+    <div class="qa">
+      <p class="qa-q"><span class="n">33</span><span class="jp">同期の人たちとは、どう関わりますか。</span></p>
+      <p class="qa-a jp">第4回で互いの企画を試作し合い、<b>第7回では同期どうしが互いの第1号参加者になります。</b>ただ講義を一緒に受けるだけの関係ではなく、実際にお互いの場に申し込む関係になります。</p>
+    </div>
+
+    <div class="qa">
+      <p class="qa-q"><span class="n">34</span><span class="jp">録画は残りますか。あとから見返せますか。</span></p>
+      <p class="qa-a jp">全回、録画とワークシートを共有します。欠席された回も追えます。</p>
+    </div>
+
+    <div class="qa">
+      <p class="qa-q"><span class="n">35</span><span class="jp">必要なものはありますか。</span></p>
+      <p class="qa-a jp">Zoomが使えるPCまたはタブレット（<b>カメラONを推奨</b>）と、書き込み用のノート。それだけです。特別なツールは使いません。</p>
+    </div>
+
+    <div class="qa">
+      <p class="qa-q"><span class="n">36</span><span class="jp">顔出しは必須ですか。</span></p>
+      <p class="qa-a jp">必須ではありませんが、<b>推奨しています。</b>互いの企画にフィードバックし合う場なので、顔が見えたほうが率直な話になります。</p>
+    </div>
+
+    <div class="qa">
+      <p class="qa-q"><span class="n">37</span><span class="jp">ゲストの回は、質問できますか。</span></p>
+      <p class="qa-a jp">できます。<b>15名の少人数なので、一方的な講義にはしません。</b>アフロマンスさん、ルイス前田さんとも、自分の企画について直接聞ける時間を取ります。</p>
+    </div>
+  </section>
+
+  <!-- ============ F ============ -->
+  <section class="cat" id="f">
+    <div class="cat-bar"><span class="cat-no">F</span><h2 class="cat-ttl jp">集客と、修了したあと</h2></div>
+    <p class="cat-note jp">このブロックは<span class="flag">要確認</span>が集中します。<b>期待させる答えを口頭で作らないこと。</b></p>
+
+    <div class="qa">
+      <p class="qa-q"><span class="n">38</span><span class="jp">集客は、POOLOが手伝ってくれるのですか。<span class="flag">要確認</span></span></p>
+      <p class="qa-a jp">確実にお約束できるのは、<b>第6回で集客の技術をまとめて設計すること</b>と、<b>第7回で同期が互いの第1号参加者になること</b>の2つです。それ以外にPOOLO側でどこまで告知の協力ができるかは、<b>確認して個別にご連絡させてください。</b></p>
+      <p class="qa-hint qa-ng jp"><b>絶対に言わないこと：</b>「POOLOで告知します」「コミュニティに流します」。<b>実際にやれる保証がないまま言うと、修了後にいちばん強い不満になります。</b>約束できる2つだけを、はっきり約束してください。</p>
+    </div>
+
+    <div class="qa">
+      <p class="qa-q"><span class="n">39</span><span class="jp">POOLOの受講生に告知させてもらえますか。<span class="flag">要確認</span></span></p>
+      <p class="qa-a jp">同じく、<b>確認してご連絡します。</b>そのうえで、第6回では「POOLO以外のどこに、どう届けるか」を必ず設計します。<b>自分のゼミが、POOLOの中だけで完結してしまうと続かない</b>ので、そこは外に開く前提で考えます。</p>
+    </div>
+
+    <div class="qa">
+      <p class="qa-q"><span class="n">40</span><span class="jp">POOLOの名前を使って開催できますか。<span class="flag">要確認</span></span></p>
+      <p class="qa-a jp">名称やロゴの扱いは、<b>確認してご連絡させてください。</b>ただ考え方としては、<b>あなたの名前で開く場</b>を作るゼミです。POOLOの看板を借りるのではなく、あなた自身の看板を立てるほうを目指しています。</p>
+    </div>
+
+    <div class="qa">
+      <p class="qa-q"><span class="n">41</span><span class="jp">修了したあとも、相談できますか。<span class="flag">要確認</span></span></p>
+      <p class="qa-a jp">修了後の継続的なサポートについては、<b>今の時点でお約束できる形が固まっていません。確認します。</b>ただ、<b>企画キャンバスは手元に残る</b>ので、2本目以降はご自身で回せるようになる設計です。</p>
+    </div>
+
+    <div class="qa">
+      <p class="qa-q"><span class="n">42</span><span class="jp">修了後、実際に開催しなかったらどうなりますか。</span></p>
+      <p class="qa-a jp">ペナルティは何もありません。ただ<b>第7回で初回開催日をカレンダーに入れて送り出す</b>ので、開催しないという選択をするには、それなりの意志が要る作りになっています。</p>
+      <p class="qa-hint jp"><b>返しのコツ：</b>ここで「必ず開催してもらいます」と圧をかけないこと。逃げ道を塞ぐのは<b>設計の役目であって、言葉の役目ではありません。</b></p>
+    </div>
+
+    <div class="qa">
+      <p class="qa-q"><span class="n">43</span><span class="jp">開催した場合、売上はどうなりますか。POOLOに何か払うのですか。</span></p>
+      <p class="qa-a jp">あなたが開く場は<b>あなたのものです。</b>売上を分配していただくような仕組みはありません。</p>
+      <p class="qa-hint jp"><b>返しのコツ：</b>これは聞かれる前に言っておくといい情報です。お金の話（スライド16〜17枚目）のあたりで先に触れておくと、警戒が解けます。</p>
+    </div>
+  </section>
+
+  <!-- ============ G ============ -->
+  <section class="cat" id="g">
+    <div class="cat-bar"><span class="cat-no">G</span><h2 class="cat-ttl jp">参加資格・申込</h2></div>
+
+    <div class="qa">
+      <p class="qa-q"><span class="n">44</span><span class="jp">POOLOに在籍したことがありません。参加できますか。</span></p>
+      <p class="qa-a jp">ご相談ください。<b>旅を通じた学びの場づくりに関心があれば大丈夫です。</b>お申し込み時に、その旨を書き添えてください。</p>
+    </div>
+
+    <div class="qa">
+      <p class="qa-q"><span class="n">45</span><span class="jp">現役のPOOLO生ですが、並行して受けられますか。</span></p>
+      <p class="qa-a jp">受けられます。ただ<b>両方の宿題が重なる時期がある</b>ので、そこだけ見ておいてください。10月から12月のご自身の予定と照らして、厳しそうなら次の機会でも構いません。</p>
+    </div>
+
+    <div class="qa">
+      <p class="qa-q"><span class="n">46</span><span class="jp">「選考あり」と書いてありますが、落ちることはありますか。<span class="flag">要確認</span></span></p>
+      <p class="qa-a jp">申込時に「作ってみたい学びの場」を書いていただき、<b>そこを拝見します。</b>選考の運用については確認してご連絡しますが、<b>テーマが決まっていないことを理由にお断りすることはありません。</b>それは第1回で扱う内容なので。</p>
+    </div>
+
+    <div class="qa">
+      <p class="qa-q"><span class="n">47</span><span class="jp">定員に達したら、どうなりますか。</span></p>
+      <p class="qa-a jp">定員15名で、<b>達し次第、締切前でも受付を終了</b>します。締切は9月27日（日）23:59です。</p>
+    </div>
+
+    <div class="qa">
+      <p class="qa-q"><span class="n">48</span><span class="jp">申し込みから受講開始まで、どんな流れですか。</span></p>
+      <p class="qa-a jp">POOLO公式LINEから、所要5分ほどです。①友だち追加　②申込フォームに回答　③<b>3営業日以内に事務局から受付のご連絡</b>　④お支払い・受講確定。ご入金の確認後、事前案内と初回のZoom URLをお送りします。</p>
+    </div>
+  </section>
+
+  <!-- ============ H ============ -->
+  <section class="cat" id="h">
+    <div class="cat-bar"><span class="cat-no">H</span><h2 class="cat-ttl jp">答えにくい質問</h2></div>
+    <p class="cat-note jp">鋭い質問ほど、<b>正直に答えると信頼が跳ね上がります。</b>ごまかした瞬間に全部が疑わしくなるブロックです。</p>
+
+    <div class="qa">
+      <p class="qa-q"><span class="n">49</span><span class="jp">これまでの卒業生で、実際に自分の場を開いた人はいますか。</span></p>
+      <p class="qa-a jp"><b>このゼミは今回が1期目なので、まだいません。</b>ごまかさずに言うと、実績で選んでいただける段階ではないです。<b>あなたが一人目になります。</b>その代わり、1期目だからこそ人数は15名に絞っていますし、1対1の時間も取っています。</p>
+      <p class="qa-hint jp"><b>返しのコツ：</b>ここは絶対にごまかさないこと。<b>「1期目である」ことを弱みとして隠すより、強みとして差し出す</b>ほうが効きます。少人数・手厚さ・一人目の特別さ、この3つが本当の価値です。</p>
+    </div>
+
+    <div class="qa">
+      <p class="qa-q"><span class="n">50</span><span class="jp">恩田さんご自身は、いま自分の場を持っているのですか。</span></p>
+      <p class="qa-a jp">POOLOがそれです。旅大学から数えて11年、700回のイベントを企画してきました。<b>このゼミで教えるのは、僕がその11年で失敗しながら覚えたことです。</b></p>
+    </div>
+
+    <div class="qa">
+      <p class="qa-q"><span class="n">51</span><span class="jp">結局これは、POOLOの囲い込みではないですか。</span></p>
+      <p class="qa-a jp">率直な質問をありがとうございます。<b>目指しているのは逆です。</b>受け取る側を続けていると、講座から講座へ渡り歩くことになる。それを終わらせて、<b>自分で場を持てる側に移ってもらう</b>ためのゼミです。だから第6回では、POOLOの外に届ける方法を扱います。</p>
+      <p class="qa-hint jp"><b>返しのコツ：</b>むきにならないこと。<b>「率直な質問をありがとうございます」で一度受ける</b>と、場の空気が変わります。この質問が出るのは、真剣に検討している証拠です。</p>
+    </div>
+
+    <div class="qa">
+      <p class="qa-q"><span class="n">52</span><span class="jp">企画の作り方なら、AIに聞けば出てきませんか。</span></p>
+      <p class="qa-a jp">枠組みは出てくると思います。<b>でもAIは、あなたが旅のどの瞬間に心を動かされたかを知りません。</b>第1回で掘るのはそこです。それと、<b>締切と、見てくれる人</b>。企画が本当に前に進むのはその2つがあるときで、そこは今のところ人間の場のほうが強いと思っています。</p>
+    </div>
+
+    <div class="qa">
+      <p class="qa-q"><span class="n">53</span><span class="jp">今日、決めないとダメですか。</span></p>
+      <p class="qa-a jp">まったくその必要はありません。締切は9月27日で、定員15名です。<b>ただ、迷っている段階のままで構わないので、個別に相談の時間を取れます。</b>そのほうが判断しやすいと思います。</p>
+      <p class="qa-hint jp"><b>ここが今日いちばん重要なクロージングです。</b>申込を迫らず、<b>次の接点を作る</b>。「決める／決めない」の二択から「もう少し話す」という第三の選択肢へ逃がすと、歩留まりが変わります。</p>
+    </div>
+
+    <div class="qa">
+      <p class="qa-q"><span class="n">54</span><span class="jp">迷っています。何を基準に決めたらいいですか。</span></p>
+      <p class="qa-a jp">ひとつだけ挙げるなら、<b>今日書いた「黙っていられない話」を、誰かに話したくてうずうずしているかどうか</b>だと思います。それがあるなら、たぶん向いています。ないなら、無理に今回でなくていいです。</p>
+      <p class="qa-hint jp"><b>返しのコツ：</b>ここで宿題（「今週中に誰か一人に話してみてください」）につなげると、きれいに閉じます。<b>話してみた人は、かなりの確率で申し込みます。</b></p>
+    </div>
+  </section>
+
+</div>
+</body>
+</html>
