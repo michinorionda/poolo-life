@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>説明会スライド｜POOLOゼミ 学びの場を、創る。</title>
+<meta name="description" content="POOLOゼミ「学びの場を、創る。」説明会の画面共有用スライド。矢印キーまたはクリックで進みます。">
+<meta name="robots" content="noindex,nofollow">
+<link rel="stylesheet" href="../../poolo-ds/tokens.css">
+<style>
+  * { box-sizing:border-box; }
+  html, body { height:100%; margin:0; overflow:hidden; background:var(--bg); }
+  body { font-family:var(--body); color:var(--ink-soft); }
+
+  .deck { position:relative; width:100vw; height:100vh; }
+
+  .s {
+    position:absolute; inset:0;
+    display:none; flex-direction:column; justify-content:center;
+    padding:clamp(40px,7vw,90px) clamp(40px,9vw,130px);
+    background:var(--bg);
+  }
+  .s.on { display:flex; }
+  .s.blue { background:var(--brand); }
+  .s.pale { background:var(--brand-pale); }
+  .s.off  { background:var(--bg-off); }
+
+  /* --- パーツ --- */
+  .eyebrow {
+    font-family:var(--en); font-size:clamp(11px,1.05vw,14px); font-weight:500;
+    letter-spacing:.24em; text-transform:uppercase; color:var(--brand);
+    margin-bottom:clamp(16px,2.4vh,28px);
+  }
+  .blue .eyebrow { color:var(--on-brand-75); }
+
+  h1 {
+    font-family:var(--mincho); font-weight:700;
+    font-size:clamp(30px,5.2vw,68px); line-height:1.32; letter-spacing:.02em;
+    color:var(--ink); margin:0;
+    font-feature-settings:"palt";
+  }
+  .blue h1 { color:var(--on-brand); }
+
+  h2 {
+    font-family:var(--mincho); font-weight:700;
+    font-size:clamp(24px,3.5vw,46px); line-height:1.42; letter-spacing:.02em;
+    color:var(--ink); margin:0 0 clamp(18px,3vh,34px);
+    font-feature-settings:"palt";
+  }
+  .blue h2 { color:var(--on-brand); }
+
+  .sub {
+    font-family:var(--body); font-size:clamp(14px,1.5vw,20px); line-height:2.05;
+    letter-spacing:.045em; color:var(--ink-72); margin:clamp(18px,3vh,32px) 0 0;
+    max-width:34em;
+  }
+  .blue .sub { color:var(--on-brand-88); }
+
+  .kicker {
+    font-family:var(--head); font-weight:700;
+    font-size:clamp(13px,1.35vw,17px); letter-spacing:.08em;
+    color:var(--brand-deep); margin:0 0 clamp(14px,2.2vh,24px);
+  }
+  .blue .kicker { color:var(--on-brand-88); }
+
+  .rule { width:clamp(40px,5vw,74px); height:2px; background:var(--brand); margin:clamp(20px,3vh,34px) 0; }
+  .blue .rule { background:var(--on-brand-40); }
+
+  /* 大きな数字の並び */
+  .stats { display:flex; flex-wrap:wrap; gap:clamp(28px,5vw,72px); margin-top:clamp(18px,3vh,32px); }
+  .stat b {
+    display:block; font-family:var(--en); font-weight:600;
+    font-size:clamp(42px,7vw,96px); line-height:1; color:var(--brand); letter-spacing:.01em;
+  }
+  .blue .stat b { color:var(--on-brand); }
+  .stat span {
+    display:block; font-family:var(--head); font-weight:700;
+    font-size:clamp(12px,1.2vw,15px); letter-spacing:.08em; color:var(--ink-50); margin-top:clamp(9px,1.4vh,15px);
+  }
+  .blue .stat span { color:var(--on-brand-75); }
+
+  /* 箇条 */
+  ul.pts { list-style:none; margin:clamp(14px,2.4vh,26px) 0 0; padding:0; max-width:32em; }
+  ul.pts li {
+    font-family:var(--body); font-size:clamp(14px,1.55vw,21px); line-height:1.95;
+    letter-spacing:.04em; color:var(--ink-72);
+    padding:clamp(10px,1.7vh,18px) 0 clamp(10px,1.7vh,18px) clamp(22px,2.2vw,34px);
+    border-bottom:1px solid var(--line); position:relative;
+  }
+  ul.pts li:first-child { border-top:1px solid var(--line); }
+  ul.pts li::before {
+    content:""; position:absolute; left:0; top:calc(clamp(10px,1.7vh,18px) + .82em);
+    width:clamp(10px,1.1vw,16px); height:1px; background:var(--brand);
+  }
+  ul.pts li b { color:var(--brand-deep); font-weight:700; }
+  .blue ul.pts li { color:var(--on-brand-88); border-color:var(--on-brand-40); }
+  .blue ul.pts li::before { background:var(--on-brand); }
+
+  /* 7つの問いグリッド */
+  .canvas { display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--line); border:1px solid var(--line); margin-top:clamp(16px,2.6vh,30px); }
+  .cvc { background:var(--bg); padding:clamp(14px,2vw,26px) clamp(12px,1.6vw,22px); min-height:clamp(90px,13vh,150px); display:flex; flex-direction:column; }
+  .cvc.hot { background:var(--brand-pale); }
+  .cvc i { font-style:normal; font-family:var(--en); font-size:clamp(10px,.95vw,13px); font-weight:500; letter-spacing:.18em; color:var(--brand); margin-bottom:clamp(8px,1.2vh,14px); }
+  .cvc strong { font-family:var(--mincho); font-weight:700; font-size:clamp(14px,1.5vw,21px); line-height:1.5; color:var(--ink); font-feature-settings:"palt"; }
+  .cvc em { font-style:normal; font-family:var(--body); font-size:clamp(10.5px,.95vw,13px); line-height:1.75; color:var(--ink-50); margin-top:clamp(6px,1vh,11px); letter-spacing:.03em; }
+
+  /* 7動詞レール */
+  .rail { display:grid; grid-template-columns:repeat(7,1fr); margin-top:clamp(20px,3.4vh,40px); position:relative; }
+  .rail::before { content:""; position:absolute; left:0; right:0; top:clamp(13px,1.6vw,20px); height:1px; background:var(--line); }
+  .rl { display:flex; flex-direction:column; align-items:center; position:relative; padding:0 4px; }
+  .rl i {
+    font-style:normal; width:clamp(26px,3.2vw,40px); height:clamp(26px,3.2vw,40px); border-radius:50%;
+    border:1px solid var(--brand); background:var(--bg); color:var(--brand);
+    font-family:var(--en); font-size:clamp(11px,1.1vw,15px); font-weight:500;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .rl.peak i { background:var(--brand); color:var(--on-brand); }
+  .rl strong { font-family:var(--mincho); font-weight:700; font-size:clamp(13px,1.35vw,19px); color:var(--ink); margin-top:clamp(11px,1.7vh,18px); text-align:center; line-height:1.4; font-feature-settings:"palt"; }
+  .rl em { font-style:normal; font-family:var(--body); font-size:clamp(9.5px,.88vw,12px); color:var(--ink-50); margin-top:clamp(5px,.9vh,9px); text-align:center; line-height:1.6; letter-spacing:.02em; }
+
+  /* ゲスト2枠 */
+  .duo { display:grid; grid-template-columns:1fr 1fr; gap:clamp(20px,3.5vw,52px); margin-top:clamp(16px,2.6vh,30px); }
+  .g { border-top:2px solid var(--brand); padding-top:clamp(16px,2.4vh,26px); }
+  .g .rnd { font-family:var(--head); font-weight:700; font-size:clamp(11px,1.05vw,14px); letter-spacing:.08em; color:var(--brand-deep); }
+  .g .nm { font-family:var(--mincho); font-weight:700; font-size:clamp(22px,2.9vw,40px); color:var(--ink); margin:clamp(9px,1.5vh,16px) 0 clamp(7px,1.1vh,12px); line-height:1.3; }
+  .g .rl2 { font-family:var(--head); font-weight:700; font-size:clamp(11.5px,1.1vw,15px); color:var(--brand); letter-spacing:.05em; }
+  .g .bio { font-family:var(--body); font-size:clamp(11.5px,1.1vw,15px); line-height:1.95; color:var(--ink-72); margin:clamp(11px,1.8vh,19px) 0 0; letter-spacing:.035em; }
+
+  /* 料金の分解 */
+  .price { display:flex; align-items:baseline; gap:clamp(12px,1.6vw,22px); flex-wrap:wrap; margin-top:clamp(12px,2vh,24px); }
+  .price b { font-family:var(--en); font-weight:600; font-size:clamp(48px,8.5vw,120px); line-height:1; color:var(--brand); letter-spacing:.005em; }
+  .price span { font-family:var(--head); font-weight:700; font-size:clamp(14px,1.5vw,20px); color:var(--ink-50); letter-spacing:.06em; }
+
+  .calc { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line); border:1px solid var(--line); margin-top:clamp(18px,3vh,34px); }
+  .calc div { background:var(--bg); padding:clamp(16px,2.3vw,28px) clamp(14px,1.8vw,24px); }
+  .calc dt { font-family:var(--head); font-weight:700; font-size:clamp(10.5px,1vw,13px); letter-spacing:.08em; color:var(--ink-50); margin-bottom:clamp(9px,1.4vh,15px); }
+  .calc dd { margin:0; font-family:var(--en); font-weight:600; font-size:clamp(24px,3.4vw,46px); color:var(--brand); line-height:1.1; letter-spacing:.01em; }
+  .calc dd small { display:block; font-family:var(--body); font-weight:400; font-size:clamp(10.5px,.95vw,13px); color:var(--ink-50); margin-top:clamp(7px,1.1vh,12px); line-height:1.7; letter-spacing:.03em; }
+
+  /* 2カラム（向く/向かない） */
+  .two { display:grid; grid-template-columns:1fr 1fr; gap:clamp(24px,4vw,64px); margin-top:clamp(14px,2.4vh,28px); }
+  .two h3 { font-family:var(--head); font-weight:700; font-size:clamp(12px,1.2vw,16px); letter-spacing:.08em; margin:0 0 clamp(10px,1.6vh,18px); padding-bottom:clamp(8px,1.2vh,13px); border-bottom:1px solid var(--brand); color:var(--brand-deep); }
+  .two.neg h3 { color:var(--ink-50); border-bottom-color:var(--line); }
+  .two ul { list-style:none; margin:0; padding:0; }
+  .two li { font-family:var(--body); font-size:clamp(12px,1.2vw,17px); line-height:1.85; color:var(--ink-72); padding:clamp(8px,1.3vh,14px) 0; border-bottom:1px solid var(--line); letter-spacing:.035em; }
+
+  /* 日程表 */
+  .sch { width:100%; border-collapse:collapse; margin-top:clamp(12px,2vh,24px); }
+  .sch td { padding:clamp(8px,1.35vh,15px) clamp(6px,1vw,14px); border-bottom:1px solid var(--line); vertical-align:baseline; }
+  .sch .no { font-family:var(--en); font-weight:600; font-size:clamp(13px,1.35vw,19px); color:var(--brand); white-space:nowrap; width:1%; }
+  .sch .dt { font-family:var(--head); font-weight:700; font-size:clamp(12px,1.2vw,16px); color:var(--ink); white-space:nowrap; width:1%; letter-spacing:.03em; }
+  .sch .tl { font-family:var(--body); font-size:clamp(12px,1.2vw,17px); color:var(--ink-72); line-height:1.7; letter-spacing:.035em; }
+  .sch .tg { font-family:var(--head); font-weight:700; font-size:clamp(9.5px,.9vw,12px); color:var(--brand-deep); background:var(--brand-pale); padding:3px 8px; border-radius:var(--radius); white-space:nowrap; }
+
+  /* ワーク指示 */
+  .task { border:2px solid var(--brand); border-radius:var(--radius); padding:clamp(22px,3.4vw,44px); max-width:36em; margin-top:clamp(14px,2.4vh,28px); }
+  .task p { font-family:var(--mincho); font-weight:700; font-size:clamp(18px,2.4vw,34px); line-height:1.65; color:var(--ink); margin:0; font-feature-settings:"palt"; }
+  .task small { display:block; font-family:var(--body); font-weight:400; font-size:clamp(12px,1.2vw,16px); color:var(--ink-50); margin-top:clamp(12px,2vh,22px); line-height:1.9; letter-spacing:.04em; }
+
+  .big-q { font-family:var(--mincho); font-weight:700; font-size:clamp(26px,4.4vw,60px); line-height:1.45; color:var(--brand-deep); letter-spacing:.02em; font-feature-settings:"palt"; margin:0; }
+
+  /* --- UI --- */
+  .nav { position:fixed; bottom:16px; right:20px; display:flex; align-items:center; gap:13px; z-index:10; }
+  .nav button {
+    font-family:var(--en); font-size:13px; font-weight:500; letter-spacing:.06em;
+    width:32px; height:32px; border:1px solid var(--line); background:rgba(255,255,255,.9);
+    color:var(--brand); border-radius:var(--radius); cursor:pointer; line-height:1;
+  }
+  .nav button:hover { border-color:var(--brand); }
+  .pg { font-family:var(--en); font-size:12px; letter-spacing:.1em; color:var(--ink-40); min-width:52px; text-align:right; }
+  .blue-ui .nav button { background:rgba(255,255,255,.14); border-color:var(--on-brand-40); color:var(--on-brand); }
+  .blue-ui .pg { color:var(--on-brand-75); }
+
+  .prog { position:fixed; top:0; left:0; height:2px; background:var(--brand); z-index:11; transition:width .2s ease; }
+  .blue-ui .prog { background:var(--on-brand); }
+
+  .jp { word-break:auto-phrase; text-wrap:pretty; }
+
+  @media (max-width:820px) {
+    .canvas { grid-template-columns:repeat(2,1fr); }
+    .rail { grid-template-columns:repeat(4,1fr); row-gap:22px; }
+    .rail::before { display:none; }
+    .duo, .two, .calc { grid-template-columns:1fr; gap:18px; }
+    .calc { gap:1px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="prog" id="prog"></div>
+<div class="deck" id="deck">
+
+  <!-- 01 -->
+  <section class="s blue">
+    <div class="eyebrow">POOLO ゼミ 説明会 ／ 2026.08.25</div>
+    <h1 class="jp">旅で見つけた問いから、<br>学びの場を創る。</h1>
+    <p class="sub jp">あなたのひとつの問いを、誰かが「参加したい」と思う小さな学びの場にする、3ヶ月・全7回。</p>
+  </section>
+
+  <!-- 02 -->
+  <section class="s">
+    <div class="eyebrow">Today</div>
+    <h2 class="jp">今日は、説明を聞く会では<br>ありません。</h2>
+    <div class="rule"></div>
+    <p class="big-q jp">90分後、あなたが「つい語ってしまう話」を<br>1つ持って帰ります。</p>
+    <p class="sub jp">ゼミの中身は、ページを読めば分かります。ページを読んでも分からないのは、「自分にそれができるのか」という一点だと思うので。</p>
+  </section>
+
+  <!-- 03 -->
+  <section class="s off">
+    <div class="eyebrow">Why now</div>
+    <h2 class="jp">旅大学から、11年。</h2>
+    <div class="stats">
+      <div class="stat"><b>700</b><span>回のイベント運営・企画</span></div>
+      <div class="stat"><b>10,000</b><span>人を超える来場者</span></div>
+      <div class="stat"><b>7</b><span>年続いたPOOLO</span></div>
+    </div>
+    <p class="sub jp">送り出す側に、ずっと立ってきました。そこで、見えてしまったことがあります。</p>
+  </section>
+
+  <!-- 04 -->
+  <section class="s blue">
+    <div class="eyebrow">What I saw</div>
+    <h1 class="jp">いちばん学んで、<br>いちばん変わっていたのは、<br>いつも「創った人」でした。</h1>
+    <p class="sub jp">参加者としてどれだけ真剣に受け取っても、企画した人の変化には届かない。11年間、ずっとそうでした。</p>
+  </section>
+
+  <!-- 05 -->
+  <section class="s">
+    <div class="eyebrow">And</div>
+    <h2 class="jp">受け取る側は、いつか終わる。<br>創る側には、終わりがない。</h2>
+    <div class="rule"></div>
+    <p class="sub jp">POOLOが終わると、あんなに濃かった時間が急になくなります。そして「またどこかの講座に申し込む」を繰り返すことになる。<br><br>受け取る側を十分にやってきた人が、次に行く場所。それが、このゼミです。</p>
+  </section>
+
+  <!-- 06 -->
+  <section class="s pale">
+    <div class="kicker">誤解のないように</div>
+    <h2 class="jp">壮大な起業の話でも、<br>副業で稼ぐ話でもありません。</h2>
+    <div class="rule"></div>
+    <p class="big-q jp">つくるのは、参加費1〜3万円・定員6〜10名の、<br>小さくてあたたかい場。</p>
+    <p class="sub jp">人生を賭けなくていい。会社を辞めなくていい。ただ、自分の問いを囲む場をひとつ持つ。それだけです。</p>
+  </section>
+
+  <!-- 07 -->
+  <section class="s">
+    <div class="eyebrow">Work 01 ／ 6分</div>
+    <h2 class="jp">まず、手を動かします。</h2>
+    <div class="task">
+      <p class="jp">旅の中で「つい人に話してしまった」<br>「心が動いた」瞬間を、10個。</p>
+      <small class="jp">・いい話を書こうとしないでください。「人に言うと引かれるかも」くらいが原石です<br>・まとめなくていい。単語でも、途中で切れていても大丈夫<br>・10個埋まらなくても大丈夫。7個でも8個でも</small>
+    </div>
+  </section>
+
+  <!-- 08 -->
+  <section class="s pale">
+    <div class="eyebrow">Work 01 ／ 2分</div>
+    <h2 class="jp">この中から、1つだけ。</h2>
+    <div class="task">
+      <p class="jp">「これについてなら黙っていられない」<br>というものに、○を。</p>
+      <small class="jp">「詳しい」ではなく「黙っていられない」で選んでください。知識の量ではなく、体温の高さです。うまく説明できないものほど、掘る価値があります。</small>
+    </div>
+  </section>
+
+  <!-- 09 -->
+  <section class="s blue">
+    <div class="eyebrow">Reveal</div>
+    <h1 class="jp">じつは今のが、<br>ゼミの第1回そのものです。</h1>
+    <p class="sub jp">今日は20分でした。それでも、ひとつずつ見つかりましたよね。ゼミでは、これを2時間かけて、フィードバックをもらいながらやります。</p>
+  </section>
+
+  <!-- 10 -->
+  <section class="s">
+    <div class="eyebrow">Fig. 企画キャンバス</div>
+    <h2 class="jp">持ち帰るのは、この1枚。</h2>
+    <div class="canvas">
+      <div class="cvc hot"><i>01</i><strong class="jp">なぜ私が</strong><em class="jp">旅のどの経験が、この問いの根っこにあるのか</em></div>
+      <div class="cvc"><i>02</i><strong class="jp">誰のために</strong><em class="jp">来てほしい一人を、具体的に思い浮かべる</em></div>
+      <div class="cvc"><i>03</i><strong class="jp">一言でいうと</strong><em class="jp">参加者が友人に説明できる、ひとつの文に</em></div>
+      <div class="cvc"><i>04</i><strong class="jp">どんな体験を</strong><em class="jp">何回で、何をして、終わったときどうなっているか</em></div>
+      <div class="cvc"><i>05</i><strong class="jp">いくらで</strong><em class="jp">価値と、続けられる値段のつり合い</em></div>
+      <div class="cvc"><i>06</i><strong class="jp">どう伝えるか</strong><em class="jp">どこで、どんな言葉で届けるか</em></div>
+      <div class="cvc"><i>07</i><strong class="jp">いつ創るか</strong><em class="jp">初回の開催日を、カレンダーに入れる</em></div>
+      <div class="cvc" style="background:var(--bg-off)"><i>—</i><em class="jp">今日やったのは、①だけ。残り6つを、3ヶ月で1つずつ埋めていきます。</em></div>
+    </div>
+  </section>
+
+  <!-- 11 -->
+  <section class="s pale">
+    <h2 class="jp">3ヶ月で手に入るのは、<br>1つの企画ではなく、<br>企画を作る「型」のほうです。</h2>
+    <p class="sub jp">埋め終わったキャンバスは手元に残ります。だから2本目、3本目も自分で作れるようになる。</p>
+  </section>
+
+  <!-- 12 -->
+  <section class="s">
+    <div class="eyebrow">Program ／ 全7回</div>
+    <h2 class="jp">問いが、ひらける企画になるまで。</h2>
+    <div class="rail">
+      <div class="rl"><i>1</i><strong class="jp">掘る</strong><em class="jp">旅の棚卸し</em></div>
+      <div class="rl"><i>2</i><strong class="jp">学びにする</strong><em class="jp">たった一人へ</em></div>
+      <div class="rl"><i>3</i><strong class="jp">設計する</strong><em class="jp">ゲスト講義</em></div>
+      <div class="rl peak"><i>4</i><strong class="jp">試作する</strong><em class="jp">ミニ開催・山場</em></div>
+      <div class="rl"><i>5</i><strong class="jp">磨く</strong><em class="jp">1対1・別日程</em></div>
+      <div class="rl"><i>6</i><strong class="jp">集める</strong><em class="jp">ゲスト講義</em></div>
+      <div class="rl peak"><i>7</i><strong class="jp">創る</strong><em class="jp">開業式</em></div>
+    </div>
+    <p class="sub jp">この7つの動詞だけ、覚えて帰ってください。</p>
+  </section>
+
+  <!-- 13 -->
+  <section class="s off">
+    <div class="eyebrow">Guests</div>
+    <h2 class="jp">自己流でつまずくのは、<br>「場の設計」と「人の集め方」の2つだけ。</h2>
+    <div class="duo">
+      <div class="g">
+        <div class="rnd">第3回｜学びの場を、設計する</div>
+        <div class="nm jp">アフロマンス</div>
+        <div class="rl2">株式会社 Afro&amp;Co. CCO</div>
+        <p class="bio jp">体験をつくるクリエイター／イベントプロデューサー。「脳汁銭湯」「SAKURA CHILL BAR by 佐賀」「喰種レストラン」などを全国で企画・プロデュース。</p>
+      </div>
+      <div class="g">
+        <div class="rnd">第6回｜自分の場に、人を集める</div>
+        <div class="nm jp">ルイス前田</div>
+        <div class="rl2">株式会社ノマドニア 代表取締役</div>
+        <p class="bio jp">120ヶ国を旅する海外ノマド。TABIPPO創業メンバーで元編集長。『ノマドニア』『スラッシュワーカーズ』を主宰。著書『海外ノマド入門』。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 14 -->
+  <section class="s blue">
+    <div class="eyebrow">Design</div>
+    <h1 class="jp">「いつかやる」で<br>終われない設計にしています。</h1>
+    <ul class="pts">
+      <li class="jp"><b>第4回・ミニ開催</b>　自分のゼミの1コマを、受講生どうしで実際に開く。「3万円の価値があるか」を5つの軸で相互に審査する</li>
+      <li class="jp"><b>第5回・1対1</b>　試作のフィードバックを持って、メンターと個別に30〜45分。つまずきを、個別にほどく</li>
+      <li class="jp"><b>第7回・開業式</b>　同期どうしが互いの第1号参加者に。初回開催日を、その場でカレンダーに入れて送り出す</li>
+    </ul>
+  </section>
+
+  <!-- 15 -->
+  <section class="s">
+    <div class="eyebrow">Schedule</div>
+    <h2 class="jp">10/13〜12/22、隔週火曜20:00–22:00。</h2>
+    <table class="sch">
+      <tr><td class="no">01</td><td class="dt">10月13日（火）</td><td class="tl jp">旅の棚卸しから、問いを掘る</td><td></td></tr>
+      <tr><td class="no">02</td><td class="dt">10月27日（火）</td><td class="tl jp">たった一人に向けて、問いを"学び"にする</td><td></td></tr>
+      <tr><td class="no">03</td><td class="dt">11月10日（火）</td><td class="tl jp">学びの場を、設計する</td><td><span class="tg">ゲスト</span></td></tr>
+      <tr><td class="no">04</td><td class="dt">11月24日（火）</td><td class="tl jp">ミニ開催で、試作する</td><td><span class="tg">山場</span></td></tr>
+      <tr><td class="no">05</td><td class="dt">11/25–12/6</td><td class="tl jp">1対1で、企画を磨く（30–45分）</td><td><span class="tg">別日程</span></td></tr>
+      <tr><td class="no">06</td><td class="dt">12月8日（火）</td><td class="tl jp">自分の場に、人を集める</td><td><span class="tg">ゲスト</span></td></tr>
+      <tr><td class="no">07</td><td class="dt">12月22日（火）</td><td class="tl jp">ひらいて、送り出す（開業式）</td><td></td></tr>
+    </table>
+    <p class="sub jp">すべてZoom。欠席回は録画とワークシートを共有します（第4回だけは、できるだけご参加ください）。</p>
+  </section>
+
+  <!-- 16 -->
+  <section class="s off">
+    <div class="eyebrow">Fee</div>
+    <h2 class="jp">お金の話を、先にします。</h2>
+    <div class="price"><b>77,000</b><span>円（税込）／ 全7回分</span></div>
+    <p class="sub jp">正直、安くはないと思います。含まれているのは、全7回・14時間の講義、ゲスト2名、<b>個別メンタリング1対1</b>、全7回分のワークシート、同期15名からのフィードバック、そして第7回での相互申込。1回あたり11,000円です。</p>
+  </section>
+
+  <!-- 17 -->
+  <section class="s">
+    <div class="eyebrow">Return</div>
+    <h2 class="jp">回収の話も、正面から。</h2>
+    <dl class="calc">
+      <div><dt>1本目の想定規模</dt><dd>2.5万円<small>×定員8名の場合</small></dd></div>
+      <div><dt>1本目の売上</dt><dd>20万円<small>参加費77,000円は回収圏</small></dd></div>
+      <div><dt>2本目以降</dt><dd>型が残る<small>キャンバスは手元に残り、再現できる</small></dd></div>
+    </dl>
+    <p class="sub jp">ただし、これは埋まればの話です。1本目から満席になる保証はありません。だから第6回で集客を扱い、第7回で同期が第1号参加者になる設計にしています。</p>
+  </section>
+
+  <!-- 18 -->
+  <section class="s pale">
+    <h2 class="jp">それでもいちばん大きいのは、<br>お金ではなく<br>「自分の場を持っている人になる」こと。</h2>
+    <p class="sub jp">それは、次の10年ずっと効きます。</p>
+  </section>
+
+  <!-- 19 -->
+  <section class="s">
+    <div class="eyebrow">For / Not for</div>
+    <h2 class="jp">向いている人と、<br>今回は向かないかもしれない人。</h2>
+    <div class="two">
+      <div>
+        <h3>こんな方へ</h3>
+        <ul>
+          <li class="jp">旅の話をすると、つい自分が一番前のめりになってしまう方</li>
+          <li class="jp">受け取る側を十分やってきた。次は創る側に回ってみたい方</li>
+          <li class="jp">「旅を仕事に」を、小さな一歩から始めたい方</li>
+          <li class="jp">テーマはまだ曖昧でいい。とにかく形にしたい方</li>
+        </ul>
+      </div>
+      <div class="neg">
+        <h3>今回は、向かないかもしれません</h3>
+        <ul>
+          <li class="jp">集客ノウハウ・講義テクニックだけを受け取りたい方</li>
+          <li class="jp">隔週2時間＋宿題の時間が取れない方</li>
+          <li class="jp">自分の企画を人に見せ、フィードバックを受けることに抵抗がある方</li>
+          <li class="jp">収益化のスピードを最優先したい方（1本目は数万円規模です）</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 20 -->
+  <section class="s blue">
+    <div class="eyebrow">Homework</div>
+    <h1 class="jp">今日の宿題。<br>その話を、誰か一人に<br>話してみてください。</h1>
+    <p class="sub jp">今日○をつけた話を、今週中に誰か一人に。友人でも、家族でも構いません。話してみて、相手が前のめりになったら、それは本物です。<br><br>そして何より——話しているとき、自分がどれだけ喋り続けたかを覚えておいてください。</p>
+  </section>
+
+  <!-- 21 -->
+  <section class="s">
+    <div class="eyebrow">Application</div>
+    <h2 class="jp">定員15名・10月13日開講。</h2>
+    <ul class="pts">
+      <li class="jp"><b>申込締切</b>　2026年9月27日（日）23:59 ／ 定員に達し次第、締切前でも終了</li>
+      <li class="jp"><b>申込方法</b>　POOLO公式LINEから、所要5分ほど</li>
+      <li class="jp"><b>迷っている方へ</b>　個別相談の時間を取れます。決めきる前にどうぞ</li>
+    </ul>
+    <p class="sub jp">今日みなさんが書いたあの1行が、来年の春には誰かが申し込む場になっているかもしれません。そういう3ヶ月です。</p>
+  </section>
+
+</div>
+
+<div class="nav">
+  <button id="prev" aria-label="前へ">‹</button>
+  <button id="next" aria-label="次へ">›</button>
+  <span class="pg" id="pg">1 / 21</span>
+</div>
+
+<script>
+(function () {
+  var slides = Array.prototype.slice.call(document.querySelectorAll('.s'));
+  var i = 0;
+  var pg = document.getElementById('pg');
+  var prog = document.getElementById('prog');
+
+  function show(n) {
+    i = Math.max(0, Math.min(slides.length - 1, n));
+    slides.forEach(function (s, k) { s.classList.toggle('on', k === i); });
+    pg.textContent = (i + 1) + ' / ' + slides.length;
+    prog.style.width = ((i + 1) / slides.length * 100) + '%';
+    document.body.classList.toggle('blue-ui', slides[i].classList.contains('blue'));
+    try { location.hash = String(i + 1); } catch (e) {}
+  }
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown' || e.key === ' ' || e.key === 'PageDown') { e.preventDefault(); show(i + 1); }
+    if (e.key === 'ArrowLeft'  || e.key === 'ArrowUp'   || e.key === 'PageUp') { e.preventDefault(); show(i - 1); }
+    if (e.key === 'Home') { e.preventDefault(); show(0); }
+    if (e.key === 'End')  { e.preventDefault(); show(slides.length - 1); }
+  });
+
+  document.getElementById('next').addEventListener('click', function (e) { e.stopPropagation(); show(i + 1); });
+  document.getElementById('prev').addEventListener('click', function (e) { e.stopPropagation(); show(i - 1); });
+
+  document.getElementById('deck').addEventListener('click', function (e) {
+    show(e.clientX < window.innerWidth * 0.28 ? i - 1 : i + 1);
+  });
+
+  var start = parseInt((location.hash || '').replace('#', ''), 10);
+  show(isNaN(start) ? 0 : start - 1);
+})();
+</script>
+</body>
+</html>

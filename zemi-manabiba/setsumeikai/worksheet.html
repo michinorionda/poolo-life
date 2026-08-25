@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>旅の棚卸しシート｜POOLOゼミ 説明会</title>
+<meta name="description" content="POOLOゼミ「学びの場を、創る。」説明会 当日ワークシート。旅で心が動いた瞬間を10個書き出し、あなたの問いの原石を1つ見つける20分のワーク。">
+<meta name="robots" content="noindex,nofollow">
+<link rel="stylesheet" href="../../poolo-ds/tokens.css">
+<link rel="stylesheet" href="../../poolo-ds/components.css">
+<style>
+  body { background:var(--bg); color:var(--ink-soft); }
+  .wrap { max-width:800px; margin:0 auto; padding:0 clamp(18px,5vw,36px) 80px; }
+
+  .wh { padding:44px 0 22px; border-bottom:2px solid var(--brand); }
+  .wh-eyebrow { font-family:var(--en); letter-spacing:.2em; font-size:11.5px; color:var(--brand); text-transform:uppercase; }
+  .wh-title { font-family:var(--mincho); font-weight:700; font-size:clamp(25px,4.6vw,36px); letter-spacing:.02em; margin:.32em 0 .3em; line-height:1.35; color:var(--ink); }
+  .wh-lead { font-family:var(--body); font-size:14px; line-height:2.05; color:var(--ink-72); letter-spacing:.04em; margin:0; }
+  .wh-meta { font-family:var(--head); font-size:11.5px; color:var(--ink-50); letter-spacing:.06em; margin-top:14px; }
+
+  .rule { background:var(--brand-pale); border-radius:var(--radius); padding:19px 20px 16px; margin:26px 0 0; }
+  .rule-cap { font-family:var(--head); font-weight:700; font-size:11.5px; letter-spacing:.1em; color:var(--brand-deep); margin:0 0 11px; }
+  .rule ul { margin:0; padding-left:18px; }
+  .rule li { font-family:var(--body); font-size:13.5px; line-height:1.95; color:var(--ink-72); margin-bottom:6px; letter-spacing:.03em; }
+  .rule li b { color:var(--brand-deep); }
+
+  /* ---- ステップ ---- */
+  .st { margin-top:46px; }
+  .st-bar { display:grid; grid-template-columns:38px 1fr auto; gap:14px; align-items:baseline; border-bottom:1px solid var(--brand); padding-bottom:10px; margin-bottom:8px; }
+  .st-no { font-family:var(--en); font-weight:600; font-size:30px; color:var(--brand); line-height:1; }
+  .st-ttl { font-family:var(--mincho); font-weight:700; font-size:clamp(17px,2.3vw,21px); color:var(--ink); letter-spacing:.02em; }
+  .st-min { font-family:var(--head); font-size:10.5px; font-weight:700; letter-spacing:.08em; color:var(--brand-deep); background:var(--brand-pale); padding:3px 9px; border-radius:var(--radius); white-space:nowrap; }
+  .st-help { font-family:var(--body); font-size:13px; color:var(--ink-72); line-height:2; margin:10px 0 18px; letter-spacing:.03em; }
+  .st-help b { color:var(--brand-deep); }
+
+  /* ---- 記入欄 ---- */
+  .rows { border-top:1px solid var(--line); }
+  .row { display:grid; grid-template-columns:34px 1fr; gap:12px; align-items:stretch; border-bottom:1px solid var(--line); }
+  .row-n { font-family:var(--en); font-size:13px; color:var(--brand); display:flex; align-items:center; justify-content:center; background:var(--bg-off); letter-spacing:.04em; }
+  .row input {
+    width:100%; border:none; background:transparent; padding:15px 12px;
+    font-family:var(--body); font-size:14px; color:var(--ink-soft); line-height:1.7; letter-spacing:.03em;
+  }
+  .row input:focus { outline:none; background:var(--brand-pale); }
+  .row input::placeholder { color:var(--ink-40); font-size:13px; }
+
+  .single { border:1px solid var(--line); border-radius:var(--radius); margin-top:4px; }
+  .single.mark { border:2px solid var(--brand); }
+  .single input, .single textarea {
+    width:100%; border:none; background:transparent; padding:17px 15px;
+    font-family:var(--body); font-size:14.5px; color:var(--ink-soft); line-height:1.9; letter-spacing:.03em; resize:vertical;
+  }
+  .single.mark input { font-family:var(--mincho); font-weight:700; font-size:17px; color:var(--brand-deep); }
+  .single input:focus, .single textarea:focus { outline:none; background:var(--bg-off); }
+  .single input::placeholder, .single textarea::placeholder { color:var(--ink-40); font-family:var(--body); font-size:13px; font-weight:400; }
+
+  .ex { font-family:var(--body); font-size:12px; color:var(--ink-50); line-height:1.9; margin:11px 0 0; padding-left:15px; border-left:1px solid var(--brand-mid); letter-spacing:.03em; }
+  .ex b { font-family:var(--head); color:var(--brand-deep); font-size:11px; letter-spacing:.06em; display:block; margin-bottom:4px; }
+
+  /* ---- 持ち帰り ---- */
+  .take { border:2px solid var(--brand); border-radius:var(--radius); padding:26px 24px; margin-top:52px; }
+  .take-cap { font-family:var(--en); letter-spacing:.2em; font-size:11px; color:var(--brand); text-transform:uppercase; margin-bottom:9px; }
+  .take-ttl { font-family:var(--mincho); font-weight:700; font-size:20px; color:var(--ink); margin:0 0 12px; letter-spacing:.02em; line-height:1.5; }
+  .take p { font-family:var(--body); font-size:13.5px; line-height:2.05; color:var(--ink-72); margin:0 0 10px; letter-spacing:.03em; }
+  .take p:last-child { margin-bottom:0; }
+  .take b { color:var(--brand-deep); }
+
+  /* ---- 保存バー ---- */
+  .save { position:sticky; bottom:0; background:var(--bg); border-top:1px solid var(--line); padding:13px 0; margin-top:40px; display:flex; gap:11px; align-items:center; flex-wrap:wrap; }
+  .save button {
+    font-family:var(--head); font-weight:700; font-size:12.5px; letter-spacing:.04em;
+    border:1px solid var(--brand); background:var(--bg); color:var(--brand-deep);
+    padding:9px 17px; border-radius:var(--radius); cursor:pointer;
+  }
+  .save button.primary { background:var(--brand); color:var(--on-brand); }
+  .save button:hover { opacity:.85; }
+  .save-note { font-family:var(--body); font-size:11.5px; color:var(--ink-50); letter-spacing:.03em; }
+
+  .jp { word-break:auto-phrase; text-wrap:pretty; }
+
+  @media print {
+    .save { display:none; }
+    .rule, .row-n, .take { background:#fff !important; }
+    .st { break-inside:avoid; }
+    .row input, .single input, .single textarea { border-bottom:none; }
+  }
+  @media (max-width:600px) {
+    .st-bar { grid-template-columns:30px 1fr; }
+    .st-min { grid-column:2; justify-self:start; margin-top:5px; }
+    .st-no { font-size:24px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="wh">
+    <div class="wh-eyebrow">Worksheet ／ POOLO ゼミ 説明会</div>
+    <h1 class="wh-title jp">旅の棚卸しシート<br>――あなたの問いの原石を、1つ</h1>
+    <p class="wh-lead jp">これは、ゼミ第1回でやることの短縮版です。20分で、あなたが「つい語ってしまう話」を1つ見つけます。今日はここまで持ち帰ってください。</p>
+    <p class="wh-meta">2026.08.25　POOLOゼミ「学びの場を、創る。」説明会</p>
+  </header>
+
+  <div class="rule">
+    <p class="rule-cap">書くときの3つのルール</p>
+    <ul>
+      <li class="jp"><b>いい話を書こうとしない。</b>「人に言うと引かれるかも」くらいのほうが、原石です。</li>
+      <li class="jp"><b>まとめようとしない。</b>単語でも、途中で切れていても大丈夫。数を出すことが先です。</li>
+      <li class="jp"><b>役に立つかを考えない。</b>誰かの役に立つかどうかは、後の回で扱います。今日は「自分が黙っていられないか」だけ。</li>
+    </ul>
+  </div>
+
+  <!-- STEP 1 -->
+  <section class="st">
+    <div class="st-bar">
+      <span class="st-no">1</span>
+      <h2 class="st-ttl jp">旅で「つい人に話した／心が動いた」瞬間を、10個</h2>
+      <span class="st-min">6分</span>
+    </div>
+    <p class="st-help jp">思い出せる限り、書き出してください。<b>10個埋まらなくても大丈夫</b>です。7個でも8個でもかまいません。逆に10個を超えたら、それはとても良い兆候です。</p>
+
+    <div class="rows" id="step1">
+      <div class="row"><span class="row-n">01</span><input type="text" data-k="s1-1" placeholder="例：長距離バスで隣の旅人に、気づけば3時間も本音を話していた"></div>
+      <div class="row"><span class="row-n">02</span><input type="text" data-k="s1-2" placeholder=""></div>
+      <div class="row"><span class="row-n">03</span><input type="text" data-k="s1-3" placeholder=""></div>
+      <div class="row"><span class="row-n">04</span><input type="text" data-k="s1-4" placeholder=""></div>
+      <div class="row"><span class="row-n">05</span><input type="text" data-k="s1-5" placeholder=""></div>
+      <div class="row"><span class="row-n">06</span><input type="text" data-k="s1-6" placeholder=""></div>
+      <div class="row"><span class="row-n">07</span><input type="text" data-k="s1-7" placeholder=""></div>
+      <div class="row"><span class="row-n">08</span><input type="text" data-k="s1-8" placeholder=""></div>
+      <div class="row"><span class="row-n">09</span><input type="text" data-k="s1-9" placeholder=""></div>
+      <div class="row"><span class="row-n">10</span><input type="text" data-k="s1-10" placeholder=""></div>
+    </div>
+
+    <p class="ex jp"><b>手が止まったら、この問いに答えてみてください</b>
+      旅の写真で、いちばん見返しているのはどれですか？／いちばんしんどかった旅は？／帰国してから誰かに最初に話したのは何でしたか？／旅先で、思わず腹が立ったことは？　——答えられたものが、そのまま1個目です。</p>
+  </section>
+
+  <!-- STEP 2 -->
+  <section class="st">
+    <div class="st-bar">
+      <span class="st-no">2</span>
+      <h2 class="st-ttl jp">この中で「黙っていられない」ものを、1つだけ</h2>
+      <span class="st-min">2分</span>
+    </div>
+    <p class="st-help jp">書いたものを眺めて、<b>これについてなら何時間でも喋れる</b>というものを1つ選び、その内容を書き写してください。1つです。2つ選びたくなっても、今日は1つに絞ってください。</p>
+
+    <div class="single mark">
+      <input type="text" data-k="s2" placeholder="ここに書き写す（例：問いには、人を動かす力がある）">
+    </div>
+
+    <p class="ex jp"><b>選ぶ基準</b>
+      「詳しい」ではなく「黙っていられない」で選んでください。知識の量ではなく、体温の高さです。うまく説明できないものほど、掘る価値があります。</p>
+  </section>
+
+  <!-- STEP 3 -->
+  <section class="st">
+    <div class="st-bar">
+      <span class="st-no">3</span>
+      <h2 class="st-ttl jp">仮テーマを、1行で</h2>
+      <span class="st-min">2分</span>
+    </div>
+    <p class="st-help jp">選んだ原石を、<b>「○○から学ぶ、△△」</b>のような1行にしてみてください。今日の時点では仮でかまいません。むしろ、後で必ず変わります。</p>
+
+    <div class="single">
+      <input type="text" data-k="s3" placeholder="例：旅の対話から学ぶ、&quot;聴く&quot;と&quot;訊く&quot;のコーチング">
+    </div>
+
+    <p class="ex jp"><b>参考：実際に生まれうる形</b>
+      「鹿児島の“辺境”から、日本を見る」（全4回・2.5万円・定員8名）／「北海道、食の裏側 ― 開拓史と生産者から読み解く」（全5回・3万円・定員10名）／「40歳の地図 ― 旅の問いで、これからの生き方を言葉にする」（全4回・3万円・定員6名）</p>
+  </section>
+
+  <!-- STEP 4 -->
+  <section class="st">
+    <div class="st-bar">
+      <span class="st-no">4</span>
+      <h2 class="st-ttl jp">来てほしい「たった一人」を思い浮かべる</h2>
+      <span class="st-min">おまけ</span>
+    </div>
+    <p class="st-help jp">ここはゼミ第2回の内容です。時間が余った方、家に帰ってからでも。<b>「みんな」ではなく、実在する一人</b>の顔を思い浮かべるのがコツです。</p>
+
+    <div class="single">
+      <textarea data-k="s4" rows="3" placeholder="名前と状況を具体的に（例：後輩の田中さん。部下との1on1で「つい助言してしまう」と悩んでいる）"></textarea>
+    </div>
+  </section>
+
+  <!-- 持ち帰り -->
+  <div class="take">
+    <div class="take-cap">Homework</div>
+    <h2 class="take-ttl jp">今日の宿題：その話を、誰か一人に話してみてください</h2>
+    <p class="jp">ステップ2で書いた話を、<b>今週中に誰か一人に話してみてください。</b>友人でも、家族でも、同僚でも構いません。</p>
+    <p class="jp">話してみて、<b>相手が前のめりになったら、それは本物です。</b>そして何より——話しているとき、自分がどれだけ喋り続けたかを覚えておいてください。それが、あなたの場のエネルギー源になります。</p>
+    <p class="jp">POOLOゼミ「学びの場を、創る。」は、この1行から3ヶ月かけて、誰かが参加したくなる場を創る講座です。申込締切は<b>9月27日（日）</b>、開講は10月13日（火）、定員15名。迷っている段階での個別相談もできます。</p>
+  </div>
+
+  <div class="save">
+    <button class="primary" id="btnSave">書いた内容を保存</button>
+    <button id="btnPrint">印刷／PDFで保存</button>
+    <span class="save-note" id="saveNote">入力はこの端末のブラウザにのみ保存されます（送信されません）</span>
+  </div>
+
+</div>
+
+<script>
+(function () {
+  var KEY = 'poolo-zemi-setsumeikai-ws';
+  var fields = Array.prototype.slice.call(document.querySelectorAll('[data-k]'));
+  var note = document.getElementById('saveNote');
+
+  function save() {
+    var data = {};
+    fields.forEach(function (el) { if (el.value) data[el.getAttribute('data-k')] = el.value; });
+    try { localStorage.setItem(KEY, JSON.stringify(data)); } catch (e) { return false; }
+    return true;
+  }
+
+  function load() {
+    var raw;
+    try { raw = localStorage.getItem(KEY); } catch (e) { return; }
+    if (!raw) return;
+    var data;
+    try { data = JSON.parse(raw); } catch (e) { return; }
+    fields.forEach(function (el) {
+      var v = data[el.getAttribute('data-k')];
+      if (v) el.value = v;
+    });
+  }
+
+  load();
+
+  var timer = null;
+  fields.forEach(function (el) {
+    el.addEventListener('input', function () {
+      if (timer) clearTimeout(timer);
+      timer = setTimeout(save, 600);
+    });
+  });
+
+  document.getElementById('btnSave').addEventListener('click', function () {
+    var ok = save();
+    note.textContent = ok ? '保存しました（この端末のブラウザ内のみ）' : 'この環境では保存できません。印刷でPDF保存をお使いください';
+    setTimeout(function () {
+      note.textContent = '入力はこの端末のブラウザにのみ保存されます（送信されません）';
+    }, 3000);
+  });
+
+  document.getElementById('btnPrint').addEventListener('click', function () { window.print(); });
+})();
+</script>
+</body>
+</html>
