@@ -75,6 +75,22 @@
   .save button.primary { background:var(--brand); color:var(--on-brand); }
   .save button:hover { opacity:.85; }
   .save-note { font-family:var(--body); font-size:11.5px; color:var(--ink-50); letter-spacing:.03em; }
+  .save button[disabled] { opacity:.45; cursor:default; }
+
+  /* ---- お名前欄 ---- */
+  .who { margin-top:30px; border:1px solid var(--line); border-radius:var(--radius); padding:16px 17px 6px; }
+  .who-l { display:block; font-family:var(--head); font-weight:700; font-size:11.5px; letter-spacing:.05em; color:var(--brand-deep); margin-bottom:3px; }
+  .who input {
+    width:100%; border:none; background:transparent; padding:9px 0 12px;
+    font-family:var(--body); font-size:14.5px; color:var(--ink-soft); letter-spacing:.03em;
+  }
+  .who input:focus { outline:none; }
+  .who input::placeholder { color:var(--ink-40); font-size:13px; }
+
+  /* ---- 送信後 ---- */
+  .sent { display:none; background:var(--brand-pale); border-radius:var(--radius); padding:17px 19px; margin-top:22px; }
+  .sent.on { display:block; }
+  .sent p { font-family:var(--body); font-size:13px; line-height:1.95; color:var(--brand-deep); margin:0; letter-spacing:.03em; }
 
   .jp { word-break:auto-phrase; text-wrap:pretty; }
 
@@ -108,6 +124,11 @@
       <li class="jp"><b>まとめようとしない。</b>単語でも、途中で切れていても大丈夫。数を出すことが先です。</li>
       <li class="jp"><b>役に立つかを考えない。</b>誰かの役に立つかどうかは、後の回で扱います。今日は「自分が黙っていられないか」だけ。</li>
     </ul>
+  </div>
+
+  <div class="who">
+    <label for="nameField" class="who-l">お名前（あとで恩田からフィードバックを返すときに使います）</label>
+    <input type="text" id="nameField" data-k="name" placeholder="例：恩田倫孝　※ニックネームでも大丈夫です">
   </div>
 
   <!-- STEP 1 -->
@@ -193,10 +214,15 @@
     <p class="jp">POOLOゼミ「学びの場を、創る。」は、この1行から3ヶ月かけて、誰かが参加したくなる場を創る講座です。申込締切は<b>9月27日（日）</b>、開講は10月13日（火）、定員15名。迷っている段階での個別相談もできます。</p>
   </div>
 
+  <div class="sent" id="sentBox">
+    <p class="jp">受け取りました。ありがとうございます。<br>書いていただいた内容は、恩田が目を通したうえで個別にお返しします。</p>
+  </div>
+
   <div class="save">
-    <button class="primary" id="btnSave">書いた内容を保存</button>
-    <button id="btnPrint">印刷／PDFで保存</button>
-    <span class="save-note" id="saveNote">入力はこの端末のブラウザにのみ保存されます（送信されません）</span>
+    <button class="primary" id="btnSubmit" hidden>書いた内容を送る</button>
+    <button id="btnCopy">コピーする</button>
+    <button id="btnPrint">印刷／PDF</button>
+    <span class="save-note" id="saveNote">入力内容はこの端末に自動保存されます</span>
   </div>
 
 </div>
@@ -236,15 +262,96 @@
     });
   });
 
-  document.getElementById('btnSave').addEventListener('click', function () {
-    var ok = save();
-    note.textContent = ok ? '保存しました（この端末のブラウザ内のみ）' : 'この環境では保存できません。印刷でPDF保存をお使いください';
-    setTimeout(function () {
-      note.textContent = '入力はこの端末のブラウザにのみ保存されます（送信されません）';
-    }, 3000);
+  document.getElementById('btnPrint').addEventListener('click', function () { window.print(); });
+
+  /* ---------------------------------------------------------
+     送信（GASウェブアプリ）
+     ENDPOINT が空のあいだは「送る」ボタンは出ず、コピーのみ使えます。
+     デプロイ後、下の '' に .../exec のURLを貼れば有効になります。
+     --------------------------------------------------------- */
+  var ENDPOINT = '';
+  var SESSION  = '2026-08-25';
+
+  function collect() {
+    var get = function (k) {
+      var el = document.querySelector('[data-k="' + k + '"]');
+      return el ? el.value.trim() : '';
+    };
+    var s1 = [];
+    for (var n = 1; n <= 10; n++) {
+      var v = get('s1-' + n);
+      if (v) s1.push(v);
+    }
+    return { session: SESSION, name: get('name'), s1: s1, s2: get('s2'), s3: get('s3'), s4: get('s4') };
+  }
+
+  function asText(d) {
+    var out = ['【旅の棚卸しシート】' + (d.name ? '　' + d.name : ''), ''];
+    out.push('① 心が動いた瞬間');
+    if (d.s1.length) {
+      d.s1.forEach(function (v, k) { out.push('  ' + (k + 1) + '. ' + v); });
+    } else {
+      out.push('  （未記入）');
+    }
+    out.push('', '② 黙っていられない原石', '  ' + (d.s2 || '（未記入）'));
+    out.push('', '③ 仮テーマ', '  ' + (d.s3 || '（未記入）'));
+    if (d.s4) out.push('', '④ 来てほしいたった一人', '  ' + d.s4);
+    return out.join('\n');
+  }
+
+  function flash(msg, ms) {
+    note.textContent = msg;
+    setTimeout(function () { note.textContent = '入力内容はこの端末に自動保存されます'; }, ms || 3200);
+  }
+
+  document.getElementById('btnCopy').addEventListener('click', function () {
+    var text = asText(collect());
+    function fallback() {
+      var ta = document.createElement('textarea');
+      ta.value = text;
+      ta.style.position = 'fixed';
+      ta.style.opacity = '0';
+      document.body.appendChild(ta);
+      ta.select();
+      try { document.execCommand('copy'); flash('コピーしました。Zoomのチャットに貼り付けてください'); }
+      catch (e) { flash('コピーできませんでした。手動で選択してコピーしてください', 5000); }
+      document.body.removeChild(ta);
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(function () {
+        flash('コピーしました。Zoomのチャットに貼り付けてください');
+      })['catch'](fallback);
+    } else {
+      fallback();
+    }
   });
 
-  document.getElementById('btnPrint').addEventListener('click', function () { window.print(); });
+  var btnSubmit = document.getElementById('btnSubmit');
+  if (ENDPOINT) {
+    btnSubmit.hidden = false;
+    btnSubmit.addEventListener('click', function () {
+      var d = collect();
+      if (!d.s2 && !d.s3 && !d.s1.length) { flash('まだ何も書かれていないようです'); return; }
+
+      btnSubmit.disabled = true;
+      btnSubmit.textContent = '送信中…';
+      save();
+
+      // Content-Type を指定しないことで preflight を避ける（GAS の CORS 制約対策）
+      fetch(ENDPOINT, { method: 'POST', body: JSON.stringify(d) })
+        .then(function (r) { return r.json(); })
+        .then(function (res) {
+          if (!res || !res.ok) throw new Error('ng');
+          document.getElementById('sentBox').classList.add('on');
+          btnSubmit.textContent = '送信しました';
+          flash('送信しました');
+        })['catch'](function () {
+          btnSubmit.disabled = false;
+          btnSubmit.textContent = '書いた内容を送る';
+          flash('送信できませんでした。「コピーする」でチャットに貼ってください', 6000);
+        });
+    });
+  }
 })();
 </script>
 </body>
