@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>進行台本｜POOLOゼミ 説明会（車座版・90分）</title>
+<meta name="description" content="POOLOゼミ「学びの場を、創る。」説明会の進行台本。少人数・恩田単独進行を前提とした90分の時間割、話す骨子、オペレーター指示、想定Q&Aを収録。">
+<meta name="robots" content="noindex,nofollow">
+<link rel="stylesheet" href="../../poolo-ds/tokens.css">
+<link rel="stylesheet" href="../../poolo-ds/components.css">
+<style>
+  body { background:var(--bg); color:var(--ink-soft); }
+  .wrap { max-width:900px; margin:0 auto; padding:0 clamp(18px,5vw,40px) 90px; }
+
+  /* ---- ヘッダ ---- */
+  .dh { padding:46px 0 26px; border-bottom:2px solid var(--brand); }
+  .dh-eyebrow { font-family:var(--en); letter-spacing:.2em; font-size:11.5px; color:var(--brand); text-transform:uppercase; }
+  .dh-title { font-family:var(--mincho); font-weight:700; font-size:clamp(26px,4.4vw,38px); letter-spacing:.02em; margin:.3em 0 .3em; line-height:1.3; color:var(--ink); }
+  .dh-meta { font-family:var(--head); font-size:12.5px; color:var(--ink-50); letter-spacing:.05em; line-height:2; }
+  .dh-meta b { color:var(--brand-deep); font-weight:700; }
+
+  /* ---- 冒頭の心得 ---- */
+  .creed { background:var(--brand-pale); border-radius:var(--radius); padding:22px 22px 18px; margin:26px 0 0; }
+  .creed-cap { font-family:var(--head); font-weight:700; font-size:11.5px; letter-spacing:.1em; color:var(--brand-deep); margin:0 0 12px; }
+  .creed ul { margin:0; padding-left:19px; }
+  .creed li { font-family:var(--body); font-size:13.5px; line-height:2; color:var(--ink-72); margin-bottom:7px; }
+  .creed li b { color:var(--brand-deep); }
+
+  /* ---- タイムテーブル早見 ---- */
+  .tt { width:100%; border-collapse:collapse; margin-top:14px; }
+  .tt th, .tt td { text-align:left; padding:9px 10px; border-bottom:1px solid var(--line); font-size:13px; line-height:1.7; vertical-align:top; }
+  .tt thead th { font-family:var(--head); font-size:10.5px; letter-spacing:.1em; color:var(--ink-50); border-bottom:1px solid var(--brand); white-space:nowrap; }
+  .tt td.t { font-family:var(--en); font-weight:600; color:var(--brand); white-space:nowrap; font-size:13.5px; }
+  .tt td.n { font-family:var(--head); font-weight:700; color:var(--ink); }
+  .tt tr.peak td.n { color:var(--brand-deep); }
+  .tt td.m { font-family:var(--body); color:var(--ink-50); font-size:12px; white-space:nowrap; }
+
+  /* ---- セクション見出し ---- */
+  .sec { margin-top:54px; }
+  .sec-bar { display:flex; align-items:baseline; gap:13px; border-bottom:1px solid var(--brand); padding-bottom:9px; margin-bottom:6px; flex-wrap:wrap; }
+  .sec-time { font-family:var(--en); font-weight:600; font-size:20px; color:var(--brand); letter-spacing:.02em; white-space:nowrap; }
+  .sec-ttl { font-family:var(--mincho); font-weight:700; font-size:clamp(18px,2.4vw,23px); color:var(--ink); letter-spacing:.02em; }
+  .sec-dur { font-family:var(--head); font-size:10.5px; font-weight:700; letter-spacing:.08em; color:var(--brand-deep); background:var(--brand-pale); padding:3px 9px; border-radius:var(--radius); white-space:nowrap; margin-left:auto; }
+  .sec-aim { font-family:var(--body); font-size:12.5px; color:var(--ink-50); line-height:1.9; margin:9px 0 18px; letter-spacing:.03em; }
+
+  /* ---- 話す骨子 ---- */
+  .beat { border-left:2px solid var(--brand-mid); padding:2px 0 2px 17px; margin:0 0 17px; }
+  .beat-l { font-family:var(--head); font-weight:700; font-size:11.5px; letter-spacing:.06em; color:var(--brand-deep); margin:0 0 6px; }
+  .beat p { font-family:var(--body); font-size:14px; line-height:2.05; color:var(--ink-72); margin:0 0 9px; letter-spacing:.03em; }
+  .beat p:last-child { margin-bottom:0; }
+  .say { font-family:var(--mincho); font-weight:700; font-size:15.5px; line-height:1.95; color:var(--ink); letter-spacing:.02em; background:var(--bg-off); border-radius:var(--radius); padding:15px 17px; margin:0 0 11px; }
+  .say::before { content:"「"; color:var(--brand-mid); }
+  .say::after { content:"」"; color:var(--brand-mid); }
+
+  /* ---- オペレーター指示 ---- */
+  .ops { border:1px dashed var(--brand-mid); border-radius:var(--radius); background:var(--bg-off); padding:15px 17px; margin:17px 0; }
+  .ops-cap { font-family:var(--head); font-weight:700; font-size:10.5px; letter-spacing:.1em; color:var(--brand-deep); margin:0 0 9px; }
+  .ops ul { margin:0; padding-left:18px; }
+  .ops li { font-family:var(--body); font-size:12.5px; line-height:1.95; color:var(--ink-72); margin-bottom:5px; }
+
+  /* ---- 注意・逃げ道 ---- */
+  .esc { background:var(--brand-pale); border-radius:var(--radius); padding:15px 17px; margin:17px 0; }
+  .esc-cap { font-family:var(--head); font-weight:700; font-size:10.5px; letter-spacing:.1em; color:var(--brand-deep); margin:0 0 8px; }
+  .esc p { font-family:var(--body); font-size:12.5px; line-height:1.95; color:var(--ink-72); margin:0 0 7px; letter-spacing:.03em; }
+  .esc p:last-child { margin-bottom:0; }
+
+  /* ---- Q&A ---- */
+  .qa { border-top:1px solid var(--line); padding:17px 0; }
+  .qa:first-of-type { border-top:none; }
+  .qa-q { font-family:var(--head); font-weight:700; font-size:14px; color:var(--ink); line-height:1.7; margin:0 0 10px; letter-spacing:.02em; }
+  .qa-q::before { content:"Q "; font-family:var(--en); color:var(--brand); font-weight:600; letter-spacing:.08em; }
+  .qa-a { font-family:var(--body); font-size:13.5px; line-height:2; color:var(--ink-72); margin:0 0 8px; letter-spacing:.03em; }
+  .qa-a::before { content:"A "; font-family:var(--en); color:var(--brand); font-weight:600; letter-spacing:.08em; }
+  .qa-hint { font-family:var(--body); font-size:12px; line-height:1.9; color:var(--ink-50); margin:0; padding-left:19px; border-left:1px solid var(--line); letter-spacing:.03em; }
+
+  /* ---- 数字ボックス ---- */
+  .nums { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line); border:1px solid var(--line); margin:18px 0; }
+  .nums div { background:var(--bg); padding:16px 15px; }
+  .nums dt { font-family:var(--head); font-size:10.5px; font-weight:700; letter-spacing:.08em; color:var(--ink-50); margin-bottom:7px; }
+  .nums dd { font-family:var(--en); font-weight:600; font-size:22px; color:var(--brand); margin:0; letter-spacing:.01em; }
+  .nums dd small { font-family:var(--body); font-size:11.5px; color:var(--ink-50); font-weight:400; display:block; margin-top:5px; letter-spacing:.03em; line-height:1.7; }
+
+  /* ---- チェックリスト ---- */
+  .chk { list-style:none; margin:14px 0 0; padding:0; }
+  .chk li { font-family:var(--body); font-size:13.5px; line-height:1.9; color:var(--ink-72); padding:9px 0 9px 30px; border-bottom:1px solid var(--line); position:relative; letter-spacing:.03em; }
+  .chk li::before { content:""; position:absolute; left:0; top:13px; width:13px; height:13px; border:1px solid var(--brand); border-radius:2px; }
+  .chk li b { color:var(--brand-deep); }
+
+  .lead { font-family:var(--body); font-size:14px; line-height:2.1; color:var(--ink-72); letter-spacing:.04em; margin:0 0 16px; }
+
+  h3.sub { font-family:var(--head); font-weight:700; font-size:13px; letter-spacing:.06em; color:var(--brand-deep); margin:26px 0 10px; padding-bottom:7px; border-bottom:1px solid var(--line); }
+
+  .jp { word-break:auto-phrase; text-wrap:pretty; }
+
+  @media print {
+    .creed, .ops, .esc, .say, .nums div { background:#fff !important; }
+    .sec { break-inside:avoid; }
+  }
+  @media (max-width:640px) {
+    .nums { grid-template-columns:1fr; }
+    .sec-dur { margin-left:0; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="dh">
+    <div class="dh-eyebrow">Facilitation Script</div>
+    <h1 class="dh-title jp">説明会 進行台本<br>「学びの場を、創る。」</h1>
+    <p class="dh-meta">
+      2026年8月25日（火）20:00–21:30 ／ Zoom<br>
+      進行 <b>恩田倫孝（単独）</b> ／ オペレーター <b>事務局1名</b> ／ 想定参加 <b>5名未満</b><br>
+      形式 <b>車座（ブレイクアウトなし・全体対話）</b>
+    </p>
+  </header>
+
+  <div class="creed">
+    <p class="creed-cap">この90分の心得（読んでから入ってください）</p>
+    <ul>
+      <li><b>今日は説明会ではなく、第0回です。</b>スライドを説明しきることがゴールではない。参加者が「自分にも語りたい話がある」と気づいて帰ることがゴール。</li>
+      <li><b>5名未満は好条件。</b>大人数の説明会よりも、一人ひとりの旅の話を聞いて「それ、こういう場になりますよ」と返せる。この返しが、今日いちばん強い説得になります。</li>
+      <li><b>喋る時間は実質50分。</b>残り40分はワークと対話。単独進行で90分喋り続けると、参加者の集中が先に切れます。</li>
+      <li><b>今日は9/1のリハーサルでもある。</b>どこで前のめりになり、どこで黙ったか。完璧さより観察を優先してください。</li>
+      <li><b>売り込まない。</b>5名未満だと営業感が致命傷になります。「向かない人」を正直に伝えるほど信頼が上がります。</li>
+    </ul>
+  </div>
+
+  <h3 class="sub">タイムテーブル早見</h3>
+  <table class="tt">
+    <thead>
+      <tr><th>時刻</th><th>内容</th><th>形式</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="t">20:00</td><td class="n">開場・オープニング</td><td class="m">全員一言</td></tr>
+      <tr><td class="t">20:07</td><td class="n">なぜ今、創る側なのか</td><td class="m">恩田・一人称</td></tr>
+      <tr class="peak"><td class="t">20:20</td><td class="n">ワーク①旅の棚卸し（山場）</td><td class="m">個人作業＋全員語り</td></tr>
+      <tr><td class="t">20:40</td><td class="n">種明かし／企画キャンバス7つの問い</td><td class="m">画面共有</td></tr>
+      <tr><td class="t">20:50</td><td class="n">全7回の設計</td><td class="m">画面共有</td></tr>
+      <tr><td class="t">21:05</td><td class="n">お金の話（77,000円をどう見るか）</td><td class="m">画面共有</td></tr>
+      <tr><td class="t">21:15</td><td class="n">Q&amp;A</td><td class="m">一人ずつ指名</td></tr>
+      <tr><td class="t">21:25</td><td class="n">クロージング・宿題・締切案内</td><td class="m">—</td></tr>
+      <tr><td class="t">21:30</td><td class="n">終了（希望者は居残り雑談）</td><td class="m">任意</td></tr>
+    </tbody>
+  </table>
+
+  <!-- ============ 1 ============ -->
+  <section class="sec">
+    <div class="sec-bar">
+      <span class="sec-time">20:00</span>
+      <h2 class="sec-ttl jp">開場・オープニング</h2>
+      <span class="sec-dur">7分</span>
+    </div>
+    <p class="sec-aim jp">狙い：「説明を聞かされる会」ではないと最初の90秒で分からせる。全員に一度声を出させて、黙って聞くモードを壊す。</p>
+
+    <div class="beat">
+      <p class="beat-l">① 全員に一言（3分）</p>
+      <p class="jp">カメラONをお願いし、一人ずつ「お名前・今どこから・POOLOは何期か」を15秒で。少人数なので恩田さんが一人ずつ指名してください。挙手制にすると沈黙します。</p>
+    </div>
+
+    <div class="beat">
+      <p class="beat-l">② 今日のゴール宣言（2分）</p>
+      <div class="say jp">今日は、ゼミの説明を聞く会ではありません。90分後、みなさんに持って帰ってもらうものが1つあります。それは「自分がつい語ってしまう話」——あなたの問いの原石です。それを見つけるところまで、今日やります</div>
+      <p class="jp">続けて、なぜそれが今日のゴールなのかを一言。「ゼミの中身は、正直ページを読めば分かります。でもページを読んでも分からないのは、自分にそれができるのか、という一点だと思うので」</p>
+    </div>
+
+    <div class="beat">
+      <p class="beat-l">③ 車座の宣言（1分）</p>
+      <p class="jp">「今日は人数が少ないので、講義ではなく車座でやります。途中でいつでも遮ってください。むしろ、そのほうが今日は価値が出ます」——少人数を"物足りなさ"ではなく"特典"として言い切ることが重要です。</p>
+    </div>
+
+    <div class="beat">
+      <p class="beat-l">④ 手元の準備（1分）</p>
+      <p class="jp">「紙とペンを用意してください。今日は書く時間があります」——ワークシートのURLをチャットに投下してもらう。紙でも可と伝える。</p>
+    </div>
+
+    <div class="ops">
+      <p class="ops-cap">オペレーター（事務局）</p>
+      <ul>
+        <li>19:50 Zoom開室。待機室オフ、入室者は直接入れる設定に。</li>
+        <li>20:00 チャットに <b>ワークシートURL</b> を投下。</li>
+        <li>録画開始（アーカイブ配信用）。開始前に「録画します」と一言アナウンス。</li>
+        <li>参加者の名前・期をメモし始める（終了後のフォローDMで使う）。</li>
+      </ul>
+    </div>
+
+    <div class="esc">
+      <p class="esc-cap">こうなったら</p>
+      <p class="jp"><b>参加者が1〜2名しかいない場合：</b>タイムテーブル通りに進めず、最初から完全な対話に切り替えてください。「せっかくなので、今日はお二人の話をじっくり聞かせてください」と宣言。90分すべてを、その人の企画づくりに使う。これは説明会より価値が高く、ほぼ確実に申込につながります。</p>
+      <p class="jp"><b>カメラOFFの人がいる場合：</b>強制しない。ただし名前は呼び、必ず一度は発言してもらう。最後まで一度も喋らなかった人は、まず申し込みません。</p>
+    </div>
+  </section>
+
+  <!-- ============ 2 ============ -->
+  <section class="sec">
+    <div class="sec-bar">
+      <span class="sec-time">20:07</span>
+      <h2 class="sec-ttl jp">なぜ今、創る側なのか</h2>
+      <span class="sec-dur">13分</span>
+    </div>
+    <p class="sec-aim jp">狙い：このゼミが「よくある起業講座」ではないと理解してもらう。恩田さん個人の11年の一人称でしか語れない部分。ここは資料に頼らず、顔で話す。</p>
+
+    <div class="beat">
+      <p class="beat-l">① 数字から入る（2分）</p>
+      <div class="say jp">旅大学から数えて、僕はイベントを700回やってきました。来てくれた人は延べ1万人を超えます。POOLOは7年目です</div>
+      <p class="jp">自慢としてではなく、「だから見えてしまったことがある」の前振りとして置く。</p>
+    </div>
+
+    <div class="beat">
+      <p class="beat-l">② 見えてしまったこと（4分）— ここが本日の核心</p>
+      <p class="jp">1万人を送り出す側にいて気づいたこと。<b>一番学んで、一番変わっていたのは、いつも「創った人」だった</b>。参加者としてどれだけ真剣に受け取っても、企画した人の変化には届かない。</p>
+      <p class="jp">そしてもう一つ。<b>受け取る側を続けた人は、卒業後に行き場を失う。</b>POOLOが終わると、あんなに濃かった時間が急になくなる。「またどこかの講座に申し込む」を繰り返すことになる。</p>
+      <div class="say jp">受け取る側は、いつか終わります。でも創る側には、終わりがないんです</div>
+    </div>
+
+    <div class="beat">
+      <p class="beat-l">③ でも、起業しろという話ではない（3分）</p>
+      <p class="jp">ここを外すと参加者が引きます。明確に否定してください。「壮大な起業の話でも、副業で稼ぐ話でもありません」</p>
+      <p class="jp">つくるのは<b>参加費1〜3万円、定員6〜10名の、小さくてあたたかい場</b>。人生を賭けなくていい。会社を辞めなくていい。ただ、自分の問いを囲む場を一つ持つ。</p>
+    </div>
+
+    <div class="beat">
+      <p class="beat-l">④ 今度はあなたが創る番（2分）</p>
+      <div class="say jp">POOLOは7年間、旅を入り口に生き方を問い直す場をやってきました。それを受け取ってくれた人がたくさんいる。今度は、あなたが誰かにとってのそれになる番だと思っています</div>
+    </div>
+
+    <div class="beat">
+      <p class="beat-l">⑤ 今日の流れの予告（2分）</p>
+      <p class="jp">「このあと、実際に手を動かしてもらいます。それが終わってから、ゼミの中身を説明します」——先にワークがあると明示することで、離脱を防ぎます。</p>
+    </div>
+
+    <div class="esc">
+      <p class="esc-cap">逃げ道</p>
+      <p class="jp">話が長くなりそうなら、②の「一番学んだのは創った人だった」だけ残して③④に飛んでください。ここは13分を超えないこと。超えるとワークの時間が削れ、今日の価値が消えます。<b>時間が押したら、削るのはここです。</b></p>
+    </div>
+  </section>
+
+  <!-- ============ 3 ============ -->
+  <section class="sec">
+    <div class="sec-bar">
+      <span class="sec-time">20:20</span>
+      <h2 class="sec-ttl jp">ワーク①　旅の棚卸し（山場）</h2>
+      <span class="sec-dur">20分</span>
+    </div>
+    <p class="sec-aim jp">狙い：今日の本体。参加者が自分の原石を1つ見つける。ここで「自分にもある」と体感した人だけが申し込みます。逆に、ここが薄いと今日は失敗です。</p>
+
+    <div class="beat">
+      <p class="beat-l">① 問いの提示と、書き方の指示（2分）</p>
+      <div class="say jp">旅の中で「つい人に話してしまった」「心が動いた」瞬間を、10個書き出してください。うまくまとめなくていいです。単語でも、途中で切れてもいい。とにかく数を出してください</div>
+      <p class="jp">補足で必ず言うこと：<b>「いい話を書こうとしないでください。人に言うと引かれるかも、くらいのほうが原石です」</b></p>
+    </div>
+
+    <div class="beat">
+      <p class="beat-l">② 個人作業（6分）</p>
+      <p class="jp">全員ミュートで書く時間。恩田さんも一緒に書く（画面に映る状態で書いていると、参加者が安心します）。</p>
+      <p class="jp">残り2分で「あと2分です。10個埋まらなくて大丈夫、7個でも8個でもいいです」と声をかける。</p>
+    </div>
+
+    <div class="beat">
+      <p class="beat-l">③ 原石を1つ選ぶ（2分）</p>
+      <div class="say jp">書いたものを眺めて、この中で「これについてなら黙っていられない」というものに1つだけ○をつけてください。1つです</div>
+    </div>
+
+    <div class="beat">
+      <p class="beat-l">④ 一人ずつ語る＋その場で返す（10分）— 今日いちばん重要</p>
+      <p class="jp">一人1分で「○をつけたもの」を語ってもらう。5名なら5分。恩田さんは<b>一人ずつに、必ずその場で返す</b>。この返しが今日の商品です。</p>
+      <p class="jp">返し方の型は3つ：</p>
+      <p class="jp"><b>型A｜場の形にして返す</b>「それ、〈全4回・2万円・定員8名〉くらいの場になりますね。1回目で◯◯をやって……」と、その場で企画に翻訳して見せる。</p>
+      <p class="jp"><b>型B｜来る人を名指しする</b>「その話、〇〇で悩んでる人がめちゃくちゃ聞きたいと思います」と、参加者像を具体化して返す。</p>
+      <p class="jp"><b>型C｜さらに掘る</b>まだ抽象的な人には「それって、旅のどの瞬間が一番濃かったですか？」と一段掘る。掘り切れなくてOK、「その掘る作業を3ヶ月かけてやるのが第1回です」と接続できる。</p>
+    </div>
+
+    <div class="ops">
+      <p class="ops-cap">オペレーター（事務局）</p>
+      <ul>
+        <li>個人作業の6分間、<b>タイマーを画面共有</b>するか、チャットで残り時間を流す。</li>
+        <li>参加者が語った「○をつけた話」を<b>一言一句メモ</b>。終了後のフォローDMで、この言葉をそのまま引用します。ここが後日の申込率を決めます。</li>
+        <li>語りが1分を大きく超えている人がいたら、チャットで恩田さんに合図。</li>
+      </ul>
+    </div>
+
+    <div class="esc">
+      <p class="esc-cap">こうなったら</p>
+      <p class="jp"><b>「何も書けません」という人が出たら：</b>絶対に放置しない。「じゃあ逆に、旅の写真で一番見返してるのは何ですか？」「一番しんどかった旅は？」と質問に切り替える。答えたら「今のが1個目です」と返す。この救出は全員の前でやってください。他の人の安心にもなります。</p>
+      <p class="jp"><b>時間が押している場合：</b>個人作業を6分→4分に縮めていい。だが<b>④の語り＋返しは絶対に削らない</b>。ここを削ると今日の意味がなくなります。押したら後半（全7回の説明）を削ってください。ページを見てもらえば済む部分です。</p>
+    </div>
+  </section>
+
+  <!-- ============ 4 ============ -->
+  <section class="sec">
+    <div class="sec-bar">
+      <span class="sec-time">20:40</span>
+      <h2 class="sec-ttl jp">種明かし／企画キャンバス7つの問い</h2>
+      <span class="sec-dur">10分</span>
+    </div>
+    <p class="sec-aim jp">狙い：いま体験したことが、そのままゼミの第1回だと明かす。体験を構造につなぐ、転換の瞬間。</p>
+
+    <div class="beat">
+      <p class="beat-l">① 種明かし（2分）</p>
+      <div class="say jp">じつは今みなさんにやってもらったのが、ゼミの第1回そのものです。ゼミでは、これを2時間かけてやります</div>
+      <p class="jp">続けて：「今日は20分でした。それでも、みなさん1つずつ見つかりましたよね。2時間かけて、しかもフィードバックをもらいながらやったら、どうなるか」</p>
+    </div>
+
+    <div class="beat">
+      <p class="beat-l">② 7つの問いを提示（6分）</p>
+      <p class="jp">画面共有で企画キャンバスを見せる。全部を丁寧に説明する必要はありません。<b>「①なぜ私が」だけを今日やった</b>ことを示し、残り6つは3ヶ月で1つずつ埋めると伝える。</p>
+      <p class="jp">①なぜ私が ②誰のために ③一言でいうと ④どんな体験を ⑤いくらで ⑥どう伝えるか ⑦いつ創るか</p>
+    </div>
+
+    <div class="beat">
+      <p class="beat-l">③ 持ち帰るのは1本の企画ではない（2分）</p>
+      <div class="say jp">この7つの問いは、埋め終わったあとも手元に残ります。だから2本目、3本目も自分で作れるようになる。3ヶ月で手に入るのは、1つの企画じゃなくて、企画を作る型のほうです</div>
+    </div>
+  </section>
+
+  <!-- ============ 5 ============ -->
+  <section class="sec">
+    <div class="sec-bar">
+      <span class="sec-time">20:50</span>
+      <h2 class="sec-ttl jp">全7回の設計</h2>
+      <span class="sec-dur">15分</span>
+    </div>
+    <p class="sec-aim jp">狙い：「いつかやる」で終わらない設計になっていることを示す。7回を平等に説明せず、3・4・5・7回に絞る。</p>
+
+    <div class="beat">
+      <p class="beat-l">① 流れを一息で（2分）</p>
+      <p class="jp">掘る → 学びにする → 設計する → 試作する → 磨く → 集める → 創る。「この7つの動詞だけ覚えて帰ってください」</p>
+    </div>
+
+    <div class="beat">
+      <p class="beat-l">② ゲスト2回を強調（4分）</p>
+      <p class="jp">自己流でつまずくのは<b>「場の設計」と「人の集め方」</b>の2つだけ、と言い切る。だからその2回は外部の実践者を呼ぶ。</p>
+      <p class="jp"><b>第3回・アフロマンスさん</b>（脳汁銭湯、SAKURA CHILL BARなどを手がける体験デザインのプロ）／<b>第6回・ルイス前田さん</b>（ノマドニア代表、TABIPPO元編集長。集客と届け方の実践者）</p>
+      <p class="jp">「僕の経験談じゃなく、本当にやってきた人から直接受け取ってもらいます」</p>
+    </div>
+
+    <div class="beat">
+      <p class="beat-l">③ 逃げ道を塞ぐ3つの仕掛け（7分）— ここを厚く</p>
+      <p class="jp"><b>第4回・ミニ開催</b>：自分のゼミの1コマを、受講生どうしで実際に開いてみる。「3万円の価値があるか」を5つの軸で相互審査。机上の企画が、開ける企画に変わる回。</p>
+      <p class="jp"><b>第5回・1対1メンタリング</b>：試作のフィードバックを持って、メンターと個別に30〜45分。つまずきを個別にほどく時間。<b>ここが77,000円の中身の大きな部分</b>だと明示していい。</p>
+      <p class="jp"><b>第7回・開業式</b>：卒業式ではなく開業式。企画をお披露目し、<b>同期どうしが互いの第1号参加者になる</b>。そして初回開催日を、その場でカレンダーに入れて送り出す。</p>
+      <div class="say jp">「いつかやります」で終わらせないために、最後の回でカレンダーに日付を入れてもらいます。ここまでやるのは、そうしないと本当にやらないからです</div>
+    </div>
+
+    <div class="beat">
+      <p class="beat-l">④ 日程と形式（2分）</p>
+      <p class="jp">10/13〜12/22、隔週火曜20:00–22:00、全7回、すべてZoom。第5回のみ別日程で個別。欠席回は録画とワークシートを共有（ただし第4回だけは出てほしい）。</p>
+    </div>
+
+    <div class="esc">
+      <p class="esc-cap">逃げ道</p>
+      <p class="jp">時間が押しているなら②を2分に圧縮し、③だけ残す。<b>③が申込判断に直結する部分</b>です。ゲストは名前を出すだけでも効きます。</p>
+    </div>
+  </section>
+
+  <!-- ============ 6 ============ -->
+  <section class="sec">
+    <div class="sec-bar">
+      <span class="sec-time">21:05</span>
+      <h2 class="sec-ttl jp">お金の話</h2>
+      <span class="sec-dur">10分</span>
+    </div>
+    <p class="sec-aim jp">狙い：77,000円から逃げない。先に自分から出すことで、参加者が聞きにくい話を聞かなくて済む状態にする。ここを避けると、後日「やっぱり高い」で静かに離脱されます。</p>
+
+    <div class="beat">
+      <p class="beat-l">① 自分から切り出す（1分）</p>
+      <div class="say jp">お金の話を先にします。参加費は77,000円です。正直、安くはないと思います</div>
+      <p class="jp">「安くない」と自分で言うこと。ここで防御に入ると、一気に営業の空気になります。</p>
+    </div>
+
+    <div class="beat">
+      <p class="beat-l">② 何が含まれているか（3分）</p>
+      <p class="jp">全7回・14時間の講義／ゲスト2名／<b>個別メンタリング1対1</b>／全7回分のワークシート／同期15名のフィードバック／第7回での相互申込。</p>
+      <p class="jp">「1回あたり11,000円です。そこにゲスト2名と、1対1の時間が入っています」と分解して見せる。</p>
+    </div>
+
+    <div class="beat">
+      <p class="beat-l">③ 回収の話を、正面から（4分）</p>
+      <p class="jp">ここは数字で見せてください。ごまかさないこと。</p>
+      <dl class="nums">
+        <div><dt>1本目の想定規模</dt><dd>2.5万円<small>×定員8名の場合</small></dd></div>
+        <div><dt>1本目の売上</dt><dd>20万円<small>参加費77,000円は回収圏</small></dd></div>
+        <div><dt>2本目以降</dt><dd>型が残る<small>キャンバスは手元に残り、再現できる</small></dd></div>
+      </dl>
+      <p class="jp">ただし<b>必ず但し書きを添える</b>：「これは埋まればの話です。1本目から満席になる保証はありません。だから第6回で集客を扱いますし、第7回で同期が第1号参加者になる設計にしています」</p>
+      <div class="say jp">それでも僕が一番大きいと思っているのは、お金じゃなくて「自分の場を持っている人になる」ことのほうです。それは、次の10年ずっと効きます</div>
+    </div>
+
+    <div class="beat">
+      <p class="beat-l">④ 向かない人を正直に言う（2分）— 効きます</p>
+      <p class="jp">「今回向かないかもしれない方」を、はっきり読み上げてください。</p>
+      <p class="jp">・集客ノウハウだけを受け取りたい方（手を動かす場なので）<br>・隔週2時間＋宿題の時間が取れない方<br>・自分の企画を人に見せることに抵抗がある方<br>・収益化のスピードを最優先したい方（1本目は数万円規模です）</p>
+      <p class="jp">これを言うと場の信頼が上がります。<b>絞ることが、いちばん強い推薦になります。</b></p>
+    </div>
+  </section>
+
+  <!-- ============ 7 ============ -->
+  <section class="sec">
+    <div class="sec-bar">
+      <span class="sec-time">21:15</span>
+      <h2 class="sec-ttl jp">Q&amp;A</h2>
+      <span class="sec-dur">10分</span>
+    </div>
+    <p class="sec-aim jp">狙い：少人数なので挙手を待たない。一人ずつ指名する。沈黙は「疑問がない」ではなく「聞きにくい」のサインです。</p>
+
+    <div class="beat">
+      <p class="beat-l">切り出し方</p>
+      <div class="say jp">〇〇さん、今の時点で引っかかっていること、何かありますか。「まだ迷ってる」でも大丈夫です</div>
+      <p class="jp">「質問ありますか？」ではなく「引っかかっていること」と聞くのがコツ。前者は沈黙し、後者は出てきます。</p>
+    </div>
+
+    <h3 class="sub">想定Q&amp;A（迷ったらこの型で返す）</h3>
+
+    <div class="qa">
+      <p class="qa-q jp">人前で教えた経験がないのですが、大丈夫ですか？</p>
+      <p class="qa-a jp">大丈夫です。このゼミが作るのは「教える講義」ではなく「問いを囲む場」です。完璧に話す必要はありません。むしろ<b>教えないための設計</b>を一緒に学びます。</p>
+      <p class="qa-hint jp">補強：今日のワークを引き合いに出す。「今日、〇〇さんが話してくれたあの話、あれは教えるじゃなくて分かち合うですよね。あれでいいんです」</p>
+    </div>
+
+    <div class="qa">
+      <p class="qa-q jp">まだテーマが決まっていません。</p>
+      <p class="qa-a jp">手ぶらで来ていただいて大丈夫です。第1回がまさに、旅の棚卸しから問いを掘り当てる回なので。というより、今日すでに1つ見つかりましたよね。</p>
+      <p class="qa-hint jp">今日ワークをやった参加者には、この返しが最も強い。必ず本人が○をつけた言葉を引用して返す。</p>
+    </div>
+
+    <div class="qa">
+      <p class="qa-q jp">77,000円は高いと感じます。</p>
+      <p class="qa-a jp">正直、安くないと思います。判断材料としては2つで、<b>1本目で回収圏に入る規模設計</b>であることと、<b>型が手元に残って2本目以降も作れる</b>ことです。ただ、無理をして入る場ではないので、今回は見送るという判断も全然ありだと思っています。</p>
+      <p class="qa-hint jp">絶対に食い下がらない。引き止めた瞬間に営業になります。引かれた分だけ、後日戻ってきます。</p>
+    </div>
+
+    <div class="qa">
+      <p class="qa-q jp">3ヶ月、時間が取れるか不安です。</p>
+      <p class="qa-a jp">隔週2時間＋宿題が1時間くらいのイメージです。月に換算すると6時間ほど。ただ、第4回の試作までに20分ぶんの準備時間は必要です。そこだけは確保してください。</p>
+      <p class="qa-hint jp">数字で答えること。「大丈夫です」だけだと不安が残ります。</p>
+    </div>
+
+    <div class="qa">
+      <p class="qa-q jp">本当に開催まで持っていけますか？</p>
+      <p class="qa-a jp">第4回で実際に試作し、第7回で相互申込と開催日の確定までやります。設計として「いつかやる」で終われないようにしてあります。それでも、やらない人はゼロにはならないと思います。だから第5回で1対1の時間を取っています。</p>
+      <p class="qa-hint jp">100%を保証しないこと。過剰な保証は逆に信用を落とします。</p>
+    </div>
+
+    <div class="qa">
+      <p class="qa-q jp">POOLOに在籍したことがなくても参加できますか？</p>
+      <p class="qa-a jp">ご相談ください。旅を通じた学びの場づくりに関心があれば大丈夫です。お申し込み時にその旨を書き添えてください。</p>
+    </div>
+
+    <div class="qa">
+      <p class="qa-q jp">今日決めないとダメですか？</p>
+      <p class="qa-a jp">締切は9月27日で、定員15名です。今日決めていただく必要はまったくありません。ただ、迷っている段階でよければ個別に相談の時間を取れます。そのほうが判断しやすいと思います。</p>
+      <p class="qa-hint jp"><b>この「個別相談」への接続が、今日いちばん重要なクロージング</b>です。申込を迫らず、次の接点を作る。</p>
+    </div>
+  </section>
+
+  <!-- ============ 8 ============ -->
+  <section class="sec">
+    <div class="sec-bar">
+      <span class="sec-time">21:25</span>
+      <h2 class="sec-ttl jp">クロージング</h2>
+      <span class="sec-dur">5分</span>
+    </div>
+    <p class="sec-aim jp">狙い：申込を迫らず、次の一歩だけ渡す。今日の目的は決断させることではなく、原石を持ち帰らせることです。</p>
+
+    <div class="beat">
+      <p class="beat-l">① 今日の宿題（2分）— 必ず入れてください</p>
+      <div class="say jp">最後に、今日ひとつだけ宿題を出します。今日○をつけた話を、今週中に誰か一人に話してみてください。友達でもパートナーでも誰でもいい。話してみて、相手が前のめりになったら、それが本物です</div>
+      <p class="jp">この宿題は、申し込まなかった人にも価値が残る設計です。そして<b>実際に話した人は、かなりの確率で申し込みます</b>。</p>
+    </div>
+
+    <div class="beat">
+      <p class="beat-l">② 事務連絡（2分）</p>
+      <p class="jp">・申込締切：<b>9月27日（日）23:59</b>／定員15名に達し次第終了<br>・開講：10月13日（火）<br>・申込方法：POOLO公式LINEから、所要5分<br>・迷っている方は<b>個別相談</b>ができること（ここを強調）<br>・今日の録画とワークシートは後日共有すること</p>
+    </div>
+
+    <div class="beat">
+      <p class="beat-l">③ 最後の一言（1分）</p>
+      <div class="say jp">今日みなさんが書いたあの1行が、来年の春には誰かが申し込む場になっているかもしれません。そういう3ヶ月です</div>
+    </div>
+
+    <div class="ops">
+      <p class="ops-cap">オペレーター（事務局）</p>
+      <ul>
+        <li>クロージング中に、チャットへ<b>申込URL・締切・個別相談の案内</b>を投下。</li>
+        <li>録画停止。</li>
+        <li>「このあと居残り雑談OKです」と案内。<b>残った人は最有力候補</b>なので、名前を必ず控える。</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ 終了後 ============ -->
+  <section class="sec">
+    <div class="sec-bar">
+      <span class="sec-time">21:30–</span>
+      <h2 class="sec-ttl jp">終了後・当日中にやること</h2>
+      <span class="sec-dur">重要</span>
+    </div>
+    <p class="sec-aim jp">説明会の成果が決まるのは、じつは終了後の24時間です。ここを流すと、今日の90分が無駄になります。</p>
+
+    <ul class="chk">
+      <li><b>当日中（21:30–22:30）：</b>参加者全員に個別お礼DM。<b>本人が○をつけた話の言葉をそのまま引用</b>して送る。テンプレのコピペは即バレするので、1行だけでも必ず個別の言葉を入れる。</li>
+      <li><b>当日中：</b>録画とワークシートのURLを参加者に共有。</li>
+      <li><b>翌日（8/26）：</b>今日の観察メモを残す。どこで前のめりになったか／どこで黙ったか／出た質問／削ってよかった箇所。<b>9/1の資料はこれをもとに作ります。</b></li>
+      <li><b>翌日〜（8/26–）：</b>9/1に向けた<b>100人への個別DM</b>を開始。恩田・新・嵐田の3人で分担、1人33通。これが9/1に40名を集める本命の導線。</li>
+      <li><b>3日後（8/28）：</b>未申込の参加者へ2通目。「あの話、誰かに話してみましたか？」と宿題に触れる形で。売り込まない。</li>
+      <li><b>9/20頃：</b>締切前リマインド。締切9/27の1週間前。</li>
+    </ul>
+  </section>
+
+  <section class="sec">
+    <div class="sec-bar">
+      <span class="sec-time">MEMO</span>
+      <h2 class="sec-ttl jp">今日の観察メモ欄</h2>
+      <span class="sec-dur">9/1用</span>
+    </div>
+    <p class="lead jp">今日は本番であると同時に、9月1日のリハーサルです。以下を終了後に埋めてください。9/1のフル資料の精度が変わります。</p>
+    <ul class="chk">
+      <li>参加者が<b>いちばん前のめりになった瞬間</b>はどこか</li>
+      <li><b>沈黙・反応が薄かった</b>のはどのパートか（そこは9/1で削る）</li>
+      <li>ワークで<b>手が止まった人</b>は何人／どこで詰まったか</li>
+      <li>出た質問のうち、<b>台本になかったもの</b></li>
+      <li>90分は<b>長かったか短かったか</b></li>
+      <li>お金の話への<b>反応の温度</b></li>
+    </ul>
+  </section>
+
+</div>
+</body>
+</html>

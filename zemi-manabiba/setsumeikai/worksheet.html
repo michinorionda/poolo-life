@@ -215,7 +215,7 @@
   </div>
 
   <div class="sent" id="sentBox">
-    <p class="jp">受け取りました。ありがとうございます。<br>書いていただいた内容は、恩田が目を通したうえで個別にお返しします。</p>
+    <p class="jp">受け取りました。ありがとうございます。<br><b>このあと書き足した分も、自動で反映されます。</b>ワークの続きはそのまま書き進めてください。<br>書いていただいた内容は、恩田が目を通したうえで個別にお返しします。</p>
   </div>
 
   <div class="save">
@@ -272,6 +272,17 @@
   var ENDPOINT = 'https://script.google.com/macros/s/AKfycbwt8hAgL-WcqWy9n2JdLx_2u7RgpHeZnLvcjRJ9Q-pJibUT5_yEnBD5pvum6v_NA9VD0g/exec';
   var SESSION  = '2026-08-25';
 
+  /* この端末を識別するID。同じIDで送るとシート上の同じ行が上書きされる */
+  var ID_KEY = KEY + '-id';
+  var submissionId = (function () {
+    var v;
+    try { v = localStorage.getItem(ID_KEY); } catch (e) {}
+    if (v) return v;
+    v = 'w' + Math.random().toString(36).slice(2, 10) + Math.random().toString(36).slice(2, 6);
+    try { localStorage.setItem(ID_KEY, v); } catch (e) {}
+    return v;
+  })();
+
   function collect() {
     var get = function (k) {
       var el = document.querySelector('[data-k="' + k + '"]');
@@ -282,7 +293,7 @@
       var v = get('s1-' + n);
       if (v) s1.push(v);
     }
-    return { session: SESSION, name: get('name'), s1: s1, s2: get('s2'), s3: get('s3'), s4: get('s4') };
+    return { id: submissionId, session: SESSION, name: get('name'), s1: s1, s2: get('s2'), s3: get('s3'), s4: get('s4') };
   }
 
   function asText(d) {
@@ -327,30 +338,89 @@
   });
 
   var btnSubmit = document.getElementById('btnSubmit');
+  var sentBox = document.getElementById('sentBox');
+  var syncTimer = null;
+  var inFlight = false;
+  var pending = false;
+  var everSent = false;
+  var SENT_KEY = KEY + '-sent';
+
+  try { everSent = localStorage.getItem(SENT_KEY) === '1'; } catch (e) {}
+
+  function stamp() {
+    var d = new Date();
+    var p = function (n) { return (n < 10 ? '0' : '') + n; };
+    return p(d.getHours()) + ':' + p(d.getMinutes());
+  }
+
+  /** 送信。silent=true なら文言を控えめにする（自動更新用） */
+  function send(silent) {
+    if (inFlight) { pending = true; return; }
+
+    var d = collect();
+    if (!d.s2 && !d.s3 && !d.s1.length && !d.s4) {
+      if (!silent) flash('まだ何も書かれていないようです');
+      return;
+    }
+
+    inFlight = true;
+    save();
+    if (!silent) { btnSubmit.disabled = true; btnSubmit.textContent = '送信中…'; }
+
+    // Content-Type を指定しないことで preflight を避ける（GAS の CORS 制約対策）
+    fetch(ENDPOINT, { method: 'POST', body: JSON.stringify(d) })
+      .then(function (r) { return r.json(); })
+      .then(function (res) {
+        if (!res || !res.ok) throw new Error('ng');
+
+        everSent = true;
+        try { localStorage.setItem(SENT_KEY, '1'); } catch (e) {}
+
+        sentBox.classList.add('on');
+        btnSubmit.disabled = false;
+        btnSubmit.textContent = '送りなおす';
+        note.textContent = stamp() + ' に送信しました。この先の変更は自動で反映されます';
+      })['catch'](function () {
+        btnSubmit.disabled = false;
+        btnSubmit.textContent = everSent ? '送りなおす' : '書いた内容を送る';
+        if (!silent) {
+          flash('送信できませんでした。「コピーする」でチャットに貼ってください', 6000);
+        } else {
+          note.textContent = '自動更新に失敗しました。「送りなおす」を押してください';
+        }
+      })
+      .then(function () {
+        inFlight = false;
+        if (pending) { pending = false; send(true); }
+      });
+  }
+
   if (!ENDPOINT) {
     btnSubmit.hidden = true;   // 送信先が未設定のときだけ隠す
   } else {
-    btnSubmit.addEventListener('click', function () {
-      var d = collect();
-      if (!d.s2 && !d.s3 && !d.s1.length) { flash('まだ何も書かれていないようです'); return; }
+    if (everSent) {
+      btnSubmit.textContent = '送りなおす';
+      sentBox.classList.add('on');
+    }
 
-      btnSubmit.disabled = true;
-      btnSubmit.textContent = '送信中…';
-      save();
+    btnSubmit.addEventListener('click', function () { send(false); });
 
-      // Content-Type を指定しないことで preflight を避ける（GAS の CORS 制約対策）
-      fetch(ENDPOINT, { method: 'POST', body: JSON.stringify(d) })
-        .then(function (r) { return r.json(); })
-        .then(function (res) {
-          if (!res || !res.ok) throw new Error('ng');
-          document.getElementById('sentBox').classList.add('on');
-          btnSubmit.textContent = '送信しました';
-          flash('送信しました');
-        })['catch'](function () {
-          btnSubmit.disabled = false;
-          btnSubmit.textContent = '書いた内容を送る';
-          flash('送信できませんでした。「コピーする」でチャットに貼ってください', 6000);
-        });
+    /* 一度でも送った人は、以降の編集を自動で反映する（8秒静まったら送信） */
+    fields.forEach(function (el) {
+      el.addEventListener('input', function () {
+        if (!everSent) return;
+        if (syncTimer) clearTimeout(syncTimer);
+        note.textContent = '変更を反映しています…';
+        syncTimer = setTimeout(function () { send(true); }, 8000);
+      });
+    });
+
+    /* 離脱時にも取りこぼさない */
+    window.addEventListener('pagehide', function () {
+      if (!everSent || inFlight) return;
+      try {
+        navigator.sendBeacon(ENDPOINT, new Blob([JSON.stringify(collect())], { type: 'text/plain' }));
+      } catch (e) {}
     });
   }
 })();
