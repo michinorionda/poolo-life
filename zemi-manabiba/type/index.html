@@ -59,17 +59,38 @@
          padding:9px 26px; border-radius:100px; }
   .cred { font-family:var(--head); font-weight:700; font-size:20px; letter-spacing:.06em; text-align:center; }
 
-  /* 01 藤 ── 参考作の骨法をPOOLOの色で */
-  .a1 { background:#DCDAE8; padding:76px 88px; align-items:center; }
+  /* 01 ── 参考作の骨法を、POOLOのブルー1色で組み直す
+     差し色は足さない。ブランド指針どおり #189BBC の濃淡だけで層をつくる。 */
+  .a1 { padding:76px 88px; align-items:center; }
   .a1 .top { position:relative; text-align:center; margin-top:14px; }
-  .a1 .top .lb { color:#E9F24B; position:absolute; left:0; right:0; top:-4px; }
-  .a1 .top h2 { font-family:'Zen Antique',serif; font-size:52px; color:#2B4A9B; letter-spacing:.42em;
+  .a1 .top .lb { position:absolute; left:0; right:0; top:-4px; }
+  .a1 .top h2 { font-family:'Zen Antique',serif; font-size:52px; letter-spacing:.42em;
                 margin:0; text-indent:.42em; position:relative; }
   .a1 .mid { margin:auto 0; width:100%; }
-  .a1 .num { background:#E9F24B; color:#2B4A9B; margin-bottom:34px; }
-  .a1 h1 { font-family:'Zen Antique',serif; font-size:62px; line-height:1.85; color:#2B4A9B;
+  .a1 .num { margin-bottom:34px; }
+  .a1 h1 { font-family:'Zen Antique',serif; font-size:62px; line-height:1.85;
            letter-spacing:.24em; margin:0; }
-  .a1 .cred { color:#2B4A9B; margin-top:auto; }
+  .a1 .cred { margin-top:auto; }
+
+  /* A 淡いブルー地（参考作と同じ「地に色を敷く」構造） */
+  .a1a { background:#DDECF1; }
+  .a1a .top .lb { color:#8FC6D6; }
+  .a1a .top h2, .a1a h1, .a1a .cred { color:#0E5C72; }
+  .a1a .num { background:#189BBC; color:#fff; }
+
+  /* B 白地（POOLO本体の版面に近い。いちばん静か） */
+  .a1b { background:#F9F9F9; }
+  .a1b .top .lb { color:#8FC6D6; }
+  .a1b .top h2, .a1b h1 { color:#000; }
+  .a1b .cred { color:rgba(0,0,0,.5); }
+  .a1b .num { background:#189BBC; color:#fff; }
+
+  /* C ブルーのベタ地（いちばん強い。連投の1枚目向き） */
+  .a1c { background:#189BBC; }
+  .a1c .top .lb { color:rgba(255,255,255,.45); }
+  .a1c .top h2, .a1c h1 { color:#fff; }
+  .a1c .cred { color:rgba(255,255,255,.75); }
+  .a1c .num { background:#fff; color:#127E9A; }
 
   /* 02 毛筆 ── Yuji Syuku */
   .a2 { background:#F4F1EA; padding:92px 96px; }
@@ -154,7 +175,7 @@
   <header class="ph">
     <div class="ph-eyebrow">Typographic systems ／ POOLO ゼミ</div>
     <h1 class="ph-title">文字の型　8案</h1>
-    <p class="ph-lead">お預かりした参考作は、フォントを自作しているのではなく<b>「文字の扱い方」が独自</b>でした。そこを分解して、POOLOの言葉で8つの型に組み直しています。すべて同じ文言なので、書体と組み方の違いだけが見えます。<b>使っている書体はすべてオープンライセンス（商用利用可）</b>です。</p>
+    <p class="ph-lead">お預かりした参考作は、フォントを自作しているのではなく<b>「文字の扱い方」が独自</b>でした。そこを分解して、POOLOの言葉で8つの型に組み直しています。すべて同じ文言なので、書体と組み方の違いだけが見えます。<b>使っている書体はすべてオープンライセンス（商用利用可）</b>です。<br><br>なお<b>配色は参考作から一切借りていません。</b>藤色の地と蛍光イエローはご友人の署名にあたる部分なので、01ではPOOLOのブルー1色に置き換えた3種を並べています。</p>
   </header>
 
   <div class="analysis">
@@ -167,12 +188,41 @@
     </ol>
   </div>
 
-  <!-- 01 -->
+  <!-- 01A -->
   <section class="item" id="i01">
-    <div class="item-head"><span class="item-no">01</span><span class="item-ttl">藤｜参考作の骨法を、そのままPOOLOの言葉で</span>
+    <div class="item-head"><span class="item-no">01<span style="font-size:12px">A</span></span><span class="item-ttl">淡いブルー地｜参考作の骨法を、POOLOの色で</span>
       <a class="item-shot" href="?only=01">単体表示</a><span class="item-font">Zen Antique</span></div>
     <div class="stage">
-      <div class="frame"><div class="ab a1">
+      <div class="frame"><div class="ab a1 a1a">
+        <div class="top">
+          <div class="lb">Create Your Class</div>
+          <h2>旅と学びの往復</h2>
+        </div>
+        <div class="mid">
+          <span class="num">#01</span>
+          <h1>問いは、囲むと場になる。<br>あなたが黙っていられない<br>その話から。</h1>
+        </div>
+        <div class="cred">POOLO ゼミ ／ 学びの場を、創る。</div>
+      </div></div>
+      <div class="cap">
+        <h4>色の考え方</h4>
+        <p>参考作の骨法（大きな字間・中央寄せ・過剰な余白・欧文の重ね）はそのまま、<b>配色だけ完全に入れ替えました。</b>藤色の地と蛍光イエローはご友人の署名にあたる部分なので、そこは借りていません。</p>
+        <h4>差し色を足していません</h4>
+        <p>POOLOのブランド指針は<b>「#189BBC のブルー1色を主役に統一し、余計なアクセントを置かない」</b>です。なので黄色の代わりの色は作らず、<b>同じブルーの濃淡3段だけで層</b>をつくっています。結果として、参考作より静かで、POOLOの他のページと並べても浮きません。</p>
+        <div class="spec">地　　#DDECF1（brand-pale）
+文字　#0E5C72（brandを深めた色・コントラスト6.2:1）
+バッジ #189BBC ベタ ＋ 白
+欧文　#8FC6D6（brand-mid・読ませない装飾）</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 01B -->
+  <section class="item" id="i01b">
+    <div class="item-head"><span class="item-no">01<span style="font-size:12px">B</span></span><span class="item-ttl">白地｜いちばん静か。POOLO本体の版面に近い</span>
+      <a class="item-shot" href="?only=01b">単体表示</a><span class="item-font">Zen Antique</span></div>
+    <div class="stage">
+      <div class="frame"><div class="ab a1 a1b">
         <div class="top">
           <div class="lb">Create Your Class</div>
           <h2>旅と学びの往復</h2>
@@ -185,12 +235,40 @@
       </div></div>
       <div class="cap">
         <h4>狙い</h4>
-        <p>参考作の構造をほぼそのまま踏襲した案です。<b>比較の基準として置いています。</b>Zen Antiqueは活版のかすれを持つ明朝で、参考作の書体にいちばん近い質感。</p>
-        <h4>注意</h4>
-        <p>近すぎます。<b>ご友人の型と並べたとき、真似に見えるおそれがあります。</b>採用するなら色か組み方をずらしてください。</p>
-        <div class="spec">font-family: 'Zen Antique'
-letter-spacing: .24em ／ line-height: 1.85
-色: 地 #DCDAE8 ／ 文字 #2B4A9B ／ 差し色 #E9F24B</div>
+        <p>地に色を敷かず、<b>ブルーはバッジの一点だけ。</b>募集ページ本体と完全に同じ版面感になるので、<b>サイトとSNSが地続きに見えます。</b></p>
+        <h4>効きどころ</h4>
+        <p>タイムラインでの目立ちは3案でいちばん弱いです。そのぶん<b>資料の扉、プロフィールの固定投稿、note の見出し</b>など、腰を据えて読ませる場所で効きます。</p>
+        <div class="spec">地　　#F9F9F9（bg-off）
+文字　#000（ink）
+バッジ #189BBC ベタ ＋ 白</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 01C -->
+  <section class="item" id="i01c">
+    <div class="item-head"><span class="item-no">01<span style="font-size:12px">C</span></span><span class="item-ttl">ブルーのベタ地｜いちばん強い</span>
+      <a class="item-shot" href="?only=01c">単体表示</a><span class="item-font">Zen Antique</span></div>
+    <div class="stage">
+      <div class="frame"><div class="ab a1 a1c">
+        <div class="top">
+          <div class="lb">Create Your Class</div>
+          <h2>旅と学びの往復</h2>
+        </div>
+        <div class="mid">
+          <span class="num">#01</span>
+          <h1>問いは、囲むと場になる。<br>あなたが黙っていられない<br>その話から。</h1>
+        </div>
+        <div class="cred">POOLO ゼミ ／ 学びの場を、創る。</div>
+      </div></div>
+      <div class="cap">
+        <h4>狙い</h4>
+        <p>ブランドカラーをベタで敷いて、白抜き。<b>POOLOだと最も早く認識されます。</b>参考作は淡い地でしたが、ここは構造ごと反転させています。真似に見える余地がいちばん少ない案です。</p>
+        <h4>効きどころ</h4>
+        <p>Instagramのグリッドで、<b>ブルーの面が一定間隔で並ぶと連載に見えます。</b>連投の1枚目に置いて、続きをAかBに渡す使い方が効きます。</p>
+        <div class="spec">地　　#189BBC（brand）
+文字　#fff
+バッジ 白ベタ ＋ #127E9A</div>
       </div>
     </div>
   </section>
@@ -358,7 +436,7 @@ letter-spacing: .13em ／ line-height: 1.95
 
 <script>
 (function () {
-  var m = (location.search.match(/only=([0-9]+)/) || [])[1];
+  var m = (location.search.match(/only=([0-9a-z]+)/) || [])[1];
   if (!m) return;
   document.body.classList.add('only');
   var el = document.getElementById('i' + m);
