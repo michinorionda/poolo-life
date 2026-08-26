@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>文字の型　8案｜学びの場を、創る。（POOLOゼミ）</title>
+<meta name="description" content="POOLOゼミの告知に使う「文字の型」8案。書体・字間・余白・配色をひとつの型として設計し、同じ文言で比較する。">
+<meta name="robots" content="noindex,nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Yuji+Syuku&family=Yuji+Boku&family=New+Tegomin&family=Hina+Mincho&family=Zen+Antique&family=Shippori+Mincho:wght@500;700&family=Klee+One:wght@400;600&family=Kaisei+HarunoUmi:wght@400;700&family=Zen+Kurenaido&family=Zen+Old+Mincho:wght@400;700;900&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing:border-box; }
+  :root {
+    --brand:#189BBC; --brand-deep:#127E9A; --brand-mid:#8FC6D6; --brand-pale:#DDECF1;
+    --ink:#000; --ink-72:rgba(0,0,0,.72); --ink-50:rgba(0,0,0,.5); --ink-40:rgba(0,0,0,.4);
+    --line:#E4E4E4; --bg:#fff; --bg-off:#F9F9F9;
+    --head:'Zen Kaku Gothic New',sans-serif; --body:'Noto Sans JP',sans-serif;
+    --mincho:'Zen Old Mincho',serif; --en:'Jost',sans-serif;
+  }
+  body { margin:0; background:#EDEDED; font-family:var(--body); color:#1E1E1E; }
+  .page { max-width:1280px; margin:0 auto; padding:48px clamp(16px,3vw,32px) 110px; }
+
+  .ph { padding:0 0 26px; border-bottom:2px solid var(--brand); margin-bottom:30px; }
+  .ph-eyebrow { font-family:var(--en); letter-spacing:.2em; font-size:11.5px; color:var(--brand); text-transform:uppercase; }
+  .ph-title { font-family:var(--mincho); font-weight:700; font-size:clamp(25px,4vw,38px); margin:.3em 0 .35em; color:var(--ink); line-height:1.3; }
+  .ph-lead { font-family:var(--body); font-size:13.5px; line-height:2.05; color:var(--ink-72); margin:0; max-width:46em; letter-spacing:.04em; }
+  .ph-lead b { color:var(--brand-deep); }
+
+  .analysis { background:#fff; border:1px solid #DDD; border-radius:3px; padding:22px 24px; margin-bottom:42px; }
+  .analysis h3 { font-family:var(--head); font-size:12px; font-weight:700; letter-spacing:.08em; color:var(--brand-deep); margin:0 0 13px; }
+  .analysis ol { margin:0; padding-left:20px; }
+  .analysis li { font-family:var(--body); font-size:12.5px; line-height:2; color:var(--ink-72); margin-bottom:7px; letter-spacing:.03em; }
+  .analysis li b { color:var(--brand-deep); }
+
+  .item { margin-bottom:58px; }
+  .item-head { display:flex; align-items:baseline; gap:12px; flex-wrap:wrap; margin-bottom:14px; }
+  .item-no { font-family:var(--en); font-weight:600; font-size:15px; color:var(--brand); letter-spacing:.1em; }
+  .item-ttl { font-family:var(--head); font-weight:700; font-size:15px; color:var(--ink); letter-spacing:.03em; }
+  .item-font { font-family:var(--en); font-size:11.5px; color:#888; letter-spacing:.06em; margin-left:auto; }
+  .item-shot { font-family:var(--head); font-size:11px; font-weight:700; color:var(--brand-deep); background:#fff; border:1px solid var(--brand-mid); padding:5px 11px; border-radius:2px; text-decoration:none; }
+
+  .stage { display:flex; gap:26px; align-items:flex-start; flex-wrap:wrap; }
+  .frame { background:#fff; box-shadow:0 1px 3px rgba(0,0,0,.14); flex:none; width:460px; height:460px; }
+  .frame .ab { transform:scale(0.42593); transform-origin:0 0; }
+  .cap { flex:1; min-width:280px; background:#fff; border:1px solid #DDD; border-radius:3px; padding:19px 21px; }
+  .cap h4 { font-family:var(--head); font-size:11px; font-weight:700; letter-spacing:.08em; color:var(--brand-deep); margin:0 0 9px; }
+  .cap h4 + h4 { margin-top:16px; }
+  .cap p { font-family:var(--body); font-size:12.5px; line-height:2; color:var(--ink-72); margin:0; letter-spacing:.03em; }
+  .cap p b { color:var(--brand-deep); }
+  .spec { font-family:ui-monospace,Menlo,monospace; font-size:11px; line-height:1.95; color:var(--ink-50); background:var(--bg-off); border:1px solid var(--line); border-radius:2px; padding:11px 12px; margin-top:12px; white-space:pre-wrap; }
+
+  /* ===== アートボード ===== */
+  .ab { width:1080px; height:1080px; position:relative; overflow:hidden;
+        display:flex; flex-direction:column; }
+
+  .lb { font-family:var(--en); font-size:19px; font-weight:500; letter-spacing:.28em; text-transform:uppercase; }
+  .num { display:inline-block; font-family:var(--en); font-weight:500; font-size:26px; letter-spacing:.1em;
+         padding:9px 26px; border-radius:100px; }
+  .cred { font-family:var(--head); font-weight:700; font-size:20px; letter-spacing:.06em; text-align:center; }
+
+  /* 01 藤 ── 参考作の骨法をPOOLOの色で */
+  .a1 { background:#DCDAE8; padding:76px 88px; align-items:center; }
+  .a1 .top { position:relative; text-align:center; margin-top:14px; }
+  .a1 .top .lb { color:#E9F24B; position:absolute; left:0; right:0; top:-4px; }
+  .a1 .top h2 { font-family:'Zen Antique',serif; font-size:52px; color:#2B4A9B; letter-spacing:.42em;
+                margin:0; text-indent:.42em; position:relative; }
+  .a1 .mid { margin:auto 0; width:100%; }
+  .a1 .num { background:#E9F24B; color:#2B4A9B; margin-bottom:34px; }
+  .a1 h1 { font-family:'Zen Antique',serif; font-size:62px; line-height:1.85; color:#2B4A9B;
+           letter-spacing:.24em; margin:0; }
+  .a1 .cred { color:#2B4A9B; margin-top:auto; }
+
+  /* 02 毛筆 ── Yuji Syuku */
+  .a2 { background:#F4F1EA; padding:92px 96px; }
+  .a2 .lb { color:var(--brand); }
+  .a2 h1 { font-family:'Yuji Syuku',serif; font-size:96px; line-height:1.72; color:#1A1A1A;
+           letter-spacing:.1em; margin:auto 0; }
+  .a2 h1 em { font-style:normal; color:var(--brand); }
+  .a2 .foot { border-top:1px solid #C9C2B4; padding-top:26px; display:flex; justify-content:space-between;
+              align-items:baseline; font-family:var(--head); font-weight:700; font-size:21px; color:#5A5348; letter-spacing:.06em; }
+
+  /* 03 縦組み ── Shippori Mincho */
+  .a3 { background:var(--bg); padding:88px 92px; }
+  .a3 .wrap3 { flex:1; display:flex; flex-direction:row-reverse; justify-content:flex-start; gap:56px; align-items:flex-start; }
+  .a3 h1 { font-family:'Shippori Mincho',serif; font-weight:700; writing-mode:vertical-rl;
+           font-size:72px; line-height:1.9; letter-spacing:.22em; color:var(--ink); margin:0; height:100%; }
+  .a3 .side { writing-mode:vertical-rl; font-family:var(--head); font-weight:700; font-size:21px;
+              letter-spacing:.24em; color:var(--brand); height:100%; }
+  .a3 .rulev { width:1px; background:var(--brand); align-self:stretch; }
+  .a3 .foot { display:flex; justify-content:space-between; align-items:baseline; margin-top:30px;
+              font-family:var(--en); font-size:20px; letter-spacing:.14em; color:var(--ink-50); }
+
+  /* 04 手彫り ── New Tegomin */
+  .a4 { background:#182A33; padding:96px 92px; }
+  .a4 .lb { color:var(--brand-mid); }
+  .a4 h1 { font-family:'New Tegomin',serif; font-size:80px; line-height:1.8; color:#F2EFE6;
+           letter-spacing:.16em; margin:auto 0; }
+  .a4 h1 em { font-style:normal; color:#8FC6D6; }
+  .a4 .foot { border-top:1px solid rgba(255,255,255,.28); padding-top:26px; display:flex;
+              justify-content:space-between; align-items:baseline;
+              font-family:var(--head); font-weight:700; font-size:20px; color:rgba(255,255,255,.68); letter-spacing:.06em; }
+
+  /* 05 極細 ── Hina Mincho */
+  .a5 { background:var(--bg); padding:110px 104px; align-items:center; text-align:center; }
+  .a5 .lb { color:var(--brand); margin-top:10px; }
+  .a5 h1 { font-family:'Hina Mincho',serif; font-size:74px; line-height:2.1; color:var(--ink);
+           letter-spacing:.36em; text-indent:.36em; margin:auto 0; }
+  .a5 .dot { width:7px; height:7px; border-radius:50%; background:var(--brand); margin:0 auto; }
+  .a5 .foot { font-family:var(--en); font-size:19px; letter-spacing:.2em; color:var(--ink-40); margin-top:auto; }
+
+  /* 06 硬筆 ── Klee One */
+  .a6 { background:var(--brand-pale); padding:94px 96px; }
+  .a6 .lb { color:var(--brand-deep); }
+  .a6 h1 { font-family:'Klee One',cursive; font-weight:600; font-size:82px; line-height:1.85;
+           color:#0E5C72; letter-spacing:.1em; margin:auto 0; }
+  .a6 .marker { background:#fff; padding:0 .18em; }
+  .a6 .foot { display:flex; justify-content:space-between; align-items:baseline;
+              font-family:var(--head); font-weight:700; font-size:21px; color:var(--brand-deep); letter-spacing:.06em; }
+
+  /* 07 ベタ塗り ── Kaisei HarunoUmi */
+  .a7 { background:var(--brand); padding:92px 92px; }
+  .a7 .lb { color:rgba(255,255,255,.75); }
+  .a7 h1 { font-family:'Kaisei HarunoUmi',serif; font-weight:700; font-size:88px; line-height:1.7;
+           color:#fff; letter-spacing:.09em; margin:auto 0; }
+  .a7 h1 em { font-style:normal; background:#E9F24B; color:var(--brand-deep); padding:0 .12em; }
+  .a7 .foot { border-top:1px solid rgba(255,255,255,.4); padding-top:26px; display:flex;
+              justify-content:space-between; align-items:baseline;
+              font-family:var(--head); font-weight:700; font-size:20px; color:rgba(255,255,255,.85); letter-spacing:.06em; }
+
+  /* 08 素朴 ── Zen Kurenaido */
+  .a8 { background:#FBFAF6; padding:96px 96px; }
+  .a8 .lb { color:var(--brand); }
+  .a8 h1 { font-family:'Zen Kurenaido',sans-serif; font-size:80px; line-height:1.95;
+           color:#2A2A28; letter-spacing:.13em; margin:auto 0; }
+  .a8 .ul { border-bottom:3px solid var(--brand); padding-bottom:.06em; }
+  .a8 .foot { display:flex; justify-content:space-between; align-items:baseline;
+              font-family:var(--head); font-weight:700; font-size:20px; color:#7A776E; letter-spacing:.06em; }
+
+  /* 単体表示 */
+  body.only { background:#fff; }
+  body.only .page { max-width:none; padding:0; }
+  body.only .ph, body.only .analysis, body.only .item-head, body.only .cap { display:none; }
+  body.only .item { display:none; margin:0; }
+  body.only .item.show { display:block; }
+  body.only .stage { gap:0; }
+  body.only .frame { width:auto !important; height:auto !important; box-shadow:none; }
+  body.only .frame .ab { transform:none !important; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header class="ph">
+    <div class="ph-eyebrow">Typographic systems ／ POOLO ゼミ</div>
+    <h1 class="ph-title">文字の型　8案</h1>
+    <p class="ph-lead">お預かりした参考作は、フォントを自作しているのではなく<b>「文字の扱い方」が独自</b>でした。そこを分解して、POOLOの言葉で8つの型に組み直しています。すべて同じ文言なので、書体と組み方の違いだけが見えます。<b>使っている書体はすべてオープンライセンス（商用利用可）</b>です。</p>
+  </header>
+
+  <div class="analysis">
+    <h3>参考作から取り出した4つの骨法</h3>
+    <ol>
+      <li><b>字間を極端に開ける（0.3〜0.4em）。</b>一文字ずつが独立して見え、読む速度が落ちる。読ませたくない見出しではなく、<b>「味わわせたい」一文</b>に効く手法です。</li>
+      <li><b>色を3色に絞る。</b>地・文字・アクセントの3つだけ。この制約が一目で「その人のもの」と分かる状態をつくっています。</li>
+      <li><b>余白を過剰に取る。</b>文字が置かれているのは画面の1/3以下。残りは全部空けている。<b>情報を減らすほど、残った言葉が強くなります。</b></li>
+      <li><b>欧文の小見出しを、和文見出しに重ねる。</b>読ませる気のない装飾として使い、層をつくっている。</li>
+    </ol>
+  </div>
+
+  <!-- 01 -->
+  <section class="item" id="i01">
+    <div class="item-head"><span class="item-no">01</span><span class="item-ttl">藤｜参考作の骨法を、そのままPOOLOの言葉で</span>
+      <a class="item-shot" href="?only=01">単体表示</a><span class="item-font">Zen Antique</span></div>
+    <div class="stage">
+      <div class="frame"><div class="ab a1">
+        <div class="top">
+          <div class="lb">Create Your Class</div>
+          <h2>旅と学びの往復</h2>
+        </div>
+        <div class="mid">
+          <span class="num">#01</span>
+          <h1>問いは、囲むと場になる。<br>あなたが黙っていられない<br>その話から。</h1>
+        </div>
+        <div class="cred">POOLO ゼミ ／ 学びの場を、創る。</div>
+      </div></div>
+      <div class="cap">
+        <h4>狙い</h4>
+        <p>参考作の構造をほぼそのまま踏襲した案です。<b>比較の基準として置いています。</b>Zen Antiqueは活版のかすれを持つ明朝で、参考作の書体にいちばん近い質感。</p>
+        <h4>注意</h4>
+        <p>近すぎます。<b>ご友人の型と並べたとき、真似に見えるおそれがあります。</b>採用するなら色か組み方をずらしてください。</p>
+        <div class="spec">font-family: 'Zen Antique'
+letter-spacing: .24em ／ line-height: 1.85
+色: 地 #DCDAE8 ／ 文字 #2B4A9B ／ 差し色 #E9F24B</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 02 -->
+  <section class="item" id="i02">
+    <div class="item-head"><span class="item-no">02</span><span class="item-ttl">毛筆｜本物の筆で書かれた書体</span>
+      <a class="item-shot" href="?only=02">単体表示</a><span class="item-font">Yuji Syuku</span></div>
+    <div class="stage">
+      <div class="frame"><div class="ab a2">
+        <div class="lb">Create Your Class</div>
+        <h1>問いは、<br>囲むと<em>場</em>になる。</h1>
+        <div class="foot"><span>POOLO ゼミ　学びの場を、創る。</span><span>10.13 開講</span></div>
+      </div></div>
+      <div class="cap">
+        <h4>狙い</h4>
+        <p>Yuji Syukuは<b>実際に筆で書かれた字をもとにした書体</b>です。カリグラフィーという言葉にいちばん近いのはこれ。「場」の一字だけをブランドカラーにして、視線の着地点を作っています。</p>
+        <h4>効きどころ</h4>
+        <p>字が強いので<b>短い一文にだけ</b>使ってください。長文に使うと読めません。生成りの地色と合わせると和紙の質感が出ます。</p>
+        <div class="spec">font-family: 'Yuji Syuku'
+letter-spacing: .1em ／ line-height: 1.72
+色: 地 #F4F1EA ／ 文字 #1A1A1A ／ 差し色 #189BBC</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 -->
+  <section class="item" id="i03">
+    <div class="item-head"><span class="item-no">03</span><span class="item-ttl">縦組み｜日本語でしかできない見せ方</span>
+      <a class="item-shot" href="?only=03">単体表示</a><span class="item-font">Shippori Mincho</span></div>
+    <div class="stage">
+      <div class="frame"><div class="ab a3">
+        <div class="lb" style="color:var(--brand)">Create Your Class</div>
+        <div class="wrap3">
+          <h1>問いは、囲むと場になる</h1>
+          <div class="rulev"></div>
+          <div class="side">旅で見つけたひとつの問いから</div>
+        </div>
+        <div class="foot"><span>POOLO ZEMI</span><span>2026.10.13</span></div>
+      </div></div>
+      <div class="cap">
+        <h4>狙い</h4>
+        <p><b>縦組みは、それだけで独自性になります。</b>SNSで縦に組まれた日本語はほとんど流れてこないので、タイムラインで確実に止まる。しかも書体を変えずとも別物に見えます。</p>
+        <h4>効きどころ</h4>
+        <p>Shippori Minchoは筆の運びが残った明朝。縦に組むと本来の姿が出ます。<b>ストーリーズ（縦長）との相性が特に良い</b>です。</p>
+        <div class="spec">font-family: 'Shippori Mincho' 700
+writing-mode: vertical-rl
+letter-spacing: .22em ／ line-height: 1.9</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 -->
+  <section class="item" id="i04">
+    <div class="item-head"><span class="item-no">04</span><span class="item-ttl">手彫り｜木版のような無骨さ</span>
+      <a class="item-shot" href="?only=04">単体表示</a><span class="item-font">New Tegomin</span></div>
+    <div class="stage">
+      <div class="frame"><div class="ab a4">
+        <div class="lb">Create Your Class</div>
+        <h1>受け取る側は、<br>いつか終わる。<br><em>創る側には、終わりがない。</em></h1>
+        <div class="foot"><span>POOLO ゼミ　学びの場を、創る。</span><span>9.27 締切</span></div>
+      </div></div>
+      <div class="cap">
+        <h4>狙い</h4>
+        <p>New Tegominは<b>手で彫ったような不揃いさ</b>を持つ明朝。濃紺の地に生成りの文字を置くと、活版や版画の趣きになります。POOLOの思想的な言葉と相性がいい。</p>
+        <h4>効きどころ</h4>
+        <p>暗い地の案を1つ持っておくと、<b>明るい案ばかりの連投の中で強いアクセント</b>になります。Instagramのグリッドで効きます。</p>
+        <div class="spec">font-family: 'New Tegomin'
+letter-spacing: .16em ／ line-height: 1.8
+色: 地 #182A33 ／ 文字 #F2EFE6 ／ 差し色 #8FC6D6</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 05 -->
+  <section class="item" id="i05">
+    <div class="item-head"><span class="item-no">05</span><span class="item-ttl">極細｜字間だけで成立させる</span>
+      <a class="item-shot" href="?only=05">単体表示</a><span class="item-font">Hina Mincho</span></div>
+    <div class="stage">
+      <div class="frame"><div class="ab a5">
+        <div class="lb">Create Your Class</div>
+        <h1>問いは、<br>囲むと<br>場になる。</h1>
+        <div class="dot"></div>
+        <div class="foot">POOLO ZEMI ／ 2026</div>
+      </div></div>
+      <div class="cap">
+        <h4>狙い</h4>
+        <p>参考作の骨法を<b>いちばん純度高く突き詰めた案</b>です。極細の明朝を、字間0.36emで置くだけ。装飾は直径7pxの点ひとつだけにしています。</p>
+        <h4>効きどころ</h4>
+        <p>白地に細い字なので、<b>タイムラインでは弱い</b>です。逆にプロフィールの固定投稿や、資料の扉には強い。用途を選んで使ってください。</p>
+        <div class="spec">font-family: 'Hina Mincho'
+letter-spacing: .36em ／ line-height: 2.1
+装飾: 7px の点ひとつだけ</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 06 -->
+  <section class="item" id="i06">
+    <div class="item-head"><span class="item-no">06</span><span class="item-ttl">硬筆｜ノートに書かれた文字</span>
+      <a class="item-shot" href="?only=06">単体表示</a><span class="item-font">Klee One</span></div>
+    <div class="stage">
+      <div class="frame"><div class="ab a6">
+        <div class="lb">Create Your Class</div>
+        <h1>旅で、つい人に<br><span class="marker">話してしまう話</span>は<br>なんですか。</h1>
+        <div class="foot"><span>POOLO ゼミ　学びの場を、創る。</span><span>10.13 開講</span></div>
+      </div></div>
+      <div class="cap">
+        <h4>狙い</h4>
+        <p>Klee Oneは教科書体系の硬筆書体。<b>「誰かが手で書いた」感じが出る</b>ので、問いかけの文と非常に相性がいい。ワークシートの世界観とも直結します。</p>
+        <h4>効きどころ</h4>
+        <p>参加者に問いを投げる投稿はこれで統一するといいです。<b>白マーカーで一部を抜く</b>のは、ノートに線を引く動作の再現です。</p>
+        <div class="spec">font-family: 'Klee One' 600
+letter-spacing: .1em ／ line-height: 1.85
+色: 地 #DDECF1 ／ 文字 #0E5C72</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 07 -->
+  <section class="item" id="i07">
+    <div class="item-head"><span class="item-no">07</span><span class="item-ttl">ベタ塗り｜遠くからでも読める</span>
+      <a class="item-shot" href="?only=07">単体表示</a><span class="item-font">Kaisei HarunoUmi</span></div>
+    <div class="stage">
+      <div class="frame"><div class="ab a7">
+        <div class="lb">Create Your Class</div>
+        <h1>今度は、<br>あなたが<em>創る番</em>。</h1>
+        <div class="foot"><span>POOLO ゼミ　全7回・3ヶ月</span><span>定員15名</span></div>
+      </div></div>
+      <div class="cap">
+        <h4>狙い</h4>
+        <p>ブランドカラーのベタ面に、太めの明朝を白で。<b>8案のなかでいちばん遠くから読めます。</b>差し色の蛍光イエローで一語だけ抜くのが要です。</p>
+        <h4>効きどころ</h4>
+        <p>広告や、スクロールの速いタイムラインで使う想定。<b>強い分だけ飽きも早い</b>ので、連投の1枚目に置いて、続きは他の型に渡してください。</p>
+        <div class="spec">font-family: 'Kaisei HarunoUmi' 700
+letter-spacing: .09em ／ line-height: 1.7
+色: 地 #189BBC ／ 文字 #fff ／ 差し色 #E9F24B</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 08 -->
+  <section class="item" id="i08">
+    <div class="item-head"><span class="item-no">08</span><span class="item-ttl">素朴｜書き文字に近い無署名の字</span>
+      <a class="item-shot" href="?only=08">単体表示</a><span class="item-font">Zen Kurenaido</span></div>
+    <div class="stage">
+      <div class="frame"><div class="ab a8">
+        <div class="lb">Create Your Class</div>
+        <h1>壮大な起業ではなく、<br><span class="ul">小さくてあたたかい場</span>を<br>ひとつ持つ。</h1>
+        <div class="foot"><span>POOLO ゼミ　学びの場を、創る。</span><span>9.27 締切</span></div>
+      </div></div>
+      <div class="cap">
+        <h4>狙い</h4>
+        <p>Zen Kurenaidoは、少し手の入った素朴なゴシック。<b>気負いがなく、押しつけがましさが消えます。</b>「小さくてあたたかい場」という内容と、字の性格が一致します。</p>
+        <h4>効きどころ</h4>
+        <p>他の7案が「主張する」型なのに対して、これは<b>唯一「隣に座る」型</b>です。長めの文章を載せる投稿に向いています。</p>
+        <div class="spec">font-family: 'Zen Kurenaido'
+letter-spacing: .13em ／ line-height: 1.95
+色: 地 #FBFAF6 ／ 文字 #2A2A28</div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<script>
+(function () {
+  var m = (location.search.match(/only=([0-9]+)/) || [])[1];
+  if (!m) return;
+  document.body.classList.add('only');
+  var el = document.getElementById('i' + m);
+  if (el) el.classList.add('show');
+})();
+</script>
+</body>
+</html>
