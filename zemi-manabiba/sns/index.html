@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SNS素材｜学びの場を、創る。（POOLOゼミ）</title>
+<meta name="description" content="POOLOゼミ「学びの場を、創る。」のSNS告知素材。Instagram正方形・ストーリーズ・OG画像を切り口別に12点、投稿文案つき。">
+<meta name="robots" content="noindex,nofollow">
+<link rel="stylesheet" href="../../poolo-ds/tokens.css">
+<style>
+  * { box-sizing:border-box; }
+  body { margin:0; background:#EFEFEF; font-family:var(--body); color:var(--ink-soft); }
+
+  /* ===== 一覧ページの枠 ===== */
+  .page { max-width:1240px; margin:0 auto; padding:48px clamp(16px,3vw,32px) 100px; }
+  .ph { padding:0 0 26px; border-bottom:2px solid var(--brand); margin-bottom:34px; }
+  .ph-eyebrow { font-family:var(--en); letter-spacing:.2em; font-size:11.5px; color:var(--brand); text-transform:uppercase; }
+  .ph-title { font-family:var(--mincho); font-weight:700; font-size:clamp(25px,4vw,36px); margin:.3em 0 .35em; color:var(--ink); line-height:1.3; }
+  .ph-lead { font-family:var(--body); font-size:13.5px; line-height:2; color:var(--ink-72); margin:0; max-width:44em; letter-spacing:.04em; }
+
+  .howto { background:#fff; border:1px solid #DDD; border-radius:3px; padding:20px 22px; margin-bottom:40px; }
+  .howto h3 { font-family:var(--head); font-size:12px; font-weight:700; letter-spacing:.08em; color:var(--brand-deep); margin:0 0 10px; }
+  .howto p, .howto li { font-family:var(--body); font-size:12.5px; line-height:1.95; color:var(--ink-72); margin:0 0 6px; letter-spacing:.03em; }
+  .howto ol { margin:0; padding-left:19px; }
+  .howto code { font-family:ui-monospace,Menlo,monospace; font-size:11.5px; background:#F2F2F2; padding:2px 6px; border-radius:2px; color:var(--brand-deep); }
+
+  .item { margin-bottom:56px; }
+  .item-head { display:flex; align-items:baseline; gap:12px; flex-wrap:wrap; margin-bottom:14px; }
+  .item-no { font-family:var(--en); font-weight:600; font-size:15px; color:var(--brand); letter-spacing:.1em; }
+  .item-ttl { font-family:var(--head); font-weight:700; font-size:15px; color:var(--ink); letter-spacing:.03em; }
+  .item-size { font-family:var(--en); font-size:11.5px; color:#888; letter-spacing:.08em; margin-left:auto; }
+  .item-shot { font-family:var(--head); font-size:11px; font-weight:700; color:var(--brand-deep); background:#fff; border:1px solid var(--brand-mid); padding:5px 11px; border-radius:2px; text-decoration:none; }
+
+  .stage { display:flex; gap:26px; align-items:flex-start; flex-wrap:wrap; }
+  .frame { background:#fff; box-shadow:0 1px 3px rgba(0,0,0,.14); flex:none; }
+  .cap { flex:1; min-width:280px; background:#fff; border:1px solid #DDD; border-radius:3px; padding:18px 20px; }
+  .cap h4 { font-family:var(--head); font-size:11px; font-weight:700; letter-spacing:.08em; color:var(--brand-deep); margin:0 0 9px; }
+  .cap pre { font-family:var(--body); font-size:12.5px; line-height:2; color:var(--ink-72); white-space:pre-wrap; margin:0; letter-spacing:.03em; }
+  .cap .tags { font-family:var(--body); font-size:12px; color:var(--brand-deep); margin-top:12px; line-height:1.9; word-break:break-all; }
+
+  /* ===== アートボード共通 ===== */
+  .ab { position:relative; overflow:hidden; background:var(--bg); display:flex; flex-direction:column; }
+  .ab.sq  { width:1080px; height:1080px; padding:88px; }
+  .ab.st  { width:1080px; height:1920px; padding:100px 88px; }
+  .ab.og  { width:1200px; height:630px;  padding:66px 76px; }
+  .ab.blue { background:var(--brand); }
+  .ab.pale { background:var(--brand-pale); }
+  .ab.off  { background:var(--bg-off); }
+
+  /* プレビュー用の縮小 */
+  .frame.sq  { width:420px; height:420px; }
+  .frame.st  { width:300px; height:533px; }
+  .frame.og  { width:520px; height:273px; }
+  .frame.sq .ab { transform:scale(0.38889); transform-origin:0 0; }
+  .frame.st .ab { transform:scale(0.27778); transform-origin:0 0; }
+  .frame.og .ab { transform:scale(0.43333); transform-origin:0 0; }
+
+  /* ロゴ */
+  .ab-logo { position:absolute; top:56px; left:88px; right:88px; display:flex; align-items:center; justify-content:space-between; }
+  .ab.st .ab-logo { top:64px; }
+  .ab.og .ab-logo { top:44px; left:76px; right:76px; }
+  .ab-logo img { display:block; width:auto; }
+  .ab-logo .lp { height:38px; }
+  .ab-logo .lt { height:26px; opacity:.6; }
+  .ab.blue .ab-logo img { filter:brightness(0) invert(1); }
+  .ab.blue .ab-logo .lt { opacity:.75; }
+  .ab.og .ab-logo .lp { height:30px; }
+  .ab.og .ab-logo .lt { height:21px; }
+
+  /* 本文パーツ */
+  .ab-body { margin-top:auto; margin-bottom:auto; }
+  .eb { font-family:var(--en); font-size:22px; font-weight:500; letter-spacing:.24em; text-transform:uppercase; color:var(--brand); margin-bottom:30px; }
+  .ab.blue .eb { color:var(--on-brand-75); }
+  .ab.og .eb { font-size:16px; margin-bottom:20px; letter-spacing:.2em; }
+
+  .hl { font-family:var(--mincho); font-weight:700; font-size:78px; line-height:1.36; letter-spacing:.02em; color:var(--ink); margin:0; font-feature-settings:"palt"; word-break:auto-phrase; line-break:strict; }
+  .ab.blue .hl { color:var(--on-brand); }
+  .hl.sm { font-size:60px; }
+  .hl.xs { font-size:50px; }
+  .ab.og .hl { font-size:52px; line-height:1.34; }
+
+  .lead { font-family:var(--body); font-size:26px; line-height:1.95; letter-spacing:.05em; color:var(--ink-72); margin:34px 0 0; word-break:auto-phrase; }
+  .ab.blue .lead { color:var(--on-brand-88); }
+  .ab.og .lead { font-size:19px; margin-top:22px; }
+
+  .rulebar { width:96px; height:3px; background:var(--brand); margin:38px 0; }
+  .ab.blue .rulebar { background:var(--on-brand-40); }
+
+  /* 足元の情報帯 */
+  .foot { border-top:2px solid var(--brand); padding-top:26px; display:flex; align-items:flex-end; justify-content:space-between; gap:24px; }
+  .ab.blue .foot { border-top-color:var(--on-brand-40); }
+  .foot-l { font-family:var(--head); font-weight:700; font-size:24px; letter-spacing:.05em; color:var(--ink); line-height:1.75; }
+  .ab.blue .foot-l { color:var(--on-brand); }
+  .foot-l small { display:block; font-family:var(--body); font-weight:400; font-size:19px; color:var(--ink-50); margin-top:8px; letter-spacing:.04em; }
+  .ab.blue .foot-l small { color:var(--on-brand-75); }
+  .foot-r { font-family:var(--en); font-size:19px; font-weight:500; letter-spacing:.1em; color:var(--brand); text-align:right; line-height:1.7; flex:none; }
+  .ab.blue .foot-r { color:var(--on-brand-88); }
+  .ab.og .foot { padding-top:18px; }
+  .ab.og .foot-l { font-size:18px; }
+  .ab.og .foot-l small { font-size:14px; margin-top:5px; }
+  .ab.og .foot-r { font-size:14px; }
+
+  /* 数字の並び */
+  .nums { display:grid; grid-template-columns:repeat(2,1fr); gap:2px; background:var(--line); border:2px solid var(--line); margin-top:20px; }
+  .nums div { background:var(--bg); padding:44px 38px; }
+  .nums dt { font-family:var(--head); font-weight:700; font-size:19px; letter-spacing:.08em; color:var(--ink-50); margin-bottom:16px; }
+  .nums dd { margin:0; font-family:var(--en); font-weight:600; font-size:76px; color:var(--brand); line-height:1; letter-spacing:.01em; }
+  .nums dd em { font-style:normal; font-family:var(--body); font-size:26px; font-weight:400; color:var(--ink-72); margin-left:8px; letter-spacing:.03em; }
+
+  /* 7動詞 */
+  .verbs { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin-top:28px; }
+  .vb { border:2px solid var(--line); border-radius:3px; padding:26px 20px; text-align:center; }
+  .vb.on { background:var(--brand); border-color:var(--brand); }
+  .vb i { font-style:normal; display:block; font-family:var(--en); font-size:19px; font-weight:500; color:var(--brand); letter-spacing:.1em; margin-bottom:12px; }
+  .vb.on i { color:var(--on-brand-75); }
+  .vb strong { font-family:var(--mincho); font-weight:700; font-size:34px; color:var(--ink); letter-spacing:.02em; }
+  .vb.on strong { color:var(--on-brand); }
+
+  /* 箇条 */
+  .pts { list-style:none; margin:16px 0 0; padding:0; }
+  .pts li { font-family:var(--body); font-size:30px; line-height:1.85; color:var(--ink-72); padding:24px 0 24px 48px; border-bottom:2px solid var(--line); position:relative; letter-spacing:.04em; word-break:auto-phrase; }
+  .pts li:first-child { border-top:2px solid var(--line); }
+  .pts li::before { content:""; position:absolute; left:0; top:38px; width:26px; height:2px; background:var(--brand); }
+  .pts li b { color:var(--brand-deep); }
+  .ab.blue .pts li { color:var(--on-brand-88); border-color:var(--on-brand-40); }
+  .ab.blue .pts li::before { background:var(--on-brand); }
+  .ab.blue .pts li b { color:var(--on-brand); }
+
+  /* ゲスト2枠 */
+  .gsts { display:grid; grid-template-columns:1fr 1fr; gap:44px; margin-top:24px; }
+  .gst img { display:block; width:100%; aspect-ratio:1/1; object-fit:cover; border-radius:3px; }
+  .gst .rd { font-family:var(--head); font-weight:700; font-size:18px; letter-spacing:.06em; color:var(--brand-deep); margin:24px 0 10px; }
+  .gst .nm { font-family:var(--mincho); font-weight:700; font-size:46px; color:var(--ink); line-height:1.3; margin:0 0 10px; }
+  .gst .rl { font-family:var(--head); font-weight:700; font-size:19px; color:var(--brand); letter-spacing:.04em; line-height:1.6; }
+
+  /* 大きい日付（締切用） */
+  .bigdate { font-family:var(--en); font-weight:600; font-size:190px; line-height:1; color:var(--brand); letter-spacing:.01em; margin:10px 0 0; }
+  .ab.blue .bigdate { color:var(--on-brand); }
+  .bigdate span { font-size:76px; margin-left:12px; }
+
+  /* ストーリーズ用の中央寄せ */
+  .ab.st .ab-body { margin-top:0; padding-top:150px; }
+  .ab.st .hl { font-size:86px; }
+  .ab.st .hl.sm { font-size:66px; }
+  .ab.st .lead { font-size:29px; }
+  .ab.st .foot { margin-top:auto; }
+
+  /* 単体表示（スクショ用） */
+  body.only { background:#fff; }
+  body.only .page { max-width:none; padding:0; }
+  body.only .ph, body.only .howto, body.only .item-head, body.only .cap { display:none; }
+  body.only .item { display:none; margin:0; }
+  body.only .item.show { display:block; }
+  body.only .stage { gap:0; }
+  body.only .frame { width:auto !important; height:auto !important; box-shadow:none; }
+  body.only .frame .ab { transform:none !important; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header class="ph">
+    <div class="ph-eyebrow">SNS Assets ／ POOLO ゼミ</div>
+    <h1 class="ph-title">SNS告知素材　12点<br>「学びの場を、創る。」</h1>
+    <p class="ph-lead">Instagramフィード（1080×1080）、ストーリーズ（1080×1920）、X/OG（1200×630）。切り口を変えた12点に、それぞれ投稿文案を添えています。1〜8はそのままカルーセル（複数枚投稿）としても使えます。</p>
+  </header>
+
+  <div class="howto">
+    <h3>画像として書き出す方法</h3>
+    <ol>
+      <li>各素材の「単体表示」を押すと、その1点だけが実寸で開きます</li>
+      <li>その画面をスクリーンショット（macOSは <code>⌘ + Shift + 4</code> → スペースキーでウィンドウ単位）</li>
+      <li>または Chrome で <code>⌘ + Shift + P</code> →「Capture area screenshot」で正確に切り出せます</li>
+    </ol>
+    <p>＊フォントの読み込みが終わってから撮ってください（開いた直後は明朝が反映されていないことがあります）。</p>
+  </div>
+
+  <!-- ================= 01 ================= -->
+  <section class="item" id="i01">
+    <div class="item-head">
+      <span class="item-no">01</span><span class="item-ttl">メインビジュアル｜まずはこれ</span>
+      <a class="item-shot" href="?only=01">単体表示</a>
+      <span class="item-size">1080 × 1080</span>
+    </div>
+    <div class="stage">
+      <div class="frame sq"><div class="ab sq blue">
+        <div class="ab-logo">
+          <img class="lp" src="../setsumeikai/images/poolo_logo.png" alt="POOLO">
+          <img class="lt" src="../setsumeikai/images/tabippo_logo_ko.png" alt="TABIPPO">
+        </div>
+        <div class="ab-body">
+          <div class="eb">Create Your Class</div>
+          <h2 class="hl">旅で見つけた問いから、<br>学びの場を創る。</h2>
+          <p class="lead">あなたのひとつの問いを、誰かが「参加したい」と思う小さな学びの場に。3ヶ月・全7回。</p>
+        </div>
+        <div class="foot">
+          <div class="foot-l">2026.10.13 開講<small>オンライン ／ 全7回 ／ 定員15名</small></div>
+          <div class="foot-r">申込締切<br>9.27 SUN</div>
+        </div>
+      </div></div>
+      <div class="cap">
+        <h4>投稿文案</h4>
+        <pre>【募集】旅で見つけた問いから、学びの場を創る。
+
+「旅の話をすると、つい自分が一番前のめりになってしまう」
+そんな人のための3ヶ月です。
+
+受け取る側は、いつか終わります。
+でも創る側には、終わりがない。
+
+あなたのひとつの問いを、誰かが「参加したい」と思う
+小さな学びの場にする、全7回のゼミ。
+
+10月13日開講／オンライン／定員15名
+申込締切 9月27日(日)
+
+詳細はプロフィールのリンクから。</pre>
+        <p class="tags">#POOLO #あたらしい旅の学校 #TABIPPO #旅と学び #場づくり #コミュニティ #旅好きと繋がりたい #学び直し #複業 #ゼミ</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 02 ================= -->
+  <section class="item" id="i02">
+    <div class="item-head">
+      <span class="item-no">02</span><span class="item-ttl">問いかけ｜刺さる層を呼ぶ</span>
+      <a class="item-shot" href="?only=02">単体表示</a>
+      <span class="item-size">1080 × 1080</span>
+    </div>
+    <div class="stage">
+      <div class="frame sq"><div class="ab sq">
+        <div class="ab-logo">
+          <img class="lp" src="../setsumeikai/images/poolo_logo.png" alt="POOLO">
+          <img class="lt" src="../setsumeikai/images/tabippo_logo.png" alt="TABIPPO">
+        </div>
+        <div class="ab-body">
+          <div class="eb">Question</div>
+          <h2 class="hl sm">旅の話をすると、<br>つい自分が<br>いちばん前のめりに<br>なってしまう。</h2>
+          <div class="rulebar"></div>
+          <p class="lead">その話、場にしませんか。</p>
+        </div>
+        <div class="foot">
+          <div class="foot-l">学びの場を、創る。<small>POOLOゼミ ／ 全7回・3ヶ月</small></div>
+          <div class="foot-r">9.27 SUN<br>締切</div>
+        </div>
+      </div></div>
+      <div class="cap">
+        <h4>投稿文案</h4>
+        <pre>旅の話をすると、つい自分がいちばん前のめりになってしまう。
+
+もしそうなら、それはあなたの「問いの原石」かもしれません。
+
+POOLOゼミ「学びの場を、創る。」は、
+旅で見つけたひとつの問いを、
+誰かが参加したくなる小さな学びの場にする3ヶ月です。
+
+つくるのは、参加費1〜3万円・定員6〜10名の
+小さくてあたたかい場。
+壮大な起業の話ではありません。
+
+10/13開講・定員15名・9/27締切</pre>
+        <p class="tags">#POOLO #旅と学び #場づくり #問い #旅好きな人と繋がりたい #自分らしい働き方 #ライフデザイン</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 03 ================= -->
+  <section class="item" id="i03">
+    <div class="item-head">
+      <span class="item-no">03</span><span class="item-ttl">数字｜概要が一目でわかる</span>
+      <a class="item-shot" href="?only=03">単体表示</a>
+      <span class="item-size">1080 × 1080</span>
+    </div>
+    <div class="stage">
+      <div class="frame sq"><div class="ab sq off">
+        <div class="ab-logo">
+          <img class="lp" src="../setsumeikai/images/poolo_logo.png" alt="POOLO">
+          <img class="lt" src="../setsumeikai/images/tabippo_logo.png" alt="TABIPPO">
+        </div>
+        <div class="ab-body">
+          <div class="eb">Overview</div>
+          <h2 class="hl xs">3ヶ月で、<br>学びの場を持つ人になる。</h2>
+          <dl class="nums">
+            <div><dt>期間</dt><dd>3<em>ヶ月・全7回</em></dd></div>
+            <div><dt>形式</dt><dd>Online<em>隔週火 20–22時</em></dd></div>
+            <div><dt>定員</dt><dd>15<em>名・選考あり</em></dd></div>
+            <div><dt>参加費</dt><dd>77,000<em>円（税込）</em></dd></div>
+          </dl>
+        </div>
+        <div class="foot">
+          <div class="foot-l">10月13日（火）開講<small>個別メンタリング1対1つき</small></div>
+          <div class="foot-r">9.27 SUN<br>締切</div>
+        </div>
+      </div></div>
+      <div class="cap">
+        <h4>投稿文案</h4>
+        <pre>POOLOゼミ「学びの場を、創る。」概要
+
+▪️期間：3ヶ月・全7回（隔週火曜 20:00-22:00）
+▪️形式：オンライン（Zoom）
+▪️定員：15名
+▪️参加費：77,000円（税込）
+▪️開講：2026年10月13日（火）
+▪️締切：9月27日（日）
+
+全7回に加えて、メンターとの個別メンタリング（1対1）と、
+外部ゲスト2名の講義がつきます。
+
+迷っている段階での個別相談もできます。
+お気軽にどうぞ。</pre>
+        <p class="tags">#POOLO #TABIPPO #旅と学び #オンライン講座 #場づくり #学び直し</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 04 ================= -->
+  <section class="item" id="i04">
+    <div class="item-head">
+      <span class="item-no">04</span><span class="item-ttl">カリキュラム｜7つの動詞</span>
+      <a class="item-shot" href="?only=04">単体表示</a>
+      <span class="item-size">1080 × 1080</span>
+    </div>
+    <div class="stage">
+      <div class="frame sq"><div class="ab sq">
+        <div class="ab-logo">
+          <img class="lp" src="../setsumeikai/images/poolo_logo.png" alt="POOLO">
+          <img class="lt" src="../setsumeikai/images/tabippo_logo.png" alt="TABIPPO">
+        </div>
+        <div class="ab-body">
+          <div class="eb">Program</div>
+          <h2 class="hl xs">問いが、<br>ひらける企画になるまで。</h2>
+          <div class="verbs">
+            <div class="vb"><i>01</i><strong>掘る</strong></div>
+            <div class="vb"><i>02</i><strong>学びにする</strong></div>
+            <div class="vb"><i>03</i><strong>設計する</strong></div>
+            <div class="vb on"><i>04</i><strong>試作する</strong></div>
+            <div class="vb"><i>05</i><strong>磨く</strong></div>
+            <div class="vb"><i>06</i><strong>集める</strong></div>
+            <div class="vb on"><i>07</i><strong>創る</strong></div>
+            <div class="vb" style="border-style:dashed;"><i>→</i><strong>ひらく</strong></div>
+          </div>
+        </div>
+        <div class="foot">
+          <div class="foot-l">全7回・3ヶ月<small>第4回は試作、第7回は開業式</small></div>
+          <div class="foot-r">9.27 SUN<br>締切</div>
+        </div>
+      </div></div>
+      <div class="cap">
+        <h4>投稿文案</h4>
+        <pre>3ヶ月の流れを、7つの動詞で。
+
+01 掘る｜旅の棚卸しから、問いを掘る
+02 学びにする｜たった一人に向けて
+03 設計する｜学びの場を、設計する（ゲスト講義）
+04 試作する｜ミニ開催で、試してみる ←山場
+05 磨く｜1対1で、企画を磨く
+06 集める｜自分の場に、人を集める（集客講義）
+07 創る｜ひらいて、送り出す（開業式）
+
+最終回は卒業式ではなく「開業式」。
+初回開催日をその場でカレンダーに入れて送り出します。
+
+「いつかやる」で終われない設計にしました。</pre>
+        <p class="tags">#POOLO #場づくり #イベント企画 #カリキュラム #旅と学び</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 05 ================= -->
+  <section class="item" id="i05">
+    <div class="item-head">
+      <span class="item-no">05</span><span class="item-ttl">ゲスト｜いちばん拡散する</span>
+      <a class="item-shot" href="?only=05">単体表示</a>
+      <span class="item-size">1080 × 1080</span>
+    </div>
+    <div class="stage">
+      <div class="frame sq"><div class="ab sq">
+        <div class="ab-logo">
+          <img class="lp" src="../setsumeikai/images/poolo_logo.png" alt="POOLO">
+          <img class="lt" src="../setsumeikai/images/tabippo_logo.png" alt="TABIPPO">
+        </div>
+        <div class="ab-body">
+          <div class="eb">Guests</div>
+          <h2 class="hl xs" style="margin-bottom:8px;">ゲスト講師、決定。</h2>
+          <div class="gsts">
+            <div class="gst">
+              <img src="../images/guest-afromance.jpg" alt="アフロマンス">
+              <div class="rd">第3回｜学びの場を、設計する</div>
+              <p class="nm">アフロマンス</p>
+              <p class="rl">株式会社 Afro&amp;Co. CCO<br>体験をつくるクリエイター</p>
+            </div>
+            <div class="gst">
+              <img src="../images/guest-ruimaeda.jpg" alt="ルイス前田">
+              <div class="rd">第6回｜自分の場に、人を集める</div>
+              <p class="nm">ルイス前田</p>
+              <p class="rl">株式会社ノマドニア 代表取締役<br>『海外ノマド入門』著者</p>
+            </div>
+          </div>
+        </div>
+      </div></div>
+      <div class="cap">
+        <h4>投稿文案</h4>
+        <pre>POOLOゼミ、ゲスト講師が決まりました。
+
+▪️第3回｜学びの場を、設計する
+アフロマンスさん（Afro&Co. CCO）
+「脳汁銭湯」「SAKURA CHILL BAR by 佐賀」などを手がける
+体験デザインのプロ。
+
+▪️第6回｜自分の場に、人を集める
+ルイス前田さん（ノマドニア代表・TABIPPO元編集長）
+120ヶ国を旅する海外ノマド。『海外ノマド入門』著者。
+
+自己流でつまずくのは「場の設計」と「人の集め方」の2つ。
+この2回だけは、実際にやってきた方から直接受け取ります。
+
+10/13開講・定員15名・9/27締切</pre>
+        <p class="tags">#アフロマンス #ルイス前田 #POOLO #TABIPPO #場づくり #イベントプロデュース #海外ノマド</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 06 ================= -->
+  <section class="item" id="i06">
+    <div class="item-head">
+      <span class="item-no">06</span><span class="item-ttl">こんな人へ｜自分ごと化</span>
+      <a class="item-shot" href="?only=06">単体表示</a>
+      <span class="item-size">1080 × 1080</span>
+    </div>
+    <div class="stage">
+      <div class="frame sq"><div class="ab sq blue">
+        <div class="ab-logo">
+          <img class="lp" src="../setsumeikai/images/poolo_logo.png" alt="POOLO">
+          <img class="lt" src="../setsumeikai/images/tabippo_logo_ko.png" alt="TABIPPO">
+        </div>
+        <div class="ab-body">
+          <div class="eb">For You</div>
+          <h2 class="hl xs" style="margin-bottom:6px;">ひとつでも当てはまったら。</h2>
+          <ul class="pts">
+            <li>旅の話をすると、つい<b>一番前のめり</b>になる</li>
+            <li>受け取る側は十分やった。次は<b>創る側</b>に回りたい</li>
+            <li>「旅を仕事に」を、<b>小さな一歩</b>から始めたい</li>
+            <li>テーマはまだ曖昧。<b>とにかく形にしたい</b></li>
+          </ul>
+        </div>
+        <div class="foot">
+          <div class="foot-l">学びの場を、創る。<small>POOLOゼミ ／ 10.13 開講</small></div>
+          <div class="foot-r">9.27 SUN<br>締切</div>
+        </div>
+      </div></div>
+      <div class="cap">
+        <h4>投稿文案</h4>
+        <pre>ひとつでも当てはまったら、読んでみてください。
+
+□ 旅の話をすると、つい自分が一番前のめりになる
+□ 受け取る側は十分やってきた。次は創る側に回りたい
+□「旅を仕事に」を、壮大な起業ではなく小さな一歩から
+□ テーマはまだ曖昧。でも、とにかく形にしたい
+
+逆に、こんな方には向かないかもしれません。
+
+・集客ノウハウだけを受け取りたい方
+・隔週2時間＋宿題の時間が取れない方
+・自分の企画を人に見せることに抵抗がある方
+
+正直に書いています。合いそうなら、ぜひ。</pre>
+        <p class="tags">#POOLO #旅と学び #場づくり #キャリア #複業 #自分らしい働き方</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 07 ================= -->
+  <section class="item" id="i07">
+    <div class="item-head">
+      <span class="item-no">07</span><span class="item-ttl">思想｜いちばん共感される一枚</span>
+      <a class="item-shot" href="?only=07">単体表示</a>
+      <span class="item-size">1080 × 1080</span>
+    </div>
+    <div class="stage">
+      <div class="frame sq"><div class="ab sq pale">
+        <div class="ab-logo">
+          <img class="lp" src="../setsumeikai/images/poolo_logo.png" alt="POOLO">
+          <img class="lt" src="../setsumeikai/images/tabippo_logo.png" alt="TABIPPO">
+        </div>
+        <div class="ab-body">
+          <div class="eb">Why now</div>
+          <h2 class="hl">受け取る側は、<br>いつか終わる。<br>創る側には、<br>終わりがない。</h2>
+        </div>
+        <div class="foot">
+          <div class="foot-l">学びの場を、創る。<small>POOLOゼミ ／ 全7回・3ヶ月</small></div>
+          <div class="foot-r">9.27 SUN<br>締切</div>
+        </div>
+      </div></div>
+      <div class="cap">
+        <h4>投稿文案</h4>
+        <pre>受け取る側は、いつか終わる。
+創る側には、終わりがない。
+
+旅大学から数えて11年、700回のイベントを企画してきました。
+来てくれた人は延べ1万人を超えます。
+
+そこで気づいたことがあります。
+
+いちばん学んで、いちばん変わっていたのは、
+いつも「創った人」でした。
+
+参加者としてどれだけ真剣に受け取っても、
+企画した人の変化には届かない。
+
+今度は、あなたが創る番だと思っています。
+
+POOLOゼミ「学びの場を、創る。」
+10/13開講・定員15名・9/27締切</pre>
+        <p class="tags">#POOLO #TABIPPO #場づくり #コミュニティ #学び #旅と人生</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 08 ================= -->
+  <section class="item" id="i08">
+    <div class="item-head">
+      <span class="item-no">08</span><span class="item-ttl">締切リマインド｜ラスト1週間</span>
+      <a class="item-shot" href="?only=08">単体表示</a>
+      <span class="item-size">1080 × 1080</span>
+    </div>
+    <div class="stage">
+      <div class="frame sq"><div class="ab sq blue">
+        <div class="ab-logo">
+          <img class="lp" src="../setsumeikai/images/poolo_logo.png" alt="POOLO">
+          <img class="lt" src="../setsumeikai/images/tabippo_logo_ko.png" alt="TABIPPO">
+        </div>
+        <div class="ab-body">
+          <div class="eb">Deadline</div>
+          <h2 class="hl sm" style="margin-bottom:0;">申込締切</h2>
+          <p class="bigdate">9.27<span>SUN</span></p>
+          <p class="lead">定員15名に達し次第、締切前でも受付を終了します。迷っている段階での個別相談もできます。</p>
+        </div>
+        <div class="foot">
+          <div class="foot-l">学びの場を、創る。<small>POOLOゼミ ／ 10.13 開講</small></div>
+          <div class="foot-r">15 seats<br>only</div>
+        </div>
+      </div></div>
+      <div class="cap">
+        <h4>投稿文案</h4>
+        <pre>【まもなく締切】9月27日(日) 23:59
+
+POOLOゼミ「学びの場を、創る。」の申込締切が近づいています。
+定員15名に達し次第、締切前でも受付を終了します。
+
+旅で見つけたひとつの問いを、
+誰かが参加したくなる小さな学びの場にする3ヶ月。
+
+「まだテーマが決まっていない」という方も大丈夫です。
+第1回が、まさにそれを掘り当てる回なので。
+
+迷っている段階のままで構いません。
+個別相談もできますので、公式LINEからお気軽にどうぞ。</pre>
+        <p class="tags">#POOLO #締切間近 #残席わずか #旅と学び #場づくり</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 09 ================= -->
+  <section class="item" id="i09">
+    <div class="item-head">
+      <span class="item-no">09</span><span class="item-ttl">説明会告知｜9/1（火）</span>
+      <a class="item-shot" href="?only=09">単体表示</a>
+      <span class="item-size">1080 × 1080</span>
+    </div>
+    <div class="stage">
+      <div class="frame sq"><div class="ab sq">
+        <div class="ab-logo">
+          <img class="lp" src="../setsumeikai/images/poolo_logo.png" alt="POOLO">
+          <img class="lt" src="../setsumeikai/images/tabippo_logo.png" alt="TABIPPO">
+        </div>
+        <div class="ab-body">
+          <div class="eb">Info Session</div>
+          <h2 class="hl xs">オンライン説明会<br>＆ 旅の棚卸しワーク</h2>
+          <div class="rulebar"></div>
+          <p class="lead">説明を聞くだけの90分にはしません。<b>あなたが「つい語ってしまう話」</b>をひとつ見つけて帰ってもらいます。参加無料。</p>
+        </div>
+        <div class="foot">
+          <div class="foot-l">9月1日（火）20:00–21:30<small>Zoom ／ 参加無料 ／ 途中入退室OK</small></div>
+          <div class="foot-r">Free<br>90 min</div>
+        </div>
+      </div></div>
+      <div class="cap">
+        <h4>投稿文案</h4>
+        <pre>【9/1(火) 20:00】オンライン説明会をひらきます。
+
+ただの説明会にはしません。
+90分後、あなたが「つい語ってしまう話」を
+ひとつ持って帰ってもらいます。
+
+前半はゼミの中身のご説明、
+後半は第1回のワーク（旅の棚卸し）を短縮版で実際に体験。
+
+「自分にテーマなんてあるだろうか」と思っている方こそ、
+来てみてください。だいたい、あります。
+
+▪️9月1日(火) 20:00-21:30
+▪️Zoom／参加無料
+▪️申込は公式LINEから
+
+その場で決めていただく必要はまったくありません。</pre>
+        <p class="tags">#POOLO #説明会 #オンラインイベント #無料 #旅と学び #ワークショップ</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 10 ================= -->
+  <section class="item" id="i10">
+    <div class="item-head">
+      <span class="item-no">10</span><span class="item-ttl">ストーリーズ｜メイン</span>
+      <a class="item-shot" href="?only=10">単体表示</a>
+      <span class="item-size">1080 × 1920</span>
+    </div>
+    <div class="stage">
+      <div class="frame st"><div class="ab st blue">
+        <div class="ab-logo">
+          <img class="lp" src="../setsumeikai/images/poolo_logo.png" alt="POOLO">
+          <img class="lt" src="../setsumeikai/images/tabippo_logo_ko.png" alt="TABIPPO">
+        </div>
+        <div class="ab-body">
+          <div class="eb">Create Your Class</div>
+          <h2 class="hl">旅で<br>見つけた<br>問いから、<br>学びの場を<br>創る。</h2>
+          <div class="rulebar"></div>
+          <p class="lead">3ヶ月・全7回。<br>あなたのひとつの問いを、<br>小さな学びの場に。</p>
+        </div>
+        <div class="foot">
+          <div class="foot-l">10.13 開講<small>オンライン ／ 定員15名</small></div>
+          <div class="foot-r">締切<br>9.27 SUN</div>
+        </div>
+      </div></div>
+      <div class="cap">
+        <h4>使い方</h4>
+        <pre>ストーリーズに投稿し、リンクスタンプで
+募集ページ（またはFAQ）へ誘導してください。
+
+上下に余白を取ってあるので、
+上部にメンション、下部にリンクスタンプを
+重ねても文字が隠れません。
+
+「質問スタンプ」を重ねて
+「旅で、つい人に話してしまう話は？」と聞くと
+反応が集まりやすく、そのままDM導線になります。</pre>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 11 ================= -->
+  <section class="item" id="i11">
+    <div class="item-head">
+      <span class="item-no">11</span><span class="item-ttl">ストーリーズ｜説明会告知</span>
+      <a class="item-shot" href="?only=11">単体表示</a>
+      <span class="item-size">1080 × 1920</span>
+    </div>
+    <div class="stage">
+      <div class="frame st"><div class="ab st pale">
+        <div class="ab-logo">
+          <img class="lp" src="../setsumeikai/images/poolo_logo.png" alt="POOLO">
+          <img class="lt" src="../setsumeikai/images/tabippo_logo.png" alt="TABIPPO">
+        </div>
+        <div class="ab-body">
+          <div class="eb">Info Session ／ Free</div>
+          <h2 class="hl sm">9月1日（火）<br>20:00–21:30<br><br>オンライン<br>説明会</h2>
+          <div class="rulebar"></div>
+          <p class="lead">説明を聞くだけでは<br>終わりません。<br>「つい語ってしまう話」を<br>ひとつ持って帰る90分。</p>
+        </div>
+        <div class="foot">
+          <div class="foot-l">参加無料<small>Zoom ／ 申込は公式LINEから</small></div>
+          <div class="foot-r">90<br>min</div>
+        </div>
+      </div></div>
+      <div class="cap">
+        <h4>使い方</h4>
+        <pre>説明会の1週間前・3日前・前日・当日朝に
+繰り返し流してください。
+
+ストーリーズは流れるので、
+同じ素材を複数回出して問題ありません。
+むしろ1回では届きません。
+
+「カウントダウンスタンプ」を重ねると
+リマインドが自動で効きます。</pre>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 12 ================= -->
+  <section class="item" id="i12">
+    <div class="item-head">
+      <span class="item-no">12</span><span class="item-ttl">X / OG画像｜リンク共有用</span>
+      <a class="item-shot" href="?only=12">単体表示</a>
+      <span class="item-size">1200 × 630</span>
+    </div>
+    <div class="stage">
+      <div class="frame og"><div class="ab og blue">
+        <div class="ab-logo">
+          <img class="lp" src="../setsumeikai/images/poolo_logo.png" alt="POOLO">
+          <img class="lt" src="../setsumeikai/images/tabippo_logo_ko.png" alt="TABIPPO">
+        </div>
+        <div class="ab-body">
+          <div class="eb">POOLO ゼミ ／ Create Your Class</div>
+          <h2 class="hl">旅で見つけた問いから、学びの場を創る。</h2>
+          <p class="lead">3ヶ月・全7回 ／ 2026.10.13 開講 ／ オンライン ／ 定員15名</p>
+        </div>
+        <div class="foot">
+          <div class="foot-l">申込締切 9月27日（日）<small>あたらしい旅の学校 POOLO</small></div>
+          <div class="foot-r">poolo.jp</div>
+        </div>
+      </div></div>
+      <div class="cap">
+        <h4>投稿文案（X）</h4>
+        <pre>旅で見つけたひとつの問いを、
+誰かが「参加したい」と思う小さな学びの場にする3ヶ月。
+
+受け取る側は、いつか終わる。
+創る側には、終わりがない。
+
+POOLOゼミ「学びの場を、創る。」
+10/13開講・オンライン・定員15名
+締切 9/27(日)</pre>
+        <p class="tags">＊Xは画像1枚＋短文が伸びます。長文はリプライにぶら下げてください。</p>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<script>
+(function () {
+  var m = (location.search.match(/only=([0-9]+)/) || [])[1];
+  if (!m) return;
+  document.body.classList.add('only');
+  var el = document.getElementById('i' + m);
+  if (el) el.classList.add('show');
+})();
+</script>
+</body>
+</html>
