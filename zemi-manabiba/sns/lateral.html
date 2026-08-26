@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SNS素材 B案｜学びの場を、創る。（POOLOゼミ）</title>
+<meta name="description" content="POOLOゼミのSNS告知素材B案。ポスターではなく書類・写真・手紙として組んだ12点。">
+<meta name="robots" content="noindex,nofollow">
+<link rel="stylesheet" href="../../poolo-ds/tokens.css">
+<style>
+  * { box-sizing:border-box; }
+  body { margin:0; background:#EFEFEF; font-family:var(--body); color:var(--ink-soft); }
+  .page { max-width:1240px; margin:0 auto; padding:48px clamp(16px,3vw,32px) 100px; }
+
+  .ph { padding:0 0 26px; border-bottom:2px solid var(--brand); margin-bottom:30px; }
+  .ph-eyebrow { font-family:var(--en); letter-spacing:.2em; font-size:11.5px; color:var(--brand); text-transform:uppercase; }
+  .ph-title { font-family:var(--mincho); font-weight:700; font-size:clamp(25px,4vw,36px); margin:.3em 0 .35em; color:var(--ink); line-height:1.3; }
+  .ph-lead { font-family:var(--body); font-size:13.5px; line-height:2; color:var(--ink-72); margin:0; max-width:46em; letter-spacing:.04em; }
+  .ph-lead b { color:var(--brand-deep); }
+  .navlink { font-family:var(--head); font-size:12.5px; font-weight:700; color:var(--brand-deep); margin-top:16px; display:inline-block; }
+
+  .item { margin-bottom:56px; }
+  .item-head { display:flex; align-items:baseline; gap:12px; flex-wrap:wrap; margin-bottom:14px; }
+  .item-no { font-family:var(--en); font-weight:600; font-size:15px; color:var(--brand); letter-spacing:.1em; }
+  .item-ttl { font-family:var(--head); font-weight:700; font-size:15px; color:var(--ink); letter-spacing:.03em; }
+  .item-size { font-family:var(--en); font-size:11.5px; color:#888; letter-spacing:.08em; margin-left:auto; }
+  .item-shot { font-family:var(--head); font-size:11px; font-weight:700; color:var(--brand-deep); background:#fff; border:1px solid var(--brand-mid); padding:5px 11px; border-radius:2px; text-decoration:none; }
+
+  .stage { display:flex; gap:26px; align-items:flex-start; flex-wrap:wrap; }
+  .frame { background:#fff; box-shadow:0 1px 3px rgba(0,0,0,.14); flex:none; }
+  .cap { flex:1; min-width:270px; background:#fff; border:1px solid #DDD; border-radius:3px; padding:18px 20px; }
+  .cap h4 { font-family:var(--head); font-size:11px; font-weight:700; letter-spacing:.08em; color:var(--brand-deep); margin:0 0 9px; }
+  .cap h4 + h4 { margin-top:16px; }
+  .cap pre { font-family:var(--body); font-size:12.5px; line-height:2; color:var(--ink-72); white-space:pre-wrap; margin:0; letter-spacing:.03em; }
+  .cap .why { font-family:var(--body); font-size:12px; line-height:1.95; color:var(--ink-50); border-left:2px solid var(--brand-mid); padding-left:13px; margin:0; letter-spacing:.03em; }
+
+  /* ===== アートボード ===== */
+  .ab { position:relative; overflow:hidden; background:var(--bg); }
+  .ab.sq { width:1080px; height:1080px; }
+  .ab.st { width:1080px; height:1920px; }
+  .frame.sq { width:420px; height:420px; }
+  .frame.st { width:300px; height:533px; }
+  .frame.sq .ab { transform:scale(0.38889); transform-origin:0 0; }
+  .frame.st .ab { transform:scale(0.27778); transform-origin:0 0; }
+
+  .jp { word-break:auto-phrase; line-break:strict; text-wrap:pretty; }
+
+  /* ---------- 13 写真＋一行（文字は隅に小さく） ---------- */
+  .ph13 { width:100%; height:100%; object-fit:cover; display:block; }
+  .ov13 { position:absolute; left:0; right:0; bottom:0; padding:72px 76px 66px;
+          background:linear-gradient(to top, rgba(0,0,0,.72), rgba(0,0,0,0)); }
+  .ov13 p { font-family:var(--mincho); font-weight:700; font-size:62px; line-height:1.45; color:#fff; margin:0; letter-spacing:.03em; font-feature-settings:"palt"; }
+  .ov13 small { display:block; font-family:var(--head); font-size:21px; font-weight:700; color:rgba(255,255,255,.72); margin-top:28px; letter-spacing:.08em; }
+
+  /* ---------- 14 「0」 ---------- */
+  .zero { padding:110px 88px; height:100%; display:flex; flex-direction:column; }
+  .zero-q { font-family:var(--head); font-weight:700; font-size:34px; line-height:1.7; color:var(--ink-72); letter-spacing:.03em; margin:0; }
+  .zero-n { font-family:var(--en); font-weight:600; font-size:380px; line-height:.86; color:var(--brand); margin:34px 0 0; letter-spacing:-.02em; }
+  .zero-n em { font-style:normal; font-family:var(--body); font-size:80px; font-weight:400; color:var(--ink); margin-left:16px; }
+  .zero-a { font-family:var(--mincho); font-weight:700; font-size:50px; line-height:1.6; color:var(--ink); margin:auto 0 0; letter-spacing:.02em; font-feature-settings:"palt"; }
+  .zero-f { font-family:var(--head); font-size:20px; font-weight:700; color:var(--ink-50); letter-spacing:.06em; margin:34px 0 0; }
+
+  /* ---------- 15 求人票 ---------- */
+  .form { padding:80px 76px; height:100%; display:flex; flex-direction:column; }
+  .form-h { display:flex; justify-content:space-between; align-items:baseline; border-bottom:3px solid var(--ink); padding-bottom:18px; }
+  .form-h b { font-family:var(--head); font-weight:700; font-size:30px; letter-spacing:.1em; color:var(--ink); }
+  .form-h span { font-family:var(--en); font-size:19px; color:var(--ink-50); letter-spacing:.1em; }
+  .form-t { width:100%; border-collapse:collapse; margin-top:4px; }
+  .form-t th, .form-t td { border-bottom:1px solid #CCC; padding:21px 4px; text-align:left; vertical-align:top; }
+  .form-t th { font-family:var(--head); font-weight:700; font-size:21px; color:var(--ink-50); letter-spacing:.06em; width:220px; white-space:nowrap; }
+  .form-t td { font-family:var(--body); font-size:23px; line-height:1.75; color:var(--ink); letter-spacing:.03em; }
+  .form-t td b { color:var(--brand-deep); }
+  .form-n { font-family:var(--body); font-size:19px; line-height:1.8; color:var(--ink-50); margin:auto 0 0; letter-spacing:.03em; }
+
+  /* ---------- 16 記入済みワークシート ---------- */
+  .ws { padding:76px 72px; height:100%; display:flex; flex-direction:column; background:#FCFCFA; }
+  .ws-h { font-family:var(--head); font-weight:700; font-size:23px; color:var(--brand-deep); letter-spacing:.06em; border-bottom:2px solid var(--brand); padding-bottom:14px; }
+  .ws-q { font-family:var(--head); font-weight:700; font-size:25px; color:var(--ink); margin:30px 0 6px; letter-spacing:.03em; }
+  .ws-l { list-style:none; margin:0; padding:0; }
+  .ws-l li { font-family:var(--body); font-size:25px; line-height:1.6; color:#1F4E8C; border-bottom:1px solid #DDD; padding:17px 0 13px 52px; position:relative; letter-spacing:.02em; }
+  .ws-l li i { position:absolute; left:0; font-style:normal; font-family:var(--en); font-size:19px; color:#BBB; top:22px; }
+  .ws-l li.pick { color:var(--brand-deep); font-weight:700; }
+  .ws-l li.pick::after { content:"○"; position:absolute; right:4px; top:14px; font-size:32px; color:#D24; }
+  .ws-f { font-family:var(--body); font-size:20px; line-height:1.8; color:var(--ink-50); margin:auto 0 0; letter-spacing:.03em; padding-top:26px; }
+
+  /* ---------- 17 羅列 ---------- */
+  .list { padding:88px 76px; height:100%; display:flex; flex-direction:column; }
+  .list-h { font-family:var(--mincho); font-weight:700; font-size:44px; color:var(--ink); margin:0 0 30px; letter-spacing:.02em; }
+  .list-b { font-family:var(--body); font-size:27px; line-height:2.05; color:var(--ink-72); letter-spacing:.02em; margin:0; }
+  .list-b b { color:var(--brand-deep); }
+  .list-f { font-family:var(--head); font-size:21px; font-weight:700; color:var(--brand); margin:auto 0 0; letter-spacing:.06em; padding-top:30px; border-top:1px solid var(--line); }
+
+  /* ---------- 18 比較表 ---------- */
+  .cmp { padding:92px 76px; height:100%; display:flex; flex-direction:column; }
+  .cmp-h { font-family:var(--mincho); font-weight:700; font-size:46px; color:var(--ink); margin:0 0 34px; letter-spacing:.02em; }
+  .cmp-t { width:100%; border-collapse:collapse; }
+  .cmp-t th { font-family:var(--head); font-weight:700; font-size:24px; padding:0 0 16px; border-bottom:3px solid var(--ink); text-align:left; letter-spacing:.05em; }
+  .cmp-t th:last-child { color:var(--brand); border-bottom-color:var(--brand); }
+  .cmp-t td { font-family:var(--body); font-size:25px; line-height:1.6; padding:24px 22px 24px 0; border-bottom:1px solid #DDD; color:var(--ink-50); letter-spacing:.02em; width:50%; }
+  .cmp-t td:last-child { color:var(--brand-deep); font-weight:700; padding-right:0; }
+  .cmp-f { font-family:var(--head); font-size:21px; font-weight:700; color:var(--ink-50); margin:auto 0 0; letter-spacing:.05em; }
+
+  /* ---------- 19 Q&A ---------- */
+  .qa { padding:120px 84px; height:100%; display:flex; flex-direction:column; }
+  .qa-q { font-family:var(--head); font-weight:700; font-size:40px; line-height:1.65; color:var(--ink); margin:0; letter-spacing:.02em; }
+  .qa-q em { font-style:normal; font-family:var(--en); color:var(--brand); margin-right:16px; }
+  .qa-rule { height:1px; background:#CCC; margin:44px 0; }
+  .qa-a { font-family:var(--mincho); font-weight:700; font-size:56px; line-height:1.55; color:var(--brand-deep); margin:0; letter-spacing:.02em; font-feature-settings:"palt"; }
+  .qa-s { font-family:var(--body); font-size:24px; line-height:1.9; color:var(--ink-72); margin:36px 0 0; letter-spacing:.03em; }
+  .qa-f { font-family:var(--head); font-size:20px; font-weight:700; color:var(--ink-50); margin:auto 0 0; letter-spacing:.06em; }
+
+  /* ---------- 20 やらないこと ---------- */
+  .not { padding:96px 80px; height:100%; display:flex; flex-direction:column; background:var(--bg-off); }
+  .not-h { font-family:var(--mincho); font-weight:700; font-size:52px; color:var(--ink); margin:0 0 12px; letter-spacing:.02em; }
+  .not-l { list-style:none; margin:26px 0 0; padding:0; }
+  .not-l li { font-family:var(--body); font-size:29px; line-height:1.6; color:var(--ink-50); padding:22px 0 22px 64px; border-bottom:1px solid #DDD; position:relative; letter-spacing:.02em; }
+  .not-l li::before { content:"×"; position:absolute; left:8px; top:20px; font-family:var(--en); font-size:32px; color:#C33; }
+  .not-l li.yes { color:var(--brand-deep); font-weight:700; }
+  .not-l li.yes::before { content:"○"; color:var(--brand); }
+  .not-f { font-family:var(--body); font-size:21px; line-height:1.85; color:var(--ink-72); margin:auto 0 0; letter-spacing:.03em; padding-top:26px; }
+
+  /* ---------- 21 時刻表 ---------- */
+  .tt { padding:78px 76px; height:100%; display:flex; flex-direction:column; }
+  .tt-h { display:flex; justify-content:space-between; align-items:baseline; border-bottom:2px solid var(--brand); padding-bottom:16px; }
+  .tt-h b { font-family:var(--head); font-weight:700; font-size:27px; letter-spacing:.08em; color:var(--ink); }
+  .tt-h span { font-family:var(--en); font-size:19px; letter-spacing:.14em; color:var(--brand); }
+  .tt-t { width:100%; border-collapse:collapse; margin-top:2px; }
+  .tt-t td { border-bottom:1px solid #DDD; padding:19px 0; vertical-align:baseline; }
+  .tt-t .d { font-family:var(--en); font-weight:600; font-size:29px; color:var(--brand); width:170px; letter-spacing:.02em; }
+  .tt-t .v { font-family:var(--mincho); font-weight:700; font-size:30px; color:var(--ink); width:210px; }
+  .tt-t .x { font-family:var(--body); font-size:22px; color:var(--ink-50); letter-spacing:.02em; }
+  .tt-t tr.pk .v, .tt-t tr.pk .x { color:var(--brand-deep); }
+  .tt-f { font-family:var(--head); font-size:20px; font-weight:700; color:var(--ink-50); margin:auto 0 0; letter-spacing:.05em; padding-top:24px; }
+
+  /* ---------- 22 一文字 ---------- */
+  .one { height:100%; display:flex; flex-direction:column; justify-content:center; align-items:center; background:var(--brand); }
+  .one b { font-family:var(--mincho); font-weight:900; font-size:520px; line-height:1; color:#fff; letter-spacing:0; }
+  .one p { font-family:var(--head); font-weight:700; font-size:30px; color:rgba(255,255,255,.85); margin:56px 0 0; letter-spacing:.12em; }
+
+  /* ---------- 23 手紙（ストーリーズ） ---------- */
+  .lt { padding:130px 92px 110px; height:100%; display:flex; flex-direction:column; }
+  .lt-h { font-family:var(--head); font-weight:700; font-size:24px; color:var(--brand); letter-spacing:.1em; margin:0 0 44px; }
+  .lt-b { font-family:var(--body); font-size:33px; line-height:2.15; color:var(--ink-72); margin:0; letter-spacing:.045em; }
+  .lt-b b { color:var(--ink); font-weight:700; }
+  .lt-s { font-family:var(--mincho); font-weight:700; font-size:30px; color:var(--ink); margin:auto 0 0; letter-spacing:.04em; text-align:right; padding-top:44px; }
+
+  /* ---------- 24 写真＋余白（ストーリーズ） ---------- */
+  .pv { height:100%; display:flex; flex-direction:column; }
+  .pv img { width:100%; height:1140px; object-fit:cover; display:block; }
+  .pv-b { flex:1; padding:74px 84px; display:flex; flex-direction:column; }
+  .pv-b h3 { font-family:var(--mincho); font-weight:700; font-size:58px; line-height:1.45; color:var(--ink); margin:0; letter-spacing:.02em; font-feature-settings:"palt"; }
+  .pv-b p { font-family:var(--body); font-size:25px; line-height:1.85; color:var(--ink-72); margin:28px 0 0; letter-spacing:.04em; }
+  .pv-b .f { font-family:var(--head); font-weight:700; font-size:22px; color:var(--brand); margin:auto 0 0; letter-spacing:.06em; }
+
+  /* 単体表示 */
+  body.only { background:#fff; }
+  body.only .page { max-width:none; padding:0; }
+  body.only .ph, body.only .item-head, body.only .cap { display:none; }
+  body.only .item { display:none; margin:0; }
+  body.only .item.show { display:block; }
+  body.only .stage { gap:0; }
+  body.only .frame { width:auto !important; height:auto !important; box-shadow:none; }
+  body.only .frame .ab { transform:none !important; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header class="ph">
+    <div class="ph-eyebrow">SNS Assets B ／ POOLO ゼミ</div>
+    <h1 class="ph-title">SNS素材 B案　12点<br>ポスターではなく、書類として。</h1>
+    <p class="ph-lead">A案は12点すべてが同じ骨格でした。ロゴが同じ位置、中央に見出し、下に締切バー。<b>その反復こそが「作られた感」の正体</b>なので、B案では毎回レイアウトを壊しています。求人票、時刻表、記入済みのワークシート、手紙、写真、一文字だけ。<b>広告に見えないものほど、SNSでは止まります。</b></p>
+    <a class="navlink" href="./">← A案（基本の12点）はこちら</a>
+  </header>
+
+  <!-- ===== 13 ===== -->
+  <section class="item" id="i13">
+    <div class="item-head"><span class="item-no">13</span><span class="item-ttl">写真｜広告に見えない一枚</span>
+      <a class="item-shot" href="?only=13">単体表示</a><span class="item-size">1080 × 1080</span></div>
+    <div class="stage">
+      <div class="frame sq"><div class="ab sq">
+        <img class="ph13" src="../../event-30s-v01-260720/images/03_kominka_dialogue.jpg" alt="">
+        <div class="ov13">
+          <p class="jp">問いは、囲むと場になる。</p>
+          <small>POOLO ゼミ　学びの場を、創る。</small>
+        </div>
+      </div></div>
+      <div class="cap">
+        <h4>投稿文案</h4>
+        <pre>問いは、囲むと場になる。
+
+ひとりで考えていたことも、
+誰かと囲んだ瞬間に「場」に変わります。
+
+旅で見つけたあなたのひとつの問いを、
+誰かが参加したくなる小さな学びの場にする3ヶ月。
+
+10/13開講・オンライン・定員15名
+締切 9/27(日)</pre>
+        <h4>なぜこれが効くか</h4>
+        <p class="why">ロゴも締切バーも入れていません。<b>写真＋一行だけ</b>。タイムラインで「広告」と認識されずにスクロールが止まります。情報は投稿文に逃がすのがコツです。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 14 ===== -->
+  <section class="item" id="i14">
+    <div class="item-head"><span class="item-no">14</span><span class="item-ttl">「0」｜1期目であることを武器にする</span>
+      <a class="item-shot" href="?only=14">単体表示</a><span class="item-size">1080 × 1080</span></div>
+    <div class="stage">
+      <div class="frame sq"><div class="ab sq">
+        <div class="zero">
+          <p class="zero-q jp">このゼミの修了生で、<br>実際に自分の場を開いた人の数。</p>
+          <p class="zero-n">0<em>人</em></p>
+          <p class="zero-a jp">今回が1期目です。<br>あなたが、一人目になります。</p>
+          <p class="zero-f">POOLO ゼミ ／ 学びの場を、創る。 ／ 定員15名</p>
+        </div>
+      </div></div>
+      <div class="cap">
+        <h4>投稿文案</h4>
+        <pre>正直に書きます。
+
+このゼミの修了生で、実際に自分の場を開いた人は「0人」です。
+今回が1期目なので。
+
+実績で選んでいただける段階ではありません。
+その代わり、1期目だからこそ定員は15名に絞り、
+全員に1対1のメンタリングの時間を取りました。
+
+あなたが、一人目になります。
+
+10/13開講・9/27締切</pre>
+        <h4>なぜこれが効くか</h4>
+        <p class="why">弱みを隠さず数字で出す。<b>AIも広告代理店も普通はやりません。</b>「0」の大きさが目を引き、正直さが信頼になります。1期目の告知でいちばん強い一枚になるはずです。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 15 ===== -->
+  <section class="item" id="i15">
+    <div class="item-head"><span class="item-no">15</span><span class="item-ttl">求人票｜あえて事務的に</span>
+      <a class="item-shot" href="?only=15">単体表示</a><span class="item-size">1080 × 1080</span></div>
+    <div class="stage">
+      <div class="frame sq"><div class="ab sq">
+        <div class="form">
+          <div class="form-h"><b>募集要項</b><span>POOLO ZEMI 2026</span></div>
+          <table class="form-t">
+            <tr><th>職種</th><td><b>学びの場を、創る人</b></td></tr>
+            <tr><th>雇用形態</th><td>なし（自分で始めていただきます）</td></tr>
+            <tr><th>勤務地</th><td>あなたが決めた場所</td></tr>
+            <tr><th>必要な経験</th><td>旅で、つい人に話してしまう話が<b>ひとつ</b></td></tr>
+            <tr><th>不問</th><td>登壇経験・専門性・渡航国数・年齢</td></tr>
+            <tr><th>研修期間</th><td>3ヶ月・全7回（隔週火 20:00–22:00）</td></tr>
+            <tr><th>初任給</th><td>2.5万円 × 8名 ＝ <b>20万円</b>（1本目の想定）</td></tr>
+            <tr><th>研修費</th><td>77,000円（税込）※こちらが払うのではなく、いただきます</td></tr>
+          </table>
+          <p class="form-n jp">応募締切：2026年9月27日（日）／ 採用人数：15名<br>※最後の行だけ、普通の求人票と逆です。</p>
+        </div>
+      </div></div>
+      <div class="cap">
+        <h4>投稿文案</h4>
+        <pre>【募集】学びの場を、創る人
+
+職種：学びの場を、創る人
+雇用形態：なし（自分で始めていただきます）
+勤務地：あなたが決めた場所
+必要な経験：旅で、つい人に話してしまう話がひとつ
+不問：登壇経験・専門性・渡航国数・年齢
+研修期間：3ヶ月・全7回
+初任給：2.5万円 × 8名 ＝ 20万円（1本目の想定）
+研修費：77,000円 ※こちらが払うのではなく、いただきます
+
+最後の行だけ、普通の求人票と逆です。
+それでもよければ、9月27日まで。</pre>
+        <h4>なぜこれが効くか</h4>
+        <p class="why">見慣れた書式に中身を入れ替える手法。<b>読み進めるうちに違和感で笑える</b>のが狙いです。最後の「逆です」の一行が効きます。装飾ゼロなので広告に見えません。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 16 ===== -->
+  <section class="item" id="i16">
+    <div class="item-head"><span class="item-no">16</span><span class="item-ttl">記入済みワークシート｜中身を見せる</span>
+      <a class="item-shot" href="?only=16">単体表示</a><span class="item-size">1080 × 1080</span></div>
+    <div class="stage">
+      <div class="frame sq"><div class="ab sq">
+        <div class="ws">
+          <div class="ws-h">第1回ワークシート ／ ゼミの種シート</div>
+          <p class="ws-q jp">① 旅で「つい人に話した／心が動いた」瞬間を10個</p>
+          <ul class="ws-l">
+            <li><i>01</i>長距離バスで隣の旅人に、気づけば3時間も本音を話していた</li>
+            <li><i>02</i>助言をやめて聴いたら、相手のほうが勝手に動き出した</li>
+            <li><i>03</i>言葉が通じない旅先で、問いと沈黙だけで通じ合えた</li>
+            <li class="pick"><i>04</i>問いには、人を動かす力がある</li>
+            <li><i>05</i>…（あと6つ）</li>
+          </ul>
+          <p class="ws-f jp">② この中で「黙っていられない」ものを1つ ◯<br>③ 仮テーマ：<b style="color:var(--brand-deep)">旅の対話から学ぶ、“聴く”と“訊く”のコーチング</b></p>
+        </div>
+      </div></div>
+      <div class="cap">
+        <h4>投稿文案</h4>
+        <pre>ゼミの第1回で、いきなりこれを書いてもらいます。
+
+「旅で、つい人に話してしまった瞬間を10個」
+
+うまくまとめなくて大丈夫です。
+むしろ「人に言うと引かれるかも」くらいのほうが、
+あなたの問いの原石です。
+
+10個書いて、そこから1つだけ○をつける。
+その1行が、3ヶ月後には
+誰かが申し込む場になっています。
+
+さて、あなたなら何を書きますか。</pre>
+        <h4>なぜこれが効くか</h4>
+        <p class="why">告知ではなく<b>「中身の実物」</b>を見せる。読んだ人が頭の中で自分の10個を数え始めます。最後の問いかけがコメント・DMを呼びます。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 17 ===== -->
+  <section class="item" id="i17">
+    <div class="item-head"><span class="item-no">17</span><span class="item-ttl">羅列｜文字で埋める</span>
+      <a class="item-shot" href="?only=17">単体表示</a><span class="item-size">1080 × 1080</span></div>
+    <div class="stage">
+      <div class="frame sq"><div class="ab sq">
+        <div class="list">
+          <h3 class="list-h jp">こんなゼミが、生まれうる。</h3>
+          <p class="list-b jp">島が問う／北海道、食の裏側／40歳の地図／ひらく問い／夜行バスの哲学／ひとり旅ができない人のための／市場で買い物する力／泊まれる本屋をつくる／地元をもう一度旅する／language exchange／巡礼のあるき方／台所から見る国／うまくいかなかった旅の話／親と行く旅／野宿の作法／бабушкaの台所／島の学校が消える前に／移住しなかった人の話／お守りを集める／海のない県で育つということ／<b>そして、あなたの1本。</b></p>
+          <p class="list-f">テーマは自由。入口は、あなたの旅の原体験。</p>
+        </div>
+      </div></div>
+      <div class="cap">
+        <h4>投稿文案</h4>
+        <pre>「どんなゼミが作れるんですか？」とよく聞かれます。
+
+島が問う／北海道、食の裏側／40歳の地図／
+ひらく問い／夜行バスの哲学／
+ひとり旅ができない人のための／市場で買い物する力／
+泊まれる本屋をつくる／地元をもう一度旅する／
+巡礼のあるき方／台所から見る国／
+うまくいかなかった旅の話／親と行く旅／
+海のない県で育つということ……
+
+ぜんぶ架空です。でも、どれも作れます。
+ジャンルが違っても、入口はみんな「旅で見つけた問い」。
+
+あなたなら、何をつくりますか。</pre>
+        <h4>なぜこれが効くか</h4>
+        <p class="why">情報量で殴る一枚。<b>余白の多い綺麗なデザインの中で、文字だけ詰まった画像は逆に目立ちます。</b>読んだ人が「自分ならこれ」と考え始めるのが本当の狙いです。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 18 ===== -->
+  <section class="item" id="i18">
+    <div class="item-head"><span class="item-no">18</span><span class="item-ttl">比較表｜立場を選ばせる</span>
+      <a class="item-shot" href="?only=18">単体表示</a><span class="item-size">1080 × 1080</span></div>
+    <div class="stage">
+      <div class="frame sq"><div class="ab sq">
+        <div class="cmp">
+          <h3 class="cmp-h jp">受け取る側と、創る側。</h3>
+          <table class="cmp-t">
+            <tr><th>受け取る側</th><th>創る側</th></tr>
+            <tr><td>申し込む</td><td>迎える</td></tr>
+            <tr><td>いい話だったと帰る</td><td>終わったあとも考え続ける</td></tr>
+            <tr><td>次の講座を探す</td><td>次の回を設計する</td></tr>
+            <tr><td>仲間ができる</td><td>仲間が集まってくる</td></tr>
+            <tr><td>いつか終わる</td><td>終わりがない</td></tr>
+          </table>
+          <p class="cmp-f">POOLO ゼミ ／ 学びの場を、創る。 ／ 9.27 締切</p>
+        </div>
+      </div></div>
+      <div class="cap">
+        <h4>投稿文案</h4>
+        <pre>受け取る側と、創る側。
+
+申し込む　／　迎える
+いい話だったと帰る　／　終わったあとも考え続ける
+次の講座を探す　／　次の回を設計する
+仲間ができる　／　仲間が集まってくる
+いつか終わる　／　終わりがない
+
+どちらが偉いという話ではありません。
+ただ、11年間イベントをやってきて気づいたのは、
+いちばん学んで、いちばん変わっていたのは、
+いつも「創った人」だったということです。
+
+今度は、あなたが創る番かもしれません。</pre>
+        <h4>なぜこれが効くか</h4>
+        <p class="why">読み手が自分を左列に見つけて、右列に移りたくなる構造。<b>表組みは「主張」ではなく「事実」に見える</b>ので、押しつけがましさが出ません。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 19 ===== -->
+  <section class="item" id="i19">
+    <div class="item-head"><span class="item-no">19</span><span class="item-ttl">Q&amp;A｜答えにくい質問を出す</span>
+      <a class="item-shot" href="?only=19">単体表示</a><span class="item-size">1080 × 1080</span></div>
+    <div class="stage">
+      <div class="frame sq"><div class="ab sq">
+        <div class="qa">
+          <p class="qa-q jp"><em>Q.</em>結局これは、<br>POOLOの囲い込みでは<br>ないですか。</p>
+          <div class="qa-rule"></div>
+          <p class="qa-a jp">目指しているのは、<br>逆です。</p>
+          <p class="qa-s jp">受け取る側を続けていると、講座から講座へ渡り歩くことになる。それを終わらせて、自分で場を持てる側に移ってもらうためのゼミです。だから第6回では、POOLOの外にどう届けるかを扱います。</p>
+          <p class="qa-f">よくある質問より ／ 全50問を公開しています</p>
+        </div>
+      </div></div>
+      <div class="cap">
+        <h4>投稿文案</h4>
+        <pre>「結局これは、POOLOの囲い込みでは？」
+
+説明会で実際にいただいた質問です。
+いい質問だと思うので、そのまま載せます。
+
+答えは「目指しているのは逆です」。
+
+受け取る側を続けていると、
+講座から講座へ渡り歩くことになる。
+それを終わらせて、自分で場を持てる側に
+移っていただくためのゼミです。
+
+だから第6回では、POOLOの外に
+どう届けるかを扱います。
+
+他にも答えにくい質問を含めて、
+50問すべて公開しました。プロフィールのリンクから。</pre>
+        <h4>なぜこれが効くか</h4>
+        <p class="why">自分に不利な質問を自分から出す。<b>宣伝の顔をしていないので読まれます</b>し、FAQページへの導線にもなります。同じ型でQ.「実績はあるのか」「高くないか」も作れます。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 20 ===== -->
+  <section class="item" id="i20">
+    <div class="item-head"><span class="item-no">20</span><span class="item-ttl">やらないこと｜絞ることで信頼を得る</span>
+      <a class="item-shot" href="?only=20">単体表示</a><span class="item-size">1080 × 1080</span></div>
+    <div class="stage">
+      <div class="frame sq"><div class="ab sq">
+        <div class="not">
+          <h3 class="not-h jp">このゼミで、<br>やらないこと。</h3>
+          <ul class="not-l">
+            <li>集客ノウハウだけを教える</li>
+            <li>短期間で大きく稼ぐ方法を扱う</li>
+            <li>数百人規模のイベントを目指す</li>
+            <li>うまく話す技術を鍛える</li>
+            <li class="yes">1〜3万円の、小さくてあたたかい場を創る</li>
+          </ul>
+          <p class="not-f jp">向かない方には、正直に向かないと書いています。<br>合いそうなら、9月27日まで。</p>
+        </div>
+      </div></div>
+      <div class="cap">
+        <h4>投稿文案</h4>
+        <pre>このゼミで「やらないこと」を先に書きます。
+
+× 集客ノウハウだけを教える
+× 短期間で大きく稼ぐ方法を扱う
+× 数百人規模のイベントを目指す
+× うまく話す技術を鍛える
+
+○ 参加費1〜3万円・定員6〜10名の、
+　 小さくてあたたかい場を創る
+
+壮大な起業の話でも、副業で稼ぐ話でもありません。
+人生を賭けなくていいし、会社を辞めなくていい。
+ただ、自分の問いを囲む場をひとつ持つ。
+
+それだけです。合いそうなら、9/27まで。</pre>
+        <h4>なぜこれが効くか</h4>
+        <p class="why">否定から入る告知はほとんどありません。<b>絞ることが、いちばん強い推薦になります。</b>合わない人が離れることで、残った人の熱量が上がります。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 21 ===== -->
+  <section class="item" id="i21">
+    <div class="item-head"><span class="item-no">21</span><span class="item-ttl">時刻表｜日程をダイヤに見立てる</span>
+      <a class="item-shot" href="?only=21">単体表示</a><span class="item-size">1080 × 1080</span></div>
+    <div class="stage">
+      <div class="frame sq"><div class="ab sq">
+        <div class="tt">
+          <div class="tt-h"><b>2026年 秋 ダイヤ</b><span>ZEMI LINE ／ 全7駅</span></div>
+          <table class="tt-t">
+            <tr><td class="d">10.13</td><td class="v">掘る</td><td class="x">旅の棚卸しから、問いを掘る</td></tr>
+            <tr><td class="d">10.27</td><td class="v">学びにする</td><td class="x">たった一人に向けて</td></tr>
+            <tr><td class="d">11.10</td><td class="v">設計する</td><td class="x">ゲスト・アフロマンス</td></tr>
+            <tr class="pk"><td class="d">11.24</td><td class="v">試作する</td><td class="x">ミニ開催（山場）</td></tr>
+            <tr><td class="d">11.25–12.06</td><td class="v">磨く</td><td class="x">1対1・別日程</td></tr>
+            <tr><td class="d">12.08</td><td class="v">集める</td><td class="x">ゲスト・ルイス前田</td></tr>
+            <tr class="pk"><td class="d">12.22</td><td class="v">創る</td><td class="x">ひらいて、送り出す（開業式）</td></tr>
+          </table>
+          <p class="tt-f">乗車券の販売は 9月27日（日）まで ／ 座席数 15</p>
+        </div>
+      </div></div>
+      <div class="cap">
+        <h4>投稿文案</h4>
+        <pre>3ヶ月の行程表です。
+
+10.13　掘る｜旅の棚卸しから、問いを掘る
+10.27　学びにする｜たった一人に向けて
+11.10　設計する｜ゲスト・アフロマンスさん
+11.24　試作する｜ミニ開催（山場）
+11.25-12.06　磨く｜1対1・別日程
+12.08　集める｜ゲスト・ルイス前田さん
+12.22　創る｜ひらいて、送り出す（開業式）
+
+終点は「卒業式」ではなく「開業式」。
+初回開催日をその場でカレンダーに入れて送り出します。
+
+乗車券の販売は9月27日まで。座席数15。</pre>
+        <h4>なぜこれが効くか</h4>
+        <p class="why">旅のブランドと時刻表の相性が良く、<b>「乗る」比喩が締切の切迫感を自然に運びます。</b>スケジュール告知は退屈になりがちですが、これなら保存されます。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 22 ===== -->
+  <section class="item" id="i22">
+    <div class="item-head"><span class="item-no">22</span><span class="item-ttl">一文字｜連投の起点に</span>
+      <a class="item-shot" href="?only=22">単体表示</a><span class="item-size">1080 × 1080</span></div>
+    <div class="stage">
+      <div class="frame sq"><div class="ab sq">
+        <div class="one"><b>問</b><p>TOI ／ POOLO ZEMI</p></div>
+      </div></div>
+      <div class="cap">
+        <h4>使い方</h4>
+        <pre>単体では使いません。カルーセルの1枚目、
+またはストーリーズの連投の起点にしてください。
+
+「問」→「場」→「創」と3枚続けて、
+最後に告知を置くと、フィード上で
+1シリーズとして認識されます。
+
+文字を差し替えれば何枚でも作れます。</pre>
+        <h4>なぜこれが効くか</h4>
+        <p class="why">情報がゼロなので<b>「何これ」で止まります。</b>明朝の一文字はPOOLOのブランドとも合います。ただしこれ単発では意味が伝わらないので、必ず連投の一部として。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 23 ===== -->
+  <section class="item" id="i23">
+    <div class="item-head"><span class="item-no">23</span><span class="item-ttl">手紙｜ストーリーズで読ませる</span>
+      <a class="item-shot" href="?only=23">単体表示</a><span class="item-size">1080 × 1920</span></div>
+    <div class="stage">
+      <div class="frame st"><div class="ab st">
+        <div class="lt">
+          <p class="lt-h">これを読んでいるあなたへ</p>
+          <p class="lt-b jp">旅大学から数えて11年、700回のイベントをやってきました。来てくれた人は、延べ1万人を超えます。<br><br>そこで、気づいてしまったことがあります。<br><br><b>いちばん学んで、いちばん変わっていたのは、いつも「創った人」でした。</b><br><br>参加者としてどれだけ真剣に受け取っても、企画した人の変化には届かない。11年間、ずっとそうでした。<br><br>今度は、あなたの番だと思っています。</p>
+          <p class="lt-s">恩田倫孝　POOLO学長</p>
+        </div>
+      </div></div>
+      <div class="cap">
+        <h4>使い方</h4>
+        <pre>ストーリーズで、恩田さん個人のアカウントから
+出すのがいちばん効きます。
+
+公式アカウントより、個人の顔から出た言葉のほうが
+「一人に向けて書かれたもの」として読まれます。
+
+長文ですが、ストーリーズは
+タップを止めてでも読む人がいます。
+読み切った人は、かなり濃い見込み客です。</pre>
+        <h4>なぜこれが効くか</h4>
+        <p class="why">デザインをほぼ捨てて、<b>文章だけで立たせています。</b>装飾がないぶん「本人が書いた」感が出る。広告の顔をした画像より、こういう一枚のほうが最後まで読まれます。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 24 ===== -->
+  <section class="item" id="i24">
+    <div class="item-head"><span class="item-no">24</span><span class="item-ttl">写真＋余白｜ストーリーズ標準形</span>
+      <a class="item-shot" href="?only=24">単体表示</a><span class="item-size">1080 × 1920</span></div>
+    <div class="stage">
+      <div class="frame st"><div class="ab st">
+        <div class="pv">
+          <img src="../../event-30s-v01-260720/images/11_laughing_group.jpg" alt="">
+          <div class="pv-b">
+            <h3 class="jp">その話、<br>場にしませんか。</h3>
+            <p class="jp">旅で見つけたひとつの問いを、誰かが「参加したい」と思う小さな学びの場に。3ヶ月・全7回。</p>
+            <p class="f">10.13 開講 ／ 定員15名 ／ 9.27 締切</p>
+          </div>
+        </div>
+      </div></div>
+      <div class="cap">
+        <h4>使い方</h4>
+        <pre>下半分が文字なので、
+リンクスタンプを重ねる余白があります。
+
+上半分の写真の上には何も置いていないので、
+メンションやGIFを重ねても壊れません。
+
+繰り返し流す前提の「標準形」として使ってください。</pre>
+        <h4>なぜこれが効くか</h4>
+        <p class="why">写真に文字を乗せず、<b>上下できっぱり分ける</b>。乗せると途端に「バナー」になりますが、分けると雑誌の扉ページに見えます。</p>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<script>
+(function () {
+  var m = (location.search.match(/only=([0-9]+)/) || [])[1];
+  if (!m) return;
+  document.body.classList.add('only');
+  var el = document.getElementById('i' + m);
+  if (el) el.classList.add('show');
+})();
+</script>
+</body>
+</html>
