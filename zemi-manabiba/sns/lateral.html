@@ -9,6 +9,12 @@
 <link rel="stylesheet" href="../../poolo-ds/tokens.css">
 <style>
   * { box-sizing:border-box; }
+  @font-face {
+    font-family: 'POOLO Zemi Toi';
+    src: url('../font/PooloZemiToi-Display.woff2') format('woff2'),
+         url('../font/PooloZemiToi-Display.otf') format('opentype');
+    font-display: swap;
+  }
   body { margin:0; background:#EFEFEF; font-family:var(--body); color:var(--ink-soft); }
   .page { max-width:1240px; margin:0 auto; padding:48px clamp(16px,3vw,32px) 100px; }
 
@@ -55,7 +61,7 @@
   /* ---------- 14 「0」 ---------- */
   .zero { padding:110px 88px; height:100%; display:flex; flex-direction:column; }
   .zero-q { font-family:var(--head); font-weight:700; font-size:34px; line-height:1.7; color:var(--ink-72); letter-spacing:.03em; margin:0; }
-  .zero-n { font-family:var(--en); font-weight:600; font-size:380px; line-height:.86; color:var(--brand); margin:34px 0 0; letter-spacing:-.02em; }
+  .zero-n { font-family:'POOLO Zemi Toi',var(--en); font-weight:600; font-size:380px; line-height:.86; color:var(--brand); margin:34px 0 0; letter-spacing:-.02em; }
   .zero-n em { font-style:normal; font-family:var(--body); font-size:80px; font-weight:400; color:var(--ink); margin-left:16px; }
   .zero-a { font-family:var(--mincho); font-weight:700; font-size:50px; line-height:1.6; color:var(--ink); margin:auto 0 0; letter-spacing:.02em; font-feature-settings:"palt"; }
   .zero-f { font-family:var(--head); font-size:20px; font-weight:700; color:var(--ink-50); letter-spacing:.06em; margin:34px 0 0; }
@@ -126,7 +132,7 @@
   .tt-h span { font-family:var(--en); font-size:19px; letter-spacing:.14em; color:var(--brand); }
   .tt-t { width:100%; border-collapse:collapse; margin-top:2px; }
   .tt-t td { border-bottom:1px solid #DDD; padding:19px 0; vertical-align:baseline; }
-  .tt-t .d { font-family:var(--en); font-weight:600; font-size:29px; color:var(--brand); width:170px; letter-spacing:.02em; }
+  .tt-t .d { font-family:'POOLO Zemi Toi',var(--en); font-weight:600; font-size:29px; color:var(--brand); width:170px; letter-spacing:.02em; }
   .tt-t .v { font-family:var(--mincho); font-weight:700; font-size:30px; color:var(--ink); width:210px; }
   .tt-t .x { font-family:var(--body); font-size:22px; color:var(--ink-50); letter-spacing:.02em; }
   .tt-t tr.pk .v, .tt-t tr.pk .x { color:var(--brand-deep); }

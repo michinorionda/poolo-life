@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>POOLO Zemi Toi ／ 数字書体の見本帳</title>
+<meta name="description" content="POOLOゼミのために設計したディスプレイ数字書体「POOLO Zemi Toi」の見本帳。閉じた形の天に開口をもつ、問いが閉じないことを字形の規則にした書体。">
+<meta name="robots" content="noindex,nofollow">
+<link rel="stylesheet" href="../../poolo-ds/tokens.css">
+<style>
+  @font-face {
+    font-family: 'POOLO Zemi Toi';
+    src: url('PooloZemiToi-Display.woff2') format('woff2'),
+         url('PooloZemiToi-Display.otf') format('opentype');
+    font-weight: 400;
+    font-display: swap;
+  }
+  :root { --toi: 'POOLO Zemi Toi', var(--en); }
+
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink-soft); font-family:var(--body); }
+  .wrap { max-width:1080px; margin:0 auto; padding:0 clamp(18px,5vw,44px) 110px; }
+
+  .dh { padding:clamp(48px,8vh,86px) 0 clamp(24px,3.4vh,34px); border-bottom:2px solid var(--brand); }
+  .dh-eyebrow { font-family:var(--en); letter-spacing:.2em; font-size:11.5px; color:var(--brand); text-transform:uppercase; }
+  .dh-title { font-family:var(--mincho); font-weight:700; font-size:clamp(28px,5vw,46px); letter-spacing:.02em; margin:.3em 0 .3em; line-height:1.28; color:var(--ink); }
+  .dh-name { font-family:var(--toi); font-size:clamp(40px,7vw,74px); color:var(--brand); letter-spacing:.04em; line-height:1; margin:24px 0 0; }
+  .dh-lead { font-family:var(--body); font-size:14.5px; line-height:2.1; color:var(--ink-72); letter-spacing:.04em; margin:22px 0 0; max-width:34em; }
+
+  .sec { margin-top:clamp(52px,8vh,82px); }
+  .sec-bar { display:flex; align-items:baseline; gap:13px; border-bottom:1px solid var(--brand); padding-bottom:9px; margin-bottom:8px; flex-wrap:wrap; }
+  .sec-en { font-family:var(--en); font-size:11px; font-weight:500; letter-spacing:.2em; color:var(--brand); text-transform:uppercase; }
+  .sec-ttl { font-family:var(--mincho); font-weight:700; font-size:clamp(18px,2.4vw,24px); color:var(--ink); letter-spacing:.02em; }
+  .sec-note { font-family:var(--body); font-size:13px; line-height:2; color:var(--ink-72); margin:14px 0 0; letter-spacing:.035em; max-width:38em; }
+  .sec-note b { color:var(--brand-deep); }
+
+  /* 全字 */
+  .chart { display:grid; grid-template-columns:repeat(auto-fill,minmax(112px,1fr)); gap:1px; background:var(--line); border:1px solid var(--line); margin-top:24px; }
+  .ch { background:var(--bg); aspect-ratio:1/1; display:flex; flex-direction:column; align-items:center; justify-content:center; position:relative; }
+  .ch b { font-family:var(--toi); font-size:58px; color:var(--ink); line-height:1; font-weight:400; }
+  .ch i { position:absolute; bottom:9px; font-style:normal; font-family:var(--en); font-size:9.5px; letter-spacing:.1em; color:var(--ink-40); }
+
+  /* 巨大表示 */
+  .huge { font-family:var(--toi); font-size:clamp(90px,19vw,230px); color:var(--brand); line-height:1.08; letter-spacing:.02em; margin:28px 0 0; word-break:break-all; }
+  .huge.ink { color:var(--ink); }
+
+  /* 使用例 */
+  .uses { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:1px; background:var(--line); border:1px solid var(--line); margin-top:26px; }
+  .use { background:var(--bg); padding:30px 26px 26px; }
+  .use dt { font-family:var(--head); font-weight:700; font-size:10.5px; letter-spacing:.1em; color:var(--ink-50); margin-bottom:16px; }
+  .use dd { margin:0; font-family:var(--toi); font-size:clamp(38px,4.6vw,58px); color:var(--brand); line-height:1.15; letter-spacing:.02em; }
+  .use dd small { display:block; font-family:var(--body); font-size:12.5px; color:var(--ink-50); margin-top:14px; letter-spacing:.05em; line-height:1.8; }
+
+  /* 規則 */
+  .rules { display:grid; gap:1px; background:var(--line); border:1px solid var(--line); margin-top:24px; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); }
+  .rule { background:var(--bg); padding:28px 24px; }
+  .rule i { font-style:normal; font-family:var(--en); font-size:11px; font-weight:500; letter-spacing:.18em; color:var(--brand); display:block; margin-bottom:13px; }
+  .rule b { display:block; font-family:var(--mincho); font-weight:700; font-size:19px; color:var(--ink); line-height:1.5; margin-bottom:10px; letter-spacing:.02em; }
+  .rule p { font-family:var(--body); font-size:12.5px; line-height:1.95; color:var(--ink-72); margin:0; letter-spacing:.03em; }
+
+  /* 比較 */
+  .cmp { display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--line); border:1px solid var(--line); margin-top:24px; }
+  .cmp div { background:var(--bg); padding:28px 26px 24px; }
+  .cmp dt { font-family:var(--head); font-weight:700; font-size:10.5px; letter-spacing:.1em; color:var(--ink-50); margin-bottom:14px; }
+  .cmp .a { font-family:var(--en); font-size:clamp(44px,6vw,76px); color:var(--ink-50); line-height:1; font-weight:500; }
+  .cmp .b { font-family:var(--toi); font-size:clamp(44px,6vw,76px); color:var(--brand); line-height:1; }
+
+  /* 導入方法 */
+  .how { border:1px solid var(--line); border-radius:var(--radius); padding:26px 26px 22px; margin-top:24px; background:var(--bg-off); }
+  .how h3 { font-family:var(--head); font-size:11.5px; font-weight:700; letter-spacing:.08em; color:var(--brand-deep); margin:0 0 12px; }
+  .how h3 + pre { margin-top:0; }
+  .how pre { font-family:ui-monospace,Menlo,monospace; font-size:12px; line-height:1.9; background:var(--bg); border:1px solid var(--line); border-radius:2px; padding:15px 16px; overflow-x:auto; margin:0 0 18px; color:var(--ink-72); }
+  .how p { font-family:var(--body); font-size:12.5px; line-height:1.95; color:var(--ink-72); margin:0 0 8px; letter-spacing:.03em; }
+  .how p:last-child { margin-bottom:0; }
+  .how b { color:var(--brand-deep); }
+
+  .dl { display:flex; gap:11px; flex-wrap:wrap; margin-top:20px; }
+  .dl a { font-family:var(--head); font-weight:700; font-size:12.5px; letter-spacing:.04em; color:var(--brand-deep); border:1px solid var(--brand); padding:11px 20px; border-radius:var(--radius); text-decoration:none; }
+  .dl a:hover { background:var(--brand); color:var(--on-brand); }
+
+  .jp { word-break:auto-phrase; line-break:strict; text-wrap:pretty; }
+  @media (max-width:560px) { .cmp { grid-template-columns:1fr; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="dh">
+    <div class="dh-eyebrow">Typeface ／ POOLO ゼミ</div>
+    <h1 class="dh-title jp">問いは、閉じない。<br>という規則でつくった数字。</h1>
+    <p class="dh-name">0123456789</p>
+    <p class="dh-lead jp">POOLOゼミ「学びの場を、創る。」のためのディスプレイ数字書体です。日付・価格・定員・回数——告知でいちばん多く出る数字を、既製の欧文書体ではなく自前の字で持つために設計しました。</p>
+  </header>
+
+  <!-- 設計規則 -->
+  <section class="sec">
+    <div class="sec-bar"><span class="sec-en">Rules</span><h2 class="sec-ttl jp">4つの設計規則</h2></div>
+    <p class="sec-note jp">飾りから入らず、<b>ゼミの思想を字形の規則に翻訳する</b>ところから始めました。読めなくなる手前で止めています。</p>
+    <div class="rules">
+      <div class="rule">
+        <i>01</i><b class="jp">閉じた形の天に、開口をつくる</b>
+        <p class="jp">0・6・8・9の環は、右上でわずかに開いています。閉じきらないことを、書体そのものの約束にしました。</p>
+      </div>
+      <div class="rule">
+        <i>02</i><b class="jp">縦は太く、横は細く</b>
+        <p class="jp">明朝の骨格を数字に持ち込んでいます。POOLOの見出し（Zen Old Mincho）と並べたときに、太さの呼吸が揃います。</p>
+      </div>
+      <div class="rule">
+        <i>03</i><b class="jp">終端は、進行方向へ斜めに切る</b>
+        <p class="jp">1の足、2・5・7の横画。水平に切らず、わずかに倒しています。止まっていない感じを出すためです。</p>
+      </div>
+      <div class="rule">
+        <i>04</i><b class="jp">数字はすべて等幅</b>
+        <p class="jp">日程表・価格・定員を縦に積んだとき、桁が揃います。実務で使う書体なので、ここは譲れません。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 全字 -->
+  <section class="sec">
+    <div class="sec-bar"><span class="sec-en">Glyphs</span><h2 class="sec-ttl jp">収録している字</h2></div>
+    <p class="sec-note jp">数字10字と、告知で必要になる記号8字。<b>和文と欧文は既存のPOOLOの書体をそのまま使い</b>、数字だけを差し替える設計です。</p>
+    <div class="chart">
+      <div class="ch"><b>0</b><i>zero</i></div>
+      <div class="ch"><b>1</b><i>one</i></div>
+      <div class="ch"><b>2</b><i>two</i></div>
+      <div class="ch"><b>3</b><i>three</i></div>
+      <div class="ch"><b>4</b><i>four</i></div>
+      <div class="ch"><b>5</b><i>five</i></div>
+      <div class="ch"><b>6</b><i>six</i></div>
+      <div class="ch"><b>7</b><i>seven</i></div>
+      <div class="ch"><b>8</b><i>eight</i></div>
+      <div class="ch"><b>9</b><i>nine</i></div>
+      <div class="ch"><b>.</b><i>period</i></div>
+      <div class="ch"><b>,</b><i>comma</i></div>
+      <div class="ch"><b>:</b><i>colon</i></div>
+      <div class="ch"><b>/</b><i>slash</i></div>
+      <div class="ch"><b>-</b><i>hyphen</i></div>
+      <div class="ch"><b>¥</b><i>yen</i></div>
+      <div class="ch"><b>%</b><i>percent</i></div>
+    </div>
+  </section>
+
+  <!-- 大きく -->
+  <section class="sec">
+    <div class="sec-bar"><span class="sec-en">Display</span><h2 class="sec-ttl jp">大きく使う</h2></div>
+    <p class="sec-note jp">この書体は<b>本文用ではありません。</b>24px以下では開口が潰れます。締切日や価格を大きく置くときにだけ使ってください。</p>
+    <p class="huge">9.27</p>
+    <p class="huge ink">77,000</p>
+  </section>
+
+  <!-- 使用例 -->
+  <section class="sec">
+    <div class="sec-bar"><span class="sec-en">In use</span><h2 class="sec-ttl jp">実際の使いどころ</h2></div>
+    <dl class="uses">
+      <div class="use"><dt>申込締切</dt><dd>9.27<small>日付は中黒ではなくピリオドで</small></dd></div>
+      <div class="use"><dt>参加費</dt><dd>¥77,000<small>3桁区切りのカンマも収録</small></dd></div>
+      <div class="use"><dt>定員</dt><dd>15<small>2桁の並びで開口が効きます</small></dd></div>
+      <div class="use"><dt>回数・期間</dt><dd>7/3<small>全7回・3ヶ月</small></dd></div>
+      <div class="use"><dt>開講日</dt><dd>2026.10.13<small>桁が多いほど等幅が効きます</small></dd></div>
+      <div class="use"><dt>時間</dt><dd>20:00-22:00<small>コロンとハイフンも同じ骨格で</small></dd></div>
+    </dl>
+  </section>
+
+  <!-- 比較 -->
+  <section class="sec">
+    <div class="sec-bar"><span class="sec-en">Before / After</span><h2 class="sec-ttl jp">既製の書体と並べる</h2></div>
+    <p class="sec-note jp">左が現在使っているJost、右が今回の書体です。<b>同じ情報でも、自前の字を持つと固有名詞になります。</b></p>
+    <div class="cmp">
+      <div><dt>Jost（現行）</dt><p class="a">9.27</p></div>
+      <div><dt>POOLO Zemi Toi</dt><p class="b">9.27</p></div>
+    </div>
+  </section>
+
+  <!-- 導入 -->
+  <section class="sec">
+    <div class="sec-bar"><span class="sec-en">How to use</span><h2 class="sec-ttl jp">使い方</h2></div>
+
+    <div class="how">
+      <h3>ウェブページに読み込む</h3>
+      <pre>@font-face {
+  font-family: 'POOLO Zemi Toi';
+  src: url('/poolo-life/zemi-manabiba/font/PooloZemiToi-Display.woff2') format('woff2');
+  font-display: swap;
+}
+.bigdate { font-family: 'POOLO Zemi Toi', var(--en); }</pre>
+
+      <h3>Illustrator / Figma / Keynote で使う</h3>
+      <p><b>PooloZemiToi-Display.otf</b> をダウンロードしてダブルクリック、macOSのFont Bookでインストールすれば、どのアプリからも「POOLO Zemi Toi」として選べます。</p>
+      <p>SNS素材のスクリーンショットにもそのまま反映されます。</p>
+
+      <h3>使うときの約束</h3>
+      <p>・<b>数字だけ</b>に使ってください。和文はZen Old Mincho、欧文はJostのままです<br>・<b>36px以上</b>で。小さく使うと開口が潰れて意図が消えます<br>・本文中の数字には使わないでください。見出し・数値の主役だけに</p>
+
+      <div class="dl">
+        <a href="PooloZemiToi-Display.otf" download>.otf をダウンロード</a>
+        <a href="PooloZemiToi-Display.woff2" download>.woff2 をダウンロード</a>
+      </div>
+    </div>
+  </section>
+
+</div>
+</body>
+</html>

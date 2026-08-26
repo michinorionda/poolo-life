@@ -9,6 +9,12 @@
 <link rel="stylesheet" href="../../poolo-ds/tokens.css">
 <style>
   * { box-sizing:border-box; }
+  @font-face {
+    font-family: 'POOLO Zemi Toi';
+    src: url('../font/PooloZemiToi-Display.woff2') format('woff2'),
+         url('../font/PooloZemiToi-Display.otf') format('opentype');
+    font-display: swap;
+  }
   body { margin:0; background:#EFEFEF; font-family:var(--body); color:var(--ink-soft); }
 
   /* ===== 一覧ページの枠 ===== */
@@ -134,7 +140,7 @@
   .gst .rl { font-family:var(--head); font-weight:700; font-size:19px; color:var(--brand); letter-spacing:.04em; line-height:1.6; }
 
   /* 大きい日付（締切用） */
-  .bigdate { font-family:var(--en); font-weight:600; font-size:190px; line-height:1; color:var(--brand); letter-spacing:.01em; margin:10px 0 0; }
+  .bigdate { font-family:'POOLO Zemi Toi',var(--en); font-weight:600; font-size:190px; line-height:1; color:var(--brand); letter-spacing:.01em; margin:10px 0 0; }
   .ab.blue .bigdate { color:var(--on-brand); }
   .bigdate span { font-size:76px; margin-left:12px; }
 
