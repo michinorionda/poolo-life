@@ -256,6 +256,34 @@
   .s h1, .s h2, .big-q, .task p { text-wrap:pretty; }
   .jp { word-break:auto-phrase; text-wrap:pretty; }
 
+  /* ===== 文字を直すモード ===== */
+  .edbar { position:fixed; bottom:16px; left:20px; display:flex; align-items:center; gap:9px; z-index:12; }
+  .edbar button {
+    font-family:var(--head); font-weight:700; font-size:11.5px; letter-spacing:.04em;
+    border:1px solid var(--line); background:rgba(255,255,255,.94); color:var(--brand-deep);
+    padding:8px 14px; border-radius:var(--radius); cursor:pointer; line-height:1;
+  }
+  .edbar button:hover { border-color:var(--brand); }
+  .edbar button.on { background:var(--brand); color:var(--on-brand); border-color:var(--brand); }
+  .edbar .cnt { font-family:var(--en); font-size:11.5px; letter-spacing:.06em; color:var(--ink-40); }
+  .blue-ui .edbar button { background:rgba(255,255,255,.16); border-color:var(--on-brand-40); color:var(--on-brand); }
+  .blue-ui .edbar button.on { background:var(--on-brand); color:var(--brand); }
+  .blue-ui .edbar .cnt { color:var(--on-brand-75); }
+
+  body.editing [data-e] { outline:1px dashed var(--brand-mid); outline-offset:5px; border-radius:2px; cursor:text; }
+  body.editing [data-e]:hover { outline-color:var(--brand); background:rgba(24,155,188,.06); }
+  body.editing [data-e]:focus { outline:2px solid var(--brand); background:rgba(24,155,188,.08); }
+  body.editing .blue [data-e] { outline-color:var(--on-brand-40); }
+  body.editing .blue [data-e]:hover, body.editing .blue [data-e]:focus { outline-color:#fff; background:rgba(255,255,255,.12); }
+  [data-e].changed { box-shadow:inset 0 -2px 0 var(--brand-mid); }
+
+  .edhelp { position:fixed; bottom:60px; left:20px; max-width:320px; background:var(--bg); border:1px solid var(--brand);
+            border-radius:var(--radius); padding:15px 17px; z-index:12; display:none; }
+  body.editing .edhelp { display:block; }
+  .edhelp p { font-family:var(--body); font-size:11.5px; line-height:1.9; color:var(--ink-72); margin:0 0 6px; letter-spacing:.03em; }
+  .edhelp p:last-child { margin-bottom:0; }
+  .edhelp b { color:var(--brand-deep); }
+
   @media (max-width:820px) {
     .canvas { grid-template-columns:repeat(2,1fr); }
     .rail { grid-template-columns:repeat(4,1fr); row-gap:22px; }
@@ -568,6 +596,20 @@
 
 </div>
 
+<div class="edhelp">
+  <p><b>直したい文字をクリック</b>して、そのまま打ち替えてください。</p>
+  <p>改行は <b>Shift + Enter</b>。入力はこの端末に自動保存されます。</p>
+  <p>編集中はスライドが送られません。<b>送るときは編集モードを切って</b>ください。</p>
+  <p>直し終えたら<b>「変更点をコピー」</b>を押して、その中身をClaudeに貼れば公開版に反映します。</p>
+</div>
+
+<div class="edbar">
+  <button id="edToggle">文字を直す</button>
+  <button id="edCopy">変更点をコピー</button>
+  <button id="edReset">すべて戻す</button>
+  <span class="cnt" id="edCnt"></span>
+</div>
+
 <div class="nav">
   <button id="prev" aria-label="前へ">‹</button>
   <button id="next" aria-label="次へ">›</button>
@@ -591,6 +633,8 @@
   }
 
   document.addEventListener('keydown', function (e) {
+    // 文字を打っている最中はスライドを送らない
+    if (document.body.classList.contains('editing') || e.target.isContentEditable) return;
     if (e.key === 'ArrowRight' || e.key === 'ArrowDown' || e.key === ' ' || e.key === 'PageDown') { e.preventDefault(); show(i + 1); }
     if (e.key === 'ArrowLeft'  || e.key === 'ArrowUp'   || e.key === 'PageUp') { e.preventDefault(); show(i - 1); }
     if (e.key === 'Home') { e.preventDefault(); show(0); }
@@ -601,11 +645,135 @@
   document.getElementById('prev').addEventListener('click', function (e) { e.stopPropagation(); show(i - 1); });
 
   document.getElementById('deck').addEventListener('click', function (e) {
+    if (document.body.classList.contains('editing')) return;
     show(e.clientX < window.innerWidth * 0.28 ? i - 1 : i + 1);
   });
 
+  window.__gotoSlide = show;
+
   var start = parseInt((location.hash || '').replace('#', ''), 10);
   show(isNaN(start) ? 0 : start - 1);
+})();
+</script>
+
+<script>
+/* =========================================================
+   文字を直すモード
+   デザインには触れず、テキストだけを差し替える。
+   入力はこの端末の localStorage に保存され、
+   「変更点をコピー」で公開版へ反映するための一覧を書き出す。
+   ========================================================= */
+(function () {
+  var KEY = 'poolo-zemi-slides-edits';
+
+  var SEL = [
+    '.s h1', '.s h2', '.s .eyebrow', '.s .kicker', '.s .sub', '.s .big-q',
+    '.s .task p', '.s .task small',
+    '.s ul.pts li',
+    '.s .cvc strong', '.s .cvc em',
+    '.s .rl strong', '.s .rl em',
+    '.s .stat b', '.s .stat span',
+    '.s .g .rnd', '.s .g .nm', '.s .g .rl2', '.s .g .bio',
+    '.s .price b', '.s .price span',
+    '.s .calc dt', '.s .calc dd',
+    '.s .two h3', '.s .two li',
+    '.s .sch .dt', '.s .sch .tl', '.s .sch .tg', '.s .sch .no',
+    '.s .me-role', '.s .me-name', '.s .me-kana', '.s .me-bio', '.s .me-tags span',
+    '.s .ask i', '.s .ask strong', '.s .ask em',
+    '.s .opt b', '.s .opt span'
+  ].join(',');
+
+  var els = Array.prototype.slice.call(document.querySelectorAll(SEL));
+  var orig = [];
+
+  els.forEach(function (el, k) {
+    el.setAttribute('data-e', k);
+    orig[k] = el.innerHTML;
+  });
+
+  function slideNoOf(el) {
+    var s = el.closest('.s');
+    return s ? Array.prototype.indexOf.call(document.querySelectorAll('.s'), s) + 1 : 0;
+  }
+
+  function load() {
+    var raw;
+    try { raw = localStorage.getItem(KEY); } catch (e) { return {}; }
+    if (!raw) return {};
+    try { return JSON.parse(raw); } catch (e) { return {}; }
+  }
+
+  function save(d) {
+    try { localStorage.setItem(KEY, JSON.stringify(d)); } catch (e) {}
+  }
+
+  var data = load();
+
+  Object.keys(data).forEach(function (k) {
+    if (els[k]) { els[k].innerHTML = data[k]; els[k].classList.add('changed'); }
+  });
+
+  var cnt = document.getElementById('edCnt');
+  function refresh() {
+    var n = Object.keys(data).length;
+    cnt.textContent = n ? n + ' 箇所' : '';
+  }
+  refresh();
+
+  var toggle = document.getElementById('edToggle');
+  toggle.addEventListener('click', function () {
+    var on = document.body.classList.toggle('editing');
+    toggle.classList.toggle('on', on);
+    toggle.textContent = on ? '編集を終える' : '文字を直す';
+    els.forEach(function (el) { el.contentEditable = on ? 'true' : 'false'; });
+  });
+
+  els.forEach(function (el, k) {
+    el.addEventListener('input', function () {
+      var v = el.innerHTML;
+      if (v === orig[k]) { delete data[k]; el.classList.remove('changed'); }
+      else { data[k] = v; el.classList.add('changed'); }
+      save(data);
+      refresh();
+    });
+    // 改行は Shift+Enter だけに寄せる（Enter で段落が増えるのを防ぐ）
+    el.addEventListener('keydown', function (ev) {
+      if (ev.key === 'Enter' && !ev.shiftKey) { ev.preventDefault(); }
+    });
+  });
+
+  function plain(html) {
+    return html.replace(/<br\s*\/?>/gi, '\n').replace(/<[^>]*>/g, '').replace(/\s+\n/g, '\n').trim();
+  }
+
+  document.getElementById('edCopy').addEventListener('click', function () {
+    var keys = Object.keys(data);
+    if (!keys.length) { alert('まだ変更がありません。'); return; }
+
+    var out = ['# 説明会スライド 文字の修正', ''];
+    keys.sort(function (a, b) { return a - b; }).forEach(function (k) {
+      out.push('## スライド ' + slideNoOf(els[k]) + '枚目');
+      out.push('修正前: ' + plain(orig[k]));
+      out.push('修正後: ' + plain(data[k]));
+      out.push('');
+    });
+    var text = out.join('\n');
+
+    function done() { alert('コピーしました。\nそのままClaudeに貼り付けてください。'); }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(done)['catch'](function () { window.prompt('コピーしてください', text); });
+    } else {
+      window.prompt('コピーしてください', text);
+    }
+  });
+
+  document.getElementById('edReset').addEventListener('click', function () {
+    if (!confirm('すべての変更を元に戻します。よろしいですか？')) return;
+    els.forEach(function (el, k) { el.innerHTML = orig[k]; el.classList.remove('changed'); });
+    data = {};
+    save(data);
+    refresh();
+  });
 })();
 </script>
 </body>
