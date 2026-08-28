@@ -96,6 +96,7 @@ group はカタログの `@dsCard group="…"` と対応。
 | `.brand-row` / `.header-link` / `.header-cta` | 固定ヘッダー＋申込ボタン（下辺ヘアライン） | Header |
 | `.mon` | 家紋モノグラム（ブルー線画SVG） | Header |
 | `.hero` / `.hero-grid` / `.hero-copy` / `.hero-photo` / `.hero-chip` | 写真ドリブンHero（左コピー＋右裁ち落とし写真） | Hero |
+| `.hero--long-title` | 長い和文タイトル用のHero変種（`.hero` に付ける）。コピー欄を46%→51%に広げ、右パディングと `t-lg` を調整して、大見出しが写真に重なるのを防ぐ。**和文6文字以上を `t-lg` の1行に置くときは既定だと溢れる**ので、この変種を使う | Hero |
 | `.hero-eyebrow` / `.hero-title`(.t-sm/.t-lg .em) / `.hero-lead` / `.hero-foot` | Hero内のコピー要素（見出しは明朝、強調語だけブルー） | Hero |
 | `.hero-band` / `.hero-band-num`(.dow) / `.hero-band-time` / `.hero-band-meta` | ブルーの全幅日付帯 | Hero |
 | `.step-band` / `.step-band-head` / `.step-cell` / `.step-no` / `.step-title` / `.step-desc` | プログラム要約帯（日付帯の直下。3ステップを横並びで先に見せる） | Hero |

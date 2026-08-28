@@ -234,7 +234,8 @@
     </div>
     <table class="rv-table" style="margin-top:18px;">
       <tbody>
-        <tr><th><code>components.css</code></th><td><code>.gallery</code> / <code>.gallery-head</code>(-en/-rule/-text) / <code>.gallery-note</code> / <code>.g-grid</code> / <code>.g-item</code>(<code>.is-wide</code>/<code>.is-tall</code>/<code>.is-big</code>) / <code>.g-strip</code> を追加。目地は1pxのヘアラインのみ、影・角丸なし（脱AI原則）。6→4→2カラムでレスポンシブ</td></tr>
+        <tr><th><code>components.css</code><br>写真ギャラリー</th><td><code>.gallery</code> / <code>.gallery-head</code>(-en/-rule/-text) / <code>.gallery-note</code> / <code>.g-grid</code> / <code>.g-item</code>(<code>.is-wide</code>/<code>.is-tall</code>/<code>.is-big</code>) / <code>.g-strip</code> を追加。目地は1pxのヘアラインのみ、影・角丸なし（脱AI原則）。6→4→2カラムでレスポンシブ</td></tr>
+        <tr><th><code>components.css</code><br>Hero変種</th><td><code>.hero--long-title</code> を追加。<strong>既定のヒーローでは、この長さの和文タイトルが写真に重なる</strong>ことが分かったため（実測：コピー欄の内容幅393pxに対し「綴じて、紡ぐ。」は480px、写真の左端を30px超過）。コピー欄を46%→51%に広げ、右パディングと <code>t-lg</code> を調整。<strong>1280〜1920pxでタイトルと写真の間に100〜111pxの余白</strong>が出るようにした。オプトインなので既存ページには影響しない<br>※既定のヒーローは <code>padding-left</code> が <code>(100vw - shell-max)/2</code> に追従するため、<strong>ビューポートが広いほどコピー欄の内容幅がやせる</strong>という性質がある。51%にすると内容幅が画面幅とともに広がるので、大画面でも溢れない</td></tr>
         <tr><th>改行則</th><td>冒頭の <code>word-break: auto-phrase</code> セレクタに <code>.gallery-head-text</code> / <code>.gallery-note</code> を追加</td></tr>
         <tr><th><code>index.html</code></th><td>カタログに <code>@dsCard group="Content"</code> のプレビューを1枚追加</td></tr>
         <tr><th><code>README.md</code></th><td>コンポーネント一覧に1行追加</td></tr>
