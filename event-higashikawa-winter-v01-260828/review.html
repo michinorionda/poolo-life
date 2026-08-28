@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>制作レビュー｜冬の東川 3日間 LP｜POOLO × School for Life Compath</title>
+<link rel="stylesheet" href="../poolo-ds/tokens.css">
+<link rel="stylesheet" href="../poolo-ds/components.css">
+<style>
+/* レビューページ専用の枠（DSには含めない） */
+.rv-hero { background: var(--brand); color: var(--on-brand); padding: clamp(48px,8vh,80px) var(--shell-pad) clamp(38px,6vh,58px); }
+.rv-inner { max-width: 1080px; margin-inline: auto; }
+.rv-eyebrow { font-family: var(--en); font-size: 11px; font-weight: 500; letter-spacing: 0.42em; text-transform: uppercase; color: var(--on-brand-92); margin-bottom: 20px; }
+.rv-hero h1 { font-family: var(--mincho); font-weight: 900; font-feature-settings: "palt"; font-size: clamp(26px,4.2vw,44px); letter-spacing: 0.06em; line-height: 1.55; margin-bottom: 18px; }
+.rv-hero p { font-family: var(--body); font-size: 13.5px; line-height: 2.05; letter-spacing: 0.06em; color: var(--on-brand-88); max-width: 46em; }
+.rv-links { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+.rv-links a { font-family: var(--head); font-size: 12.5px; font-weight: 700; letter-spacing: 0.08em; color: var(--brand-deep); background: var(--bg); border-radius: var(--radius); padding: 10px 18px; transition: opacity var(--trans-fast); }
+.rv-links a:hover { opacity: 0.82; }
+
+.rv-wrap { max-width: 1080px; margin-inline: auto; padding: 0 var(--shell-pad) 110px; }
+.rv-sec { padding-top: clamp(48px,7vh,78px); }
+.rv-sec-head { display: flex; align-items: baseline; gap: 16px; border-bottom: 1px solid var(--ink); padding-bottom: 12px; margin-bottom: 26px; }
+.rv-sec-num { font-family: var(--en); font-size: 13px; font-weight: 600; letter-spacing: 0.24em; color: var(--brand); }
+.rv-sec-head h2 { font-family: var(--mincho); font-size: clamp(20px,2.6vw,27px); font-weight: 700; letter-spacing: 0.09em; color: var(--ink); }
+.rv-body p { font-size: 13.5px; line-height: 2.05; letter-spacing: 0.06em; color: var(--ink-72); max-width: 52em; }
+.rv-body p + p { margin-top: 13px; }
+.rv-body strong { color: var(--ink); font-weight: 700; }
+.rv-body a { color: var(--brand-deep); border-bottom: 1px solid var(--brand); }
+.rv-quote { font-family: var(--mincho); font-size: clamp(16px,2vw,19px); font-weight: 700; letter-spacing: 0.07em; line-height: 1.95; color: var(--brand-deep); border-left: 3px solid var(--brand); padding: 4px 0 4px 20px; margin: 22px 0; max-width: 44em; }
+
+.rv-table { width: 100%; border-collapse: collapse; border-top: 1px solid var(--ink); font-size: 12.5px; }
+.rv-table th, .rv-table td { text-align: left; vertical-align: top; padding: 13px 14px 13px 0; border-bottom: 1px solid var(--line); line-height: 1.9; letter-spacing: 0.05em; }
+.rv-table th { font-family: var(--head); font-weight: 700; color: var(--ink); white-space: nowrap; }
+.rv-table td { color: var(--ink-72); }
+.rv-table td code, .rv-body code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 11.5px; color: var(--brand-deep); background: var(--bg-off); border: 1px solid var(--line); border-radius: var(--radius); padding: 1px 5px; }
+.rv-table .ok { color: var(--brand-deep); font-weight: 700; }
+
+.rv-cards { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: clamp(16px,2.4vw,26px); }
+.rv-card { border: 1px solid var(--line); border-top: 3px solid var(--brand); padding: clamp(18px,2.4vw,24px); }
+.rv-card--warn { border-top-color: #C8892E; }
+.rv-card h3 { font-family: var(--head); font-size: 13.5px; font-weight: 700; letter-spacing: 0.08em; color: var(--ink); margin-bottom: 10px; }
+.rv-card p, .rv-card li { font-size: 12.5px; line-height: 1.95; letter-spacing: 0.05em; color: var(--ink-72); }
+.rv-card ul { list-style: none; display: grid; gap: 7px; }
+.rv-card li { position: relative; padding-left: 1.3em; }
+.rv-card li::before { content: '―'; position: absolute; left: 0; color: var(--brand); font-family: var(--en); }
+
+.rv-check { list-style: none; display: grid; gap: 10px; border-top: 1px solid var(--ink); padding-top: 18px; }
+.rv-check li { position: relative; padding-left: 2em; font-size: 13px; line-height: 1.95; letter-spacing: 0.05em; color: var(--ink-72); }
+.rv-check li::before { content: '☐'; position: absolute; left: 0; top: 0; color: var(--brand); font-size: 14px; }
+.rv-check strong { color: var(--ink); }
+
+.rv-srcs { list-style: none; display: grid; gap: 11px; }
+.rv-srcs li { font-size: 12.5px; line-height: 1.9; letter-spacing: 0.05em; color: var(--ink-72); padding-left: 1.4em; position: relative; }
+.rv-srcs li::before { content: '↗'; position: absolute; left: 0; color: var(--brand); font-family: var(--en); font-size: 11px; }
+.rv-srcs a { color: var(--brand-deep); border-bottom: 1px solid var(--brand); word-break: break-all; }
+
+@media (max-width: 720px) {
+  .rv-cards { grid-template-columns: 1fr; }
+  .rv-table, .rv-table tbody, .rv-table tr, .rv-table th, .rv-table td { display: block; width: 100%; }
+  .rv-table th { border-bottom: none; padding-bottom: 2px; }
+  .rv-table td { padding-top: 0; }
+}
+</style>
+</head>
+<body style="padding-top:0;">
+
+<section class="rv-hero">
+  <div class="rv-inner">
+    <div class="rv-eyebrow">Design Review — Higashikawa / Winter</div>
+    <h1>冬の東川で、これからを置きなおす。<br>POOLO × School for Life Compath 東川3日間・冬</h1>
+    <p>2026年12月4日（金）〜6日（日）のPOOLO生向け募集ページ。8月に満席で開催した第1回の続編として制作しました。写真は8月回の記録448枚（実質約300枚）から41枚を選定して使用しています。冬回のプログラム詳細・参加費・定員・締切はすべて未確定のため、確定待ちの箇所を本ページの05にまとめています。</p>
+    <div class="rv-links">
+      <a href="./">告知ページを見る</a>
+      <a href="../higashikawa/">8月回のページ（第1回）</a>
+      <a href="../poolo-ds/">poolo-ds カタログ</a>
+      <a href="#todo">確定待ちの項目へ</a>
+    </div>
+  </div>
+</section>
+
+<div class="rv-wrap">
+
+  <section class="rv-sec">
+    <div class="rv-sec-head"><span class="rv-sec-num">01</span><h2>このページで、何を伝えるのか</h2></div>
+    <div class="rv-body">
+      <p>第1回（2026年8月21〜23日）は定員15名が満席で終了しました。今回はその<strong>第2回を、季節だけ変えて冬に行う</strong>という位置づけです。したがって、このページが背負うべき仕事は2つあります。</p>
+      <p><strong>ひとつめは、「なぜ冬なのか」に答えること。</strong>夏の北海道はそれ自体が動機になりますが、12月の東川はそうではありません。寒さと雪は、放っておけば参加のハードルにしかならない。そこで、Compath がモデルにしているフォルケホイスコーレが<strong>もともと長い冬の学校として広まった</strong>という事実を、冬に開催する理由の中心に据えました。</p>
+      <blockquote class="rv-quote">外が静かになると、人は内側を向きます。日が短く、雪が音を吸い、遠くへ出かける理由がなくなる。だから、話す。だから、聴く。だから、書く。北欧の冬に生まれた学びのかたちは、そういう季節の力を前提にしています。</blockquote>
+      <p><strong>ふたつめは、「実際にどういう3日間なのか」を見せること。</strong>ここで効くのが8月の記録写真です。冬回の中身がまだ固まっていない今の段階でも、写真が「この校舎で、この人数で、こういうふうに過ごす」を具体的に伝えてくれます。文字で説明できないぶんを写真で埋める、という設計にしました。</p>
+    </div>
+  </section>
+
+  <section class="rv-sec">
+    <div class="rv-sec-head"><span class="rv-sec-num">02</span><h2>写真の扱い（いちばん重要な判断）</h2></div>
+    <div class="rv-body">
+      <p>デスクトップの「東川フォルダ」にあった448枚は、<strong>すべて2026年8月開催回の写真</strong>でした（LINEアルバム由来。336番以降は0〜95番とほぼ重複、実質約300枚がユニーク）。冬の写真は1枚もありません。</p>
+      <p>これを「季節がわからないカットだけ選んで冬のページに使う」こともできますが、それはやりませんでした。緑・向日葵・半袖が写っている写真を12月の募集ページに黙って混ぜるのは、読み手に対して不誠実ですし、参加後の落差にもつながります。</p>
+      <p>採ったのは、<strong>「8月の記録である」と明示したうえで堂々と大量に使う</strong>方針です。「満席になった第1回が実際にどうだったか」という証拠として置けば、夏の写真であることはマイナスではなく、むしろ信頼材料になります。ページ内では次の4か所で明示しています。</p>
+    </div>
+    <table class="rv-table" style="margin-top:20px;">
+      <tbody>
+        <tr><th>お知らせバンド</th><td>ヒーロー直下。「8月21〜23日に開催した第1回は、定員15名が満席となりました。<strong>このページの写真は、すべてその回の記録です。</strong>」</td></tr>
+        <tr><th>ギャラリー見出し</th><td>「August, Documented ／ 8月の3日間は、こうでした。」——見出し自体が時期を語る形にした</td></tr>
+        <tr><th>ギャラリー脚注</th><td>2か所とも <code>.gallery-note</code> で「＊写真はすべて2026年8月21〜23日に開催した第1回の記録です。12月は雪の東川になります。」</td></tr>
+        <tr><th>FAQ</th><td>「このページの写真は、冬のものですか？」を明示的に立てて答えた</td></tr>
+      </tbody>
+    </table>
+    <div class="rv-body" style="margin-top:22px;">
+      <p>選定は448枚すべてをコンタクトシート化して目視で確認し、<strong>41枚</strong>に絞りました。重複・ピンボケ・特定個人が大きく写りすぎるカット・季節性が強すぎるカット（向日葵畑・ラベンダー）は落としています。書き出しはヒーロー2000px／写真ブレイク1800px／ギャラリー1100px、いずれも quality 82・progressive JPEG。</p>
+    </div>
+  </section>
+
+  <section class="rv-sec">
+    <div class="rv-sec-head"><span class="rv-sec-num">03</span><h2>8月回のページから、引き継いだもの／変えたもの</h2></div>
+    <table class="rv-table">
+      <tbody>
+        <tr><th>引き継いだ<br>（事実）</th><td>東川町の記述（人口およそ8,400人／上水道がなく全戸が地下水／写真の町／家具／東川スタイル／大雪山国立公園の麓）、会場住所、Compath がこの町に一目惚れした経緯、3日間のリズム（身体で慣らす→対話で広げる→綴じて持ち帰る）、リフレクションの手法（ジャーナリング・対話型鑑賞・NVC）</td></tr>
+        <tr><th>引き継いだ<br>（言葉）</th><td>「豊かさは、自分の内側と、誰かとのあいだの、ちょうど真ん中にある」——最終CTAのリード。シリーズの通奏低音として残した</td></tr>
+        <tr><th>変えた<br>（骨格）</th><td>8月回は独自CSSの1枚もの。今回は <strong>poolo-ds を <code>&lt;link&gt;</code> で参照</strong>する現行の作り方に載せ替えた（明朝＝Zen Old Mincho、主役色＝#189BBC）。8月回の Shippori Mincho ＋テラコッタ配色は引き継いでいない</td></tr>
+        <tr><th>変えた<br>（訴求）</th><td>導入の問いを<strong>「年の終わりに」</strong>に寄せた。12月開催＝一年を閉じるタイミングという時期の必然性を、募集の動機に使っている</td></tr>
+        <tr><th>変えた<br>（対象）</th><td>8月回は一般公開だったが、今回は<strong>POOLO生向け</strong>。ヒーローのアイブロウを「POOLO生の方へ」、申込導線をLINEグループに変更</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="rv-sec">
+    <div class="rv-sec-head"><span class="rv-sec-num">04</span><h2>申込導線を「LINEグループ」にしたことの含意</h2></div>
+    <div class="rv-body">
+      <p>参加費・定員・締切が未定の段階なので、フォームで申込を取ることはできません。そこでCTAを<strong>「LINEグループに入る」＝続報の受け取り</strong>に置き換えています。ヘッダー・追従バー・中間CTA・最終CTAの4か所すべてが同じ導線です。</p>
+      <p>この設計には副作用があります。<strong>いま集めているのは申込ではなく見込み（プレエントリー）</strong>なので、募集開始のときにグループへ一斉に案内を流す運用が前提になります。グループを立てたら、そこで何をいつ流すかまで決めておいたほうが安全です。</p>
+      <p>また、参加費が確定して「思っていたより高い」となったときの離脱をやわらげるため、要点欄・開催概要・FAQの3か所で<strong>「8月の回は59,800円（税込）でした」</strong>と過去実績を先に開示しています。ここは金額を出したくない場合、削っても構いません。</p>
+    </div>
+  </section>
+
+  <section class="rv-sec" id="todo">
+    <div class="rv-sec-head"><span class="rv-sec-num">05</span><h2>確定待ち・差し替えが必要な項目</h2></div>
+    <div class="rv-body">
+      <p>公開前に潰す必要があるものを、重い順に並べています。<strong>Notionの「POOLO×Compath MTG」ページは、接続中のNotionワークスペース（POOLO側）から参照できませんでした</strong>——ページIDが別ワークスペースのもののため、統合にもclaude.aiコネクタにも権限がありません。冬回の内容はここに反映できていないので、テキストを貼っていただくか、ページを共有していただければ差し込みます。</p>
+    </div>
+    <table class="rv-table">
+      <tbody>
+        <tr><th>最優先</th><td><strong>冬回のプログラム内容</strong>（Notionの内容）。現状のDay1〜3は8月回の骨格を冬向けに書き直した仮置きで、「調整中」と明記してある。ゲスト・夜のプログラム・集合解散時刻がすべて仮</td></tr>
+        <tr><th>最優先</th><td><strong>LINEグループの招待URL</strong>。現在は <code>href="#"</code>（中間CTA・最終CTA）と <code>href="#apply"</code>（ヘッダー・追従バー）。4か所すべて差し替える</td></tr>
+        <tr><th>高</th><td><strong>参加費・定員・申込締切</strong>。要点欄／開催概要／FAQ／CTA注記の4系統に「調整中」が入っている</td></tr>
+        <tr><th>高</th><td><strong>ゲスト2名</strong>。<code>.person-photo.is-empty</code> のプレースホルダで枠だけ確保済み。写真・肩書・略歴が入り次第差し替え</td></tr>
+        <tr><th>中</th><td><strong>OG画像</strong>。未作成のため、暫定でヒーロー写真（1620×1080）を指定している。2400×1260 の <code>og.png</code> を作って差し替える</td></tr>
+        <tr><th>中</th><td><strong>冬の東川の写真</strong>。1枚でも入れば、ヒーローか最初の写真ブレイクを差し替えたい。Compath 側に依頼できないか</td></tr>
+        <tr><th>中</th><td><strong>フォルケホイスコーレの記述</strong>。「もともとは、外の仕事が止まる長い冬に、若い人たちが集まって半年を過ごす学校として広まりました」——事実として書いているが、Compath の説明と齟齬がないか確認したい</td></tr>
+        <tr><th>中</th><td><strong>持ち物・防寒・送迎</strong>。FAQに <code>[要確認]</code> のまま残している。雪道運転を前提にしない旨と送迎体制は、参加判断に直結するので早めに確定を</td></tr>
+        <tr><th>中</th><td><strong>対象範囲</strong>。「POOLO生・POOLO卒業生／一般参加の可否は調整中」としている</td></tr>
+        <tr><th>低</th><td><strong>キャンセルポリシー</strong>「調整中」／<strong>宿泊の部屋割り</strong>「調整中」</td></tr>
+        <tr><th>低</th><td><strong><code>noindex</code> の解除</strong>。<code>&lt;meta name="robots" content="noindex"&gt;</code> を公開時に外す</td></tr>
+        <tr><th>低</th><td><strong>肖像の掲載可否</strong>。8月回の参加者が識別できる写真を41枚使用している。参加者への確認が取れているかは未確認</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="rv-sec">
+    <div class="rv-sec-head"><span class="rv-sec-num">06</span><h2>ページ仕様（セクションと使用コンポーネント）</h2></div>
+    <table class="rv-table">
+      <tbody>
+        <tr><th>固定ヘッダー</th><td><code>.brand-row</code>／右上リンクは8月回のページへ</td></tr>
+        <tr><th>ヒーロー</th><td><code>.hero</code> ＋ <code>.hero-photo</code>（Compath校舎・夕暮れ）／見出しは3行の明朝、「冬の東川」だけブランドブルー</td></tr>
+        <tr><th>日付帯</th><td><code>.hero-band</code>／12.4金–6日・集合解散は調整中</td></tr>
+        <tr><th>3日間のリズム</th><td><code>.step-band</code>（Day1〜3を先に見せる）</td></tr>
+        <tr><th>要点</th><td><code>.summary</code>（日程／会場／定員／参加費。定員・参加費は調整中）</td></tr>
+        <tr><th>お知らせ</th><td><code>.notice-bar</code>（第1回満席＋写真は8月の記録である旨）</td></tr>
+        <tr><th>問</th><td><code>.sec-questions</code> ＋ <code>.q-list</code>（年の終わりの4つの問い）</td></tr>
+        <tr><th>写真ブレイク ×4</th><td><code>.photo-break--right/--left</code>（台所／天の川／車座／夕暮れ／集合写真）</td></tr>
+        <tr><th>01 なぜ冬か</th><td><code>.sec</code> ＋ <code>.intro-body</code> ＋ <code>.intro-break</code></td></tr>
+        <tr><th>02 なぜ東川か</th><td><code>.sec</code> ＋ <code>.intro-body</code>（8月回の記述を継承）</td></tr>
+        <tr><th>ギャラリー（新）</th><td><strong><code>.gallery</code> ＋ <code>.g-grid</code></strong>／16枚のモザイク。<code>.is-big</code> <code>.is-wide</code> <code>.is-tall</code> で級数差をつける</td></tr>
+        <tr><th>03 3日間の流れ</th><td><code>.day-block</code> ＋ <code>.flow-list</code> ×3日</td></tr>
+        <tr><th>ギャラリー（新）</th><td><strong><code>.gallery</code> ＋ <code>.g-strip</code></strong>／19枚の全幅横スクロール帯</td></tr>
+        <tr><th>04 4つのこと</th><td><code>.point-list</code></td></tr>
+        <tr><th>人</th><td><code>.people-list</code> ＋ <code>.person-photo.is-empty</code>（ゲスト2名は調整中）</td></tr>
+        <tr><th>05 持ち帰るもの</th><td><code>.ba-flow</code>（Before → After）</td></tr>
+        <tr><th>向き・不向き</th><td><code>.fit-grid</code>（寒さが苦手な方は不向き、と明記）</td></tr>
+        <tr><th>About</th><td><code>.about</code>（POOLO × Compath、大学の同じゼミ出身という関係を書いた）</td></tr>
+        <tr><th>CTA ×2</th><td><code>.cta</code>（中間・最終）／<code>.float-apply</code>（追従）</td></tr>
+        <tr><th>06 開催概要</th><td><code>.terms-list</code>（12項目。8割が「調整中」）</td></tr>
+        <tr><th>FAQ</th><td><code>.faq-list</code>（8問。寒さ・雪道・写真の季節に踏み込んだ）</td></tr>
+        <tr><th>フッター</th><td><code>.footer</code>（家紋＋POOLO＋TABIPPO）</td></tr>
+      </tbody>
+    </table>
+    <div class="rv-body" style="margin-top:22px;">
+      <p>使用画像41枚の合計は約5.6MB。全ギャラリー画像に <code>loading="lazy"</code> を付与しています。</p>
+    </div>
+  </section>
+
+  <section class="rv-sec">
+    <div class="rv-sec-head"><span class="rv-sec-num">07</span><h2>デザインシステム（poolo-ds）へ還元したもの</h2></div>
+    <div class="rv-body">
+      <p>「写真をふんだんに使う」という要件に対して、既存のDSには <code>.photo-break</code>（1枚の裁ち落とし）しかありませんでした。ページ側に書きっぱなしにせず、<strong>写真ギャラリーのコンポーネントとしてDSに追加</strong>しています。</p>
+    </div>
+    <table class="rv-table" style="margin-top:18px;">
+      <tbody>
+        <tr><th><code>components.css</code></th><td><code>.gallery</code> / <code>.gallery-head</code>(-en/-rule/-text) / <code>.gallery-note</code> / <code>.g-grid</code> / <code>.g-item</code>(<code>.is-wide</code>/<code>.is-tall</code>/<code>.is-big</code>) / <code>.g-strip</code> を追加。目地は1pxのヘアラインのみ、影・角丸なし（脱AI原則）。6→4→2カラムでレスポンシブ</td></tr>
+        <tr><th>改行則</th><td>冒頭の <code>word-break: auto-phrase</code> セレクタに <code>.gallery-head-text</code> / <code>.gallery-note</code> を追加</td></tr>
+        <tr><th><code>index.html</code></th><td>カタログに <code>@dsCard group="Content"</code> のプレビューを1枚追加</td></tr>
+        <tr><th><code>README.md</code></th><td>コンポーネント一覧に1行追加</td></tr>
+        <tr><th>設計上の注意</th><td>カタログの <code>use</code> に「過去回の写真を載せるときは <code>.gallery-note</code> でいつの記録か必ず明記する」と書いた。今回と同じ状況（過去回の写真を使う）は今後も起きるため、運用ルールごとDSに残している</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="rv-sec">
+    <div class="rv-sec-head"><span class="rv-sec-num">08</span><h2>公開前チェックリスト</h2></div>
+    <ul class="rv-check">
+      <li><strong>LINEグループの招待URL</strong>を4か所に差し込む（ヘッダー／追従バー／中間CTA／最終CTA）</li>
+      <li><strong>冬回のプログラム</strong>をDay1〜3に反映し、「調整中」の表記を外す</li>
+      <li><strong>参加費・定員・申込締切</strong>を確定して4系統に反映する</li>
+      <li><strong>ゲスト2名</strong>の写真・肩書・略歴を入れる</li>
+      <li><strong>OG画像</strong>（2400×1260）を作って <code>og:image</code> / <code>twitter:image</code> を差し替える</li>
+      <li><strong>フォルケホイスコーレの記述</strong>をCompathに確認する</li>
+      <li><strong>持ち物・防寒・送迎</strong>のFAQを確定文に書き換える</li>
+      <li><strong>8月回の参加者の肖像掲載</strong>について確認を取る</li>
+      <li><strong><code>noindex</code></strong> を外す</li>
+      <li><strong>8月回のページ</strong>（<code>/higashikawa/</code>）から、冬回への導線を張るか決める</li>
+    </ul>
+  </section>
+
+</div>
+</body>
+</html>

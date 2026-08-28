@@ -109,6 +109,7 @@ group はカタログの `@dsCard group="…"` と対応。
 | `.voice-list` / `.voice-item` / `.voice-quote`(.vq-mark) / `.voice-attr` / `.voice-note` | 参加者の声（引用＝明朝・属性＝Noto・掲載注記） | Content |
 | `.about` / `.about-inner` / `.about-title` / `.about-text` / `.about-figs` / `.about-fig` | About POOLO（企画者・信頼の小コーナー） | Content |
 | `.faq-list` / `.faq-item` / `.faq-q`(.m) / `.faq-a`(.m) | FAQ（Q/A ヘアライン区切り） | Content |
+| `.gallery` / `.gallery-head`(-en/-rule/-text) / `.g-grid` / `.g-item`(.is-wide/.is-tall/.is-big) / `.g-strip` / `.gallery-note` | 写真ギャラリー（点数の多い旅ページ用。モザイク or 全幅の横スクロール帯。目地は1pxヘアラインのみ） | Content |
 | `.program-steps` / `.program-step`(.is-main) / `.ps-num` / `.ps-tag`(.is-quiet) / `.ps-title` / `.ps-desc` / `.ps-meta` | プログラムの3ステップ（事前→現地→事後のような、前後を含む一連の流れ。主役の回は `.is-main`） | Sections |
 | `.point-list` / `.point-item` / `.point-num`(.no) / `.point-title` / `.point-desc` | 体験の要点（「この体験で得られる4つのこと」を2列で） | Sections |
 | `.ba-flow` / `.ba-col`(--after) / `.ba-label`(.en) / `.ba-items` / `.ba-arrow` | 旅の前と後（Before → After。成果を約束せず変化の幅を示す） | Sections |

@@ -53,7 +53,8 @@ img { display: block; max-width: 100%; }
 .person-name, .person-bio, .person-role,
 .point-title, .point-desc, .ba-items li, .ba-label,
 .fee-note, .fee-add-desc, .fee-foot,
-.step-band-head .ja, .step-title, .step-desc {
+.step-band-head .ja, .step-title, .step-desc,
+.gallery-head-text, .gallery-note {
   word-break: auto-phrase;
   text-wrap: pretty;
 }
@@ -1972,4 +1973,112 @@ img { display: block; max-width: 100%; }
   .footer-marks img[src*="tabippo_logo"] { height: 52px; }
   .footer-divider { height: 26px; }
   .footer-bottom { flex-direction: column; gap: 12px; }
+}
+
+
+/* ============ 写真ギャラリー（.gallery / .g-grid / .g-strip） ============ */
+/* 写真点数が多い旅・現地プログラムのページ用。目地は1pxのヘアラインだけで、
+   影も角丸もつけない（脱AI原則）。.g-grid＝モザイク、.g-strip＝全幅の横スクロール帯。 */
+.gallery {
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  background: var(--bg-off);
+}
+.gallery-head {
+  display: flex;
+  align-items: baseline;
+  gap: 18px;
+  padding: clamp(22px, 3.4vw, 34px) var(--shell-pad) clamp(16px, 2.4vw, 22px);
+}
+.gallery-head-en {
+  font-family: var(--en);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.38em;
+  text-transform: uppercase;
+  color: var(--brand-deep);
+  white-space: nowrap;
+}
+.gallery-head-rule {
+  width: 30px;
+  height: 1px;
+  background: var(--brand-deep);
+  flex: 0 0 auto;
+  align-self: center;
+}
+.gallery-head-text {
+  font-family: var(--body);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  color: var(--ink-soft);
+}
+.gallery-note {
+  font-family: var(--body);
+  font-size: 11px;
+  line-height: 1.9;
+  letter-spacing: 0.08em;
+  color: var(--ink-50);
+  padding: 14px var(--shell-pad) clamp(22px, 3.4vw, 32px);
+}
+
+/* モザイク（6カラム基準） */
+.g-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-auto-rows: clamp(112px, 14.6vw, 210px);
+  gap: 1px;
+  background: var(--line);          /* 目地＝ヘアライン */
+  border-top: 1px solid var(--line);
+}
+.g-item {
+  position: relative;
+  overflow: hidden;
+  background: var(--bg);
+  grid-column: span 2;
+  grid-row: span 1;
+}
+.g-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.g-item.is-wide { grid-column: span 3; }
+.g-item.is-tall { grid-row: span 2; }
+.g-item.is-big  { grid-column: span 3; grid-row: span 2; }
+
+/* 全幅の横スクロール帯 */
+.g-strip {
+  display: flex;
+  gap: 1px;
+  background: var(--line);
+  border-top: 1px solid var(--line);
+  overflow-x: auto;
+  scroll-snap-type: x proximity;
+  -webkit-overflow-scrolling: touch;
+}
+.g-strip .g-item {
+  flex: 0 0 clamp(196px, 24vw, 300px);
+  height: clamp(196px, 24vw, 280px);
+  scroll-snap-align: start;
+  grid-column: auto;
+  grid-row: auto;
+}
+.g-strip::-webkit-scrollbar { height: 5px; }
+.g-strip::-webkit-scrollbar-track { background: var(--bg-off); }
+.g-strip::-webkit-scrollbar-thumb { background: var(--brand-mid); }
+
+@media (max-width: 860px) {
+  .g-grid { grid-template-columns: repeat(4, 1fr); }
+  .g-item.is-wide, .g-item.is-big { grid-column: span 2; }
+}
+@media (max-width: 560px) {
+  .g-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: clamp(112px, 33vw, 176px);
+  }
+  .g-item, .g-item.is-wide { grid-column: span 1; }
+  .g-item.is-big { grid-column: span 2; grid-row: span 2; }
+  .gallery-head { gap: 10px; flex-wrap: wrap; }
 }
