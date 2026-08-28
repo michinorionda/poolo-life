@@ -69,7 +69,7 @@
   <div class="rv-inner">
     <div class="rv-eyebrow">Design Review — Higashikawa / Winter</div>
     <h1>2026年を綴じて、紡ぐ、3日間。<br>POOLO × School for Life Compath 東川3日間・冬</h1>
-    <p>2026年12月4日（金）〜6日（日）のPOOLO生向け募集ページ。企画の叩き（Notion）を全面的に反映し、「写真 × 一年の振り返り」を軸に組み直しました。写真は8月回の記録448枚から41枚を選定して使用しています。参加費・定員・締切・ゲストは未確定のため、確定待ちの項目を05にまとめています。</p>
+    <p>2026年12月4日（金）〜6日（日）のPOOLO生向け募集ページ。企画の叩き（Notion）を全面的に反映し、「写真 × 一年の振り返り」を軸に組み直しました。写真は8月回の記録448枚から40枚を選定して使用しています。参加費・定員・締切・ゲストは未確定のため、確定待ちの項目を05にまとめています。</p>
     <div class="rv-links">
       <a href="./">告知ページを見る</a>
       <a href="../higashikawa/">8月回のページ（第1回）</a>
@@ -104,7 +104,7 @@
         <tr><th>冬の東川らしさ<br>（5つのメモ）</th><td>03「写真の町で、写真からはじめる。」の後半に、<strong>5点すべてを1段落に織り込んだ</strong>（情報量が減る／歩く速度が落ちる／室内と外の行き来／見ることに意識が向く／薪ストーブ・食事・共同生活が中心に）。叩きでは「まだ余地がありそう」とされていた部分だが、書いてみると十分に強い。ここは足すより、この5点を丁寧に置くだけで成立すると判断した</td></tr>
         <tr><th>どんな人に来てほしいか</th><td>「向き・不向き」の左カラムに6項目そのまま。右カラム（向かないかも）は、叩きにない項目をこちらで補った（後述）</td></tr>
         <tr><th>Day3の問いの例</th><td>独立セクションにはせず、Day3の各 <code>.flow-desc</code> に散らした。問いのセクションが3つ並ぶと重くなるため</td></tr>
-        <tr><th>ゲスト（現状案）</th><td>「人」セクションに <code>.person-photo.is-empty</code> で2枠。<strong>和田北斗さんは名前を出し、東川町役場の方は「調整中」表記</strong>。どちらにも「現状案」と明記した</td></tr>
+        <tr><th>ゲスト（現状案）</th><td><strong>「人（People）」セクションは削除しました。</strong>当初は <code>.person-photo.is-empty</code> で2枠置いていましたが、ゲストが未確定のため一旦落としています。HTMLにコメントを残してあるので、確定したら <code>.people-list</code> でそのまま戻せます。<br>※ゲスト名は<strong>04「やること」の <code>ps-meta</code> と、Day2のタイムテーブルには残しています</strong>（いずれも「現状案」と明記）。ここも消す場合は言ってください</td></tr>
       </tbody>
     </table>
   </section>
@@ -164,7 +164,7 @@
       <p>デスクトップの「東川フォルダ」にあった448枚は、<strong>すべて2026年8月開催回の写真</strong>でした（LINEアルバム由来。336番以降は前半とほぼ重複、実質約300枚がユニーク）。冬の写真は1枚もありません。</p>
       <p>季節がわからないカットだけ選んで黙って使う、という選択肢は採りませんでした。緑や半袖が写る写真を12月の募集ページに混ぜるのは不誠実ですし、参加後の落差にもつながります。採ったのは<strong>「8月の記録である」と明示したうえで堂々と大量に使う</strong>方針で、お知らせバンド／ギャラリー見出し／ギャラリー脚注2か所／FAQ の4系統で明示しています。</p>
       <p>結果として、<strong>写真中心の企画なのにページの写真が全部前回のもの</strong>という状態です。ここは早めに解消したい。冬の東川の写真が1枚でも入れば、ヒーローか最初の写真ブレイクを差し替えます。</p>
-      <p>選定は448枚すべてをコンタクトシート化して目視で確認し、<strong>41枚</strong>に絞りました。重複・ピンボケ・特定個人が大きく写りすぎるカット・季節性が強すぎるカット（向日葵畑・ラベンダー）は落としています。書き出しはヒーロー2000px／写真ブレイク1800px／ギャラリー1100px、いずれも quality 82・progressive JPEG、合計約5.6MB。全ギャラリー画像に <code>loading="lazy"</code>。</p>
+      <p>選定は448枚すべてをコンタクトシート化して目視で確認し、<strong>40枚</strong>に絞りました。重複・ピンボケ・特定個人が大きく写りすぎるカット・季節性が強すぎるカット（向日葵畑・ラベンダー）は落としています。書き出しはヒーロー2000px／写真ブレイク1800px／ギャラリー1100px、いずれも quality 82・progressive JPEG、合計約5.6MB。全ギャラリー画像に <code>loading="lazy"</code>。</p>
     </div>
   </section>
 
@@ -181,7 +181,7 @@
         <tr><th>要確認</th><td><strong>11枚が1月〜11月である理由</strong>を、開催が12月頭だからと解釈しました。「12月分は現地で撮る」という設計なら、そう書いたほうがきれいです</td></tr>
         <tr><th>最優先</th><td><strong>LINEグループの招待URL</strong>。現在は <code>href="#"</code>（中間CTA・最終CTA）と <code>href="#apply"</code>（ヘッダー・追従バー）。4か所すべて差し替える</td></tr>
         <tr><th>高</th><td><strong>参加費・定員・申込締切</strong>。要点欄／開催概要／FAQ／CTA注記の4系統に「調整中」が入っている</td></tr>
-        <tr><th>高</th><td><strong>ゲスト2名</strong>。和田北斗さんのプロフィール・ポートレート、東川町役場の方の確定。どちらも <code>.is-empty</code> のプレースホルダで枠だけ確保済み</td></tr>
+        <tr><th>高</th><td><strong>ゲスト2名</strong>。和田北斗さんのプロフィール・ポートレート、東川町役場の方の確定。<strong>未確定のため「人（People）」セクションは現在ページから外しています。</strong>確定したらHTMLのコメント位置に <code>.people-list</code> で戻します</td></tr>
         <tr><th>高</th><td><strong>事前準備のアルバムの共有方法</strong>。11枚をどこにどう入れてもらうかが未定（開催概要とFAQの2か所が「調整中」）。申込導線と一体で設計したほうがよさそう</td></tr>
         <tr><th>中</th><td><strong>集合場所</strong>。時刻（14:30）は確定、場所が未定。8月回は旭川空港もしくは東川町せんとぴゅあ</td></tr>
         <tr><th>中</th><td><strong>OG画像</strong>。未作成のため、暫定でヒーロー写真を指定。2400×1260 の <code>og.png</code> を作って差し替える</td></tr>
@@ -190,7 +190,7 @@
         <tr><th>中</th><td><strong>対象範囲</strong>。「POOLO生・POOLO卒業生／一般参加の可否は調整中」としている</td></tr>
         <tr><th>低</th><td><strong>キャンセルポリシー</strong>／<strong>宿泊の部屋割り</strong>／<strong>Day2の夕食場所</strong>（Day1の「りしり」のみ明記）</td></tr>
         <tr><th>低</th><td><strong><code>noindex</code> の解除</strong>／<strong>8月回のページから冬回への導線</strong>を張るか</td></tr>
-        <tr><th>低</th><td><strong>肖像の掲載可否</strong>。8月回の参加者が識別できる写真を41枚使用している</td></tr>
+        <tr><th>低</th><td><strong>肖像の掲載可否</strong>。8月回の参加者が識別できる写真を40枚使用している</td></tr>
       </tbody>
     </table>
   </section>
@@ -214,11 +214,11 @@
         <tr><th>事前準備</th><td><code>.sec-questions</code> ＋ <code>.q-list</code>（11枚と、6つの問い）</td></tr>
         <tr><th>05 3日間の流れ</th><td><code>.day-block</code> ＋ <code>.flow-list</code> ×3日</td></tr>
         <tr><th>ギャラリー（新）</th><td><strong><code>.gallery</code> ＋ <code>.g-strip</code></strong>／19枚の全幅横スクロール帯</td></tr>
-        <tr><th>人</th><td><code>.people-list</code> ＋ <code>.person-photo.is-empty</code>（和田北斗さん／東川町役場の方）</td></tr>
+        <tr><th>人</th><td class="ok">— ゲスト未確定のため、現在は非掲載（HTMLにコメントで戻す位置を残してある）</td></tr>
         <tr><th>06 持ち帰るもの</th><td><code>.intro-body</code>（方角と、問い）</td></tr>
         <tr><th>向き・不向き</th><td><code>.fit-grid</code></td></tr>
         <tr><th>About</th><td><code>.about</code>（POOLO × Compath）</td></tr>
-        <tr><th>写真ブレイク ×5</th><td><code>--right/--left</code> を交互に。夕暮れ／天の川／車座／台所／集合写真</td></tr>
+        <tr><th>写真ブレイク ×4</th><td><code>--right/--left</code> を交互に。夕暮れ／車座／台所／集合写真。<strong>天の川の1枚（Night「外が静かになると、人は内側を向きます。」）は削除しました</strong>（画像も <code>images/</code> から削除。同じ天の川の別カットは、横スクロール帯には残っています）</td></tr>
         <tr><th>CTA ×2 ＋ 追従</th><td><code>.cta</code> ／ <code>.float-apply</code>（すべてLINEグループ導線）</td></tr>
         <tr><th>07 開催概要</th><td><code>.terms-list</code>（14項目）</td></tr>
         <tr><th>FAQ</th><td><code>.faq-list</code>（12問）</td></tr>
