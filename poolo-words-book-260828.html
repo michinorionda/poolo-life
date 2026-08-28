@@ -1,0 +1,1499 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<meta name="description" content="POOLOの言葉を、豊かさから対象まで四段で並べた用語の書。造本版。">
+<title>豊かさから、問いまで｜造本版</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@400;700;900&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&family=Jost:wght@400;500;600&display=swap">
+<style>
+/* =========================================================================
+   豊かさから、問いまで ／ 造本版
+   poolo-ds のトークンに従う（地は白、主役は #189BBC 1色、影は使わず罫で組む）。
+   本のふるまいは色ではなく組版で出す：明朝本文・非対称の版面・柱・ノンブル・
+   図版番号・目次・奥付。図版は原本の SVG をそのまま使う。
+   ========================================================================= */
+:root{
+  --brand:#189BBC; --brand-deep:#127E9A; --brand-mid:#8FC6D6;
+  --ink:#000; --ink-soft:#1A1A1A;
+  --ink-72:rgba(0,0,0,.72); --ink-55:rgba(0,0,0,.55); --ink-40:rgba(0,0,0,.40); --ink-28:rgba(0,0,0,.28);
+  --bg:#FFF; --line:#E4E4E4; --line-deep:#BFBFBF;
+  --mincho:'Zen Old Mincho','Hiragino Mincho ProN','Yu Mincho',serif;
+  --head:'Zen Kaku Gothic New','Hiragino Kaku Gothic ProN',sans-serif;
+  --body:'Noto Sans JP','Hiragino Kaku Gothic ProN',sans-serif;
+  --en:'Jost','Zen Kaku Gothic New',sans-serif;
+
+  --mg:7.5rem;      /* 小口側の余白欄（傍注・章番号が入る） */
+  --tw:34em;        /* 版面＝本文一行の幅 */
+  --gut:2.6rem;     /* 余白欄と版面のあき */
+  --bar:46px;       /* 柱の高さ */
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--bar) + 12px)}
+body{margin:0;background:var(--bg);color:var(--ink-soft);
+  font-family:var(--mincho);font-size:16px;line-height:2.05;letter-spacing:.045em;
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+p,li,dd,dt,h1,h2,h3,h4,figcaption,td,th{word-break:auto-phrase;text-wrap:pretty}
+h1,h2,h3,.claim,.cover-t{font-feature-settings:"palt"}
+b,strong{font-weight:700;color:var(--ink)}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--brand);outline-offset:3px}
+
+/* ---------- 柱（running head） ---------------------------------------- */
+.pillar{position:fixed;top:0;left:0;right:0;z-index:60;height:var(--bar);
+  background:rgba(255,255,255,.94);backdrop-filter:saturate(1.1) blur(6px);
+  border-bottom:1px solid var(--line);display:flex;align-items:center}
+.pillar-in{width:100%;max-width:60rem;margin:0 auto;padding:0 clamp(18px,4.5vw,44px);
+  display:flex;align-items:center;gap:1rem}
+.pillar-l{font-family:var(--head);font-size:.72rem;font-weight:700;letter-spacing:.12em;
+  color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pillar-l em{font-style:normal;color:var(--ink-40);margin-right:.7em}
+.pillar-r{margin-left:auto;display:flex;align-items:center;gap:1.1rem;flex:none}
+.pillar-t{font-family:var(--mincho);font-size:.72rem;letter-spacing:.14em;color:var(--ink-40)}
+.tocbtn{font-family:var(--head);font-size:.72rem;font-weight:700;letter-spacing:.16em;
+  background:none;border:0;border-bottom:1px solid var(--ink);color:var(--ink);
+  padding:.15rem 0;cursor:pointer;line-height:1.6}
+.tocbtn:hover{color:var(--brand-deep);border-bottom-color:var(--brand)}
+@media (max-width:640px){ .pillar-t{display:none} }
+
+/* 読み進み（背に入る細い罫） */
+.spine{position:fixed;top:0;left:0;height:2px;width:0;background:var(--brand);z-index:61}
+
+/* ---------- ノンブル ---------------------------------------------------- */
+.folio{position:fixed;bottom:14px;left:50%;transform:translateX(-50%);z-index:55;
+  font-family:var(--en);font-size:.7rem;letter-spacing:.16em;color:var(--ink-40);
+  background:rgba(255,255,255,.9);padding:.2rem .8rem;pointer-events:none;
+  opacity:0;transition:opacity .3s ease}
+.folio.on{opacity:1}
+
+/* ---------- 版面 -------------------------------------------------------- */
+.book{max-width:60rem;margin:0 auto;padding:0 clamp(18px,4.5vw,44px)}
+
+/* ---------- 表紙 -------------------------------------------------------- */
+.cover{min-height:100svh;display:flex;align-items:center;padding:calc(var(--bar) + 3rem) 0 4rem}
+.cover-frame{position:relative;width:100%;max-width:44rem;padding:clamp(2.6rem,7vw,4.6rem) clamp(1.6rem,5vw,3.4rem);
+  border:1px solid var(--ink)}
+.cover-frame::after{content:"";position:absolute;inset:5px;border:1px solid var(--line-deep);pointer-events:none}
+.cover-series{font-family:var(--head);font-size:.68rem;font-weight:700;letter-spacing:.3em;
+  color:var(--brand);margin:0 0 2.4rem}
+.cover-t{font-family:var(--mincho);font-weight:900;
+  font-size:clamp(2.1rem,7.2vw,3.5rem);line-height:1.5;letter-spacing:.09em;margin:0;color:var(--ink)}
+.cover-sub{font-family:var(--mincho);font-size:clamp(.9rem,2.4vw,1.02rem);letter-spacing:.1em;
+  color:var(--ink-55);margin:1.6rem 0 0}
+.cover-rule{height:1px;background:var(--ink);margin:2.8rem 0 1.4rem;width:5.5rem}
+.cover-imp{font-family:var(--head);font-size:.72rem;line-height:2.1;letter-spacing:.1em;color:var(--ink-55);margin:0}
+.cover-imp b{font-weight:700;color:var(--ink)}
+.cover-cue{font-family:var(--head);font-size:.68rem;letter-spacing:.24em;color:var(--ink-40);
+  margin:3.2rem 0 0;display:flex;align-items:center;gap:.7rem}
+.cover-cue::after{content:"";height:1px;width:2.4rem;background:var(--line-deep)}
+
+/* ---------- 目次 -------------------------------------------------------- */
+.toc{padding:clamp(4rem,11vw,7.5rem) 0 clamp(3rem,8vw,5rem);border-top:1px solid var(--ink)}
+.toc-h{font-family:var(--mincho);font-weight:700;font-size:1.35rem;letter-spacing:.6em;
+  margin:0 0 2.6rem;color:var(--ink)}
+.toc-list{list-style:none;margin:0;padding:0;max-width:40rem}
+.toc-list li{border-bottom:1px dotted var(--line-deep)}
+.toc-list li:first-child{border-top:1px solid var(--ink)}
+.toc-list a{display:flex;align-items:baseline;gap:0;text-decoration:none;padding:.95rem 0}
+.toc-list a:hover .tc-t{color:var(--brand-deep)}
+.tc-n{font-family:var(--mincho);font-size:.82rem;color:var(--brand);width:2.6em;flex:none;letter-spacing:.1em}
+.tc-t{font-family:var(--mincho);font-size:1.02rem;letter-spacing:.06em;color:var(--ink);line-height:1.7}
+.tc-d{flex:1 1 auto;min-width:1.6rem}
+.tc-p{font-family:var(--en);font-size:.76rem;color:var(--ink-40);flex:none;letter-spacing:.08em;
+  font-variant-numeric:tabular-nums}
+.toc-note{font-family:var(--body);font-size:.76rem;line-height:2;color:var(--ink-40);margin:1.8rem 0 0;max-width:38em}
+
+/* ---------- 前書き ------------------------------------------------------ */
+.mae{padding:clamp(4rem,11vw,7.5rem) 0 clamp(2rem,6vw,3.5rem);border-top:1px solid var(--ink)}
+.mae-h{font-family:var(--mincho);font-weight:700;font-size:1.15rem;letter-spacing:.42em;margin:0 0 2.2rem}
+.mae p{max-width:var(--tw);margin:0 0 1.5em;font-size:1rem;line-height:2.2}
+.mae .src{font-family:var(--body);font-size:.78rem;line-height:2.05;color:var(--ink-40);
+  border-top:1px solid var(--line);padding-top:1.3rem;margin-top:2.4rem;max-width:40em;letter-spacing:.02em}
+.mae .src b,.mae .src strong{color:var(--ink-72)}
+
+/* ---------- 章 ---------------------------------------------------------- */
+.chap{display:grid;grid-template-columns:var(--mg) minmax(0,1fr);column-gap:var(--gut);
+  counter-increment:chap;counter-reset:fig tbl;
+  padding:0 0 clamp(3.5rem,9vw,6rem);border-top:1px solid var(--ink)}
+body{counter-reset:chap -1}
+.chap > *{grid-column:2;max-width:var(--tw)}
+.chap > figure,.chap > .scroller,.chap > .tno,.chap > .fig-tag{grid-column:1 / -1;max-width:none}
+
+/* 章扉 */
+.chap-open{grid-column:1 / -1 !important;max-width:none !important;
+  padding:clamp(3.6rem,10vw,6.4rem) 0 clamp(2.4rem,6vw,3.6rem);
+  display:grid;grid-template-columns:var(--mg) minmax(0,1fr);column-gap:var(--gut)}
+.chap-no{grid-column:1;grid-row:1;margin:0;text-align:right;font-family:var(--mincho);
+  font-size:.86rem;letter-spacing:.2em;color:var(--brand);padding-top:.55rem;white-space:nowrap}
+.chap-no span{display:inline-block;border-bottom:1px solid var(--brand);padding-bottom:.35rem}
+.chap-open h2{grid-column:2;grid-row:1;margin:0;font-family:var(--mincho);font-weight:900;
+  font-size:clamp(1.5rem,4.4vw,2.2rem);line-height:1.6;letter-spacing:.08em;color:var(--ink);max-width:20em}
+.chap-lead{grid-column:2;grid-row:2;margin:1.5rem 0 0;font-size:.95rem;line-height:2.15;
+  color:var(--ink-72);max-width:var(--tw)}
+@media (max-width:760px){
+  :root{ --mg:0rem; --gut:0rem }
+  .chap,.chap-open{grid-template-columns:minmax(0,1fr)}
+  .chap > *{grid-column:1}
+  .chap-no{grid-column:1;grid-row:1;text-align:left;padding-top:0;margin-bottom:1rem}
+  .chap-open h2{grid-column:1;grid-row:2}
+  .chap-lead{grid-column:1;grid-row:3}
+}
+
+/* 本文 */
+.col{margin:0}
+.chap > .col{margin-top:1.7rem}
+.col p{margin:0 0 1.5em;text-indent:1em}
+.col p:last-child{margin-bottom:0}
+.col p.claim{text-indent:0;margin:2.6rem 0 2.2rem}
+.col + .col{margin-top:1.5em}
+
+/* 標語（別行取り） */
+.claim{font-family:var(--mincho);font-weight:700;color:var(--ink);
+  font-size:clamp(1.12rem,2.9vw,1.36rem);line-height:1.85;letter-spacing:.07em;
+  margin:2.9rem 0 2.2rem;padding:0;border:0;max-width:30em;position:relative}
+.claim::before{content:"";display:block;width:2.2rem;height:2px;background:var(--brand);margin:0 0 1.1rem}
+
+/* 図版 */
+figure{margin:3rem 0 0;counter-increment:fig}
+figure svg{width:100%;height:auto;display:block;color:var(--ink-soft);max-width:56rem}
+figcaption{font-family:var(--body);font-size:.79rem;line-height:2;color:var(--ink-55);
+  margin:1.1rem 0 0;max-width:44em;letter-spacing:.02em}
+figcaption b{color:var(--ink)}
+figure > figcaption::before{content:"図 " counter(chap) "-" counter(fig) "　";
+  font-family:var(--head);font-weight:700;font-size:.72rem;letter-spacing:.1em;color:var(--brand)}
+.chap > figcaption{margin:.9rem 0 0;padding-left:1.6em;text-indent:-1.6em;max-width:44em}
+.chap > figcaption::before{content:"※　";color:var(--ink-40)}
+
+/* 表 */
+.tno{counter-increment:tbl;margin:2.9rem 0 .7rem;font-family:var(--head);font-size:.72rem;font-weight:700;
+  letter-spacing:.12em;color:var(--brand)}
+.tno::before{content:"表 " counter(chap) "-" counter(tbl)}
+.scroller{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.tbl{width:100%;border-collapse:collapse;font-family:var(--body);font-size:.83rem;
+  line-height:1.95;letter-spacing:.01em;min-width:30rem;max-width:52rem}
+.tbl thead th{font-family:var(--head);font-size:.68rem;font-weight:700;letter-spacing:.12em;
+  color:var(--ink-55);border-top:2px solid var(--ink);border-bottom:1px solid var(--ink);
+  padding:.55rem 1.1rem .55rem 0;text-align:left;white-space:nowrap;vertical-align:bottom}
+.tbl td{border-bottom:1px solid var(--line);padding:.75rem 1.1rem .75rem 0;
+  text-align:left;vertical-align:top;color:var(--ink-72)}
+.tbl tbody tr:last-child td{border-bottom:2px solid var(--ink)}
+.tbl td.q{font-family:var(--mincho);font-size:.95rem;color:var(--ink);white-space:nowrap;letter-spacing:.04em}
+.tbl tr.is-hot td{color:var(--brand-deep)}
+.tbl tr.is-hot td.q{color:var(--brand-deep)}
+
+/* 節見出し（中見出し） */
+.fig-tag{font-family:var(--mincho);font-size:1.02rem;font-weight:700;letter-spacing:.1em;
+  color:var(--ink);margin:3.4rem 0 0;padding:1rem 0 0;border-top:1px solid var(--ink);
+  display:flex;align-items:baseline;gap:.9rem;flex-wrap:wrap}
+.fig-tag b{font-weight:900}
+.fig-tag::after{content:"";flex:1 1 3rem;height:1px;background:var(--line)}
+
+/* 注（囲みではなく、傍注として組む） */
+.warn{position:relative;font-family:var(--body);font-size:.83rem;line-height:2.05;
+  color:var(--ink-72);letter-spacing:.02em;margin:1.9rem 0 0;padding:0;border:0;background:none;
+  max-width:38em}
+.warn::before{content:"注";position:absolute;left:calc(-1 * (var(--mg)));top:.45em;
+  width:calc(var(--mg) - var(--gut));text-align:right;
+  font-family:var(--head);font-size:.68rem;font-weight:700;letter-spacing:.18em;color:var(--brand)}
+.warn + .warn{margin-top:1.1rem}
+@media (max-width:760px){
+  .warn{padding-left:2.4em;text-indent:0}
+  .warn::before{left:0;top:.5em;width:auto;text-align:left}
+}
+
+/* 章末補記 */
+.caveat{font-family:var(--body);font-size:.84rem;line-height:2.1;color:var(--ink-72);
+  letter-spacing:.02em;margin:3.4rem 0 0;padding:1.5rem 0 0;border:0;background:none;
+  border-top:1px solid var(--ink);max-width:44em;position:relative}
+.caveat::before{content:"補　記";display:block;font-family:var(--head);font-size:.68rem;
+  font-weight:700;letter-spacing:.2em;color:var(--brand);margin:0 0 .9rem}
+.caveat p{margin:0 0 1em}
+.caveat p:last-child{margin-bottom:0}
+
+/* 対照（二段組の比較） */
+.pair{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));
+  gap:0 var(--gut);margin:2.4rem 0 0;max-width:52rem;border-top:1px solid var(--ink)}
+.chap > .pair{grid-column:1 / -1;max-width:none}
+.pair > div{padding:1.1rem 0 1.4rem;border-bottom:1px solid var(--line)}
+.pair h4{font-family:var(--mincho);font-size:.98rem;font-weight:700;letter-spacing:.06em;
+  margin:0 0 .7rem;color:var(--ink)}
+.pair p{font-family:var(--body);font-size:.82rem;line-height:2;color:var(--ink-72);margin:0;letter-spacing:.02em}
+
+/* 語釈（辞書組み） */
+.dl{margin:2.8rem 0 0;max-width:44em}
+.dl dt{font-family:var(--mincho);font-size:1.16rem;font-weight:900;letter-spacing:.14em;
+  color:var(--ink);border-top:2px solid var(--ink);padding-top:1rem;margin:2.6rem 0 .9rem}
+.dl dt:first-of-type{margin-top:0}
+.dl dd{font-family:var(--body);font-size:.85rem;line-height:2.05;color:var(--ink-72);
+  margin:0 0 1em;padding-left:1.2em;text-indent:-1.2em;letter-spacing:.02em}
+.dl dd::before{content:"・";color:var(--ink-28)}
+.dl dd.def{font-family:var(--mincho);font-size:1.02rem;line-height:1.9;color:var(--ink);
+  border:0;padding:0 0 0 1.2em;text-indent:-1.2em;margin-bottom:1.3em;letter-spacing:.05em}
+.dl dd.def::before{content:"―　";color:var(--brand)}
+
+/* 追跡（版が上がる過程） */
+.tl{margin:2.6rem 0 0;max-width:46em;padding:0;border-top:1px solid var(--ink)}
+.tl-step{padding:1.7rem 0;border-bottom:1px solid var(--line)}
+.tl-step:last-child{border-bottom:2px solid var(--ink)}
+.tl-v{display:block;font-family:var(--head);font-size:.7rem;font-weight:700;letter-spacing:.16em;
+  color:var(--brand);margin:0 0 .8rem}
+.tl-q{font-family:var(--mincho);font-size:1.06rem;font-weight:700;line-height:1.85;letter-spacing:.06em;
+  color:var(--ink);margin:0 0 1rem;padding-left:1.3em;text-indent:-1.3em}
+.tl-q::before{content:"問　";font-weight:700;color:var(--brand);font-size:.8em;letter-spacing:.1em}
+.tl-e{font-family:var(--body);font-size:.83rem;line-height:2.05;color:var(--ink-72);margin:0;letter-spacing:.02em}
+.tl-e b{font-family:var(--head);font-size:.68rem;font-weight:700;letter-spacing:.16em;
+  color:var(--brand);background:none;border:0;padding:0;margin-right:.8em}
+.tl-r{display:block;font-family:var(--mincho);font-size:.95rem;line-height:1.95;color:var(--ink);
+  letter-spacing:.04em;margin:.8rem 0;padding:0;border:0}
+.tl-r::before{content:"「"}
+.tl-r::after{content:"」"}
+
+/* 版の並び */
+.mini{margin:2rem 0 0;max-width:44em;padding:0;list-style:none;border-top:1px solid var(--ink)}
+.mini li{position:relative;padding:.75rem 0 .75rem 4.6rem;border-bottom:1px solid var(--line);
+  font-family:var(--mincho);font-size:1rem;line-height:1.9;letter-spacing:.05em;color:var(--ink)}
+.mini li::before{content:attr(data-v);position:absolute;left:0;top:.95rem;width:4rem;
+  font-family:var(--en);font-size:.7rem;font-weight:600;letter-spacing:.06em;color:var(--brand)}
+.mini li.hit{font-family:var(--body);font-size:.8rem;color:var(--ink-55);line-height:2;
+  border-bottom-style:dotted;padding-top:.6rem;padding-bottom:.6rem;letter-spacing:.02em}
+.mini li.hit::before{color:var(--ink-40);font-family:var(--head);font-weight:700;font-size:.64rem;
+  letter-spacing:.1em;top:.85rem}
+.mini li.hit i{font-style:normal;color:var(--ink);border-bottom:1px solid var(--brand-mid)}
+
+/* 例（節） */
+.ex{margin:3.6rem 0 0;padding-top:1.4rem;border-top:2px solid var(--ink);max-width:46em}
+.ex h3{font-family:var(--mincho);font-size:1.22rem;font-weight:900;letter-spacing:.14em;
+  margin:0 0 1.1rem;color:var(--ink)}
+.ex-x{font-family:var(--body);font-size:.82rem;line-height:2;color:var(--ink-40);margin:0 0 .8rem;letter-spacing:.02em}
+.ex-x b{color:var(--ink-72)}
+.ex-w{font-family:var(--mincho);font-size:.98rem;line-height:1.95;color:var(--ink);letter-spacing:.05em;
+  margin:0;padding:0;border:0}
+.ex-note{font-family:var(--body);font-size:.8rem;line-height:2;color:var(--ink-55);
+  margin:1.3rem 0 0;padding-top:1rem;border-top:1px solid var(--line);letter-spacing:.02em}
+.ex-note b{color:var(--ink)}
+.ex .warn{margin-top:1.6rem}
+.ex .warn::before{left:0;top:.5em;width:auto;text-align:left}
+.ex .warn{padding-left:2.4em}
+
+/* ---------- 奥付 -------------------------------------------------------- */
+.oku{padding:clamp(4rem,10vw,6.5rem) 0 clamp(5rem,12vw,8rem);border-top:1px solid var(--ink)}
+.oku-h{font-family:var(--mincho);font-weight:700;font-size:1.05rem;letter-spacing:.5em;margin:0 0 2.4rem}
+.oku-box{border:1px solid var(--ink);padding:clamp(1.6rem,4.5vw,2.6rem);max-width:38rem}
+.oku-t{font-family:var(--mincho);font-size:1.3rem;font-weight:900;letter-spacing:.1em;margin:0 0 .6rem;color:var(--ink)}
+.oku-s{font-family:var(--mincho);font-size:.86rem;letter-spacing:.08em;color:var(--ink-55);margin:0 0 1.8rem}
+.oku-dl{margin:0;font-family:var(--body);font-size:.79rem;line-height:2.05;letter-spacing:.02em;
+  display:grid;grid-template-columns:6.2em 1fr;gap:.5rem 1rem}
+.oku-dl dt{font-family:var(--head);font-weight:700;font-size:.7rem;letter-spacing:.12em;color:var(--ink-40);padding-top:.35em}
+.oku-dl dd{margin:0;color:var(--ink-72)}
+.oku-dl dd b{color:var(--ink)}
+.oku-mark{margin:2.2rem 0 0;padding-top:1.2rem;border-top:1px solid var(--line);
+  font-family:var(--en);font-size:.7rem;letter-spacing:.28em;color:var(--brand);font-weight:500}
+
+/* ---------- 目次ドロワー ------------------------------------------------ */
+.drawer{position:fixed;inset:0;z-index:80;background:#fff;padding:0;
+  opacity:0;visibility:hidden;transition:opacity .22s ease,visibility .22s ease;overflow-y:auto}
+.drawer.on{opacity:1;visibility:visible}
+.drawer-in{max-width:44rem;margin:0 auto;padding:clamp(3rem,9vw,5rem) clamp(18px,4.5vw,44px) 5rem}
+.drawer-top{display:flex;align-items:baseline;justify-content:space-between;margin:0 0 2.4rem}
+.drawer-top p{font-family:var(--mincho);font-weight:700;font-size:1.2rem;letter-spacing:.6em;margin:0}
+.drawer .toc-list{max-width:none}
+.shiori{position:fixed;left:50%;transform:translateX(-50%);bottom:44px;z-index:70;
+  font-family:var(--head);font-size:.74rem;font-weight:700;letter-spacing:.1em;
+  background:var(--ink);color:#fff;border:0;padding:.7rem 1.3rem;cursor:pointer;
+  display:none;align-items:center;gap:.7rem;line-height:1.5}
+.shiori.on{display:inline-flex}
+.shiori span{color:var(--brand-mid);font-family:var(--en);letter-spacing:.1em}
+
+/* ---------- 印刷 -------------------------------------------------------- */
+@media print{
+  .pillar,.folio,.spine,.drawer,.shiori,.cover-cue{display:none !important}
+  body{font-size:10.5pt;line-height:1.9}
+  .chap{page-break-before:always;border-top:0}
+  .cover{min-height:auto;padding:0 0 2rem}
+  figure,table,.ex,.tl-step{page-break-inside:avoid}
+  a{text-decoration:none}
+}
+</style>
+</head>
+<body>
+
+<div class="spine" id="spine"></div>
+<div class="pillar">
+  <div class="pillar-in">
+    <span class="pillar-l" id="pillarL"><em>POOLO</em>豊かさから、問いまで</span>
+    <span class="pillar-r">
+      <span class="pillar-t">用語の書</span>
+      <button class="tocbtn" id="tocbtn" aria-expanded="false">目次</button>
+    </span>
+  </div>
+</div>
+<div class="folio" id="folio"></div>
+<button class="shiori" id="shiori">しおり　前回の続きから <span id="shioriP"></span></button>
+
+<div class="book">
+
+  <!-- ============ 表紙 ============ -->
+  <div class="cover" id="cover">
+    <div class="cover-frame">
+      <p class="cover-series">POOLO ／ 用語の書</p>
+      <h1 class="cover-t">豊かさから、<br>問いまで</h1>
+      <p class="cover-sub">POOLOの言葉を、四段で読む</p>
+      <div class="cover-rule"></div>
+      <p class="cover-imp">二〇二六年八月二十八日　<b>第一版</b><br>
+        出典：人生の豊かさ F＝G×H ／ 探究テーマ（用語の正本 v1.7）／ POOLO_METHOD 探究編 v1.7<br>
+        発行　<b>TABIPPO</b></p>
+      <p class="cover-cue">読みはじめる</p>
+    </div>
+  </div>
+
+  <!-- ============ 目次 ============ -->
+  <nav class="toc" id="mokuji">
+    <p class="toc-h">目次</p>
+    <ol class="toc-list" id="tocList">
+      <li><a href="#mae"><span class="tc-n">前</span><span class="tc-t">はじめに</span><span class="tc-d"></span><span class="tc-p" data-target="mae"></span></a></li>
+      <li><a href="#map"><span class="tc-n">序</span><span class="tc-t">4段で見る</span><span class="tc-d"></span><span class="tc-p" data-target="map"></span></a></li>
+      <li><a href="#rich"><span class="tc-n">一</span><span class="tc-t">豊かさ</span><span class="tc-d"></span><span class="tc-p" data-target="rich"></span></a></li>
+      <li><a href="#tankyu"><span class="tc-n">二</span><span class="tc-t">探究</span><span class="tc-d"></span><span class="tc-p" data-target="tankyu"></span></a></li>
+      <li><a href="#question"><span class="tc-n">三</span><span class="tc-t">問い</span><span class="tc-d"></span><span class="tc-p" data-target="question"></span></a></li>
+      <li><a href="#theme"><span class="tc-n">四</span><span class="tc-t">探究テーマ</span><span class="tc-d"></span><span class="tc-p" data-target="theme"></span></a></li>
+      <li><a href="#three"><span class="tc-n">五</span><span class="tc-t">対象・他者・社会</span><span class="tc-d"></span><span class="tc-p" data-target="three"></span></a></li>
+      <li><a href="#deepen"><span class="tc-n">六</span><span class="tc-t">探究テーマは、こう深まる</span><span class="tc-d"></span><span class="tc-p" data-target="deepen"></span></a></li>
+      <li><a href="#cases"><span class="tc-n">七</span><span class="tc-t">入口の言葉から、4例</span><span class="tc-d"></span><span class="tc-p" data-target="cases"></span></a></li>
+      <li><a href="#grain"><span class="tc-n">八</span><span class="tc-t">入口はどこからでも。ただし、必ず一人を通る</span><span class="tc-d"></span><span class="tc-p" data-target="grain"></span></a></li>
+      <li><a href="#okuduke"><span class="tc-n">奥</span><span class="tc-t">奥付</span><span class="tc-d"></span><span class="tc-p" data-target="okuduke"></span></a></li>
+    </ol>
+    <p class="toc-note">全九章。序章の図だけで全体の形は分かります。第二章に「やり方」（六手）をまとめてあり、以降に出てくる 手4・現場当て・Lv.3 はすべてそこにあります。ページ番号は画面の高さから算出した目安です。</p>
+  </nav>
+
+  <!-- ============ はじめに ============ -->
+  <section class="mae" id="mae">
+    <h2 class="mae-h">はじめに</h2>
+    <p>POOLOが使っている言葉を、<strong>上から順に4段</strong>で並べたものです。いちばん上に豊かさがあり、いちばん下に対象があります。<strong>下から読むと、なぜ豊かさになるのかが1本でつながります。</strong></p>
+    <p><strong>初めての方へ。</strong>序章の図だけで、全体の形は分かります。<strong>第二章に「やり方」（六手）をまとめました。</strong>あとから出てくる 手4・現場当て・Lv.3 といった言葉は、すべてそこに書いてあります。第三章から第六章が用語、第七章と第八章が実例と応用です。</p>
+    <p class="src">出典：[[人生の豊かさ_F=G×H]]／[[探究テーマ]]（用語の正本・v1.7）／[[POOLO_METHOD_探究編_v1]]（v1.7）。<strong>この資料には未決の論点を入れていません。</strong>決まっているものだけです。論点のほうは<a href="https://claude.ai/code/artifact/bfdd7062-8f9c-4f52-a1f5-27ae613565e3">概念図「探究と旅と豊かさ」</a>の06にまとめてあります。</p>
+  </section>
+
+  <!-- ============ 本文 ============ -->
+<section class="chap" id="map" data-short="全体図" data-label="序　章">
+  <header class="chap-open">
+    <p class="chap-no"><span>序　章</span></p>
+    <h2>4段で見る</h2>
+    <p class="chap-lead">言葉が4つあり、上下の関係があります。<strong>上が「何のために」、下が「何をするか」</strong>です。ばらばらの用語ではありません。</p>
+  </header>
+<figure>
+    <svg viewBox="0 0 860 520" role="img" aria-label="4段のはしご。上から豊かさ、探究、探究テーマ、対象・他者・社会。下から上へ、対象から問いが生まれ、他者に当てると、GとHが同時に動く。">
+      <defs>
+        <marker id="m1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M 0 0 L 10 5 L 0 10 z" fill="#189BBC"/>
+        </marker>
+      </defs>
+
+      <text x="44" y="88" font-size="10.5" fill="currentColor" opacity=".5">目的</text>
+      <rect x="140" y="50" width="580" height="56" rx="2" fill="#189BBC" stroke="#189BBC" stroke-width="2"/>
+      <text x="164" y="84" font-size="14" font-weight="700" fill="#FFFFFF">豊かさ</text>
+      <text x="696" y="84" text-anchor="end" font-size="11.5" fill="#FFFFFF" opacity=".9">F ＝ 内的な納得(G) × 他者とのつながり(H)</text>
+
+      <line x1="250" y1="168" x2="250" y2="114" stroke="#189BBC" stroke-width="2.5" marker-end="url(#m1)"/>
+      <text x="278" y="145" font-size="11.5" font-weight="700" fill="#189BBC">GとHが、同時に動く</text>
+
+      <text x="44" y="214" font-size="10.5" fill="currentColor" opacity=".5">営み</text>
+      <rect x="140" y="176" width="580" height="56" rx="2" fill="none" stroke="currentColor" stroke-width="1.5"/>
+      <text x="164" y="210" font-size="14" font-weight="700" fill="currentColor">探究</text>
+      <text x="696" y="210" text-anchor="end" font-size="11.5" fill="currentColor" opacity=".65">問いを橋にして、自分と社会の両方を広げつづけること</text>
+
+      <line x1="250" y1="294" x2="250" y2="240" stroke="currentColor" stroke-width="1.5" marker-end="url(#m1)"/>
+      <text x="278" y="271" font-size="11.5" fill="currentColor" opacity=".7">その問いを、他者に当てる</text>
+
+      <text x="44" y="340" font-size="10.5" fill="currentColor" opacity=".5">持ち物</text>
+      <rect x="140" y="302" width="580" height="56" rx="2" fill="none" stroke="currentColor" stroke-width="1.5"/>
+      <text x="164" y="336" font-size="14" font-weight="700" fill="currentColor">探究テーマ</text>
+      <text x="696" y="336" text-anchor="end" font-size="11.5" fill="currentColor" opacity=".65">いま掲げている問いの、現在の版</text>
+
+      <line x1="250" y1="420" x2="250" y2="366" stroke="currentColor" stroke-width="1.5" marker-end="url(#m1)"/>
+      <text x="278" y="397" font-size="11.5" fill="currentColor" opacity=".7">ここから、問いが生まれる</text>
+
+      <text x="44" y="466" font-size="10.5" fill="currentColor" opacity=".5">触れる先</text>
+      <rect x="140" y="428" width="580" height="56" rx="2" fill="none" stroke="currentColor" stroke-width="1.5"/>
+      <text x="164" y="462" font-size="14" font-weight="700" fill="currentColor">対象・他者・社会</text>
+      <text x="696" y="462" text-anchor="end" font-size="11.5" fill="currentColor" opacity=".65">問いが触れる先の、三つ</text>
+
+      <text x="140" y="508" font-size="10.5" fill="currentColor" opacity=".5">下から読むと因果になり、上から読むと「何のために」になります。</text>
+    </svg>
+    <figcaption><b>「探究テーマって何ですか」と聞かれたときは、この図の3段目を指すのがいちばん早いと思います。</b>単独の用語ではなく、<b>上に豊かさがあり、下に対象がある</b>という位置で意味が決まる語だからです。<b>なお〈問い〉は、この4段のどれでもありません</b>。3段目（探究テーマ）を作っている材料です。→ 第三章</figcaption>
+  </figure></section>
+
+<section class="chap" id="rich" data-short="豊かさ" data-label="第一章">
+  <header class="chap-open">
+    <p class="chap-no"><span>第一章</span></p>
+    <h2>豊かさ</h2>
+    <p class="chap-lead">いちばん上にあるもの。POOLOが最終的に増やしたいのはこれです。</p>
+  </header>
+<div class="col">
+    <p class="claim">豊かさ ＝ 内的な納得(G) × 他者とのつながり(H)</p>
+    <p><strong>足し算ではなく掛け算です。</strong>だから<strong>どちらかがゼロなら、全体がゼロ</strong>になります。片方をいくら磨いても、もう片方が無ければ積は増えない。ここがこの式のすべてです。</p>
+    <p>そして<strong>Fは固定された到達点ではありません。</strong>「豊かになった」で終わる状態ではなく、更新されつづけるもの。だから「達成」ではなく「広がりつづけているか」で見ます。</p>
+  </div>
+
+  <figure>
+    <svg viewBox="0 0 640 470" role="img" aria-label="GとHの四象限。Gだけ高いと自分の世界に閉じ、Hだけ高いと自己犠牲になる。両方が動いているのが豊かさ。">
+      <line x1="120" y1="410" x2="580" y2="410" stroke="currentColor" stroke-width="1.5"/>
+      <line x1="120" y1="410" x2="120" y2="60" stroke="currentColor" stroke-width="1.5"/>
+      <text x="120" y="44" text-anchor="middle" font-size="11.5" font-weight="700" fill="currentColor">G</text>
+      <text x="138" y="44" font-size="10.5" fill="currentColor" opacity=".55">内的な納得</text>
+      <text x="580" y="440" text-anchor="end" font-size="10.5" fill="currentColor" opacity=".55">他者とのつながり</text>
+      <text x="596" y="414" font-size="11.5" font-weight="700" fill="currentColor">H</text>
+
+      <line x1="350" y1="70" x2="350" y2="405" stroke="currentColor" stroke-width="1" stroke-dasharray="5 5" opacity=".25"/>
+      <line x1="125" y1="235" x2="575" y2="235" stroke="currentColor" stroke-width="1" stroke-dasharray="5 5" opacity=".25"/>
+
+      <text x="235" y="140" text-anchor="middle" font-size="12.5" font-weight="700" fill="currentColor">自分の世界に閉じる</text>
+      <text x="235" y="162" text-anchor="middle" font-size="11" fill="currentColor" opacity=".6">納得はあるが、届いていない</text>
+      <text x="235" y="192" text-anchor="middle" font-size="15" font-weight="600" fill="currentColor" opacity=".75">34%</text>
+
+      <rect x="356" y="76" width="216" height="150" rx="2" fill="#189BBC" opacity=".08"/>
+      <text x="464" y="140" text-anchor="middle" font-size="12.5" font-weight="700" fill="#189BBC">豊かさ</text>
+      <text x="464" y="162" text-anchor="middle" font-size="11" fill="currentColor" opacity=".6">両方が動いている</text>
+      <text x="464" y="192" text-anchor="middle" font-size="15" font-weight="600" fill="#189BBC">43%</text>
+
+      <text x="235" y="310" text-anchor="middle" font-size="12.5" font-weight="700" fill="currentColor" opacity=".5">どちらも動いていない</text>
+      <text x="235" y="332" text-anchor="middle" font-size="11" fill="currentColor" opacity=".4">正解の中にいる状態</text>
+
+      <text x="464" y="310" text-anchor="middle" font-size="12.5" font-weight="700" fill="currentColor">自己犠牲</text>
+      <text x="464" y="332" text-anchor="middle" font-size="11" fill="currentColor" opacity=".6">届いているが、納得がない</text>
+      <text x="464" y="362" text-anchor="middle" font-size="15" font-weight="600" fill="currentColor" opacity=".75">23%</text>
+    </svg>
+    <figcaption><b>数字は卒業制作105本を、語り方で分類したものです。</b>GxH 43%／G単独 34%／H単独 23%。<b>合わせて57%が掛け算になっていません。</b>分類はキーワードによるもので因果は言えませんが、「自分の世界」と「自己犠牲」に、それだけの人がいることになります。</figcaption>
+  </figure>
+
+  <div class="warn"><b>「つながり」は探究の副産物ではありません。</b>構成要素です。だから定義の中心に置いています。おまけで人と仲良くなる、という話ではなく、<b>Hが無いと積がゼロになる</b>という構造の話です。</div></section>
+
+<section class="chap" id="tankyu" data-short="探究" data-label="第二章">
+  <header class="chap-open">
+    <p class="chap-no"><span>第二章</span></p>
+    <h2>探究</h2>
+    <p class="chap-lead">豊かさを起こす営み。<strong>Gだけを上げる方法でも、Hだけを増やす方法でもありません。</strong>ひとつの行為で両方を動かすところに意味があります。</p>
+  </header>
+<div class="col">
+    <p class="claim">探究とは、問いを橋にして、<br>自分と社会の両方を広げつづけること。</p>
+    <p>自分が向き合っている<strong>対象</strong>とのあいだに生じた違和感を、自分の問いに変える。それを<strong>他者</strong>に当てて問い直し、また差し出す。<strong>届いた範囲が、その人の社会になる。</strong></p>
+    <p>到達点があって往復するのではありません。<strong>行き来が止まらないこと自体</strong>が探究の中身です。（用語の正本 v1.7）</p>
+  </div>
+
+  <div class="pair">
+    <div><h4>正解とは</h4><p><strong>その行き来が、片道で止まった状態のこと。</strong>自分の内側で折り返しても、社会から受け取るだけでも、止まっています。敵は正解の「中身」ではなく<strong>停止</strong>のほうです。</p></div>
+    <div><h4>なぜ止まると苦しいのか</h4><p>正解が厄介なのは、受け取った人も<strong>ちゃんと動く</strong>からです。ただし動いているのは受け取った指示の実行で、行動は出ているのにエネルギーは増えず、むしろ削れる。<strong>「ちゃんと評価されているのに、なぜか満たされない」</strong>はこの状態です。</p></div>
+  </div>
+
+  <figure>
+    <svg viewBox="0 0 900 210" role="img" aria-label="問いがないときとあるときの対比。問いがないと自己紹介で止まり、問いがあると渡して返ってくる往復が起きる。">
+      <defs>
+        <marker id="m2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor"/>
+        </marker>
+        <marker id="m2b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M 0 0 L 10 5 L 0 10 z" fill="#189BBC"/>
+        </marker>
+      </defs>
+      <line x1="460" y1="16" x2="460" y2="186" stroke="currentColor" stroke-width="1" stroke-dasharray="5 5" opacity=".2"/>
+
+      <text x="250" y="32" text-anchor="middle" font-size="12.5" font-weight="700" fill="currentColor">問いがないとき</text>
+      <rect x="70" y="64" width="120" height="64" rx="2" fill="none" stroke="currentColor" stroke-width="1.5"/>
+      <text x="130" y="101" text-anchor="middle" font-size="13" font-weight="700" fill="currentColor">自分</text>
+      <rect x="310" y="64" width="120" height="64" rx="2" fill="none" stroke="currentColor" stroke-width="1.5"/>
+      <text x="370" y="101" text-anchor="middle" font-size="13" font-weight="700" fill="currentColor">他者</text>
+      <line x1="196" y1="96" x2="298" y2="96" stroke="currentColor" stroke-width="1.5" marker-end="url(#m2)"/>
+      <text x="247" y="88" text-anchor="middle" font-size="11.5" fill="currentColor" opacity=".65">自己紹介</text>
+      <text x="250" y="170" text-anchor="middle" font-size="11.5" fill="currentColor" opacity=".6">渡すものがないので、ここで止まる</text>
+
+      <text x="660" y="32" text-anchor="middle" font-size="12.5" font-weight="700" fill="#189BBC">問いがあるとき</text>
+      <rect x="490" y="64" width="120" height="64" rx="2" fill="none" stroke="#189BBC" stroke-width="1.8"/>
+      <text x="550" y="101" text-anchor="middle" font-size="13" font-weight="700" fill="#189BBC">自分</text>
+      <rect x="730" y="64" width="120" height="64" rx="2" fill="none" stroke="#189BBC" stroke-width="1.8"/>
+      <text x="790" y="101" text-anchor="middle" font-size="13" font-weight="700" fill="#189BBC">他者</text>
+      <line x1="616" y1="84" x2="718" y2="84" stroke="#189BBC" stroke-width="2.5" marker-end="url(#m2b)"/>
+      <text x="667" y="76" text-anchor="middle" font-size="11.5" font-weight="700" fill="#189BBC">問い</text>
+      <line x1="718" y1="114" x2="616" y2="114" stroke="#189BBC" stroke-width="2.5" marker-end="url(#m2b)"/>
+      <text x="667" y="132" text-anchor="middle" font-size="11.5" font-weight="700" fill="#189BBC">反応</text>
+      <text x="660" y="170" text-anchor="middle" font-size="11.5" font-weight="700" fill="#189BBC">渡すものがあるので、往復が起きる</text>
+    </svg>
+    <figcaption><b>違いは、他者に渡すものを持っているかどうかだけです。</b>問いは、他人に渡せる形をした持ち物です。渡すものがないと、会話は「何してる人ですか」で止まります。<b>「深い対話ができる仲間が欲しい」という声はよく出ますが、深い対話には持ち込むものが要る。</b>問いはそのチケットです。</figcaption>
+  </figure>
+
+  <p class="tno"></p>
+  <div class="scroller">
+  <table class="tbl">
+    <thead><tr><th></th><th>問いがないとき</th><th>問いがあるとき</th></tr></thead>
+    <tbody>
+      <tr><td class="q">G ／ 何を基準に決めるか</td><td>外の基準で決める<br><span style="opacity:.6">→ 評価されているのに、満たされない</span></td><td>自分の問いに照らせる<br><span style="opacity:.6">→「自分で決めた」が残る</span></td></tr>
+      <tr><td class="q">H ／ どこまで話せるか</td><td>「何してる人ですか」で止まる<br><span style="opacity:.6">→ 誰とでも同じ会話になる</span></td><td>相手も自分の話を出す<br><span style="opacity:.6">→ 代替できない関係になる</span></td></tr>
+      <tr class="is-hot"><td class="q">GとHの関係</td><td>別々に努力するしかない</td><td><strong>ひとつの行為が、両方を同時に動かす</strong></td></tr>
+    </tbody>
+  </table>
+  </div>
+  <figcaption style="margin-left:0"><b>これが「掛け算」の実体です。</b>GとHは、別々に努力して足し合わせるものではありません。<b>問いを他者に当てるというひとつの行為が、両方を同時に動かす。</b>だから片方がゼロなら、もう片方も動きません。</figcaption>
+
+  <p class="fig-tag"><b>やり方の見取り図</b>　／　この先で出てくる言葉は、すべてここにあります</p>
+
+  <figure>
+    <svg viewBox="0 0 900 275" role="img" aria-label="探究の六手。溜める、拾う、立てる、当てる、差し出す、書き換えるの順に進み、手1へ戻って次の周に入る。手4と手5だけは他者がいないとできない。">
+      <defs>
+        <marker id="m9" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor"/>
+        </marker>
+        <marker id="m9b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M 0 0 L 10 5 L 0 10 z" fill="#189BBC"/>
+        </marker>
+      </defs>
+
+      <path d="M 480 74 L 480 66 L 744 66 L 744 74" fill="none" stroke="#189BBC" stroke-width="1" opacity=".55"/>
+      <text x="612" y="54" text-anchor="middle" font-size="11.5" font-weight="700" fill="#189BBC">ここだけ、他者がいないとできない</text>
+
+      <rect x="60" y="90" width="124" height="56" rx="2" fill="none" stroke="currentColor" stroke-width="1.5"/>
+      <text x="122" y="124" text-anchor="middle" font-size="13" font-weight="700" fill="currentColor">手1 溜める</text>
+      <text x="122" y="166" text-anchor="middle" font-size="11" fill="currentColor" opacity=".6">違和感をためる</text>
+      <line x1="188" y1="118" x2="196" y2="118" stroke="currentColor" stroke-width="1.5" marker-end="url(#m9)"/>
+
+      <rect x="200" y="90" width="124" height="56" rx="2" fill="none" stroke="currentColor" stroke-width="1.5"/>
+      <text x="262" y="124" text-anchor="middle" font-size="13" font-weight="700" fill="currentColor">手2 拾う</text>
+      <text x="262" y="166" text-anchor="middle" font-size="11" fill="currentColor" opacity=".6">ひとつ選ぶ</text>
+      <line x1="328" y1="118" x2="336" y2="118" stroke="currentColor" stroke-width="1.5" marker-end="url(#m9)"/>
+
+      <rect x="340" y="90" width="124" height="56" rx="2" fill="none" stroke="currentColor" stroke-width="1.5"/>
+      <text x="402" y="124" text-anchor="middle" font-size="13" font-weight="700" fill="currentColor">手3 立てる</text>
+      <text x="402" y="166" text-anchor="middle" font-size="11" fill="currentColor" opacity=".6">問いにする（v1.0）</text>
+      <line x1="468" y1="118" x2="476" y2="118" stroke="#189BBC" stroke-width="2" marker-end="url(#m9b)"/>
+
+      <rect x="480" y="90" width="124" height="56" rx="2" fill="none" stroke="#189BBC" stroke-width="2"/>
+      <text x="542" y="124" text-anchor="middle" font-size="13" font-weight="700" fill="#189BBC">手4 当てる</text>
+      <text x="542" y="166" text-anchor="middle" font-size="11" font-weight="700" fill="#189BBC">他者に当てる</text>
+      <line x1="608" y1="118" x2="616" y2="118" stroke="#189BBC" stroke-width="2" marker-end="url(#m9b)"/>
+
+      <rect x="620" y="90" width="124" height="56" rx="2" fill="none" stroke="#189BBC" stroke-width="2"/>
+      <text x="682" y="124" text-anchor="middle" font-size="13" font-weight="700" fill="#189BBC">手5 差し出す</text>
+      <text x="682" y="166" text-anchor="middle" font-size="11" font-weight="700" fill="#189BBC">外に出す</text>
+      <line x1="748" y1="118" x2="756" y2="118" stroke="currentColor" stroke-width="1.5" marker-end="url(#m9)"/>
+
+      <rect x="760" y="90" width="124" height="56" rx="2" fill="none" stroke="currentColor" stroke-width="1.5"/>
+      <text x="822" y="124" text-anchor="middle" font-size="12" font-weight="700" fill="currentColor">手6 書き換える</text>
+      <text x="822" y="166" text-anchor="middle" font-size="11" fill="currentColor" opacity=".6">版を上げる（v1.1）</text>
+
+      <path d="M 822 186 L 822 240 L 40 240 L 40 118 L 52 118" fill="none" stroke="#189BBC" stroke-width="1.5" stroke-dasharray="5 4" opacity=".6" marker-end="url(#m9b)"/>
+      <text x="440" y="232" text-anchor="middle" font-size="11" fill="currentColor" opacity=".55">ここまでで1周。問いが1つ書き換わって、また出ていく</text>
+
+      <text x="40" y="268" font-size="10.5" fill="currentColor" opacity=".5">POOLOの8ヶ月では、この周を3回まわす設計になっています。</text>
+    </svg>
+    <figcaption><b>これが探究の「やり方」です。以降に出てくる 手1〜手6 は、すべてこの図の箱を指しています。</b>6つのうち<b>手4と手5だけが、他者がいないと成立しません</b>。残りの4つは自分ひとりでできます。<b>1周まわると、問いの版が1つ上がります</b>（v1.0 から v1.1 へ）。</figcaption>
+  </figure>
+
+  <div class="col">
+    <p><strong>手4（当てる）には、三つのやり方があります。</strong>この先の実例で何度も出てくるので、ここで並べておきます。</p>
+  </div>
+
+  <p class="tno"></p>
+  <div class="scroller">
+  <table class="tbl">
+    <thead><tr><th>当て方</th><th>誰に当てるか</th><th>狙う反応</th></tr></thead>
+    <tbody>
+      <tr><td class="q">現場当て</td><td>その問いを<strong>すでに生きている人</strong></td><td>「うちはこうしてる」。<strong>旅の行き先は、ここから決まります</strong></td></tr>
+      <tr><td class="q">ズラし当て</td><td>その問いを<strong>持っていない人</strong></td><td>「え、それ悩むところなの？」</td></tr>
+      <tr><td class="q">反証当て</td><td>役割として<strong>否定を頼む相手</strong></td><td>「それ、◯◯なだけでは？」</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <figcaption style="margin-left:0"><b>共通のルールがひとつ。「共感が返ってきたら、当たっていません。」</b>「わかる」「私も」が返ってきたら、もう一段ズレた相手に当て直します。<b>相談ではありません。</b>アドバイスや解決策をもらいに行く時間ではない、ということです。</figcaption>
+
+  <div class="col">
+    <p><strong>手5（差し出す）には、四つの深さがあります。</strong>これも後で Lv.3 / Lv.4 という形で出てきます。</p>
+  </div>
+
+  <p class="tno"></p>
+  <div class="scroller">
+  <table class="tbl">
+    <thead><tr><th>深さ</th><th>誰に向けて</th><th>例</th></tr></thead>
+    <tbody>
+      <tr><td class="q">Lv.1</td><td>自分に</td><td>日記・ジャーナリング・ひとり旅</td></tr>
+      <tr><td class="q">Lv.2</td><td>仲間に</td><td>noteで見せる・合宿で試す・1on1で語る</td></tr>
+      <tr class="is-hot"><td class="q">Lv.3</td><td><strong>知らない人に</strong></td><td><strong>全員の必修ライン。</strong>自己分析では届かない場所に手が届く</td></tr>
+      <tr><td class="q">Lv.4</td><td>関係を紡ぐ</td><td>連載・定期の場・継続コミュニティ運営</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <figcaption style="margin-left:0"><b>Lv.3 が必修ラインなのは、そこではじめて対象の外に出るからです。</b>Lv.1 と Lv.2 は、自分と、自分を知っている人のなかで完結します。<b>Lv.4 は、届いたものが続いた状態</b>で、第八章で出てくる「仕事の形」はこの先にあります。</figcaption></section>
+
+<section class="chap" id="question" data-short="問い" data-label="第三章">
+  <header class="chap-open">
+    <p class="chap-no"><span>第三章</span></p>
+    <h2>問い</h2>
+    <p class="chap-lead">はしごの3段目（探究テーマ）は、<strong>問いでできています</strong>。そして探究の定義でいちばん働いているのが、この語です。探究とは「<strong>問いを橋にして</strong>、自分と社会の両方を広げつづけること」。<strong>ここでは、その橋を分解します。</strong></p>
+  </header>
+<div class="col">
+    <p class="claim">問いは、自分と社会をつなぐ橋です。</p>
+    <p>定義にある「橋」は、飾りの比喩ではなく<strong>構造の説明</strong>です。<strong>橋には両端が要ります。</strong>自分の側に刺さっていて、社会の側にも届いている。<strong>片方が外れていたら、それは橋ではありません。</strong></p>
+  </div>
+
+  <figure>
+    <svg viewBox="0 0 860 350" role="img" aria-label="橋の両端。自分側だけ刺さっていると日記になり、社会側だけだと一般論になり、両端が刺さってはじめて橋になる。">
+      <rect x="70" y="60" width="110" height="250" rx="2" fill="none" stroke="currentColor" stroke-width="1.5"/>
+      <text x="125" y="190" text-anchor="middle" font-size="14" font-weight="700" fill="currentColor">自分</text>
+      <rect x="680" y="60" width="110" height="250" rx="2" fill="none" stroke="currentColor" stroke-width="1.5"/>
+      <text x="735" y="190" text-anchor="middle" font-size="14" font-weight="700" fill="currentColor">社会</text>
+
+      <line x1="186" y1="110" x2="450" y2="110" stroke="currentColor" stroke-width="2.5"/>
+      <circle cx="186" cy="110" r="5" fill="currentColor"/>
+      <text x="562" y="114" text-anchor="middle" font-size="11" fill="currentColor" opacity=".45">届かない</text>
+      <text x="430" y="140" text-anchor="middle" font-size="11.5" fill="currentColor" opacity=".7">賭かっているが、伝わらない → 日記。G単独</text>
+
+      <text x="298" y="194" text-anchor="middle" font-size="11" fill="currentColor" opacity=".45">自分がいない</text>
+      <line x1="410" y1="190" x2="674" y2="190" stroke="currentColor" stroke-width="2.5"/>
+      <circle cx="674" cy="190" r="5" fill="currentColor"/>
+      <text x="430" y="220" text-anchor="middle" font-size="11.5" fill="currentColor" opacity=".7">伝わるが、賭かっていない → 一般論・社会課題。H単独</text>
+
+      <line x1="186" y1="270" x2="674" y2="270" stroke="#189BBC" stroke-width="3"/>
+      <circle cx="186" cy="270" r="5.5" fill="#189BBC"/>
+      <circle cx="674" cy="270" r="5.5" fill="#189BBC"/>
+      <text x="430" y="300" text-anchor="middle" font-size="11.5" font-weight="700" fill="#189BBC">両端が刺さっている → 橋になる。G × H</text>
+
+      <text x="70" y="336" font-size="10.5" fill="currentColor" opacity=".5">上の2本も「問いの形」はしています。ただし橋にはなっていないので、渡れません。</text>
+    </svg>
+    <figcaption><b>この3本は、第一章の四象限と同じものです。</b>上が「自分の世界に閉じる」（34%）、真ん中が「自己犠牲」（23%）、下が「豊かさ」（43%）。<b>四象限で人を分類していたものを、問いの側から見るとこうなります</b>。落ちているのは人ではなく、<b>橋の端です。</b></figcaption>
+  </figure>
+
+  <div class="col">
+    <p>そして橋は、<strong>渡るためのもので、渡り終えるためのものではありません。</strong>向こう岸に着いて橋を畳んでしまったら、次に行けなくなる。だから、こう言えます。</p>
+  </div>
+
+  <div class="col">
+    <p class="claim">問いは、答えを出すための道具ではなく、<br>動きつづけるための装置です。</p>
+    <p>ふつう問いは、答えを得るための手段です。答えが出たら役目は終わる。<strong>探究では逆で、答えが出たあとに何をするかで、問いが生きているかどうかが決まります。</strong></p>
+    <p>だから進捗が「決まったか」ではなく<strong>「何回書き換わったか」</strong>で測られる。<strong>答えが出ることが悪いのではありません。そこで止まるのが「正解」です。</strong></p>
+  </div>
+
+  <figure>
+    <svg viewBox="0 0 860 290" role="img" aria-label="問いと答えの分岐。当てて何かが返ってきたあと、わかったで閉じれば正解になり、わかったぶんだけ問いを書き換えれば次の周に入る。">
+      <defs>
+        <marker id="m7" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor"/>
+        </marker>
+        <marker id="m7b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M 0 0 L 10 5 L 0 10 z" fill="#189BBC"/>
+        </marker>
+      </defs>
+
+      <rect x="60" y="105" width="130" height="64" rx="2" fill="none" stroke="#189BBC" stroke-width="2"/>
+      <text x="125" y="143" text-anchor="middle" font-size="15" font-weight="700" fill="#189BBC">問い</text>
+      <line x1="196" y1="137" x2="238" y2="137" stroke="currentColor" stroke-width="1.5" marker-end="url(#m7)"/>
+
+      <rect x="250" y="105" width="210" height="64" rx="2" fill="none" stroke="currentColor" stroke-width="1.5"/>
+      <text x="355" y="143" text-anchor="middle" font-size="13" fill="currentColor">当てて、何かが返ってくる</text>
+
+      <line x1="466" y1="137" x2="510" y2="137" stroke="currentColor" stroke-width="1.5"/>
+      <path d="M 510 137 L 510 70 L 548 70" fill="none" stroke="currentColor" stroke-width="1.5" marker-end="url(#m7)"/>
+      <path d="M 510 137 L 510 200 L 548 200" fill="none" stroke="#189BBC" stroke-width="2.5" marker-end="url(#m7b)"/>
+
+      <rect x="560" y="40" width="270" height="60" rx="2" fill="none" stroke="currentColor" stroke-width="1.5" opacity=".6"/>
+      <text x="695" y="66" text-anchor="middle" font-size="13" fill="currentColor">「わかった」で閉じる</text>
+      <text x="695" y="88" text-anchor="middle" font-size="11" fill="currentColor" opacity=".55">＝ 正解。ここで止まる</text>
+
+      <rect x="560" y="170" width="270" height="60" rx="2" fill="none" stroke="#189BBC" stroke-width="2"/>
+      <text x="695" y="196" text-anchor="middle" font-size="13" font-weight="700" fill="#189BBC">わかったぶんだけ書き換える</text>
+      <text x="695" y="218" text-anchor="middle" font-size="11" font-weight="700" fill="#189BBC">＝ 次の周へ</text>
+
+      <path d="M 695 234 L 695 262 L 125 262 L 125 173" fill="none" stroke="#189BBC" stroke-width="1.5" stroke-dasharray="5 4" opacity=".6" marker-end="url(#m7b)"/>
+      <text x="410" y="254" text-anchor="middle" font-size="10.5" fill="currentColor" opacity=".5">版が1つ上がって、また出ていく</text>
+    </svg>
+    <figcaption><b>分かれ目は、答えが出たかどうかではありません。</b>上も下も、同じだけ「わかって」います。違うのは<b>そのあと閉じたか、書き換えたか</b>だけ。<b>きれいな一文にした瞬間、問いは動かなくなります</b>。これが穴3（言語化できたら勝ち）で、いちばん見えにくく、いちばん多い止まり方です。</figcaption>
+  </figure>
+
+  <div class="col">
+    <p class="claim">4条件は、橋が「使えるか」と<br>「両端が刺さっているか」を見ている。</p>
+  </div>
+
+  <p class="tno"></p>
+  <div class="scroller">
+  <table class="tbl">
+    <thead><tr><th>条件</th><th>何を見ているか</th><th>これが無いと</th></tr></thead>
+    <tbody>
+      <tr><td class="q">続くか</td><td>一度で終わらないか</td><td>1周で終わる。周を回せない</td></tr>
+      <tr class="is-hot"><td class="q">動くか</td><td><strong>会いに行く相手が決まるか</strong></td><td><strong>手4が起動しない</strong></td></tr>
+      <tr><td class="q">賭かっているか</td><td>自分が入っているか</td><td>取材になる。<strong>G が動かない</strong></td></tr>
+      <tr><td class="q">半分だけ伝わるか</td><td>対象を知らない人に届くか</td><td>対象の中で閉じる。<strong>H が動かない</strong></td></tr>
+    </tbody>
+  </table>
+  </div>
+  <figcaption style="margin-left:0"><b>前の2つ（続くか／動くか）は橋そのものが使えるかを、後の2つ（賭かっているか／半分だけ伝わるか）は両端が刺さっているかを見ています。</b>後半2つが、そのまま <b>G と H</b> です。賭かっている＝自分の側の端、半分だけ伝わる＝社会の側の端。<b>この対応づけは正本に書かれていない私の読みなので、記録として残しておきます。</b></figcaption>
+
+  <div class="col">
+    <p class="claim">賭かっている、とは。<br>答え次第で、自分が変わってしまうこと。</p>
+    <p>4条件のなかで、これだけ意味が取りにくいと思います。<strong>正本にもこの語はありますが、定義は書かれていません。</strong>以下は私の読みです。</p>
+    <p>賭けるとは、<strong>失いうるものを差し出すこと</strong>です。問いにおいて失いうるのは、<strong>これまで正しいと思ってきたことと、いまの選択の理由</strong>。答えが返ってきたときに、それが揺らぐなら賭かっています。何も揺らがないなら、賭けていません。</p>
+  </div>
+
+  <p class="tno"></p>
+  <div class="scroller">
+  <table class="tbl">
+    <thead><tr><th>見るところ</th><th>賭かっていない</th><th>賭かっている</th></tr></thead>
+    <tbody>
+      <tr><td class="q">答えが出たら</td><td>何も変わらない</td><td><strong>明日から、何かをやめることになる</strong></td></tr>
+      <tr class="is-hot"><td class="q">当てるのが</td><td>怖くない</td><td><strong>怖い</strong></td></tr>
+      <tr><td class="q">見立てを否定されたら</td><td>「なるほど」で済む</td><td>困る。<strong>引き返せない</strong></td></tr>
+    </tbody>
+  </table>
+  </div>
+  <figcaption style="margin-left:0"><b>2つ目が、いちばん速い判定だと思います。</b>METHODは手4に「恐れの声（Voice of Fear）」を置いています。当てるのが怖くなるのは、<b>賭かっているから</b>です。<b>逆に言えば、まったく怖くない問いは、賭かっていません。</b>怖さは障害ではなく、判定材料になります。</figcaption>
+
+  <div class="pair">
+    <div><h4>賭かっていない</h4><p>「若者はなぜ旅に出なくなったのか」<br><span style="opacity:.6">答えが何であれ、自分の生活は変わらない。<b>評論</b>です。</span></p></div>
+    <div><h4>賭かっている</h4><p>「なぜ私は、若者に旅を勧めつづけているのか」<br><span style="opacity:.6">答え次第で、<b>いまの仕事の意味が変わる</b>。引き返せない。</span></p></div>
+  </div>
+
+  <div class="warn"><b>ただし、賭かっている＝深刻・重い、ではありません。</b>楽しい問いでも賭かっていることはあります。賭けの対象は感情の重さではなく、<b>答えが返ってきたときに動くものがあるかどうか</b>です。「なぜ私は、整っていないワインのほうを覚えているのか」は軽い問いに見えますが、答え次第で店の選び方も、人の見方も変わります。<b>十分に賭かっています。</b></div>
+
+  <div class="col">
+    <p><strong>形は疑問文です。</strong>叙述文（「私は◯◯な人間だ」）は問いではありません。品詞が違うと、そのあとの動きが変わります。叙述文は確定して閉じ、疑問文は開いたまま残ります。</p>
+  </div>
+
+  <p class="tno"></p>
+  <div class="scroller">
+  <table class="tbl">
+    <thead><tr><th>型</th><th>形</th><th>作例5本での出方</th></tr></thead>
+    <tbody>
+      <tr class="is-hot"><td class="q">原因型</td><td>なぜ私は〜なのか</td><td><strong>v1.0 と v1.2。5本すべてで使われた</strong></td></tr>
+      <tr><td class="q">確かめ型</td><td>〜は、〜なのか？</td><td>手4の直後に出た。5本中4本（★正本にない型）</td></tr>
+      <tr><td class="q">方法型</td><td>どうすれば〜できるか</td><td>v1.3。<strong>5本すべての着地</strong></td></tr>
+      <tr><td class="q">定義型</td><td>〜とは何か</td><td><strong>1本も使われなかった</strong></td></tr>
+    </tbody>
+  </table>
+  </div>
+  <figcaption style="margin-left:0"><b>METHODが挙げているのは3型（定義型・方法型・原因型）です。</b>ところが作例を書いてみると、手4の直後に4つ目の形が出ました。<b>「〜は、〜なのか？」</b>。仮説を確かめる形で、当てた直後にしか現れません。<b>正本にない観察なので、記録として置きます。</b></figcaption>
+
+  <div class="warn"><b>⚠️ 定義型は、入口では危ない。</b>「良い場とは何か」「豊かさとは何か」。これが作例で一度も使われなかった理由です。<b>禁句リストの語（自己実現／成長／豊かさ／つながり／自分らしさ／本当の自分）と組むと、中間層の中をぐるぐる回ります。</b>ただし危ないのは<b>入口で使ったとき</b>だけかもしれません。周が進んで対象が具体になったあとの「◯◯とは何か」は、また別の可能性があります。ここは未検証です。</div>
+
+  <div class="caveat">
+    <p style="margin:0"><b>「問い」と「探究テーマ」の違いは、形式と中身です。</b>問いは<b>形式の名前</b>です。疑問文で、4条件を満たしていて、型がある。探究テーマは<b>その人がいま掲げている、その一つ</b>で、版がついています。<b>問いは種類、探究テーマは個体。</b>だから「問いを立てる」とは言いますが、「探究テーマを立てる」とは言いません。立てた問いに、版をつけて名乗ったものが探究テーマです。</p>
+  </div></section>
+
+<section class="chap" id="theme" data-short="探究テーマ" data-label="第四章">
+  <header class="chap-open">
+    <p class="chap-no"><span>第四章</span></p>
+    <h2>探究テーマ</h2>
+    <p class="chap-lead">探究という営みの、<strong>いまの持ち物</strong>。いちばん聞かれる語なので、少し丁寧に書きます。</p>
+  </header>
+<div class="col">
+    <p class="claim">探究テーマは、いま掲げている問いの<br>「現在の版」です。</p>
+    <p><strong>「わたしは、○○を問います。（v1.0／2026.08.28）」</strong>の、この ○○ の部分が探究テーマです。<strong>決めるものではなく、宣言して書き換えていくもの。</strong>だから進捗は「決まったか」ではなく<strong>「何回書き換わったか」</strong>で測ります。</p>
+    <p>運営が「テーマ、決まりましたか？」と聞かないのは、これが理由です。あの質問は決まる／決まらないの二値を前提にしている。代わりに聞くのは<strong>「前回から、問いのどこが変わりましたか」</strong>。</p>
+  </div>
+
+  <p class="tno"></p>
+  <div class="scroller">
+  <table class="tbl">
+    <thead><tr><th>語</th><th>品詞</th><th>何を指すか</th></tr></thead>
+    <tbody>
+      <tr><td class="q">探究</td><td>動詞</td><td>問いを他者に当てて、書き換えつづける<strong>動き</strong></td></tr>
+      <tr><td class="q">問い</td><td>名詞</td><td>その動きを起こす道具。自分と社会をつなぐ<strong>橋</strong></td></tr>
+      <tr class="is-hot"><td class="q">探究テーマ</td><td>名詞</td><td>その問いの、<strong>いま現在の版</strong></td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="col">
+    <p>日常で出てくる言葉は、たいてい<strong>関係の名前</strong>（仲間・強み・生き方）です。片端しか持っていない状態で、名前だけを探している。<strong>もう片端を作りに行く</strong>と問いになります。</p>
+  </div>
+
+  <p class="tno"></p>
+  <div class="scroller">
+  <table class="tbl">
+    <thead><tr><th>出てきた言葉</th><th>どこへ降ろすか</th><th>探究テーマ v1.0</th></tr></thead>
+    <tbody>
+      <tr><td class="q">「仲間が欲しい」</td><td>人側（誰と、何をしているときか）</td><td>去年いちばん話し込んだ2時間は、何が違ったのか？</td></tr>
+      <tr><td class="q">「強みを見つけたい」</td><td>人側（誰に何を喜ばれたか）</td><td>なぜ私は、頼まれてもいない資料をいつも作り直すのか？</td></tr>
+      <tr><td class="q">「やりたいことがわからない」</td><td>対象側（何に触れていたか）</td><td>学生のとき何時間でもやれたのは、どういうときだったか？</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <figcaption style="margin-left:0"><b>作法：場面・時期・固有名詞を必ず入れる。</b>固有名詞は対象側か人側にしか存在しないので、入れようとすると自動的に抽象から降りられます。<b>良い問いの4条件は、続くか／動くか／賭かっているか／半分だけ伝わるか。</b></figcaption>
+
+  <figure>
+    <svg viewBox="0 0 900 200" role="img" aria-label="探究テーマの版が上がる例。v1.0の問いを他者に当てると、返ってきた反応でv1.1に書き換わる。">
+      <defs>
+        <marker id="m3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M 0 0 L 10 5 L 0 10 z" fill="#189BBC"/>
+        </marker>
+      </defs>
+      <text x="60" y="34" font-size="12" font-weight="700" fill="#189BBC">v1.0</text>
+      <text x="112" y="34" font-size="13" fill="currentColor">なぜ私は、頼まれてもいない資料をいつも作り直すのか？</text>
+      <line x1="66" y1="52" x2="66" y2="118" stroke="#189BBC" stroke-width="2" marker-end="url(#m3)"/>
+      <text x="88" y="76" font-size="11.5" font-weight="700" fill="currentColor">他者に当てる</text>
+      <text x="88" y="98" font-size="11.5" fill="currentColor" opacity=".65">「作り直してるんじゃなくて、納得いく形を探してるだけでは？」</text>
+      <text x="60" y="156" font-size="12" font-weight="700" fill="#189BBC">v1.1</text>
+      <text x="112" y="156" font-size="13" fill="currentColor">私が「まだ足りない」と感じるとき、何を基準にしているのか？</text>
+      <text x="60" y="186" font-size="10.5" fill="currentColor" opacity=".5">問いは消えていない。対象が「資料」から「基準」に移っている。これが1回の書き換え。</text>
+    </svg>
+    <figcaption><b>作り方を見せるための作例で、実データではありません。</b>見てほしいのは、<b>v1.1 が v1.0 の答えになっていない</b>という点です。答えが出たのではなく、問う場所が動いた。だから次の周があります。</figcaption>
+  </figure>
+
+  <div class="warn"><b>「テーマ」という語は、正直よくありません。</b>ふつう「テーマ」は決めるもの・範囲を指します（研究テーマ、テーマパーク）。ところがここでは<b>動きの現在版</b>を指している。だから聞いた人は「決まった／決まっていない」で受け取ります。<b>語を変えるかどうかは未決です。</b>それまでは、必ず「＝いまの問いの版」と言い添えてください。</div></section>
+
+<section class="chap" id="three" data-short="三つの語" data-label="第五章">
+  <header class="chap-open">
+    <p class="chap-no"><span>第五章</span></p>
+    <h2>対象・他者・社会</h2>
+    <p class="chap-lead">問いが触れる先の三つ。<strong>人の分類ではなく、役割の名前</strong>です。同じ人が、こちらの向き方で役割を変えます。</p>
+  </header>
+<p class="tno"></p>
+  <div class="scroller">
+  <table class="tbl">
+    <thead><tr><th>語</th><th>一行の定義</th></tr></thead>
+    <tbody>
+      <tr><td class="q">対象</td><td>自分がいま向き合っている、<strong>もの・営み</strong>。問いは<strong>ここから生まれる</strong></td></tr>
+      <tr><td class="q">他者</td><td>問いを<strong>確かめる相手</strong>。社会には直接ぶつけられないので、当てられるのは他者だけ</td></tr>
+      <tr><td class="q">社会</td><td>自分の問いが<strong>届いた人の集まり</strong>。問いは<strong>ここへ出ていく</strong></td></tr>
+    </tbody>
+  </table>
+  </div>
+  <figcaption style="margin-left:0"><b>対象も社会も、実体は「人の営み」です。</b>対象は自分が触れている営み、社会は自分の問いが届いた営み。<b>同じ素材の、入口と出口。</b>違いは、問いがそこから来るのか、そこへ行くのか。</figcaption>
+
+  <dl class="dl">
+    <dt>対象</dt>
+    <dd class="def">自分がいま向き合っている、もの・営み。問いはここから生まれる。</dd>
+    <dd><b>手で触れる／やる／見ることができる</b>もの。例：建築、食、山、ダンス、コーヒー、いまの仕事。</dd>
+    <dd>抽象語（生き方・キャリア・自分らしさ・成長）は対象ではありません。<b>触れられないからです。</b>それは規範の言葉であって、向き合っている先ではない。</dd>
+    <dd><b>〈営み〉には、必ずそれをやっている人がいます。</b>だから対象は「もの」だけでできていません。<b>もの半分、人半分。</b>この人半分が、あとで他者につながる接続点になります。</dd>
+  </dl>
+
+  <figure>
+    <svg viewBox="0 0 860 250" role="img" aria-label="対象の掘り方は2方向。中へ掘ると詳しくなるが当てる相手が現れない。人へ掘ると人に当たり、旅の行き先が決まる。">
+      <defs>
+        <marker id="m4" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor"/>
+        </marker>
+        <marker id="m4b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M 0 0 L 10 5 L 0 10 z" fill="#189BBC"/>
+        </marker>
+      </defs>
+      <rect x="60" y="100" width="156" height="60" rx="2" fill="none" stroke="currentColor" stroke-width="1.5"/>
+      <text x="138" y="136" text-anchor="middle" font-size="13" font-weight="700" fill="currentColor">ワインが好き</text>
+
+      <line x1="222" y1="130" x2="300" y2="130" stroke="currentColor" stroke-width="1.5"/>
+      <path d="M 300 130 L 300 88 L 404 88" fill="none" stroke="currentColor" stroke-width="1.5" marker-end="url(#m4)"/>
+      <text x="312" y="78" font-size="11.5" font-weight="700" fill="currentColor" opacity=".7">中へ</text>
+      <rect x="420" y="60" width="400" height="56" rx="2" fill="none" stroke="currentColor" stroke-width="1.5"/>
+      <text x="620" y="94" text-anchor="middle" font-size="12.5" fill="currentColor">品種・土壌・醸造法へ</text>
+      <text x="620" y="132" text-anchor="middle" font-size="11" fill="currentColor" opacity=".55">詳しくなる。当てる相手は現れない</text>
+
+      <path d="M 300 130 L 300 172 L 404 172" fill="none" stroke="#189BBC" stroke-width="2.5" marker-end="url(#m4b)"/>
+      <text x="312" y="192" font-size="11.5" font-weight="700" fill="#189BBC">人へ</text>
+      <rect x="420" y="144" width="400" height="56" rx="2" fill="none" stroke="#189BBC" stroke-width="1.8"/>
+      <text x="620" y="178" text-anchor="middle" font-size="12.5" font-weight="700" fill="#189BBC">誰が作り、なぜやめないのかへ</text>
+      <text x="620" y="220" text-anchor="middle" font-size="11" font-weight="700" fill="#189BBC">人に当たる。旅の行き先が決まる</text>
+    </svg>
+    <figcaption><b>「詳しくなる」と「探究する」の違いは、掘る深さではなく掘る方向です。</b>中へだけ掘るのはマニアで、それ自体は豊かなことですが、Hがゼロのまま止まります。<b>ただし、中へ掘るのが悪いわけではありません。</b>問題は比率と順番です。以下に詳しく書きます。</figcaption>
+  </figure>
+
+  <div class="col">
+    <p class="claim">中へ掘るほうが、手応えがあります。<br>だから放っておくと、全員が中へ行きます。</p>
+    <p><strong>中へ掘ると、知識が増えます。そして増えたことが、自分で分かる。</strong>今日は昨日より詳しい。これは強い手応えです。しかも詳しい人は、まわりから褒められます。</p>
+    <p><strong>人へ掘るほうは、逆です。</strong>会いに行くのは面倒で、時間がかかり、手応えは2週間後にしか来ない。そのうえ<strong>当てれば問いは壊れます</strong>。得るのではなく、失うように見える。</p>
+    <p>だから<strong>設計しなければ、人は必ず中へ行きます。</strong>これは意志の弱さではなく、報酬の設計の問題です。手4を「工程」として置いてあるのは、放っておくと起きないからです。</p>
+  </div>
+
+  <figure>
+    <svg viewBox="0 0 860 260" role="img" aria-label="報酬のタイミングの比較。中へ掘ると小さな手応えが絶えず返るが、人へ掘ると当てた直後に問いが壊れ、手応えは2週間後にしか来ない。">
+      <text x="120" y="52" font-size="13" font-weight="700" fill="currentColor">中へ掘る</text>
+      <line x1="120" y1="85" x2="760" y2="85" stroke="currentColor" stroke-width="1" opacity=".3"/>
+      <circle cx="170" cy="85" r="4.5" fill="currentColor"/><circle cx="230" cy="85" r="4.5" fill="currentColor"/>
+      <circle cx="290" cy="85" r="4.5" fill="currentColor"/><circle cx="350" cy="85" r="4.5" fill="currentColor"/>
+      <circle cx="410" cy="85" r="4.5" fill="currentColor"/><circle cx="470" cy="85" r="4.5" fill="currentColor"/>
+      <circle cx="530" cy="85" r="4.5" fill="currentColor"/><circle cx="590" cy="85" r="4.5" fill="currentColor"/>
+      <circle cx="650" cy="85" r="4.5" fill="currentColor"/><circle cx="710" cy="85" r="4.5" fill="currentColor"/>
+      <text x="120" y="112" font-size="11" fill="currentColor" opacity=".6">知るたびに手応えがある。確実で、しかも褒められる</text>
+
+      <text x="120" y="154" font-size="13" font-weight="700" fill="#189BBC">人へ掘る</text>
+      <line x1="120" y1="199" x2="760" y2="199" stroke="#189BBC" stroke-width="1" opacity=".35"/>
+      <circle cx="180" cy="199" r="6" fill="none" stroke="#189BBC" stroke-width="2"/>
+      <text x="180" y="181" text-anchor="middle" font-size="11" font-weight="700" fill="#189BBC">当てる</text>
+      <line x1="250" y1="199" x2="250" y2="209" stroke="currentColor" stroke-width="1.5" opacity=".45"/>
+      <text x="250" y="224" text-anchor="middle" font-size="11" fill="currentColor" opacity=".5">壊れる</text>
+      <circle cx="690" cy="199" r="8" fill="#189BBC"/>
+      <text x="690" y="181" text-anchor="middle" font-size="11" font-weight="700" fill="#189BBC">版が上がる</text>
+      <text x="470" y="224" text-anchor="middle" font-size="11" fill="currentColor" opacity=".5">このあいだ、手応えは無い（約2週間）</text>
+
+      <text x="120" y="252" font-size="10.5" fill="currentColor" opacity=".5">意志の問題ではなく、報酬の設計の問題です。だから手4は「工程」として置いてあります。</text>
+    </svg>
+    <figcaption><b>上の道は、進んでいる実感が絶えず返ってきます。下の道は、まず失う。</b>当てた直後に問いが壊れ、そこから2週間は何も起きません。<b>放っておけば、誰でも上を選びます。</b>これは意志の弱さではなく、報酬の出方がまるで違うということです。</figcaption>
+  </figure>
+
+  <div class="warn"><b>中へ掘るのは、無駄ではありません。</b>むしろ<b>中へ掘った分だけ、人へ掘ったときに聞けることが増えます。</b>品種をまったく知らない人は、造り手に会っても「おいしいですね」しか言えない。<b>知識は、人に当たるための語彙です。</b>問題は「中へ掘ること」ではなく、<b>中へだけ掘って、そこで完結してしまうこと</b>です。比率と順番の話であって、禁止ではありません。</div>
+
+  <div class="col">
+    <p>他の対象でも、同じ2方向が引けます。<strong>右の列は、どれも調べても出てきません。</strong>その人に聞くしかない。</p>
+  </div>
+
+  <p class="tno"></p>
+  <div class="scroller">
+  <table class="tbl">
+    <thead><tr><th>対象</th><th>中へ掘る（詳しくなる）</th><th>人へ掘る（人に当たる）</th></tr></thead>
+    <tbody>
+      <tr><td class="q">ワイン</td><td>品種・土壌・醸造法</td><td>なぜこの造り手は、売れない品種をやめないのか</td></tr>
+      <tr><td class="q">コーヒー</td><td>焙煎度・抽出比率・産地</td><td>なぜあの店主は、毎朝同じ一杯を試飲してから店を開けるのか</td></tr>
+      <tr><td class="q">建築</td><td>構法・意匠史・法規</td><td>なぜこの家の住人は、設計者の意図と違う使い方をしているのか</td></tr>
+      <tr><td class="q">山</td><td>地形・植生・ルート</td><td>なぜあの人は、20年おなじ登山道を整備しつづけているのか</td></tr>
+      <tr><td class="q">写真</td><td>レンズ・現像・構図</td><td>なぜこの人は、撮った写真をほとんど人に見せないのか</td></tr>
+      <tr><td class="q">料理</td><td>レシピ・食材・技法</td><td>なぜ祖母は、レシピを一度も書き残さなかったのか</td></tr>
+      <tr><td class="q">まちづくり</td><td>制度・補助金・他地域の事例</td><td>なぜこの人は、当時反対していた相手と今も飲みに行くのか</td></tr>
+      <tr class="is-hot"><td class="q">いまの仕事</td><td>業界動向・スキル・資格</td><td><strong>なぜ隣の席のあの人は、あの案件だけ引き受けるのか</strong></td></tr>
+    </tbody>
+  </table>
+  </div>
+  <figcaption style="margin-left:0"><b>いちばん下は、POOLOに来る人がいちばん持っている対象です。</b>「いまの仕事」は毎日触れていて、違和感も溜まっている。<b>ただし中へ掘る癖がいちばんついている対象でもあります</b>。スキルを増やす、資格を取る、業界を調べる。全部「中へ」です。</figcaption>
+
+  <div class="col">
+    <p class="claim">どちらへ掘っているかは、<br>3つで判定できます。</p>
+  </div>
+
+  <p class="tno"></p>
+  <div class="scroller">
+  <table class="tbl">
+    <thead><tr><th>見るところ</th><th>中へ掘っている</th><th>人へ掘れている</th></tr></thead>
+    <tbody>
+      <tr class="is-hot"><td class="q">会いに行く相手</td><td>決まらない</td><td><strong>決まる。名前で言える</strong></td></tr>
+      <tr><td class="q">調べたら答えが出るか</td><td>出る</td><td>出ない。<strong>その人に聞くしかない</strong></td></tr>
+      <tr><td class="q">分野を知らない人に言うと</td><td>「へえ」で終わる</td><td><strong>「それ、うちの業界にもある」</strong>と返ってくる</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <figcaption style="margin-left:0"><b>2つ目がいちばん速い判定だと思います。</b>その問いを検索して答えが出るなら、それは中へ掘る問いです。<b>探究の問いは、検索では終わりません</b>。書いてある場所がまだ無いからです。3つ目は、良い問いの4条件でいう「半分だけ伝わるか」を、そのまま口に出して試したものです。</figcaption>
+
+  <div class="pair">
+    <div><h4>✕ 対象の中で閉じる問い</h4><p>「良いワインとは何か」<br><span style="opacity:.6">定義型。会いに行く相手が決まらない。</span></p></div>
+    <div><h4>△ 相手だけを問う＝取材</h4><p>「なぜこの造り手は、売れない品種をやめないのか」<br><span style="opacity:.6">人には当たるが、自分が入っていない。</span></p></div>
+    <div><h4>○ 自分が入る＝探究</h4><p>「なぜ私は、売れない品種を作りつづける人にばかり惹かれるのか」<br><span style="opacity:.6">賭かっている。会いに行ける。</span></p></div>
+  </div>
+
+  <dl class="dl">
+    <dt>社会</dt>
+    <dd class="def">自分の問いが届いた人の集まり。問いはここへ出ていく。</dd>
+    <dd>対象の向こうにある固定の場所ではなく、探究が進むと広がる<b>変数</b>です。<b>「範囲」ではなく「人」。</b>場所ではないので地図に描けません。描けるのは、誰に届いたかだけ。</dd>
+    <dd><b>広がるとは、対象の外へ出ることです。</b>最初は対象の中の人に届き（同じワインをやっている人）、進むと対象の外の人に届く（ワインを知らない人が「その話、自分にも関係ある」と言う）。だから<b>Lv.3「知らない人に届ける」が全員の必修ライン</b>に置かれています。良い問いの条件<b>「半分だけ伝わるか」</b>は、これの言い換えです。</dd>
+  </dl>
+
+  <figure>
+    <svg viewBox="0 0 860 200" role="img" aria-label="社会は時間方向にも広がる。1回届けば出会い、繰り返せば関係、続いて対価が発生すれば仕事の形になる。">
+      <defs>
+        <marker id="m5" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M 0 0 L 10 5 L 0 10 z" fill="#189BBC"/>
+        </marker>
+      </defs>
+      <rect x="60" y="60" width="220" height="76" rx="2" fill="none" stroke="currentColor" stroke-width="1.5"/>
+      <text x="170" y="94" text-anchor="middle" font-size="13" font-weight="700" fill="currentColor">1回届く</text>
+      <text x="170" y="118" text-anchor="middle" font-size="11" fill="currentColor" opacity=".6">出会い</text>
+      <line x1="286" y1="98" x2="314" y2="98" stroke="#189BBC" stroke-width="2" marker-end="url(#m5)"/>
+
+      <rect x="320" y="60" width="220" height="76" rx="2" fill="none" stroke="currentColor" stroke-width="1.5"/>
+      <text x="430" y="94" text-anchor="middle" font-size="13" font-weight="700" fill="currentColor">繰り返し届く</text>
+      <text x="430" y="118" text-anchor="middle" font-size="11" fill="currentColor" opacity=".6">関係　＝ Lv.4 関係を紡ぐ</text>
+      <line x1="546" y1="98" x2="574" y2="98" stroke="#189BBC" stroke-width="2" marker-end="url(#m5)"/>
+
+      <rect x="580" y="60" width="220" height="76" rx="2" fill="none" stroke="#189BBC" stroke-width="1.8"/>
+      <text x="690" y="94" text-anchor="middle" font-size="13" font-weight="700" fill="#189BBC">続いて、対価が発生する</text>
+      <text x="690" y="118" text-anchor="middle" font-size="11" font-weight="700" fill="#189BBC">仕事の形をしている</text>
+
+      <text x="60" y="176" font-size="10.5" fill="currentColor" opacity=".5">仕事は4つ目の語ではありません。社会が、時間方向に繰り返された状態です。</text>
+    </svg>
+    <figcaption><b>社会は、人数だけでなく時間の方向にも広がります。</b>差し出しの深さでいう Lv.3（知らない人に届ける）が1回、Lv.4（関係を紡ぐ）が継続。続いて相手が対価を払うようになれば、それは仕事の形をしています。<b>ただし、これは結果であって目的ではありません。</b></figcaption>
+  </figure>
+
+  <div class="warn"><b>⚠️ 社会を「意義の供給元」として扱わない。</b>そうすると〈社会課題という正解〉に反転します。社会は<b>問いの届け先</b>であって、意義をもらう相手ではありません。向きが逆になっていないかを、必ず点検してください。あわせて、<b>対象を「社会」と呼ばないこと。</b>対象は建築でも自然でもよく、社会ではありません。</div>
+
+  <div class="warn"><b>⚠️「仕事になるか」で対象を選ばない。</b>やった瞬間、市場という外の基準で問いを選ぶことになり、また片道で止まります。今度は自分の内側ではなく、市場側で。順序は必ずこちらです。<br><br><b>掘る → 人に当たる → 繰り返す → 結果として仕事の形をしていることがある。</b><br><br>書けるのは「<b>可能性がある</b>」までで、「そうなる」とは言えません。この「起こり得る」を落とさないことが、そのまま設計上のガードになります。</div>
+
+  <div class="caveat">
+    <p style="margin:0"><b>三つの語は、人の分類ではありません。</b>ワインの造り手は、<b>見る対象</b>でもあり、<b>当てる他者</b>でもあり、差し出した先の<b>社会</b>でもあります。同じ人が、こちらの向き方で役割を変える。<b>役割の名前だと思ってください。</b></p>
+  </div></section>
+
+<section class="chap" id="deepen" data-short="深まり方" data-label="第六章">
+  <header class="chap-open">
+    <p class="chap-no"><span>第六章</span></p>
+    <h2>探究テーマは、こう深まる</h2>
+    <p class="chap-lead">ここまでは静止した定義でした。実際には版が上がっていきます。<strong>1本の問いを、3周ぶん追ってみます。</strong>登場する人物と出来事は、動きを見せるための作例で、実データではありません。</p>
+  </header>
+<div class="col">
+    <p><strong>入口は「ワインの味が好き」。</strong>これは対象であって、まだ問いではありません。ここから始めます。</p>
+  </div>
+
+  <div class="tl">
+    <div class="tl-step">
+      <span class="tl-v">0周目 ／ 手1-3　溜める・拾う・立てる</span>
+      <p class="tl-q">なぜ私は、去年あの店で飲んだ、整っていないほうのワインを覚えているのか？</p>
+      <p class="tl-e">違和感はこうでした。<strong>整っているワインのほうが良いはずなのに、記憶に残ったのは明らかに整っていないほう。</strong>この「はずなのに」が違和感です。<br>
+      型は<strong>「なぜ私は〜なのか」</strong>（原因型）。<b>作法</b>場面（あの店）と時期（去年）を入れています。抽象から降りるための梯子です。</p>
+    </div>
+
+    <div class="tl-step">
+      <span class="tl-v">1周目 ／ 手4　現場当て</span>
+      <p class="tl-e"><b>誰に</b>その店の店主に会いに行く。<strong>問いが決まったので、行き先が決まりました。</strong><br>
+      <span class="tl-r">「あれ、造り手が畑を変えた年のやつ。本人は失敗作だって言ってるよ」</span>
+      壊れたのではなく、<strong>ずれが見つかった</strong>。味を見ていたつもりで、実は<strong>事情</strong>を見ていた。</p>
+      <span class="tl-v" style="margin-top:1.1rem">v1.1</span>
+      <p class="tl-q">私が惹かれているのは、味ではなく「事情が見えること」なのか？</p>
+    </div>
+
+    <div class="tl-step">
+      <span class="tl-v">2周目 ／ 手4　ズラし当て　＋　手5　差し出す</span>
+      <p class="tl-e"><b>誰に</b>ワインを飲まない友人。その問いを持っていない人です。<br>
+      <span class="tl-r">「それ、ワインじゃなくてもよくない？ 私も、完璧なプレゼンより手書きの企画書のほうを覚えてる」</span>
+      <strong>対象の外に届きました。</strong>ワインを知らない人に半分だけ伝わった、ということです。<br>
+      <b>手5</b>「事情が見えるもの」についてZINEを作り、知らない人に配る（<strong>Lv.3</strong>）。</p>
+      <span class="tl-v" style="margin-top:1.1rem">v1.2</span>
+      <p class="tl-q">なぜ私は、作り手の迷いが残っているものにしか、心が動かないのか？</p>
+    </div>
+
+    <div class="tl-step">
+      <span class="tl-v">3周目 ／ 手4　反証当て　＋　手5　続ける</span>
+      <p class="tl-e"><b>誰に</b>役割として否定を頼む。「それ、ただの不完全さフェチでは？」<br>
+      <span class="tl-r">言われて分かった。<strong>不完全なだけのものには動かない。「迷った跡」があるものにだけ動く。</strong></span>
+      <b>手5</b>月1で「迷いが残っているもの」を持ち寄る会を始める（<strong>Lv.4 関係を紡ぐ</strong>）。</p>
+      <span class="tl-v" style="margin-top:1.1rem">v1.3</span>
+      <p class="tl-q">迷いの跡は、どうすれば残せるのか？</p>
+      <p class="tl-e"><strong>型が変わりました。</strong>「なぜ私は」（原因型）から「どうすれば」（方法型）へ。自分の正体を問う段階が終わって、作る段階に入っています。</p>
+    </div>
+
+    <div class="tl-step">
+      <span class="tl-v">その先 ／ 結果であって、目的ではない</span>
+      <p class="tl-e">会が続くうちに、参加者が「うちの商品の話も聞いてほしい」と言い出す。対価が発生する。<strong>仕事の形をしています。</strong><br>
+      <strong>ただし、ここを目指して対象を選んだわけではありません。</strong>ワインを選んだ時点では、こうなる可能性は見えていない。順序は最後まで「掘る → 人に当たる → 繰り返す」でした。</p>
+    </div>
+  </div>
+
+  <figure>
+    <svg viewBox="0 0 860 230" role="img" aria-label="版が上がるほど問いの対象は広がる。ワインから、事情が見えるもの、迷いの跡があるもの、迷いの跡の残し方へ。">
+      <defs>
+        <marker id="m6" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M 0 0 L 10 5 L 0 10 z" fill="#189BBC"/>
+        </marker>
+      </defs>
+      <circle cx="110" cy="100" r="26" fill="none" stroke="#189BBC" stroke-width="1.5" opacity=".45"/>
+      <text x="110" y="105" text-anchor="middle" font-size="11" font-weight="700" fill="#189BBC">v1.0</text>
+      <text x="110" y="196" text-anchor="middle" font-size="11.5" fill="currentColor">ワイン</text>
+
+      <line x1="146" y1="100" x2="250" y2="100" stroke="#189BBC" stroke-width="1.5" opacity=".5" marker-end="url(#m6)"/>
+
+      <circle cx="300" cy="100" r="40" fill="none" stroke="#189BBC" stroke-width="1.8" opacity=".6"/>
+      <text x="300" y="105" text-anchor="middle" font-size="11" font-weight="700" fill="#189BBC">v1.1</text>
+      <text x="300" y="196" text-anchor="middle" font-size="11.5" fill="currentColor">事情が見えるもの</text>
+
+      <line x1="350" y1="100" x2="444" y2="100" stroke="#189BBC" stroke-width="1.5" opacity=".5" marker-end="url(#m6)"/>
+
+      <circle cx="510" cy="100" r="56" fill="none" stroke="#189BBC" stroke-width="2" opacity=".8"/>
+      <text x="510" y="105" text-anchor="middle" font-size="11" font-weight="700" fill="#189BBC">v1.2</text>
+      <text x="510" y="196" text-anchor="middle" font-size="11.5" fill="currentColor">迷いの跡があるもの</text>
+
+      <line x1="576" y1="100" x2="656" y2="100" stroke="#189BBC" stroke-width="1.5" opacity=".5" marker-end="url(#m6)"/>
+
+      <circle cx="740" cy="100" r="74" fill="none" stroke="#189BBC" stroke-width="2.5"/>
+      <text x="740" y="105" text-anchor="middle" font-size="11" font-weight="700" fill="#189BBC">v1.3</text>
+      <text x="740" y="196" text-anchor="middle" font-size="11.5" font-weight="700" fill="#189BBC">迷いの跡の残し方</text>
+
+      <text x="60" y="224" font-size="10.5" fill="currentColor" opacity=".5">円は、その版の問いが誰に届きうるかの広さ。周が進むほど、届く相手が増えている。</text>
+    </svg>
+    <figcaption><b>解像度が上がると、問いは狭くなりません。むしろ外に開きます。</b>ここが直感に反するところだと思います。<b>細かくなることではなく、当たっている場所が正確になること。</b>正確になるほど、その問いは他の人にも当たるようになります。ワインの話が、手書きの企画書の話になったように。</figcaption>
+  </figure>
+
+  <div class="col">
+    <p class="claim">深まるとは、5つのうちどれかが動くこと。</p>
+  </div>
+
+  <p class="tno"></p>
+  <div class="scroller">
+  <table class="tbl">
+    <thead><tr><th>動く軸</th><th>v1.0</th><th>v1.3</th></tr></thead>
+    <tbody>
+      <tr><td class="q">主語</td><td>ワイン（対象の話）</td><td>私 → さらに「迷いの跡」そのもの</td></tr>
+      <tr><td class="q">問いの型</td><td>なぜ私は〜なのか（原因）</td><td>どうすれば〜できるか（方法）</td></tr>
+      <tr><td class="q">場面・固有名詞</td><td>要る（あの店・去年）</td><td>無くていい（もう降りているから）</td></tr>
+      <tr><td class="q">当てる相手</td><td>対象の中の人（店主）</td><td>対象の外の人／反証役</td></tr>
+      <tr class="is-hot"><td class="q">届いた範囲＝社会</td><td><strong>1人</strong></td><td><strong>続く場</strong>（Lv.4）</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <figcaption style="margin-left:0"><b>固有名詞は、梯子です。</b>作法で「場面・時期・固有名詞を必ず入れる」と言っているのは、それが<b>抽象から降りるための装置</b>だからです。降りきったあとの版に固有名詞が無いのは、抽象に戻ったからではなく、<b>もう降りているからです</b>。ここは私の読みなので、記録として残しておきます。</figcaption>
+
+  <div class="col">
+    <p><strong>入口が「好き」でなくても、動きは同じです。</strong>違和感から入った場合を、版だけ並べます。第四章に出てきたものの続きです。</p>
+  </div>
+
+  <ol class="mini">
+    <li data-v="入口">頼まれてもいない資料を、いつも作り直している（違和感）</li>
+    <li data-v="v1.0">なぜ私は、頼まれてもいない資料をいつも作り直すのか？</li>
+    <li data-v="v1.1">私が「まだ足りない」と感じるとき、何を基準にしているのか？</li>
+    <li data-v="v1.2">なぜ私は、人が納得する瞬間にしか手応えを感じないのか？</li>
+    <li data-v="v1.3">どうすれば、納得が生まれる場を意図して作れるのか？</li>
+  </ol>
+  <figcaption style="margin-left:0">同じ形をしています。<b>対象（資料）から始まり、私に来て、外へ開き、最後に「どうすれば」に変わる。</b>そして最後の版は、もう資料の話ではありません。</figcaption>
+
+  <div class="col">
+    <p class="claim">深まらないときは、たいていこの3つ。</p>
+  </div>
+
+  <div class="pair">
+    <div><h4>1｜中へ掘りつづける</h4><p>ワインの知識だけが増えていく。<strong>手4が無いので、版が上がりません。</strong>詳しくはなるが、当てる相手が現れない。</p></div>
+    <div><h4>2｜共感で止まる</h4><p>ワイン好き同士で当てる。「わかる」が返ってきて、ずれが出ない。<strong>共感が返ってきたら、当たっていません。</strong>もう一段ズレた相手に当て直す。</p></div>
+    <div><h4>3｜答えを出してしまう</h4><p>v1.0の時点で「私は事情が好きなんだ」と言語化して満足する。<strong>きれいな一文にした瞬間、問いは動かなくなります。</strong>いちばん見えにくく、いちばん多い止まり方です。</p></div>
+  </div>
+
+  <div class="caveat">
+    <p style="margin:0"><b>進捗の測り方は、ここから決まります。</b>「探究テーマ、決まりましたか？」では、この動きは1ミリも見えません。見えるのは<b>「前回から、問いのどこが変わりましたか」</b>だけです。<b>そして版が上がった回数は、そのまま他者に当てた回数です</b>。ひとりでは、版は上がらないので。</p>
+  </div></section>
+
+<section class="chap" id="cases" data-short="四つの例" data-label="第七章">
+  <header class="chap-open">
+    <p class="chap-no"><span>第七章</span></p>
+    <h2>入口の言葉から、4例</h2>
+    <p class="chap-lead">「場づくり」「夢中・熱狂」「豊かさ」「旅」。<strong>4つとも、そのままでは探究テーマになりません。</strong>どれも入口の言葉で、まず降ろす必要がある。<strong>降ろし方ごと並べます。</strong>すべて作例で、実データではありません。</p>
+  </header>
+<p class="tno"></p>
+  <div class="scroller">
+  <table class="tbl">
+    <thead><tr><th>入口の言葉</th><th>そのまま問うとこうなる</th><th>なぜ止まるか</th></tr></thead>
+    <tbody>
+      <tr><td class="q">場づくり</td><td>良い場とは何か</td><td>定義型。対象の中で閉じ、会いに行く相手が決まらない</td></tr>
+      <tr><td class="q">夢中・熱狂</td><td>夢中とは何か</td><td>同上。しかも自分が入っていない</td></tr>
+      <tr class="is-hot"><td class="q">豊かさ</td><td>豊かさとは何か</td><td><strong>禁句リストの語</strong>。定義型で問うと中間層の中を回るだけ</td></tr>
+      <tr><td class="q">旅</td><td>旅の価値とは何か</td><td>POOLOでいちばん出やすい形。答えが先にある</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <figcaption style="margin-left:0"><b>降ろし方は共通です。</b>その語が出てきた<b>場面</b>に戻ることです。いつ、どこで、誰といたときにそう感じたか。抽象語は、場面を1つ思い出せた瞬間に問いに変わります。</figcaption>
+
+  <div class="ex">
+    <h3>場づくり</h3>
+    <p class="ex-x">✕ <b>「良い場とは何か」</b>　定義型。誰に当てても一般論しか返ってこない</p>
+    <p class="ex-w">違和感：うまくいった回とそうでない回の違いが、<strong>準備の量では説明できない</strong></p>
+    <ol class="mini">
+      <li data-v="v1.0">なぜ私は、いちばん準備しなかった回のほうを、うまくいったと感じているのか？</li>
+      <li class="hit" data-v="現場当て">その回に来ていた参加者に聞く → <i>「あの日、あなた途中で進行やめたでしょ。あれで喋れた」</i></li>
+      <li data-v="v1.1">私が場でやっている「やめること」は、何をしているのか？</li>
+      <li class="hit" data-v="ズラし当て">場づくりをしない友人（工場勤務）→ <i>「うちのライン、止めたときにしか改善案が出ないよ」</i></li>
+      <li data-v="v1.2">なぜ私は、止まっている時間にしか人が動き出さないと感じるのか？</li>
+      <li class="hit" data-v="反証当て">「それ、ただの準備不足の言い訳では？」→ 違った。<i>止め方が設計されている回にだけ起きている</i></li>
+      <li data-v="v1.3">意図的な「止まり」は、どうすれば設計できるのか？</li>
+    </ol>
+    <p class="ex-note"><b>対象の動き：</b>場 → やめること → 止まっている時間 → 止まりの設計。<br>最後の版は、もう「場づくり」の話ではありません。<b>そして工場の人にも通じる問いになっています</b>。対象の外へ出た、ということです。</p>
+  </div>
+
+  <div class="ex">
+    <h3>夢中・熱狂</h3>
+    <p class="ex-x">✕ <b>「夢中とは何か」</b>　定義型。しかも自分が入っていない</p>
+    <p class="ex-w">違和感：<strong>人が夢中になっているのを見るほうが、自分が夢中になるより動いている</strong>かもしれない</p>
+    <ol class="mini">
+      <li data-v="v1.0">なぜ私は、自分が熱中するより、人が熱中しているのを見ているときのほうが動くのか？</li>
+      <li class="hit" data-v="現場当て">毎週集まる草野球チームに会いに行く → <i>「見てるだけの人がいるから、俺らは続けられてる」</i></li>
+      <li data-v="v1.1">見ている側は、熱狂の外にいるのか、中にいるのか？</li>
+      <li class="hit" data-v="ズラし当て">熱狂と無縁だという人 → <i>「私、推し活はしないけど、友達の推し語りは何時間でも聞ける」</i></li>
+      <li data-v="v1.2">なぜ私は、熱があるものの「そば」にしか居場所を感じないのか？</li>
+      <li class="hit" data-v="反証当て">「それ、自分がないだけでは？」→ 考えたが違った。<i>そばにいる役を自分で選んだ回だけ、満ちている</i></li>
+      <li data-v="v1.3">熱のそばにいる役は、どうすれば「役」として成立するのか？</li>
+    </ol>
+    <p class="ex-note"><b>対象の動き：</b>夢中 → 見ている側 → そばという位置 → その役の成立条件。<br>入口では「夢中になれない自分」の話に見えましたが、<b>3周で「そばにいる技術」の話に変わっています。</b>欠落だと思っていたものが、対象になった形です。</p>
+  </div>
+
+  <div class="ex">
+    <h3>豊かさ</h3>
+    <p class="ex-x">✕ <b>「豊かさとは何か」</b>　<strong style="color:var(--brand-deep)">禁句リストの語です。</strong>定義型で問い直すと、中間層（規範の言葉）の中をぐるぐる回ります</p>
+    <p class="ex-w">違和感：<strong>収入がいちばん上がった年を、いちばん貧しかったと覚えている</strong></p>
+    <ol class="mini">
+      <li data-v="v1.0">なぜ私は、いちばん稼いだ年を、いちばん貧しかったと覚えているのか？</li>
+      <li class="hit" data-v="現場当て">その年いっしょに働いた同僚に会う → <i>「あの年、あなた誰にも相談しなかったよね」</i></li>
+      <li data-v="v1.1">私が「貧しい」と呼んでいるのは、金ではなく、相談しなかったことなのか？</li>
+      <li class="hit" data-v="ズラし当て">まったく違う業界の人 → <i>「うちの母、年金暮らしだけど毎日誰かに何か聞いてる。あれ豊かだと思う」</i></li>
+      <li data-v="v1.2">なぜ私は、人に聞ける状態のことを「余裕」だと思っているのか？</li>
+      <li class="hit" data-v="反証当て">「それ、ただの依存では？」→ 違った。<i>聞ける相手を自分で作ったときにだけ、そう感じている</i></li>
+      <li data-v="v1.3">聞ける相手は、どうすれば自分で作れるのか？</li>
+    </ol>
+    <p class="ex-note"><b>対象の動き：</b>豊かさ → 相談しなかったこと → 聞ける状態 → 聞ける相手の作り方。<br><b>最初の語が、最後の版から消えています。</b>禁句の語は、こうやって場面に降ろすと使えるようになります。</p>
+    <div class="warn" style="margin-left:0"><b>ここは運営が間違えやすいところです。</b>この人の探究は、たまたま H（つながり）側に着地しました。<b>ですが F = G × H は運営が持っている枠組みであって、参加者が到達すべき答えではありません。</b>「やっぱり豊かさは掛け算だったね」と回収した瞬間、<b>穴4（運営が答えを持つ）</b>になります。着地は一人ひとり違って構いません。</div>
+  </div>
+
+  <div class="ex">
+    <h3>旅</h3>
+    <p class="ex-x">✕ <b>「旅の価値とは何か」</b>　POOLOでいちばん出やすい形。答えが先にあるので、問いとして動きません</p>
+    <p class="ex-w">違和感：<strong>いちばん良かった旅ほど、人に話せない</strong></p>
+    <ol class="mini">
+      <li data-v="v1.0">なぜ私は、いちばん良かった旅ほど、人に話せないのか？</li>
+      <li class="hit" data-v="現場当て">その旅に一緒に行った相手に聞く → <i>「あのときあなた、写真ほとんど撮ってなかったよ」</i></li>
+      <li data-v="v1.1">記録しなかった時間と、話せなさは、関係があるのか？</li>
+      <li class="hit" data-v="ズラし当て">旅に出ないという人 → <i>「私も、本当に良かった映画は感想が書けない」</i></li>
+      <li data-v="v1.2">なぜ私は、言葉にすると減ると感じるものを、それでも人に渡したくなるのか？</li>
+      <li class="hit" data-v="反証当て">「それ、ただの語彙不足では？」→ 違った。<i>書けたときもある。書けたのは、渡す相手が決まっていたときだけ</i></li>
+      <li data-v="v1.3">どうすれば、渡す相手を先に決めておけるのか？</li>
+    </ol>
+    <p class="ex-note"><b>対象の動き：</b>旅 → 記録しなかった時間 → 渡したくなること → 渡し方。<br><b>この例は、手5（差し出す）の作法にそのまま戻ってきます。</b>「相手を決めてから書く」は、卒業制作でいちばん効く一手かもしれません。</p>
+  </div>
+
+  <figure>
+    <svg viewBox="0 0 900 350" role="img" aria-label="5つの入口の語が、すべて どうすれば型 の問いに着地し、入口の語は最後の版に残っていない。">
+      <defs>
+        <marker id="m10" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M 0 0 L 10 5 L 0 10 z" fill="#189BBC"/>
+        </marker>
+      </defs>
+      <text x="180" y="46" text-anchor="end" font-size="11.5" font-weight="700" fill="currentColor" opacity=".7">入口の語</text>
+      <text x="300" y="46" font-size="11.5" font-weight="700" fill="#189BBC">v1.3 で問っていること</text>
+
+      <text x="180" y="92" text-anchor="end" font-size="13" fill="currentColor">ワイン</text>
+      <line x1="196" y1="87" x2="284" y2="87" stroke="#189BBC" stroke-width="1.5" opacity=".5" marker-end="url(#m10)"/>
+      <text x="300" y="92" font-size="12.5" fill="currentColor">迷いの跡は、<tspan font-weight="700" fill="#189BBC">どうすれば</tspan>残せるのか</text>
+
+      <text x="180" y="142" text-anchor="end" font-size="13" fill="currentColor">場づくり</text>
+      <line x1="196" y1="137" x2="284" y2="137" stroke="#189BBC" stroke-width="1.5" opacity=".5" marker-end="url(#m10)"/>
+      <text x="300" y="142" font-size="12.5" fill="currentColor">意図的な「止まり」は、<tspan font-weight="700" fill="#189BBC">どうすれば</tspan>設計できるのか</text>
+
+      <text x="180" y="192" text-anchor="end" font-size="13" fill="currentColor">夢中・熱狂</text>
+      <line x1="196" y1="187" x2="284" y2="187" stroke="#189BBC" stroke-width="1.5" opacity=".5" marker-end="url(#m10)"/>
+      <text x="300" y="192" font-size="12.5" fill="currentColor">熱のそばにいる役は、<tspan font-weight="700" fill="#189BBC">どうすれば</tspan>成立するのか</text>
+
+      <text x="180" y="242" text-anchor="end" font-size="13" fill="currentColor">豊かさ</text>
+      <line x1="196" y1="237" x2="284" y2="237" stroke="#189BBC" stroke-width="1.5" opacity=".5" marker-end="url(#m10)"/>
+      <text x="300" y="242" font-size="12.5" fill="currentColor">聞ける相手は、<tspan font-weight="700" fill="#189BBC">どうすれば</tspan>自分で作れるのか</text>
+
+      <text x="180" y="292" text-anchor="end" font-size="13" fill="currentColor">旅</text>
+      <line x1="196" y1="287" x2="284" y2="287" stroke="#189BBC" stroke-width="1.5" opacity=".5" marker-end="url(#m10)"/>
+      <text x="300" y="292" font-size="12.5" fill="currentColor"><tspan font-weight="700" fill="#189BBC">どうすれば</tspan>、渡す相手を先に決めておけるのか</text>
+
+      <path d="M 178 62 L 170 62 L 170 306 L 178 306" fill="none" stroke="currentColor" stroke-width="1" opacity=".3"/>
+      <text x="150" y="330" text-anchor="end" font-size="10.5" fill="currentColor" opacity=".5">この5語は</text>
+      <text x="300" y="330" font-size="10.5" fill="currentColor" opacity=".5">右のどこにも出てきません。全部「どうすれば」型で、入口の語は消えています。</text>
+    </svg>
+    <figcaption><b>5本を並べると、同じ形をしています。</b>左の語は、右の版に一つも残っていません。そして5本とも<b>「どうすれば」型</b>で終わっている。<b>入口では「なぜ私は」で自分の正体を問い、3周かけて「どうすれば」の作る段階に移る</b>、という順番です。</figcaption>
+  </figure>
+
+  <div class="col">
+    <p class="claim">5例すべてで、入口の語が<br>最後の版から消えました。</p>
+    <p>ワインを入れて5本、作例を書いてみて、全部同じことが起きました。</p>
+  </div>
+
+  <p class="tno"></p>
+  <div class="scroller">
+  <table class="tbl">
+    <thead><tr><th>入口の語</th><th>v1.3 で何を問っているか</th><th>入口の語は</th></tr></thead>
+    <tbody>
+      <tr><td class="q">ワイン</td><td>迷いの跡は、どうすれば残せるのか</td><td>消えた</td></tr>
+      <tr><td class="q">場づくり</td><td>意図的な「止まり」は、どうすれば設計できるのか</td><td>消えた</td></tr>
+      <tr><td class="q">夢中・熱狂</td><td>熱のそばにいる役は、どうすれば成立するのか</td><td>消えた</td></tr>
+      <tr><td class="q">豊かさ</td><td>聞ける相手は、どうすれば自分で作れるのか</td><td>消えた</td></tr>
+      <tr><td class="q">旅</td><td>どうすれば、渡す相手を先に決めておけるのか</td><td>消えた</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <figcaption style="margin-left:0"><b>そして5本とも、最後の版が「どうすれば」型になっています。</b>入口では「なぜ私は」で自分の正体を問い、3周かけて「どうすれば」の作る段階に移る。<b>3つの型は、並列の選択肢ではなく順番なのかもしれません。</b>これは正本に書かれていない読みです。</figcaption>
+
+  <div class="caveat">
+    <p style="margin:0 0 .9em"><b>診断に使えるかもしれません。v1.3にまだ入口の語が残っていたら、周が回っていない。</b>「良い場とは何か」が「本当に良い場とは何か」になっただけなら、当てていない可能性が高い。<b>語が入れ替わったかどうかは、外から見て分かります。</b>「決まりましたか」と違って、答えなくても判定できる。</p>
+    <p style="margin:0"><b>ただし、これは作例5本から出た仮説です。</b>私が同じ書き方で5本書いたので、同じ形になったという可能性も残ります。<b>実データで確かめる価値があります</b>。体験会v2の指標7（当てる前後で問いが書き換わったか）が、まさにこれを取る設計になっています。</p>
+  </div></section>
+
+<section class="chap" id="grain" data-short="入口と粒度" data-label="第八章">
+  <header class="chap-open">
+    <p class="chap-no"><span>第八章</span></p>
+    <h2>入口はどこからでも。ただし、必ず一人を通る</h2>
+    <p class="chap-lead">人の営みから入るのか、自然や宗教から入るのか。そして「人」とは個人なのか、新潟や日本のような括りなのか。<strong>三つの語（対象・他者・社会）は、この問いにもう答えを持っています。</strong>取り出して図にします。</p>
+  </header>
+<figure>
+    <svg viewBox="0 0 900 410" role="img" aria-label="砂時計の図。大きい入口が触れられる単位に降り、必ず一人の他者を通り、そこからまた広がっていく。">
+      <line x1="70" y1="200" x2="850" y2="200" stroke="currentColor" stroke-width="1" opacity=".2"/>
+
+      <line x1="70" y1="90" x2="430" y2="192" stroke="currentColor" stroke-width="1.5" opacity=".4"/>
+      <line x1="70" y1="290" x2="430" y2="208" stroke="currentColor" stroke-width="1.5" opacity=".4"/>
+      <line x1="470" y1="192" x2="830" y2="90" stroke="#189BBC" stroke-width="1.8" opacity=".55"/>
+      <line x1="470" y1="208" x2="830" y2="290" stroke="#189BBC" stroke-width="1.8" opacity=".55"/>
+
+      <circle cx="450" cy="200" r="13" fill="#189BBC"/>
+      <text x="450" y="152" text-anchor="middle" font-size="12.5" font-weight="700" fill="#189BBC">当てる</text>
+      <text x="450" y="172" text-anchor="middle" font-size="11" font-weight="700" fill="#189BBC">他者＝一人</text>
+
+      <text x="150" y="62" text-anchor="middle" font-size="11.5" font-weight="700" fill="currentColor" opacity=".7">入口</text>
+      <text x="330" y="62" text-anchor="middle" font-size="11.5" font-weight="700" fill="currentColor" opacity=".7">降ろす</text>
+      <text x="620" y="62" text-anchor="middle" font-size="11.5" font-weight="700" fill="#189BBC">差し出す</text>
+      <text x="790" y="62" text-anchor="middle" font-size="11.5" font-weight="700" fill="#189BBC">広がる</text>
+
+      <text x="150" y="332" text-anchor="middle" font-size="12" fill="currentColor">自然／宗教／地域／国</text>
+      <text x="150" y="354" text-anchor="middle" font-size="10.5" fill="currentColor" opacity=".5">大きい。触れない</text>
+      <text x="330" y="332" text-anchor="middle" font-size="12" fill="currentColor">その山の道／あの寺の朝</text>
+      <text x="330" y="354" text-anchor="middle" font-size="10.5" fill="currentColor" opacity=".5">触れられる</text>
+      <text x="620" y="332" text-anchor="middle" font-size="12" fill="currentColor">受け取った数人</text>
+      <text x="620" y="354" text-anchor="middle" font-size="10.5" fill="currentColor" opacity=".5">知らない人へ（Lv.3）</text>
+      <text x="790" y="332" text-anchor="middle" font-size="12" font-weight="700" fill="#189BBC">新潟の人／日本の人</text>
+      <text x="790" y="354" text-anchor="middle" font-size="10.5" fill="currentColor" opacity=".5">大きい。ただし中身は人</text>
+
+      <text x="70" y="392" font-size="11" font-weight="700" fill="currentColor">どんなに大きい入口でも、必ず一人を通ります。当てられるのは、いつも一人だけ。</text>
+    </svg>
+    <figcaption><b>ひとつ断っておくと、左右の幅は別のものを測っています。</b>左＝抽象の大きさ（大きいほど触れない）、右＝届いた人数（大きいほど広い）。<b>砂時計に見えますが、対称ではありません。</b>共通しているのは真ん中が最小＝<b>一人</b>だということだけで、この図が言いたいのもそこだけです。</figcaption>
+  </figure>
+
+  <div class="col">
+    <p class="claim">対象が人でなくても、<br>掘れば必ず人の営みに当たる。</p>
+    <p>自然そのものは返事をしません。ワインと同じです。<strong>でも、対象には必ず「それをやっている人」がついています。</strong>第五章で書いた〈もの・営み〉の〈営み〉が、それです。</p>
+    <p>宗教はもっと直接的で、<strong>ほとんど人の営みそのもの</strong>です。教義は人が書き、建物は人が建て、続けているのは人。だから宗教から入った人は、他の入口より早く人に当たります。</p>
+    <p>逆に言うと、<strong>人が一人もいない対象は、探究できません。</strong>手4で当てる相手が現れないからです。ただし実際には、人が一人もいない対象はほぼありません。その山に登った誰か、その山を守っている誰か、その山について書いた誰かが、必ずいます。</p>
+  </div>
+
+  <p class="tno"></p>
+  <div class="scroller">
+  <table class="tbl">
+    <thead><tr><th>入口の種類</th><th>そのままだと</th><th>触れられる単位に降ろすと</th><th>そこにいる人</th></tr></thead>
+    <tbody>
+      <tr><td class="q">人の営み</td><td>場づくり</td><td>あの日の進行</td><td>その場にいた参加者</td></tr>
+      <tr><td class="q">もの</td><td>ワイン</td><td>あの一本</td><td>造り手</td></tr>
+      <tr><td class="q">自然</td><td>山</td><td>あの登山道</td><td>道を整備している人</td></tr>
+      <tr class="is-hot"><td class="q">制度・信仰</td><td>宗教</td><td>あの寺の朝の勤め</td><td>続けている人</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <figcaption style="margin-left:0"><b>3列目が「触れられる単位」です。</b>そこまで降ろすと、4列目が自動的に現れます。<b>逆に、4列目が出てこないなら、まだ降ろせていません。</b>これは第五章の判定（その問いで、会いに行く相手が決まるか）と同じことを言っています。</figcaption>
+
+  <div class="col">
+    <p class="claim">新潟や日本は、三つの語のどれでもない。<br>粒度の目盛りです。</p>
+    <p>ここがご質問のいちばん難しいところだと思います。<strong>「新潟」は対象でも他者でも社会でもありません。大きさを言うための単位です。</strong></p>
+    <p>だから使う場所によって役割が変わります。入口として使えば対象の候補（ただし大きすぎるので降ろす必要がある）。届き先として使えば社会の大きさの目盛り。<strong>語そのものに固定の役割はありません。</strong></p>
+  </div>
+
+  <p class="tno"></p>
+  <div class="scroller">
+  <table class="tbl">
+    <thead><tr><th>呼び方</th><th>三つの語でいうと</th><th>当てられるか</th></tr></thead>
+    <tbody>
+      <tr class="is-hot"><td class="q">新潟の◯◯さん</td><td><strong>他者</strong></td><td><strong>○ 当てられる。会いに行ける</strong></td></tr>
+      <tr><td class="q">新潟の人たち</td><td>社会（届いた範囲）</td><td>✕ 当てられない。届くだけ</td></tr>
+      <tr><td class="q">新潟</td><td>どれでもない（粒度の目盛り）</td><td>✕ 会いに行く先が決まらない</td></tr>
+      <tr><td class="q">日本</td><td>同上。もっと粗い目盛り</td><td>✕</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <figcaption style="margin-left:0"><b>正本はもう答えを持っていました</b>。「社会には直接ぶつけられないので、当てられるのは他者だけ」。<b>だから括りの大きさは、当てる工程には一切関係しません。</b>関係するのは、届いたあとの大きさだけです。</figcaption>
+
+  <div class="warn"><b>⚠️ 括りに奉仕しない。</b>「新潟のために」と言った瞬間、社会が<b>意義の供給元</b>に変わります。第五章の警告そのものです。<b>届くのは常に人一人ずつ</b>なので、「新潟に届いた」は「新潟の何人かに届いた」の略記です。<b>地域に届くのではなく、その地域にいる人に届く。</b>括りは結果を数える単位であって、目的ではありません。</div>
+
+  <div class="caveat">
+    <p style="margin:0"><b>この図が言っているのは、結局ひとつです。</b>入口は自然でも宗教でも地域でもよく、届き先は日本規模でもいい。<b>ですが真ん中だけは、どうやっても一人です。</b>そしてその一人を通らないかぎり、左の大きさは右の大きさになりません。<b>手4が「探究の心臓」と呼ばれているのは、ここが唯一の通り道だからです。</b></p>
+  </div></section>
+
+  <!-- ============ 奥付 ============ -->
+  <section class="oku" id="okuduke">
+    <h2 class="oku-h">奥　付</h2>
+    <div class="oku-box">
+      <p class="oku-t">豊かさから、問いまで</p>
+      <p class="oku-s">POOLOの言葉を、四段で読む　／　造本版</p>
+      <dl class="oku-dl">
+        <dt>発行</dt><dd>二〇二六年八月二十八日　第一版</dd>
+        <dt>出典</dt><dd>人生の豊かさ F＝G×H ／ 探究テーマ（用語の正本 v1.7）／ POOLO_METHOD 探究編 v1.7</dd>
+        <dt>数字</dt><dd>卒業制作105本の語り方の分類（G×H 43%／G単独 34%／H単独 23%）。分類はキーワードマッチによる目安で、因果は言えません。</dd>
+        <dt>範囲</dt><dd><b>この資料には未決の論点を入れていません。</b>「探究テーマ」という語を変えるかどうかを含む論点は、概念図「探究と旅と豊かさ」の06にまとめてあります。</dd>
+        <dt>凡例</dt><dd>図版は「図 章-番号」、表は「表 章-番号」で通し番号を振っています。※ は表に付した注、注 は本文の傍注です。</dd>
+      </dl>
+      <p class="oku-mark">by TABIPPO</p>
+    </div>
+  </section>
+
+</div>
+
+<div class="drawer" id="drawer" role="dialog" aria-label="目次">
+  <div class="drawer-in">
+    <div class="drawer-top">
+      <p>目次</p>
+      <button class="tocbtn" id="drawerClose">閉じる</button>
+    </div>
+    <ol class="toc-list" id="drawerList"></ol>
+  </div>
+</div>
+
+<script>
+(function(){
+  var PAGE = 900;                        // 1ページ相当の高さ（ノンブルの目安）
+  var chaps = [].slice.call(document.querySelectorAll('.chap'));
+  var pillarL = document.getElementById('pillarL');
+  var folio   = document.getElementById('folio');
+  var spine   = document.getElementById('spine');
+  var drawer  = document.getElementById('drawer');
+  var tocbtn  = document.getElementById('tocbtn');
+  var oku = document.getElementById('okuduke');
+  var total = 1;
+
+  function top(el){ return el.getBoundingClientRect().top + window.scrollY; }
+
+  function paginate(){
+    total = Math.max(1, Math.ceil(document.body.scrollHeight / PAGE));
+    [].forEach.call(document.querySelectorAll('.tc-p'), function(sp){
+      var t = document.getElementById(sp.dataset.target);
+      if(t) sp.textContent = Math.floor(top(t) / PAGE) + 1;
+    });
+  }
+
+  function onScroll(){
+    var y = window.scrollY, h = document.body.scrollHeight - window.innerHeight;
+    spine.style.width = (h > 0 ? Math.min(100, y / h * 100) : 0) + '%';
+
+    var p = Math.min(total, Math.floor((y + window.innerHeight * 0.5) / PAGE) + 1);
+    folio.textContent = p + ' / ' + total;
+    folio.classList.toggle('on', y > 120);
+
+    var cur = null, mark = y + 90;
+    for(var i = 0; i < chaps.length; i++){ if(top(chaps[i]) <= mark) cur = chaps[i]; }
+    if(oku && top(oku) <= mark) cur = null;          // 奥付まで来たら書名に戻す
+    if(cur){
+      pillarL.innerHTML = '<em>' + cur.dataset.label + '</em>' + cur.dataset.short;
+    }else{
+      pillarL.innerHTML = '<em>POOLO</em>豊かさから、問いまで';
+    }
+    try{ localStorage.setItem('poolo-words-book:y', String(Math.round(y))); }catch(e){}
+  }
+
+  // 目次ドロワー
+  document.getElementById('drawerList').innerHTML = document.getElementById('tocList').innerHTML;
+  function openD(v){
+    drawer.classList.toggle('on', v);
+    tocbtn.setAttribute('aria-expanded', v ? 'true' : 'false');
+    document.documentElement.style.overflow = v ? 'hidden' : '';
+  }
+  tocbtn.addEventListener('click', function(){ openD(!drawer.classList.contains('on')); });
+  document.getElementById('drawerClose').addEventListener('click', function(){ openD(false); });
+  drawer.addEventListener('click', function(e){ if(e.target.closest('a')) openD(false); });
+
+  // キー操作：← → で章送り、t で目次、esc で閉じる
+  document.addEventListener('keydown', function(e){
+    if(e.metaKey || e.ctrlKey || e.altKey) return;
+    if(e.key === 'Escape'){ openD(false); return; }
+    if(e.key === 't' || e.key === 'T'){ openD(!drawer.classList.contains('on')); return; }
+    if(e.key !== 'ArrowLeft' && e.key !== 'ArrowRight') return;
+    var mark = window.scrollY + 90, idx = -1;
+    for(var i = 0; i < chaps.length; i++){ if(top(chaps[i]) <= mark) idx = i; }
+    var next = e.key === 'ArrowRight' ? idx + 1 : idx - 1;
+    if(next < 0){ window.scrollTo({top:0, behavior:'smooth'}); }
+    else if(chaps[next]){ chaps[next].scrollIntoView({behavior:'smooth', block:'start'}); }
+    e.preventDefault();
+  });
+
+  // しおり
+  var shiori = document.getElementById('shiori');
+  try{
+    var saved = parseInt(localStorage.getItem('poolo-words-book:y') || '0', 10);
+    if(saved > window.innerHeight * 1.5){
+      document.getElementById('shioriP').textContent = 'p.' + (Math.floor(saved / PAGE) + 1);
+      shiori.classList.add('on');
+      shiori.addEventListener('click', function(){
+        window.scrollTo({top:saved, behavior:'smooth'}); shiori.classList.remove('on');
+      });
+      setTimeout(function(){ shiori.classList.remove('on'); }, 9000);
+    }
+  }catch(e){}
+
+  window.addEventListener('scroll', onScroll, {passive:true});
+  window.addEventListener('resize', function(){ paginate(); onScroll(); });
+  if(document.fonts && document.fonts.ready){ document.fonts.ready.then(function(){ paginate(); onScroll(); }); }
+  paginate(); onScroll();
+})();
+</script>
+</body>
+</html>
