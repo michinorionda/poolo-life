@@ -69,7 +69,7 @@
   <div class="rv-inner">
     <div class="rv-eyebrow">Design Review — Higashikawa / Winter</div>
     <h1>2026年を綴じて、紡ぐ、3日間。<br>POOLO × School for Life Compath 東川3日間・冬</h1>
-    <p>2026年12月4日（金）〜6日（日）のPOOLO生向け募集ページ。企画の叩き（Notion）を全面的に反映し、「写真 × 一年の振り返り」を軸に組み直しました。写真は8月回の記録448枚から40枚を選定して使用しています。参加費・定員・締切・ゲストは未確定のため、確定待ちの項目を05にまとめています。</p>
+    <p>2026年12月4日（金）〜6日（日）のPOOLO生向け募集ページ。企画の叩き（Notion）を全面的に反映し、「写真 × 一年の振り返り」を軸に組み直しました。写真は8月回の記録448枚から32枚を選定して使用しています（重複・粗いカットを精査済み）。参加費・定員・締切・ゲストは未確定のため、確定待ちの項目を05にまとめています。</p>
     <div class="rv-links">
       <a href="./">告知ページを見る</a>
       <a href="../higashikawa/">8月回のページ（第1回）</a>
@@ -164,7 +164,22 @@
       <p>デスクトップの「東川フォルダ」にあった448枚は、<strong>すべて2026年8月開催回の写真</strong>でした（LINEアルバム由来。336番以降は前半とほぼ重複、実質約300枚がユニーク）。冬の写真は1枚もありません。</p>
       <p>季節がわからないカットだけ選んで黙って使う、という選択肢は採りませんでした。緑や半袖が写る写真を12月の募集ページに混ぜるのは不誠実ですし、参加後の落差にもつながります。採ったのは<strong>「8月の記録である」と明示したうえで堂々と大量に使う</strong>方針で、お知らせバンド／ギャラリー見出し／ギャラリー脚注2か所／FAQ の4系統で明示しています。</p>
       <p>結果として、<strong>写真中心の企画なのにページの写真が全部前回のもの</strong>という状態です。ここは早めに解消したい。冬の東川の写真が1枚でも入れば、ヒーローか最初の写真ブレイクを差し替えます。</p>
-      <p>選定は448枚すべてをコンタクトシート化して目視で確認し、<strong>40枚</strong>に絞りました。重複・ピンボケ・特定個人が大きく写りすぎるカット・季節性が強すぎるカット（向日葵畑・ラベンダー）は落としています。書き出しはヒーロー2000px／写真ブレイク1800px／ギャラリー1100px、いずれも quality 82・progressive JPEG、合計約5.6MB。全ギャラリー画像に <code>loading="lazy"</code>。</p>
+      <p>選定は448枚すべてをコンタクトシート化して目視で確認し、まず41枚に絞りました。そこから、ご指摘で外した天の川の1枚、下記の精査で落とした12枚を引き、差し替え用に4枚を足して、<strong>現在32枚</strong>です。書き出しはヒーロー2000px／写真ブレイク1800px／ギャラリー1100px、いずれも quality 82・progressive JPEG、合計約5.0MB。全ギャラリー画像に <code>loading="lazy"</code>。</p>
+      <h3 style="font-family:var(--head);font-size:13.5px;font-weight:700;letter-spacing:.08em;color:var(--ink);margin:26px 0 10px;">精査（重複と画質）</h3>
+      <p>「似た写真が並んでいる」「粗い写真がある」という指摘を受けて、機械測定＋目視で洗い直しました。測ったのは、<strong>dHash（構図の一致）</strong>、<strong>色ヒストグラム交差（同一シーンの検出）</strong>、<strong>ラプラシアン分散（シャープネス）</strong>、<strong>平坦部の残差標準偏差（ノイズ）</strong>の4つです。</p>
+    </div>
+    <table class="rv-table" style="margin-top:18px;">
+      <tbody>
+        <tr><th>重複（実質同一）</th><td><code>g_two</code> ↔ <code>g_writing</code> は<strong>dHash 0／256 で完全に同一の写真</strong>でした（LINEアルバムに同じ画像が二重に入っていた）。<code>g_hall</code> ↔ <code>pb_circle</code> は dHash 1／256 でほぼ同一フレーム。<code>g_desk</code> ↔ <code>g_two</code>、<code>g_group2</code> ↔ <code>pb_group</code> は同一シーンの連写。いずれも片方を削除</td></tr>
+        <tr><th>粗さ・構図</th><td><code>g_journal</code>（暗く手前に足が入る）、<code>g_drawing</code>（床の紙・内容が読めない）、<code>g_rest</code>（寝転がっている絵で募集ページに不向き）を削除</td></tr>
+        <tr><th>ノイズ</th><td>平坦部ノイズが突出していた <code>g_forest</code>（5.12）と <code>g_birch</code>（3.96）、ざらつきの目立つ <code>g_milkyway</code>（1.07）を削除。上位3枚がそのまま削除対象になった</td></tr>
+        <tr><th>季節性</th><td>上記 <code>g_forest</code> / <code>g_birch</code> は<strong>夏の緑が主役</strong>で、冬の募集ページには合わないという理由も兼ねる</td></tr>
+        <tr><th>並びの重複</th><td>横スクロール帯で<strong>食卓3枚・樹木2枚・集合写真2枚が連続</strong>していたのを解消。食卓は2枚に絞り、離して配置。モザイクも「本屋2枚が近い」「同じ2人の別カットが上下で隣接」を解消し、同系統が隣り合わない順に組み直した</td></tr>
+        <tr><th>差し替え（4枚）</th><td>枚数と変化を保つため、未使用カットから <code>g_meal</code>（光の入る食堂での食事）、<code>g_laugh</code>（笑いながら話す）、<code>g_workshop</code>（机に向かって手を動かす）、<code>g_window</code>（窓辺の静物）を追加。いずれもシャープで、屋内中心のため冬でも違和感が出にくい</td></tr>
+        <tr><th>再検証</th><td>差し替え後にもう一度ハッシュ判定を実行し、<strong>実質同一のペアはゼロ</strong>。残った3ペア（<code>g_dialogue</code>／<code>g_listen</code>／<code>g_pair</code>）は同じ校舎の色味を共有しているだけで、場所も構図も別であることを目視で確認済み</td></tr>
+      </tbody>
+    </table>
+    <div class="rv-body">
     </div>
   </section>
 
@@ -190,7 +205,7 @@
         <tr><th>中</th><td><strong>対象範囲</strong>。「POOLO生・POOLO卒業生／一般参加の可否は調整中」としている</td></tr>
         <tr><th>低</th><td><strong>キャンセルポリシー</strong>／<strong>宿泊の部屋割り</strong>／<strong>Day2の夕食場所</strong>（Day1の「りしり」のみ明記）</td></tr>
         <tr><th>低</th><td><strong><code>noindex</code> の解除</strong>／<strong>8月回のページから冬回への導線</strong>を張るか</td></tr>
-        <tr><th>低</th><td><strong>肖像の掲載可否</strong>。8月回の参加者が識別できる写真を40枚使用している</td></tr>
+        <tr><th>低</th><td><strong>肖像の掲載可否</strong>。8月回の参加者が識別できる写真を32枚使用している</td></tr>
       </tbody>
     </table>
   </section>
@@ -209,11 +224,11 @@
         <tr><th>01 コンセプト</th><td><code>.sec</code> ＋ <code>.intro-body</code> ＋ <code>.intro-break</code></td></tr>
         <tr><th>02 夏との違い</th><td><code>.ba-flow</code>（Summer → Winter の6行比較）</td></tr>
         <tr><th>03 なぜ東川か</th><td><code>.sec</code> ＋ <code>.intro-body</code>（写真の町＋冬の東川らしさ5点）</td></tr>
-        <tr><th>ギャラリー（新）</th><td><strong><code>.gallery</code> ＋ <code>.g-grid</code></strong>／16枚のモザイク</td></tr>
+        <tr><th>ギャラリー（新）</th><td><strong><code>.gallery</code> ＋ <code>.g-grid</code></strong>／14枚のモザイク</td></tr>
         <tr><th>04 やること</th><td><code>.program-steps</code>（3つの活動目標／②が <code>.is-main</code>）</td></tr>
         <tr><th>事前準備</th><td><code>.sec-questions</code> ＋ <code>.q-list</code>（11枚と、6つの問い）</td></tr>
         <tr><th>05 3日間の流れ</th><td><code>.day-block</code> ＋ <code>.flow-list</code> ×3日</td></tr>
-        <tr><th>ギャラリー（新）</th><td><strong><code>.gallery</code> ＋ <code>.g-strip</code></strong>／19枚の全幅横スクロール帯</td></tr>
+        <tr><th>ギャラリー（新）</th><td><strong><code>.gallery</code> ＋ <code>.g-strip</code></strong>／13枚の全幅横スクロール帯</td></tr>
         <tr><th>人</th><td class="ok">— ゲスト未確定のため、現在は非掲載（HTMLにコメントで戻す位置を残してある）</td></tr>
         <tr><th>06 持ち帰るもの</th><td><code>.intro-body</code>（方角と、問い）</td></tr>
         <tr><th>向き・不向き</th><td><code>.fit-grid</code></td></tr>
