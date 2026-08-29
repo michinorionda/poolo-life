@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>豊かさから、問いまで ／ 4枚版</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@400;700;900&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&family=Jost:wght@400;500;600&display=swap">
+<style>
+:root{
+  --brand:#189BBC; --brand-deep:#127E9A; --brand-mid:#8FC6D6; --brand-pale:#DDECF1;
+  --ink:#000; --ink-soft:#1E1E1E;
+  --ink-72:rgba(0,0,0,.72); --ink-60:rgba(0,0,0,.60); --ink-50:rgba(0,0,0,.50); --ink-40:rgba(0,0,0,.40);
+  --bg:#fff; --bg-off:#F9F9F9; --line:#E4E4E4; --line-pale:#C2DCE5;
+  --mincho:'Zen Old Mincho','Hiragino Mincho ProN','Yu Mincho',serif;
+  --head:'Zen Kaku Gothic New','Hiragino Kaku Gothic ProN',sans-serif;
+  --body:'Noto Sans JP','Hiragino Kaku Gothic ProN',sans-serif;
+  --en:'Jost',sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{background:#EFEFEF;font-family:var(--body);color:var(--ink-soft);-webkit-font-smoothing:antialiased;
+  display:flex;align-items:center;justify-content:center;overflow:hidden}
+
+#stage{width:1280px;height:720px;position:relative;transform-origin:center center;flex:none}
+.slide{position:absolute;inset:0;background:var(--bg);padding:48px 70px 54px;display:none;flex-direction:column}
+.slide.on{display:flex}
+
+/* ---------- header + rail（はしごを4枚に分散させたもの） ---------- */
+.head{display:flex;align-items:baseline;gap:16px;flex:none}
+.no{font-family:var(--en);font-size:14px;font-weight:600;letter-spacing:.16em;color:var(--brand);flex:none}
+h2{font-family:var(--mincho);font-size:30px;font-weight:700;letter-spacing:.04em;line-height:1.35;color:var(--ink)}
+.sub{font-size:12px;color:var(--ink-50);letter-spacing:.05em;margin-left:auto;flex:none}
+.rail{display:grid;grid-template-columns:repeat(4,1fr);margin-top:18px;flex:none}
+.rail div{border-top:1px solid var(--line);padding:9px 14px 0 0}
+.rail .r{font-family:var(--head);font-size:9.5px;font-weight:700;letter-spacing:.18em;color:var(--ink-40)}
+.rail .t{font-family:var(--mincho);font-size:13px;font-weight:700;letter-spacing:.05em;color:var(--ink-40);margin-top:3px}
+.rail div.on{border-top:2px solid var(--brand);padding-top:8px}
+.rail div.on .r{color:var(--brand)}
+.rail div.on .t{color:var(--ink)}
+
+.foot{position:absolute;left:70px;right:70px;bottom:19px;display:flex;align-items:baseline;
+  border-top:1px solid var(--line);padding-top:10px}
+.foot .src{font-size:10.5px;color:var(--ink-40);letter-spacing:.04em;line-height:1.7}
+.foot .pg{margin-left:auto;font-family:var(--en);font-size:12px;font-weight:500;letter-spacing:.14em;
+  color:var(--ink-40);padding-left:24px;flex:none}
+.body{flex:1;padding-top:30px;min-height:0;display:flex;flex-direction:column}
+
+.say{font-family:var(--mincho);font-size:20px;font-weight:700;line-height:1.7;color:var(--ink);letter-spacing:.03em}
+.say em{font-style:normal;background:linear-gradient(transparent 60%,var(--brand-pale) 60%)}
+.note{font-size:11.5px;line-height:1.9;color:var(--ink-60);letter-spacing:.03em}
+.tag{font-family:var(--head);font-size:10px;font-weight:700;letter-spacing:.18em;color:var(--ink-40)}
+b{color:var(--ink);font-weight:700}
+.bl{color:var(--brand-deep);font-weight:700}
+svg text{font-family:var(--body)}
+
+/* ---------- 01 四象限 ---------- */
+.qwrap{display:flex;gap:14px;flex:1;min-height:0}
+.yax{width:18px;flex:none;display:flex;align-items:center;justify-content:center}
+.yax span{writing-mode:vertical-rl;transform:rotate(180deg);font-family:var(--head);font-size:11px;
+  font-weight:700;letter-spacing:.16em;color:var(--ink-60)}
+.qcol{flex:1;display:flex;flex-direction:column;min-height:0}
+.quad{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;border:1px solid var(--line);flex:1}
+.cell{padding:22px 26px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);
+  display:flex;flex-direction:column;justify-content:space-between}
+.cell:nth-child(2),.cell:nth-child(4){border-right:none}
+.cell:nth-child(3),.cell:nth-child(4){border-bottom:none}
+.cell .nm{font-family:var(--mincho);font-size:18px;font-weight:700;color:var(--ink);letter-spacing:.04em;line-height:1.5}
+.cell .ds{font-size:11.5px;line-height:1.7;color:var(--ink-50);margin-top:7px;letter-spacing:.02em}
+.cell .pc{font-family:var(--en);font-size:34px;font-weight:600;color:var(--ink-40);align-self:flex-end;line-height:1}
+.cell.win{background:var(--brand)}
+.cell.win .nm{color:#fff;font-size:26px}
+.cell.win .ds{color:rgba(255,255,255,.82)}
+.cell.win .pc{color:#fff;font-size:50px}
+.cell.dead{background:var(--bg-off)}
+.cell.dead .nm{color:var(--ink-50)}
+.xax{text-align:center;font-family:var(--head);font-size:11px;font-weight:700;letter-spacing:.16em;
+  color:var(--ink-60);padding-top:12px}
+.feq{font-family:var(--mincho);font-size:26px;font-weight:700;letter-spacing:.04em;color:var(--ink);line-height:1.5}
+.feq b{color:var(--brand-deep)}
+.feq i{font-style:normal;color:var(--brand)}
+
+/* ---------- 02 flow ---------- */
+.fail{display:flex;gap:38px;margin-top:6px}
+.fail div{display:flex;align-items:flex-start;gap:11px;font-size:12px;line-height:1.75;color:var(--ink-60);letter-spacing:.03em}
+.fail .mk{width:44px;height:16px;flex:none;position:relative;margin-top:3px}
+.fail .mk i{position:absolute;top:7px;height:2px;background:var(--brand);opacity:.32}
+.fail .mk::before,.fail .mk::after{content:"";position:absolute;top:2px;width:1px;height:12px;background:var(--ink-40)}
+.fail .mk::before{left:0}.fail .mk::after{right:0}
+
+/* ---------- 03 ring ---------- */
+.s3{display:grid;grid-template-columns:414px 1fr;gap:48px;flex:1;min-height:0}
+.mini{width:100%;border-collapse:collapse}
+.mini caption{text-align:left;font-family:var(--head);font-size:13px;font-weight:700;letter-spacing:.05em;
+  color:var(--ink);padding-bottom:11px}
+.mini caption span{font-family:var(--body);font-weight:400;font-size:11px;color:var(--ink-50);letter-spacing:.03em}
+.mini th{font-family:var(--head);font-size:9.5px;font-weight:700;letter-spacing:.14em;color:var(--ink-40);
+  text-align:left;padding:0 14px 8px 0;border-bottom:1px solid var(--line);white-space:nowrap}
+.mini th:last-child{padding-right:0}
+.mini td{font-size:12px;line-height:1.7;color:var(--ink-72);padding:12px 14px 12px 0;
+  border-bottom:1px solid var(--line);vertical-align:top;letter-spacing:.02em}
+.mini td:last-child{padding-right:0}
+.mini td.k{font-family:var(--head);font-weight:700;color:var(--ink);white-space:nowrap}
+.rule{border-left:2px solid var(--brand);padding:2px 0 2px 14px;
+  font-family:var(--mincho);font-size:15px;line-height:1.7;color:var(--ink);letter-spacing:.03em}
+.rule small{display:block;font-family:var(--body);font-size:11px;color:var(--ink-50);margin-top:6px;line-height:1.8}
+
+/* ---------- 04 versions ---------- */
+.vq{display:flex;margin-top:2px}
+.vq div{flex:1;padding:0 20px}
+.vq div:first-child{padding-left:0}
+.vq div:last-child{padding-right:0}
+.vq .q{font-family:var(--mincho);font-size:14px;font-weight:700;line-height:1.7;color:var(--ink);letter-spacing:.03em}
+.vtbl{width:100%;border-collapse:collapse;margin-top:26px}
+.vtbl th{font-family:var(--head);font-size:9.5px;font-weight:700;letter-spacing:.14em;color:var(--ink-40);
+  text-align:left;padding:0 18px 8px 0;border-bottom:1px solid var(--line)}
+.vtbl th:last-child{padding-right:0}
+.vtbl td{font-size:12px;padding:9px 18px 9px 0;border-bottom:1px solid var(--line);letter-spacing:.02em}
+.vtbl td:last-child{padding-right:0}
+.vtbl td.in{font-family:var(--mincho);font-size:15px;color:var(--ink-40);width:150px;white-space:nowrap;
+  text-decoration:line-through;text-decoration-color:var(--brand-mid);text-decoration-thickness:1.5px}
+.vtbl td.out{font-family:var(--mincho);font-size:14px;color:var(--ink)}
+.vtbl td.out b{color:var(--brand-deep);font-weight:700}
+.kick{display:flex;gap:28px;margin-top:auto;align-items:flex-end;padding-top:18px}
+.kick .big{font-family:var(--mincho);font-size:20px;font-weight:700;line-height:1.7;color:var(--ink);
+  letter-spacing:.03em;flex:1}
+.kick .big em{font-style:normal;background:linear-gradient(transparent 60%,var(--brand-pale) 60%)}
+.kick .side{width:396px;flex:none;border-left:1px solid var(--line);padding-left:24px;
+  font-size:11.5px;line-height:1.85;color:var(--ink-72);letter-spacing:.03em}
+
+/* ---------- nav ---------- */
+#nav{position:fixed;bottom:14px;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:4px;
+  background:rgba(255,255,255,.95);border:1px solid var(--line);padding:6px 8px;z-index:20}
+#nav button{font-family:var(--en);font-size:12px;font-weight:500;letter-spacing:.1em;color:var(--ink-60);
+  background:none;border:none;cursor:pointer;padding:5px 11px}
+#nav button:hover{color:var(--brand-deep);background:var(--brand-pale)}
+#nav .dots{display:flex;gap:5px;padding:0 8px}
+#nav .dot{width:7px;height:7px;background:var(--line);cursor:pointer;border:none;padding:0}
+#nav .dot.on{background:var(--brand)}
+#hint{position:fixed;bottom:18px;right:18px;font-family:var(--en);font-size:10.5px;letter-spacing:.1em;
+  color:var(--ink-40);z-index:20}
+
+/* ---------- スマホ・タブレット：縦に流して読む ---------- */
+.figscroll{width:100%}
+.figscroll svg{width:100%;height:auto;display:block}
+
+@media (max-width:900px){
+  body{display:block;overflow:auto;background:#EFEFEF}
+  #stage{width:100%;height:auto;transform:none!important;padding:0 0 40px}
+  .slide{display:block!important;position:relative;inset:auto;width:100%;height:auto;
+    padding:30px 20px 34px;margin-bottom:14px}
+  .body{padding-top:22px;display:block}
+  .head{display:block}
+  h2{font-size:23px;margin-top:5px}
+  .sub{display:block;margin:9px 0 0;font-size:11.5px}
+  .rail{grid-template-columns:1fr 1fr;margin-top:18px}
+  .rail div{padding:8px 12px 0 0}
+  .rail .t{font-size:12px}
+  .foot{position:relative;left:auto;right:auto;bottom:auto;margin-top:26px;display:block}
+  .foot .pg{display:block;margin:10px 0 0;padding-left:0}
+
+  /* 図は横スクロールで原寸を保つ */
+  .figscroll{overflow-x:auto;-webkit-overflow-scrolling:touch;
+    border-left:1px solid var(--line);border-right:1px solid var(--line);padding:0 2px}
+  .figscroll svg{width:880px;max-width:none}
+  .figscroll.ring svg{width:400px}
+
+  /* 01 */
+  .feq{font-size:19px}
+  .qwrap{display:block}
+  .yax{width:auto;height:auto;display:block;margin-bottom:8px}
+  .yax span{writing-mode:horizontal-tb;transform:none}
+  .quad{grid-template-columns:1fr;grid-template-rows:none}
+  .cell{border-right:none!important;border-bottom:1px solid var(--line)!important;padding:16px 18px;
+    flex-direction:row;align-items:flex-end;gap:16px}
+  .cell:last-child{border-bottom:none!important}
+  .cell>div{flex:1}
+  .cell .nm{font-size:16px}
+  .cell.win .nm{font-size:19px}
+  .cell .pc{font-size:26px}
+  .cell.win .pc{font-size:34px}
+
+  /* 02 */
+  .say{font-size:17px}
+  .fail{display:block}
+  .fail div{margin-bottom:11px}
+
+  /* 03 */
+  .s3{display:block}
+  .s3>div:first-child{margin-bottom:26px}
+  .mini td{font-size:12px}
+  .rule{font-size:14px}
+
+  /* 04 */
+  .vq{display:block;margin-top:14px}
+  .vq div{padding:0 0 12px;border-bottom:1px solid var(--line);margin-bottom:12px}
+  .vq div:last-child{border-bottom:none;margin-bottom:0}
+  .vtbl td.in{width:auto;display:block;padding-bottom:2px}
+  .vtbl td.out{display:block;padding-top:0;padding-bottom:10px}
+  .vtbl tr:first-child{display:none}
+  .kick{display:block;padding-top:22px}
+  .kick .big{font-size:18px}
+  .kick .side{width:auto;border-left:none;border-top:1px solid var(--line);
+    padding:14px 0 0;margin-top:16px}
+
+  #nav,#hint{display:none}
+}
+
+@media print{
+  @page{size:1280px 720px;margin:0}
+  body{background:#fff;display:block;overflow:visible}
+  #stage{width:1280px;height:auto;transform:none!important}
+  .slide{display:flex!important;position:relative;inset:auto;width:1280px;height:720px;
+    page-break-after:always;break-after:page}
+  #nav,#hint{display:none}
+}
+</style>
+</head>
+<body>
+
+<div id="stage">
+
+<!-- ==================== 1 ／ 目的 ==================== -->
+<section class="slide on">
+  <div class="head">
+    <span class="no">01</span>
+    <h2>豊かさは、足し算ではなく掛け算</h2>
+    <span class="sub">POOLOが最終的に増やしたいもの</span>
+  </div>
+  <div class="rail">
+    <div class="on"><p class="r">目的</p><p class="t">豊かさ</p></div>
+    <div><p class="r">営み</p><p class="t">探究 ＝ 問いという橋</p></div>
+    <div><p class="r">やり方</p><p class="t">六手。心臓は手4</p></div>
+    <div><p class="r">測り方</p><p class="t">問いの版</p></div>
+  </div>
+  <div class="body">
+    <p class="feq">豊かさ ＝ <b>G</b> 内的な納得 <i>×</i> <b>H</b> 他者とのつながり</p>
+    <p class="note" style="margin:14px 0 28px">どちらかがゼロなら、全体がゼロ。片方をいくら磨いても、もう片方が無ければ積は増えない。</p>
+    <div class="qwrap">
+      <div class="yax"><span>G ／ 内的な納得 →</span></div>
+      <div class="qcol">
+        <div class="quad">
+          <div class="cell">
+            <div><p class="nm">自分の世界に閉じる</p><p class="ds">納得はあるが、届いていない</p></div>
+            <p class="pc">34<span style="font-size:19px">%</span></p>
+          </div>
+          <div class="cell win">
+            <div><p class="nm">豊かさ</p><p class="ds">GとHが、同時に動いている</p></div>
+            <p class="pc">43<span style="font-size:26px">%</span></p>
+          </div>
+          <div class="cell dead">
+            <div><p class="nm">どちらも動いていない</p><p class="ds">＝ 正解の中にいる状態</p></div>
+            <p class="pc" style="font-size:19px;color:rgba(0,0,0,.25)">—</p>
+          </div>
+          <div class="cell">
+            <div><p class="nm">自己犠牲</p><p class="ds">届いているが、納得がない</p></div>
+            <p class="pc">23<span style="font-size:19px">%</span></p>
+          </div>
+        </div>
+        <p class="xax">H ／ 他者とのつながり →</p>
+      </div>
+    </div>
+  </div>
+  <div class="foot">
+    <span class="src">合わせて57%が、掛け算になっていない。数字は卒業制作105本を語り方で分類した目安（キーワードマッチによるもので、因果は言えない）。／ 出典：人生の豊かさ_F=G×H</span>
+    <span class="pg">1 / 4</span>
+  </div>
+</section>
+
+<!-- ==================== 2 ／ 営み ==================== -->
+<section class="slide">
+  <div class="head">
+    <span class="no">02</span>
+    <h2>その両方を一度に動かすのが、探究</h2>
+    <span class="sub">GとHは、別々に努力して足し合わせるものではない</span>
+  </div>
+  <div class="rail">
+    <div><p class="r">目的</p><p class="t">豊かさ</p></div>
+    <div class="on"><p class="r">営み</p><p class="t">探究 ＝ 問いという橋</p></div>
+    <div><p class="r">やり方</p><p class="t">六手。心臓は手4</p></div>
+    <div><p class="r">測り方</p><p class="t">問いの版</p></div>
+  </div>
+  <div class="body">
+    <p class="say" style="margin-bottom:26px">探究とは、問いを橋にして、<em>自分と社会の両方を広げつづけること。</em></p>
+
+    <div class="figscroll">
+    <svg viewBox="0 0 1140 244">
+      <!-- 対象 -->
+      <rect x="0" y="52" width="152" height="60" fill="#F9F9F9" stroke="#E4E4E4"/>
+      <text x="76" y="88" font-size="17" font-family="'Zen Old Mincho', serif" font-weight="700" text-anchor="middle" fill="#000">対象</text>
+      <text x="0" y="136" font-size="11" fill="rgba(0,0,0,.55)">自分がいま向き合っている</text>
+      <text x="0" y="152" font-size="11" fill="rgba(0,0,0,.55)">もの・営み</text>
+      <text x="0" y="176" font-size="11" font-weight="700" fill="#127E9A">問いは、ここから生まれる</text>
+
+      <line x1="160" y1="82" x2="242" y2="82" stroke="#C9C9C9" stroke-width="1.5"/>
+      <path d="M244 82 l-9 -4.5 v9 z" fill="#C9C9C9"/>
+      <text x="201" y="70" font-size="10.5" text-anchor="middle" fill="rgba(0,0,0,.42)">違和感</text>
+
+      <!-- 自分 -->
+      <rect x="252" y="52" width="152" height="60" fill="#F9F9F9" stroke="#E4E4E4"/>
+      <text x="328" y="88" font-size="17" font-family="'Zen Old Mincho', serif" font-weight="700" text-anchor="middle" fill="#000">自分</text>
+
+      <!-- 橋（問い⇄反応） -->
+      <rect x="404" y="34" width="332" height="96" fill="#DDECF1" opacity=".55"/>
+      <text x="570" y="24" font-size="11" font-weight="700" letter-spacing="1.6" text-anchor="middle" fill="#127E9A">＝ 橋。ここだけが、GとHを同時に動かす</text>
+      <line x1="412" y1="62" x2="574" y2="62" stroke="#189BBC" stroke-width="2.5"/>
+      <path d="M576 62 l-10 -5 v10 z" fill="#189BBC"/>
+      <text x="494" y="53" font-size="14" font-family="'Zen Old Mincho', serif" font-weight="700" text-anchor="middle" fill="#127E9A">問い</text>
+      <line x1="576" y1="104" x2="414" y2="104" stroke="#189BBC" stroke-width="2.5"/>
+      <path d="M412 104 l10 -5 v10 z" fill="#189BBC"/>
+      <text x="494" y="122" font-size="14" font-family="'Zen Old Mincho', serif" font-weight="700" text-anchor="middle" fill="#127E9A">反応</text>
+
+      <!-- 他者 -->
+      <rect x="584" y="52" width="152" height="60" fill="#189BBC"/>
+      <text x="660" y="88" font-size="17" font-family="'Zen Old Mincho', serif" font-weight="700" text-anchor="middle" fill="#fff">他者</text>
+      <text x="584" y="136" font-size="11" fill="rgba(0,0,0,.55)">問いを確かめる相手</text>
+      <text x="584" y="160" font-size="11" font-weight="700" fill="#127E9A">当てられるのは、ここだけ</text>
+
+      <line x1="744" y1="82" x2="826" y2="82" stroke="#C9C9C9" stroke-width="1.5"/>
+      <path d="M828 82 l-9 -4.5 v9 z" fill="#C9C9C9"/>
+      <text x="785" y="70" font-size="10.5" text-anchor="middle" fill="rgba(0,0,0,.42)">差し出す</text>
+
+      <!-- 社会 -->
+      <rect x="836" y="52" width="152" height="60" fill="#F9F9F9" stroke="#E4E4E4"/>
+      <text x="912" y="88" font-size="17" font-family="'Zen Old Mincho', serif" font-weight="700" text-anchor="middle" fill="#000">社会</text>
+      <text x="836" y="136" font-size="11" fill="rgba(0,0,0,.55)">自分の問いが届いた</text>
+      <text x="836" y="152" font-size="11" fill="rgba(0,0,0,.55)">人の集まり</text>
+      <text x="836" y="176" font-size="11" font-weight="700" fill="#127E9A">問いは、ここへ出ていく</text>
+
+      <!-- 広がる -->
+      <path d="M1004 82 l30 0" stroke="#C9C9C9" stroke-width="1.5"/>
+      <path d="M1036 82 l-9 -4.5 v9 z" fill="#C9C9C9"/>
+      <text x="1052" y="78" font-size="11" fill="rgba(0,0,0,.42)">届いた範囲が、</text>
+      <text x="1052" y="94" font-size="11" fill="rgba(0,0,0,.42)">その人の社会</text>
+
+      <!-- 底のライン -->
+      <line x1="0" y1="212" x2="1140" y2="212" stroke="#E4E4E4"/>
+      <text x="0" y="236" font-size="12" fill="rgba(0,0,0,.6)">往復が止まらないこと自体が、探究の中身。到達点があって往復するのではない。</text>
+    </svg>
+    </div>
+
+    <p class="tag" style="margin:22px 0 12px">橋は、両端が刺さっていないと渡れない</p>
+    <div class="fail">
+      <div><span class="mk"><i style="left:0;right:44%"></i></span><span><b>自分の端だけ</b>：賭かっているが、伝わらない ＝ 日記（G単独・34%）</span></div>
+      <div><span class="mk"><i style="left:44%;right:0"></i></span><span><b>社会の端だけ</b>：伝わるが、賭かっていない ＝ 一般論（H単独・23%）</span></div>
+      <div style="color:var(--brand-deep)"><span class="mk"><i style="left:0;right:0;opacity:1"></i></span><span><b style="color:var(--brand-deep)">両端が刺さっている</b>：橋になる（G × H・43%）</span></div>
+    </div>
+
+    <p class="say" style="margin-top:auto;font-size:17px">「正解」とは、この行き来が<em>片道で止まった状態</em>のこと。敵は、正解の中身ではなく停止のほう。</p>
+  </div>
+  <div class="foot">
+    <span class="src">問いは、答えを出すための道具ではなく、動きつづけるための装置。きれいな一文にした瞬間、問いは動かなくなる。</span>
+    <span class="pg">2 / 4</span>
+  </div>
+</section>
+
+<!-- ==================== 3 ／ やり方 ==================== -->
+<section class="slide">
+  <div class="head">
+    <span class="no">03</span>
+    <h2>六手でひと回り。心臓は、手4</h2>
+    <span class="sub">残る5手は、ひとりでできる</span>
+  </div>
+  <div class="rail">
+    <div><p class="r">目的</p><p class="t">豊かさ</p></div>
+    <div><p class="r">営み</p><p class="t">探究 ＝ 問いという橋</p></div>
+    <div class="on"><p class="r">やり方</p><p class="t">六手。心臓は手4</p></div>
+    <div><p class="r">測り方</p><p class="t">問いの版</p></div>
+  </div>
+  <div class="body">
+    <div class="s3">
+      <div class="figscroll ring">
+        <svg viewBox="0 0 414 372">
+          <circle cx="207" cy="184" r="116" fill="none" stroke="#E4E4E4"/>
+          <path d="M207 300 A116 116 0 0 1 106 242" fill="none" stroke="#189BBC" stroke-width="3"/>
+          <path d="M126 96 l3 12 l10 -6 z" fill="rgba(0,0,0,.3)"/>
+
+          <text x="207" y="170" font-size="12" font-weight="700" text-anchor="middle" fill="#127E9A" letter-spacing="1">1周 ＝ 版が1つ上がる</text>
+          <text x="207" y="196" font-size="17" font-family="Jost, sans-serif" font-weight="600" text-anchor="middle" fill="#000">v1.0 → v1.1</text>
+          <text x="207" y="219" font-size="10.5" text-anchor="middle" fill="rgba(0,0,0,.45)">8ヶ月で、3周</text>
+
+          <circle cx="207" cy="68" r="17" fill="#fff" stroke="#189BBC" stroke-width="1.5"/>
+          <text x="207" y="73" font-size="11" font-family="Jost, sans-serif" font-weight="600" text-anchor="middle" fill="#189BBC">1</text>
+          <text x="207" y="34" font-size="15" font-family="'Zen Old Mincho', serif" font-weight="700" text-anchor="middle" fill="#000">溜める</text>
+          <text x="207" y="48" font-size="10" text-anchor="middle" fill="rgba(0,0,0,.5)">違和感をためる</text>
+
+          <circle cx="307" cy="126" r="17" fill="#fff" stroke="#189BBC" stroke-width="1.5"/>
+          <text x="307" y="131" font-size="11" font-family="Jost, sans-serif" font-weight="600" text-anchor="middle" fill="#189BBC">2</text>
+          <text x="333" y="118" font-size="15" font-family="'Zen Old Mincho', serif" font-weight="700" fill="#000">拾う</text>
+          <text x="333" y="132" font-size="10" fill="rgba(0,0,0,.5)">ひとつ選ぶ</text>
+
+          <circle cx="307" cy="242" r="17" fill="#fff" stroke="#189BBC" stroke-width="1.5"/>
+          <text x="307" y="247" font-size="11" font-family="Jost, sans-serif" font-weight="600" text-anchor="middle" fill="#189BBC">3</text>
+          <text x="333" y="234" font-size="15" font-family="'Zen Old Mincho', serif" font-weight="700" fill="#000">立てる</text>
+          <text x="333" y="248" font-size="10" fill="rgba(0,0,0,.5)">問いにする（v1.0）</text>
+
+          <circle cx="207" cy="300" r="20" fill="#189BBC"/>
+          <text x="207" y="305" font-size="11" font-family="Jost, sans-serif" font-weight="600" text-anchor="middle" fill="#fff">4</text>
+          <text x="207" y="340" font-size="16" font-family="'Zen Old Mincho', serif" font-weight="700" text-anchor="middle" fill="#127E9A">当てる</text>
+          <text x="207" y="356" font-size="10.5" text-anchor="middle" fill="#127E9A">他者に当てる ＝ 探究の心臓</text>
+
+          <circle cx="106" cy="242" r="20" fill="#189BBC"/>
+          <text x="106" y="247" font-size="11" font-family="Jost, sans-serif" font-weight="600" text-anchor="middle" fill="#fff">5</text>
+          <text x="80" y="234" font-size="15" font-family="'Zen Old Mincho', serif" font-weight="700" text-anchor="end" fill="#127E9A">差し出す</text>
+          <text x="80" y="248" font-size="10" text-anchor="end" fill="#127E9A">知らない人まで届ける</text>
+
+          <circle cx="106" cy="126" r="17" fill="#fff" stroke="#189BBC" stroke-width="1.5"/>
+          <text x="106" y="131" font-size="11" font-family="Jost, sans-serif" font-weight="600" text-anchor="middle" fill="#189BBC">6</text>
+          <text x="80" y="118" font-size="15" font-family="'Zen Old Mincho', serif" font-weight="700" text-anchor="end" fill="#000">書き換える</text>
+          <text x="80" y="132" font-size="10" text-anchor="end" fill="rgba(0,0,0,.5)">版を上げる（v1.1）</text>
+
+          <line x1="126" y1="312" x2="156" y2="298" stroke="#189BBC"/>
+          <text x="6" y="316" font-size="11" font-weight="700" fill="#127E9A">ここだけ、</text>
+          <text x="6" y="331" font-size="11" font-weight="700" fill="#127E9A">他者がいないとできない</text>
+        </svg>
+      </div>
+
+      <div style="display:flex;flex-direction:column">
+        <table class="mini">
+          <caption>手4 ／ 三つの当て方 <span>— 誰に当てるかで、返ってくるものが変わる</span></caption>
+          <tr><th>当て方</th><th>誰に当てるか</th><th>狙う反応</th></tr>
+          <tr><td class="k">現場当て</td><td>その問いを<b>すでに生きている</b>人</td><td>「うちはこうしてる」<br><span class="bl">旅の行き先は、ここから決まる</span></td></tr>
+          <tr><td class="k">ズラし当て</td><td>その問いを<b>持っていない</b>人</td><td>「え、それ悩むところなの？」</td></tr>
+          <tr><td class="k">反証当て</td><td>役割として<b>否定を頼む</b>相手</td><td>「それ、◯◯なだけでは？」</td></tr>
+        </table>
+
+        <p class="rule" style="margin-top:26px">共感が返ってきたら、当たっていない。<small>「わかる」「私も」が返ってきたら、もう一段ズレた相手に当て直す。相談ではないし、アドバイスをもらいに行く時間でもない。</small></p>
+
+        <p class="rule" style="margin-top:22px">放っておくと、人は必ず「中へ」掘る。<small>知識は増えるたびに手応えがあり、しかも褒められる。人へ掘るほうは、当てると問いが壊れ、次の手応えまで約2週間かかる。意志の弱さではなく、報酬設計の問題。だから手4は「工程」として置いてある。</small></p>
+      </div>
+    </div>
+  </div>
+  <div class="foot">
+    <span class="src">手5（差し出す）は、知らない人に届ける Lv.3 が全員の必修ライン。自分と、自分を知っている人の内側では、対象の外に出られないため。</span>
+    <span class="pg">3 / 4</span>
+  </div>
+</section>
+
+<!-- ==================== 4 ／ 測り方 ==================== -->
+<section class="slide">
+  <div class="head">
+    <span class="no">04</span>
+    <h2>3周まわると、入口の語は消える</h2>
+    <span class="sub">以下はすべて作例。実データではありません</span>
+  </div>
+  <div class="rail">
+    <div><p class="r">目的</p><p class="t">豊かさ</p></div>
+    <div><p class="r">営み</p><p class="t">探究 ＝ 問いという橋</p></div>
+    <div><p class="r">やり方</p><p class="t">六手。心臓は手4</p></div>
+    <div class="on"><p class="r">測り方</p><p class="t">問いの版</p></div>
+  </div>
+  <div class="body">
+    <p class="tag" style="margin-bottom:8px">入口は「ワインが好き」　／　円 ＝ その版の問いが届きうる範囲</p>
+    <div class="figscroll">
+    <svg viewBox="0 0 1140 142">
+      <line x1="0" y1="80" x2="1140" y2="80" stroke="#E4E4E4"/>
+      <circle cx="92" cy="80" r="15" fill="#fff" stroke="#8FC6D6" stroke-width="1.5"/>
+      <circle cx="92" cy="80" r="4" fill="#189BBC"/>
+      <text x="92" y="38" font-size="13" font-family="Jost, sans-serif" font-weight="600" text-anchor="middle" fill="#189BBC" letter-spacing="1.2">v1.0</text>
+      <text x="92" y="124" font-size="10.5" text-anchor="middle" fill="rgba(0,0,0,.45)">対象の中</text>
+
+      <circle cx="382" cy="80" r="28" fill="rgba(24,155,188,.07)" stroke="#8FC6D6" stroke-width="1.5"/>
+      <circle cx="382" cy="80" r="4" fill="#189BBC"/>
+      <text x="382" y="38" font-size="13" font-family="Jost, sans-serif" font-weight="600" text-anchor="middle" fill="#189BBC" letter-spacing="1.2">v1.1</text>
+      <text x="382" y="124" font-size="10.5" text-anchor="middle" fill="rgba(0,0,0,.45)">店主ひとり（現場当て）</text>
+
+      <circle cx="700" cy="80" r="44" fill="rgba(24,155,188,.1)" stroke="#8FC6D6" stroke-width="1.5"/>
+      <circle cx="700" cy="80" r="4" fill="#189BBC"/>
+      <text x="700" y="20" font-size="13" font-family="Jost, sans-serif" font-weight="600" text-anchor="middle" fill="#189BBC" letter-spacing="1.2">v1.2</text>
+      <text x="700" y="142" font-size="10.5" text-anchor="middle" fill="rgba(0,0,0,.45)">知らない人へ（ズラし当て・Lv.3）</text>
+
+      <circle cx="1042" cy="80" r="60" fill="rgba(24,155,188,.15)" stroke="#189BBC" stroke-width="1.5"/>
+      <circle cx="1042" cy="80" r="4" fill="#189BBC"/>
+      <text x="1042" y="8" font-size="13" font-family="Jost, sans-serif" font-weight="600" text-anchor="middle" fill="#189BBC" letter-spacing="1.2">v1.3</text>
+      <text x="1042" y="142" font-size="10.5" text-anchor="middle" fill="#127E9A">続く場（反証当て・Lv.4）</text>
+    </svg>
+    </div>
+
+    <div class="vq" style="margin-top:16px">
+      <div><p class="q">なぜ私は、整っていないワインのほうを覚えているのか？</p></div>
+      <div><p class="q">惹かれているのは、味ではなく「事情が見えること」なのか？</p></div>
+      <div><p class="q">なぜ私は、作り手の迷いが残っているものにしか心が動かないのか？</p></div>
+      <div><p class="q">迷いの跡は、どうすれば残せるのか？</p></div>
+    </div>
+    <p class="note" style="margin-top:14px">v1.1 は v1.0 の<b>答えになっていない</b>。答えが出たのではなく、問う場所が動いた。だから次の周がある。そして解像度が上がると、問いは狭くならず<b>むしろ外に開く</b>。</p>
+
+    <table class="vtbl">
+      <tr><th>入口の語</th><th>3周後（v1.3）に問っていること</th></tr>
+      <tr><td class="in">ワイン</td><td class="out">迷いの跡は、<b>どうすれば</b>残せるのか</td></tr>
+      <tr><td class="in">場づくり</td><td class="out">意図的な「止まり」は、<b>どうすれば</b>設計できるのか</td></tr>
+      <tr><td class="in">夢中・熱狂</td><td class="out">熱のそばにいる役は、<b>どうすれば</b>成立するのか</td></tr>
+      <tr><td class="in">豊かさ</td><td class="out">聞ける相手は、<b>どうすれば</b>自分で作れるのか</td></tr>
+      <tr><td class="in">旅</td><td class="out"><b>どうすれば</b>、渡す相手を先に決めておけるのか</td></tr>
+    </table>
+
+    <div class="kick">
+      <p class="big">進捗は「決まったか」ではなく、<br><em>「何回書き換わったか」</em>で測る。</p>
+      <p class="side">だから運営が聞くのは「テーマ、決まりましたか？」ではなく、<b>「前回から、問いのどこが変わりましたか」</b>。版が上がった回数は、そのまま他者に当てた回数——ひとりでは、版は上がらないので。</p>
+    </div>
+  </div>
+  <div class="foot">
+    <span class="src">入口では「なぜ私は」（原因型）で自分の正体を問い、3周かけて「どうすれば」（方法型）へ。ただしこれは作例5本から出た仮説で、実データでの検証はこれから。</span>
+    <span class="pg">4 / 4</span>
+  </div>
+</section>
+
+</div>
+
+<div id="nav">
+  <button id="prev">◀ PREV</button>
+  <span class="dots" id="dots"></span>
+  <button id="next">NEXT ▶</button>
+</div>
+<p id="hint">← → / SPACE ／ 印刷でPDF書き出し</p>
+
+<script>
+(function(){
+  var slides=[].slice.call(document.querySelectorAll('.slide'));
+  var stage=document.getElementById('stage');
+  var dots=document.getElementById('dots');
+  var i=0;
+  slides.forEach(function(_,n){
+    var b=document.createElement('button');
+    b.className='dot'+(n===0?' on':'');
+    b.setAttribute('aria-label','スライド'+(n+1));
+    b.onclick=function(){go(n)};
+    dots.appendChild(b);
+  });
+  function go(n){
+    i=Math.max(0,Math.min(slides.length-1,n));
+    slides.forEach(function(s,k){s.classList.toggle('on',k===i)});
+    [].forEach.call(dots.children,function(d,k){d.classList.toggle('on',k===i)});
+    if(location.hash!=='#'+(i+1)) history.replaceState(null,'','#'+(i+1));
+  }
+  function isMobile(){return window.matchMedia('(max-width:900px)').matches}
+  function fit(){
+    if(isMobile()){stage.style.transform='none';return}
+    var s=Math.min(window.innerWidth/1280,(window.innerHeight-72)/720);
+    stage.style.transform='scale('+s+')';
+  }
+  window.addEventListener('resize',fit); fit();
+  document.getElementById('prev').onclick=function(){go(i-1)};
+  document.getElementById('next').onclick=function(){go(i+1)};
+  document.addEventListener('keydown',function(e){
+    if(isMobile())return;
+    if(e.key==='ArrowRight'||e.key===' '||e.key==='PageDown'){e.preventDefault();go(i+1)}
+    if(e.key==='ArrowLeft'||e.key==='PageUp'){e.preventDefault();go(i-1)}
+    if(e.key==='Home'){go(0)} if(e.key==='End'){go(slides.length-1)}
+  });
+  var h=parseInt((location.hash||'').slice(1),10);
+  if(!isMobile()&&h>=1&&h<=slides.length)go(h-1);
+})();
+</script>
+</body>
+</html>
