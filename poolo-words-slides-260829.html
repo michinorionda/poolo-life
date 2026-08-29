@@ -56,28 +56,7 @@ b{color:var(--ink);font-weight:700}
 .bl{color:var(--brand-deep);font-weight:700}
 svg text{font-family:var(--body)}
 
-/* ---------- 01 四象限 ---------- */
-.qwrap{display:flex;gap:14px;flex:1;min-height:0}
-.yax{width:18px;flex:none;display:flex;align-items:center;justify-content:center}
-.yax span{writing-mode:vertical-rl;transform:rotate(180deg);font-family:var(--head);font-size:11px;
-  font-weight:700;letter-spacing:.16em;color:var(--ink-60)}
-.qcol{flex:1;display:flex;flex-direction:column;min-height:0}
-.quad{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;border:1px solid var(--line);flex:1}
-.cell{padding:22px 26px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);
-  display:flex;flex-direction:column;justify-content:space-between}
-.cell:nth-child(2),.cell:nth-child(4){border-right:none}
-.cell:nth-child(3),.cell:nth-child(4){border-bottom:none}
-.cell .nm{font-family:var(--mincho);font-size:18px;font-weight:700;color:var(--ink);letter-spacing:.04em;line-height:1.5}
-.cell .ds{font-size:11.5px;line-height:1.7;color:var(--ink-50);margin-top:7px;letter-spacing:.02em}
-.cell .pc{font-family:var(--en);font-size:34px;font-weight:600;color:var(--ink-40);align-self:flex-end;line-height:1}
-.cell.win{background:var(--brand)}
-.cell.win .nm{color:#fff;font-size:26px}
-.cell.win .ds{color:rgba(255,255,255,.82)}
-.cell.win .pc{color:#fff;font-size:50px}
-.cell.dead{background:var(--bg-off)}
-.cell.dead .nm{color:var(--ink-50)}
-.xax{text-align:center;font-family:var(--head);font-size:11px;font-weight:700;letter-spacing:.16em;
-  color:var(--ink-60);padding-top:12px}
+/* ---------- 01 面積図 ---------- */
 .feq{font-family:var(--mincho);font-size:26px;font-weight:700;letter-spacing:.04em;color:var(--ink);line-height:1.5}
 .feq b{color:var(--brand-deep)}
 .feq i{font-style:normal;color:var(--brand)}
@@ -169,18 +148,6 @@ svg text{font-family:var(--body)}
 
   /* 01 */
   .feq{font-size:19px}
-  .qwrap{display:block}
-  .yax{width:auto;height:auto;display:block;margin-bottom:8px}
-  .yax span{writing-mode:horizontal-tb;transform:none}
-  .quad{grid-template-columns:1fr;grid-template-rows:none}
-  .cell{border-right:none!important;border-bottom:1px solid var(--line)!important;padding:16px 18px;
-    flex-direction:row;align-items:flex-end;gap:16px}
-  .cell:last-child{border-bottom:none!important}
-  .cell>div{flex:1}
-  .cell .nm{font-size:16px}
-  .cell.win .nm{font-size:19px}
-  .cell .pc{font-size:26px}
-  .cell.win .pc{font-size:34px}
 
   /* 02 */
   .say{font-size:17px}
@@ -237,34 +204,55 @@ svg text{font-family:var(--body)}
   </div>
   <div class="body">
     <p class="feq">豊かさ ＝ <b>G</b> 内的な納得 <i>×</i> <b>H</b> 他者とのつながり</p>
-    <p class="note" style="margin:14px 0 28px">どちらかがゼロなら、全体がゼロ。片方をいくら磨いても、もう片方が無ければ積は増えない。</p>
-    <div class="qwrap">
-      <div class="yax"><span>G ／ 内的な納得 →</span></div>
-      <div class="qcol">
-        <div class="quad">
-          <div class="cell">
-            <div><p class="nm">自分の世界に閉じる</p><p class="ds">納得はあるが、届いていない</p></div>
-            <p class="pc">34<span style="font-size:19px">%</span></p>
-          </div>
-          <div class="cell win">
-            <div><p class="nm">豊かさ</p><p class="ds">GとHが、同時に動いている</p></div>
-            <p class="pc">43<span style="font-size:26px">%</span></p>
-          </div>
-          <div class="cell dead">
-            <div><p class="nm">どちらも動いていない</p><p class="ds">＝ 正解の中にいる状態</p></div>
-            <p class="pc" style="font-size:19px;color:rgba(0,0,0,.25)">—</p>
-          </div>
-          <div class="cell">
-            <div><p class="nm">自己犠牲</p><p class="ds">届いているが、納得がない</p></div>
-            <p class="pc">23<span style="font-size:19px">%</span></p>
-          </div>
-        </div>
-        <p class="xax">H ／ 他者とのつながり →</p>
-      </div>
+    <p class="note" style="margin:14px 0 26px">縦がG、横がH。<b>豊かさは、その長方形の面積</b>。だから片方がゼロなら、もう片方がどれだけ大きくても面積はゼロになる。</p>
+
+    <div class="figscroll">
+    <svg viewBox="0 0 1140 300">
+      <!-- ============ 1 ／ G単独 ============ -->
+      <rect x="26" y="30" width="270" height="170" fill="none" stroke="#E4E4E4" stroke-dasharray="3 4"/>
+      <rect x="17" y="50" width="6" height="150" fill="#189BBC"/>
+      <text x="20" y="42" font-size="10.5" font-weight="700" text-anchor="middle" fill="#127E9A">G</text>
+      <rect x="26" y="205" width="5" height="6" fill="#189BBC"/>
+      <text x="28" y="226" font-size="10.5" font-weight="700" fill="#127E9A">H</text>
+      <rect x="26" y="50" width="5" height="150" fill="#189BBC"/>
+      <text x="170" y="120" font-size="14" font-family="'Zen Old Mincho', serif" text-anchor="middle" fill="rgba(0,0,0,.42)">面積 ＝ 0</text>
+      <text x="0" y="264" font-size="17" font-family="'Zen Old Mincho', serif" font-weight="700" fill="#000">自分の世界に閉じる</text>
+      <text x="0" y="288" font-size="11.5" fill="rgba(0,0,0,.5)">納得はあるが、届いていない</text>
+      <text x="320" y="276" font-size="34" font-family="Jost, sans-serif" font-weight="600" text-anchor="end" fill="rgba(0,0,0,.4)">34%</text>
+
+      <!-- ============ 2 ／ H単独 ============ -->
+      <rect x="436" y="30" width="270" height="170" fill="none" stroke="#E4E4E4" stroke-dasharray="3 4"/>
+      <rect x="427" y="195" width="6" height="5" fill="#189BBC"/>
+      <text x="430" y="187" font-size="10.5" font-weight="700" text-anchor="middle" fill="#127E9A">G</text>
+      <rect x="436" y="205" width="243" height="6" fill="#189BBC"/>
+      <text x="557" y="228" font-size="10.5" font-weight="700" text-anchor="middle" fill="#127E9A">H</text>
+      <rect x="436" y="195" width="243" height="5" fill="#189BBC"/>
+      <text x="580" y="120" font-size="14" font-family="'Zen Old Mincho', serif" text-anchor="middle" fill="rgba(0,0,0,.42)">面積 ＝ 0</text>
+      <text x="410" y="264" font-size="17" font-family="'Zen Old Mincho', serif" font-weight="700" fill="#000">自己犠牲</text>
+      <text x="410" y="288" font-size="11.5" fill="rgba(0,0,0,.5)">届いているが、納得がない</text>
+      <text x="730" y="276" font-size="34" font-family="Jost, sans-serif" font-weight="600" text-anchor="end" fill="rgba(0,0,0,.4)">23%</text>
+
+      <!-- ============ 3 ／ G × H ============ -->
+      <rect x="846" y="30" width="270" height="170" fill="none" stroke="#E4E4E4" stroke-dasharray="3 4"/>
+      <rect x="837" y="78" width="6" height="122" fill="#189BBC"/>
+      <text x="840" y="70" font-size="10.5" font-weight="700" text-anchor="middle" fill="#127E9A">G</text>
+      <rect x="846" y="205" width="203" height="6" fill="#189BBC"/>
+      <text x="947" y="228" font-size="10.5" font-weight="700" text-anchor="middle" fill="#127E9A">H</text>
+      <rect x="846" y="78" width="203" height="122" fill="#189BBC"/>
+      <text x="947" y="146" font-size="18" font-family="'Zen Old Mincho', serif" font-weight="700" text-anchor="middle" fill="#fff">豊かさ</text>
+      <path d="M1055 72 L1104 40" stroke="#189BBC" stroke-width="1.5" stroke-dasharray="4 3"/>
+      <path d="M1108 37 l-11 0.5 l5 7 z" fill="#189BBC"/>
+      <text x="1116" y="94" font-size="10" font-weight="700" text-anchor="end" fill="#127E9A">広がりつづける</text>
+      <text x="820" y="264" font-size="17" font-family="'Zen Old Mincho', serif" font-weight="700" fill="#127E9A">GとHが、同時に動いている</text>
+      <text x="820" y="288" font-size="11.5" fill="rgba(0,0,0,.5)">面積が生まれ、そして広がりつづける</text>
+      <text x="1140" y="276" font-size="42" font-family="Jost, sans-serif" font-weight="600" text-anchor="end" fill="#189BBC">43%</text>
+    </svg>
     </div>
+
+    <p class="note" style="margin-top:auto">左の2つは、片方の辺が立っていない。<b>Fは固定された到達点ではない</b>ので、「達成したか」ではなく<b>「面積が広がりつづけているか」</b>で見る。</p>
   </div>
   <div class="foot">
-    <span class="src">合わせて57%が、掛け算になっていない。数字は卒業制作105本を語り方で分類した目安（キーワードマッチによるもので、因果は言えない）。／ 出典：人生の豊かさ_F=G×H</span>
+    <span class="src">合わせて57%が、掛け算になっていない。どちらも動いていないときは「正解の中にいる状態」＝ 02へ。／ 数字は卒業制作105本を語り方で分類した目安。キーワードマッチによるもので、辺の長さを測ったデータではない。出典：人生の豊かさ_F=G×H</span>
     <span class="pg">1 / 4</span>
   </div>
 </section>
