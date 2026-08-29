@@ -73,7 +73,7 @@ svg text{font-family:var(--body)}
 .s3{display:grid;grid-template-columns:414px 1fr;gap:48px;flex:1;min-height:0}
 .mini{width:100%;border-collapse:collapse}
 .mini caption{text-align:left;font-family:var(--head);font-size:13px;font-weight:700;letter-spacing:.05em;
-  color:var(--ink);padding-bottom:11px}
+  color:var(--ink);padding-bottom:12px}
 .mini caption span{font-family:var(--body);font-weight:400;font-size:11px;color:var(--ink-50);letter-spacing:.03em}
 .mini th{font-family:var(--head);font-size:9.5px;font-weight:700;letter-spacing:.14em;color:var(--ink-40);
   text-align:left;padding:0 14px 8px 0;border-bottom:1px solid var(--line);white-space:nowrap}
@@ -82,9 +82,10 @@ svg text{font-family:var(--body)}
   border-bottom:1px solid var(--line);vertical-align:top;letter-spacing:.02em}
 .mini td:last-child{padding-right:0}
 .mini td.k{font-family:var(--head);font-weight:700;color:var(--ink);white-space:nowrap}
-.rule{border-left:2px solid var(--brand);padding:2px 0 2px 14px;
-  font-family:var(--mincho);font-size:15px;line-height:1.7;color:var(--ink);letter-spacing:.03em}
-.rule small{display:block;font-family:var(--body);font-size:11px;color:var(--ink-50);margin-top:6px;line-height:1.8}
+.rules{border-left:2px solid var(--brand);padding:2px 0 2px 16px;margin-top:24px}
+.rules p{font-family:var(--mincho);font-size:15px;line-height:1.7;color:var(--ink);letter-spacing:.03em}
+.rules p+p{margin-top:16px}
+.rules small{display:block;font-family:var(--body);font-size:11px;color:var(--ink-50);margin-top:6px;line-height:1.8}
 
 /* ---------- 04 versions ---------- */
 .vq{display:flex;margin-top:2px}
@@ -92,7 +93,7 @@ svg text{font-family:var(--body)}
 .vq div:first-child{padding-left:0}
 .vq div:last-child{padding-right:0}
 .vq .q{font-family:var(--mincho);font-size:14px;font-weight:700;line-height:1.7;color:var(--ink);letter-spacing:.03em}
-.vtbl{width:100%;border-collapse:collapse;margin-top:26px}
+.vtbl{width:100%;border-collapse:collapse;margin-top:24px}
 .vtbl th{font-family:var(--head);font-size:9.5px;font-weight:700;letter-spacing:.14em;color:var(--ink-40);
   text-align:left;padding:0 18px 8px 0;border-bottom:1px solid var(--line)}
 .vtbl th:last-child{padding-right:0}
@@ -102,7 +103,7 @@ svg text{font-family:var(--body)}
   text-decoration:line-through;text-decoration-color:var(--brand-mid);text-decoration-thickness:1.5px}
 .vtbl td.out{font-family:var(--mincho);font-size:14px;color:var(--ink)}
 .vtbl td.out b{color:var(--brand-deep);font-weight:700}
-.kick{display:flex;gap:28px;margin-top:auto;align-items:flex-end;padding-top:18px}
+.kick{display:flex;gap:24px;margin-top:auto;align-items:flex-end;padding-top:24px}
 .kick .big{font-family:var(--mincho);font-size:20px;font-weight:700;line-height:1.7;color:var(--ink);
   letter-spacing:.03em;flex:1}
 .kick .big em{font-style:normal;background:linear-gradient(transparent 60%,var(--brand-pale) 60%)}
@@ -156,7 +157,7 @@ svg text{font-family:var(--body)}
 
   /* 03 */
   .s3{display:block}
-  .s3>div:first-child{margin-bottom:26px}
+  .s3>div:first-child{margin-bottom:24px}
   .mini td{font-size:12px}
   .rule{font-size:14px}
 
@@ -204,7 +205,7 @@ svg text{font-family:var(--body)}
   </div>
   <div class="body">
     <p class="feq">豊かさ ＝ <b>G</b> 内的な納得 <i>×</i> <b>H</b> 他者とのつながり</p>
-    <p class="note" style="margin:14px 0 26px">縦がG、横がH。<b>豊かさは、その長方形の面積</b>。だから片方がゼロなら、もう片方がどれだけ大きくても面積はゼロになる。</p>
+    <p class="note" style="margin:16px 0 24px">縦がG、横がH。<b>豊かさは、その長方形の面積</b>。だから片方がゼロなら、もう片方がどれだけ大きくても面積はゼロになる。</p>
 
     <div class="figscroll">
     <svg viewBox="0 0 1140 300">
@@ -216,9 +217,9 @@ svg text{font-family:var(--body)}
       <text x="28" y="226" font-size="10.5" font-weight="700" fill="#127E9A">H</text>
       <rect x="26" y="50" width="5" height="150" fill="#189BBC"/>
       <text x="170" y="120" font-size="14" font-family="'Zen Old Mincho', serif" text-anchor="middle" fill="rgba(0,0,0,.42)">面積 ＝ 0</text>
-      <text x="0" y="264" font-size="17" font-family="'Zen Old Mincho', serif" font-weight="700" fill="#000">自分の世界に閉じる</text>
-      <text x="0" y="288" font-size="11.5" fill="rgba(0,0,0,.5)">納得はあるが、届いていない</text>
-      <text x="320" y="276" font-size="34" font-family="Jost, sans-serif" font-weight="600" text-anchor="end" fill="rgba(0,0,0,.4)">34%</text>
+      <text x="26" y="264" font-size="17" font-family="'Zen Old Mincho', serif" font-weight="700" fill="#000">自分の世界に閉じる</text>
+      <text x="26" y="288" font-size="11.5" fill="rgba(0,0,0,.5)">納得はあるが、届いていない</text>
+      <text x="296" y="276" font-size="34" font-family="Jost, sans-serif" font-weight="600" text-anchor="end" fill="rgba(0,0,0,.4)">34%</text>
 
       <!-- ============ 2 ／ H単独 ============ -->
       <rect x="436" y="30" width="270" height="170" fill="none" stroke="#E4E4E4" stroke-dasharray="3 4"/>
@@ -227,10 +228,10 @@ svg text{font-family:var(--body)}
       <rect x="436" y="205" width="243" height="6" fill="#189BBC"/>
       <text x="557" y="228" font-size="10.5" font-weight="700" text-anchor="middle" fill="#127E9A">H</text>
       <rect x="436" y="195" width="243" height="5" fill="#189BBC"/>
-      <text x="580" y="120" font-size="14" font-family="'Zen Old Mincho', serif" text-anchor="middle" fill="rgba(0,0,0,.42)">面積 ＝ 0</text>
-      <text x="410" y="264" font-size="17" font-family="'Zen Old Mincho', serif" font-weight="700" fill="#000">自己犠牲</text>
-      <text x="410" y="288" font-size="11.5" fill="rgba(0,0,0,.5)">届いているが、納得がない</text>
-      <text x="730" y="276" font-size="34" font-family="Jost, sans-serif" font-weight="600" text-anchor="end" fill="rgba(0,0,0,.4)">23%</text>
+      <text x="571" y="120" font-size="14" font-family="'Zen Old Mincho', serif" text-anchor="middle" fill="rgba(0,0,0,.42)">面積 ＝ 0</text>
+      <text x="436" y="264" font-size="17" font-family="'Zen Old Mincho', serif" font-weight="700" fill="#000">自己犠牲</text>
+      <text x="436" y="288" font-size="11.5" fill="rgba(0,0,0,.5)">届いているが、納得がない</text>
+      <text x="706" y="276" font-size="34" font-family="Jost, sans-serif" font-weight="600" text-anchor="end" fill="rgba(0,0,0,.4)">23%</text>
 
       <!-- ============ 3 ／ G × H ============ -->
       <rect x="846" y="30" width="270" height="170" fill="none" stroke="#E4E4E4" stroke-dasharray="3 4"/>
@@ -239,13 +240,12 @@ svg text{font-family:var(--body)}
       <rect x="846" y="205" width="203" height="6" fill="#189BBC"/>
       <text x="947" y="228" font-size="10.5" font-weight="700" text-anchor="middle" fill="#127E9A">H</text>
       <rect x="846" y="78" width="203" height="122" fill="#189BBC"/>
-      <text x="947" y="146" font-size="18" font-family="'Zen Old Mincho', serif" font-weight="700" text-anchor="middle" fill="#fff">豊かさ</text>
       <path d="M1055 72 L1104 40" stroke="#189BBC" stroke-width="1.5" stroke-dasharray="4 3"/>
       <path d="M1108 37 l-11 0.5 l5 7 z" fill="#189BBC"/>
-      <text x="1116" y="94" font-size="10" font-weight="700" text-anchor="end" fill="#127E9A">広がりつづける</text>
-      <text x="820" y="264" font-size="17" font-family="'Zen Old Mincho', serif" font-weight="700" fill="#127E9A">GとHが、同時に動いている</text>
-      <text x="820" y="288" font-size="11.5" fill="rgba(0,0,0,.5)">面積が生まれ、そして広がりつづける</text>
-      <text x="1140" y="276" font-size="42" font-family="Jost, sans-serif" font-weight="600" text-anchor="end" fill="#189BBC">43%</text>
+      <text x="1116" y="92" font-size="10" font-weight="700" text-anchor="end" fill="#127E9A">広がりつづける</text>
+      <text x="846" y="264" font-size="17" font-family="'Zen Old Mincho', serif" font-weight="700" fill="#127E9A">豊かさ</text>
+      <text x="846" y="288" font-size="11.5" fill="rgba(0,0,0,.5)">GとHが、同時に動いている</text>
+      <text x="1116" y="276" font-size="42" font-family="Jost, sans-serif" font-weight="600" text-anchor="end" fill="#189BBC">43%</text>
     </svg>
     </div>
 
@@ -271,7 +271,7 @@ svg text{font-family:var(--body)}
     <div><p class="r">測り方</p><p class="t">問いの版</p></div>
   </div>
   <div class="body">
-    <p class="say" style="margin-bottom:26px">探究とは、問いを橋にして、<em>自分と社会の両方を広げつづけること。</em></p>
+    <p class="say" style="margin-bottom:24px">探究とは、問いを橋にして、<em>自分と社会の両方を広げつづけること。</em></p>
 
     <div class="figscroll">
     <svg viewBox="0 0 1140 244">
@@ -329,7 +329,7 @@ svg text{font-family:var(--body)}
     </svg>
     </div>
 
-    <p class="tag" style="margin:22px 0 12px">橋は、両端が刺さっていないと渡れない</p>
+    <p class="tag" style="margin:24px 0 12px">橋は、両端が刺さっていないと渡れない</p>
     <div class="fail">
       <div><span class="mk"><i style="left:0;right:44%"></i></span><span><b>自分の端だけ</b>：賭かっているが、伝わらない ＝ 日記（G単独・34%）</span></div>
       <div><span class="mk"><i style="left:44%;right:0"></i></span><span><b>社会の端だけ</b>：伝わるが、賭かっていない ＝ 一般論（H単独・23%）</span></div>
@@ -414,9 +414,10 @@ svg text{font-family:var(--body)}
           <tr><td class="k">反証当て</td><td>役割として<b>否定を頼む</b>相手</td><td>「それ、◯◯なだけでは？」</td></tr>
         </table>
 
-        <p class="rule" style="margin-top:26px">共感が返ってきたら、当たっていない。<small>「わかる」「私も」が返ってきたら、もう一段ズレた相手に当て直す。相談ではないし、アドバイスをもらいに行く時間でもない。</small></p>
-
-        <p class="rule" style="margin-top:22px">放っておくと、人は必ず「中へ」掘る。<small>知識は増えるたびに手応えがあり、しかも褒められる。人へ掘るほうは、当てると問いが壊れ、次の手応えまで約2週間かかる。意志の弱さではなく、報酬設計の問題。だから手4は「工程」として置いてある。</small></p>
+        <div class="rules">
+          <p>共感が返ってきたら、当たっていない。<small>「わかる」「私も」が返ってきたら、もう一段ズレた相手に当て直す。相談ではないし、アドバイスをもらいに行く時間でもない。</small></p>
+          <p>放っておくと、人は必ず「中へ」掘る。<small>知識は増えるたびに手応えがあり、しかも褒められる。人へ掘るほうは、当てると問いが壊れ、次の手応えまで約2週間かかる。意志の弱さではなく報酬設計の問題——だから手4は「工程」として置いてある。</small></p>
+        </div>
       </div>
     </div>
   </div>
@@ -466,13 +467,13 @@ svg text{font-family:var(--body)}
     </svg>
     </div>
 
-    <div class="vq" style="margin-top:16px">
+    <div class="vq" style="margin-top:24px">
       <div><p class="q">なぜ私は、整っていないワインのほうを覚えているのか？</p></div>
       <div><p class="q">惹かれているのは、味ではなく「事情が見えること」なのか？</p></div>
       <div><p class="q">なぜ私は、作り手の迷いが残っているものにしか心が動かないのか？</p></div>
       <div><p class="q">迷いの跡は、どうすれば残せるのか？</p></div>
     </div>
-    <p class="note" style="margin-top:14px">v1.1 は v1.0 の<b>答えになっていない</b>。答えが出たのではなく、問う場所が動いた。だから次の周がある。そして解像度が上がると、問いは狭くならず<b>むしろ外に開く</b>。</p>
+    <p class="note" style="margin-top:16px">v1.1 は v1.0 の<b>答えになっていない</b>。答えが出たのではなく、問う場所が動いた。だから次の周がある。そして解像度が上がると、問いは狭くならず<b>むしろ外に開く</b>。</p>
 
     <table class="vtbl">
       <tr><th>入口の語</th><th>3周後（v1.3）に問っていること</th></tr>
