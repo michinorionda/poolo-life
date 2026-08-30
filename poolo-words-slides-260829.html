@@ -126,13 +126,19 @@ svg text{font-family:var(--body)}
 .lens div{display:flex;align-items:baseline;gap:14px}
 .lens b{font-family:var(--mincho);font-size:16px;font-weight:700;color:var(--ink);letter-spacing:.04em;white-space:nowrap}
 .lens span{font-size:11.5px;color:var(--ink-50);letter-spacing:.03em}
-.diag{width:100%;border-collapse:collapse;margin-top:14px}
+.diag{width:100%;border-collapse:collapse;margin-top:12px}
+.diag td.mv{font-family:var(--mincho);font-size:15px;font-weight:700;color:var(--ink);
+  width:104px;letter-spacing:.04em;white-space:nowrap}
+.diag tr.g td{border-top:1px solid var(--ink-40)}
+.diag tr.pre td{background:var(--brand-pale)}
+.diag tr.pre td.mv{color:var(--brand-deep)}
 .diag th{font-family:var(--head);font-size:9.5px;font-weight:700;letter-spacing:.14em;color:var(--ink-40);
   text-align:left;padding:0 16px 8px 0;border-bottom:1px solid var(--line);white-space:nowrap}
 .diag th.c{text-align:center;width:52px;padding-right:0}
 .diag td{font-size:12px;line-height:1.6;color:var(--ink-72);padding:9px 16px 9px 0;
   border-bottom:1px solid var(--line);letter-spacing:.02em;vertical-align:middle}
-.diag td.w{font-family:var(--mincho);font-size:13.5px;color:var(--ink);width:330px}
+.diag td.w{font-family:var(--mincho);font-size:13.5px;color:var(--ink)}
+.diag td.miss{width:340px}
 .diag td.c{text-align:center;width:52px;padding-right:0;font-family:var(--en);font-size:15px;
   font-weight:600;color:var(--line)}
 .diag td.c.on{color:var(--brand)}
@@ -607,7 +613,7 @@ svg text{font-family:var(--body)}
 <section class="slide">
   <div class="head">
     <span class="no">04</span>
-    <h2>どこが欠けると、何が損なわれるか</h2>
+    <h2>どの動きが欠けると、どちらの端が落ちるか</h2>
     <span class="sub">口に出る言葉から、逆に辿る</span>
   </div>
   <div class="rail">
@@ -618,53 +624,64 @@ svg text{font-family:var(--body)}
   </div>
   <div class="body">
     <div class="lens">
-      <div><b>G ／ 内的な納得</b><span>何を基準に、決めるか</span></div>
-      <div><b>H ／ 社会とのつながり</b><span>どこまで、話せるか</span></div>
+      <div><b>G ／ 内的な納得</b><span>問いの、自分側の端</span></div>
+      <div><b>H ／ 社会とのつながり</b><span>問いの、社会側の端</span></div>
     </div>
 
     <table class="diag">
-      <tr><th>口に出る言葉</th><th>欠けているもの</th><th class="c">G</th><th class="c">H</th></tr>
-      <tr class="both">
+      <tr><th>動き</th><th>欠けているもの</th><th>口に出る言葉</th><th class="c">G</th><th class="c">H</th></tr>
+
+      <tr class="pre">
+        <td class="mv">その前に</td>
+        <td class="miss">問いがない。橋そのものが架かっていない</td>
         <td class="w">「やりたいことが、わからない」</td>
-        <td>問いがない。橋そのものが架かっていない（手3の手前）</td>
         <td class="c on">●</td><td class="c on">●</td>
       </tr>
-      <tr>
+
+      <tr class="g">
+        <td class="mv">立てる</td>
+        <td class="miss">問いに自分が賭かっていない。取材になっている</td>
         <td class="w">「答えが出ても、自分は何も変わらない」</td>
-        <td>問いに自分が賭かっていない。取材になっている</td>
         <td class="c on">●</td><td class="c">●</td>
       </tr>
       <tr>
+        <td class="mv"></td>
+        <td class="miss">社会から来た基準を、そのまま受け取っている</td>
         <td class="w">「評価されているのに、満たされない」</td>
-        <td>判断の基準が自分の外にある。自分の問いに照らせない</td>
         <td class="c on">●</td><td class="c">●</td>
       </tr>
-      <tr>
-        <td class="w">「誰と話しても、同じ会話になる」</td>
-        <td>他者に渡すものがない。当てていない（手4）</td>
-        <td class="c">●</td><td class="c on">●</td>
-      </tr>
-      <tr>
+
+      <tr class="g">
+        <td class="mv">当てる</td>
+        <td class="miss">中へだけ掘っている。人へ掘っていない</td>
         <td class="w">「詳しくはなるが、会いに行く相手が現れない」</td>
-        <td>中へだけ掘っている。人へ掘っていない</td>
         <td class="c">●</td><td class="c on">●</td>
       </tr>
       <tr>
+        <td class="mv"></td>
+        <td class="miss">共感で止まっている。ずらした相手に当て直していない</td>
         <td class="w">「話しても『わかる』しか返ってこない」</td>
-        <td>共感で止まっている。ずれた相手に当て直していない</td>
         <td class="c">●</td><td class="c on">●</td>
       </tr>
-      <tr class="both">
+      <tr>
+        <td class="mv"></td>
+        <td class="miss">知らない人に差し出していない（Lv.3の手前）</td>
+        <td class="w">「同じ界隈にしか、話が通じない」</td>
+        <td class="c">●</td><td class="c on">●</td>
+      </tr>
+
+      <tr class="g">
+        <td class="mv">書き換える</td>
+        <td class="miss">答えが出たところで閉じた ＝ 正解になっている</td>
         <td class="w">「言葉にできた時点で、満足してしまう」</td>
-        <td>書き換えていない。正解になっている（手6）</td>
         <td class="c on">●</td><td class="c on">●</td>
       </tr>
     </table>
 
-    <p class="say" style="margin-top:auto;padding-top:18px;font-size:17px">G が落ちるのは、問いの<em>自分側の端</em>が外れているとき。H が落ちるのは、<em>社会側の端</em>が届いていないとき。</p>
+    <p class="say" style="margin-top:auto;padding-top:16px;font-size:17px"><em>立てる</em>が欠けると G が落ちる。<em>当てる</em>が欠けると H が落ちる。<em>書き換える</em>が欠けると、両方が止まる。</p>
   </div>
   <div class="foot">
-    <span class="src">正本にこの形の一覧はない。良い問いの4条件（続くか／動くか／賭かっているか／半分だけ伝わるか）と、深まらないときの3つ（中へ掘る／共感で止まる／答えを出してしまう）から組み直したもの。</span>
+    <span class="src">動きの区切りは 03、端の呼び方は 02 に対応。／ 正本にこの形の一覧はない。良い問いの4条件と、深まらないときの3つ（中へ掘る／共感で止まる／答えを出してしまう）から組み直したもの。</span>
     <span class="pg">4 / 6</span>
   </div>
 </section>
