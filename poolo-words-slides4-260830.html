@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>豊かさから、問いまで ／ 4枚版</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@400;700;900&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&family=Jost:wght@400;500;600&display=swap">
+<style>
+:root{
+  --brand:#189BBC; --brand-deep:#127E9A; --brand-mid:#8FC6D6; --brand-pale:#DDECF1;
+  --ink:#000; --ink-soft:#1E1E1E;
+  --ink-72:rgba(0,0,0,.72); --ink-60:rgba(0,0,0,.60); --ink-50:rgba(0,0,0,.50); --ink-40:rgba(0,0,0,.40);
+  --bg:#fff; --bg-off:#F9F9F9; --line:#E4E4E4; --line-pale:#C2DCE5;
+  --mincho:'Zen Old Mincho','Hiragino Mincho ProN','Yu Mincho',serif;
+  --head:'Zen Kaku Gothic New','Hiragino Kaku Gothic ProN',sans-serif;
+  --body:'Noto Sans JP','Hiragino Kaku Gothic ProN',sans-serif;
+  --en:'Jost',sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{background:#EFEFEF;font-family:var(--body);color:var(--ink-soft);-webkit-font-smoothing:antialiased;
+  display:flex;align-items:center;justify-content:center;overflow:hidden}
+
+#stage{width:1280px;height:720px;position:relative;transform-origin:center center;flex:none}
+.slide{position:absolute;inset:0;background:var(--bg);padding:48px 70px 40px;display:none;flex-direction:column}
+.slide.on{display:flex}
+
+/* ---------- masthead（01のみ） ---------- */
+.mast{display:flex;align-items:baseline;gap:16px;border-bottom:1px solid var(--line);
+  padding-bottom:12px;margin-bottom:24px;flex:none}
+.mast .dt{font-family:var(--head);font-size:11px;font-weight:700;letter-spacing:.2em;color:var(--brand)}
+.mast .mt{font-family:var(--body);font-size:11px;color:var(--ink-40);letter-spacing:.05em;
+  margin-left:auto;text-align:right;line-height:1.7}
+
+/* ---------- header + rail（はしごを4枚に分散させたもの） ---------- */
+.head{display:flex;align-items:baseline;gap:16px;flex:none}
+.no{font-family:var(--en);font-size:14px;font-weight:600;letter-spacing:.16em;color:var(--brand);flex:none}
+h2{font-family:var(--mincho);font-size:30px;font-weight:700;letter-spacing:.04em;line-height:1.35;color:var(--ink)}
+.sub{font-size:12px;color:var(--ink-50);letter-spacing:.05em;margin-left:auto;flex:none}
+.rail{display:grid;grid-template-columns:repeat(4,1fr);margin-top:18px;flex:none}
+.rail div{border-top:1px solid var(--line);padding:9px 14px 0 0}
+.rail .r{font-family:var(--head);font-size:9.5px;font-weight:700;letter-spacing:.18em;color:var(--ink-40)}
+.rail .t{font-family:var(--mincho);font-size:13px;font-weight:700;letter-spacing:.05em;color:var(--ink-40);margin-top:3px}
+.rail div.on{border-top:2px solid var(--brand);padding-top:8px}
+.rail div.on .r{color:var(--brand)}
+.rail div.on .t{color:var(--ink)}
+
+.foot{display:flex;align-items:baseline;flex:none;margin-top:20px;
+  border-top:1px solid var(--line);padding-top:10px}
+.foot .src{font-size:10.5px;color:var(--ink-40);letter-spacing:.04em;line-height:1.7}
+.foot .pg{margin-left:auto;font-family:var(--en);font-size:12px;font-weight:500;letter-spacing:.14em;
+  color:var(--ink-40);padding-left:24px;flex:none}
+.body{flex:1;padding-top:24px;min-height:0;display:flex;flex-direction:column}
+
+.def{font-family:var(--mincho);font-size:27px;font-weight:700;line-height:1.6;color:var(--ink);letter-spacing:.03em}
+.def em{font-style:normal;background:linear-gradient(transparent 58%,var(--brand-pale) 58%)}
+.say{font-family:var(--mincho);font-size:20px;font-weight:700;line-height:1.7;color:var(--ink);letter-spacing:.03em}
+.say em{font-style:normal;background:linear-gradient(transparent 60%,var(--brand-pale) 60%)}
+.note{font-size:11.5px;line-height:1.9;color:var(--ink-60);letter-spacing:.03em}
+.tag{font-family:var(--head);font-size:10px;font-weight:700;letter-spacing:.18em;color:var(--ink-40)}
+b{color:var(--ink);font-weight:700}
+.bl{color:var(--brand-deep);font-weight:700}
+svg text{font-family:var(--body)}
+
+/* ---------- 01 豊かさの場 ---------- */
+.s01{display:grid;grid-template-columns:1fr 1fr;gap:56px;flex:1;min-height:0;align-items:stretch}
+.s01>*{min-width:0;min-height:0}
+.figscroll.sq{height:100%;display:flex;align-items:center;justify-content:center;overflow:visible}
+.figscroll.sq svg{height:100%;width:auto;max-width:100%}
+.s01t{display:flex;flex-direction:column;justify-content:center}
+.zeros{margin-top:24px;border-top:1px solid var(--line)}
+.zeros>div{display:grid;grid-template-columns:170px 1fr;gap:16px;align-items:baseline;
+  padding:10px 0;border-bottom:1px solid var(--line)}
+.zeros dt{font-size:11.5px;color:var(--ink-50);letter-spacing:.03em}
+.zeros dd{font-family:var(--mincho);font-size:15px;font-weight:700;color:var(--ink);letter-spacing:.04em}
+.feq{font-family:var(--mincho);font-size:26px;font-weight:700;letter-spacing:.04em;color:var(--ink);line-height:1.5}
+.feq b{color:var(--brand-deep)}
+.feq i{font-style:normal;color:var(--brand)}
+
+/* ---------- 02 flow ---------- */
+.gh{width:100%;border-collapse:collapse;margin-top:14px}
+.gh th{font-family:var(--head);font-size:10px;font-weight:700;letter-spacing:.14em;color:var(--ink-40);
+  text-align:left;padding:0 18px 8px 0;border-bottom:1px solid var(--line)}
+.gh th:last-child{padding-right:0}
+.gh td{font-size:12px;line-height:1.7;color:var(--ink-72);padding:8px 18px;border-bottom:1px solid var(--line);
+  vertical-align:middle;letter-spacing:.02em}
+.gh td:first-child{padding-left:0}
+.gh td:last-child{padding-right:0}
+.gh td.k{width:236px}
+.gh td.k b{font-family:var(--mincho);font-size:15px;color:var(--ink);font-weight:700;letter-spacing:.04em}
+.gh td.k span{display:block;font-size:10.5px;color:var(--ink-40);margin-top:4px;letter-spacing:.03em}
+.gh td i{font-style:normal;margin-left:8px;color:var(--ink-50)}
+.gh td.on{background:var(--brand-pale)}
+.gh td.on i{color:var(--brand-deep);font-weight:700}
+.fail{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;margin-top:8px}
+.fail div{display:flex;align-items:flex-start;gap:11px;font-size:12px;line-height:1.8;color:var(--ink-60);letter-spacing:.03em}
+.fail .mk{width:44px;height:16px;flex:none;position:relative;margin-top:3px}
+.fail .mk i{position:absolute;top:7px;height:2px;background:var(--brand);opacity:.32}
+.fail .mk::before,.fail .mk::after{content:"";position:absolute;top:2px;width:1px;height:12px;background:var(--ink-40)}
+.fail .mk::before{left:0}.fail .mk::after{right:0}
+
+/* ---------- 03 三つの動き ---------- */
+.s3b{display:grid;grid-template-columns:1fr 1fr;gap:48px;margin-top:22px;flex:none}
+.mini{width:100%;border-collapse:collapse}
+.mini caption{text-align:left;font-family:var(--head);font-size:13px;font-weight:700;letter-spacing:.05em;
+  color:var(--ink);padding-bottom:12px}
+.mini caption span{font-family:var(--body);font-weight:400;font-size:11px;color:var(--ink-50);letter-spacing:.03em}
+.mini th{font-family:var(--head);font-size:9.5px;font-weight:700;letter-spacing:.14em;color:var(--ink-40);
+  text-align:left;padding:0 14px 8px 0;border-bottom:1px solid var(--line);white-space:nowrap}
+.mini th:last-child{padding-right:0}
+.mini td{font-size:12px;line-height:1.7;color:var(--ink-72);padding:9px 14px 9px 0;
+  border-bottom:1px solid var(--line);vertical-align:top;letter-spacing:.02em}
+.mini td:last-child{padding-right:0}
+.mini td.k{font-family:var(--head);font-weight:700;color:var(--ink);white-space:nowrap}
+.rules{border-left:2px solid var(--brand);padding:2px 0 2px 16px;margin-top:24px}
+.rules p{font-family:var(--mincho);font-size:15px;line-height:1.7;color:var(--ink);letter-spacing:.03em}
+.rules p+p{margin-top:16px}
+.rules small{display:block;font-family:var(--body);font-size:11px;color:var(--ink-50);margin-top:6px;line-height:1.8}
+
+/* ---------- 04 欠落と症状 ---------- */
+.lens{display:grid;grid-template-columns:1fr 1fr;gap:44px;border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);padding:14px 0;margin-bottom:4px}
+.lens div{display:flex;align-items:baseline;gap:14px}
+.lens b{font-family:var(--mincho);font-size:16px;font-weight:700;color:var(--ink);letter-spacing:.04em;white-space:nowrap}
+.lens span{font-size:11.5px;color:var(--ink-50);letter-spacing:.03em}
+.diag{width:100%;border-collapse:collapse;margin-top:12px}
+.diag td.mv{font-family:var(--mincho);font-size:15px;font-weight:700;color:var(--ink);
+  width:104px;letter-spacing:.04em;white-space:nowrap}
+.diag tr.g td{border-top:1px solid var(--ink-40)}
+.diag tr.pre td{background:var(--brand-pale)}
+.diag tr.pre td.mv{color:var(--brand-deep)}
+.diag th{font-family:var(--head);font-size:9.5px;font-weight:700;letter-spacing:.14em;color:var(--ink-40);
+  text-align:left;padding:0 16px 8px 0;border-bottom:1px solid var(--line);white-space:nowrap}
+.diag th.c{text-align:center;width:52px;padding-right:0}
+.diag td{font-size:12px;line-height:1.6;color:var(--ink-72);padding:9px 16px 9px 0;
+  border-bottom:1px solid var(--line);letter-spacing:.02em;vertical-align:middle}
+.diag td.w{font-family:var(--mincho);font-size:13.5px;color:var(--ink)}
+.diag td.miss{width:340px}
+.diag td.c{text-align:center;width:52px;padding-right:0;font-family:var(--en);font-size:15px;
+  font-weight:600;color:var(--line)}
+.diag td.c.on{color:var(--brand)}
+.diag tr.both td{background:var(--brand-pale)}
+.diag tr.both td.c.on{color:var(--brand-deep)}
+
+/* ---------- 05 型の帯 ---------- */
+.types{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line)}
+.types>div{padding:16px 24px 18px 0;border-right:1px solid var(--line)}
+.types>div:last-child{border-right:none;padding-right:0}
+.types>div+div{padding-left:24px}
+.types .ty{font-family:var(--head);font-size:10px;font-weight:700;letter-spacing:.18em;color:var(--brand)}
+.types .tf{font-family:var(--mincho);font-size:18px;font-weight:700;letter-spacing:.04em;color:var(--ink);margin-top:8px}
+.types .tw{font-size:11px;line-height:1.75;color:var(--ink-50);margin-top:8px;letter-spacing:.02em}
+.types .out .ty,.types .out .tf{color:var(--ink-40)}
+.types .out .tf{text-decoration:line-through;text-decoration-color:var(--line);text-decoration-thickness:1.5px}
+
+/* ---------- 04 versions ---------- */
+.vq{display:flex;margin-top:2px}
+.vq div{flex:1;padding:0 20px}
+.vq div:first-child{padding-left:0}
+.vq div:last-child{padding-right:0}
+.vq .q{font-family:var(--mincho);font-size:14px;font-weight:700;line-height:1.7;color:var(--ink);letter-spacing:.03em}
+.vq .qa{font-size:10.5px;line-height:1.75;color:var(--ink-50);margin-top:10px;letter-spacing:.02em}
+.vq .qa b{color:var(--brand-deep);font-weight:700}
+.vtbl{width:100%;border-collapse:collapse;margin-top:24px}
+.vtbl th{font-family:var(--head);font-size:9.5px;font-weight:700;letter-spacing:.14em;color:var(--ink-40);
+  text-align:left;padding:0 18px 8px 0;border-bottom:1px solid var(--line)}
+.vtbl th:last-child{padding-right:0}
+.vtbl td{font-size:12px;padding:7px 18px 7px 0;border-bottom:1px solid var(--line);letter-spacing:.02em}
+.vtbl td:last-child{padding-right:0}
+.vtbl td.in{font-family:var(--mincho);font-size:15px;color:var(--ink-40);width:150px;white-space:nowrap;
+  text-decoration:line-through;text-decoration-color:var(--brand-mid);text-decoration-thickness:1.5px}
+.vtbl td.out{font-family:var(--mincho);font-size:14px;color:var(--ink)}
+.vtbl td.out b{color:var(--brand-deep);font-weight:700}
+.kick{display:flex;gap:24px;margin-top:auto;align-items:flex-end;padding-top:20px}
+.kick .big{font-family:var(--mincho);font-size:20px;font-weight:700;line-height:1.7;color:var(--ink);
+  letter-spacing:.03em;flex:1}
+.kick .big em{font-style:normal;background:linear-gradient(transparent 60%,var(--brand-pale) 60%)}
+.kick .side{width:396px;flex:none;border-left:1px solid var(--line);padding-left:24px;
+  font-size:11.5px;line-height:1.85;color:var(--ink-72);letter-spacing:.03em}
+
+/* ---------- nav ---------- */
+#nav{position:fixed;bottom:14px;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:4px;
+  background:rgba(255,255,255,.95);border:1px solid var(--line);padding:6px 8px;z-index:20}
+#nav button{font-family:var(--en);font-size:12px;font-weight:500;letter-spacing:.1em;color:var(--ink-60);
+  background:none;border:none;cursor:pointer;padding:5px 11px}
+#nav button:hover{color:var(--brand-deep);background:var(--brand-pale)}
+#nav .dots{display:flex;gap:5px;padding:0 8px}
+#nav .dot{width:7px;height:7px;background:var(--line);cursor:pointer;border:none;padding:0}
+#nav .dot.on{background:var(--brand)}
+#hint{position:fixed;bottom:18px;right:18px;font-family:var(--en);font-size:10.5px;letter-spacing:.1em;
+  color:var(--ink-40);z-index:20}
+
+/* ---------- スマホ・タブレット：縦に流して読む ---------- */
+.figscroll{width:100%;flex:1 1 auto;min-height:0;display:flex}
+.figscroll svg{width:100%;height:100%;display:block}
+
+@media (max-width:900px){
+  body{display:block;overflow:auto;background:#EFEFEF}
+  #stage{width:100%;height:auto;transform:none!important;padding:0 0 40px}
+  .slide{display:block!important;position:relative;inset:auto;width:100%;height:auto;
+    padding:30px 20px 34px;margin-bottom:14px}
+  .body{padding-top:22px;display:block}
+  .head{display:block}
+  h2{font-size:23px;margin-top:5px}
+  .sub{display:block;margin:9px 0 0;font-size:11.5px}
+  .rail{grid-template-columns:1fr 1fr;margin-top:18px}
+  .rail div{padding:8px 12px 0 0}
+  .rail .t{font-size:12px}
+  .foot{margin-top:24px;display:block}
+  .foot .pg{display:block;margin:10px 0 0;padding-left:0}
+
+  /* 図は横スクロールで原寸を保つ */
+  .figscroll{overflow-x:auto;-webkit-overflow-scrolling:touch;
+    border-left:1px solid var(--line);border-right:1px solid var(--line);padding:0 2px}
+  .figscroll{display:block;flex:none}
+  .figscroll svg{width:880px;height:auto;max-width:none}
+  .figscroll.ring svg{width:400px}
+
+  /* 01 */
+  .feq{font-size:19px}
+  .s01{display:block}
+  .figscroll.sq{height:auto;display:block;margin-bottom:24px}
+  .figscroll.sq svg{width:100%;height:auto}
+  .zeros>div{grid-template-columns:130px 1fr;gap:12px}
+
+  /* 02 */
+  .say{font-size:17px}
+  .def{font-size:21px}
+  .fail{display:block}
+  .fail div{margin-bottom:11px}
+
+  /* 03 */
+  .s3b{display:block}
+  .s3b>table{margin-bottom:24px}
+  .mini td{font-size:12px}
+  .rule{font-size:14px}
+
+  /* 05 */
+  .types{grid-template-columns:1fr}
+  .types>div{border-right:none;border-bottom:1px solid var(--line);padding:16px 0}
+  .types>div+div{padding-left:0}
+  .types>div:last-child{border-bottom:none}
+  .types .tf{font-size:17px}
+  .mast{display:block;padding-bottom:14px;margin-bottom:20px}
+  .mast .mt{margin:8px 0 0;text-align:left}
+
+  /* 04 */
+  .vq{display:block;margin-top:14px}
+  .vq div{padding:0 0 12px;border-bottom:1px solid var(--line);margin-bottom:12px}
+  .vq div:last-child{border-bottom:none;margin-bottom:0}
+  .vtbl td.in{width:auto;display:block;padding-bottom:2px}
+  .vtbl td.out{display:block;padding-top:0;padding-bottom:10px}
+  .vtbl tr:first-child{display:none}
+  .kick{display:block;padding-top:22px}
+  .kick .big{font-size:18px}
+  .kick .side{width:auto;border-left:none;border-top:1px solid var(--line);
+    padding:14px 0 0;margin-top:16px}
+
+  #nav,#hint{display:none}
+}
+
+@media print{
+  @page{size:1280px 720px;margin:0}
+  html,body{height:auto;background:#fff;display:block;overflow:visible;margin:0;padding:0}
+  #stage{width:1280px;height:auto;transform:none!important;overflow:hidden}
+  .slide{display:flex!important;position:relative;inset:auto;width:1280px;height:720px;
+    overflow:hidden;page-break-after:always;break-after:page}
+  .slide:last-child{page-break-after:auto;break-after:auto}
+  #nav,#hint{display:none}
+}
+
+/* ---------- 4枚版：三つの動きの帯 ---------- */
+.movesline{border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  padding:11px 0;margin-top:14px;flex:none;font-size:12.5px;color:var(--ink-60);letter-spacing:.03em}
+.movesline b{font-family:var(--mincho);font-size:16px;color:var(--ink);font-weight:700;letter-spacing:.05em}
+.movesline em{font-style:normal;font-weight:700;color:var(--brand-deep);
+  background:linear-gradient(transparent 60%,var(--brand-pale) 60%)}
+.pivot{border-left:2px solid var(--brand);padding:3px 0 3px 16px;margin-top:20px;
+  font-family:var(--mincho);font-size:16px;line-height:1.7;color:var(--ink);letter-spacing:.03em}
+.pivot small{display:block;font-family:var(--body);font-size:11.5px;color:var(--ink-60);
+  margin-top:7px;line-height:1.8;font-weight:400}
+</style>
+</head>
+<body>
+
+<div id="stage">
+<!-- ==================== 1 ／ 定義 ==================== -->
+<section class="slide on">
+  <div class="mast">
+    <span class="dt">用語の整理 ／ 豊かさから、問いまで</span>
+    <span class="mt">2026-08-28版・全4枚　by TABIPPO・POOLO<br>出典：人生の豊かさ_F=G×H ／ 探究テーマ（用語の正本 v1.7）／ POOLO_METHOD_探究編 v1.7</span>
+  </div>
+  <div class="head">
+    <span class="no">01</span>
+    <h2>豊かさとは、内的な納得と社会とのつながりが、同時に動いていること。</h2>
+  </div>
+  <div class="rail">
+    <div class="on"><p class="r">定義</p><p class="t">豊かさ ＝ 動いていること</p></div>
+    <div><p class="r">動き</p><p class="t">探究 ＝ 問いという橋</p></div>
+    <div><p class="r">停止</p><p class="t">正解 ＝ 片道で止まる</p></div>
+    <div><p class="r">測り方</p><p class="t">問いの版</p></div>
+  </div>
+  <div class="body">
+    <div class="s01">
+      <div class="figscroll sq">
+      <svg viewBox="0 0 430 440">
+        <!-- 豊かさの場：濃さ ＝ G×H。GとHは対称なので、場も正方形 -->
+        <rect x="80.5" y="330.5" width="29" height="29" fill="#189BBC" opacity="0.035"/>
+        <rect x="80.5" y="300.5" width="29" height="29" fill="#189BBC" opacity="0.057"/>
+        <rect x="80.5" y="270.5" width="29" height="29" fill="#189BBC" opacity="0.075"/>
+        <rect x="80.5" y="240.5" width="29" height="29" fill="#189BBC" opacity="0.092"/>
+        <rect x="80.5" y="210.5" width="29" height="29" fill="#189BBC" opacity="0.107"/>
+        <rect x="80.5" y="180.5" width="29" height="29" fill="#189BBC" opacity="0.122"/>
+        <rect x="80.5" y="150.5" width="29" height="29" fill="#189BBC" opacity="0.136"/>
+        <rect x="80.5" y="120.5" width="29" height="29" fill="#189BBC" opacity="0.149"/>
+        <rect x="80.5" y="90.5" width="29" height="29" fill="#189BBC" opacity="0.162"/>
+        <rect x="80.5" y="60.5" width="29" height="29" fill="#189BBC" opacity="0.175"/>
+        <rect x="80.5" y="30.5" width="29" height="29" fill="#189BBC" opacity="0.187"/>
+        <rect x="110.5" y="330.5" width="29" height="29" fill="#189BBC" opacity="0.057"/>
+        <rect x="110.5" y="300.5" width="29" height="29" fill="#189BBC" opacity="0.092"/>
+        <rect x="110.5" y="270.5" width="29" height="29" fill="#189BBC" opacity="0.122"/>
+        <rect x="110.5" y="240.5" width="29" height="29" fill="#189BBC" opacity="0.149"/>
+        <rect x="110.5" y="210.5" width="29" height="29" fill="#189BBC" opacity="0.175"/>
+        <rect x="110.5" y="180.5" width="29" height="29" fill="#189BBC" opacity="0.198"/>
+        <rect x="110.5" y="150.5" width="29" height="29" fill="#189BBC" opacity="0.221"/>
+        <rect x="110.5" y="120.5" width="29" height="29" fill="#189BBC" opacity="0.243"/>
+        <rect x="110.5" y="90.5" width="29" height="29" fill="#189BBC" opacity="0.263"/>
+        <rect x="110.5" y="60.5" width="29" height="29" fill="#189BBC" opacity="0.284"/>
+        <rect x="110.5" y="30.5" width="29" height="29" fill="#189BBC" opacity="0.303"/>
+        <rect x="140.5" y="330.5" width="29" height="29" fill="#189BBC" opacity="0.075"/>
+        <rect x="140.5" y="300.5" width="29" height="29" fill="#189BBC" opacity="0.122"/>
+        <rect x="140.5" y="270.5" width="29" height="29" fill="#189BBC" opacity="0.162"/>
+        <rect x="140.5" y="240.5" width="29" height="29" fill="#189BBC" opacity="0.198"/>
+        <rect x="140.5" y="210.5" width="29" height="29" fill="#189BBC" opacity="0.232"/>
+        <rect x="140.5" y="180.5" width="29" height="29" fill="#189BBC" opacity="0.263"/>
+        <rect x="140.5" y="150.5" width="29" height="29" fill="#189BBC" opacity="0.293"/>
+        <rect x="140.5" y="120.5" width="29" height="29" fill="#189BBC" opacity="0.322"/>
+        <rect x="140.5" y="90.5" width="29" height="29" fill="#189BBC" opacity="0.35"/>
+        <rect x="140.5" y="60.5" width="29" height="29" fill="#189BBC" opacity="0.377"/>
+        <rect x="140.5" y="30.5" width="29" height="29" fill="#189BBC" opacity="0.403"/>
+        <rect x="170.5" y="330.5" width="29" height="29" fill="#189BBC" opacity="0.092"/>
+        <rect x="170.5" y="300.5" width="29" height="29" fill="#189BBC" opacity="0.149"/>
+        <rect x="170.5" y="270.5" width="29" height="29" fill="#189BBC" opacity="0.198"/>
+        <rect x="170.5" y="240.5" width="29" height="29" fill="#189BBC" opacity="0.243"/>
+        <rect x="170.5" y="210.5" width="29" height="29" fill="#189BBC" opacity="0.284"/>
+        <rect x="170.5" y="180.5" width="29" height="29" fill="#189BBC" opacity="0.322"/>
+        <rect x="170.5" y="150.5" width="29" height="29" fill="#189BBC" opacity="0.359"/>
+        <rect x="170.5" y="120.5" width="29" height="29" fill="#189BBC" opacity="0.394"/>
+        <rect x="170.5" y="90.5" width="29" height="29" fill="#189BBC" opacity="0.428"/>
+        <rect x="170.5" y="60.5" width="29" height="29" fill="#189BBC" opacity="0.461"/>
+        <rect x="170.5" y="30.5" width="29" height="29" fill="#189BBC" opacity="0.493"/>
+        <rect x="200.5" y="330.5" width="29" height="29" fill="#189BBC" opacity="0.107"/>
+        <rect x="200.5" y="300.5" width="29" height="29" fill="#189BBC" opacity="0.175"/>
+        <rect x="200.5" y="270.5" width="29" height="29" fill="#189BBC" opacity="0.232"/>
+        <rect x="200.5" y="240.5" width="29" height="29" fill="#189BBC" opacity="0.284"/>
+        <rect x="200.5" y="210.5" width="29" height="29" fill="#189BBC" opacity="0.332"/>
+        <rect x="200.5" y="180.5" width="29" height="29" fill="#189BBC" opacity="0.377"/>
+        <rect x="200.5" y="150.5" width="29" height="29" fill="#189BBC" opacity="0.42"/>
+        <rect x="200.5" y="120.5" width="29" height="29" fill="#189BBC" opacity="0.461"/>
+        <rect x="200.5" y="90.5" width="29" height="29" fill="#189BBC" opacity="0.5"/>
+        <rect x="200.5" y="60.5" width="29" height="29" fill="#189BBC" opacity="0.539"/>
+        <rect x="200.5" y="30.5" width="29" height="29" fill="#189BBC" opacity="0.576"/>
+        <rect x="230.5" y="330.5" width="29" height="29" fill="#189BBC" opacity="0.122"/>
+        <rect x="230.5" y="300.5" width="29" height="29" fill="#189BBC" opacity="0.198"/>
+        <rect x="230.5" y="270.5" width="29" height="29" fill="#189BBC" opacity="0.263"/>
+        <rect x="230.5" y="240.5" width="29" height="29" fill="#189BBC" opacity="0.322"/>
+        <rect x="230.5" y="210.5" width="29" height="29" fill="#189BBC" opacity="0.377"/>
+        <rect x="230.5" y="180.5" width="29" height="29" fill="#189BBC" opacity="0.428"/>
+        <rect x="230.5" y="150.5" width="29" height="29" fill="#189BBC" opacity="0.477"/>
+        <rect x="230.5" y="120.5" width="29" height="29" fill="#189BBC" opacity="0.524"/>
+        <rect x="230.5" y="90.5" width="29" height="29" fill="#189BBC" opacity="0.568"/>
+        <rect x="230.5" y="60.5" width="29" height="29" fill="#189BBC" opacity="0.612"/>
+        <rect x="230.5" y="30.5" width="29" height="29" fill="#189BBC" opacity="0.654"/>
+        <rect x="260.5" y="330.5" width="29" height="29" fill="#189BBC" opacity="0.136"/>
+        <rect x="260.5" y="300.5" width="29" height="29" fill="#189BBC" opacity="0.221"/>
+        <rect x="260.5" y="270.5" width="29" height="29" fill="#189BBC" opacity="0.293"/>
+        <rect x="260.5" y="240.5" width="29" height="29" fill="#189BBC" opacity="0.359"/>
+        <rect x="260.5" y="210.5" width="29" height="29" fill="#189BBC" opacity="0.42"/>
+        <rect x="260.5" y="180.5" width="29" height="29" fill="#189BBC" opacity="0.477"/>
+        <rect x="260.5" y="150.5" width="29" height="29" fill="#189BBC" opacity="0.531"/>
+        <rect x="260.5" y="120.5" width="29" height="29" fill="#189BBC" opacity="0.583"/>
+        <rect x="260.5" y="90.5" width="29" height="29" fill="#189BBC" opacity="0.633"/>
+        <rect x="260.5" y="60.5" width="29" height="29" fill="#189BBC" opacity="0.682"/>
+        <rect x="260.5" y="30.5" width="29" height="29" fill="#189BBC" opacity="0.729"/>
+        <rect x="290.5" y="330.5" width="29" height="29" fill="#189BBC" opacity="0.149"/>
+        <rect x="290.5" y="300.5" width="29" height="29" fill="#189BBC" opacity="0.243"/>
+        <rect x="290.5" y="270.5" width="29" height="29" fill="#189BBC" opacity="0.322"/>
+        <rect x="290.5" y="240.5" width="29" height="29" fill="#189BBC" opacity="0.394"/>
+        <rect x="290.5" y="210.5" width="29" height="29" fill="#189BBC" opacity="0.461"/>
+        <rect x="290.5" y="180.5" width="29" height="29" fill="#189BBC" opacity="0.524"/>
+        <rect x="290.5" y="150.5" width="29" height="29" fill="#189BBC" opacity="0.583"/>
+        <rect x="290.5" y="120.5" width="29" height="29" fill="#189BBC" opacity="0.64"/>
+        <rect x="290.5" y="90.5" width="29" height="29" fill="#189BBC" opacity="0.695"/>
+        <rect x="290.5" y="60.5" width="29" height="29" fill="#189BBC" opacity="0.749"/>
+        <rect x="290.5" y="30.5" width="29" height="29" fill="#189BBC" opacity="0.8"/>
+        <rect x="320.5" y="330.5" width="29" height="29" fill="#189BBC" opacity="0.162"/>
+        <rect x="320.5" y="300.5" width="29" height="29" fill="#189BBC" opacity="0.263"/>
+        <rect x="320.5" y="270.5" width="29" height="29" fill="#189BBC" opacity="0.35"/>
+        <rect x="320.5" y="240.5" width="29" height="29" fill="#189BBC" opacity="0.428"/>
+        <rect x="320.5" y="210.5" width="29" height="29" fill="#189BBC" opacity="0.5"/>
+        <rect x="320.5" y="180.5" width="29" height="29" fill="#189BBC" opacity="0.568"/>
+        <rect x="320.5" y="150.5" width="29" height="29" fill="#189BBC" opacity="0.633"/>
+        <rect x="320.5" y="120.5" width="29" height="29" fill="#189BBC" opacity="0.695"/>
+        <rect x="320.5" y="90.5" width="29" height="29" fill="#189BBC" opacity="0.755"/>
+        <rect x="320.5" y="60.5" width="29" height="29" fill="#189BBC" opacity="0.813"/>
+        <rect x="320.5" y="30.5" width="29" height="29" fill="#189BBC" opacity="0.869"/>
+        <rect x="350.5" y="330.5" width="29" height="29" fill="#189BBC" opacity="0.175"/>
+        <rect x="350.5" y="300.5" width="29" height="29" fill="#189BBC" opacity="0.284"/>
+        <rect x="350.5" y="270.5" width="29" height="29" fill="#189BBC" opacity="0.377"/>
+        <rect x="350.5" y="240.5" width="29" height="29" fill="#189BBC" opacity="0.461"/>
+        <rect x="350.5" y="210.5" width="29" height="29" fill="#189BBC" opacity="0.539"/>
+        <rect x="350.5" y="180.5" width="29" height="29" fill="#189BBC" opacity="0.612"/>
+        <rect x="350.5" y="150.5" width="29" height="29" fill="#189BBC" opacity="0.682"/>
+        <rect x="350.5" y="120.5" width="29" height="29" fill="#189BBC" opacity="0.749"/>
+        <rect x="350.5" y="90.5" width="29" height="29" fill="#189BBC" opacity="0.813"/>
+        <rect x="350.5" y="60.5" width="29" height="29" fill="#189BBC" opacity="0.875"/>
+        <rect x="350.5" y="30.5" width="29" height="29" fill="#189BBC" opacity="0.935"/>
+        <rect x="380.5" y="330.5" width="29" height="29" fill="#189BBC" opacity="0.187"/>
+        <rect x="380.5" y="300.5" width="29" height="29" fill="#189BBC" opacity="0.303"/>
+        <rect x="380.5" y="270.5" width="29" height="29" fill="#189BBC" opacity="0.403"/>
+        <rect x="380.5" y="240.5" width="29" height="29" fill="#189BBC" opacity="0.493"/>
+        <rect x="380.5" y="210.5" width="29" height="29" fill="#189BBC" opacity="0.576"/>
+        <rect x="380.5" y="180.5" width="29" height="29" fill="#189BBC" opacity="0.654"/>
+        <rect x="380.5" y="150.5" width="29" height="29" fill="#189BBC" opacity="0.729"/>
+        <rect x="380.5" y="120.5" width="29" height="29" fill="#189BBC" opacity="0.8"/>
+        <rect x="380.5" y="90.5" width="29" height="29" fill="#189BBC" opacity="0.869"/>
+        <rect x="380.5" y="60.5" width="29" height="29" fill="#189BBC" opacity="0.935"/>
+        <rect x="380.5" y="30.5" width="29" height="29" fill="#189BBC" opacity="1.0"/>
+        <rect x="50" y="30" width="360" height="360" fill="none" stroke="#E4E4E4"/>
+        <path d="M80 30 V360 H410" fill="none" stroke="#8FC6D6" stroke-dasharray="4 4"/>
+        <line x1="50" y1="390" x2="50" y2="14" stroke="#C9C9C9"/>
+        <path d="M50 6 l-5 10 h10 z" fill="#C9C9C9"/>
+        <line x1="50" y1="390" x2="426" y2="390" stroke="#C9C9C9"/>
+        <path d="M434 390 l-10 -5 v10 z" fill="#C9C9C9"/>
+        <text x="24" y="210" font-size="12.5" font-weight="700" letter-spacing="1.4" text-anchor="middle" fill="rgba(0,0,0,.6)" transform="rotate(-90 24 210)">G ／ 内的な納得</text>
+        <text x="50" y="424" font-size="12.5" font-weight="700" letter-spacing="1.4" fill="rgba(0,0,0,.6)">H ／ 社会とのつながり</text>
+        <text x="410" y="18" font-size="21" font-family="'Zen Old Mincho', serif" font-weight="700" letter-spacing="3" text-anchor="end" fill="#127E9A">豊かさ</text>
+        <text x="245.0" y="380" font-size="11.5" font-weight="700" text-anchor="middle" fill="#127E9A">この帯は、どちらかがゼロ</text>
+      </svg>
+      </div>
+      <div class="s01t">
+        <p class="feq">豊かさ ＝ <b>G</b> 内的な納得<br><i>×</i> <b>H</b> 社会とのつながり</p>
+        <p class="note" style="margin-top:20px"><b>足し算ではなく、掛け算。</b>だから片方が弱ると、全体はしぼんでいく。どれだけ動いても、積み上がらない——色の濃さが、その積＝豊かさ。</p>
+        <p class="pivot">豊かさは、達成して終わる点ではない。<small>「豊かになった」で終わる状態ではなく、更新されつづけるもの。だから「達成したか」ではなく<b>「広がりつづけているか」</b>で見る。——持てない。動かしつづけているあいだだけ、読み取れる値。</small></p>
+        <dl class="zeros">
+          <div><dt>G だけ動いている</dt><dd>自分の世界に閉じる</dd></div>
+          <div><dt>H だけ動いている</dt><dd>自己犠牲</dd></div>
+          <div><dt>どちらも動いていない</dt><dd>正解の中にいる状態</dd></div>
+        </dl>
+      </div>
+    </div>
+  </div>
+  <div class="foot">
+    <span class="src">Hが指すのは、自分の問いが届いた範囲＝社会。ただし届くのは、いつも他者ひとりずつ（正本の表記は「他者とのつながり」）。／ 参考：卒業制作105本の語り方の分類は、G×H 43%／G単独 34%／H単独 23%。</span>
+    <span class="pg">1 / 4</span>
+  </div>
+</section>
+
+<!-- ==================== 2 ／ 動き ==================== -->
+<section class="slide">
+  <div class="head">
+    <span class="no">02</span>
+    <h2>その動きが、探究。</h2>
+    <span class="sub">問いを橋にして、他者に当てる</span>
+  </div>
+  <div class="rail">
+    <div><p class="r">定義</p><p class="t">豊かさ ＝ 動いていること</p></div>
+    <div class="on"><p class="r">動き</p><p class="t">探究 ＝ 問いという橋</p></div>
+    <div><p class="r">停止</p><p class="t">正解 ＝ 片道で止まる</p></div>
+    <div><p class="r">測り方</p><p class="t">問いの版</p></div>
+  </div>
+  <div class="body">
+    <p class="def">探究とは、問いを橋にして、<em>自分と社会の両方を広げつづけること。</em></p>
+    <p class="movesline"><b>立てる → 当てる → 書き換える</b> で1周、問いの版が1つ上がる。両端はひとりでできる。<em>真ん中の「当てる」だけが、他者がいないと始まらない。</em></p>
+    <div class="figscroll">
+    <svg viewBox="0 0 1140 194">
+      <!-- 対象（自分の手前。問いの出どころ） -->
+      <rect x="103" y="8" width="124" height="28" fill="#F9F9F9" stroke="#E4E4E4"/>
+      <text x="165" y="27" font-size="13" font-family="'Zen Old Mincho', serif" font-weight="700" text-anchor="middle" fill="rgba(0,0,0,.6)">対象</text>
+      <line x1="165" y1="36" x2="165" y2="60" stroke="#C9C9C9"/>
+      <path d="M165 66 l-5 -10 h10 z" fill="#C9C9C9"/>
+      <text x="240" y="19" font-size="10.5" fill="rgba(0,0,0,.45)">自分がいま向き合っている、もの・営み。</text>
+      <text x="240" y="33" font-size="10.5" font-weight="700" fill="#127E9A">問いは、ここから生まれる</text>
+
+      <!-- 橋 -->
+      <rect x="240" y="52" width="660" height="86" fill="#DDECF1" opacity=".5"/>
+      <text x="570" y="44" font-size="12" font-weight="700" letter-spacing="1.6" text-anchor="middle" fill="#127E9A">問い ＝ 橋</text>
+
+      <!-- 両極 -->
+      <rect x="90" y="68" width="150" height="54" fill="#F9F9F9" stroke="#189BBC" stroke-width="1.5"/>
+      <text x="165" y="102" font-size="19" font-family="'Zen Old Mincho', serif" font-weight="700" text-anchor="middle" fill="#000">自分</text>
+      <rect x="900" y="68" width="150" height="54" fill="#F9F9F9" stroke="#189BBC" stroke-width="1.5"/>
+      <text x="975" y="102" font-size="19" font-family="'Zen Old Mincho', serif" font-weight="700" text-anchor="middle" fill="#000">社会</text>
+
+      <!-- 橋の上で、唯一手が届く点 -->
+      <rect x="545" y="68" width="150" height="54" fill="#189BBC"/>
+      <text x="620" y="102" font-size="19" font-family="'Zen Old Mincho', serif" font-weight="700" text-anchor="middle" fill="#fff">他者</text>
+
+      <!-- 自分 ⇄ 他者：ここだけ往復できる -->
+      <line x1="248" y1="86" x2="529" y2="86" stroke="#189BBC" stroke-width="2.5"/>
+      <path d="M537 86 l-10 -5 v10 z" fill="#189BBC"/>
+      <text x="392" y="78" font-size="13" font-family="'Zen Old Mincho', serif" font-weight="700" text-anchor="middle" fill="#127E9A">問いを当てる</text>
+      <line x1="537" y1="112" x2="256" y2="112" stroke="#189BBC" stroke-width="2.5"/>
+      <path d="M248 112 l10 -5 v10 z" fill="#189BBC"/>
+      <text x="392" y="130" font-size="13" font-family="'Zen Old Mincho', serif" font-weight="700" text-anchor="middle" fill="#127E9A">反応が返る</text>
+
+      <!-- 他者 → 社会：届くだけ -->
+      <line x1="703" y1="95" x2="884" y2="95" stroke="#C9C9C9" stroke-width="1.5"/>
+      <path d="M892 95 l-10 -5 v10 z" fill="#C9C9C9"/>
+      <text x="797" y="86" font-size="11" text-anchor="middle" fill="rgba(0,0,0,.45)">差し出す</text>
+      <text x="797" y="114" font-size="10.5" text-anchor="middle" fill="rgba(0,0,0,.45)">届くだけ。当てられない</text>
+
+      <!-- 両端が、外へ広がる -->
+      <line x1="82" y1="95" x2="34" y2="95" stroke="#189BBC" stroke-width="2"/>
+      <path d="M26 95 l10 -5 v10 z" fill="#189BBC"/>
+      <text x="52" y="78" font-size="11" font-weight="700" text-anchor="middle" fill="#127E9A">広がる</text>
+      <line x1="1058" y1="95" x2="1106" y2="95" stroke="#189BBC" stroke-width="2"/>
+      <path d="M1114 95 l-10 -5 v10 z" fill="#189BBC"/>
+      <text x="1088" y="78" font-size="11" font-weight="700" text-anchor="middle" fill="#127E9A">広がる</text>
+
+      <!-- 下の見出し -->
+      <text x="165" y="162" font-size="12" font-weight="700" text-anchor="middle" fill="#127E9A">G ／ 内的な納得</text>
+      <text x="165" y="180" font-size="10.5" text-anchor="middle" fill="rgba(0,0,0,.5)">自分の問いに照らして決められる</text>
+      <text x="620" y="162" font-size="12" font-weight="700" text-anchor="middle" fill="#127E9A">当てられるのは、ここだけ</text>
+      <text x="620" y="180" font-size="10.5" text-anchor="middle" fill="rgba(0,0,0,.5)">社会には、直接ぶつけられない。いつも一人</text>
+      <text x="975" y="162" font-size="12" font-weight="700" text-anchor="middle" fill="#127E9A">H ／ 社会とのつながり</text>
+      <text x="975" y="180" font-size="10.5" text-anchor="middle" fill="rgba(0,0,0,.5)">届いた〈他者〉の集まり。単位は一人、総量が社会</text>
+      <text x="392" y="162" font-size="11" text-anchor="middle" fill="rgba(0,0,0,.55)">この往復が、G と H を同時に動かす</text>
+
+    </svg>
+    </div>
+    <table class="mini" style="margin-top:14px">
+      <caption>当てる ／ 三つの当て方 <span>— 誰に当てるかで、返ってくるものが変わる</span></caption>
+      <tr><th>当て方</th><th>誰に当てるか</th><th>狙う反応</th></tr>
+      <tr><td class="k">現場当て</td><td>その問いを<b>すでに生きている</b>人</td><td>「うちはこうしてる」<span class="bl">　旅の行き先は、ここから決まる</span></td></tr>
+      <tr><td class="k">ズラし当て</td><td>その問いを<b>持っていない</b>人</td><td>「え、それ悩むところなの？」</td></tr>
+      <tr><td class="k">反証当て</td><td>役割として<b>否定を頼む</b>相手</td><td>「それ、◯◯なだけでは？」</td></tr>
+    </table>
+  </div>
+  <div class="foot">
+    <span class="src">共感が返ってきたら、当たっていない。「わかる」「私も」が返ってきたら、もう一段ズレた相手に当て直す。／ 1周まわると、問いの版が1つ上がる（v1.0 → v1.1）。POOLOの8ヶ月では3周。</span>
+    <span class="pg">2 / 4</span>
+  </div>
+</section>
+
+<!-- ==================== 3 ／ 停止 ==================== -->
+<section class="slide">
+  <div class="head">
+    <span class="no">03</span>
+    <h2>止まると、落ちる。それが「正解」。</h2>
+    <span class="sub">敵は、正解の中身ではなく停止のほう</span>
+  </div>
+  <div class="rail">
+    <div><p class="r">定義</p><p class="t">豊かさ ＝ 動いていること</p></div>
+    <div><p class="r">動き</p><p class="t">探究 ＝ 問いという橋</p></div>
+    <div class="on"><p class="r">停止</p><p class="t">正解 ＝ 片道で止まる</p></div>
+    <div><p class="r">測り方</p><p class="t">問いの版</p></div>
+  </div>
+  <div class="body">
+    <p class="def">「正解」とは、この行き来が<em>片道で止まった状態</em>のこと。</p>
+    <p class="note" style="margin:14px 0 4px">厄介なのは、受け取った人も<b>ちゃんと動く</b>こと。ただし動いているのは受け取った指示の実行で、<b>行動は出ているのにエネルギーは増えず、むしろ削れる。</b>豊かさは在庫ではないので、止めた瞬間から落ちていく。</p>
+
+    <table class="diag">
+      <tr><th>動き</th><th>欠けているもの</th><th>口に出る言葉</th><th class="c">G</th><th class="c">H</th></tr>
+      <tr class="pre">
+        <td class="mv">その前に</td>
+        <td class="miss">問いがない。橋そのものが架かっていない</td>
+        <td class="w">「やりたいことが、わからない」</td>
+        <td class="c on">●</td><td class="c on">●</td>
+      </tr>
+      <tr class="g">
+        <td class="mv">立てる</td>
+        <td class="miss">問いに自分が賭かっていない。取材になっている</td>
+        <td class="w">「答えが出ても、自分は何も変わらない」</td>
+        <td class="c on">●</td><td class="c">●</td>
+      </tr>
+      <tr>
+        <td class="mv"></td>
+        <td class="miss">社会から来た基準を、そのまま受け取っている</td>
+        <td class="w">「評価されているのに、満たされない」</td>
+        <td class="c on">●</td><td class="c">●</td>
+      </tr>
+      <tr class="g">
+        <td class="mv">当てる</td>
+        <td class="miss">中へだけ掘っている。人へ掘っていない</td>
+        <td class="w">「詳しくはなるが、会いに行く相手が現れない」</td>
+        <td class="c">●</td><td class="c on">●</td>
+      </tr>
+      <tr>
+        <td class="mv"></td>
+        <td class="miss">共感で止まっている。ずらした相手に当て直していない</td>
+        <td class="w">「話しても『わかる』しか返ってこない」</td>
+        <td class="c">●</td><td class="c on">●</td>
+      </tr>
+      <tr class="g">
+        <td class="mv">書き換える</td>
+        <td class="miss">答えが出たところで閉じた ＝ 正解になっている</td>
+        <td class="w">「言葉にできた時点で、満足してしまう」</td>
+        <td class="c on">●</td><td class="c on">●</td>
+      </tr>
+    </table>
+
+    <p class="say" style="margin-top:auto;padding-top:16px;font-size:17px"><em>立てる</em>が欠けると G が落ちる。<em>当てる</em>が欠けると H が落ちる。<em>書き換える</em>が欠けると、両方が止まる。</p>
+  </div>
+  <div class="foot">
+    <span class="src">Gは問いの〈自分側の端〉、Hは〈社会側の端〉。／ 正本にこの形の一覧はない。良い問いの4条件と、深まらないときの3つ（中へ掘る／共感で止まる／答えを出してしまう）から組み直したもの。</span>
+    <span class="pg">3 / 4</span>
+  </div>
+</section>
+
+<!-- ==================== 4 ／ 測り方 ==================== -->
+<section class="slide">
+  <div class="head">
+    <span class="no">04</span>
+    <h2>動いているかは、問いの版でわかる。</h2>
+    <span class="sub">答えが出たのではなく、問う場所が動く</span>
+  </div>
+  <div class="rail">
+    <div><p class="r">定義</p><p class="t">豊かさ ＝ 動いていること</p></div>
+    <div><p class="r">動き</p><p class="t">探究 ＝ 問いという橋</p></div>
+    <div><p class="r">停止</p><p class="t">正解 ＝ 片道で止まる</p></div>
+    <div class="on"><p class="r">測り方</p><p class="t">問いの版</p></div>
+  </div>
+  <div class="body">
+    <p class="tag" style="margin-bottom:8px">例 ／ 入口は「旅」　—　POOLOでいちばん出やすい入口　／　円 ＝ その版の問いが届きうる範囲</p>
+    <p class="note" style="margin-bottom:12px"><b style="color:rgba(0,0,0,.45)">✕「旅の価値とは何か」</b>では動かない。答えが先にあるから。まず違和感に降ろす —— <b>いちばん良かった旅ほど、人に話せない。</b></p>
+    <div class="figscroll">
+    <svg viewBox="0 0 1140 224">
+      <line x1="0" y1="118" x2="1140" y2="118" stroke="#E4E4E4"/>
+      <text x="92" y="34" font-size="13" font-family="Jost, sans-serif" font-weight="600" text-anchor="middle" fill="#189BBC" letter-spacing="1.2">v1.0</text>
+      <text x="382" y="34" font-size="13" font-family="Jost, sans-serif" font-weight="600" text-anchor="middle" fill="#189BBC" letter-spacing="1.2">v1.1</text>
+      <text x="700" y="34" font-size="13" font-family="Jost, sans-serif" font-weight="600" text-anchor="middle" fill="#189BBC" letter-spacing="1.2">v1.2</text>
+      <text x="1042" y="34" font-size="13" font-family="Jost, sans-serif" font-weight="600" text-anchor="middle" fill="#189BBC" letter-spacing="1.2">v1.3</text>
+
+      <circle cx="92" cy="118" r="15" fill="#fff" stroke="#8FC6D6" stroke-width="1.5"/>
+      <circle cx="382" cy="118" r="28" fill="rgba(24,155,188,.07)" stroke="#8FC6D6" stroke-width="1.5"/>
+      <circle cx="700" cy="118" r="44" fill="rgba(24,155,188,.1)" stroke="#8FC6D6" stroke-width="1.5"/>
+      <circle cx="1042" cy="118" r="60" fill="rgba(24,155,188,.15)" stroke="#189BBC" stroke-width="1.5"/>
+      <circle cx="92" cy="118" r="4" fill="#189BBC"/>
+      <circle cx="382" cy="118" r="4" fill="#189BBC"/>
+      <circle cx="700" cy="118" r="4" fill="#189BBC"/>
+      <circle cx="1042" cy="118" r="4" fill="#189BBC"/>
+
+      <text x="92" y="212" font-size="11" text-anchor="middle" fill="rgba(0,0,0,.45)">自分の記憶の中</text>
+      <text x="382" y="212" font-size="11" text-anchor="middle" fill="rgba(0,0,0,.45)">一緒に行った相手</text>
+      <text x="700" y="212" font-size="11" text-anchor="middle" fill="rgba(0,0,0,.45)">旅に出ない人にも</text>
+      <text x="1042" y="212" font-size="11" text-anchor="middle" fill="#127E9A">渡し方そのものへ</text>
+    </svg>
+    </div>
+    <div class="vq" style="margin-top:20px">
+      <div>
+        <p class="q">なぜ私は、いちばん良かった旅ほど、人に話せないのか？</p>
+        <p class="qa">場面・固有名詞を入れて、抽象から降ろす</p>
+      </div>
+      <div>
+        <p class="q">記録しなかった時間と、話せなさは、関係があるのか？</p>
+        <p class="qa"><b>現場当て</b>／一緒に行った相手「写真、撮ってなかったよ」</p>
+      </div>
+      <div>
+        <p class="q">なぜ私は、言葉にすると減ると感じるものを、それでも人に渡したくなるのか？</p>
+        <p class="qa"><b>ズラし当て</b>／旅に出ない人「良かった映画は感想が書けない」</p>
+      </div>
+      <div>
+        <p class="q">どうすれば、渡す相手を先に決めておけるのか？</p>
+        <p class="qa"><b>反証当て</b>／「ただの語彙不足では？」→ 違った</p>
+      </div>
+    </div>
+    <p class="note" style="margin-top:16px">v1.1 は v1.0 の<b>答えになっていない</b>。問う場所が動いただけ。だから次の周がある。<b>同じことが作例5本すべてで起きた</b>——旅／ワイン／場づくり／夢中・熱狂／豊かさ。3周後の版に入口の語は一つも残らず、全部「どうすれば」型で終わった。</p>
+
+    <div class="kick">
+      <p class="big">進捗は「決まったか」ではなく、<br><em>「何回書き換わったか」</em>で測る。</p>
+      <p class="side">運営が聞くのは「テーマ、決まりましたか？」ではなく<b>「前回から、問いのどこが変わりましたか」</b>。版が上がった回数は、そのまま他者に当てた回数——ひとりでは、版は上がらないので。</p>
+    </div>
+  </div>
+  <div class="foot">
+    <span class="src">正本07の作例。実データではありません。「どうすれば」型で終わるのは作例5本から出た仮説で、実データでの検証はこれから。</span>
+    <span class="pg">4 / 4</span>
+  </div>
+</section>
+
+</div>
+
+<div id="nav">
+  <button id="prev">◀ PREV</button>
+  <span class="dots" id="dots"></span>
+  <button id="next">NEXT ▶</button>
+</div>
+<p id="hint">← → / SPACE ／ 印刷でPDF書き出し</p>
+
+<script>
+(function(){
+  var slides=[].slice.call(document.querySelectorAll('.slide'));
+  var stage=document.getElementById('stage');
+  var dots=document.getElementById('dots');
+  var i=0;
+  slides.forEach(function(_,n){
+    var b=document.createElement('button');
+    b.className='dot'+(n===0?' on':'');
+    b.setAttribute('aria-label','スライド'+(n+1));
+    b.onclick=function(){go(n)};
+    dots.appendChild(b);
+  });
+  function go(n){
+    i=Math.max(0,Math.min(slides.length-1,n));
+    slides.forEach(function(s,k){s.classList.toggle('on',k===i)});
+    [].forEach.call(dots.children,function(d,k){d.classList.toggle('on',k===i)});
+    if(location.hash!=='#'+(i+1)) history.replaceState(null,'','#'+(i+1));
+  }
+  function isMobile(){return window.matchMedia('(max-width:900px)').matches}
+  function fit(){
+    if(isMobile()){stage.style.transform='none';return}
+    var s=Math.min(window.innerWidth/1280,(window.innerHeight-72)/720);
+    stage.style.transform='scale('+s+')';
+  }
+  window.addEventListener('resize',fit); fit();
+  document.getElementById('prev').onclick=function(){go(i-1)};
+  document.getElementById('next').onclick=function(){go(i+1)};
+  document.addEventListener('keydown',function(e){
+    if(isMobile())return;
+    if(e.key==='ArrowRight'||e.key===' '||e.key==='PageDown'){e.preventDefault();go(i+1)}
+    if(e.key==='ArrowLeft'||e.key==='PageUp'){e.preventDefault();go(i-1)}
+    if(e.key==='Home'){go(0)} if(e.key==='End'){go(slides.length-1)}
+  });
+  var h=parseInt((location.hash||'').slice(1),10);
+  if(!isMobile()&&h>=1&&h<=slides.length)go(h-1);
+})();
+</script>
+</body>
+</html>
