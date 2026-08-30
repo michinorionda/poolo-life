@@ -53,7 +53,7 @@ h2{font-family:var(--mincho);font-size:30px;font-weight:700;letter-spacing:.04em
 .foot .src{font-size:10.5px;color:var(--ink-40);letter-spacing:.04em;line-height:1.7}
 .foot .pg{margin-left:auto;font-family:var(--en);font-size:12px;font-weight:500;letter-spacing:.14em;
   color:var(--ink-40);padding-left:24px;flex:none}
-.body{flex:1;padding-top:30px;min-height:0;display:flex;flex-direction:column}
+.body{flex:1;padding-top:24px;min-height:0;display:flex;flex-direction:column}
 
 .say{font-family:var(--mincho);font-size:20px;font-weight:700;line-height:1.7;color:var(--ink);letter-spacing:.03em}
 .say em{font-style:normal;background:linear-gradient(transparent 60%,var(--brand-pale) 60%)}
@@ -79,6 +79,20 @@ svg text{font-family:var(--body)}
 .feq i{font-style:normal;color:var(--brand)}
 
 /* ---------- 02 flow ---------- */
+.gh{width:100%;border-collapse:collapse;margin-top:18px}
+.gh th{font-family:var(--head);font-size:10px;font-weight:700;letter-spacing:.14em;color:var(--ink-40);
+  text-align:left;padding:0 18px 8px 0;border-bottom:1px solid var(--line)}
+.gh th:last-child{padding-right:0}
+.gh td{font-size:12px;line-height:1.7;color:var(--ink-72);padding:10px 18px;border-bottom:1px solid var(--line);
+  vertical-align:middle;letter-spacing:.02em}
+.gh td:first-child{padding-left:0}
+.gh td:last-child{padding-right:0}
+.gh td.k{width:236px}
+.gh td.k b{font-family:var(--mincho);font-size:15px;color:var(--ink);font-weight:700;letter-spacing:.04em}
+.gh td.k span{display:block;font-size:10.5px;color:var(--ink-40);margin-top:4px;letter-spacing:.03em}
+.gh td i{font-style:normal;margin-left:8px;color:var(--ink-50)}
+.gh td.on{background:var(--brand-pale)}
+.gh td.on i{color:var(--brand-deep);font-weight:700}
 .fail{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;margin-top:8px}
 .fail div{display:flex;align-items:flex-start;gap:11px;font-size:12px;line-height:1.8;color:var(--ink-60);letter-spacing:.03em}
 .fail .mk{width:44px;height:16px;flex:none;position:relative;margin-top:3px}
@@ -402,7 +416,7 @@ svg text{font-family:var(--body)}
     </div>
 </div>
   <div class="foot">
-    <span class="src">右の三つは、いずれも 02 で扱う。／ 参考：卒業制作105本の語り方の分類では、掛け算になっていたのは43%（キーワードマッチによる目安）。</span>
+    <span class="src">「正解の中にいる状態」という語は 02 で扱う。／ 参考：卒業制作105本の語り方の分類は、G×H 43%／G単独 34%／H単独 23%（キーワードマッチによる目安）。</span>
     <span class="pg">1 / 5</span>
   </div>
 </section>
@@ -422,10 +436,10 @@ svg text{font-family:var(--body)}
   </div>
   <div class="body">
     <p class="tag" style="margin-bottom:10px">01の G と H を、別々にではなく — </p>
-    <p class="say" style="margin-bottom:22px"><em>ひとつの行為で、G と H を同時に動かす。</em>それが探究——問いを橋にして、自分と社会の両方を広げつづけること。</p>
+    <p class="say" style="margin-bottom:16px"><em>ひとつの行為で、G と H を同時に動かす。</em>それが探究。</p>
 
     <div class="figscroll">
-    <svg viewBox="0 0 1140 244">
+    <svg viewBox="0 0 1140 220">
       <!-- 対象 -->
       <rect x="0" y="52" width="152" height="60" fill="#F9F9F9" stroke="#E4E4E4"/>
       <text x="76" y="88" font-size="17" font-family="'Zen Old Mincho', serif" font-weight="700" text-anchor="middle" fill="#000">対象</text>
@@ -451,8 +465,8 @@ svg text{font-family:var(--body)}
       <line x1="576" y1="104" x2="414" y2="104" stroke="#189BBC" stroke-width="2.5"/>
       <path d="M412 104 l10 -5 v10 z" fill="#189BBC"/>
       <text x="494" y="122" font-size="14" font-family="'Zen Old Mincho', serif" font-weight="700" text-anchor="middle" fill="#127E9A">反応</text>
-      <rect x="410" y="140" width="172" height="22" fill="#DDECF1"/>
-      <text x="496" y="155" font-size="11" font-weight="700" text-anchor="middle" fill="#127E9A">返ってくる反応が、G を動かす</text>
+      <rect x="404" y="140" width="180" height="22" fill="#DDECF1"/>
+      <text x="494" y="155" font-size="11" font-weight="700" text-anchor="middle" fill="#127E9A">ここで G と H が同時に生まれる</text>
 
       <!-- 他者 -->
       <rect x="584" y="52" width="152" height="60" fill="#189BBC"/>
@@ -470,8 +484,6 @@ svg text{font-family:var(--body)}
       <text x="836" y="136" font-size="11" fill="rgba(0,0,0,.55)">自分の問いが届いた</text>
       <text x="836" y="152" font-size="11" fill="rgba(0,0,0,.55)">人の集まり</text>
       <text x="836" y="176" font-size="11" font-weight="700" fill="#127E9A">問いは、ここへ出ていく</text>
-      <rect x="836" y="190" width="182" height="22" fill="#DDECF1"/>
-      <text x="927" y="205" font-size="11" font-weight="700" text-anchor="middle" fill="#127E9A">届いた範囲が、H を広げる</text>
 
       <!-- 広がる -->
       <path d="M1004 82 l30 0" stroke="#C9C9C9" stroke-width="1.5"/>
@@ -480,19 +492,26 @@ svg text{font-family:var(--body)}
       <text x="1052" y="94" font-size="11" fill="rgba(0,0,0,.42)">その人の社会</text>
 
       <!-- 底のライン -->
-      <line x1="0" y1="212" x2="1140" y2="212" stroke="#E4E4E4"/>
-      <text x="0" y="236" font-size="12" fill="rgba(0,0,0,.6)">往復が止まらないこと自体が、探究の中身。到達点があって往復するのではない。</text>
+      <line x1="0" y1="190" x2="1140" y2="190" stroke="#E4E4E4"/>
+      <text x="0" y="212" font-size="12" fill="rgba(0,0,0,.6)">探究とは、問いを橋にして、自分と社会の両方を広げつづけること。<tspan fill="rgba(0,0,0,.45)">往復が止まらないこと自体が、その中身。</tspan></text>
     </svg>
     </div>
 
-    <p class="tag" style="margin:24px 0 12px">橋は、両端が刺さっていないと渡れない</p>
-    <div class="fail">
-      <div><span class="mk"><i style="left:0;right:44%"></i></span><span><b>自分の端だけ ＝ 自分の世界に閉じる</b><br>賭かっているが、伝わらない ＝ 日記（G単独・34%）</span></div>
-      <div><span class="mk"><i style="left:44%;right:0"></i></span><span><b>社会の端だけ ＝ 自己犠牲</b><br>伝わるが、賭かっていない ＝ 一般論（H単独・23%）</span></div>
-      <div style="color:var(--brand-deep)"><span class="mk"><i style="left:0;right:0;opacity:1"></i></span><span><b style="color:var(--brand-deep)">両端が刺さっている ＝ 豊かさ</b><br>橋になる ＝ 掛け算が立つ（G × H・43%）</span></div>
-    </div>
+    <table class="gh">
+      <tr><th>　</th><th>問いがないとき</th><th>問いがあるとき</th></tr>
+      <tr>
+        <td class="k"><b>G ／ 内的な納得</b><span>何を基準に、決めるか</span></td>
+        <td>外の基準で決める<i>→ 評価されているのに、満たされない</i></td>
+        <td class="on">自分の問いに照らせる<i>→「自分で決めた」が残る</i></td>
+      </tr>
+      <tr>
+        <td class="k"><b>H ／ 他者とのつながり</b><span>どこまで、話せるか</span></td>
+        <td>「何してる人ですか」で止まる<i>→ 誰とでも同じ会話になる</i></td>
+        <td class="on">相手も自分の話を出す<i>→ 代替できない関係になる</i></td>
+      </tr>
+    </table>
 
-    <p class="say" style="margin-top:auto;padding-top:24px;font-size:17px">「正解」とは、この行き来が<em>片道で止まった状態</em>のこと。敵は、正解の中身ではなく停止のほう。</p>
+    <p class="say" style="margin-top:auto;padding-top:16px;font-size:17px">「正解」とは、この行き来が<em>片道で止まった状態</em>のこと。敵は、正解の中身ではなく停止のほう。</p>
   </div>
   <div class="foot">
     <span class="src">問いは、答えを出すための道具ではなく、動きつづけるための装置。きれいな一文にした瞬間、問いは動かなくなる。</span>
