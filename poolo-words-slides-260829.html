@@ -240,51 +240,52 @@ svg text{font-family:var(--body)}
   </div>
   <div class="body">
     <p class="feq">豊かさ ＝ <b>G</b> 内的な納得 <i>×</i> <b>H</b> 他者とのつながり</p>
-    <p class="note" style="margin:16px 0 24px">縦がG、横がH。<b>豊かさは、その長方形の面積</b>。だから片方がゼロなら、もう片方がどれだけ大きくても面積はゼロになる。</p>
+    <p class="note" style="margin:16px 0 24px"><b>原点から引いた長方形の面積が、その人の豊かさ。</b>だから軸の上に乗っているかぎり、長方形は線にしかならない——片方がどれだけ大きくても、面積はゼロ。</p>
 
     <div class="figscroll">
-    <svg viewBox="0 0 1140 300">
-      <!-- ============ 1 ／ G単独 ============ -->
-      <rect x="26" y="30" width="270" height="170" fill="none" stroke="#E4E4E4" stroke-dasharray="3 4"/>
-      <rect x="17" y="50" width="6" height="150" fill="#189BBC"/>
-      <text x="20" y="42" font-size="10.5" font-weight="700" text-anchor="middle" fill="#127E9A">G</text>
-      <rect x="26" y="205" width="5" height="6" fill="#189BBC"/>
-      <text x="28" y="226" font-size="10.5" font-weight="700" fill="#127E9A">H</text>
-      <rect x="26" y="50" width="5" height="150" fill="#189BBC"/>
-      <text x="170" y="120" font-size="14" font-family="'Zen Old Mincho', serif" text-anchor="middle" fill="rgba(0,0,0,.42)">面積 ＝ 0</text>
-      <text x="26" y="264" font-size="17" font-family="'Zen Old Mincho', serif" font-weight="700" fill="#000">自分の世界に閉じる</text>
-      <text x="26" y="288" font-size="11.5" fill="rgba(0,0,0,.5)">納得はあるが、届いていない</text>
-      <text x="296" y="276" font-size="34" font-family="Jost, sans-serif" font-weight="600" text-anchor="end" fill="rgba(0,0,0,.4)">34%</text>
+    <svg viewBox="0 0 1140 320">
+      <!-- 豊かさ＝原点から引いた長方形 -->
+      <rect x="250" y="86" width="560" height="154" fill="#DDECF1" stroke="#189BBC" stroke-width="1.5"/>
+      <path d="M810 78 L858 48" stroke="#189BBC" stroke-width="1.5" stroke-dasharray="4 3"/>
+      <path d="M863 44 l-12 0.5 l5.5 7.5 z" fill="#189BBC"/>
+      <text x="874" y="48" font-size="11" font-weight="700" fill="#127E9A">広がりつづける</text>
 
-      <!-- ============ 2 ／ H単独 ============ -->
-      <rect x="436" y="30" width="270" height="170" fill="none" stroke="#E4E4E4" stroke-dasharray="3 4"/>
-      <rect x="427" y="195" width="6" height="5" fill="#189BBC"/>
-      <text x="430" y="187" font-size="10.5" font-weight="700" text-anchor="middle" fill="#127E9A">G</text>
-      <rect x="436" y="205" width="243" height="6" fill="#189BBC"/>
-      <text x="557" y="228" font-size="10.5" font-weight="700" text-anchor="middle" fill="#127E9A">H</text>
-      <rect x="436" y="195" width="243" height="5" fill="#189BBC"/>
-      <text x="571" y="120" font-size="14" font-family="'Zen Old Mincho', serif" text-anchor="middle" fill="rgba(0,0,0,.42)">面積 ＝ 0</text>
-      <text x="436" y="264" font-size="17" font-family="'Zen Old Mincho', serif" font-weight="700" fill="#000">自己犠牲</text>
-      <text x="436" y="288" font-size="11.5" fill="rgba(0,0,0,.5)">届いているが、納得がない</text>
-      <text x="706" y="276" font-size="34" font-family="Jost, sans-serif" font-weight="600" text-anchor="end" fill="rgba(0,0,0,.4)">23%</text>
+      <!-- 軸 -->
+      <line x1="250" y1="240" x2="250" y2="46" stroke="#C9C9C9"/>
+      <path d="M250 38 l-5 10 h10 z" fill="#C9C9C9"/>
+      <text x="266" y="44" font-size="12" font-weight="700" letter-spacing="1.2" fill="rgba(0,0,0,.6)">G ／ 内的な納得</text>
+      <line x1="250" y1="240" x2="1010" y2="240" stroke="#C9C9C9"/>
+      <path d="M1018 240 l-10 -5 v10 z" fill="#C9C9C9"/>
+      <text x="250" y="276" font-size="12" font-weight="700" letter-spacing="1.2" fill="rgba(0,0,0,.6)">H ／ 他者とのつながり</text>
 
-      <!-- ============ 3 ／ G × H ============ -->
-      <rect x="846" y="30" width="270" height="170" fill="none" stroke="#E4E4E4" stroke-dasharray="3 4"/>
-      <rect x="837" y="78" width="6" height="122" fill="#189BBC"/>
-      <text x="840" y="70" font-size="10.5" font-weight="700" text-anchor="middle" fill="#127E9A">G</text>
-      <rect x="846" y="205" width="203" height="6" fill="#189BBC"/>
-      <text x="947" y="228" font-size="10.5" font-weight="700" text-anchor="middle" fill="#127E9A">H</text>
-      <rect x="846" y="78" width="203" height="122" fill="#189BBC"/>
-      <path d="M1055 72 L1104 40" stroke="#189BBC" stroke-width="1.5" stroke-dasharray="4 3"/>
-      <path d="M1108 37 l-11 0.5 l5 7 z" fill="#189BBC"/>
-      <text x="1116" y="22" font-size="10" font-weight="700" text-anchor="end" fill="#127E9A">広がりつづける</text>
-      <text x="846" y="264" font-size="17" font-family="'Zen Old Mincho', serif" font-weight="700" fill="#127E9A">豊かさ</text>
-      <text x="846" y="288" font-size="11.5" fill="rgba(0,0,0,.5)">GとHが、同時に動いている</text>
-      <text x="1116" y="276" font-size="42" font-family="Jost, sans-serif" font-weight="600" text-anchor="end" fill="#189BBC">43%</text>
+      <!-- 軸の上では、長方形が線になる -->
+      <rect x="236" y="54" width="5" height="186" fill="#189BBC"/>
+      <rect x="250" y="248" width="700" height="5" fill="#189BBC"/>
+
+      <!-- 四つの居場所 -->
+      <circle cx="250" cy="54" r="7" fill="#189BBC" stroke="#fff" stroke-width="2.5"/>
+      <circle cx="950" cy="240" r="7" fill="#189BBC" stroke="#fff" stroke-width="2.5"/>
+      <circle cx="810" cy="86" r="7" fill="#189BBC" stroke="#fff" stroke-width="2.5"/>
+      <circle cx="250" cy="240" r="6" fill="rgba(0,0,0,.32)" stroke="#fff" stroke-width="2.5"/>
+
+      <!-- 豊かさ -->
+      <text x="530" y="162" font-size="46" font-family="Jost, sans-serif" font-weight="600" text-anchor="middle" fill="#189BBC">43%</text>
+      <text x="530" y="196" font-size="21" font-family="'Zen Old Mincho', serif" font-weight="700" text-anchor="middle" fill="#000">豊かさ</text>
+      <text x="530" y="218" font-size="11" text-anchor="middle" fill="rgba(0,0,0,.5)">GとHが、同時に動いている</text>
+
+      <!-- 自分の世界に閉じる -->
+      <text x="218" y="50" text-anchor="end"><tspan font-size="16" font-family="'Zen Old Mincho', serif" font-weight="700" fill="#000">自分の世界に閉じる</tspan><tspan font-size="26" font-family="Jost, sans-serif" font-weight="600" fill="rgba(0,0,0,.42)" dx="10">34%</tspan></text>
+      <text x="218" y="72" font-size="11" text-anchor="end" fill="rgba(0,0,0,.5)">納得はあるが、届いていない</text>
+
+      <!-- 自己犠牲 -->
+      <text x="950" y="284" text-anchor="middle"><tspan font-size="16" font-family="'Zen Old Mincho', serif" font-weight="700" fill="#000">自己犠牲</tspan><tspan font-size="26" font-family="Jost, sans-serif" font-weight="600" fill="rgba(0,0,0,.42)" dx="10">23%</tspan></text>
+      <text x="950" y="306" font-size="11" text-anchor="middle" fill="rgba(0,0,0,.5)">届いているが、納得がない</text>
+
+      <!-- 原点 -->
+      <text x="218" y="246" font-size="13" font-family="'Zen Old Mincho', serif" font-weight="700" text-anchor="end" fill="rgba(0,0,0,.42)">どちらも動いていない</text>
+      <text x="218" y="264" font-size="11" text-anchor="end" fill="rgba(0,0,0,.42)">＝ 正解の中にいる状態</text>
     </svg>
     </div>
-
-    <p class="note" style="margin-top:auto">左の2つは、片方の辺が立っていない。<b>Fは固定された到達点ではない</b>ので、「達成したか」ではなく<b>「面積が広がりつづけているか」</b>で見る。</p>
   </div>
   <div class="foot">
     <span class="src">合わせて57%が、掛け算になっていない。どちらも動いていないときは「正解の中にいる状態」＝ 02へ。数字は卒業制作105本の語り方の分類（キーワードマッチによる目安。辺の長さを測ったデータではない）。</span>
