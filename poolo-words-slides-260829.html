@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
-<title>豊かさから、問いまで ／ 4枚版</title>
+<title>豊かさから、問いまで ／ 5枚版</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@400;700;900&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&family=Jost:wght@400;500;600&display=swap">
@@ -25,8 +25,15 @@ body{background:#EFEFEF;font-family:var(--body);color:var(--ink-soft);-webkit-fo
   display:flex;align-items:center;justify-content:center;overflow:hidden}
 
 #stage{width:1280px;height:720px;position:relative;transform-origin:center center;flex:none}
-.slide{position:absolute;inset:0;background:var(--bg);padding:48px 70px 54px;display:none;flex-direction:column}
+.slide{position:absolute;inset:0;background:var(--bg);padding:48px 70px 40px;display:none;flex-direction:column}
 .slide.on{display:flex}
+
+/* ---------- masthead（01のみ） ---------- */
+.mast{display:flex;align-items:baseline;gap:16px;border-bottom:1px solid var(--line);
+  padding-bottom:12px;margin-bottom:24px;flex:none}
+.mast .dt{font-family:var(--head);font-size:11px;font-weight:700;letter-spacing:.2em;color:var(--brand)}
+.mast .mt{font-family:var(--body);font-size:11px;color:var(--ink-40);letter-spacing:.05em;
+  margin-left:auto;text-align:right;line-height:1.7}
 
 /* ---------- header + rail（はしごを4枚に分散させたもの） ---------- */
 .head{display:flex;align-items:baseline;gap:16px;flex:none}
@@ -41,7 +48,7 @@ h2{font-family:var(--mincho);font-size:30px;font-weight:700;letter-spacing:.04em
 .rail div.on .r{color:var(--brand)}
 .rail div.on .t{color:var(--ink)}
 
-.foot{position:absolute;left:70px;right:70px;bottom:19px;display:flex;align-items:baseline;
+.foot{display:flex;align-items:baseline;flex:none;margin-top:20px;
   border-top:1px solid var(--line);padding-top:10px}
 .foot .src{font-size:10.5px;color:var(--ink-40);letter-spacing:.04em;line-height:1.7}
 .foot .pg{margin-left:auto;font-family:var(--en);font-size:12px;font-weight:500;letter-spacing:.14em;
@@ -62,8 +69,8 @@ svg text{font-family:var(--body)}
 .feq i{font-style:normal;color:var(--brand)}
 
 /* ---------- 02 flow ---------- */
-.fail{display:flex;gap:38px;margin-top:6px}
-.fail div{display:flex;align-items:flex-start;gap:11px;font-size:12px;line-height:1.75;color:var(--ink-60);letter-spacing:.03em}
+.fail{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;margin-top:8px}
+.fail div{display:flex;align-items:flex-start;gap:11px;font-size:12px;line-height:1.8;color:var(--ink-60);letter-spacing:.03em}
 .fail .mk{width:44px;height:16px;flex:none;position:relative;margin-top:3px}
 .fail .mk i{position:absolute;top:7px;height:2px;background:var(--brand);opacity:.32}
 .fail .mk::before,.fail .mk::after{content:"";position:absolute;top:2px;width:1px;height:12px;background:var(--ink-40)}
@@ -87,23 +94,37 @@ svg text{font-family:var(--body)}
 .rules p+p{margin-top:16px}
 .rules small{display:block;font-family:var(--body);font-size:11px;color:var(--ink-50);margin-top:6px;line-height:1.8}
 
+/* ---------- 05 型の帯 ---------- */
+.types{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line)}
+.types>div{padding:16px 24px 18px 0;border-right:1px solid var(--line)}
+.types>div:last-child{border-right:none;padding-right:0}
+.types>div+div{padding-left:24px}
+.types .ty{font-family:var(--head);font-size:10px;font-weight:700;letter-spacing:.18em;color:var(--brand)}
+.types .tf{font-family:var(--mincho);font-size:18px;font-weight:700;letter-spacing:.04em;color:var(--ink);margin-top:8px}
+.types .tw{font-size:11px;line-height:1.75;color:var(--ink-50);margin-top:8px;letter-spacing:.02em}
+.types .out .ty,.types .out .tf{color:var(--ink-40)}
+.types .out .tf{text-decoration:line-through;text-decoration-color:var(--line);text-decoration-thickness:1.5px}
+
 /* ---------- 04 versions ---------- */
 .vq{display:flex;margin-top:2px}
 .vq div{flex:1;padding:0 20px}
 .vq div:first-child{padding-left:0}
 .vq div:last-child{padding-right:0}
 .vq .q{font-family:var(--mincho);font-size:14px;font-weight:700;line-height:1.7;color:var(--ink);letter-spacing:.03em}
+.vq .qa{font-size:10.5px;line-height:1.75;color:var(--ink-50);margin-top:10px;letter-spacing:.02em}
+.vq .qa b{color:var(--brand-deep);font-weight:700}
 .vtbl{width:100%;border-collapse:collapse;margin-top:24px}
 .vtbl th{font-family:var(--head);font-size:9.5px;font-weight:700;letter-spacing:.14em;color:var(--ink-40);
   text-align:left;padding:0 18px 8px 0;border-bottom:1px solid var(--line)}
 .vtbl th:last-child{padding-right:0}
-.vtbl td{font-size:12px;padding:9px 18px 9px 0;border-bottom:1px solid var(--line);letter-spacing:.02em}
+.vtbl td{font-size:12px;padding:7px 18px 7px 0;border-bottom:1px solid var(--line);letter-spacing:.02em}
 .vtbl td:last-child{padding-right:0}
 .vtbl td.in{font-family:var(--mincho);font-size:15px;color:var(--ink-40);width:150px;white-space:nowrap;
   text-decoration:line-through;text-decoration-color:var(--brand-mid);text-decoration-thickness:1.5px}
 .vtbl td.out{font-family:var(--mincho);font-size:14px;color:var(--ink)}
 .vtbl td.out b{color:var(--brand-deep);font-weight:700}
-.kick{display:flex;gap:24px;margin-top:auto;align-items:flex-end;padding-top:24px}
+.kick{display:flex;gap:24px;margin-top:auto;align-items:flex-end;padding-top:20px}
 .kick .big{font-family:var(--mincho);font-size:20px;font-weight:700;line-height:1.7;color:var(--ink);
   letter-spacing:.03em;flex:1}
 .kick .big em{font-style:normal;background:linear-gradient(transparent 60%,var(--brand-pale) 60%)}
@@ -123,8 +144,8 @@ svg text{font-family:var(--body)}
   color:var(--ink-40);z-index:20}
 
 /* ---------- スマホ・タブレット：縦に流して読む ---------- */
-.figscroll{width:100%}
-.figscroll svg{width:100%;height:auto;display:block}
+.figscroll{width:100%;flex:1 1 auto;min-height:0;display:flex}
+.figscroll svg{width:100%;height:100%;display:block}
 
 @media (max-width:900px){
   body{display:block;overflow:auto;background:#EFEFEF}
@@ -138,13 +159,14 @@ svg text{font-family:var(--body)}
   .rail{grid-template-columns:1fr 1fr;margin-top:18px}
   .rail div{padding:8px 12px 0 0}
   .rail .t{font-size:12px}
-  .foot{position:relative;left:auto;right:auto;bottom:auto;margin-top:26px;display:block}
+  .foot{margin-top:24px;display:block}
   .foot .pg{display:block;margin:10px 0 0;padding-left:0}
 
   /* 図は横スクロールで原寸を保つ */
   .figscroll{overflow-x:auto;-webkit-overflow-scrolling:touch;
     border-left:1px solid var(--line);border-right:1px solid var(--line);padding:0 2px}
-  .figscroll svg{width:880px;max-width:none}
+  .figscroll{display:block;flex:none}
+  .figscroll svg{width:880px;height:auto;max-width:none}
   .figscroll.ring svg{width:400px}
 
   /* 01 */
@@ -160,6 +182,15 @@ svg text{font-family:var(--body)}
   .s3>div:first-child{margin-bottom:24px}
   .mini td{font-size:12px}
   .rule{font-size:14px}
+
+  /* 05 */
+  .types{grid-template-columns:1fr}
+  .types>div{border-right:none;border-bottom:1px solid var(--line);padding:16px 0}
+  .types>div+div{padding-left:0}
+  .types>div:last-child{border-bottom:none}
+  .types .tf{font-size:17px}
+  .mast{display:block;padding-bottom:14px;margin-bottom:20px}
+  .mast .mt{margin:8px 0 0;text-align:left}
 
   /* 04 */
   .vq{display:block;margin-top:14px}
@@ -192,6 +223,10 @@ svg text{font-family:var(--body)}
 
 <!-- ==================== 1 ／ 目的 ==================== -->
 <section class="slide on">
+  <div class="mast">
+    <span class="dt">用語の整理 ／ 豊かさから、問いまで</span>
+    <span class="mt">2026-08-28版・全5枚　by TABIPPO・POOLO<br>出典：人生の豊かさ_F=G×H ／ 探究テーマ（用語の正本 v1.7）／ POOLO_METHOD_探究編 v1.7</span>
+  </div>
   <div class="head">
     <span class="no">01</span>
     <h2>豊かさは、足し算ではなく掛け算</h2>
@@ -242,7 +277,7 @@ svg text{font-family:var(--body)}
       <rect x="846" y="78" width="203" height="122" fill="#189BBC"/>
       <path d="M1055 72 L1104 40" stroke="#189BBC" stroke-width="1.5" stroke-dasharray="4 3"/>
       <path d="M1108 37 l-11 0.5 l5 7 z" fill="#189BBC"/>
-      <text x="1116" y="92" font-size="10" font-weight="700" text-anchor="end" fill="#127E9A">広がりつづける</text>
+      <text x="1116" y="22" font-size="10" font-weight="700" text-anchor="end" fill="#127E9A">広がりつづける</text>
       <text x="846" y="264" font-size="17" font-family="'Zen Old Mincho', serif" font-weight="700" fill="#127E9A">豊かさ</text>
       <text x="846" y="288" font-size="11.5" fill="rgba(0,0,0,.5)">GとHが、同時に動いている</text>
       <text x="1116" y="276" font-size="42" font-family="Jost, sans-serif" font-weight="600" text-anchor="end" fill="#189BBC">43%</text>
@@ -252,8 +287,8 @@ svg text{font-family:var(--body)}
     <p class="note" style="margin-top:auto">左の2つは、片方の辺が立っていない。<b>Fは固定された到達点ではない</b>ので、「達成したか」ではなく<b>「面積が広がりつづけているか」</b>で見る。</p>
   </div>
   <div class="foot">
-    <span class="src">合わせて57%が、掛け算になっていない。どちらも動いていないときは「正解の中にいる状態」＝ 02へ。／ 数字は卒業制作105本を語り方で分類した目安。キーワードマッチによるもので、辺の長さを測ったデータではない。出典：人生の豊かさ_F=G×H</span>
-    <span class="pg">1 / 4</span>
+    <span class="src">合わせて57%が、掛け算になっていない。どちらも動いていないときは「正解の中にいる状態」＝ 02へ。数字は卒業制作105本の語り方の分類（キーワードマッチによる目安。辺の長さを測ったデータではない）。</span>
+    <span class="pg">1 / 5</span>
   </div>
 </section>
 
@@ -291,8 +326,9 @@ svg text{font-family:var(--body)}
       <text x="328" y="88" font-size="17" font-family="'Zen Old Mincho', serif" font-weight="700" text-anchor="middle" fill="#000">自分</text>
 
       <!-- 橋（問い⇄反応） -->
-      <rect x="404" y="34" width="332" height="96" fill="#DDECF1" opacity=".55"/>
-      <text x="570" y="24" font-size="11" font-weight="700" letter-spacing="1.6" text-anchor="middle" fill="#127E9A">＝ 橋。ここだけが、GとHを同時に動かす</text>
+      <rect x="404" y="34" width="180" height="96" fill="#DDECF1" opacity=".55"/>
+      <text x="494" y="22" font-size="11" font-weight="700" letter-spacing="1.4" text-anchor="middle" fill="#127E9A">＝ 橋</text>
+      <text x="614" y="22" font-size="11" font-weight="700" letter-spacing="1.4" fill="rgba(0,0,0,.45)">ここだけが、GとHを同時に動かす</text>
       <line x1="412" y1="62" x2="574" y2="62" stroke="#189BBC" stroke-width="2.5"/>
       <path d="M576 62 l-10 -5 v10 z" fill="#189BBC"/>
       <text x="494" y="53" font-size="14" font-family="'Zen Old Mincho', serif" font-weight="700" text-anchor="middle" fill="#127E9A">問い</text>
@@ -331,16 +367,16 @@ svg text{font-family:var(--body)}
 
     <p class="tag" style="margin:24px 0 12px">橋は、両端が刺さっていないと渡れない</p>
     <div class="fail">
-      <div><span class="mk"><i style="left:0;right:44%"></i></span><span><b>自分の端だけ</b>：賭かっているが、伝わらない ＝ 日記（G単独・34%）</span></div>
-      <div><span class="mk"><i style="left:44%;right:0"></i></span><span><b>社会の端だけ</b>：伝わるが、賭かっていない ＝ 一般論（H単独・23%）</span></div>
-      <div style="color:var(--brand-deep)"><span class="mk"><i style="left:0;right:0;opacity:1"></i></span><span><b style="color:var(--brand-deep)">両端が刺さっている</b>：橋になる（G × H・43%）</span></div>
+      <div><span class="mk"><i style="left:0;right:44%"></i></span><span><b>自分の端だけ</b><br>賭かっているが、伝わらない ＝ 日記（G単独・34%）</span></div>
+      <div><span class="mk"><i style="left:44%;right:0"></i></span><span><b>社会の端だけ</b><br>伝わるが、賭かっていない ＝ 一般論（H単独・23%）</span></div>
+      <div style="color:var(--brand-deep)"><span class="mk"><i style="left:0;right:0;opacity:1"></i></span><span><b style="color:var(--brand-deep)">両端が刺さっている</b><br>橋になる ＝ 掛け算が立つ（G × H・43%）</span></div>
     </div>
 
-    <p class="say" style="margin-top:auto;font-size:17px">「正解」とは、この行き来が<em>片道で止まった状態</em>のこと。敵は、正解の中身ではなく停止のほう。</p>
+    <p class="say" style="margin-top:auto;padding-top:24px;font-size:17px">「正解」とは、この行き来が<em>片道で止まった状態</em>のこと。敵は、正解の中身ではなく停止のほう。</p>
   </div>
   <div class="foot">
     <span class="src">問いは、答えを出すための道具ではなく、動きつづけるための装置。きれいな一文にした瞬間、問いは動かなくなる。</span>
-    <span class="pg">2 / 4</span>
+    <span class="pg">2 / 5</span>
   </div>
 </section>
 
@@ -360,7 +396,7 @@ svg text{font-family:var(--body)}
   <div class="body">
     <div class="s3">
       <div class="figscroll ring">
-        <svg viewBox="0 0 414 372">
+        <svg viewBox="-30 0 470 372">
           <circle cx="207" cy="184" r="116" fill="none" stroke="#E4E4E4"/>
           <path d="M207 300 A116 116 0 0 1 106 242" fill="none" stroke="#189BBC" stroke-width="3"/>
           <path d="M126 96 l3 12 l10 -6 z" fill="rgba(0,0,0,.3)"/>
@@ -423,7 +459,7 @@ svg text{font-family:var(--body)}
   </div>
   <div class="foot">
     <span class="src">手5（差し出す）は、知らない人に届ける Lv.3 が全員の必修ライン。自分と、自分を知っている人の内側では、対象の外に出られないため。</span>
-    <span class="pg">3 / 4</span>
+    <span class="pg">3 / 5</span>
   </div>
 </section>
 
@@ -431,8 +467,8 @@ svg text{font-family:var(--body)}
 <section class="slide">
   <div class="head">
     <span class="no">04</span>
-    <h2>3周まわると、入口の語は消える</h2>
-    <span class="sub">以下はすべて作例。実データではありません</span>
+    <h2>1周ごとに、問いが書き換わる</h2>
+    <span class="sub">答えが出たのではなく、問う場所が動く</span>
   </div>
   <div class="rail">
     <div><p class="r">目的</p><p class="t">豊かさ</p></div>
@@ -443,37 +479,77 @@ svg text{font-family:var(--body)}
   <div class="body">
     <p class="tag" style="margin-bottom:8px">入口は「ワインが好き」　／　円 ＝ その版の問いが届きうる範囲</p>
     <div class="figscroll">
-    <svg viewBox="0 0 1140 142">
-      <line x1="0" y1="80" x2="1140" y2="80" stroke="#E4E4E4"/>
-      <circle cx="92" cy="80" r="15" fill="#fff" stroke="#8FC6D6" stroke-width="1.5"/>
-      <circle cx="92" cy="80" r="4" fill="#189BBC"/>
-      <text x="92" y="38" font-size="13" font-family="Jost, sans-serif" font-weight="600" text-anchor="middle" fill="#189BBC" letter-spacing="1.2">v1.0</text>
-      <text x="92" y="124" font-size="10.5" text-anchor="middle" fill="rgba(0,0,0,.45)">対象の中</text>
+    <svg viewBox="0 0 1140 224">
+      <line x1="0" y1="118" x2="1140" y2="118" stroke="#E4E4E4"/>
+      <text x="92" y="34" font-size="13" font-family="Jost, sans-serif" font-weight="600" text-anchor="middle" fill="#189BBC" letter-spacing="1.2">v1.0</text>
+      <text x="382" y="34" font-size="13" font-family="Jost, sans-serif" font-weight="600" text-anchor="middle" fill="#189BBC" letter-spacing="1.2">v1.1</text>
+      <text x="700" y="34" font-size="13" font-family="Jost, sans-serif" font-weight="600" text-anchor="middle" fill="#189BBC" letter-spacing="1.2">v1.2</text>
+      <text x="1042" y="34" font-size="13" font-family="Jost, sans-serif" font-weight="600" text-anchor="middle" fill="#189BBC" letter-spacing="1.2">v1.3</text>
 
-      <circle cx="382" cy="80" r="28" fill="rgba(24,155,188,.07)" stroke="#8FC6D6" stroke-width="1.5"/>
-      <circle cx="382" cy="80" r="4" fill="#189BBC"/>
-      <text x="382" y="38" font-size="13" font-family="Jost, sans-serif" font-weight="600" text-anchor="middle" fill="#189BBC" letter-spacing="1.2">v1.1</text>
-      <text x="382" y="124" font-size="10.5" text-anchor="middle" fill="rgba(0,0,0,.45)">店主ひとり（現場当て）</text>
+      <circle cx="92" cy="118" r="15" fill="#fff" stroke="#8FC6D6" stroke-width="1.5"/>
+      <circle cx="382" cy="118" r="28" fill="rgba(24,155,188,.07)" stroke="#8FC6D6" stroke-width="1.5"/>
+      <circle cx="700" cy="118" r="44" fill="rgba(24,155,188,.1)" stroke="#8FC6D6" stroke-width="1.5"/>
+      <circle cx="1042" cy="118" r="60" fill="rgba(24,155,188,.15)" stroke="#189BBC" stroke-width="1.5"/>
+      <circle cx="92" cy="118" r="4" fill="#189BBC"/>
+      <circle cx="382" cy="118" r="4" fill="#189BBC"/>
+      <circle cx="700" cy="118" r="4" fill="#189BBC"/>
+      <circle cx="1042" cy="118" r="4" fill="#189BBC"/>
 
-      <circle cx="700" cy="80" r="44" fill="rgba(24,155,188,.1)" stroke="#8FC6D6" stroke-width="1.5"/>
-      <circle cx="700" cy="80" r="4" fill="#189BBC"/>
-      <text x="700" y="20" font-size="13" font-family="Jost, sans-serif" font-weight="600" text-anchor="middle" fill="#189BBC" letter-spacing="1.2">v1.2</text>
-      <text x="700" y="142" font-size="10.5" text-anchor="middle" fill="rgba(0,0,0,.45)">知らない人へ（ズラし当て・Lv.3）</text>
-
-      <circle cx="1042" cy="80" r="60" fill="rgba(24,155,188,.15)" stroke="#189BBC" stroke-width="1.5"/>
-      <circle cx="1042" cy="80" r="4" fill="#189BBC"/>
-      <text x="1042" y="8" font-size="13" font-family="Jost, sans-serif" font-weight="600" text-anchor="middle" fill="#189BBC" letter-spacing="1.2">v1.3</text>
-      <text x="1042" y="142" font-size="10.5" text-anchor="middle" fill="#127E9A">続く場（反証当て・Lv.4）</text>
+      <text x="92" y="212" font-size="11" text-anchor="middle" fill="rgba(0,0,0,.45)">対象の中</text>
+      <text x="382" y="212" font-size="11" text-anchor="middle" fill="rgba(0,0,0,.45)">店主ひとり</text>
+      <text x="700" y="212" font-size="11" text-anchor="middle" fill="rgba(0,0,0,.45)">知らない人へ</text>
+      <text x="1042" y="212" font-size="11" text-anchor="middle" fill="#127E9A">続く場</text>
     </svg>
     </div>
 
     <div class="vq" style="margin-top:24px">
-      <div><p class="q">なぜ私は、整っていないワインのほうを覚えているのか？</p></div>
-      <div><p class="q">惹かれているのは、味ではなく「事情が見えること」なのか？</p></div>
-      <div><p class="q">なぜ私は、作り手の迷いが残っているものにしか心が動かないのか？</p></div>
-      <div><p class="q">迷いの跡は、どうすれば残せるのか？</p></div>
+      <div>
+        <p class="q">なぜ私は、整っていないワインのほうを覚えているのか？</p>
+        <p class="qa">場面・固有名詞を入れて、抽象から降ろす</p>
+      </div>
+      <div>
+        <p class="q">惹かれているのは、味ではなく「事情が見えること」なのか？</p>
+        <p class="qa"><b>手4 現場当て</b>／その店の店主に会いに行く</p>
+      </div>
+      <div>
+        <p class="q">なぜ私は、作り手の迷いが残っているものにしか心が動かないのか？</p>
+        <p class="qa"><b>手4 ズラし当て ＋ 手5 Lv.3</b>／飲まない友人へ、ZINEを配る</p>
+      </div>
+      <div>
+        <p class="q">迷いの跡は、どうすれば残せるのか？</p>
+        <p class="qa"><b>手4 反証当て ＋ 手5 Lv.4</b>／月1の持ち寄り会を始める</p>
+      </div>
     </div>
-    <p class="note" style="margin-top:16px">v1.1 は v1.0 の<b>答えになっていない</b>。答えが出たのではなく、問う場所が動いた。だから次の周がある。そして解像度が上がると、問いは狭くならず<b>むしろ外に開く</b>。</p>
+    <p class="note" style="margin-top:24px">v1.1 は v1.0 の<b>答えになっていない</b>。答えが出たのではなく、問う場所が動いた。だから次の周がある。そして解像度が上がると、問いは狭くならず<b>むしろ外に開く</b>——ワインの話が、手書きの企画書の話になるように。</p>
+
+    <p class="say" style="margin-top:auto">版が上がった回数は、そのまま<em>他者に当てた回数。</em>ひとりでは、版は上がらないので。</p>
+  </div>
+  <div class="foot">
+    <span class="src">円の大小は届きうる範囲のイメージで、人数を測ったものではない。作例のため、実データではありません。</span>
+    <span class="pg">4 / 5</span>
+  </div>
+</section>
+
+<!-- ==================== 5 ／ 測り方（発見） ==================== -->
+<section class="slide">
+  <div class="head">
+    <span class="no">05</span>
+    <h2>5本とも、入口の語が消えた</h2>
+    <span class="sub">作例5本を書いてみて、全部同じことが起きた</span>
+  </div>
+  <div class="rail">
+    <div><p class="r">目的</p><p class="t">豊かさ</p></div>
+    <div><p class="r">営み</p><p class="t">探究 ＝ 問いという橋</p></div>
+    <div><p class="r">やり方</p><p class="t">六手。心臓は手4</p></div>
+    <div class="on"><p class="r">測り方</p><p class="t">問いの版</p></div>
+  </div>
+  <div class="body">
+    <div class="types">
+      <div><p class="ty">原因型</p><p class="tf">なぜ私は〜なのか</p><p class="tw">入口。自分の正体を問う</p></div>
+      <div><p class="ty">確かめ型</p><p class="tf">〜は、〜なのか？</p><p class="tw">当てた直後にだけ現れる<br><span class="bl">★正本にない型</span></p></div>
+      <div><p class="ty">方法型</p><p class="tf">どうすれば〜できるか</p><p class="tw">3周後。作る段階に入る</p></div>
+      <div class="out"><p class="ty">定義型</p><p class="tf">〜とは何か</p><p class="tw">5本とも一度も使わなかった</p></div>
+    </div>
 
     <table class="vtbl">
       <tr><th>入口の語</th><th>3周後（v1.3）に問っていること</th></tr>
@@ -486,12 +562,12 @@ svg text{font-family:var(--body)}
 
     <div class="kick">
       <p class="big">進捗は「決まったか」ではなく、<br><em>「何回書き換わったか」</em>で測る。</p>
-      <p class="side">だから運営が聞くのは「テーマ、決まりましたか？」ではなく、<b>「前回から、問いのどこが変わりましたか」</b>。版が上がった回数は、そのまま他者に当てた回数——ひとりでは、版は上がらないので。</p>
+      <p class="side">運営が聞くのは「テーマ、決まりましたか？」ではなく<b>「前回から、問いのどこが変わりましたか」</b>。v1.3 にまだ入口の語が残っていたら、周が回っていない——答えてもらわなくても、外から判定できる。</p>
     </div>
   </div>
   <div class="foot">
-    <span class="src">入口では「なぜ私は」（原因型）で自分の正体を問い、3周かけて「どうすれば」（方法型）へ。ただしこれは作例5本から出た仮説で、実データでの検証はこれから。</span>
-    <span class="pg">4 / 4</span>
+    <span class="src">ただしこれは作例5本から出た仮説で、同じ形になったのは書き手が同じだからという可能性が残る。実データでの検証はこれから（体験会v2の指標7が、これを取る設計）。</span>
+    <span class="pg">5 / 5</span>
   </div>
 </section>
 
