@@ -265,10 +265,11 @@ svg text{font-family:var(--body)}
 
 @media print{
   @page{size:1280px 720px;margin:0}
-  body{background:#fff;display:block;overflow:visible}
-  #stage{width:1280px;height:auto;transform:none!important}
+  html,body{height:auto;background:#fff;display:block;overflow:visible;margin:0;padding:0}
+  #stage{width:1280px;height:auto;transform:none!important;overflow:hidden}
   .slide{display:flex!important;position:relative;inset:auto;width:1280px;height:720px;
-    page-break-after:always;break-after:page}
+    overflow:hidden;page-break-after:always;break-after:page}
+  .slide:last-child{page-break-after:auto;break-after:auto}
   #nav,#hint{display:none}
 }
 </style>
