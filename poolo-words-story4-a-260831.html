@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>豊かさから、問いまで ／ ストーリー4枚・対比</title>
+<link rel="stylesheet" href="poolo-ds/tokens.css">
+<link rel="stylesheet" href="poolo-ds/slides.css">
+<style>
+/* =============================================================
+   縦（ストーリー 1080×1920）のアートボード — poolo-ds への拡張案
+   -------------------------------------------------------------
+   slides.css の部品はそのまま使い、変数だけ差し替える。
+   上下の余白は Instagram の UI（上：ユーザー名／下：返信欄）を避ける値。
+   ここが機能するなら slides.css 側に .deck--story として昇格させたい。
+   ============================================================= */
+.deck--story{
+  --sl-w: 1080px;
+  --sl-h: 1920px;
+  --sl-pad-y: 180px;
+  --sl-pad-x: 80px;
+
+  --sfs-label: 22px;
+  --sfs-note:  21px;
+  --sfs-body:  29px;
+  --sfs-lead:  34px;
+  --sfs-head:  46px;
+  --sfs-hero:  62px;
+  --sfs-data: 130px;
+}
+.deck--story .sl{ padding-bottom: 210px; }               /* 返信欄を避ける */
+.deck--story .sl--define .def-body{ font-size: 42px; }   /* 縦は主役なので上げる */
+.deck--story .sl--define .def-note{ max-width: none; }
+.deck--story .sl--figure .fig-cap{ max-width: none; }
+
+/* 定義の枚にも図を持たせる（縦は縦方向に余白があるため） */
+.deck--story .sl--define .fig{
+  flex: 1 1 auto; min-height: 0; margin-top: var(--sp-group);
+  display: flex; align-items: center; justify-content: center;
+}
+.deck--story .fig svg{
+  max-width: 100%; max-height: 100%; width: auto; height: auto; display: block;
+}
+
+/* 縦では対比を上下に積む */
+.deck--story .sl--split .split-grid{ grid-template-columns:1fr; gap:var(--sp-group) 0;
+  align-items:start; align-content:center; }
+.deck--story .sl--split .split-rule{ height:1px; width:100%; align-self:auto; }
+.deck--story .sl--statement .st-note{ max-width:none; }
+.deck--story .sl--question .q-sub{ max-width:none; }
+</style>
+</head>
+<body class="deck deck--story">
+<div class="stage">
+<section class="sl sl--split on">
+  <div class="sl-top">
+    <span class="sl-num">01</span>
+    <span class="sl-kicker">POOLO ／ 用語の整理</span>
+    <span class="sl-meta">対比</span>
+  </div>
+  <div class="sl-body is-top">
+    <h2>豊かさは、足し算ではなく<em>掛け算</em>。</h2>
+    <div class="split-grid" style="margin-top:var(--sp-group)">
+      <div class="split-col is-sub">
+        <span class="sl-label">NOT</span>
+        <h3>足し算</h3>
+        <p>G も増やし、H も増やす。別々に努力して、足し合わせる。</p>
+      </div>
+      <div class="split-rule"></div>
+      <div class="split-col is-lead">
+        <span class="sl-label">BUT</span>
+        <h3>掛け算</h3>
+        <p>片方が弱ると、全体がしぼむ。ひとつの行為で、両方が同時に動く。</p>
+      </div>
+    </div>
+  </div>
+  <div class="sl-foot">
+    <p class="sl-src">出典：人生の豊かさ_F=G×H</p>
+    <span class="sl-pg">01 / 04</span>
+  </div>
+</section>
+
+<section class="sl sl--split">
+  <div class="sl-top">
+    <span class="sl-num">02</span>
+    <span class="sl-kicker">POOLO ／ 用語の整理</span>
+    <span class="sl-meta">対比</span>
+  </div>
+  <div class="sl-body is-top">
+    <h2>探究は、到達ではなく<em>往復</em>。</h2>
+    <div class="split-grid" style="margin-top:var(--sp-group)">
+      <div class="split-col is-sub">
+        <span class="sl-label">NOT</span>
+        <h3>到達</h3>
+        <p>答えが出たら終わる。着いた場所が成果になる。</p>
+      </div>
+      <div class="split-rule"></div>
+      <div class="split-col is-lead">
+        <span class="sl-label">BUT</span>
+        <h3>往復</h3>
+        <p>問いを他者に当て、返ってきたぶんだけ書き換える。止まらないこと自体が中身。</p>
+      </div>
+    </div>
+  </div>
+  <div class="sl-foot">
+    <p class="sl-src">出典：探究テーマ（用語の正本 v1.7）</p>
+    <span class="sl-pg">02 / 04</span>
+  </div>
+</section>
+
+<section class="sl sl--split">
+  <div class="sl-top">
+    <span class="sl-num">03</span>
+    <span class="sl-kicker">POOLO ／ 用語の整理</span>
+    <span class="sl-meta">対比</span>
+  </div>
+  <div class="sl-body is-top">
+    <h2>「正解」は、正しさではなく<em>停止</em>。</h2>
+    <div class="split-grid" style="margin-top:var(--sp-group)">
+      <div class="split-col is-sub">
+        <span class="sl-label">NOT</span>
+        <h3>正しい答え</h3>
+        <p>語の見た目はこちら。だが、これではない。</p>
+      </div>
+      <div class="split-rule"></div>
+      <div class="split-col is-lead">
+        <span class="sl-label">BUT</span>
+        <h3>片道で止まった状態</h3>
+        <p>行動は出ているのにエネルギーは増えず、むしろ削れる。</p>
+      </div>
+    </div>
+  </div>
+  <div class="sl-foot">
+    <p class="sl-src">出典：POOLO_METHOD_探究編 v1.7</p>
+    <span class="sl-pg">03 / 04</span>
+  </div>
+</section>
+
+<section class="sl sl--split">
+  <div class="sl-top">
+    <span class="sl-num">04</span>
+    <span class="sl-kicker">POOLO ／ 用語の整理</span>
+    <span class="sl-meta">対比</span>
+  </div>
+  <div class="sl-body is-top">
+    <h2>進捗は、決まったかではなく<em>書き換えた回数</em>。</h2>
+    <div class="split-grid" style="margin-top:var(--sp-group)">
+      <div class="split-col is-sub">
+        <span class="sl-label">NOT</span>
+        <h3>「テーマ、決まりましたか？」</h3>
+        <p>決まる・決まらないの二値。動きが1ミリも見えない。</p>
+      </div>
+      <div class="split-rule"></div>
+      <div class="split-col is-lead">
+        <span class="sl-label">BUT</span>
+        <h3>「前回から、どこが変わりましたか」</h3>
+        <p>版が上がった回数は、そのまま他者に当てた回数。</p>
+      </div>
+    </div>
+  </div>
+  <div class="sl-foot">
+    <p class="sl-src">ひとりでは、版は上がらない。</p>
+    <span class="sl-pg">04 / 04</span>
+  </div>
+</section>
+</div>
+
+<nav class="deck-nav" aria-label="スライド操作">
+  <button type="button" data-nav="prev">◀</button>
+  <span id="dots"></span>
+  <button type="button" data-nav="next">▶</button>
+</nav>
+
+<script>
+(function () {
+  var slides = Array.prototype.slice.call(document.querySelectorAll('.sl'));
+  var stage  = document.querySelector('.stage');
+  var dots   = document.getElementById('dots');
+  var i = 0;
+  slides.forEach(function (_, n) {
+    var b = document.createElement('button');
+    b.type = 'button'; b.className = 'dot' + (n === 0 ? ' on' : '');
+    b.setAttribute('aria-label', (n + 1) + '枚目へ');
+    b.addEventListener('click', function () { go(n); });
+    dots.appendChild(b);
+  });
+  function go(n) {
+    i = (n + slides.length) % slides.length;
+    slides.forEach(function (s, k) { s.classList.toggle('on', k === i); });
+    Array.prototype.forEach.call(dots.children, function (d, k) { d.classList.toggle('on', k === i); });
+    history.replaceState(null, '', '#' + (i + 1));
+  }
+  document.querySelector('[data-nav="prev"]').addEventListener('click', function () { go(i - 1); });
+  document.querySelector('[data-nav="next"]').addEventListener('click', function () { go(i + 1); });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); go(i + 1); }
+    if (e.key === 'ArrowLeft')                   { e.preventDefault(); go(i - 1); }
+  });
+  function fit() {
+    var cs = getComputedStyle(document.body);
+    var w = parseFloat(cs.getPropertyValue('--sl-w')) || 1080;
+    var h = parseFloat(cs.getPropertyValue('--sl-h')) || 1920;
+    stage.style.transform = 'scale(' + Math.min(window.innerWidth / w, window.innerHeight / h) * 0.94 + ')';
+  }
+  window.addEventListener('resize', fit); fit();
+  var hh = parseInt((location.hash || '').slice(1), 10);
+  if (hh >= 1 && hh <= slides.length) go(hh - 1);
+})();
+</script>
+</body>
+</html>

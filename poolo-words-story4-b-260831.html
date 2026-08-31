@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>豊かさから、問いまで ／ ストーリー4枚・主張</title>
+<link rel="stylesheet" href="poolo-ds/tokens.css">
+<link rel="stylesheet" href="poolo-ds/slides.css">
+<style>
+/* =============================================================
+   縦（ストーリー 1080×1920）のアートボード — poolo-ds への拡張案
+   -------------------------------------------------------------
+   slides.css の部品はそのまま使い、変数だけ差し替える。
+   上下の余白は Instagram の UI（上：ユーザー名／下：返信欄）を避ける値。
+   ここが機能するなら slides.css 側に .deck--story として昇格させたい。
+   ============================================================= */
+.deck--story{
+  --sl-w: 1080px;
+  --sl-h: 1920px;
+  --sl-pad-y: 180px;
+  --sl-pad-x: 80px;
+
+  --sfs-label: 22px;
+  --sfs-note:  21px;
+  --sfs-body:  29px;
+  --sfs-lead:  34px;
+  --sfs-head:  46px;
+  --sfs-hero:  62px;
+  --sfs-data: 130px;
+}
+.deck--story .sl{ padding-bottom: 210px; }               /* 返信欄を避ける */
+.deck--story .sl--define .def-body{ font-size: 42px; }   /* 縦は主役なので上げる */
+.deck--story .sl--define .def-note{ max-width: none; }
+.deck--story .sl--figure .fig-cap{ max-width: none; }
+
+/* 定義の枚にも図を持たせる（縦は縦方向に余白があるため） */
+.deck--story .sl--define .fig{
+  flex: 1 1 auto; min-height: 0; margin-top: var(--sp-group);
+  display: flex; align-items: center; justify-content: center;
+}
+.deck--story .fig svg{
+  max-width: 100%; max-height: 100%; width: auto; height: auto; display: block;
+}
+
+/* 縦では対比を上下に積む */
+.deck--story .sl--split .split-grid{ grid-template-columns:1fr; gap:var(--sp-item) 0; align-items:start; }
+.deck--story .sl--split .split-rule{ height:1px; width:100%; align-self:auto; }
+.deck--story .sl--statement .st-note{ max-width:none; }
+.deck--story .sl--question .q-sub{ max-width:none; }
+</style>
+</head>
+<body class="deck deck--story">
+<div class="stage">
+<section class="sl sl--statement on">
+  <div class="sl-top">
+    <span class="sl-num">01</span>
+    <span class="sl-kicker">POOLO ／ 用語の整理</span>
+    <span class="sl-meta">主張</span>
+  </div>
+  <div class="sl-body">
+    <p class="sl-hero">豊かさは、<br><em>動かしつづけているあいだだけに</em><br>読み取れる値。</p>
+    <p class="st-note">内的な納得と、社会とのつながりの積。足し算ではなく掛け算なので、片方が弱るとしぼんでいく。</p>
+  </div>
+  <div class="sl-foot">
+    <p class="sl-src">出典：人生の豊かさ_F=G×H</p>
+    <span class="sl-pg">01 / 04</span>
+  </div>
+</section>
+
+<section class="sl sl--statement">
+  <div class="sl-top">
+    <span class="sl-num">02</span>
+    <span class="sl-kicker">POOLO ／ 用語の整理</span>
+    <span class="sl-meta">主張</span>
+  </div>
+  <div class="sl-body">
+    <p class="sl-hero">問いは、<br>自分と社会をつなぐ<em>橋</em>。</p>
+    <p class="st-note">当てられるのは、会いに行ける一人にだけ。〈社会〉には直接ぶつけられない。その往復ひとつが、内的な納得と社会とのつながりを同時に動かす。</p>
+  </div>
+  <div class="sl-foot">
+    <p class="sl-src">出典：探究テーマ（用語の正本 v1.7）</p>
+    <span class="sl-pg">02 / 04</span>
+  </div>
+</section>
+
+<section class="sl sl--statement">
+  <div class="sl-top">
+    <span class="sl-num">03</span>
+    <span class="sl-kicker">POOLO ／ 用語の整理</span>
+    <span class="sl-meta">主張</span>
+  </div>
+  <div class="sl-body">
+    <p class="sl-hero">敵は、答えの中身ではなく、<br><em>停止</em>のほう。</p>
+    <p class="st-note">受け取った人もちゃんと動く。ただし動いているのは受け取った指示の実行で、行動は出ているのにエネルギーは増えず、むしろ削れる。この止まった状態を「正解」と呼ぶ。</p>
+  </div>
+  <div class="sl-foot">
+    <p class="sl-src">出典：POOLO_METHOD_探究編 v1.7</p>
+    <span class="sl-pg">03 / 04</span>
+  </div>
+</section>
+
+<section class="sl sl--statement">
+  <div class="sl-top">
+    <span class="sl-num">04</span>
+    <span class="sl-kicker">POOLO ／ 用語の整理</span>
+    <span class="sl-meta">主張</span>
+  </div>
+  <div class="sl-body">
+    <p class="sl-hero">進捗は、<em>「何回書き換わったか」</em>で測る。</p>
+    <p class="st-note">「決まったか」では動きが見えない。版が上がった回数は、そのまま他者に当てた回数——ひとりでは、版は上がらない。</p>
+  </div>
+  <div class="sl-foot">
+    <p class="sl-src">3周まわると、入口の語は消える。</p>
+    <span class="sl-pg">04 / 04</span>
+  </div>
+</section>
+</div>
+
+<nav class="deck-nav" aria-label="スライド操作">
+  <button type="button" data-nav="prev">◀</button>
+  <span id="dots"></span>
+  <button type="button" data-nav="next">▶</button>
+</nav>
+
+<script>
+(function () {
+  var slides = Array.prototype.slice.call(document.querySelectorAll('.sl'));
+  var stage  = document.querySelector('.stage');
+  var dots   = document.getElementById('dots');
+  var i = 0;
+  slides.forEach(function (_, n) {
+    var b = document.createElement('button');
+    b.type = 'button'; b.className = 'dot' + (n === 0 ? ' on' : '');
+    b.setAttribute('aria-label', (n + 1) + '枚目へ');
+    b.addEventListener('click', function () { go(n); });
+    dots.appendChild(b);
+  });
+  function go(n) {
+    i = (n + slides.length) % slides.length;
+    slides.forEach(function (s, k) { s.classList.toggle('on', k === i); });
+    Array.prototype.forEach.call(dots.children, function (d, k) { d.classList.toggle('on', k === i); });
+    history.replaceState(null, '', '#' + (i + 1));
+  }
+  document.querySelector('[data-nav="prev"]').addEventListener('click', function () { go(i - 1); });
+  document.querySelector('[data-nav="next"]').addEventListener('click', function () { go(i + 1); });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); go(i + 1); }
+    if (e.key === 'ArrowLeft')                   { e.preventDefault(); go(i - 1); }
+  });
+  function fit() {
+    var cs = getComputedStyle(document.body);
+    var w = parseFloat(cs.getPropertyValue('--sl-w')) || 1080;
+    var h = parseFloat(cs.getPropertyValue('--sl-h')) || 1920;
+    stage.style.transform = 'scale(' + Math.min(window.innerWidth / w, window.innerHeight / h) * 0.94 + ')';
+  }
+  window.addEventListener('resize', fit); fit();
+  var hh = parseInt((location.hash || '').slice(1), 10);
+  if (hh >= 1 && hh <= slides.length) go(hh - 1);
+})();
+</script>
+</body>
+</html>

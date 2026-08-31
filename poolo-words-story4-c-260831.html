@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>豊かさから、問いまで ／ ストーリー4枚・問いで閉じる</title>
+<link rel="stylesheet" href="poolo-ds/tokens.css">
+<link rel="stylesheet" href="poolo-ds/slides.css">
+<style>
+/* =============================================================
+   縦（ストーリー 1080×1920）のアートボード — poolo-ds への拡張案
+   -------------------------------------------------------------
+   slides.css の部品はそのまま使い、変数だけ差し替える。
+   上下の余白は Instagram の UI（上：ユーザー名／下：返信欄）を避ける値。
+   ここが機能するなら slides.css 側に .deck--story として昇格させたい。
+   ============================================================= */
+.deck--story{
+  --sl-w: 1080px;
+  --sl-h: 1920px;
+  --sl-pad-y: 180px;
+  --sl-pad-x: 80px;
+
+  --sfs-label: 22px;
+  --sfs-note:  21px;
+  --sfs-body:  29px;
+  --sfs-lead:  34px;
+  --sfs-head:  46px;
+  --sfs-hero:  62px;
+  --sfs-data: 130px;
+}
+.deck--story .sl{ padding-bottom: 210px; }               /* 返信欄を避ける */
+.deck--story .sl--define .def-body{ font-size: 42px; }   /* 縦は主役なので上げる */
+.deck--story .sl--define .def-note{ max-width: none; }
+.deck--story .sl--figure .fig-cap{ max-width: none; }
+.deck--story .sl--question .q-sub{ max-width: none; }
+
+/* 定義の枚にも図を持たせる（縦は縦方向に余白があるため） */
+.deck--story .sl--define .fig{
+  flex: 1 1 auto; min-height: 0; margin-top: var(--sp-group);
+  display: flex; align-items: center; justify-content: center;
+}
+.deck--story .fig svg{
+  max-width: 100%; max-height: 100%; width: auto; height: auto; display: block;
+}
+</style>
+</head>
+<body class="deck deck--story">
+<div class="stage">
+<section class="sl sl--define on">
+  <div class="sl-top">
+    <span class="sl-num">01</span>
+    <span class="sl-kicker">POOLO ／ 用語の整理</span>
+    <span class="sl-meta">定義</span>
+  </div>
+  <div class="sl-body">
+    <p class="def-term">豊かさ</p>
+    <p class="def-body">内的な納得と、社会とのつながりが、<br><em>同時に動いている</em>こと。</p>
+    <div class="fig">
+      <svg viewBox="0 0 920 990">
+      <rect x="185" y="681" width="62" height="62" fill="#189BBC" opacity="0.035"/>
+      <rect x="185" y="617" width="62" height="62" fill="#189BBC" opacity="0.057"/>
+      <rect x="185" y="553" width="62" height="62" fill="#189BBC" opacity="0.075"/>
+      <rect x="185" y="489" width="62" height="62" fill="#189BBC" opacity="0.092"/>
+      <rect x="185" y="425" width="62" height="62" fill="#189BBC" opacity="0.107"/>
+      <rect x="185" y="361" width="62" height="62" fill="#189BBC" opacity="0.122"/>
+      <rect x="185" y="297" width="62" height="62" fill="#189BBC" opacity="0.136"/>
+      <rect x="185" y="233" width="62" height="62" fill="#189BBC" opacity="0.149"/>
+      <rect x="185" y="169" width="62" height="62" fill="#189BBC" opacity="0.162"/>
+      <rect x="185" y="105" width="62" height="62" fill="#189BBC" opacity="0.175"/>
+      <rect x="185" y="41" width="62" height="62" fill="#189BBC" opacity="0.187"/>
+      <rect x="249" y="681" width="62" height="62" fill="#189BBC" opacity="0.057"/>
+      <rect x="249" y="617" width="62" height="62" fill="#189BBC" opacity="0.092"/>
+      <rect x="249" y="553" width="62" height="62" fill="#189BBC" opacity="0.122"/>
+      <rect x="249" y="489" width="62" height="62" fill="#189BBC" opacity="0.149"/>
+      <rect x="249" y="425" width="62" height="62" fill="#189BBC" opacity="0.175"/>
+      <rect x="249" y="361" width="62" height="62" fill="#189BBC" opacity="0.198"/>
+      <rect x="249" y="297" width="62" height="62" fill="#189BBC" opacity="0.221"/>
+      <rect x="249" y="233" width="62" height="62" fill="#189BBC" opacity="0.243"/>
+      <rect x="249" y="169" width="62" height="62" fill="#189BBC" opacity="0.263"/>
+      <rect x="249" y="105" width="62" height="62" fill="#189BBC" opacity="0.284"/>
+      <rect x="249" y="41" width="62" height="62" fill="#189BBC" opacity="0.303"/>
+      <rect x="313" y="681" width="62" height="62" fill="#189BBC" opacity="0.075"/>
+      <rect x="313" y="617" width="62" height="62" fill="#189BBC" opacity="0.122"/>
+      <rect x="313" y="553" width="62" height="62" fill="#189BBC" opacity="0.162"/>
+      <rect x="313" y="489" width="62" height="62" fill="#189BBC" opacity="0.198"/>
+      <rect x="313" y="425" width="62" height="62" fill="#189BBC" opacity="0.232"/>
+      <rect x="313" y="361" width="62" height="62" fill="#189BBC" opacity="0.263"/>
+      <rect x="313" y="297" width="62" height="62" fill="#189BBC" opacity="0.293"/>
+      <rect x="313" y="233" width="62" height="62" fill="#189BBC" opacity="0.322"/>
+      <rect x="313" y="169" width="62" height="62" fill="#189BBC" opacity="0.35"/>
+      <rect x="313" y="105" width="62" height="62" fill="#189BBC" opacity="0.377"/>
+      <rect x="313" y="41" width="62" height="62" fill="#189BBC" opacity="0.403"/>
+      <rect x="377" y="681" width="62" height="62" fill="#189BBC" opacity="0.092"/>
+      <rect x="377" y="617" width="62" height="62" fill="#189BBC" opacity="0.149"/>
+      <rect x="377" y="553" width="62" height="62" fill="#189BBC" opacity="0.198"/>
+      <rect x="377" y="489" width="62" height="62" fill="#189BBC" opacity="0.243"/>
+      <rect x="377" y="425" width="62" height="62" fill="#189BBC" opacity="0.284"/>
+      <rect x="377" y="361" width="62" height="62" fill="#189BBC" opacity="0.322"/>
+      <rect x="377" y="297" width="62" height="62" fill="#189BBC" opacity="0.359"/>
+      <rect x="377" y="233" width="62" height="62" fill="#189BBC" opacity="0.394"/>
+      <rect x="377" y="169" width="62" height="62" fill="#189BBC" opacity="0.428"/>
+      <rect x="377" y="105" width="62" height="62" fill="#189BBC" opacity="0.461"/>
+      <rect x="377" y="41" width="62" height="62" fill="#189BBC" opacity="0.493"/>
+      <rect x="441" y="681" width="62" height="62" fill="#189BBC" opacity="0.107"/>
+      <rect x="441" y="617" width="62" height="62" fill="#189BBC" opacity="0.175"/>
+      <rect x="441" y="553" width="62" height="62" fill="#189BBC" opacity="0.232"/>
+      <rect x="441" y="489" width="62" height="62" fill="#189BBC" opacity="0.284"/>
+      <rect x="441" y="425" width="62" height="62" fill="#189BBC" opacity="0.332"/>
+      <rect x="441" y="361" width="62" height="62" fill="#189BBC" opacity="0.377"/>
+      <rect x="441" y="297" width="62" height="62" fill="#189BBC" opacity="0.42"/>
+      <rect x="441" y="233" width="62" height="62" fill="#189BBC" opacity="0.461"/>
+      <rect x="441" y="169" width="62" height="62" fill="#189BBC" opacity="0.5"/>
+      <rect x="441" y="105" width="62" height="62" fill="#189BBC" opacity="0.539"/>
+      <rect x="441" y="41" width="62" height="62" fill="#189BBC" opacity="0.576"/>
+      <rect x="505" y="681" width="62" height="62" fill="#189BBC" opacity="0.122"/>
+      <rect x="505" y="617" width="62" height="62" fill="#189BBC" opacity="0.198"/>
+      <rect x="505" y="553" width="62" height="62" fill="#189BBC" opacity="0.263"/>
+      <rect x="505" y="489" width="62" height="62" fill="#189BBC" opacity="0.322"/>
+      <rect x="505" y="425" width="62" height="62" fill="#189BBC" opacity="0.377"/>
+      <rect x="505" y="361" width="62" height="62" fill="#189BBC" opacity="0.428"/>
+      <rect x="505" y="297" width="62" height="62" fill="#189BBC" opacity="0.477"/>
+      <rect x="505" y="233" width="62" height="62" fill="#189BBC" opacity="0.524"/>
+      <rect x="505" y="169" width="62" height="62" fill="#189BBC" opacity="0.568"/>
+      <rect x="505" y="105" width="62" height="62" fill="#189BBC" opacity="0.612"/>
+      <rect x="505" y="41" width="62" height="62" fill="#189BBC" opacity="0.654"/>
+      <rect x="569" y="681" width="62" height="62" fill="#189BBC" opacity="0.136"/>
+      <rect x="569" y="617" width="62" height="62" fill="#189BBC" opacity="0.221"/>
+      <rect x="569" y="553" width="62" height="62" fill="#189BBC" opacity="0.293"/>
+      <rect x="569" y="489" width="62" height="62" fill="#189BBC" opacity="0.359"/>
+      <rect x="569" y="425" width="62" height="62" fill="#189BBC" opacity="0.42"/>
+      <rect x="569" y="361" width="62" height="62" fill="#189BBC" opacity="0.477"/>
+      <rect x="569" y="297" width="62" height="62" fill="#189BBC" opacity="0.531"/>
+      <rect x="569" y="233" width="62" height="62" fill="#189BBC" opacity="0.583"/>
+      <rect x="569" y="169" width="62" height="62" fill="#189BBC" opacity="0.633"/>
+      <rect x="569" y="105" width="62" height="62" fill="#189BBC" opacity="0.682"/>
+      <rect x="569" y="41" width="62" height="62" fill="#189BBC" opacity="0.729"/>
+      <rect x="633" y="681" width="62" height="62" fill="#189BBC" opacity="0.149"/>
+      <rect x="633" y="617" width="62" height="62" fill="#189BBC" opacity="0.243"/>
+      <rect x="633" y="553" width="62" height="62" fill="#189BBC" opacity="0.322"/>
+      <rect x="633" y="489" width="62" height="62" fill="#189BBC" opacity="0.394"/>
+      <rect x="633" y="425" width="62" height="62" fill="#189BBC" opacity="0.461"/>
+      <rect x="633" y="361" width="62" height="62" fill="#189BBC" opacity="0.524"/>
+      <rect x="633" y="297" width="62" height="62" fill="#189BBC" opacity="0.583"/>
+      <rect x="633" y="233" width="62" height="62" fill="#189BBC" opacity="0.64"/>
+      <rect x="633" y="169" width="62" height="62" fill="#189BBC" opacity="0.695"/>
+      <rect x="633" y="105" width="62" height="62" fill="#189BBC" opacity="0.749"/>
+      <rect x="633" y="41" width="62" height="62" fill="#189BBC" opacity="0.8"/>
+      <rect x="697" y="681" width="62" height="62" fill="#189BBC" opacity="0.162"/>
+      <rect x="697" y="617" width="62" height="62" fill="#189BBC" opacity="0.263"/>
+      <rect x="697" y="553" width="62" height="62" fill="#189BBC" opacity="0.35"/>
+      <rect x="697" y="489" width="62" height="62" fill="#189BBC" opacity="0.428"/>
+      <rect x="697" y="425" width="62" height="62" fill="#189BBC" opacity="0.5"/>
+      <rect x="697" y="361" width="62" height="62" fill="#189BBC" opacity="0.568"/>
+      <rect x="697" y="297" width="62" height="62" fill="#189BBC" opacity="0.633"/>
+      <rect x="697" y="233" width="62" height="62" fill="#189BBC" opacity="0.695"/>
+      <rect x="697" y="169" width="62" height="62" fill="#189BBC" opacity="0.755"/>
+      <rect x="697" y="105" width="62" height="62" fill="#189BBC" opacity="0.813"/>
+      <rect x="697" y="41" width="62" height="62" fill="#189BBC" opacity="0.869"/>
+      <rect x="761" y="681" width="62" height="62" fill="#189BBC" opacity="0.175"/>
+      <rect x="761" y="617" width="62" height="62" fill="#189BBC" opacity="0.284"/>
+      <rect x="761" y="553" width="62" height="62" fill="#189BBC" opacity="0.377"/>
+      <rect x="761" y="489" width="62" height="62" fill="#189BBC" opacity="0.461"/>
+      <rect x="761" y="425" width="62" height="62" fill="#189BBC" opacity="0.539"/>
+      <rect x="761" y="361" width="62" height="62" fill="#189BBC" opacity="0.612"/>
+      <rect x="761" y="297" width="62" height="62" fill="#189BBC" opacity="0.682"/>
+      <rect x="761" y="233" width="62" height="62" fill="#189BBC" opacity="0.749"/>
+      <rect x="761" y="169" width="62" height="62" fill="#189BBC" opacity="0.813"/>
+      <rect x="761" y="105" width="62" height="62" fill="#189BBC" opacity="0.875"/>
+      <rect x="761" y="41" width="62" height="62" fill="#189BBC" opacity="0.935"/>
+      <rect x="825" y="681" width="62" height="62" fill="#189BBC" opacity="0.187"/>
+      <rect x="825" y="617" width="62" height="62" fill="#189BBC" opacity="0.303"/>
+      <rect x="825" y="553" width="62" height="62" fill="#189BBC" opacity="0.403"/>
+      <rect x="825" y="489" width="62" height="62" fill="#189BBC" opacity="0.493"/>
+      <rect x="825" y="425" width="62" height="62" fill="#189BBC" opacity="0.576"/>
+      <rect x="825" y="361" width="62" height="62" fill="#189BBC" opacity="0.654"/>
+      <rect x="825" y="297" width="62" height="62" fill="#189BBC" opacity="0.729"/>
+      <rect x="825" y="233" width="62" height="62" fill="#189BBC" opacity="0.8"/>
+      <rect x="825" y="169" width="62" height="62" fill="#189BBC" opacity="0.869"/>
+      <rect x="825" y="105" width="62" height="62" fill="#189BBC" opacity="0.935"/>
+      <rect x="825" y="41" width="62" height="62" fill="#189BBC" opacity="1.0"/>
+      <rect x="120" y="40" width="768" height="768" fill="none" stroke="#E4E4E4" stroke-width="2"/>
+      <path d="M184 40 V744 H888" fill="none" stroke="#8FC6D6" stroke-width="2" stroke-dasharray="8 8"/>
+      <line x1="120" y1="808" x2="120" y2="16" stroke="#C9C9C9" stroke-width="2"/>
+      <line x1="120" y1="808" x2="912" y2="808" stroke="#C9C9C9" stroke-width="2"/>
+      <text x="78" y="424" font-size="26" font-weight="700" letter-spacing="2" text-anchor="middle" fill="rgba(0,0,0,.6)" transform="rotate(-90 78 424)">G ／ 内的な納得</text>
+      <text x="120" y="866" font-size="26" font-weight="700" letter-spacing="2" fill="rgba(0,0,0,.6)">H ／ 社会とのつながり</text>
+      <text x="524" y="786" font-size="24" font-weight="700" text-anchor="middle" fill="#127E9A">この帯は、どちらかがゼロ</text>
+      <text x="120" y="920" font-size="28" fill="rgba(0,0,0,.7)">色の濃さが、豊かさ。右上へ行くほど濃い。</text>
+    </svg>
+    </div>
+    <p class="def-note">足し算ではなく、<b>掛け算</b>。片方が弱ると、全体はしぼんでいく。<b>動かしつづけているあいだだけに読み取れる値。</b></p>
+  </div>
+  <div class="sl-foot">
+    <p class="sl-src">出典：人生の豊かさ_F=G×H</p>
+    <span class="sl-pg">01 / 04</span>
+  </div>
+</section>
+
+<section class="sl sl--figure">
+  <div class="sl-top">
+    <span class="sl-num">02</span>
+    <span class="sl-kicker">POOLO ／ 用語の整理</span>
+    <span class="sl-meta">図解</span>
+  </div>
+  <div class="sl-body is-top">
+    <h2>その動きが、探究。</h2>
+    <div class="fig">
+      <svg viewBox="0 0 920 900">
+      <line x1="460" y1="58" x2="460" y2="20" stroke="#189BBC" stroke-width="4"/>
+      <path d="M460 6 l-12 18 h24 z" fill="#189BBC"/>
+      <text x="496" y="36" font-size="24" font-weight="700" fill="#127E9A">広がる</text>
+      <rect x="230" y="58" width="460" height="120" fill="#F9F9F9" stroke="#189BBC" stroke-width="3"/>
+      <text x="460" y="136" font-size="48" font-family="'Zen Old Mincho', serif" font-weight="700" letter-spacing="8" text-anchor="middle" fill="#000">自分</text>
+      <text x="460" y="212" font-size="26" font-weight="700" text-anchor="middle" fill="#127E9A">G ／ 内的な納得</text>
+
+      <rect x="230" y="238" width="460" height="200" fill="#DDECF1" opacity=".55"/>
+      <text x="460" y="268" font-size="24" font-weight="700" letter-spacing="3" text-anchor="middle" fill="#127E9A">問い ＝ 橋</text>
+      <line x1="358" y1="290" x2="358" y2="402" stroke="#189BBC" stroke-width="4"/>
+      <path d="M358 418 l-10 -18 h20 z" fill="#189BBC"/>
+      <text x="334" y="356" font-size="28" font-family="'Zen Old Mincho', serif" font-weight="700" text-anchor="end" fill="#127E9A">問いを当てる</text>
+      <line x1="562" y1="418" x2="562" y2="306" stroke="#189BBC" stroke-width="4"/>
+      <path d="M562 290 l-10 18 h20 z" fill="#189BBC"/>
+      <text x="586" y="356" font-size="28" font-family="'Zen Old Mincho', serif" font-weight="700" fill="#127E9A">反応が返る</text>
+
+      <rect x="230" y="438" width="460" height="120" fill="#189BBC"/>
+      <text x="460" y="516" font-size="48" font-family="'Zen Old Mincho', serif" font-weight="700" letter-spacing="8" text-anchor="middle" fill="#fff">他者</text>
+      <text x="460" y="592" font-size="26" font-weight="700" text-anchor="middle" fill="#127E9A">当てられるのは、ここだけ</text>
+
+      <line x1="460" y1="606" x2="460" y2="646" stroke="#C9C9C9" stroke-width="3"/>
+      <path d="M460 662 l-10 -18 h20 z" fill="#C9C9C9"/>
+      <text x="498" y="642" font-size="24" fill="rgba(0,0,0,.45)">届くだけ</text>
+
+      <rect x="230" y="662" width="460" height="120" fill="#F9F9F9" stroke="#189BBC" stroke-width="3"/>
+      <text x="460" y="740" font-size="48" font-family="'Zen Old Mincho', serif" font-weight="700" letter-spacing="8" text-anchor="middle" fill="#000">社会</text>
+      <text x="460" y="820" font-size="26" font-weight="700" text-anchor="middle" fill="#127E9A">H ／ 社会とのつながり</text>
+      <line x1="460" y1="842" x2="460" y2="880" stroke="#189BBC" stroke-width="4"/>
+      <path d="M460 894 l-12 -18 h24 z" fill="#189BBC"/>
+      <text x="496" y="874" font-size="24" font-weight="700" fill="#127E9A">広がる</text>
+    </svg>
+    </div>
+    <p class="fig-cap">問いを橋にして、自分と社会の両方を広げつづけること。<em>当てられるのは、会いに行ける一人にだけ。</em></p>
+  </div>
+  <div class="sl-foot">
+    <p class="sl-src">出典：探究テーマ（用語の正本 v1.7）</p>
+    <span class="sl-pg">02 / 04</span>
+  </div>
+</section>
+
+<section class="sl sl--figure">
+  <div class="sl-top">
+    <span class="sl-num">03</span>
+    <span class="sl-kicker">POOLO ／ 用語の整理</span>
+    <span class="sl-meta">図解</span>
+  </div>
+  <div class="sl-body is-top">
+    <h2>止まると、落ちる。</h2>
+    <div class="fig">
+      <svg viewBox="0 0 920 990" role="img" aria-label="探究は自分と他者を往復しつづける。「正解」は社会から受け取ってそこで止まる">
+        <!-- 探究：往復が止まらない -->
+        <text x="0" y="34" font-size="26" font-family="'Zen Old Mincho', serif" font-weight="700" letter-spacing="6" fill="#127E9A">探究</text>
+        <rect x="250" y="66" width="420" height="112" fill="#F9F9F9" stroke="#189BBC" stroke-width="2"/>
+        <text x="460" y="138" font-size="36" font-family="'Zen Old Mincho', serif" font-weight="700" letter-spacing="6" text-anchor="middle" fill="#000">自分</text>
+        <line x1="378" y1="186" x2="378" y2="256" stroke="#189BBC" stroke-width="3"/>
+        <path d="M378 272 l-9 -16 h18 z" fill="#189BBC"/>
+        <text x="352" y="230" font-size="24" font-family="'Zen Old Mincho', serif" font-weight="700" text-anchor="end" fill="#127E9A">問い</text>
+        <line x1="542" y1="272" x2="542" y2="202" stroke="#189BBC" stroke-width="3"/>
+        <path d="M542 186 l-9 16 h18 z" fill="#189BBC"/>
+        <text x="568" y="230" font-size="24" font-family="'Zen Old Mincho', serif" font-weight="700" fill="#127E9A">反応</text>
+        <rect x="250" y="280" width="420" height="112" fill="#189BBC"/>
+        <text x="460" y="352" font-size="36" font-family="'Zen Old Mincho', serif" font-weight="700" letter-spacing="6" text-anchor="middle" fill="#fff">他者</text>
+        <text x="460" y="438" font-size="23" font-weight="700" text-anchor="middle" fill="#127E9A">往復が、止まらない　＝　広がりつづける</text>
+
+        <line x1="0" y1="500" x2="920" y2="500" stroke="#E4E4E4" stroke-width="2"/>
+
+        <!-- 「正解」：受け取って、そこで止まる -->
+        <text x="0" y="570" font-size="26" font-family="'Zen Old Mincho', serif" font-weight="700" letter-spacing="6" fill="rgba(0,0,0,.42)">「正解」</text>
+        <rect x="250" y="600" width="420" height="112" fill="#F9F9F9" stroke="#E4E4E4" stroke-width="2"/>
+        <text x="460" y="672" font-size="36" font-family="'Zen Old Mincho', serif" font-weight="700" letter-spacing="6" text-anchor="middle" fill="rgba(0,0,0,.42)">社会</text>
+        <line x1="460" y1="720" x2="460" y2="778" stroke="#C9C9C9" stroke-width="3"/>
+        <path d="M460 794 l-9 -16 h18 z" fill="#C9C9C9"/>
+        <text x="492" y="758" font-size="23" fill="rgba(0,0,0,.45)">受け取る</text>
+        <rect x="250" y="802" width="420" height="112" fill="#F9F9F9" stroke="#E4E4E4" stroke-width="2"/>
+        <text x="460" y="874" font-size="36" font-family="'Zen Old Mincho', serif" font-weight="700" letter-spacing="6" text-anchor="middle" fill="rgba(0,0,0,.42)">自分</text>
+        <rect x="250" y="928" width="420" height="9" fill="rgba(0,0,0,.32)"/>
+        <text x="460" y="978" font-size="23" font-weight="700" text-anchor="middle" fill="rgba(0,0,0,.55)">ここで、止まる　＝　返すものがない</text>
+      </svg>
+    </div>
+    <p class="fig-cap">豊かさは在庫ではないので、止めた瞬間から落ちていく。この止まった状態を<em>「正解」</em>と呼ぶ。正しい答えのことではない。</p>
+  </div>
+  <div class="sl-foot">
+    <p class="sl-src">出典：POOLO_METHOD_探究編 v1.7</p>
+    <span class="sl-pg">03 / 04</span>
+  </div>
+</section>
+
+<section class="sl sl--question">
+  <div class="sl-top">
+    <span class="sl-num">04</span>
+    <span class="sl-kicker">POOLO ／ 用語の整理</span>
+    <span class="sl-meta">問い</span>
+  </div>
+
+  <div class="sl-body">
+    <p class="q-text">あなたの問いは、<br>前回から<em>どこが変わりました</em>か。</p>
+    <p class="q-sub">「決まったか」ではなく「何回書き換わったか」。版が上がった回数は、そのまま他者に当てた回数——ひとりでは、版は上がらない。</p>
+  </div>
+
+  <div class="sl-foot">
+    <p class="sl-src">問いの直後は、次へ急がない</p>
+    <span class="sl-pg">04 / 04</span>
+  </div>
+</section>
+
+</div>
+
+<nav class="deck-nav" aria-label="スライド操作">
+  <button type="button" data-nav="prev">◀</button>
+  <span id="dots"></span>
+  <button type="button" data-nav="next">▶</button>
+</nav>
+
+<script>
+(function () {
+  var slides = Array.prototype.slice.call(document.querySelectorAll('.sl'));
+  var stage  = document.querySelector('.stage');
+  var dots   = document.getElementById('dots');
+  var i = 0;
+  slides.forEach(function (_, n) {
+    var b = document.createElement('button');
+    b.type = 'button'; b.className = 'dot' + (n === 0 ? ' on' : '');
+    b.setAttribute('aria-label', (n + 1) + '枚目へ');
+    b.addEventListener('click', function () { go(n); });
+    dots.appendChild(b);
+  });
+  function go(n) {
+    i = (n + slides.length) % slides.length;
+    slides.forEach(function (s, k) { s.classList.toggle('on', k === i); });
+    Array.prototype.forEach.call(dots.children, function (d, k) { d.classList.toggle('on', k === i); });
+    history.replaceState(null, '', '#' + (i + 1));
+  }
+  document.querySelector('[data-nav="prev"]').addEventListener('click', function () { go(i - 1); });
+  document.querySelector('[data-nav="next"]').addEventListener('click', function () { go(i + 1); });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); go(i + 1); }
+    if (e.key === 'ArrowLeft')                   { e.preventDefault(); go(i - 1); }
+  });
+  function fit() {
+    var cs = getComputedStyle(document.body);
+    var w = parseFloat(cs.getPropertyValue('--sl-w')) || 1080;
+    var h = parseFloat(cs.getPropertyValue('--sl-h')) || 1920;
+    stage.style.transform = 'scale(' + Math.min(window.innerWidth / w, window.innerHeight / h) * 0.94 + ')';
+  }
+  window.addEventListener('resize', fit); fit();
+  var hh = parseInt((location.hash || '').slice(1), 10);
+  if (hh >= 1 && hh <= slides.length) go(hh - 1);
+})();
+</script>
+</body>
+</html>
