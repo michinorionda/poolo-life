@@ -178,11 +178,11 @@
     </div>
     <table class="rv-table">
       <tbody>
-        <tr><th>申込フォームURL</th><td>ヘッダー／追従CTA／中間CTA／最終CTAの<strong>4つのボタン</strong>が <code>href="#"</code> のダミーです。開催概要の「申込方法」にもURLの記載欄があります。Googleフォームができ次第、まとめて差し替えます。</td></tr>
+        <tr><th>申込導線（2026-08-31 対応済）</th><td>ヘッダー／追従CTA／中間CTA／最終CTAの<strong>4つのボタン</strong>と開催概要の「申込方法」を、<strong>POOLO公式LINEの友だち追加リンク</strong>に差し替えました。企画書の「申込方法：Googleフォーム」とは異なる導線のため、<strong>LINEのみで完結するのか／LINE内でフォームに誘導するのか</strong>を要確認。ボタン文言は「LINEで申し込む」、補足に「POOLO公式LINEの友だち追加ページが開きます」を添えています。</td></tr>
         <tr><th>事前・事後オンラインの日時</th><td>3ステップのセクションと開催概要で <code>[要確認：後日決定]</code>。</td></tr>
         <tr><th>鞆の浦の写真</th><td>ヒーローと写真ブレイク1が、いまは<strong>走島の浜辺／宿KAIの写真</strong>で暫定です。まち並み・路地・商店の写真が入ると、04「なぜ鞆の浦・走島なのか」の説得力が一段上がります。</td></tr>
         <tr><th>ヒーローに人物が写ることの可否</th><td>暫定のヒーロー写真には濱上さんご本人が大きく写っています。差し替え前提ですが、このまま使う場合はご本人確認が必要です。</td></tr>
-        <tr><th>西原由弥佳さんの写真・プロフィール</th><td>「今回出会う人たち」で<code>.person-photo.is-empty</code>のプレースホルダにしています。依頼書に「登壇者・プロフィールは後日追加」とあるため、当日の登壇者名も未確定として扱っています。スタジオのWebサイトURLも未取得。</td></tr>
+        <tr><th>西原由弥佳さんの写真・プロフィール（2026-08-31 対応済）</th><td>企画書に追記されたプロフィールと写真を反映しました（写真はNotion添付を4:5にトリミングして <code>images/person_nishihara.jpg</code>）。<strong>スタジオ「niki -間-」のWebサイト・SNSのURLのみ未取得</strong>で <code>[要確認]</code> のままです。掲載写真がこのカットでよいかも、ご本人確認をお願いします。</td></tr>
         <tr><th>お名前の表記</th><td>依頼書内で「浜上さん」と「濱上 京大」が混在しています。LPでは<strong>「濱上 京大（はまがみ きょうた）」</strong>で統一しました。ご本人の表記に合わせて要確認。</td></tr>
         <tr><th>宿の部屋割り</th><td>一棟貸しのため相部屋か個室かが読み取れず、FAQと開催概要で <code>[要確認]</code>。申込の意思決定に直結するので、優先度は高めです。</td></tr>
         <tr><th>現地までのアクセス</th><td>FAQで空欄。最寄り駅からの所要時間と、推奨の到着便（12:30集合に間に合う便）を書けると親切です。</td></tr>
@@ -260,12 +260,14 @@
   <section class="rv-sec">
     <div class="rv-sec-head"><span class="rv-sec-num">08</span><h2>公開前のチェックリスト</h2></div>
     <ul class="rv-check">
-      <li><strong>申込フォームURLを入れる</strong>（4つのボタン＋開催概要の「申込方法」欄）</li>
+      <li><s>申込フォームURLを入れる（4つのボタン＋開催概要の「申込方法」欄）</s> → <strong>LINE友だち追加リンクで対応済（2026-08-31）。LINEのみで申込完結かどうかだけ要確認</strong></li>
       <li><strong><code>&lt;meta name="robots" content="noindex"&gt;</code> を外す</strong>（いまは確定前なので検索避けを入れています）</li>
       <li>OG画像 <code>images/og.png</code>（2400×1260）を作成し、<code>og:image</code> と <code>twitter:image</code> を差し替える</li>
       <li>鞆の浦の写真を入稿し、ヒーローと写真ブレイクを差し替える</li>
-      <li>西原さんの写真・プロフィールを入れ、<code>.is-empty</code> のプレースホルダを外す</li>
+      <li><s>西原さんの写真・プロフィールを入れる</s> → <strong>対応済（2026-08-31）。残りは niki yoga のURLのみ</strong></li>
       <li>お名前の表記（濱上／浜上）をご本人に確認する</li>
+      <li><strong>説明会（9/28 月 20:00-21:00）への導線をLPに載せるか判断する</strong></li>
+      <li><strong>2日目のゲストを確定する</strong>（企画書＝niki yoga／8-20 MTGメモ＝さくらホーム）</li>
       <li>FAQの <code>[要確認]</code> 3問（アクセス・雨天時・オンライン必須可否）を埋める</li>
       <li>部屋割り・POOLO生の定義・オンライン回の日時を埋める</li>
       <li>コト暮らしのロゴをフッターに追加する（いただけた場合）</li>
