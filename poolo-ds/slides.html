@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>POOLO Design System — スライド型カタログ</title>
+<meta name="robots" content="noindex,nofollow">
+
+<!-- 順序厳守：tokens が先。フォントの @import は tokens.css に1本化されている -->
+<link rel="stylesheet" href="tokens.css">
+<link rel="stylesheet" href="slides.css">
+</head>
+
+<body class="deck">
+<div class="stage">
+
+
+<!-- ============================================================
+     01 — 表紙（.sl--cover）
+     主役：タイトル1つ。日付とブランドは脚へ逃がす
+     ============================================================ -->
+<section class="sl sl--cover on">
+  <div class="sl-top">
+    <span class="sl-num">POOLO</span>
+    <span class="sl-kicker">新しい旅の学校</span>
+    <span class="sl-meta">by TABIPPO</span>
+  </div>
+
+  <div class="cover-mid">
+    <div class="cover-rule"></div>
+    <h1 class="cover-title">自分と世界の<br>豊かさをつくる</h1>
+    <p class="cover-sub">旅の先の、新たなステージへ。</p>
+  </div>
+
+  <div class="sl-foot">
+    <p class="sl-src">スライド型カタログ｜このページのマークアップを写して使う</p>
+    <span class="sl-pg">01 / 12</span>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     02 — 中扉（.sl--section）
+     主役：章番号。次に何が来るかだけを伝える
+     ============================================================ -->
+<section class="sl sl--section">
+  <div class="sl-top">
+    <span class="sl-num">02</span>
+    <span class="sl-kicker">SECTION</span>
+    <span class="sl-meta">中扉</span>
+  </div>
+
+  <div class="sl-body">
+    <p class="sec-num">01</p>
+    <h2 class="sec-title">なぜ、旅なのか</h2>
+    <p class="sec-lede">観光でも移動でもない。POOLO が「旅」と呼んでいるものを最初に定義する。</p>
+  </div>
+
+  <div class="sl-foot">
+    <p class="sl-src">章の切り替えにだけ使う。多用すると章の重みが消える</p>
+    <span class="sl-pg">02 / 12</span>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     03 — 主張（.sl--statement）
+     一番強い型。1枚に一文だけ。迷ったらこれを選ぶ
+     ============================================================ -->
+<section class="sl sl--statement">
+  <div class="sl-top">
+    <span class="sl-num">03</span>
+    <span class="sl-kicker">STATEMENT</span>
+    <span class="sl-meta">主張</span>
+  </div>
+
+  <div class="sl-body">
+    <p class="sl-hero">旅とは、どこかに行くことではなく、<br><em>何を感じ、何を受け取るか</em>ということ。</p>
+    <p class="st-note">だから「行った場所の数」は旅の質を測らない。測れるとしたら、帰ってきた後にどれだけ日常が変わったか。</p>
+  </div>
+
+  <div class="sl-foot">
+    <p class="sl-src">出典：note「7年・1,000人・1つの問い」（2024-06-30）</p>
+    <span class="sl-pg">03 / 12</span>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     04 — 定義（.sl--define）
+     主役：定義文。言葉をひとつ確定させる回に使う
+     ============================================================ -->
+<section class="sl sl--define">
+  <div class="sl-top">
+    <span class="sl-num">04</span>
+    <span class="sl-kicker">DEFINITION</span>
+    <span class="sl-meta">定義</span>
+  </div>
+
+  <div class="sl-body">
+    <p class="def-term">豊かさ</p>
+    <p class="def-body">内的な納得と、社会とのつながりが、<br><em>同時に動いている</em>こと。</p>
+    <p class="def-note">どちらか片方では足りない。自分だけが満たされた状態は孤立で、社会に尽くすだけの状態は消耗になる。POOLO が扱うのは、その2つが同時に動いている状態のつくり方。</p>
+  </div>
+
+  <div class="sl-foot">
+    <p class="sl-src">概念ノート「豊かさ（恩田の豊かさ観）」より</p>
+    <span class="sl-pg">04 / 12</span>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     05 — 対比（.sl--split）
+     左右で比べる。片方に .is-lead、もう片方に .is-sub を付けて
+     どちらが主役かを必ず決める（両方主役にすると両方死ぬ）
+     ============================================================ -->
+<section class="sl sl--split">
+  <div class="sl-top">
+    <span class="sl-num">05</span>
+    <span class="sl-kicker">CONTRAST</span>
+    <span class="sl-meta">対比</span>
+  </div>
+
+  <div class="sl-body is-top">
+    <h2>旅が起こすのは、選び方の変化</h2>
+
+    <div class="split-grid" style="margin-top:var(--sp-group)">
+      <div class="split-col is-sub">
+        <span class="sl-label">Before</span>
+        <h3>正解に従う</h3>
+        <p>誰かが決めた「こうあるべき」に沿って選ぶ。外れないが、選んだ実感が残らない。</p>
+      </div>
+
+      <div class="split-rule"></div>
+
+      <div class="split-col is-lead">
+        <span class="sl-label">After</span>
+        <h3>内なる声で選ぶ</h3>
+        <p>自分が何に反応したかを手がかりに選ぶ。外すこともあるが、選んだ理由が自分の中に残る。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="sl-foot">
+    <p class="sl-src">概念ノート「正解を手放す」「旅と自己変容」より</p>
+    <span class="sl-pg">05 / 12</span>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     06 — 3項目（.sl--triad）
+     3つまで。4つ以上並べたくなったら、それは2枚に割る合図
+     ============================================================ -->
+<section class="sl sl--triad">
+  <div class="sl-top">
+    <span class="sl-num">06</span>
+    <span class="sl-kicker">THREE POINTS</span>
+    <span class="sl-meta">3項目</span>
+  </div>
+
+  <div class="sl-body is-top">
+    <h2>POOLO が扱う、旅の3つの局面</h2>
+
+    <div class="triad-grid">
+      <div class="triad-item">
+        <p class="t-num">01</p>
+        <h3>越境する</h3>
+        <p>いつもの役割が通じない場所に身を置く。そこで初めて、自分の前提が見える。</p>
+      </div>
+      <div class="triad-item">
+        <p class="t-num">02</p>
+        <h3>往復する</h3>
+        <p>非日常に行きっぱなしにしない。日常へ戻り、また出る。変化はこの往復で定着する。</p>
+      </div>
+      <div class="triad-item">
+        <p class="t-num">03</p>
+        <h3>還元する</h3>
+        <p>受け取った経験を、消費で終わらせず誰かに渡す。ここで旅は自分のものを超える。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="sl-foot">
+    <p class="sl-src">概念ノート「越境学習としての旅」「非日常と日常の往復」「消費から還元へ」より</p>
+    <span class="sl-pg">06 / 12</span>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     07 — 図解（.sl--figure）
+     図が主役。見出しは短く、言いたいことはキャプションで受ける
+     ============================================================ -->
+<section class="sl sl--figure">
+  <div class="sl-top">
+    <span class="sl-num">07</span>
+    <span class="sl-kicker">DIAGRAM</span>
+    <span class="sl-meta">図解</span>
+  </div>
+
+  <div class="sl-body is-top" style="padding-top:var(--sp-item)">
+    <h2>変化は「往復」で定着する</h2>
+
+    <div class="fig">
+      <svg viewBox="0 0 760 250" role="img" aria-label="日常と非日常を往復する図。往復のたびに日常の側が更新されていく">
+        <!-- 日常の面 -->
+        <rect x="8" y="70" width="230" height="110" fill="#F9F9F9"/>
+        <rect x="8" y="70" width="230" height="110" fill="none" stroke="#E4E4E4"/>
+        <text x="123" y="120" text-anchor="middle" font-family="Zen Old Mincho, serif" font-weight="700" font-size="24" fill="#000">日常</text>
+        <text x="123" y="150" text-anchor="middle" font-family="Noto Sans JP, sans-serif" font-size="13" fill="rgba(0,0,0,.5)">役割が決まっている場所</text>
+
+        <!-- 非日常の面 -->
+        <rect x="522" y="70" width="230" height="110" fill="#DDECF1"/>
+        <text x="637" y="120" text-anchor="middle" font-family="Zen Old Mincho, serif" font-weight="700" font-size="24" fill="#000">非日常</text>
+        <text x="637" y="150" text-anchor="middle" font-family="Noto Sans JP, sans-serif" font-size="13" fill="rgba(0,0,0,.5)">前提が通じない場所</text>
+
+        <!-- 往路 -->
+        <path d="M250 105 H505" fill="none" stroke="#189BBC" stroke-width="2"/>
+        <path d="M505 105 l-9 -5 v10 z" fill="#189BBC"/>
+        <text x="377" y="94" text-anchor="middle" font-family="Jost, sans-serif" font-size="12" font-weight="500" letter-spacing="2.2" fill="#189BBC">GO</text>
+
+        <!-- 復路 -->
+        <path d="M510 145 H255" fill="none" stroke="#189BBC" stroke-width="2"/>
+        <path d="M255 145 l9 -5 v10 z" fill="#189BBC"/>
+        <text x="377" y="170" text-anchor="middle" font-family="Jost, sans-serif" font-size="12" font-weight="500" letter-spacing="2.2" fill="#189BBC">RETURN</text>
+
+        <!-- 更新の目盛り：往復のたびに日常が変わる -->
+        <line x1="8" y1="205" x2="238" y2="205" stroke="#E4E4E4"/>
+        <rect x="8"   y="199" width="52" height="6" fill="#189BBC" opacity=".25"/>
+        <rect x="68"  y="199" width="52" height="6" fill="#189BBC" opacity=".5"/>
+        <rect x="128" y="199" width="52" height="6" fill="#189BBC" opacity=".75"/>
+        <rect x="188" y="199" width="52" height="6" fill="#189BBC"/>
+        <text x="8" y="232" font-family="Noto Sans JP, sans-serif" font-size="12" fill="rgba(0,0,0,.4)">1回目</text>
+        <text x="188" y="232" font-family="Noto Sans JP, sans-serif" font-size="12" fill="rgba(0,0,0,.4)">4回目</text>
+      </svg>
+    </div>
+
+    <p class="fig-cap">1回の旅では戻ってしまう。往復を重ねるたびに、戻ってくる先の「日常」のほうが少しずつ更新されていく。<em>変わるのは旅先ではなく、日常の側</em>。</p>
+  </div>
+
+  <div class="sl-foot">
+    <p class="sl-src">図は SVG で直接書く。文字は 12〜13px、線は 2px、色は --brand 1色だけに絞る</p>
+    <span class="sl-pg">07 / 12</span>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     08 — 引用（.sl--quote）
+     参加者の声。加工しない。長い声は削らず、そのまま1枚使う
+     ============================================================ -->
+<section class="sl sl--quote">
+  <div class="sl-top">
+    <span class="sl-num">08</span>
+    <span class="sl-kicker">VOICE</span>
+    <span class="sl-meta">参加者の声</span>
+  </div>
+
+  <div class="sl-body">
+    <p class="q-mark">“</p>
+    <blockquote>行く前は「何かを見つけに行く」つもりだった。<br>帰ってきて分かったのは、見つけたんじゃなくて、<em>ずっとあったものに気づいた</em>だけだったということ。</blockquote>
+    <p class="q-by">POOLO LIFE 12期・参加者</p>
+  </div>
+
+  <div class="sl-foot">
+    <p class="sl-src">※ 型を見せるためのサンプル文。実際のリフレクションに差し替えて使う</p>
+    <span class="sl-pg">08 / 12</span>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     09 — 数字（.sl--data）
+     数字は文字ではなく図として置く。1枚に3つまで
+     ============================================================ -->
+<section class="sl sl--data">
+  <div class="sl-top">
+    <span class="sl-num">09</span>
+    <span class="sl-kicker">FIGURES</span>
+    <span class="sl-meta">数字</span>
+  </div>
+
+  <div class="sl-body is-top">
+    <h2>7年、続けてきたこと</h2>
+
+    <div class="data-grid" style="margin-top:var(--sp-group)">
+      <div class="data-item">
+        <p class="d-cap">続けてきた年数</p>
+        <p class="d-val">7<span class="d-unit">年</span></p>
+        <p class="d-note">2018年の開講から、問いを変えずに。</p>
+      </div>
+      <div class="data-item">
+        <p class="d-cap">これまでの参加者</p>
+        <p class="d-val">1,000<span class="d-unit">人</span></p>
+        <p class="d-note">1期から12期までの累計。</p>
+      </div>
+      <div class="data-item">
+        <p class="d-cap">体験会での壁打ち希望</p>
+        <p class="d-val">96<span class="d-unit">%</span></p>
+        <p class="d-note">12期体験会の参加者アンケートより。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="sl-foot">
+    <p class="sl-src">数字は Jost ＋ tabular-nums。単位は必ず和文ゴシックで小さく添える</p>
+    <span class="sl-pg">09 / 12</span>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     10 — 問い（.sl--question）
+     ブルーのベタ面はここにだけ使う。多用すると意味が薄れる
+     ============================================================ -->
+<section class="sl sl--question">
+  <div class="sl-top">
+    <span class="sl-num">10</span>
+    <span class="sl-kicker">QUESTION</span>
+    <span class="sl-meta">問い</span>
+  </div>
+
+  <div class="sl-body">
+    <p class="q-text">あなたが最後に、<br><em>正解の外側</em>を選んだのはいつですか。</p>
+    <p class="q-sub">思い出せないとしたら、それは選ばなかったからではなく、選ぶ場面そのものが減っているからかもしれません。</p>
+  </div>
+
+  <div class="sl-foot">
+    <p class="sl-src">問いの直後は必ず沈黙を置く。次のスライドへ急がない</p>
+    <span class="sl-pg">10 / 12</span>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     11 — 写真ドリブン（.sl--photo）
+     写真が主役。文字は白場に退避させ、写真の上に直接載せない
+     ============================================================ -->
+<section class="sl sl--photo">
+  <!-- 実際は style="background-image:url(../images/xxx.jpg)" を指定する -->
+  <div class="ph-img"></div>
+
+  <div class="ph-side">
+    <span class="sl-label">Program</span>
+    <h2 style="margin-top:var(--sp-near)">現地で、<br>3日間を共にする</h2>
+    <p class="sl-text">オンラインで積み重ねた問いを、同じ場所・同じ時間で確かめる。ここで初めて、言葉が身体に落ちる。</p>
+    <p class="sl-src" style="margin-top:var(--sp-group)">写真：北海道・東川／POOLO × Compath</p>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     12 — 締め（.sl--close）
+     最後に残したい一文だけ。連絡先や告知は入れない
+     ============================================================ -->
+<section class="sl sl--close">
+  <div class="close-text">旅をすると、自分が豊かになる。<br>そして、自らを満たした者は、<br>いつか<em>世界を満たしたい</em>と考えるようになる。</div>
+  <p class="close-brand">POOLO</p>
+</section>
+
+
+</div><!-- /.stage -->
+
+
+<!-- ============================================================
+     ナビゲーション（印刷時は消える）
+     ============================================================ -->
+<nav class="deck-nav" aria-label="スライド操作">
+  <button type="button" data-nav="prev" aria-label="前のスライド">PREV</button>
+  <span id="dots" style="display:flex;gap:4px;padding:0 8px"></span>
+  <button type="button" data-nav="next" aria-label="次のスライド">NEXT</button>
+</nav>
+
+
+<script>
+(function () {
+  var slides = Array.prototype.slice.call(document.querySelectorAll('.sl'));
+  var stage  = document.querySelector('.stage');
+  var dots   = document.getElementById('dots');
+  var i = 0;
+
+  /* --- ドット生成 --- */
+  slides.forEach(function (_, n) {
+    var b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'dot' + (n === 0 ? ' on' : '');
+    b.setAttribute('aria-label', (n + 1) + '枚目へ');
+    b.addEventListener('click', function () { go(n); });
+    dots.appendChild(b);
+  });
+
+  function go(n) {
+    i = (n + slides.length) % slides.length;
+    slides.forEach(function (s, k) { s.classList.toggle('on', k === i); });
+    Array.prototype.forEach.call(dots.children, function (d, k) {
+      d.classList.toggle('on', k === i);
+    });
+  }
+
+  document.querySelector('[data-nav="prev"]').addEventListener('click', function () { go(i - 1); });
+  document.querySelector('[data-nav="next"]').addEventListener('click', function () { go(i + 1); });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); go(i + 1); }
+    if (e.key === 'ArrowLeft')                   { e.preventDefault(); go(i - 1); }
+  });
+
+  /* --- アートボードをビューポートに合わせる --- */
+  function fit() {
+    var k = Math.min(window.innerWidth / 1280, window.innerHeight / 720) * 0.94;
+    stage.style.transform = 'scale(' + k + ')';
+  }
+  window.addEventListener('resize', fit);
+  fit();
+})();
+</script>
+
+</body>
+</html>

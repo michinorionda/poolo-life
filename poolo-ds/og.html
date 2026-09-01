@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>POOLO Design System — OG画像・編集型サムネ カタログ</title>
+<meta name="robots" content="noindex,nofollow">
+
+<link rel="stylesheet" href="tokens.css">
+<link rel="stylesheet" href="slides.css">
+
+<style>
+/* ===== カタログ専用の枠（DSには含めない） ===== */
+body {
+  margin: 0;
+  background: #E9ECED;
+  font-family: var(--body);
+  color: var(--ink-soft);
+  -webkit-font-smoothing: antialiased;
+  padding: 56px 0 96px;
+}
+.cat {
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-inline: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-block);
+}
+.cat-lede h1 {
+  font-family: var(--mincho);
+  font-weight: 900;
+  font-size: var(--fs-xl);
+  line-height: var(--lh-head);
+  letter-spacing: 0.05em;
+  margin: 0 0 var(--sp-near);
+  color: var(--ink);
+}
+.cat-lede p {
+  margin: 0;
+  max-width: 42em;
+  font-size: var(--fs-sm);
+  line-height: var(--lh-body);
+  color: var(--ink-60);
+}
+.cat-item { display: flex; flex-direction: column; gap: var(--sp-near); }
+.cat-head {
+  display: flex;
+  align-items: baseline;
+  gap: var(--sp-near);
+  border-bottom: 1px solid #CFD6D8;
+  padding-bottom: var(--sp-near);
+}
+.cat-head .n {
+  font-family: var(--en);
+  font-size: var(--fs-label);
+  font-weight: 600;
+  letter-spacing: var(--ls-label);
+  color: var(--brand);
+}
+.cat-head h2 {
+  margin: 0;
+  font-family: var(--head);
+  font-size: var(--fs-md);
+  font-weight: 700;
+  letter-spacing: var(--ls-head);
+  color: var(--ink);
+}
+.cat-head .use {
+  margin-left: auto;
+  font-size: var(--fs-xs);
+  color: var(--ink-50);
+  text-align: right;
+}
+/* 1200px を画面幅に合わせて縮める額縁 */
+.frame { width: 100%; overflow: hidden; }
+.frame > .og-wrap { transform-origin: top left; }
+</style>
+</head>
+
+<body>
+<div class="cat">
+
+  <div class="cat-lede">
+    <h1>OG画像・編集型サムネ</h1>
+    <p><b>OG画像</b>＝SNSシェア用に書き出す PNG（1200×630 固定）。<b>編集型サムネ</b>＝告知ページ上部に置く HTML/CSS 製のサムネ（可変幅・`.is-fluid`）。<br>
+    どちらも中身は同じ型。書き出しは Chrome DevTools の「Capture node screenshot」で `.og-wrap` を選ぶのが確実（等倍で 1200×630 の PNG になる）。</p>
+  </div>
+
+  <!-- 01 標準 ------------------------------------------------ -->
+  <div class="cat-item">
+    <div class="cat-head">
+      <span class="n">01</span>
+      <h2>標準（白地）</h2>
+      <span class="use">既定。回のタイトルを主役にする</span>
+    </div>
+    <div class="frame">
+      <div class="og-wrap">
+        <div class="og-top">
+          <span class="og-brand">POOLO</span>
+          <span class="og-date">2026.11.21 — 22</span>
+        </div>
+        <div class="og-mid">
+          <h2 class="og-title">暮らしの<em>手ざわり</em>を、<br>2日間だけ借りにいく。</h2>
+          <p class="og-sub">広島・鞆の浦で、コト暮らしと過ごす1泊2日。</p>
+        </div>
+        <div class="og-foot">
+          <span class="og-tag">POOLO LIFE</span>
+          <span>1泊2日／定員12名</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 02 ブルー面 --------------------------------------------- -->
+  <div class="cat-item">
+    <div class="cat-head">
+      <span class="n">02</span>
+      <h2>ブルーのベタ面</h2>
+      <span class="use">問い・強いメッセージ。タイムラインで一番効く</span>
+    </div>
+    <div class="frame">
+      <div class="og-wrap og--brand">
+        <div class="og-top">
+          <span class="og-brand">POOLO</span>
+          <span class="og-date">2026.09.14 20:00—</span>
+        </div>
+        <div class="og-mid">
+          <h2 class="og-title">最後に「<em>正解の外側</em>」を<br>選んだのは、いつですか。</h2>
+          <p class="og-sub">旅の学校 POOLO・オンライン体験会</p>
+        </div>
+        <div class="og-foot">
+          <span class="og-tag">無料・オンライン</span>
+          <span>90分／申込は概要欄から</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 03 写真 ------------------------------------------------- -->
+  <div class="cat-item">
+    <div class="cat-head">
+      <span class="n">03</span>
+      <h2>写真を敷く</h2>
+      <span class="use">現地開催の回。文字は白場に退避させる</span>
+    </div>
+    <div class="frame">
+      <div class="og-wrap og--photo">
+        <!-- 実際は style="background-image:url(../images/xxx.jpg)" を指定 -->
+        <div class="og-photo"></div>
+        <div class="og-panel">
+          <div class="og-top">
+            <span class="og-brand">POOLO</span>
+            <span class="og-date">2026.12.04 — 06</span>
+          </div>
+          <div class="og-mid">
+            <h2 class="og-title">冬の東川で、<br>3日間を共にする。</h2>
+            <p class="og-sub">POOLO × School for Life Compath</p>
+          </div>
+          <div class="og-foot">
+            <span class="og-tag">北海道・東川</span>
+            <span>2泊3日</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 04 編集型サムネ（可変） ---------------------------------- -->
+  <div class="cat-item">
+    <div class="cat-head">
+      <span class="n">04</span>
+      <h2>編集型サムネ（可変・<code>.is-fluid</code>）</h2>
+      <span class="use">告知ページ上部に直接埋め込む。書き出し不要</span>
+    </div>
+    <div style="max-width:680px">
+      <div class="og-wrap is-fluid">
+        <div class="og-top">
+          <span class="og-brand">POOLO</span>
+          <span class="og-date">2026.10.05</span>
+        </div>
+        <div class="og-mid">
+          <h2 class="og-title">旅の先の、<br><em>新たなステージ</em>へ。</h2>
+          <p class="og-sub">13期 募集開始</p>
+        </div>
+        <div class="og-foot">
+          <span class="og-tag">POOLO LIFE</span>
+          <span>説明会あり</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+/* 1200px の OG を、画面幅に収まるよう等比で縮める（等倍書き出しの値は変えない） */
+(function () {
+  function fit() {
+    document.querySelectorAll('.frame').forEach(function (f) {
+      var og = f.querySelector('.og-wrap');
+      if (!og) return;
+      var k = Math.min(1, f.clientWidth / 1200);
+      og.style.transform = 'scale(' + k + ')';
+      f.style.height = (630 * k) + 'px';
+    });
+  }
+  window.addEventListener('resize', fit);
+  fit();
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>POOLO Design System — バナー／キービジュアル カタログ</title>
+<meta name="robots" content="noindex,nofollow">
+
+<link rel="stylesheet" href="tokens.css">
+<link rel="stylesheet" href="slides.css">
+
+<style>
+/* ===== カタログ専用の枠（DSには含めない） ===== */
+body {
+  margin: 0; background: #E9ECED; font-family: var(--body); color: var(--ink-soft);
+  -webkit-font-smoothing: antialiased; padding: 56px 0 96px;
+}
+.cat { max-width: 1100px; margin-inline: auto; padding-inline: 24px;
+       display: flex; flex-direction: column; gap: var(--sp-block); }
+.cat-lede h1 { font-family: var(--mincho); font-weight: 900; font-size: var(--fs-xl);
+               line-height: var(--lh-head); letter-spacing: .05em; margin: 0 0 var(--sp-near); color: var(--ink); }
+.cat-lede p { margin: 0 0 var(--sp-near); max-width: 44em; font-size: var(--fs-sm);
+              line-height: var(--lh-body); color: var(--ink-60); }
+.cat-lede table { border-collapse: collapse; font-size: var(--fs-xs); line-height: 1.85; margin-top: var(--sp-item); }
+.cat-lede th, .cat-lede td { text-align: left; vertical-align: top; padding: 8px 22px 8px 0;
+                             border-bottom: 1px solid #CFD6D8; }
+.cat-lede th { font-family: var(--head); font-weight: 700; color: var(--ink); white-space: nowrap; }
+
+.cat-item { display: flex; flex-direction: column; gap: var(--sp-near); }
+.cat-head { display: flex; align-items: baseline; gap: var(--sp-near);
+            border-bottom: 1px solid #CFD6D8; padding-bottom: var(--sp-near); }
+.cat-head .n { font-family: var(--en); font-size: var(--fs-label); font-weight: 600;
+               letter-spacing: var(--ls-label); color: var(--brand); }
+.cat-head h2 { margin: 0; font-family: var(--head); font-size: var(--fs-md); font-weight: 700;
+               letter-spacing: var(--ls-head); color: var(--ink); }
+.cat-head .use { margin-left: auto; font-size: var(--fs-xs); color: var(--ink-50);
+                 text-align: right; max-width: 26em; line-height: 1.7; }
+.hold { width: 100%; }
+.hold .kv { width: 100%; }
+</style>
+</head>
+
+<body>
+<div class="cat">
+
+  <div class="cat-lede">
+    <h1>バナー／キービジュアル（<code>.kv</code>）</h1>
+    <p>参照：<a href="https://www.houyhnhnm.jp/feature/1140966/">HOUYHNHNM のフィーチャーバナー</a>。
+       ブランドカラーのベタ面を「地」にし、写真をその上に<b>窓として抜く</b>型。
+       一文が上の横帯から右の縦帯へ <b>L字に折れる</b>のがこの型の核心で、
+       和文が縦に流れることで欧文の横組みと直交し、面が締まります。</p>
+
+    <table>
+      <tr><th>取ったもの</th><td>地＝ベタ面／写真は窓／横組み欧文と縦組み和文の直交／折れ帯／色は3色</td></tr>
+      <tr><th>変えたもの</th><td>地の色を <code>#189BBC</code> に。欧文は Jost。
+        <b>縦組みの和文は、参照元の太いゴシックではなく Zen Old Mincho（明朝）</b>にした
+        ——ここが一番の分かれ目で、明朝にすると「ヒップ」が「静けさ」に転調し、POOLO のトーンに寄る</td></tr>
+      <tr><th>原則の例外</th><td>DS は「角丸は 2px 基調・乱発しない」が、窓の対角の大きな R は
+        装飾ではなく<b>窓の形＝構造</b>なので例外として認める。角を立てたい回は <code>.kv--square</code></td></tr>
+      <tr><th>サイズ</th><td>内部の寸法はすべて <code>cqw</code>。1280×720 ／ 1200×630（<code>.is-og</code>）／
+        可変幅（<code>.is-fluid</code>）が同じ1組のルールで成立する</td></tr>
+    </table>
+  </div>
+
+
+  <!-- 01 標準 ------------------------------------------------- -->
+  <div class="cat-item">
+    <div class="cat-head">
+      <span class="n">01</span>
+      <h2>標準（折れ帯・青地）</h2>
+      <span class="use">既定。回のタイトルを横→縦に折って読ませる</span>
+    </div>
+    <div class="hold">
+      <div class="kv is-fluid">
+        <div class="kv-window" style="background-image:url(../images/poolo-community.jpg)"></div>
+        <p class="kv-en">Winter in<br>Higashikawa</p>
+        <div class="kv-spine"></div>
+        <p class="kv-vsub">北海道・東川<small>（Compath）</small></p>
+        <p class="kv-vol">Vol.2</p>
+        <p class="kv-fold-h">暮らしの速度を、</p>
+        <p class="kv-fold-v"><span class="tcy">3</span>日間だけ借りにいく。</p>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- 02 写真を主役に --------------------------------------- -->
+  <div class="cat-item">
+    <div class="cat-head">
+      <span class="n">02</span>
+      <h2>募集回（折れ帯・強い一文）</h2>
+      <span class="use">期の募集。巻数の位置に期を置く</span>
+    </div>
+    <div class="hold">
+      <div class="kv is-fluid">
+        <div class="kv-window" style="background-image:url(../images/poolo-community.jpg)"></div>
+        <p class="kv-en">Open<br>Session</p>
+        <div class="kv-spine"></div>
+        <p class="kv-vsub">オンライン体験会</p>
+        <p class="kv-vol">13th</p>
+        <p class="kv-fold-h">旅の先の、</p>
+        <p class="kv-fold-v">新たなステージへ。</p>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- 03 縦帯だけの簡素版 ------------------------------------ -->
+  <div class="cat-item">
+    <div class="cat-head">
+      <span class="n">03</span>
+      <h2>簡素版（<code>.kv--band</code>）</h2>
+      <span class="use">タイトルが短く、折る必要がないとき</span>
+    </div>
+    <div class="hold">
+      <div class="kv kv--band is-fluid">
+        <div class="kv-window" style="background-image:url(../images/poolo-community.jpg)"></div>
+        <p class="kv-en">Tomonoura</p>
+        <div class="kv-spine"></div>
+        <p class="kv-vsub">広島・鞆の浦<small>（コト暮らし）</small></p>
+        <p class="kv-vol">Vol.3</p>
+        <p class="kv-fold-v">暮らしの手ざわりを、借りる。</p>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- 04 白地の静かな版 -------------------------------------- -->
+  <div class="cat-item">
+    <div class="cat-head">
+      <span class="n">04</span>
+      <h2>静かな版（<code>.kv--light</code>）</h2>
+      <span class="use">地を白に、帯をブルーに反転。写真を主役にしたい回</span>
+    </div>
+    <div class="hold">
+      <div class="kv kv--light is-fluid">
+        <div class="kv-window" style="background-image:url(../images/poolo-community.jpg)"></div>
+        <p class="kv-en">Reflection<br>Day</p>
+        <div class="kv-spine"></div>
+        <p class="kv-vsub"><span class="tcy">12</span>期・最終講義</p>
+        <p class="kv-vol">Final</p>
+        <p class="kv-fold-h">受け取ったものを、</p>
+        <p class="kv-fold-v">名前のないまま持ち帰る。</p>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- 05 直角の窓 -------------------------------------------- -->
+  <div class="cat-item">
+    <div class="cat-head">
+      <span class="n">05</span>
+      <h2>直角の窓（<code>.kv--square</code>）</h2>
+      <span class="use">角を立てたい回。DS の角丸原則に完全に戻した版</span>
+    </div>
+    <div class="hold">
+      <div class="kv kv--square is-fluid">
+        <div class="kv-window" style="background-image:url(../images/poolo-community.jpg)"></div>
+        <p class="kv-en">Zemi<br>2026</p>
+        <div class="kv-spine"></div>
+        <p class="kv-vsub">卒業生企画ゼミ</p>
+        <p class="kv-vol">08</p>
+        <p class="kv-fold-h">問いを、</p>
+        <p class="kv-fold-v">仕事のかたちにしてみる。</p>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- 06 OG比率 ---------------------------------------------- -->
+  <div class="cat-item">
+    <div class="cat-head">
+      <span class="n">06</span>
+      <h2>OG比率（<code>.is-og</code> ／ 1200×630）</h2>
+      <span class="use">同じ型のまま横長になる。書き出しは DevTools の Capture node screenshot</span>
+    </div>
+    <div class="hold" style="--og-scale:1">
+      <div class="kv is-fluid" style="aspect-ratio:1200/630">
+        <div class="kv-window" style="background-image:url(../images/poolo-community.jpg)"></div>
+        <p class="kv-en">Winter in<br>Higashikawa</p>
+        <div class="kv-spine"></div>
+        <p class="kv-vsub">北海道・東川<small>（Compath）</small></p>
+        <p class="kv-vol">Vol.2</p>
+        <p class="kv-fold-h">暮らしの速度を、</p>
+        <p class="kv-fold-v"><span class="tcy">3</span>日間だけ借りにいく。</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

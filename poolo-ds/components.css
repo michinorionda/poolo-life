@@ -41,7 +41,7 @@ img { display: block; max-width: 100%; }
    text-wrap:pretty … 最終行が1〜2文字だけ残る「取り残し」を減らす。
    ピンポイントで改行位置を固定したいときは、従来どおり .nb を併用する。 */
 .hero-title, .hero-lead, .hero-foot-ja,
-.sec-title, .sec-lead, .intro-body p, .intro-break,
+.sec-title, .sec-lead, .intro-body p,
 .flow-title, .flow-desc, .q-text, .q-helper,
 .notice-text, .summary-value,
 .voice-quote, .about-title, .about-text p,
@@ -662,7 +662,10 @@ img { display: block; max-width: 100%; }
 }
 
 
-/* ============ 導入（.intro-body / .intro-break / .quoted） ============ */
+/* ============ 導入（.intro-body / .quoted） ============ */
+/* 2026-09-01：.intro-break（「ただ、しかし。」のような転換の一言を明朝・大きめ・
+   左に青い罫で独立させる装置）は廃止した。導入本文の途中で一文だけを強調すると、
+   読み手には転換ではなく小見出しとして届く。転換は組版ではなく文章で示す。 */
 .intro-body {
   max-width: 37em;
 }
@@ -678,26 +681,6 @@ img { display: block; max-width: 100%; }
   color: var(--brand-deep);
   letter-spacing: 0.04em;
 }
-.intro-break {
-  font-family: var(--mincho);
-  font-weight: 700;
-  font-feature-settings: "palt";
-  font-size: clamp(21px, 2.8vw, 28px);
-  letter-spacing: 0.22em;
-  color: var(--ink);
-  display: flex;
-  align-items: center;
-  gap: 22px;
-  line-height: 1.4;
-}
-.intro-break::before {
-  content: '';
-  width: 34px;
-  height: 1px;
-  background: var(--brand);
-  flex: 0 0 auto;
-}
-
 
 /* ============ 写真ブレイク（.photo-break） ============ */
 .photo-break {

@@ -231,7 +231,7 @@ POOLO（by TABIPPO）のイベント告知ページを、**コピペではなく
 
 - `text-wrap: balance` は**使いません**。和文見出しだと1行目が極端に短くなり、意味の切れ目より行長を優先してしまうため。
 - それでも位置が気に入らないときは、従来どおり `<br>` と `.nb`（`white-space:nowrap`）で明示的に固定します。
-- ただし `.intro-break` のように**幅が内容に追従する要素**に `.nb` を入れると、その幅に合わせて全体が折り返され行が崩れます。これらは `auto-phrase` に任せてください。
+- ただし**幅が内容に追従する要素**（`display:flex` / `inline-block` など）に `.nb` を入れると、その幅に合わせて全体が折り返され行が崩れます。これらは `auto-phrase` に任せてください。
 - 新しいテキスト系コンポーネントを足したら、冒頭の改行則セレクタにもクラスを追加すること。
 
 ---
@@ -250,7 +250,7 @@ group はカタログの `@dsCard group="…"` と対応。
 | `.hero-band` / `.hero-band-num`(.dow) / `.hero-band-time` / `.hero-band-meta` | ブルーの全幅日付帯 | Hero |
 | `.step-band` / `.step-band-head` / `.step-cell` / `.step-no` / `.step-title` / `.step-desc` | プログラム要約帯（日付帯の直下。3ステップを横並びで先に見せる） | Hero |
 | `.sec` / `.sec-inner` / `.sec-spine` / `.sec-num`(.ja/.small) / `.sec-en` / `.sec-title` / `.sec-lead` | セクション枠＋非対称スパイン（連番／和文ラベル＋明朝見出し） | Sections |
-| `.intro-body` / `.intro-break` / `.quoted` | 導入本文＋一言ブレイク＋引用色 | Sections |
+| `.intro-body` / `.quoted` | 導入本文＋引用色。**導入の途中で一文だけを強調する装置は置かない**（`.intro-break` は 2026-09-01 に廃止。転換は組版ではなく文章で示す） | Sections |
 | `.flow-list` / `.flow-item` / `.flow-time` / `.flow-title` / `.flow-desc` | 当日の流れ（4フェーズ・時刻＋タイトル＋説明） | Sections |
 | `.sec-questions` / `.q-list` / `.q-item` / `.q-no`(.kanji) / `.q-text` / `.q-helper` | 当日の問い（ブルー淡面・漢数字番号・明朝） | Sections |
 | `.notice-bar` / `.notice-tag` / `.notice-text` / `.notice-link` | お知らせバンド（一行アナウンス） | Content |

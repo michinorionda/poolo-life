@@ -1,0 +1,1192 @@
+/* =============================================================
+   POOLO Design System — slides.css
+   スライド／OG画像レイヤー（2026-08-31 新設）
+
+   前提：tokens.css を先に読み込むこと。書体・色はすべてそちらの var() を参照する。
+       <link rel="stylesheet" href="../poolo-ds/tokens.css">
+       <link rel="stylesheet" href="../poolo-ds/slides.css">
+   （components.css は告知ページ用。スライドでは読まなくてよい）
+
+   -------------------------------------------------------------
+   設計の前提 — 「保存する前に、4つ問う」をレイアウト側で担保する
+   -------------------------------------------------------------
+   ① 文字の階層は 6段（--sfs-*）で打ち止め。生の px は書かない。
+   ② 余白は「関係」で決める（--sp-tie / near / item / group）。等比の梯子にしない。
+   ③ 色は 地・墨・差し色 の3色。--brand 以外の色相を持ち込まない。
+   ④ 1枚に主役はひとつ。だから型（.sl--*）を選ぶ＝主役を決める、という手順にする。
+
+   脱AI原則（tokens.css と共通）：
+   グラデーション・blur影・角丸の乱発をしない。フラットなベタ面と1本のヘアラインで組む。
+   ============================================================= */
+
+
+/* =============================================================
+   1. アートボードと拡大縮小
+   -------------------------------------------------------------
+   .deck  … 画面いっぱいの暗いマット。中央に .stage を置く
+   .stage … 1280×720 の固定アートボード。JS が transform: scale() で
+            ビューポートに合わせる（スケール処理は slides.html 末尾の JS）
+   .sl    … 1枚のスライド。.on が付いたものだけ表示
+   ============================================================= */
+
+.deck {
+  margin: 0;
+  min-height: 100%;
+  background: #E9ECED;            /* マット。紙を置く台の色（無彩色寄り） */
+  font-family: var(--body);
+  color: var(--ink-soft);
+  -webkit-font-smoothing: antialiased;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.stage {
+  width: var(--sl-w);
+  height: var(--sl-h);
+  position: relative;
+  transform-origin: center center;
+  flex: none;
+}
+
+.sl {
+  position: absolute;
+  inset: 0;
+  background: var(--bg);
+  padding: var(--sl-pad-y) var(--sl-pad-x);
+  display: none;
+  flex-direction: column;
+  overflow: hidden;
+  letter-spacing: var(--ls-body);
+}
+
+.sl.on { display: flex; }
+
+
+/* =============================================================
+   2. スライド専用スケール
+   -------------------------------------------------------------
+   アートボードが 1280×720 固定なので clamp は使わず px で固定する。
+   段は 6つだけ。迷ったら1つ上か下を選ぶ（間を作らない）。
+   ============================================================= */
+
+.deck {
+  --sl-w: 1280px;
+  --sl-h: 720px;
+  --sl-pad-y: 54px;
+  --sl-pad-x: 78px;
+
+  /* 本文まわり（4段） */
+  --sfs-label: 12px;   /* 英字ラベル・柱・ページ番号 */
+  --sfs-note:  13px;   /* 出典・脚注 */
+  --sfs-body:  18px;   /* 本文・箇条 */
+  --sfs-lead:  22px;   /* リード・小見出し */
+
+  /* 見出しまわり（2段） */
+  --sfs-head:  32px;   /* 見出し */
+  --sfs-hero:  52px;   /* 主役の一文・表紙・中扉 */
+
+  /* 数字だけの例外。文字ではなく図として扱う */
+  --sfs-data:  86px;
+}
+
+
+/* =============================================================
+   3. 共通パーツ — 柱（天）と脚（地）
+   -------------------------------------------------------------
+   全スライドで天地を必ず揃える。これだけで「揃っている」印象が出る。
+   ============================================================= */
+
+/* --- 天の柱：番号 ＋ 見出し ------------------------------------ */
+.sl-top {
+  flex: none;
+  display: flex;
+  align-items: baseline;
+  gap: var(--sp-near);
+  padding-bottom: var(--sp-near);
+  border-bottom: 1px solid var(--line);
+}
+
+.sl-num {
+  flex: none;
+  font-family: var(--en);
+  font-size: var(--sfs-label);
+  font-weight: 600;
+  letter-spacing: var(--ls-label);
+  color: var(--brand);
+  font-variant-numeric: tabular-nums;
+}
+
+.sl-kicker {
+  font-family: var(--head);
+  font-size: var(--sfs-label);
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: var(--ink-50);
+}
+
+.sl-meta {
+  margin-left: auto;
+  flex: none;
+  font-size: var(--sfs-label);
+  letter-spacing: 0.05em;
+  color: var(--ink-40);
+}
+
+/* --- 地の脚：出典 ＋ ページ番号 --------------------------------- */
+.sl-foot {
+  flex: none;
+  margin-top: var(--sp-item);
+  padding-top: var(--sp-near);
+  border-top: 1px solid var(--line);
+  display: flex;
+  align-items: baseline;
+  gap: var(--sp-item);
+}
+
+.sl-src {
+  font-size: var(--sfs-note);
+  line-height: 1.7;
+  color: var(--ink-40);
+  letter-spacing: 0.04em;
+}
+
+.sl-pg {
+  margin-left: auto;
+  flex: none;
+  font-family: var(--en);
+  font-size: var(--sfs-label);
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  color: var(--ink-40);
+  font-variant-numeric: tabular-nums;
+}
+
+/* --- 本体：天と地のあいだを埋める ------------------------------- */
+.sl-body {
+  flex: 1 1 auto;
+  min-height: 0;
+  padding-top: var(--sp-group);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* 天地を詰めたいとき（図が大きい回）に .sl-body へ足す */
+.sl-body.is-top { justify-content: flex-start; }
+
+
+/* =============================================================
+   4. 文字要素
+   -------------------------------------------------------------
+   主役は明朝（--mincho）。ゴシックは支える側にまわす。
+   ============================================================= */
+
+.sl h2 {
+  margin: 0;
+  font-family: var(--mincho);
+  font-weight: 700;
+  font-size: var(--sfs-head);
+  line-height: var(--lh-head);
+  letter-spacing: var(--ls-head);
+  color: var(--ink);
+  font-feature-settings: "palt" 1;
+  text-wrap: balance;
+}
+
+/* 主役の一文。1枚に1つだけ。2つ置いた時点で型を間違えている */
+.sl-hero {
+  margin: 0;
+  font-family: var(--mincho);
+  font-weight: 700;
+  font-size: var(--sfs-hero);
+  line-height: 1.45;
+  letter-spacing: var(--ls-head);
+  color: var(--ink);
+  font-feature-settings: "palt" 1;
+  text-wrap: balance;
+}
+
+.sl-lead {
+  margin: 0;
+  font-family: var(--head);
+  font-weight: 500;
+  font-size: var(--sfs-lead);
+  line-height: 1.75;
+  color: var(--ink);
+}
+
+.sl-text {
+  margin: 0;
+  font-size: var(--sfs-body);
+  line-height: var(--lh-body);
+  color: var(--ink-72);
+  max-width: 46em;
+}
+
+.sl-text b, .sl-lead b { font-weight: 700; color: var(--ink); }
+
+/* 強調は下線マーカー1種類だけ。色を増やさずに階層を作るための唯一の手 */
+.sl em, .sl .mark {
+  font-style: normal;
+  background: linear-gradient(transparent 58%, var(--brand-pale) 58%);
+}
+
+/* 英字ラベル。Jost ＋ 大文字 ＋ 広い字間 */
+.sl-label {
+  font-family: var(--en);
+  font-size: var(--sfs-label);
+  font-weight: 500;
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  color: var(--ink-40);
+}
+
+
+/* =============================================================
+   5. スライドの型（.sl--*）
+   -------------------------------------------------------------
+   型を選ぶ ＝ そのスライドの主役を決める、という手順にする。
+   迷ったら .sl--statement。言いたいことが1つに絞れていない合図。
+   ============================================================= */
+
+/* --- 5-1. 表紙 ------------------------------------------------- */
+.sl--cover { justify-content: space-between; }
+
+.sl--cover .cover-title {
+  font-family: var(--mincho);
+  font-weight: 900;
+  font-size: var(--sfs-hero);
+  line-height: 1.4;
+  letter-spacing: 0.05em;
+  color: var(--ink);
+  font-feature-settings: "palt" 1;
+  max-width: 22em;
+}
+
+.sl--cover .cover-sub {
+  margin-top: var(--sp-item);
+  font-size: var(--sfs-lead);
+  line-height: 1.7;
+  color: var(--ink-60);
+}
+
+.sl--cover .cover-mid { flex: 1 1 auto; display: flex; flex-direction: column; justify-content: center; }
+
+.sl--cover .cover-rule {
+  width: 72px;
+  height: 3px;
+  background: var(--brand);
+  margin-bottom: var(--sp-group);
+}
+
+
+/* --- 5-2. 主張（一文だけ）--------------------------------------- */
+/* 一番強い型。使いどころを絞るほど効く */
+.sl--statement .sl-body { justify-content: center; }
+
+.sl--statement .sl-hero { max-width: 20em; }
+
+.sl--statement .st-note {
+  margin-top: var(--sp-group);
+  padding-top: var(--sp-near);
+  border-top: 1px solid var(--line);
+  max-width: 34em;
+  font-size: var(--sfs-body);
+  line-height: var(--lh-body);
+  color: var(--ink-60);
+}
+
+
+/* --- 5-3. 定義 ------------------------------------------------- */
+.sl--define .def-term {
+  font-family: var(--head);
+  font-weight: 700;
+  font-size: var(--sfs-lead);
+  letter-spacing: 0.08em;
+  color: var(--brand);
+  margin-bottom: var(--sp-near);
+}
+
+.sl--define .def-body {
+  font-family: var(--mincho);
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 1.62;
+  letter-spacing: var(--ls-head);
+  color: var(--ink);
+  font-feature-settings: "palt" 1;
+  max-width: 26em;
+}
+
+.sl--define .def-note {
+  margin-top: var(--sp-group);
+  font-size: var(--sfs-body);
+  line-height: var(--lh-body);
+  color: var(--ink-60);
+  max-width: 42em;
+}
+
+
+/* --- 5-4. 対比（左右2分割）-------------------------------------- */
+.sl--split .split-grid {
+  flex: 1 1 auto;
+  min-height: 0;
+  display: grid;
+  grid-template-columns: 1fr 1px 1fr;
+  gap: 0 var(--sp-block);
+  align-items: start;
+}
+
+.sl--split .split-rule { background: var(--line); align-self: stretch; }
+
+.split-col > .sl-label { display: block; margin-bottom: var(--sp-near); }
+
+.split-col h3 {
+  margin: 0 0 var(--sp-item);
+  font-family: var(--mincho);
+  font-weight: 700;
+  font-size: var(--sfs-head);
+  line-height: var(--lh-head);
+  letter-spacing: var(--ls-head);
+  color: var(--ink);
+}
+
+.split-col p {
+  margin: 0;
+  font-size: var(--sfs-body);
+  line-height: var(--lh-body);
+  color: var(--ink-72);
+}
+
+/* 片方を主役にするとき。両方主役にすると両方死ぬ（問い④） */
+.split-col.is-lead h3 { color: var(--brand-deep); }
+.split-col.is-sub    { opacity: 0.55; }
+
+
+/* --- 5-5. 3項目 ------------------------------------------------ */
+.sl--triad .triad-grid {
+  flex: 1 1 auto;
+  min-height: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--sp-block);
+  align-items: start;
+  padding-top: var(--sp-group);
+}
+
+.triad-item { border-top: 2px solid var(--brand); padding-top: var(--sp-near); }
+
+.triad-item .t-num {
+  font-family: var(--en);
+  font-size: var(--sfs-label);
+  font-weight: 600;
+  letter-spacing: var(--ls-label);
+  color: var(--brand);
+  font-variant-numeric: tabular-nums;
+}
+
+.triad-item h3 {
+  margin: var(--sp-tie) 0 var(--sp-near);
+  font-family: var(--mincho);
+  font-weight: 700;
+  font-size: 24px;
+  line-height: var(--lh-head);
+  letter-spacing: var(--ls-head);
+  color: var(--ink);
+}
+
+.triad-item p {
+  margin: 0;
+  font-size: var(--sfs-body);
+  line-height: var(--lh-body);
+  color: var(--ink-72);
+}
+
+
+/* --- 5-6. 図解 ------------------------------------------------- */
+/* 図が主役。見出しは短く、キャプションで受ける */
+.sl--figure .fig {
+  flex: 1 1 auto;
+  min-height: 0;
+  margin-top: var(--sp-group);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sl--figure .fig svg,
+.sl--figure .fig img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  display: block;
+}
+
+.sl--figure .fig-cap {
+  flex: none;
+  margin-top: var(--sp-item);
+  font-size: var(--sfs-body);
+  line-height: var(--lh-body);
+  color: var(--ink-60);
+  max-width: 44em;
+}
+
+
+/* --- 5-7. 引用（参加者の声）------------------------------------- */
+.sl--quote .sl-body { justify-content: center; }
+
+.sl--quote .q-mark {
+  font-family: var(--mincho);
+  font-size: 64px;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--brand-mid);
+  margin-bottom: var(--sp-near);
+}
+
+.sl--quote blockquote {
+  margin: 0;
+  font-family: var(--mincho);
+  font-weight: 700;
+  font-size: 34px;
+  line-height: 1.65;
+  letter-spacing: var(--ls-head);
+  color: var(--ink);
+  font-feature-settings: "palt" 1;
+  max-width: 24em;
+}
+
+.sl--quote .q-by {
+  margin-top: var(--sp-group);
+  font-family: var(--head);
+  font-size: var(--sfs-body);
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  color: var(--ink-50);
+}
+
+
+/* --- 5-8. 数字 ------------------------------------------------- */
+/* 数字は文字ではなく図として置く。1枚に3つまで */
+.sl--data .data-grid {
+  flex: 1 1 auto;
+  min-height: 0;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
+  gap: var(--sp-block);
+  align-items: center;
+}
+
+.data-item .d-cap {
+  font-family: var(--head);
+  font-size: var(--sfs-body);
+  font-weight: 500;
+  color: var(--ink-60);
+  letter-spacing: 0.04em;
+  padding-bottom: var(--sp-near);
+  border-bottom: 1px solid var(--line);
+}
+
+.data-item .d-val {
+  display: flex;
+  align-items: baseline;
+  gap: var(--sp-tie);
+  margin-top: var(--sp-near);
+  font-family: var(--en);
+  font-size: var(--sfs-data);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0.01em;
+  color: var(--brand);
+  font-variant-numeric: tabular-nums;
+}
+
+.data-item .d-unit {
+  font-family: var(--head);
+  font-size: var(--sfs-lead);
+  font-weight: 700;
+  color: var(--ink-60);
+  letter-spacing: 0.04em;
+}
+
+.data-item .d-note {
+  margin-top: var(--sp-near);
+  font-size: var(--sfs-note);
+  line-height: 1.8;
+  color: var(--ink-50);
+}
+
+
+/* --- 5-9. 問い（ブランド面ベタ）--------------------------------- */
+/* ブルーのベタ面は "問い" にだけ使う。多用すると意味が薄れる */
+.sl--question {
+  background: var(--brand);
+  color: var(--on-brand);
+}
+
+.sl--question .sl-top { border-bottom-color: var(--on-brand-40); }
+.sl--question .sl-num { color: var(--on-brand); }
+.sl--question .sl-kicker { color: var(--on-brand-75); }
+.sl--question .sl-foot { border-top-color: var(--on-brand-40); }
+.sl--question .sl-src,
+.sl--question .sl-pg { color: var(--on-brand-75); }
+
+.sl--question .sl-body { justify-content: center; }
+
+.sl--question .q-text {
+  margin: 0;
+  font-family: var(--mincho);
+  font-weight: 700;
+  font-size: 44px;
+  line-height: 1.55;
+  letter-spacing: 0.05em;
+  color: var(--on-brand);
+  font-feature-settings: "palt" 1;
+  max-width: 22em;
+}
+
+.sl--question .q-sub {
+  margin-top: var(--sp-group);
+  font-size: var(--sfs-body);
+  line-height: var(--lh-body);
+  color: var(--on-brand-88);
+  max-width: 38em;
+}
+
+.sl--question em, .sl--question .mark {
+  background: none;
+  border-bottom: 2px solid var(--on-brand-75);
+  padding-bottom: 2px;
+}
+
+
+/* --- 5-10. 中扉 ------------------------------------------------ */
+.sl--section { justify-content: center; }
+
+.sl--section .sec-num {
+  font-family: var(--en);
+  font-size: 88px;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 0.02em;
+  color: var(--brand-pale);
+  font-variant-numeric: tabular-nums;
+}
+
+.sl--section .sec-title {
+  margin-top: var(--sp-near);
+  font-family: var(--mincho);
+  font-weight: 900;
+  font-size: var(--sfs-hero);
+  line-height: 1.4;
+  letter-spacing: 0.06em;
+  color: var(--ink);
+}
+
+.sl--section .sec-lede {
+  margin-top: var(--sp-item);
+  padding-top: var(--sp-near);
+  border-top: 1px solid var(--line);
+  max-width: 32em;
+  font-size: var(--sfs-body);
+  line-height: var(--lh-body);
+  color: var(--ink-60);
+}
+
+
+/* --- 5-11. 写真ドリブン ---------------------------------------- */
+/* 写真が主役。文字は白場に退避させ、写真の上には最小限しか載せない */
+.sl--photo { padding: 0; flex-direction: row; }
+
+.sl--photo .ph-img {
+  flex: 1 1 58%;
+  min-width: 0;
+  background: var(--bg-off) center / cover no-repeat;
+}
+
+.sl--photo .ph-side {
+  flex: 0 0 42%;
+  padding: var(--sl-pad-y) var(--sl-pad-x) var(--sl-pad-y) 56px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-left: var(--bw-frame) solid var(--brand);
+}
+
+.sl--photo .ph-side h2 { font-size: 30px; }
+
+.sl--photo .ph-side .sl-text { margin-top: var(--sp-item); font-size: var(--sfs-body); }
+
+
+/* --- 5-12. 締め ------------------------------------------------ */
+.sl--close {
+  background: var(--bg-off);
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.sl--close .close-text {
+  font-family: var(--mincho);
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 1.55;
+  letter-spacing: 0.05em;
+  color: var(--ink);
+  max-width: 22em;
+}
+
+.sl--close .close-brand {
+  margin-top: var(--sp-block);
+  font-family: var(--en);
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 0.3em;
+  color: var(--brand);
+}
+
+
+/* =============================================================
+   6. ナビゲーション（画面表示のみ・印刷では消える）
+   ============================================================= */
+
+.deck-nav {
+  position: fixed;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: rgba(255, 255, 255, 0.96);
+  border: 1px solid var(--line);
+  padding: 6px 8px;
+  z-index: var(--z-float);
+}
+
+.deck-nav button {
+  font-family: var(--en);
+  font-size: var(--sfs-label);
+  letter-spacing: 0.1em;
+  color: var(--ink-60);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px 12px;
+  transition: color var(--trans-fast);
+}
+
+.deck-nav button:hover { color: var(--brand); }
+.deck-nav button:focus-visible { outline: 2px solid var(--brand); outline-offset: 2px; }
+
+.deck-nav .dot {
+  width: 7px;
+  height: 7px;
+  padding: 0;
+  background: var(--line);
+  border: none;
+  cursor: pointer;
+  transition: background var(--trans-fast);
+}
+
+.deck-nav .dot.on { background: var(--brand); }
+.deck-nav .dot:hover { background: var(--brand-mid); }
+
+
+/* =============================================================
+   7. 印刷 → PDF 書き出し
+   -------------------------------------------------------------
+   Chrome の「印刷 → PDFに保存」で 1280×720 の各ページになる。
+   余白：なし／背景グラフィック：オン、で書き出すこと。
+   ============================================================= */
+
+@media print {
+  @page { size: 1280px 720px; margin: 0; }
+
+  html, body {
+    height: auto;
+    background: #fff;
+    display: block;
+    overflow: visible;
+    margin: 0;
+    padding: 0;
+  }
+
+  .deck { display: block; background: #fff; min-height: 0; }
+
+  .stage {
+    width: var(--sl-w);
+    height: auto;
+    transform: none !important;
+  }
+
+  .sl {
+    display: flex !important;
+    position: relative;
+    inset: auto;
+    width: var(--sl-w);
+    height: var(--sl-h);
+    overflow: hidden;
+    page-break-after: always;
+    break-after: page;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .sl:last-child { page-break-after: auto; break-after: auto; }
+
+  .deck-nav { display: none; }
+}
+
+
+/* =============================================================
+   8. OG画像／編集型サムネ
+   -------------------------------------------------------------
+   用語（社内）：
+     OG画像     … SNSシェア用に書き出す PNG（1200×630 固定）
+     編集型サムネ … 告知ページ上部に置く HTML/CSS 製のサムネ（可変幅）
+   型は .og--* で切り替える。スライドと同じ思想（主役はひとつ）で組む。
+   ============================================================= */
+
+.og-wrap {
+  --og-w: 1200px;
+  --og-h: 630px;
+  width: var(--og-w);
+  height: var(--og-h);
+  position: relative;
+  overflow: hidden;
+  background: var(--bg);
+  font-family: var(--body);
+  color: var(--ink-soft);
+  letter-spacing: var(--ls-body);
+  display: flex;
+  flex-direction: column;
+  padding: 62px 72px;
+}
+
+/* 編集型サムネ：告知ページに埋め込む可変版。比率だけ保つ */
+.og-wrap.is-fluid {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1200 / 630;
+  padding: clamp(24px, 5vw, 62px) clamp(26px, 6vw, 72px);
+  container-type: inline-size;
+}
+
+.og-top {
+  flex: none;
+  display: flex;
+  align-items: baseline;
+  gap: var(--sp-near);
+  padding-bottom: var(--sp-near);
+  border-bottom: 1px solid var(--line);
+}
+
+.og-brand {
+  font-family: var(--en);
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: 0.3em;
+  color: var(--brand);
+}
+
+.og-date {
+  margin-left: auto;
+  font-family: var(--head);
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--ink-50);
+  font-variant-numeric: tabular-nums;
+}
+
+.og-mid {
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.og-title {
+  margin: 0;
+  font-family: var(--mincho);
+  font-weight: 900;
+  font-size: 54px;
+  line-height: 1.42;
+  letter-spacing: 0.05em;
+  color: var(--ink);
+  font-feature-settings: "palt" 1;
+  max-width: 19em;
+  text-wrap: balance;
+}
+
+.og-sub {
+  margin: var(--sp-item) 0 0;
+  font-size: 20px;
+  line-height: 1.75;
+  color: var(--ink-60);
+  max-width: 32em;
+}
+
+.og-foot {
+  flex: none;
+  padding-top: var(--sp-near);
+  border-top: 1px solid var(--line);
+  display: flex;
+  align-items: baseline;
+  gap: var(--sp-item);
+  font-size: 15px;
+  letter-spacing: 0.05em;
+  color: var(--ink-50);
+}
+
+.og-foot .og-tag {
+  font-family: var(--head);
+  font-weight: 700;
+  color: var(--brand);
+}
+
+/* --- 型：ブルーのベタ面（問い・強いメッセージ用）----------------- */
+.og-wrap.og--brand { background: var(--brand); }
+.og--brand .og-top,
+.og--brand .og-foot { border-color: var(--on-brand-40); }
+.og--brand .og-brand,
+.og--brand .og-title { color: var(--on-brand); }
+.og--brand .og-date,
+.og--brand .og-sub,
+.og--brand .og-foot { color: var(--on-brand-88); }
+.og--brand .og-foot .og-tag { color: var(--on-brand); }
+.og--brand em, .og--brand .mark {
+  font-style: normal;
+  background: none;
+  border-bottom: 3px solid var(--on-brand-75);
+  padding-bottom: 3px;
+}
+
+/* --- 型：写真を敷く（文字は主役を譲らない）---------------------- */
+.og-wrap.og--photo { padding: 0; }
+
+.og--photo .og-photo {
+  position: absolute;
+  inset: 0;
+  background: var(--bg-off) center / cover no-repeat;
+}
+
+/* 白のベタ面で文字場所を確保する。写真の上に直接文字を置かない */
+.og--photo .og-panel {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 58%;
+  background: var(--bg);
+  border-right: var(--bw-frame) solid var(--brand);
+  padding: 62px 64px;
+  display: flex;
+  flex-direction: column;
+}
+
+.og--photo .og-title { font-size: 46px; max-width: 14em; }
+
+/* --- 可変版（編集型サムネ）のスケール調整 ----------------------- */
+@container (max-width: 760px) {
+  .og-wrap.is-fluid .og-title { font-size: clamp(24px, 4.6cqi, 40px); }
+  .og-wrap.is-fluid .og-sub   { font-size: clamp(13px, 1.8cqi, 17px); }
+  .og-wrap.is-fluid .og-brand { font-size: clamp(11px, 1.5cqi, 15px); }
+  .og-wrap.is-fluid .og-date,
+  .og-wrap.is-fluid .og-foot  { font-size: clamp(11px, 1.4cqi, 14px); }
+}
+
+.og-wrap em, .og-wrap .mark {
+  font-style: normal;
+  background: linear-gradient(transparent 58%, var(--brand-pale) 58%);
+}
+
+
+/* =============================================================
+   9. バナー／キービジュアル（.kv）— 折れ帯の型
+   -------------------------------------------------------------
+   参照：HOUYHNHNM のフィーチャーバナー
+   https://www.houyhnhnm.jp/feature/1140966/
+
+   何を取ったか（型の芯）
+     ① ブランドカラーのベタ面が "地"。写真はその上に「窓」として抜く。
+        → 写真の上に直接文字を載せない（4つの問い④「主役はどちらか」と一致）
+     ② 一文が、上の横帯から右の縦帯へ L字に折れる。この型の一番の発明。
+        和文が縦に流れることで、欧文の横組みと直交し、面が締まる
+     ③ 欧文は横組みで左上、和文は縦組みで右。方向を直交させる
+     ④ 色は 地・白・墨 の3色だけ
+
+   何を変えたか（POOLO への翻訳）
+     ・地の色 …… 緑 → --brand（#189BBC）
+     ・欧文 …… Jost（POOLO の欧文）。字間は --ls-label より広く取る
+     ・縦組みの和文 …… 参照元は太いゴシックだが、POOLO は Zen Old Mincho（明朝）。
+       ここが一番の分かれ目で、明朝にすると「ヒップ」が「静けさ」に転調する。
+       POOLO のトーン（落ち着いた・内省的）に寄せるための意図的な差し替え
+     ・縦のヘアライン …… 参照元より効かせる。DS は「影の代わりに罫」が主役のため
+
+   角丸について（DS原則の例外を明文化）
+     tokens.css は「角丸は 2px 基調・乱発しない」としているが、ここでは窓の対角に
+     大きな R を入れる。これは装飾ではなく "窓の形" そのもの＝構造なので例外とする。
+     角を立てたい回は --kv-r: 0 を指定すれば直角の窓になる。
+
+   サイズ
+     内部の寸法はすべて cqw（コンテナ幅の %）で書いてある。だから
+     1280×720 / 1200×630 / 可変幅、どれでも同じ1組のルールで成立する。
+     変わるのは比率だけ。
+   ============================================================= */
+
+.kv {
+  /* 既定は 16:9（1280×720）。書き出しもプレビューもこの箱で行う */
+  --kv-w: 1280px;
+  --kv-ratio: 16 / 9;
+
+  --kv-r:    10.3cqw;   /* 窓の対角R。0 にすると直角の窓になる */
+  --kv-col:  22cqw;     /* 左カラム（欧文・縦罫・巻数）の幅 */
+  --kv-bar:  4.4cqw;    /* 白帯の太さ */
+  --kv-edge: 3.0cqw;    /* 版面の外余白 */
+
+  position: relative;
+  width: var(--kv-w);
+  aspect-ratio: var(--kv-ratio);
+  overflow: hidden;
+  background: var(--brand);
+  container-type: inline-size;
+  font-family: var(--body);
+  letter-spacing: var(--ls-body);
+}
+
+/* OG画像として書き出すとき（1200×630） */
+.kv.is-og    { --kv-w: 1200px; --kv-ratio: 1200 / 630; }
+
+/* 告知ページに埋め込む可変版（編集型サムネ） */
+.kv.is-fluid { --kv-w: 100%; }
+
+
+/* --- 9-1. 写真の窓 --------------------------------------------
+   地の上に抜く。左下と右上に大きな R を入れて、地が窓に食い込む形にする
+   ------------------------------------------------------------- */
+.kv-window {
+  position: absolute;
+  left: var(--kv-col);
+  top: 0;
+  right: 3.5cqw;
+  bottom: 4.5cqw;
+  overflow: hidden;
+  background: var(--bg-off) center / cover no-repeat;
+  border-radius: 0 var(--kv-r) 0 var(--kv-r);
+}
+
+.kv-window img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+
+/* --- 9-2. 左カラム：欧文・縦罫・巻数 ----------------------------
+   参照元は欧文が写真に少し重なっているが、あちらは写真の左上が暗いから成立している。
+   POOLO の写真は空が入って明るいことが多く、白ヌキが必ず飛ぶ。
+   ＝「写真の上に直接文字を載せない」（4つの問い④）に立ち返って、
+   欧文は左カラムの内側で必ず折り返す。そのぶんカラムを広く取った。
+   ------------------------------------------------------------- */
+/* ページ側の reset に依存しない。<p> の既定マージンが残ると
+   横帯だけ 1em 下がって、L字ではなく十字になる */
+.kv, .kv * { box-sizing: border-box; }
+
+.kv-en,
+.kv-vsub,
+.kv-vol,
+.kv-fold-h,
+.kv-fold-v { margin: 0; }
+
+.kv-en {
+  position: absolute;
+  left: var(--kv-edge);
+  top: 2.6cqw;
+  z-index: 2;
+  font-family: var(--en);
+  font-weight: 600;
+  font-size: 2.4cqw;
+  line-height: 1.34;
+  letter-spacing: 0.1em;
+  color: var(--on-brand);
+  max-width: calc(var(--kv-col) - var(--kv-edge) - 1.2cqw);
+  overflow-wrap: anywhere;   /* 長い地名でも、絶対に写真の上へはみ出させない */
+}
+
+/* 縦のヘアライン。左カラムの背骨になる */
+.kv-spine {
+  position: absolute;
+  left: calc(var(--kv-col) - 3.6cqw);
+  top: 17cqw;
+  bottom: 13cqw;
+  width: 1px;
+  background: var(--on-brand-40);
+  z-index: 2;
+}
+
+/* 縦罫の頭に置く短い横罫（参照元の小さなあしらい） */
+.kv-spine::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 5.6cqw;
+  height: 1px;
+  background: var(--on-brand-40);
+}
+
+/* 縦組みの小見出し（開催地・ゲスト名など） */
+.kv-vsub {
+  position: absolute;
+  left: var(--kv-edge);
+  top: 17cqw;
+  z-index: 2;
+  writing-mode: vertical-rl;
+  font-family: var(--head);
+  font-weight: 700;
+  font-size: 2.4cqw;
+  line-height: 1.6;
+  letter-spacing: 0.12em;
+  color: var(--on-brand);
+  font-feature-settings: "vpal" 1, "vkrn" 1;
+  /* 溢れたときに左へ2列目を作らせない。長すぎたら "切れて見える" ようにして、
+     書き手が短くするしかない状態にする（崩れたまま気づかないより良い）。
+     入るのは「開催地＋短い括弧書き」まで＝目安12文字（参照元の「凜太郎（モデル）」と同じ分量） */
+  max-height: 31cqw;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.kv-vsub small {
+  font-size: 0.5em;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  color: var(--on-brand-75);
+}
+
+/* 巻数・期。左下に大きく置く */
+.kv-vol {
+  position: absolute;
+  left: var(--kv-edge);
+  bottom: 2.2cqw;
+  z-index: 2;
+  font-family: var(--en);
+  font-weight: 600;
+  font-size: 5.6cqw;
+  line-height: 1;
+  letter-spacing: 0.02em;
+  color: var(--on-brand);
+  font-variant-numeric: tabular-nums;
+}
+
+
+/* --- 9-3. 折れ帯：横バー → 縦バー ------------------------------
+   2つの白い帯を右上で突き合わせて L 字にする。
+   一文を2つに割って、上の帯（横組み）と右の帯（縦組み）に流し込む
+   ------------------------------------------------------------- */
+.kv-fold-h,
+.kv-fold-v {
+  position: absolute;
+  right: var(--kv-edge);
+  top: 2.6cqw;
+  background: var(--bg);
+  z-index: 3;
+
+  /* 横帯・縦帯とも、同じ書体・同じ級数・同じ機構で「帯の中央」に置く。
+     中央寄せは flex ではなく "行送り＝帯の太さ" で取る。
+     縦組みでは flex の主軸が縦に入れ替わるので justify-content が横方向に効かず、
+     縦帯の文字だけ帯の右端に寄って、折れ角で文字の流れがガタつくため。
+     line-height を帯の太さに合わせると、半行送りが左右（縦組みなら横）に等分される。 */
+  font-family: var(--mincho);
+  font-weight: 900;
+  font-size: 2.5cqw;
+  line-height: var(--kv-bar);
+  letter-spacing: 0.06em;   /* 同じ一文を折るので、横帯と縦帯で字間も揃える */
+  color: var(--ink);
+
+  /* 帯からはみ出したぶんは切る。2列目ができて写真の上に流れ出すのを防ぐ。
+     入るのは横帯・縦帯とも目安13文字。折れ帯は「横に前半・縦に後半」で割るので、
+     一文が長いときは割る位置を変えて調整する */
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+/* 上の横帯：一文の前半を横組みで。
+   右端は縦帯とぶつかるので、その幅ぶん逃がしておく（文字が帯の下に潜らないように） */
+.kv-fold-h {
+  height: var(--kv-bar);
+  padding: 0 calc(var(--kv-bar) + 1.4cqw) 0 1.8cqw;
+  font-feature-settings: "palt" 1;
+}
+
+/* 右の縦帯：一文の後半を縦組みで。上の横帯の真下から流れ出す */
+.kv-fold-v {
+  width: var(--kv-bar);
+  bottom: 8cqw;
+  padding-top: calc(var(--kv-bar) + 1.4cqw);
+  writing-mode: vertical-rl;
+  font-feature-settings: "vpal" 1, "vkrn" 1;
+}
+
+/* 縦中横（たてちゅうよこ）。
+   縦組みの中の半角数字は既定で90°回転してしまう（「3日間」の 3 が寝る）。
+   1〜2桁の数字は <span class="tcy">12</span> と囲んで正立させる。
+   ラテン語（Compath など）は回転したままが正しいので、囲まない */
+.kv-vsub .tcy,
+.kv-fold-v .tcy {
+  text-combine-upright: all;
+  -webkit-text-combine: horizontal;
+  letter-spacing: 0;
+}
+
+/* 差し色は帯の中の一語だけに入れる。3色を守るため面は増やさない */
+.kv-fold-h em,
+.kv-fold-v em {
+  font-style: normal;
+  background: none;
+  color: var(--brand);
+}
+
+
+/* --- 9-4. 型のバリエーション ----------------------------------- */
+
+/* 縦帯だけの簡素版。回のタイトルが短いときはこちら */
+.kv--band .kv-fold-h { display: none; }
+.kv--band .kv-fold-v { padding-top: 2.4cqw; bottom: 8cqw; }
+
+/* 地を白にした静かな版。写真が主役の回に使う。
+   白い記事ページやタイムラインに置くと輪郭が消えるので、罫で囲っておく */
+.kv--light {
+  background: var(--bg-off);
+  box-shadow: inset 0 0 0 1px var(--line);
+}
+.kv--light .kv-en,
+.kv--light .kv-vsub,
+.kv--light .kv-vol   { color: var(--ink); }
+.kv--light .kv-vsub small { color: var(--ink-50); }
+.kv--light .kv-spine,
+.kv--light .kv-spine::before { background: var(--line); }
+.kv--light .kv-fold-h,
+.kv--light .kv-fold-v { background: var(--brand); color: var(--on-brand); }
+.kv--light .kv-fold-h em,
+.kv--light .kv-fold-v em { color: var(--brand-pale); }
+
+/* 窓を直角にする（角を立てたい回） */
+.kv--square { --kv-r: 0; }
+
+
+/* --- 9-5. 小さく表示されるとき ---------------------------------
+   タイムラインのサムネ幅（〜520px）では欧文の副題まで読めないので、
+   要素を減らして主役だけ残す
+   ------------------------------------------------------------- */
+@container (max-width: 520px) {
+  .kv-spine,
+  .kv-vsub { display: none; }
+  .kv-window { left: 8cqw; }
+  .kv-en { font-size: 3.6cqw; }
+}
