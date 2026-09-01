@@ -199,9 +199,32 @@
   .blue .opt b { color:var(--on-brand); }
   .blue .opt span { color:var(--on-brand-88); }
 
+  /* --- ビフォーアフター（3ヶ月で、どうなるか） --- */
+  .ba { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line); border:1px solid var(--line); margin-top:clamp(14px,2.4vh,26px); }
+  .ba > div { background:var(--bg); padding:clamp(15px,2.1vw,28px) clamp(13px,1.7vw,23px); display:flex; flex-direction:column; }
+  .ba i { font-style:normal; font-family:var(--en); font-size:clamp(10px,.92vw,13px); font-weight:500; letter-spacing:.18em; color:var(--brand); }
+  .ba .now { font-family:var(--body); font-size:clamp(11px,1.02vw,14px); line-height:1.85; color:var(--ink-50); margin:clamp(8px,1.2vh,13px) 0 0; letter-spacing:.03em; }
+  .ba .arw { font-family:var(--head); font-weight:700; font-size:clamp(9.5px,.9vw,12px); letter-spacing:.12em; color:var(--brand);
+             margin:clamp(11px,1.6vh,17px) 0 clamp(9px,1.3vh,14px); padding-top:clamp(11px,1.6vh,17px); border-top:1px solid var(--brand-mid); }
+  .ba .aft { font-family:var(--mincho); font-weight:700; font-size:clamp(13px,1.38vw,20px); line-height:1.62; color:var(--ink); font-feature-settings:"palt"; margin:0; }
+  .ba .aft b { color:var(--brand-deep); }
+
+  /* --- 穴埋めのフレーム（仮テーマ1行） --- */
+  .frame { font-family:var(--mincho); font-weight:700; font-size:clamp(21px,3.1vw,46px); line-height:1.8;
+           color:var(--ink); margin:clamp(14px,2.4vh,26px) 0 0; font-feature-settings:"palt"; }
+  .frame u { text-decoration:none; display:inline-block; min-width:clamp(110px,16vw,260px); border-bottom:2px solid var(--brand); }
+
+  /* --- 実例3本 --- */
+  .exs { display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(14px,2.2vw,34px); margin-top:clamp(16px,2.6vh,30px); }
+  .exs > div { border-top:2px solid var(--brand); padding-top:clamp(10px,1.5vh,17px); }
+  .exs b { display:block; font-family:var(--mincho); font-weight:700; font-size:clamp(13px,1.35vw,20px); line-height:1.55; color:var(--ink); font-feature-settings:"palt"; }
+  .exs span { display:block; font-family:var(--head); font-weight:700; font-size:clamp(10px,.9vw,12.5px); letter-spacing:.06em; color:var(--brand); margin-top:clamp(7px,1.1vh,12px); }
+  .exs em { font-style:normal; display:block; font-family:var(--body); font-size:clamp(10.5px,.95vw,13.5px); line-height:1.8; color:var(--ink-50); margin-top:clamp(6px,.9vh,10px); letter-spacing:.03em; }
+
   @media (max-width:760px) {
     .ask { grid-template-columns:1fr; }
     .opt { grid-template-columns:28px 1fr; gap:12px; }
+    .ba, .exs { grid-template-columns:1fr; }
   }
 
   /* --- UI --- */
@@ -309,7 +332,7 @@
 
   <!-- 01 -->
   <section class="s blue">
-    <div class="eyebrow">POOLO ゼミ 説明会 ／ 2026.08.25</div>
+    <div class="eyebrow">POOLO ゼミ 説明会 ／ 2026.09.01</div>
     <h1 class="jp">旅で見つけた問いから、<br>学びの場を創る。</h1>
     <p class="sub jp">あなたのひとつの問いを、誰かが「参加したい」と思う小さな学びの場にする、3ヶ月・全7回。</p>
   </section>
@@ -411,6 +434,33 @@
     <p class="sub jp">人生を賭けなくていい。会社を辞めなくていい。ただ、自分の問いを囲む場をひとつ持つ。それだけです。</p>
   </section>
 
+  <!-- 06-b ゴール：ビフォーアフター -->
+  <section class="s">
+    <div class="eyebrow">Goal ／ 3ヶ月後</div>
+    <h2 class="jp">さっき手を挙げてもらった3つが、<br>12月22日にはこうなります。</h2>
+    <div class="ba">
+      <div>
+        <i>A ／ 創る側に回りたい</i>
+        <p class="now jp">講座もコミュニティも十分やってきた。学びは多いのに、終わるたび手元に何も残らない。</p>
+        <p class="arw">3ヶ月後</p>
+        <p class="aft jp">自分の名前で<b>募集ページを出し</b>、初回の開催日が埋まっている。ありがとうを、言う側から<b>言われる側</b>へ。</p>
+      </div>
+      <div>
+        <i>B ／ 形にできていない</i>
+        <p class="now jp">構想は2年前からある。でも人に説明できる形になっていないまま、ずっと下書き。</p>
+        <p class="arw">3ヶ月後</p>
+        <p class="aft jp">7つの問いが全部埋まった<b>企画書が1枚</b>。値段も定員も日程も決まり、同期が<b>第1号の参加者</b>になっている。</p>
+      </div>
+      <div>
+        <i>C ／ まだ何も決まっていない</i>
+        <p class="now jp">何をやりたいのか自分でも分からない。「語れることなんて、自分にあるのか」と思っている。</p>
+        <p class="arw">3ヶ月後</p>
+        <p class="aft jp">旅から掘り当てた問いが<b>1行になっている</b>。人に話すと前のめりで聞かれる。<b>次にやることが決まっている</b>。</p>
+      </div>
+    </div>
+    <p class="sub jp">どこから入っても、修了時に手元にあるものは同じです。<b>①埋まった企画キャンバス1枚　②初回の開催日　③同期15名</b>。</p>
+  </section>
+
   <!-- 07 -->
   <section class="s">
     <div class="eyebrow">Work 01 ／ 6分</div>
@@ -431,11 +481,43 @@
     </div>
   </section>
 
+  <!-- 08-b 実例 -->
+  <section class="s">
+    <div class="eyebrow">Examples</div>
+    <h2 class="jp">その1つが、こうなります。</h2>
+    <div class="exs">
+      <div>
+        <b class="jp">鹿児島の“辺境”から、<br>日本を見る</b>
+        <span>全4回 ／ 25,000円 ／ 定員8名</span>
+        <em class="jp">地域に通い続けた人の、土地から社会を読む場</em>
+      </div>
+      <div>
+        <b class="jp">北海道、食の裏側<br>― 開拓史と生産者から読み解く</b>
+        <span>全5回 ／ 30,000円 ／ 定員10名</span>
+        <em class="jp">食べ歩きが好きだった人の、産業と歴史をたどる場</em>
+      </div>
+      <div>
+        <b class="jp">40歳の地図<br>― 旅の問いで、これからを言葉にする</b>
+        <span>全4回 ／ 30,000円 ／ 定員6名</span>
+        <em class="jp">人生の節目に旅に出た人の、同世代と考える場</em>
+      </div>
+    </div>
+    <p class="sub jp">ジャンルはばらばらです。共通しているのは、<b>「旅で見つけた問いが根っこにある」</b>という一点だけ。テーマが被っても大丈夫です。原体験が違えば、まったく別の場になります。</p>
+  </section>
+
+  <!-- 08-c Work02 1行にする -->
+  <section class="s pale">
+    <div class="eyebrow">Work 02 ／ 3分</div>
+    <h2 class="jp">では、あなたの1行も<br>この形にしてみてください。</h2>
+    <p class="frame jp"><u>&nbsp;</u> から学ぶ、<u>&nbsp;</u></p>
+    <p class="sub jp">左に<b>あなたの原体験</b>、右に<b>相手が受け取るもの</b>。うまい言葉にしなくて大丈夫です。今日は<b>仮</b>で構いません。むしろ、後で必ず変わります。<br>書けたら、シートの③に入れて「書いた内容を送る」まで押してください。</p>
+  </section>
+
   <!-- 09 -->
   <section class="s blue">
     <div class="eyebrow">Reveal</div>
-    <h1 class="jp">じつは今のが、<br>ゼミの第1回そのものです。</h1>
-    <p class="sub jp">今日は20分でした。それでも、ひとつずつ見つかりましたよね。ゼミでは、これを2時間かけて、フィードバックをもらいながらやります。</p>
+    <h1 class="jp">じつは今のが、<br>ゼミの第1回と、第2回の入り口です。</h1>
+    <p class="sub jp">今日は23分でした。それでも、原石と仮テーマが1つずつ見つかりましたよね。ゼミでは、これを2時間かけて、フィードバックをもらいながらやります。</p>
   </section>
 
   <!-- 10 -->
@@ -680,7 +762,9 @@
     '.s .sch .dt', '.s .sch .tl', '.s .sch .tg', '.s .sch .no',
     '.s .me-role', '.s .me-name', '.s .me-kana', '.s .me-bio', '.s .me-tags span',
     '.s .ask i', '.s .ask strong', '.s .ask em',
-    '.s .opt b', '.s .opt span'
+    '.s .opt b', '.s .opt span',
+    '.s .ba i', '.s .ba .now', '.s .ba .arw', '.s .ba .aft',
+    '.s .exs b', '.s .exs span', '.s .exs em'
   ].join(',');
 
   var els = Array.prototype.slice.call(document.querySelectorAll(SEL));

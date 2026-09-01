@@ -139,8 +139,8 @@
   <header class="wh">
     <div class="wh-eyebrow">Worksheet ／ POOLO ゼミ 説明会</div>
     <h1 class="wh-title jp">旅の棚卸しシート<br>――あなたの問いの原石を、1つ</h1>
-    <p class="wh-lead jp">これは、ゼミ第1回でやることの短縮版です。20分で、あなたが「つい語ってしまう話」を1つ見つけます。今日はここまで持ち帰ってください。</p>
-    <p class="wh-meta">2026.08.25　POOLOゼミ「学びの場を、創る。」説明会</p>
+    <p class="wh-lead jp">これは、ゼミ第1回と第2回の入り口の短縮版です。23分で、あなたが「つい語ってしまう話」を1つ見つけ、それを<b>1行のテーマ</b>にするところまでやります。今日はここまで持ち帰ってください。</p>
+    <p class="wh-meta">2026.09.01　POOLOゼミ「学びの場を、創る。」説明会</p>
   </header>
 
   <div class="rule">
@@ -205,16 +205,17 @@
     <div class="st-bar">
       <span class="st-no">3</span>
       <h2 class="st-ttl jp">仮テーマを、1行で</h2>
-      <span class="st-min">2分</span>
+      <span class="st-min">3分</span>
     </div>
-    <p class="st-help jp">選んだ原石を、<b>「○○から学ぶ、△△」</b>のような1行にしてみてください。今日の時点では仮でかまいません。むしろ、後で必ず変わります。</p>
+    <p class="st-help jp">選んだ原石を、<b>「○○ から学ぶ、△△」</b>の形にしてみてください。左に<b>あなたの原体験</b>、右に<b>相手が受け取るもの</b>が入ります。今日の時点では仮でかまいません。むしろ、後で必ず変わります。</p>
 
-    <div class="single">
+    <div class="single mark">
       <input type="text" data-k="s3" placeholder="例：旅の対話から学ぶ、&quot;聴く&quot;と&quot;訊く&quot;のコーチング">
     </div>
 
     <p class="ex jp"><b>参考：実際に生まれうる形</b>
-      「鹿児島の“辺境”から、日本を見る」（全4回・2.5万円・定員8名）／「北海道、食の裏側 ― 開拓史と生産者から読み解く」（全5回・3万円・定員10名）／「40歳の地図 ― 旅の問いで、これからの生き方を言葉にする」（全4回・3万円・定員6名）</p>
+      「鹿児島の“辺境”から、日本を見る」（全4回・2.5万円・定員8名）／「北海道、食の裏側 ― 開拓史と生産者から読み解く」（全5回・3万円・定員10名）／「40歳の地図 ― 旅の問いで、これからの生き方を言葉にする」（全4回・3万円・定員6名）<br>
+      ジャンルはばらばらです。共通しているのは「旅で見つけた問いが根っこにある」という一点だけ。</p>
   </section>
 
   <!-- STEP 4 -->
@@ -314,10 +315,11 @@
      デプロイ後、下の '' に .../exec のURLを貼れば有効になります。
      --------------------------------------------------------- */
   var ENDPOINT = 'https://script.google.com/macros/s/AKfycbwt8hAgL-WcqWy9n2JdLx_2u7RgpHeZnLvcjRJ9Q-pJibUT5_yEnBD5pvum6v_NA9VD0g/exec';
-  var SESSION  = '2026-08-25';
+  var SESSION  = '2026-09-01';
 
-  /* この端末を識別するID。同じIDで送るとシート上の同じ行が上書きされる */
-  var ID_KEY = KEY + '-id';
+  /* この端末を識別するID。同じIDで送るとシート上の同じ行が上書きされる。
+     開催回ごとに別IDにしておかないと、前回参加した人の行を上書きしてしまう */
+  var ID_KEY = KEY + '-id-' + SESSION;
   var submissionId = (function () {
     var v;
     try { v = localStorage.getItem(ID_KEY); } catch (e) {}
@@ -387,7 +389,7 @@
   var inFlight = false;
   var pending = false;
   var everSent = false;
-  var SENT_KEY = KEY + '-sent';
+  var SENT_KEY = KEY + '-sent-' + SESSION;
 
   try { everSent = localStorage.getItem(SENT_KEY) === '1'; } catch (e) {}
 
