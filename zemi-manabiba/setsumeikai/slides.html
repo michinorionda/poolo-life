@@ -189,15 +189,21 @@
   .ask em { font-style:normal; display:block; font-family:var(--body); font-size:clamp(11px,1vw,13.5px); line-height:1.8; color:var(--ink-50); margin-top:clamp(8px,1.2vh,13px); letter-spacing:.03em; }
   .blue .ask em { color:var(--on-brand-75); }
 
-  /* --- ヒアリングの選択肢 --- */
-  .opts { display:grid; gap:clamp(10px,1.5vh,16px); margin-top:clamp(18px,3vh,30px); max-width:40em; }
+  /* --- ヒアリングの選択肢 ---
+     選択肢は「並べて比べる」もの。1枚あたり1行に収まる幅を確保して、
+     A/B/C の行数が揃うようにしている（行数が不揃いだと比較しづらい）。 */
+  .opts { display:grid; gap:clamp(10px,1.5vh,16px); margin-top:clamp(18px,3vh,30px); max-width:52em; }
   .opt { display:grid; grid-template-columns:clamp(34px,3.6vw,48px) 1fr; align-items:center; gap:clamp(14px,1.8vw,24px);
          border:1px solid var(--line); border-radius:var(--radius); padding:clamp(15px,2.1vh,22px) clamp(16px,2vw,26px); }
-  .opt b { font-family:var(--en); font-weight:600; font-size:clamp(17px,1.9vw,25px); color:var(--brand); line-height:1; }
+  /* 記号（A/B/C）だけ。> を付けないと本文中の <b> まで欧文フォントになる */
+  .opt > b { font-family:var(--en); font-weight:600; font-size:clamp(17px,1.9vw,25px); color:var(--brand); line-height:1; }
   .opt span { font-family:var(--body); font-size:clamp(13.5px,1.45vw,19px); line-height:1.7; color:var(--ink-72); letter-spacing:.035em; }
+  /* 文中の強調は、大きさを変えず色と太さで。語の途中で改行させない */
+  .opt span b { font-weight:700; color:var(--brand-deep); white-space:nowrap; }
   .blue .opt { border-color:var(--on-brand-40); }
-  .blue .opt b { color:var(--on-brand); }
+  .blue .opt > b { color:var(--on-brand); }
   .blue .opt span { color:var(--on-brand-88); }
+  .blue .opt span b { color:var(--on-brand); }
 
   /* --- ビフォーアフター（3ヶ月で、どうなるか） --- */
   .ba { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line); border:1px solid var(--line); margin-top:clamp(14px,2.4vh,26px); }
@@ -207,7 +213,10 @@
   .ba .arw { font-family:var(--head); font-weight:700; font-size:clamp(9.5px,.9vw,12px); letter-spacing:.12em; color:var(--brand);
              margin:clamp(11px,1.6vh,17px) 0 clamp(9px,1.3vh,14px); padding-top:clamp(11px,1.6vh,17px); border-top:1px solid var(--brand-mid); }
   .ba .aft { font-family:var(--mincho); font-weight:700; font-size:clamp(13px,1.38vw,20px); line-height:1.62; color:var(--ink); font-feature-settings:"palt"; margin:0; }
-  .ba .aft b { color:var(--brand-deep); }
+  /* 3列の細いカラムなので、強調した語が行末で割れないよう短く区切って nowrap */
+  .ba .aft b { color:var(--brand-deep); white-space:nowrap; }
+  /* 列挙した項目を、番号と中身で泣き別れさせないための指定 */
+  .sub b.nb { white-space:nowrap; }
 
   /* --- 穴埋めのフレーム（仮テーマ1行） --- */
   .frame { font-family:var(--mincho); font-weight:700; font-size:clamp(21px,3.1vw,46px); line-height:1.8;
@@ -381,7 +390,7 @@
   <!-- 04 ヒアリング② -->
   <section class="s">
     <div class="eyebrow">Where you are ／ 02</div>
-    <h2 class="jp">これまでに、<br>自分で場をひらいた経験は。</h2>
+    <h2 class="jp">これまでに、自分で場をひらいた経験は。</h2>
     <div class="opts">
       <div class="opt"><b>A</b><span class="jp">何度かある</span></div>
       <div class="opt"><b>B</b><span class="jp">一度だけある</span></div>
@@ -443,22 +452,22 @@
         <i>A ／ 創る側に回りたい</i>
         <p class="now jp">講座もコミュニティも十分やってきた。学びは多いのに、終わるたび手元に何も残らない。</p>
         <p class="arw">3ヶ月後</p>
-        <p class="aft jp">自分の名前で<b>募集ページを出し</b>、初回の開催日が埋まっている。ありがとうを、言う側から<b>言われる側</b>へ。</p>
+        <p class="aft jp">自分の名前で<b>募集ページ</b>を出し、初回の開催日が埋まっている。ありがとうを、言う側から<b>言われる側</b>へ。</p>
       </div>
       <div>
         <i>B ／ 形にできていない</i>
         <p class="now jp">構想は2年前からある。でも人に説明できる形になっていないまま、ずっと下書き。</p>
         <p class="arw">3ヶ月後</p>
-        <p class="aft jp">7つの問いが全部埋まった<b>企画書が1枚</b>。値段も定員も日程も決まり、同期が<b>第1号の参加者</b>になっている。</p>
+        <p class="aft jp">7つの問いが全部埋まった<b>企画書1枚</b>。値段も定員も日程も決まり、同期が<b>第1号</b>の参加者になっている。</p>
       </div>
       <div>
         <i>C ／ まだ何も決まっていない</i>
         <p class="now jp">何をやりたいのか自分でも分からない。「語れることなんて、自分にあるのか」と思っている。</p>
         <p class="arw">3ヶ月後</p>
-        <p class="aft jp">旅から掘り当てた問いが<b>1行になっている</b>。人に話すと前のめりで聞かれる。<b>次にやることが決まっている</b>。</p>
+        <p class="aft jp">旅から掘り当てた問いが<b>1行</b>になっている。人に話すと前のめりで聞かれる。<b>次にやること</b>が決まっている。</p>
       </div>
     </div>
-    <p class="sub jp">どこから入っても、修了時に手元にあるものは同じです。<b>①埋まった企画キャンバス1枚　②初回の開催日　③同期15名</b>。</p>
+    <p class="sub jp">どこから入っても、修了時に手元にあるものは同じです。<b class="nb">①埋まった企画キャンバス1枚</b>　<b class="nb">②初回の開催日</b>　<b class="nb">③同期15名</b>。</p>
   </section>
 
   <!-- 07 -->
