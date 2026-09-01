@@ -1633,12 +1633,16 @@ img { display: block; max-width: 100%; }
   color: var(--ink-72);
 }
 .person-bio + .person-bio { margin-top: 10px; }
+/* 外部サイトへの小さな導線。人物カードの下（.person-links）と、
+   散文セクションの末尾（.link-out）で同じ見え方にする。 */
+.link-out,
 .person-links {
   display: flex;
   flex-wrap: wrap;
   gap: 18px;
   margin-top: 16px;
 }
+.link-out a,
 .person-links a {
   font-family: var(--head);
   font-size: 12px;
@@ -1649,7 +1653,9 @@ img { display: block; max-width: 100%; }
   padding-bottom: 2px;
   transition: color var(--trans-fast);
 }
+.link-out a:hover,
 .person-links a:hover { color: var(--brand); }
+.link-out .arrow,
 .person-links .arrow { font-family: var(--en); margin-left: 0.4em; }
 @media (max-width: 640px) {
   .person { grid-template-columns: minmax(0, 1fr); gap: 20px; }
