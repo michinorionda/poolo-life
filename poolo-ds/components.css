@@ -726,6 +726,10 @@ img { display: block; max-width: 100%; }
   height: clamp(110px, 18vh, 180px);
   background: var(--brand-pale);      /* 裁ち落とし写真の足元にブルー淡面 */
 }
+/* キャプションを置かない写真ブレイク。既定は下端＝写真の下端なので、
+   足元のブルー淡面が写真の裏に隠れてしまう。下に余白を残して面を見せる。 */
+.photo-break:not(:has(.pb-caption)) { padding-bottom: clamp(48px, 7vh, 84px); }
+
 .pb-frame {
   position: relative;
   z-index: 1;
