@@ -182,44 +182,56 @@ figcaption b{color:var(--ink-72)}
   </div>
 
   <figure>
-    <svg viewBox="0 0 860 520" role="img" aria-label="4段のはしご。上から豊かさ、探究、探究テーマ、対象・他者・社会。下から上へ、対象から問いが生まれ、他者に当てると、GとHが同時に動く。">
-      <defs>
-        <marker id="m1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-          <path d="M 0 0 L 10 5 L 0 10 z" fill="#189BBC"/>
-        </marker>
-      </defs>
+    <svg viewBox="0 0 900 434" role="img" aria-label="1本の縦の背骨に4つの節。下から対象・他者・社会、探究テーマ、探究、豊かさ。上へ向かう矢印が因果を示す。">
+        <defs>
+          <marker id="rv1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor"/>
+          </marker>
+          <marker id="rv2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <path d="M 0 0 L 10 5 L 0 10 z" fill="#189BBC"/>
+          </marker>
+        </defs>
 
-      <text x="44" y="88" font-size="10.5" fill="currentColor" opacity=".5">目的</text>
-      <rect x="140" y="50" width="580" height="56" rx="2" fill="#189BBC" stroke="#189BBC" stroke-width="2"/>
-      <text x="164" y="84" font-size="14" font-weight="700" fill="#FFFFFF">豊かさ</text>
-      <text x="696" y="84" text-anchor="end" font-size="11.5" fill="#FFFFFF" opacity=".9">F ＝ 内的な納得(G) × 他者とのつながり(H)</text>
+        <line x1="252" y1="386" x2="252" y2="296" stroke="currentColor" stroke-width="1.5" marker-end="url(#rv1)"/>
+        <line x1="252" y1="292" x2="252" y2="202" stroke="currentColor" stroke-width="1.5" marker-end="url(#rv1)"/>
+        <line x1="252" y1="198" x2="252" y2="108" stroke="#189BBC" stroke-width="2.5" marker-end="url(#rv2)"/>
 
-      <line x1="250" y1="168" x2="250" y2="114" stroke="#189BBC" stroke-width="2.5" marker-end="url(#m1)"/>
-      <text x="278" y="145" font-size="11.5" font-weight="700" fill="#189BBC">GとHが、同時に動く</text>
+        <line x1="150" y1="70" x2="150" y2="400" stroke="currentColor" stroke-width="1" opacity=".18"/>
 
-      <text x="44" y="214" font-size="10.5" fill="currentColor" opacity=".5">営み</text>
-      <rect x="140" y="176" width="580" height="56" rx="2" fill="none" stroke="currentColor" stroke-width="1.5"/>
-      <text x="164" y="210" font-size="14" font-weight="700" fill="currentColor">探究</text>
-      <text x="696" y="210" text-anchor="end" font-size="11.5" fill="currentColor" opacity=".65">問いを橋にして、自分と社会の両方を広げつづけること</text>
+        <g font-size="11" fill="currentColor" opacity=".5">
+          <text x="126" y="100" text-anchor="end">目的</text>
+          <text x="126" y="194" text-anchor="end">営み</text>
+          <text x="126" y="288" text-anchor="end">持ち物</text>
+          <text x="126" y="382" text-anchor="end">触れる先</text>
+        </g>
 
-      <line x1="250" y1="294" x2="250" y2="240" stroke="currentColor" stroke-width="1.5" marker-end="url(#m1)"/>
-      <text x="278" y="271" font-size="11.5" fill="currentColor" opacity=".7">その問いを、他者に当てる</text>
+        <g font-size="11" fill="currentColor">
+          <text x="232" y="147" text-anchor="end" font-weight="700" fill="#189BBC">GとHが、同時に動く</text>
+          <text x="232" y="241" text-anchor="end" opacity=".7">その問いを、他者に当てる</text>
+          <text x="232" y="335" text-anchor="end" opacity=".7">ここから、問いが生まれる</text>
+        </g>
 
-      <text x="44" y="340" font-size="10.5" fill="currentColor" opacity=".5">持ち物</text>
-      <rect x="140" y="302" width="580" height="56" rx="2" fill="none" stroke="currentColor" stroke-width="1.5"/>
-      <text x="164" y="336" font-size="14" font-weight="700" fill="currentColor">探究テーマ</text>
-      <text x="696" y="336" text-anchor="end" font-size="11.5" fill="currentColor" opacity=".65">いま掲げている問いの、現在の版</text>
+        <circle cx="252" cy="96" r="9" fill="#189BBC"/>
+        <circle cx="252" cy="190" r="6" fill="#FFFFFF" stroke="currentColor" stroke-width="1.8"/>
+        <circle cx="252" cy="284" r="6" fill="#FFFFFF" stroke="currentColor" stroke-width="1.8"/>
+        <circle cx="252" cy="378" r="6" fill="currentColor"/>
 
-      <line x1="250" y1="420" x2="250" y2="366" stroke="currentColor" stroke-width="1.5" marker-end="url(#m1)"/>
-      <text x="278" y="397" font-size="11.5" fill="currentColor" opacity=".7">ここから、問いが生まれる</text>
+        <text x="288" y="102" font-size="18" font-weight="700" fill="#189BBC">豊かさ</text>
+        <text x="288" y="126" font-size="11.5" fill="currentColor" opacity=".6">F ＝ 内的な納得(G) × 他者とのつながり(H)</text>
 
-      <text x="44" y="466" font-size="10.5" fill="currentColor" opacity=".5">触れる先</text>
-      <rect x="140" y="428" width="580" height="56" rx="2" fill="none" stroke="currentColor" stroke-width="1.5"/>
-      <text x="164" y="462" font-size="14" font-weight="700" fill="currentColor">対象・他者・社会</text>
-      <text x="696" y="462" text-anchor="end" font-size="11.5" fill="currentColor" opacity=".65">問いが触れる先の、三つ</text>
+        <text x="288" y="196" font-size="18" font-weight="700" fill="currentColor">探究</text>
+        <text x="288" y="220" font-size="11.5" fill="currentColor" opacity=".6">問いを橋にして、自分と社会の両方を広げつづけること</text>
 
-      <text x="140" y="508" font-size="10.5" fill="currentColor" opacity=".5">下から読むと因果になり、上から読むと「何のために」になります。</text>
-    </svg>
+        <text x="288" y="290" font-size="18" font-weight="700" fill="currentColor">探究テーマ</text>
+        <text x="288" y="314" font-size="11.5" fill="currentColor" opacity=".6">いま掲げている問いの、現在の版</text>
+
+        <text x="288" y="384" font-size="18" font-weight="700" fill="currentColor">対象・他者・社会</text>
+        <text x="288" y="408" font-size="11.5" fill="currentColor" opacity=".6">問いが触れる先の、三つ</text>
+
+        <path d="M 862 88 L 878 88 L 878 386 L 862 386" fill="none" stroke="currentColor" stroke-width="1" opacity=".22"/>
+        <text x="856" y="80" text-anchor="end" font-size="10.5" fill="currentColor" opacity=".45">上から読む ＝ 何のために</text>
+        <text x="150" y="428" font-size="10.5" fill="currentColor" opacity=".45">↑ 下から読むと、なぜ豊かさになるのかが1本でつながります。</text>
+      </svg>
     <figcaption><b>「探究テーマって何ですか」と聞かれたときは、この図の3段目を指すのがいちばん早いと思います。</b>単独の用語ではなく、<b>上に豊かさがあり、下に対象がある</b>という位置で意味が決まる語だからです。<b>なお〈問い〉は、この4段のどれでもありません</b>。3段目（探究テーマ）を作っている材料です。→ 03</figcaption>
   </figure>
 </section>
@@ -232,43 +244,132 @@ figcaption b{color:var(--ink-72)}
   </div>
 
   <div class="col">
-    <p class="claim">豊かさ ＝ 内的な納得(G) × 他者とのつながり(H)</p>
-    <p><strong>足し算ではなく掛け算です。</strong>だから<strong>どちらかがゼロなら、全体がゼロ</strong>になります。片方をいくら磨いても、もう片方が無ければ積は増えない。ここがこの式のすべてです。</p>
-    <p>そして<strong>Fは固定された到達点ではありません。</strong>「豊かになった」で終わる状態ではなく、更新されつづけるもの。だから「達成」ではなく「広がりつづけているか」で見ます。</p>
+    <p class="claim">豊かさは、貯まりません。<br>回しているあいだだけ、そこにあります。</p>
+    <p><strong>豊かさ ＝ 内的な納得(G) × 他者とのつながり(H)。</strong>足し算ではなく掛け算なので、<strong>片方が細いかぎり、もう片方をいくら伸ばしても、積は増えません。</strong></p>
+    <p>そして<strong>Fは、到達する状態ではなく、広がりつづけている幅のことです。</strong>「豊かになった」で終わる状態ではないので、「達成したか」ではなく「広がりつづけているか」で見ます。</p>
+  </div>
+
+  <div class="col">
+    <p class="claim">つながりは、豊かさのおまけではありません。<br>部品です。</p>
   </div>
 
   <figure>
-    <svg viewBox="0 0 640 470" role="img" aria-label="GとHの四象限。Gだけ高いと自分の世界に閉じ、Hだけ高いと自己犠牲になる。両方が動いているのが豊かさ。">
-      <line x1="120" y1="410" x2="580" y2="410" stroke="currentColor" stroke-width="1.5"/>
-      <line x1="120" y1="410" x2="120" y2="60" stroke="currentColor" stroke-width="1.5"/>
-      <text x="120" y="44" text-anchor="middle" font-size="11.5" font-weight="700" fill="currentColor">G</text>
-      <text x="138" y="44" font-size="10.5" fill="currentColor" opacity=".55">内的な納得</text>
-      <text x="580" y="440" text-anchor="end" font-size="10.5" fill="currentColor" opacity=".55">他者とのつながり</text>
-      <text x="596" y="414" font-size="11.5" font-weight="700" fill="currentColor">H</text>
+    <svg viewBox="0 0 760 372" role="img" aria-label="見出しは、豊かさは納得とつながりの重なりです。破線の輪郭が自分を示し、その中に経験や知識と並んで内的な納得の円がある。他者とのつながりの円は輪郭をまたいで外の他者に届いており、内的な納得と重なった部分だけが豊かさとして塗られている。">
+        <defs>
+          <clipPath id="ov-g"><circle cx="250" cy="204" r="100"/></clipPath>
+        </defs>
 
-      <line x1="350" y1="70" x2="350" y2="405" stroke="currentColor" stroke-width="1" stroke-dasharray="5 5" opacity=".25"/>
-      <line x1="125" y1="235" x2="575" y2="235" stroke="currentColor" stroke-width="1" stroke-dasharray="5 5" opacity=".25"/>
+        <text x="380" y="32" text-anchor="middle" font-size="20" font-weight="700" fill="currentColor">豊かさは、納得とつながりの重なりです。</text>
 
-      <text x="235" y="140" text-anchor="middle" font-size="12.5" font-weight="700" fill="currentColor">自分の世界に閉じる</text>
-      <text x="235" y="162" text-anchor="middle" font-size="11" fill="currentColor" opacity=".6">納得はあるが、届いていない</text>
-      <text x="235" y="192" text-anchor="middle" font-size="15" font-weight="600" fill="currentColor" opacity=".75">34%</text>
+        <rect x="84" y="68" width="311" height="272" rx="56" fill="none" stroke="currentColor" stroke-width="1.2" stroke-dasharray="6 4" opacity=".5"/>
+        <rect x="150" y="60" width="60" height="16" fill="#FFFFFF"/>
+        <text x="180" y="73" text-anchor="middle" font-size="11" fill="currentColor" opacity=".5">自分</text>
 
-      <rect x="356" y="76" width="216" height="150" rx="2" fill="#189BBC" opacity=".08"/>
-      <text x="464" y="140" text-anchor="middle" font-size="12.5" font-weight="700" fill="#189BBC">豊かさ</text>
-      <text x="464" y="162" text-anchor="middle" font-size="11" fill="currentColor" opacity=".6">両方が動いている</text>
-      <text x="464" y="192" text-anchor="middle" font-size="15" font-weight="600" fill="#189BBC">43%</text>
+        <circle cx="150" cy="119" r="25" fill="none" stroke="currentColor" stroke-width="1" opacity=".25"/>
+        <text x="150" y="123" text-anchor="middle" font-size="10.5" fill="currentColor" opacity=".38">経験</text>
+        <circle cx="137" cy="296" r="22" fill="none" stroke="currentColor" stroke-width="1" opacity=".25"/>
+        <text x="137" y="300" text-anchor="middle" font-size="10.5" fill="currentColor" opacity=".38">知識</text>
 
-      <text x="235" y="310" text-anchor="middle" font-size="12.5" font-weight="700" fill="currentColor" opacity=".5">どちらも動いていない</text>
-      <text x="235" y="332" text-anchor="middle" font-size="11" fill="currentColor" opacity=".4">正解の中にいる状態</text>
+        <circle cx="395" cy="204" r="100" fill="#189BBC" fill-opacity=".2" clip-path="url(#ov-g)"/>
 
-      <text x="464" y="310" text-anchor="middle" font-size="12.5" font-weight="700" fill="currentColor">自己犠牲</text>
-      <text x="464" y="332" text-anchor="middle" font-size="11" fill="currentColor" opacity=".6">届いているが、納得がない</text>
-      <text x="464" y="362" text-anchor="middle" font-size="15" font-weight="600" fill="currentColor" opacity=".75">23%</text>
-    </svg>
-    <figcaption><b>数字は卒業制作105本を、語り方で分類したものです。</b>GxH 43%／G単独 34%／H単独 23%。<b>合わせて57%が掛け算になっていません。</b>分類はキーワードによるもので因果は言えませんが、「自分の世界」と「自己犠牲」に、それだけの人がいることになります。</figcaption>
+        <circle cx="250" cy="204" r="100" fill="none" stroke="currentColor" stroke-width="1.6"/>
+        <circle cx="395" cy="204" r="100" fill="none" stroke="#189BBC" stroke-width="2"/>
+
+        <text x="215" y="199" text-anchor="middle" font-size="16" font-weight="700" fill="currentColor">内的な納得</text>
+        <text x="215" y="226" text-anchor="middle" font-size="10.5" fill="currentColor" opacity=".5">ひとりでも育つ</text>
+
+        <text x="322" y="209" text-anchor="middle" font-size="14.5" font-weight="700" fill="#127E9A">豊かさ</text>
+
+        <circle cx="455" cy="150" r="6" fill="#189BBC"/>
+        <circle cx="464" cy="248" r="6" fill="#189BBC"/>
+        <text x="480" y="140" font-size="11.5" font-weight="700" fill="#189BBC">他者</text>
+
+        <text x="462" y="332" text-anchor="middle" font-size="15" font-weight="700" fill="#189BBC">他者とのつながり</text>
+
+        <text x="84" y="364" font-size="11" fill="currentColor" opacity=".5">つながりの円は、輪郭の中で完結しません。外の誰かに届いて、はじめて円になります。</text>
+      </svg>
+    <figcaption><b>読む順は3つです。</b>①自分の中には、経験や知識と並んで「内的な納得」がある——構成要素のひとつです。②「他者とのつながり」は輪郭をまたいでいる——半分は自分の側、半分は他者の側にしか存在しないからです。③<b>塗られているのは、重なりだけ。</b>そして重なり自体は、輪郭の内側にあります——<b>豊かさは自分の中で感じるものですが、外へ出ている線がないと生まれません。</b></figcaption>
   </figure>
 
-  <div class="warn"><b>「つながり」は探究の副産物ではありません。</b>構成要素です。だから定義の中心に置いています。おまけで人と仲良くなる、という話ではなく、<b>Hが無いと積がゼロになる</b>という構造の話です。</div>
+  <div class="col">
+    <p>自分の中には、いろんな要素があります。経験、知識、価値観。<strong>内的な納得は、そのひとつです。</strong>読む、記録する、問いを立て直す——ひとりでも育てられます。</p>
+    <p>他者とのつながりは、そこに並びません。<strong>輪郭をまたいで、外の誰かとのあいだにあるからです。</strong>ひとりでは生まれない。拍手が片手で打てないのと、同じです。</p>
+    <p>POOLOが豊かさと呼ぶのは、<strong>このふたつが重なった部分です。</strong>納得しているだけでは、まだ豊かさではありません——届いていないからです。つながっているだけでも、まだ豊かさではありません——納得が乗っていないからです。</p>
+    <p><strong>だから、豊かさを増やす方法はひとつしかありません。納得を、つながりに乗せること。</strong>自分の問いを、会いに行ける誰かに当てる——02の「やり方」は、この重なりを広げる手順です。</p>
+  </div>
+
+  <figure>
+    <svg viewBox="0 0 760 292" role="img" aria-label="4コマの図。納得とつながりのふたつの円の重なりが、1周まわすごとに広がっていき、止めると、つながりの円が離れて重なりが細っていく。">
+      <defs>
+        <clipPath id="lap1"><circle cx="72" cy="150" r="46"/></clipPath>
+        <clipPath id="lap2"><circle cx="260" cy="150" r="46"/></clipPath>
+        <clipPath id="lap3"><circle cx="449" cy="150" r="46"/></clipPath>
+        <clipPath id="lap4"><circle cx="612" cy="150" r="46"/></clipPath>
+        <marker id="lapm" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+          <path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor"/>
+        </marker>
+      </defs>
+
+      <text x="110" y="64" text-anchor="middle" font-size="13" font-weight="700" fill="currentColor">いま</text>
+      <circle cx="148" cy="150" r="46" fill="#189BBC" fill-opacity=".2" clip-path="url(#lap1)"/>
+      <circle cx="72" cy="150" r="46" fill="none" stroke="currentColor" stroke-width="1.4"/>
+      <circle cx="148" cy="150" r="46" fill="none" stroke="#189BBC" stroke-width="1.8"/>
+      <text x="58" y="155" text-anchor="middle" font-size="10.5" fill="currentColor">納得</text>
+      <text x="166" y="155" text-anchor="middle" font-size="10" fill="#189BBC">つながり</text>
+      <text x="110" y="246" text-anchor="middle" font-size="11" fill="currentColor" opacity=".55">ここから始まります</text>
+
+      <line x1="200" y1="150" x2="212" y2="150" stroke="currentColor" stroke-width="1.4" opacity=".4" marker-end="url(#lapm)"/>
+
+      <text x="290" y="64" text-anchor="middle" font-size="13" font-weight="700" fill="#189BBC">1周</text>
+      <circle cx="320" cy="150" r="46" fill="#189BBC" fill-opacity=".2" clip-path="url(#lap2)"/>
+      <circle cx="260" cy="150" r="46" fill="none" stroke="currentColor" stroke-width="1.4"/>
+      <circle cx="320" cy="150" r="46" fill="none" stroke="#189BBC" stroke-width="1.8"/>
+      <text x="290" y="246" text-anchor="middle" font-size="11" fill="currentColor" opacity=".55">他者に当てた</text>
+
+      <line x1="372" y1="150" x2="396" y2="150" stroke="currentColor" stroke-width="1.4" opacity=".4" marker-end="url(#lapm)"/>
+
+      <text x="470" y="64" text-anchor="middle" font-size="13" font-weight="700" fill="#189BBC">2周</text>
+      <circle cx="491" cy="150" r="46" fill="#189BBC" fill-opacity=".2" clip-path="url(#lap3)"/>
+      <circle cx="449" cy="150" r="46" fill="none" stroke="currentColor" stroke-width="1.4"/>
+      <circle cx="491" cy="150" r="46" fill="none" stroke="#189BBC" stroke-width="1.8"/>
+      <text x="470" y="246" text-anchor="middle" font-size="11" fill="currentColor" opacity=".55">また当てた</text>
+
+      <line x1="543" y1="150" x2="559" y2="150" stroke="currentColor" stroke-width="1.4" opacity=".4" stroke-dasharray="3 3" marker-end="url(#lapm)"/>
+
+      <text x="650" y="64" text-anchor="middle" font-size="13" font-weight="700" fill="currentColor">止める</text>
+      <circle cx="688" cy="150" r="46" fill="#189BBC" fill-opacity=".1" clip-path="url(#lap4)"/>
+      <circle cx="612" cy="150" r="46" fill="none" stroke="currentColor" stroke-width="1.4"/>
+      <circle cx="688" cy="150" r="46" fill="none" stroke="#189BBC" stroke-width="1.6" stroke-dasharray="5 4" opacity=".6"/>
+      <text x="650" y="246" text-anchor="middle" font-size="11" fill="currentColor" opacity=".55">当てなくなった</text>
+
+      <text x="40" y="280" font-size="11" fill="currentColor" opacity=".5">豊かさは、重なりの面積です。まわすたびに広がり、止めると、つながりの側から細っていきます。</text>
+    </svg>
+    <figcaption><b>最後のコマだけ、つながりの円を破線にしました。</b>止めたとき、先に離れていくのがそちら側だからです——やり方の六手のうち、他者を必要とするのは手4と手5だけ。動きが止まれば、まずそこが止まります。<b>そして、貯まらない代わりに、いつからでも立ち上がります。</b>過去に何も積んでいなくても、今日1周まわせば、今日のぶんは立つ。</figcaption>
+  </figure>
+
+  <div class="col">
+    <p>卒業制作105本を語り方で分類すると、<strong>重なりで語れていた人は43%でした。</strong>34%は左の余り（納得はあるが、届いていない）、23%は右の余り（届いているが、納得がない）。<strong>合わせて57%が、まだ重なりの外にいます。</strong>分類はキーワードによる目安で、因果までは言えません。</p>
+  </div>
+
+  <p class="fig-tag"><b>Gの点検</b>　／　「納得しているつもり」と「納得している」の差</p>
+
+  <div class="col">
+    <p>重なりの左半分（G）は、外から見えません。本人にも、じつは見えていないことがあります。点検は5つ。<strong>上の3つはひとりでできて、下の2つはできません。</strong></p>
+  </div>
+
+  <div class="scroller">
+  <table class="tbl">
+    <thead><tr><th>点検の問い</th><th>外れているときのサイン</th><th>ひとりで</th></tr></thead>
+    <tbody>
+      <tr><td class="q">何に照らして決めましたか</td><td>外の基準（評価・相場・べき）で決めている。<strong>「評価されているのに、満たされない」</strong>はこの状態</td><td>できます</td></tr>
+      <tr><td class="q">禁句を消しても、残りますか</td><td>自己実現／成長／豊かさ／つながり／自分らしさ／本当の自分——を消すと、何も残らない</td><td>できます</td></tr>
+      <tr><td class="q">場面・時期・固有名詞は</td><td>入っていない。抽象語だけで書かれている</td><td>できます</td></tr>
+      <tr class="is-hot"><td class="q">当てるのが、怖いですか</td><td>怖くない＝賭かっていない＝<strong>Gが入っていない。いちばん速い判定です</strong></td><td><strong>相手が要ります</strong></td></tr>
+      <tr><td class="q">誰の、どの一言で変わったか</td><td>書けない。<strong>内省で自己完結している合図</strong></td><td><strong>できません</strong></td></tr>
+    </tbody>
+  </table>
+  </div>
+  <figcaption style="margin-left:0"><b>「納得しているつもり」と「納得している」の差は、ひとりではつきません。</b>下の2つが示しているのはそのことです。<b>つながりは、豊かさの部品であると同時に、納得が本物かどうかの検算装置でもあります。</b>自分の中で出した答えは、本人には納得に見えるからです。</figcaption>
 </section>
 
 <section id="tankyu">
@@ -279,14 +380,156 @@ figcaption b{color:var(--ink-72)}
   </div>
 
   <div class="col">
+    <p>01に書きました——豊かさを増やす方法は、納得をつながりに乗せることだけ。<strong>その動きに、名前がついています。探究です。</strong></p>
     <p class="claim">探究とは、問いを橋にして、<br>自分と社会の両方を広げつづけること。</p>
     <p>自分が向き合っている<strong>対象</strong>とのあいだに生じた違和感を、自分の問いに変える。それを<strong>他者</strong>に当てて問い直し、また差し出す。<strong>届いた範囲が、その人の社会になる。</strong></p>
     <p>到達点があって往復するのではありません。<strong>行き来が止まらないこと自体</strong>が探究の中身です。（用語の正本 v1.7）</p>
   </div>
 
+  <p class="fig-tag"><b>探究のかたち</b>　／　01の図に、矢印が1本増えただけです</p>
+
+  <figure>
+    <svg viewBox="0 0 760 404" role="img" aria-label="見出しは、探究とはこの矢印のことです。01と同じ、自分の輪郭・納得の円・つながりの円・重なりの図の上に、一本の循環する矢印が加わっている。矢印は納得から出て輪郭を越え、他者に当たり、反応とともに重なりを通って納得へ戻る。">
+        <defs>
+          <clipPath id="tk-g"><circle cx="250" cy="235" r="100"/></clipPath>
+          <marker id="tk-a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <path d="M 0 0 L 10 5 L 0 10 z" fill="#189BBC"/>
+          </marker>
+        </defs>
+
+        <text x="380" y="34" text-anchor="middle" font-size="20" font-weight="700" fill="currentColor">探究とは、この矢印のことです。</text>
+
+        <rect x="84" y="104" width="311" height="262" rx="56" fill="none" stroke="currentColor" stroke-width="1.2" stroke-dasharray="6 4" opacity=".5"/>
+        <rect x="150" y="96" width="60" height="16" fill="#FFFFFF"/>
+        <text x="180" y="109" text-anchor="middle" font-size="11" fill="currentColor" opacity=".5">自分</text>
+
+        <circle cx="395" cy="235" r="100" fill="#189BBC" fill-opacity=".2" clip-path="url(#tk-g)"/>
+        <circle cx="250" cy="235" r="100" fill="none" stroke="currentColor" stroke-width="1.6"/>
+        <circle cx="395" cy="235" r="100" fill="none" stroke="#189BBC" stroke-width="2"/>
+
+        <text x="212" y="240" text-anchor="middle" font-size="15" font-weight="700" fill="currentColor">納得</text>
+        <text x="322" y="240" text-anchor="middle" font-size="13.5" font-weight="700" fill="#127E9A">豊かさ</text>
+        <text x="448" y="286" text-anchor="middle" font-size="15" font-weight="700" fill="#189BBC">つながり</text>
+
+        <path d="M 238 172 C 280 110, 400 102, 452 156" fill="none" stroke="#189BBC" stroke-width="2.5" marker-end="url(#tk-a)"/>
+        <text x="342" y="118" text-anchor="middle" font-size="13" font-weight="700" fill="#189BBC">問い</text>
+
+        <circle cx="462" cy="167" r="7" fill="#189BBC"/>
+        <text x="494" y="160" font-size="11.5" font-weight="700" fill="#189BBC">他者</text>
+
+        <path d="M 455 185 C 428 262, 330 292, 262 268" fill="none" stroke="#189BBC" stroke-width="2.5" stroke-dasharray="7 5" marker-end="url(#tk-a)"/>
+        <text x="382" y="308" text-anchor="middle" font-size="13" font-weight="700" fill="#189BBC">反応</text>
+
+        <text x="84" y="394" font-size="11" fill="currentColor" opacity=".5">一往復が「やり方」の一周です。輪郭の内側の区間が手1〜3と手6、外の区間が手4と手5。まわるたびに、重なりが広がります。</text>
+      </svg>
+    <figcaption><b>矢印が運んでいるのが、問いです。</b>輪郭を越え、他者に当たって、反応と一緒に戻ってくる。<b>戻ってきたぶんだけ納得が書き換わり、重なりが広がります。</b>円と面積は01と同じもので、この図はそこに<b>動き</b>を1本足しただけです。一往復が、このあとの「やり方」（六手）の一周にあたります。</figcaption>
+  </figure>
+
+  <p class="fig-tag"><b>片道とは何か</b>　／　止まり方は、三つしかありません</p>
+
+  <div class="col">
+    <p><strong>探究が止まるとは、手が止まることではありません。矢印が、他者を通らなくなることです。</strong>だから、止まっている人ほど忙しく見えることがあります。ノートは厚くなり、資料は増え、言葉は洗練されていく。<strong>矢印は回りつづけています——輪郭の内側で。</strong>この状態を「片道」と呼びます。</p>
+    <p><strong>なぜ矢印は内側へ曲がるのか。</strong>内側を回る矢印には、毎日手応えが返ります。知るたびに増えたと分かり、整えるたびに進んだと分かる。他者へ向かう矢印は逆です。当てた直後に問いが壊れ、次の手応えまで二週間、なにもありません（05に、この報酬の図があります）。<strong>放っておけば、矢印はかならず内側へ曲がります。</strong>意志の弱さではなく、報酬の勾配の問題です。</p>
+    <p><strong>だから片道は、失敗ではなく、デフォルトです。</strong>誰の矢印も、最初から内向きに曲がる癖を持っている。このあとの「やり方」が、当てる・差し出すをわざわざ工程として置いているのは、<strong>この勾配に逆らう動きは、設計しないと起きないから</strong>です。</p>
+  </div>
+
+  <figure>
+    <svg viewBox="0 0 760 288" role="img" aria-label="見出しは、三つとも矢印は動いています、他者を通っていないだけ。三つの小さな図。ひとつめは矢印が自分の輪郭の中で円を描いている。ふたつめは外から矢印が入ってくるだけで、出ていく矢印がない。みっつめは矢印が輪郭の内側にある自分の言葉に当たって返ってくる。">
+        <defs>
+          <marker id="ow-a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+            <path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor"/>
+          </marker>
+        </defs>
+
+        <text x="380" y="30" text-anchor="middle" font-size="16" font-weight="700" fill="currentColor">三つとも、矢印は動いています。他者を通っていないだけ。</text>
+
+        <rect x="55" y="64" width="150" height="140" rx="34" fill="none" stroke="currentColor" stroke-width="1.1" stroke-dasharray="5 4" opacity=".45"/>
+        <path d="M 130 99 A 35 35 0 1 1 96 141" fill="none" stroke="currentColor" stroke-width="2" marker-end="url(#ow-a)"/>
+        <circle cx="243" cy="134" r="6" fill="currentColor" opacity=".22"/>
+        <text x="130" y="238" text-anchor="middle" font-size="13" font-weight="700" fill="currentColor">① 内で折り返す</text>
+        <text x="130" y="262" text-anchor="middle" font-size="11" fill="currentColor" opacity=".55">「本当の自分」を探しつづける</text>
+
+        <rect x="305" y="64" width="150" height="140" rx="34" fill="none" stroke="currentColor" stroke-width="1.1" stroke-dasharray="5 4" opacity=".45"/>
+        <circle cx="494" cy="110" r="5" fill="currentColor" opacity=".55"/>
+        <circle cx="494" cy="158" r="5" fill="currentColor" opacity=".55"/>
+        <line x1="486" y1="110" x2="420" y2="118" stroke="currentColor" stroke-width="2" marker-end="url(#ow-a)"/>
+        <line x1="486" y1="158" x2="420" y2="152" stroke="currentColor" stroke-width="2" marker-end="url(#ow-a)"/>
+        <circle cx="362" cy="134" r="28" fill="none" stroke="currentColor" stroke-width="1.2" opacity=".3"/>
+        <text x="380" y="238" text-anchor="middle" font-size="13" font-weight="700" fill="currentColor">② 外から受け取る</text>
+        <text x="380" y="262" text-anchor="middle" font-size="11" fill="currentColor" opacity=".55">「社会課題」を掲げる。入ってくるだけ</text>
+
+        <rect x="555" y="64" width="150" height="140" rx="34" fill="none" stroke="currentColor" stroke-width="1.1" stroke-dasharray="5 4" opacity=".45"/>
+        <line x1="688" y1="102" x2="688" y2="166" stroke="currentColor" stroke-width="2.5"/>
+        <text x="672" y="92" text-anchor="middle" font-size="10.5" fill="currentColor" opacity=".55">出した答え</text>
+        <line x1="600" y1="119" x2="678" y2="125" stroke="currentColor" stroke-width="2" marker-end="url(#ow-a)"/>
+        <line x1="678" y1="144" x2="608" y2="151" stroke="currentColor" stroke-width="2" marker-end="url(#ow-a)"/>
+        <circle cx="737" cy="134" r="6" fill="currentColor" opacity=".22"/>
+        <text x="630" y="238" text-anchor="middle" font-size="13" font-weight="700" fill="currentColor">③ 言葉が返ってくる</text>
+        <text x="630" y="262" text-anchor="middle" font-size="11" fill="currentColor" opacity=".55">きれいな一文にして終える</text>
+      </svg>
+    <figcaption><b>薄い点は他者です。三つとも、そこに触れていません。</b>①は輪郭の中で円を描きます。②は入ってくるだけで、出ていく矢印がない——出しているつもりで、決める理由を受け取っています。③は、外に出しているつもりで、<b>自分の出した答え</b>に当たって返ってきています。</figcaption>
+  </figure>
+
+  <div class="scroller">
+  <table class="tbl">
+    <thead><tr><th>片道の形</th><th>誰の答えを受け取っているか</th><th>よくある形</th><th>本人の感覚</th></tr></thead>
+    <tbody>
+      <tr><td class="q">① 内で折り返す</td><td>自分の中にあるはずの答え</td><td>「本当の自分」を探しつづける</td><td>自分と向き合えている</td></tr>
+      <tr><td class="q">② 外から受け取る</td><td>社会が用意した答え</td><td>「社会課題」を掲げる</td><td>社会に向き合えている</td></tr>
+      <tr class="is-hot"><td class="q">③ 言葉が返ってくる</td><td><strong>過去の自分が出した答え</strong></td><td>きれいな一文にして終える</td><td><strong>言語化できた</strong></td></tr>
+    </tbody>
+  </table>
+  </div>
+  <figcaption style="margin-left:0"><b>三つとも「出しているつもり」で、実際には受け取っているだけです。</b>違うのは、誰の答えを受け取っているかだけ。<b>③がいちばん見えにくく、いちばん多い止まり方です。</b>なぜ見えにくいのかは、場面の3つ目のあとに書きます。</figcaption>
+
+  <p class="fig-tag"><b>三つの片道を、場面で見る</b>　／　どれも作例です</p>
+
+  <div class="gaps">
+    <div class="gap">
+      <span class="gap-n">片道 01</span>
+      <p class="gap-t">「本当の自分」を探しつづける</p>
+      <div class="gap-b">
+        <p>「自分は何がやりたいんだろう」。診断ツールを3つやり、過去を年表にし、朝のジャーナリングも続けています。ノートは半年でずいぶん厚くなりました。<strong>ただし、この半年で会いに行った人は一人もいません。</strong></p>
+        <p>受け取っているのは、<strong>自分の中にあるはずの答え</strong>です。「本当の自分がどこかにある」という前提そのものが、受信の姿勢になっています。<br><b>点検：</b>この半年で、その問いを誰かに当てましたか。</p>
+        <p>戻り先は<strong>手1</strong>。探すのをやめて、記録のほうに戻ります。足りていないのは答えではなく、たいてい素材です。</p>
+      </div>
+    </div>
+
+    <div class="gap">
+      <span class="gap-n">片道 02</span>
+      <p class="gap-t">「社会課題」を掲げる</p>
+      <div class="gap-b">
+        <p>「地方の担い手不足を、なんとかしたい」。取材を重ね、統計も集め、noteも書きました。まわりからは、ちゃんとやっている人に見えています。<strong>ただ「なぜ、あなたがそれをやるんですか」と聞かれると、答えに詰まる。</strong></p>
+        <p>意義のほうを社会から受け取っています。出しているつもりで、<strong>決める理由を社会に代行させている</strong>状態です。<br><b>点検：</b>その問いの答えが出たとき、あなたの明日は何か変わりますか。</p>
+        <p>戻り先は<strong>手3</strong>。禁句リスト（自己実現／成長／豊かさ／つながり／自分らしさ／本当の自分）で書き直して、<strong>残った一行だけ</strong>を自分の問いにします。</p>
+      </div>
+    </div>
+
+    <div class="gap">
+      <span class="gap-n">片道 03</span>
+      <p class="gap-t">きれいな一文にして終える</p>
+      <div class="gap-b">
+        <p>1年かけて「私は、人が本音を出せる場をつくりたい」という一文にたどり着きました。仲間にも「それ、すごくあなたらしい」と言われた。<strong>以来その一文を自己紹介で使っていますが、問いの文言は1年変わっていません。</strong></p>
+        <p>受け取っているのは、<strong>過去の自分が出した答え</strong>です。一度出した出力が、そのまま入力に折り返している。<strong>言葉が整っているぶん、三つのなかでいちばん見つかりません。</strong><br><b>点検：</b>その一文を最後に書き換えたのは、いつですか。</p>
+        <p>戻り先は<strong>手4</strong>。当て先を、共感しない相手に変えます。「それ、あなたらしいね」が返ってきたら、当たっていません。</p>
+      </div>
+    </div>
+  </div>
+  <figcaption style="margin-left:0"><b>三つとも、本人がいちばん真面目にやっている時期に起きます。</b>01はノートが厚くなり、02は資料が増え、03は言葉が洗練される。<b>どれも外から見れば前進なので、止まっていることに本人も周りも気づけません。</b>見分けられるのは、他者を通ったかどうかだけです。</figcaption>
+
+  <div class="col">
+    <p><strong>③について、もう一歩だけ。</strong>この形が厄介なのは、たどり着いた一文が立派であるほど、強く働くことです。以後、問いは他者ではなく、この一文に向かって出て、この一文から返ってくる。<strong>整った言葉ほど、折り返しは強い。</strong>語彙が洗練されるほど探究が止まりやすいのはこのためで、正本はこれを<strong>「言語化できたら勝ち」の穴</strong>と呼んでいます。</p>
+  </div>
+
+  <p class="claim">点検は、二問で足ります。<br>いま、出しているか。受け取っているだけか。<br>その動きは、他者を通っているか。</p>
+
+  <div class="col">
+    <p>実務では、もっと短くできます。<strong>「問いの文言が最後に変わったのは、いつですか。」</strong>重なりが最後に広がった日が、そのまま答えです。<strong>二ヶ月変わっていなければ、③を疑ってください</strong>（→このあとの「止まったときの逆引き」）。</p>
+  </div>
+
   <div class="pair">
-    <div><h4>正解とは</h4><p><strong>その行き来が、片道で止まった状態のこと。</strong>自分の内側で折り返しても、社会から受け取るだけでも、止まっています。敵は正解の「中身」ではなく<strong>停止</strong>のほうです。</p></div>
-    <div><h4>なぜ止まると苦しいのか</h4><p>正解が厄介なのは、受け取った人も<strong>ちゃんと動く</strong>からです。ただし動いているのは受け取った指示の実行で、行動は出ているのにエネルギーは増えず、むしろ削れる。<strong>「ちゃんと評価されているのに、なぜか満たされない」</strong>はこの状態です。</p></div>
+    <div><h4>なぜ片道だと苦しいのか</h4><p>矢印がどれだけ動いても、他者を通らなければ重なりは広がりません。豊かさは重なりの面積なので、片道では<strong>動きの量と、豊かさが切り離れます</strong>。行動は出ているのにエネルギーは増えず、むしろ削れる。<strong>「ちゃんと評価されているのに、なぜか満たされない」</strong>の正体は、この切断です。</p></div>
+    <div><h4>「正解」という呼び名について</h4><p>POOLOはこの状態を<strong>「正解」</strong>と呼んできました。答えの中身が間違っている、という意味ではありません。名指しているのは<strong>停止のほう</strong>です。ただし言葉だけを聞くと中身の話に見えるので、この資料では以降<strong>「片道」</strong>で通します。</p></div>
   </div>
 
   <figure>
@@ -389,6 +632,34 @@ figcaption b{color:var(--ink-72)}
     <figcaption><b>これが探究の「やり方」です。以降に出てくる 手1〜手6 は、すべてこの図の箱を指しています。</b>6つのうち<b>手4と手5だけが、他者がいないと成立しません</b>。残りの4つは自分ひとりでできます。<b>1周まわると、問いの版が1つ上がります</b>（v1.0 から v1.1 へ）。</figcaption>
   </figure>
 
+  <p class="fig-tag"><b>止まったときの逆引き</b>　／　症状から、抜けている手を割り出します</p>
+
+  <div class="col">
+    <p><strong>片道になっていることは、態度からは分かりません。</strong>「もっと自分ごとにして」は打ち手になりませんが、「断片が何本溜まったか」は打ち手になります。<strong>態度は測れないが、手は測れる。</strong>だから止まったときは、六手のどれが抜けているかで見ます。</p>
+  </div>
+
+  <div class="scroller">
+  <table class="tbl">
+    <thead><tr><th>見えている症状</th><th>抜けている手</th><th>効く一手</th></tr></thead>
+    <tbody>
+      <tr><td class="q">講義の感想が他人事になる</td><td>手1 溜める</td><td>記録が無いだけ。「半年後に分析する素材を貯めている」と言い換える</td></tr>
+      <tr><td class="q">問いが一般論になる</td><td>手2 拾う</td><td>10個目までは捨てる。<strong>恥ずかしいものが混じるまで</strong>出す</td></tr>
+      <tr><td class="q">「テーマが決まらない」が続く</td><td>手3 立てる</td><td>質を問うのをやめる。<strong>v1.0 は仮でいい</strong>と明示する</td></tr>
+      <tr class="is-hot"><td class="q">仲間うちで共感し合って終わる</td><td><strong>手4 当てる</strong></td><td>同質でない相手を指定する。<strong>共感が返ったら当て直す</strong></td></tr>
+      <tr><td class="q">作ったが「よかったです」しか返らない</td><td>手5 差し出す</td><td>答えではなく問いを差し出す。作品の中心に未解決を置く</td></tr>
+      <tr><td class="q">卒業時のテーマが入学時と同じ</td><td>手6 書き換える</td><td>改訂ログをつける。<strong>誰の、どの一言で</strong>変わったかまで書く</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <figcaption style="margin-left:0"><b>いちばん多いのは4行目です。</b>三つの片道にも、それぞれ戻る先があります。①内で折り返すは<b>手1へ</b>（探すのをやめて記録を再開する。素材不足であることが多い）、②外から受け取るは<b>手3へ</b>（禁句リストで書き直し、残った一行だけを自分の問いにする）、③言葉が返ってくるは<b>手4へ</b>（当て先を、共感しない相手に変える）。<b>問いが2ヶ月書き換わっていないときは、③を疑います。</b></figcaption>
+
+  <p class="fig-tag"><b>いちばん大きい片道は、運営側にあります</b></p>
+
+  <div class="col">
+    <p><strong>ファシリテーターが答えを持っていると、参加者は必ず待ちます。</strong>自分で悩むより、正解を持っている人が言うのを待つほうが速いからです。参加者の「自分で決定する」を、運営が善意で代行している状態。<strong>ここが塞がっていないかぎり、手3も手4も本当には起きません。</strong>上の三つの片道は、たいていこの下流にあります。</p>
+    <p>処方は仕組みではなく訓練です。<strong>「運営が黙る技術」</strong>——問いの時間にまとめを言わない。「それいいですね」も評価なので封じる。沈黙が10秒続いても埋めない。場の終わりに答えを配らない。<strong>片道を手放す最終試験は、参加者ではなく運営側にあります。</strong></p>
+  </div>
+
   <div class="col">
     <p><strong>手4（当てる）には、三つのやり方があります。</strong>この先の実例で何度も出てくるので、ここで並べておきます。</p>
   </div>
@@ -459,7 +730,7 @@ figcaption b{color:var(--ink-72)}
 
       <text x="70" y="336" font-size="10.5" fill="currentColor" opacity=".5">上の2本も「問いの形」はしています。ただし橋にはなっていないので、渡れません。</text>
     </svg>
-    <figcaption><b>この3本は、01の四象限と同じものです。</b>上が「自分の世界に閉じる」（34%）、真ん中が「自己犠牲」（23%）、下が「豊かさ」（43%）。<b>四象限で人を分類していたものを、問いの側から見るとこうなります</b>。落ちているのは人ではなく、<b>橋の端です。</b></figcaption>
+    <figcaption><b>この3本は、01の重なりの図と同じものです。</b>上が、納得はあるが届いていない（34%）。真ん中が、届いているが納得がない（23%）。下が、重なり（43%）。<b>余りとして見ていたものを、問いの側から見るとこうなります</b>。落ちているのは人ではなく、<b>橋の端です。</b></figcaption>
   </figure>
 
   <div class="col">
@@ -469,11 +740,11 @@ figcaption b{color:var(--ink-72)}
   <div class="col">
     <p class="claim">問いは、答えを出すための道具ではなく、<br>動きつづけるための装置です。</p>
     <p>ふつう問いは、答えを得るための手段です。答えが出たら役目は終わる。<strong>探究では逆で、答えが出たあとに何をするかで、問いが生きているかどうかが決まります。</strong></p>
-    <p>だから進捗が「決まったか」ではなく<strong>「何回書き換わったか」</strong>で測られる。<strong>答えが出ることが悪いのではありません。そこで止まるのが「正解」です。</strong></p>
+    <p>だから進捗が「決まったか」ではなく<strong>「何回書き換わったか」</strong>で測られる。<strong>答えが出ることが悪いのではありません。そこで止まって、他者を通らなくなるのが片道です。</strong></p>
   </div>
 
   <figure>
-    <svg viewBox="0 0 860 290" role="img" aria-label="問いと答えの分岐。当てて何かが返ってきたあと、わかったで閉じれば正解になり、わかったぶんだけ問いを書き換えれば次の周に入る。">
+    <svg viewBox="0 0 860 290" role="img" aria-label="問いと答えの分岐。当てて何かが返ってきたあと、わかったで閉じれば片道になり、わかったぶんだけ問いを書き換えれば次の周に入る。">
       <defs>
         <marker id="m7" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
           <path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor"/>
@@ -496,7 +767,7 @@ figcaption b{color:var(--ink-72)}
 
       <rect x="560" y="40" width="270" height="60" rx="2" fill="none" stroke="currentColor" stroke-width="1.5" opacity=".6"/>
       <text x="695" y="66" text-anchor="middle" font-size="13" fill="currentColor">「わかった」で閉じる</text>
-      <text x="695" y="88" text-anchor="middle" font-size="11" fill="currentColor" opacity=".55">＝ 正解。ここで止まる</text>
+      <text x="695" y="88" text-anchor="middle" font-size="11" fill="currentColor" opacity=".55">＝ 片道。ここで止まる</text>
 
       <rect x="560" y="170" width="270" height="60" rx="2" fill="none" stroke="#189BBC" stroke-width="2"/>
       <text x="695" y="196" text-anchor="middle" font-size="13" font-weight="700" fill="#189BBC">わかったぶんだけ書き換える</text>
@@ -803,7 +1074,7 @@ figcaption b{color:var(--ink-72)}
     <figcaption><b>社会は、人数だけでなく時間の方向にも広がります。</b>差し出しの深さでいう Lv.3（知らない人に届ける）が1回、Lv.4（関係を紡ぐ）が継続。続いて相手が対価を払うようになれば、それは仕事の形をしています。<b>ただし、これは結果であって目的ではありません。</b></figcaption>
   </figure>
 
-  <div class="warn"><b>⚠️ 社会を「意義の供給元」として扱わない。</b>そうすると〈社会課題という正解〉に反転します。社会は<b>問いの届け先</b>であって、意義をもらう相手ではありません。向きが逆になっていないかを、必ず点検してください。あわせて、<b>対象を「社会」と呼ばないこと。</b>対象は建築でも自然でもよく、社会ではありません。</div>
+  <div class="warn"><b>⚠️ 社会を「意義の供給元」として扱わない。</b>そうすると〈社会課題〉という片道に反転します。社会は<b>問いの届け先</b>であって、意義をもらう相手ではありません。向きが逆になっていないかを、必ず点検してください。あわせて、<b>対象を「社会」と呼ばないこと。</b>対象は建築でも自然でもよく、社会ではありません。</div>
 
   <div class="warn"><b>⚠️「仕事になるか」で対象を選ばない。</b>やった瞬間、市場という外の基準で問いを選ぶことになり、また片道で止まります。今度は自分の内側ではなく、市場側で。順序は必ずこちらです。<br><br><b>掘る → 人に当たる → 繰り返す → 結果として仕事の形をしていることがある。</b><br><br>書けるのは「<b>可能性がある</b>」までで、「そうなる」とは言えません。この「起こり得る」を落とさないことが、そのまま設計上のガードになります。</div>
 
@@ -941,6 +1212,7 @@ figcaption b{color:var(--ink-72)}
     <div><h4>2｜共感で止まる</h4><p>ワイン好き同士で当てる。「わかる」が返ってきて、ずれが出ない。<strong>共感が返ってきたら、当たっていません。</strong>もう一段ズレた相手に当て直す。</p></div>
     <div><h4>3｜答えを出してしまう</h4><p>v1.0の時点で「私は事情が好きなんだ」と言語化して満足する。<strong>きれいな一文にした瞬間、問いは動かなくなります。</strong>いちばん見えにくく、いちばん多い止まり方です。</p></div>
   </div>
+  <figcaption style="margin-left:0"><b>これは02の「三つの片道」と対応しています。</b>1が①内で折り返す、3が③言葉が返ってくる。<b>2だけは少し違って、他者は通っているのに、同質すぎて何も返ってこない形です。</b>だから当てた回数ではなく、<b>ずれが返ってきたか</b>で見ます。</figcaption>
 
   <div class="caveat">
     <p style="margin:0"><b>進捗の測り方は、ここから決まります。</b>「探究テーマ、決まりましたか？」では、この動きは1ミリも見えません。見えるのは<b>「前回から、問いのどこが変わりましたか」</b>だけです。<b>そして版が上がった回数は、そのまま他者に当てた回数です</b>。ひとりでは、版は上がらないので。</p>
@@ -1180,7 +1452,7 @@ figcaption b{color:var(--ink-72)}
 </section>
 
 <div class="foot">
-  作成 2026-08-28。出典：人生の豊かさ_F=G×H／探究テーマ（用語の正本・v1.7）／POOLO_METHOD_探究編 v1.7。<br>
+  作成 2026-08-28／改稿 2026-09-02（01を「重なり」で組み直し、02に探究の主図と「止まる」の説明を追加）。出典：人生の豊かさ_F=G×H／探究テーマ（用語の正本・v1.7）／POOLO_METHOD_探究編 v1.7。<br>
   数字は卒業制作105本の語り方の分類（GxH 43%／G単独 34%／H単独 23%）。分類はキーワードマッチによる目安で、因果は言えません。<br>
   <b>この資料には未決の論点を入れていません。</b>「探究テーマ」という語を変えるかどうかを含む論点は、概念図「探究と旅と豊かさ」の06にまとめてあります。<br>
   by TABIPPO
