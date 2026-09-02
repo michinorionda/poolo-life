@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>探究と、「止まる」の説明｜用語の整理・デザインレビュー</title>
+<link rel="stylesheet" href="../poolo-ds/tokens.css">
+<link rel="stylesheet" href="../poolo-ds/components.css">
+<style>
+body { padding-top: 0; }
+
+.rv-hero { background: var(--brand); color: var(--on-brand); padding: clamp(48px,8vh,80px) var(--shell-pad) clamp(38px,6vh,58px); }
+.rv-inner { max-width: 1080px; margin-inline: auto; }
+.rv-eyebrow { font-family: var(--en); font-size: 11px; font-weight: 500; letter-spacing: 0.42em; text-transform: uppercase; color: var(--on-brand-92); margin-bottom: 20px; }
+.rv-hero h1 { font-family: var(--mincho); font-weight: 900; font-feature-settings: "palt"; font-size: clamp(26px,4.2vw,44px); letter-spacing: 0.06em; line-height: 1.55; margin-bottom: 18px; }
+.rv-hero p { font-family: var(--body); font-size: 13.5px; line-height: 2.05; letter-spacing: 0.06em; color: var(--on-brand-88); max-width: 46em; }
+
+.rv-wrap { max-width: 1080px; margin-inline: auto; padding: 0 var(--shell-pad) clamp(60px,10vh,110px); }
+.rv-sec { padding-top: clamp(48px,7vh,78px); }
+.rv-sec-head { display: flex; align-items: baseline; gap: 16px; border-bottom: 1px solid var(--ink); padding-bottom: 12px; margin-bottom: 26px; }
+.rv-sec-num { font-family: var(--en); font-size: 13px; font-weight: 600; letter-spacing: 0.24em; color: var(--brand); }
+.rv-sec-head h2 { font-family: var(--mincho); font-size: clamp(20px,2.6vw,27px); font-weight: 700; letter-spacing: 0.09em; color: var(--ink); }
+.rv-body p { font-size: 13.5px; line-height: 2.05; letter-spacing: 0.06em; color: var(--ink-72); max-width: 52em; }
+.rv-body p + p { margin-top: 13px; }
+.rv-body strong { color: var(--ink); font-weight: 700; }
+
+.rv-quote { font-family: var(--mincho); font-size: clamp(17px,2.1vw,21px); font-weight: 700; letter-spacing: 0.12em; line-height: 2.1; color: var(--brand-deep); margin: clamp(28px,3.6vh,42px) 0 clamp(28px,3.6vh,42px) clamp(0px,2.4vw,34px); max-width: 42em; }
+
+.rv-table { width: 100%; border-collapse: collapse; border-top: 1px solid var(--ink); font-size: 12.5px; margin-top: 22px; }
+.rv-table th, .rv-table td { text-align: left; vertical-align: top; padding: 13px 14px 13px 0; border-bottom: 1px solid var(--line); line-height: 1.9; letter-spacing: 0.05em; }
+.rv-table th { font-family: var(--head); font-weight: 700; color: var(--ink); white-space: nowrap; }
+.rv-table td { color: var(--ink-72); }
+.rv-table td b { color: var(--ink); }
+.rv-table tr.is-rec td { color: var(--brand-deep); }
+
+.spec-head { display: flex; align-items: baseline; flex-wrap: wrap; gap: 14px; border-top: 1px solid var(--ink); padding-top: 14px; margin-top: clamp(38px,5vh,60px); }
+.spec-head.is-rec { border-top: 3px solid var(--brand); }
+.spec-name { font-family: var(--mincho); font-size: clamp(17px,2.2vw,23px); font-weight: 700; letter-spacing: 0.1em; color: var(--ink); }
+.spec-aim { font-size: 12.5px; letter-spacing: 0.06em; color: var(--ink-60); }
+
+.demo { border: 1px solid var(--line); margin-top: 20px; background: var(--bg); padding: clamp(22px,4vw,44px); }
+.demo svg { width: 100%; max-width: 100%; height: auto; display: block; color: var(--ink-soft); }
+.demo.is-old { background: var(--bg-off); }
+.demo-cap { font-size: 12.5px; line-height: 2; letter-spacing: 0.05em; color: var(--ink-60); margin-top: 16px; max-width: 50em; }
+.demo-cap b { color: var(--ink); }
+
+.flag { font-family: var(--head); font-size: 11px; font-weight: 700; letter-spacing: 0.16em; color: var(--bg); background: var(--ink); padding: 3px 9px; border-radius: var(--radius); }
+.flag.is-rec { background: var(--brand); }
+</style>
+</head>
+<body>
+
+<section class="rv-hero">
+  <div class="rv-inner">
+    <p class="rv-eyebrow">Design Review / 2026-09-02</p>
+    <h1>探究と、<br>「止まる」の説明。</h1>
+    <p>01が「豊かさは、納得とつながりの重なり」で確定したので、02を同じ土台の上に組み直します。<strong>探究の定義は変えません。</strong>変わるのは出てくる順番と、絵の文法です——01の図に矢印を1本足すと、それが探究になります。そして「止まる」を、手が止まることではなく<strong>矢印が他者を通らなくなること</strong>として、根から説明し直します。</p>
+  </div>
+</section>
+
+<div class="rv-wrap">
+
+  <section class="rv-sec">
+    <div class="rv-sec-head"><span class="rv-sec-num">01</span><h2>01からの受け渡し</h2></div>
+    <div class="rv-body">
+      <p>01の本文は、この一文で終わります。<strong>「豊かさを増やす方法はひとつしかありません。納得を、つながりに乗せること。」</strong>だから02は、こう始められます。</p>
+    </div>
+
+    <p class="rv-quote">その動きに、名前がついています。<br>探究です。</p>
+
+    <div class="rv-body">
+      <p>これで定義の一文——<strong>探究とは、問いを橋にして、自分と社会の両方を広げつづけること</strong>——が、上から降ってくる用語ではなく、<strong>01で生まれた必要への答え</strong>として出てきます。定義そのものは正本 v1.7 のまま、一字も変えません。</p>
+    </div>
+
+    <div class="spec-head is-rec">
+      <span class="flag is-rec">主図 ／ 推奨</span>
+      <span class="spec-name">01の図に、矢印を1本足す</span>
+      <span class="spec-aim">豊かさ＝面積、探究＝矢印、問い＝運ばれるもの</span>
+    </div>
+    <div class="demo">
+      <svg viewBox="0 0 760 404" role="img" aria-label="見出しは、探究とはこの矢印のことです。01と同じ、自分の輪郭・納得の円・つながりの円・重なりの図の上に、一本の循環する矢印が加わっている。矢印は納得から出て輪郭を越え、他者に当たり、反応とともに重なりを通って納得へ戻る。">
+        <defs>
+          <clipPath id="tk-g"><circle cx="250" cy="235" r="100"/></clipPath>
+          <marker id="tk-a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <path d="M 0 0 L 10 5 L 0 10 z" fill="#189BBC"/>
+          </marker>
+        </defs>
+
+        <text x="380" y="34" text-anchor="middle" font-size="20" font-weight="700" fill="currentColor">探究とは、この矢印のことです。</text>
+
+        <rect x="84" y="104" width="311" height="262" rx="56" fill="none" stroke="currentColor" stroke-width="1.2" stroke-dasharray="6 4" opacity=".5"/>
+        <rect x="150" y="96" width="60" height="16" fill="#FFFFFF"/>
+        <text x="180" y="109" text-anchor="middle" font-size="11" fill="currentColor" opacity=".5">自分</text>
+
+        <circle cx="395" cy="235" r="100" fill="#189BBC" fill-opacity=".2" clip-path="url(#tk-g)"/>
+        <circle cx="250" cy="235" r="100" fill="none" stroke="currentColor" stroke-width="1.6"/>
+        <circle cx="395" cy="235" r="100" fill="none" stroke="#189BBC" stroke-width="2"/>
+
+        <text x="212" y="240" text-anchor="middle" font-size="15" font-weight="700" fill="currentColor">納得</text>
+        <text x="322" y="240" text-anchor="middle" font-size="13.5" font-weight="700" fill="#127E9A">豊かさ</text>
+        <text x="448" y="286" text-anchor="middle" font-size="15" font-weight="700" fill="#189BBC">つながり</text>
+
+        <path d="M 238 172 C 280 110, 400 102, 452 156" fill="none" stroke="#189BBC" stroke-width="2.5" marker-end="url(#tk-a)"/>
+        <text x="342" y="118" text-anchor="middle" font-size="13" font-weight="700" fill="#189BBC">問い</text>
+
+        <circle cx="462" cy="167" r="7" fill="#189BBC"/>
+        <text x="494" y="160" font-size="11.5" font-weight="700" fill="#189BBC">他者</text>
+
+        <path d="M 455 185 C 428 262, 330 292, 262 268" fill="none" stroke="#189BBC" stroke-width="2.5" stroke-dasharray="7 5" marker-end="url(#tk-a)"/>
+        <text x="382" y="308" text-anchor="middle" font-size="13" font-weight="700" fill="#189BBC">反応</text>
+
+        <text x="84" y="394" font-size="11" fill="currentColor" opacity=".5">一往復が「やり方」の一周です。輪郭の内側の区間が手1〜3と手6、外の区間が手4と手5。まわるたびに、重なりが広がります。</text>
+      </svg>
+      <p class="demo-cap"><b>矢印が運んでいるのが、問いです。</b>輪郭を越え、他者に当たって、反応と一緒に戻ってくる。<b>戻ってきたぶんだけ納得が書き換わり、重なりが広がります。</b>到達点があって往復するのではありません。<b>行き来が止まらないこと自体が、探究の中身です</b>——だから探究には「完了」がなく、進捗は「何回書き換わったか」で測ります。円と面積は01と同じもので、この図はそこに<b>動き</b>を1本足しただけです。</p>
+    </div>
+  </section>
+
+  <section class="rv-sec">
+    <div class="rv-sec-head"><span class="rv-sec-num">02</span><h2>「止まる」を、定義し直す</h2></div>
+
+    <p class="rv-quote">探究が止まるとは、<br>手が止まることではありません。<br>矢印が、他者を通らなくなることです。</p>
+
+    <div class="rv-body">
+      <p>だから、止まっている人ほど忙しく見えることがあります。ノートは厚くなり、資料は増え、言葉は洗練されていく。<strong>矢印は回りつづけています——輪郭の内側で。</strong></p>
+      <p><strong>なぜ矢印は内側へ曲がるのか。</strong>内側を回る矢印には、毎日手応えが返ります。知るたびに増えたと分かり、整えるたびに進んだと分かる。他者へ向かう矢印は逆です。当てた直後に問いが壊れ、次の手応えまで二週間、なにもありません。<strong>放っておけば、矢印はかならず内側へ曲がります。</strong>意志の弱さではなく、報酬の勾配の問題です。</p>
+      <p>ここから、この節でいちばん言いたいことが出ます。<strong>片道は、失敗ではありません。デフォルトです。</strong>誰の矢印も、最初から内向きに曲がる癖を持っている。「やり方」が手4（当てる）と手5（差し出す）をわざわざ工程として置いているのは、<strong>この勾配に逆らう動きは、設計しないと起きないから</strong>です。探究のメソッドとは、要するに、矢印を外へ曲げつづける仕掛けのことです。</p>
+      <p>報酬のタイミングの図（現行05「中へ掘る／人へ掘る」）は、この説明の証拠図としてそのまま使えます。動かしません。</p>
+    </div>
+  </section>
+
+  <section class="rv-sec">
+    <div class="rv-sec-head"><span class="rv-sec-num">03</span><h2>三つの片道を、同じ文法で</h2></div>
+    <div class="rv-body">
+      <p>三つの片道（内で折り返す／外から受け取る／言葉が返ってくる）は、いまの02にすでにあります。分類と場面はそのまま生かして、<strong>絵だけを01・02の文法——破線の輪郭・円・矢印——に描き直します。</strong></p>
+    </div>
+
+    <div class="spec-head">
+      <span class="flag">現行</span>
+      <span class="spec-name">往復と、三つの片道</span>
+      <span class="spec-aim">輪の説明。ただし01の図と語彙がつながっていない</span>
+    </div>
+    <div class="demo is-old"><svg viewBox="0 0 900 176" role="img" aria-label="往復と三つの片道の比較。往復は輪が他者を通って閉じる。片道は、自分の中で折り返す形、外から受け取るだけの形、自分の言葉が返ってくる形の三つ。">
+      <defs>
+        <marker id="m2c" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor"/>
+        </marker>
+        <marker id="m2d" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M 0 0 L 10 5 L 0 10 z" fill="#189BBC"/>
+        </marker>
+      </defs>
+      <line x1="222" y1="10" x2="222" y2="166" stroke="currentColor" stroke-width="1" stroke-dasharray="5 5" opacity=".14"/>
+      <line x1="450" y1="10" x2="450" y2="166" stroke="currentColor" stroke-width="1" stroke-dasharray="5 5" opacity=".14"/>
+      <line x1="678" y1="10" x2="678" y2="166" stroke="currentColor" stroke-width="1" stroke-dasharray="5 5" opacity=".14"/>
+
+      <text x="108" y="20" text-anchor="middle" font-size="12" font-weight="700" fill="#189BBC">往復（＝探究）</text>
+      <path d="M 80 82 C 92 54, 132 54, 144 82" fill="none" stroke="#189BBC" stroke-width="2" marker-end="url(#m2d)"/>
+      <path d="M 144 82 C 132 110, 92 110, 80 82" fill="none" stroke="#189BBC" stroke-width="2" marker-end="url(#m2d)"/>
+      <circle cx="74" cy="82" r="5.5" fill="#189BBC"/>
+      <circle cx="150" cy="82" r="5.5" fill="#189BBC"/>
+      <text x="74" y="136" text-anchor="middle" font-size="10.5" font-weight="700" fill="#189BBC">自分</text>
+      <text x="150" y="136" text-anchor="middle" font-size="10.5" font-weight="700" fill="#189BBC">他者</text>
+      <text x="108" y="164" text-anchor="middle" font-size="10.5" font-weight="700" fill="#189BBC">輪が、他者を通って閉じる</text>
+
+      <text x="336" y="20" text-anchor="middle" font-size="12" font-weight="700" fill="currentColor">片道①｜内で折り返す</text>
+      <path d="M 297 76 C 266 58, 266 106, 297 88" fill="none" stroke="currentColor" stroke-width="1.8" marker-end="url(#m2c)"/>
+      <circle cx="302" cy="82" r="5.5" fill="currentColor"/>
+      <circle cx="378" cy="82" r="5.5" fill="none" stroke="currentColor" stroke-width="1.5" opacity=".25"/>
+      <text x="302" y="136" text-anchor="middle" font-size="10.5" fill="currentColor">自分</text>
+      <text x="378" y="136" text-anchor="middle" font-size="10.5" fill="currentColor" opacity=".3">社会</text>
+      <text x="336" y="164" text-anchor="middle" font-size="10.5" fill="currentColor" opacity=".6">輪が、自分の中で閉じる</text>
+
+      <text x="564" y="20" text-anchor="middle" font-size="12" font-weight="700" fill="currentColor">片道②｜外から受け取る</text>
+      <path d="M 536 82 C 548 54, 588 54, 600 82" fill="none" stroke="currentColor" stroke-width="1.5" stroke-dasharray="4 4" opacity=".16"/>
+      <path d="M 600 82 C 588 110, 548 110, 536 82" fill="none" stroke="currentColor" stroke-width="1.8" marker-end="url(#m2c)"/>
+      <circle cx="530" cy="82" r="5.5" fill="currentColor"/>
+      <circle cx="606" cy="82" r="5.5" fill="currentColor"/>
+      <text x="530" y="136" text-anchor="middle" font-size="10.5" fill="currentColor">自分</text>
+      <text x="606" y="136" text-anchor="middle" font-size="10.5" fill="currentColor">社会</text>
+      <text x="564" y="164" text-anchor="middle" font-size="10.5" fill="currentColor" opacity=".6">入ってくるだけ。輪にならない</text>
+
+      <text x="792" y="20" text-anchor="middle" font-size="12" font-weight="700" fill="currentColor">片道③｜言葉が返ってくる</text>
+      <path d="M 756 74 C 766 56, 778 56, 788 74" fill="none" stroke="currentColor" stroke-width="1.8" marker-end="url(#m2c)"/>
+      <path d="M 788 90 C 778 108, 766 108, 756 90" fill="none" stroke="currentColor" stroke-width="1.8" marker-end="url(#m2c)"/>
+      <circle cx="750" cy="82" r="5.5" fill="currentColor"/>
+      <circle cx="794" cy="82" r="4.5" fill="none" stroke="currentColor" stroke-width="1.5"/>
+      <circle cx="854" cy="82" r="5.5" fill="none" stroke="currentColor" stroke-width="1.5" opacity=".25"/>
+      <text x="742" y="136" text-anchor="middle" font-size="10.5" fill="currentColor">自分</text>
+      <text x="794" y="136" text-anchor="middle" font-size="10.5" fill="currentColor">ことば</text>
+      <text x="854" y="136" text-anchor="middle" font-size="10.5" fill="currentColor" opacity=".3">社会</text>
+      <text x="792" y="164" text-anchor="middle" font-size="10.5" fill="currentColor" opacity=".6">輪が、自分の言葉で閉じる</text>
+    </svg></div>
+
+    <div class="spec-head is-rec">
+      <span class="flag is-rec">案 ／ 推奨</span>
+      <span class="spec-name">矢印は動いている。通っていないだけ</span>
+      <span class="spec-aim">主図と同じ部品で、三つの曲がり方を描く</span>
+    </div>
+    <div class="demo">
+      <svg viewBox="0 0 760 288" role="img" aria-label="見出しは、三つとも矢印は動いています、他者を通っていないだけ。三つの小さな図。ひとつめは矢印が自分の輪郭の中で円を描いている。ふたつめは外から矢印が入ってくるだけで、出ていく矢印がない。みっつめは矢印が輪郭の内側にある自分の言葉に当たって返ってくる。">
+        <defs>
+          <marker id="ow-a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+            <path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor"/>
+          </marker>
+        </defs>
+
+        <text x="380" y="30" text-anchor="middle" font-size="16" font-weight="700" fill="currentColor">三つとも、矢印は動いています。他者を通っていないだけ。</text>
+
+        <rect x="55" y="64" width="150" height="140" rx="34" fill="none" stroke="currentColor" stroke-width="1.1" stroke-dasharray="5 4" opacity=".45"/>
+        <path d="M 130 99 A 35 35 0 1 1 96 141" fill="none" stroke="currentColor" stroke-width="2" marker-end="url(#ow-a)"/>
+        <circle cx="243" cy="134" r="6" fill="currentColor" opacity=".22"/>
+        <text x="130" y="238" text-anchor="middle" font-size="13" font-weight="700" fill="currentColor">① 内で折り返す</text>
+        <text x="130" y="262" text-anchor="middle" font-size="11" fill="currentColor" opacity=".55">「本当の自分」を探しつづける</text>
+
+        <rect x="305" y="64" width="150" height="140" rx="34" fill="none" stroke="currentColor" stroke-width="1.1" stroke-dasharray="5 4" opacity=".45"/>
+        <circle cx="494" cy="110" r="5" fill="currentColor" opacity=".55"/>
+        <circle cx="494" cy="158" r="5" fill="currentColor" opacity=".55"/>
+        <line x1="486" y1="110" x2="420" y2="118" stroke="currentColor" stroke-width="2" marker-end="url(#ow-a)"/>
+        <line x1="486" y1="158" x2="420" y2="152" stroke="currentColor" stroke-width="2" marker-end="url(#ow-a)"/>
+        <circle cx="362" cy="134" r="28" fill="none" stroke="currentColor" stroke-width="1.2" opacity=".3"/>
+        <text x="380" y="238" text-anchor="middle" font-size="13" font-weight="700" fill="currentColor">② 外から受け取る</text>
+        <text x="380" y="262" text-anchor="middle" font-size="11" fill="currentColor" opacity=".55">「社会課題」を掲げる。入ってくるだけ</text>
+
+        <rect x="555" y="64" width="150" height="140" rx="34" fill="none" stroke="currentColor" stroke-width="1.1" stroke-dasharray="5 4" opacity=".45"/>
+        <line x1="688" y1="102" x2="688" y2="166" stroke="currentColor" stroke-width="2.5"/>
+        <text x="672" y="92" text-anchor="middle" font-size="10.5" fill="currentColor" opacity=".55">出した答え</text>
+        <line x1="600" y1="119" x2="678" y2="125" stroke="currentColor" stroke-width="2" marker-end="url(#ow-a)"/>
+        <line x1="678" y1="144" x2="608" y2="151" stroke="currentColor" stroke-width="2" marker-end="url(#ow-a)"/>
+        <circle cx="737" cy="134" r="6" fill="currentColor" opacity=".22"/>
+        <text x="630" y="238" text-anchor="middle" font-size="13" font-weight="700" fill="currentColor">③ 言葉が返ってくる</text>
+        <text x="630" y="262" text-anchor="middle" font-size="11" fill="currentColor" opacity=".55">きれいな一文にして終える</text>
+      </svg>
+      <p class="demo-cap"><b>薄い点は他者です。三つとも、そこに触れていません。</b>①は輪郭の中で円を描く。②は入ってくるだけで、出ていく矢印がない——出しているつもりで、決める理由を受け取っています。<b>③だけ、少し説明が要ります。</b></p>
+    </div>
+
+    <div class="rv-body">
+      <p><strong>③は、自分で作った正解を、自分で受信しつづけている状態です。</strong>一年かけて「私は、人が本音を出せる場をつくりたい」までたどり着いた。それ自体は前進です。ただ、そこで矢印の向きが変わります。以後、問いは他者ではなく、この一文に向かって出て、この一文から返ってくる。<strong>一度出した答えが、次の入力に折り返っている。</strong>正本はこれを「言語化できたら勝ち」の穴と呼んでいます。整った一文ほどこの折り返しは強く働くので、語彙が洗練されるほど止まりやすい。いちばん見えにくく、いちばん多い止まり方です。</p>
+      <p>いまの02にある<strong>表（誰の答えを受け取っているか）と、場面の3例（ノートが厚くなる／資料が増える／言葉が洗練される）は、そのまま生かします。</strong>絵の差し替えだけです。</p>
+    </div>
+  </section>
+
+  <section class="rv-sec">
+    <div class="rv-sec-head"><span class="rv-sec-num">04</span><h2>なぜ苦しいか、どう見つけるか</h2></div>
+    <div class="rv-body">
+      <p>矢印がどれだけ動いても、他者を通らなければ重なりは広がりません。そして豊かさは、重なりの面積でした。つまり片道では、<strong>動きの量と、豊かさが切り離れます。</strong>行動は出ているのにエネルギーは増えず、むしろ削れる——<strong>「ちゃんと評価されているのに、なぜか満たされない」の正体は、この切断です。</strong>がんばりが足りないのではなく、がんばりが重なりに接続されていない。</p>
+    </div>
+
+    <p class="rv-quote">点検は二問。<br>いま、出しているか。受け取っているだけか。<br>その動きは、他者を通っているか。</p>
+
+    <div class="rv-body">
+      <p>一問目は現行のままです。二問目が、重なりモデルから来る追加です。実務ではさらに短くできます。<strong>「問いの文言が最後に変わったのは、いつですか。」</strong>重なりが最後に広がった日付が、そのまま答えになります。<strong>二ヶ月変わっていなければ、③を疑う</strong>——これは現行の逆引き表（症状→抜けている手）にそのまま接続します。逆引き表と運営側の片道の節は、動かしません。</p>
+    </div>
+  </section>
+
+  <section class="rv-sec">
+    <div class="rv-sec-head"><span class="rv-sec-num">05</span><h2>組み替えの設計図</h2></div>
+
+    <table class="rv-table">
+      <thead><tr><th>いまの02の部品</th><th>扱い</th></tr></thead>
+      <tbody>
+        <tr class="is-rec"><td><b>（新規）01からの受け渡し＋主図（矢印）</b></td><td><b>節の頭に足す。定義が「必要への答え」として出てくるようになります</b></td></tr>
+        <tr><td>定義の一文・往復の説明</td><td>残す。一字も変えません</td></tr>
+        <tr class="is-rec"><td><b>（新規）「止まる」の再定義＋デフォルト論</b></td><td><b>「片道とは何か」の頭に足す。止まる＝矢印が他者を通らないこと</b></td></tr>
+        <tr class="is-rec"><td>片道の図（半円3つ）</td><td><b>新しい三連図に差し替え。主図と同じ部品になります</b></td></tr>
+        <tr><td>表（誰の答えを受け取っているか）・場面3つ</td><td>残す</td></tr>
+        <tr class="is-rec"><td><b>（新規）③の説明の段落</b></td><td><b>場面3つの後に足す。自分で作った正解を、自分で受信しつづけている——穴3の機構の記述で、比喩は使いません</b></td></tr>
+        <tr><td>「正解」という呼び名について</td><td>残す</td></tr>
+        <tr class="is-rec"><td>点検の一問</td><td><b>二問に増やす＋「最後に変わったのはいつか」を実務形として添える</b></td></tr>
+        <tr><td>逆引き表・運営側の片道・六手の図・手4／手5の表</td><td>残す</td></tr>
+      </tbody>
+    </table>
+
+    <div class="rv-body" style="margin-top:26px">
+      <p><strong>確定（2026-09-02）：</strong>主図の見出し（「探究とは、この矢印のことです。」）と、「片道はデフォルト」の一段は、このまま採用。<strong>③の説明は、鏡の比喩をやめて機構の記述に差し替えました</strong>——自分で作った正解を、自分で受信しつづけている。正本の穴3の言い方（一度出した出力が、入力に折り返す）にそのまま重なるので、比喩より短く、正本からの踏み込みもありません。</p>
+    </div>
+  </section>
+
+</div>
+</body>
+</html>
