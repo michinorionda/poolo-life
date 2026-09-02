@@ -112,6 +112,15 @@ img { display: block; max-width: 100%; }
   white-space: nowrap;
   transition: color var(--trans-fast), border-color var(--trans-fast);
 }
+/* 外部リンクの矢印（↗）。U+2197 は iOS / Android では既定が絵文字表示になり、
+   カラー絵文字として出てしまう。マークアップ側では異体字セレクタ U+FE0E を付け（↗︎）、
+   CSS 側でもテキスト表示を指定して、両方で押さえる。 */
+.arrow {
+  font-family: var(--en);
+  font-variant-emoji: text;
+  margin-left: 0.4em;
+}
+
 .header-link .arrow {
   font-family: var(--en);
   font-size: 0.85em;

@@ -52,7 +52,7 @@
 
 .rv-srcs { list-style: none; display: grid; gap: 11px; }
 .rv-srcs li { font-size: 12.5px; line-height: 1.9; letter-spacing: 0.05em; color: var(--ink-72); padding-left: 1.4em; position: relative; }
-.rv-srcs li::before { content: '↗'; position: absolute; left: 0; color: var(--brand); font-family: var(--en); font-size: 11px; }
+.rv-srcs li::before { content: '↗︎'; position: absolute; left: 0; color: var(--brand); font-family: var(--en); font-size: 11px; }
 .rv-srcs a { color: var(--brand-deep); border-bottom: 1px solid var(--brand); word-break: break-all; }
 
 @media (max-width: 720px) {
@@ -74,7 +74,7 @@
       <a href="index.html">LP本体を見る</a>
       <a href="compare.html">ヒーロー3案の比較</a>
       <a href="archive/">版の記録</a>
-      <a href="https://app.notion.com/p/LP-3c31a12d78298017b2a1d319b801cdd2" target="_blank" rel="noopener">元の依頼書（Notion） ↗</a>
+      <a href="https://app.notion.com/p/LP-3c31a12d78298017b2a1d319b801cdd2" target="_blank" rel="noopener">元の依頼書（Notion）<span class="arrow">↗︎</span></a>
     </div>
   </div>
 </section>
@@ -188,6 +188,7 @@
         <tr><th>02「鞆の浦と走島というまち」／主催セクションの原稿差し替え（2026-09-01）</th><td>いただいた原稿に全面差し替えました。02は見出しが「なぜ、鞆の浦・走島なのか。」→「<strong>鞆の浦と走島というまち</strong>」に変わり、<strong>「潮待ちの港」＝「人生の潮待ち」</strong>という土地固有の比喩が入ったことで、「なぜここなのか」の説明が景色ではなく<strong>土地の成り立ち</strong>から立ち上がるようになりました。企画書§29③の要求（なぜ鞆の浦かを必ず説明する）は引き続き満たしています。<br>主催セクションは、文中の <code>strong</code> と <code>.quoted</code> をすべて外して連続した散文にしました（01・02・暮らし観光と同じ扱い）。<br><span style="color:#C8892E"><strong>要確認：</strong></span>02の原稿に<strong>「夜は焚き火で想いを語る」</strong>とありますが、<strong>「1泊2日の流れ」のDAY1は「夕食・交流」だけ</strong>で焚き火に触れていません。実施するなら流れ側にも書いたほうが、申込の判断材料になります。</td></tr>
         <tr><th>「暮らし観光」セクションの原稿差し替え（2026-09-01）</th><td>いただいた原稿に全面差し替えました。見出しは「<strong>「暮らし観光」とは？</strong>」、リードは「有名な観光名所ではなく、その土地の日常へ入っていき、暮らしに触れる旅のこと。」。末尾に<strong>暮らし観光サイトへの導線</strong>を置いています。<br>導線は新設した <code>.link-out</code>（人物カードの <code>.person-links</code> と同じ見え方の小さな外部リンク）を使い、<strong>DSにも還元済み</strong>です。本文中にインラインリンクを埋めず、段落を読み終えた位置に置いているのは、散文の途中に視線を止める要素を作らないためです。<br><span style="color:#C8892E"><strong>要確認：</strong></span>原稿では「<strong>関係編集舎コト暮らし</strong>」となっています。ページの他の箇所（お知らせ帯・主催セクション・開催概要の主催・フッター・長田さんの肩書）は「<strong>合同会社コト暮らし</strong>」のままです。法人格の表記なので勝手に統一せず、この段落だけ原稿どおりにしています。<strong>どちらに揃えるかご指示ください。</strong></td></tr>
         <tr><th>暮らし観光のKVとリンク（2026-09-01）</th><td>主催セクションのコト暮らし側を、鞆の浦「暮らし観光」の<strong>公式キービジュアル</strong>（<code>kurashikanko.jpg</code>）に差し替え、リンク先を <strong>https://kurashikanko-tomonoura.com/</strong> に変更しました（疎通確認済み・HTTP 200）。POOLOのKVと並ぶ位置なので、風景写真よりKV同士で対になるほうが正しい。<br>企画書§2・§18は <code>kotogurashi.studio.site</code> のままなので、<strong>Notion側も更新が必要</strong>です。なお長田さんの紹介欄と「ありそろう」のリンクは、会社・施設のページなので <code>kotogurashi.studio.site</code> のままにしています。</td></tr>
+        <tr><th>外部リンクの矢印が絵文字になる問題（2026-09-02）</th><td>スマホで外部リンクの矢印がカラー絵文字に見えていた原因は、文字コードでした。使っていた <strong>U+2197（↗）は iOS / Android で既定が絵文字表示</strong>になる文字で、PCのブラウザではテキストの細い矢印、スマホではカラー絵文字、と表示が分かれます。<br>対処は2段構えにしました。<strong>①マークアップ側で異体字セレクタ U+FE0E を付ける</strong>（<code>↗</code> → <code>↗︎</code>）。これがテキスト表示を指定する標準的な方法です。<strong>②CSS側でも <code>font-variant-emoji: text</code> を指定</strong>。新しめのブラウザだけの機能ですが、①が効かない環境の保険になります。<br>LP本体10箇所、制作レビュー2箇所、ヒーロー3案の比較3箇所、版の記録1箇所の計16箇所。CSSは <code>poolo-ds/components.css</code> に共通の <code>.arrow</code> として入れたので、<strong>今後のページにも自動で効きます</strong>。<br>あわせて、版の記録ページに残っていた英字ラベル「Tomonoura LP — Archive」も削除しました。</td></tr>
         <tr><th>「日時：後日ご案内します」をカット（2026-09-02）</th><td>事前オンライン・事後オンラインの <code>.ps-meta</code> 2箇所と、開催概要の日程欄の計3箇所から削除しました。<strong>「実施：オンライン（60分）」だけ</strong>が残ります。<br>未定であることをわざわざ書くと、そこだけ準備不足に見えます。日時が決まっていないという事実は変わらないので、<strong>決まり次第この行に日時を足す</strong>のが自然です。<br>これでページ内から、未定を示す文言（<code>[要確認]</code>・後日決定・後日ご案内）は<strong>すべて無くなりました</strong>。</td></tr>
         <tr><th>2倍ダーシ（——）を全撤去（2026-09-02）</th><td><code>CLAUDE.md</code> 44行目で禁止している記号が残っていました。LP本体3箇所（事前オンラインの説明／POINT 03／西原さんの紹介）、制作レビュー4箇所、ヒーロー3案の比較2箇所、<a href="../ds-intro-break-260901/">.intro-break の変更記録</a>1箇所。<strong>記号を消すだけだと文が切れる</strong>ので、いずれも文として成立するよう書き直しています（「〜という旅のテーマや問い」「〜というところまで」「歓び合う。そんな活動を」など）。<br><strong>ページ内に2倍ダーシは0件</strong>になりました。アーカイブ（<code>archive/260902/</code>）は当時の記録なので手を入れていません。</td></tr>
         <tr><th>05以降に写真ブレイクを3つ追加（2026-09-02）</th><td>「1泊2日の流れ」から最終CTAまでテキストが続いていたので、いただいた横位置の写真3点を挟みました。既存の2点とあわせて、<strong>ページを下るほど時間が進む</strong>並びにしています（昼→昼→<strong>昼</strong>→<strong>夕</strong>→<strong>夜</strong>）。<br><strong>05 スケジュールの後</strong>（<code>bohatei.jpg</code>・昼）「堤防に腰かけて、海を見ている人がいる。それも、このまちの日常です。」分単位の予定表を読み終えた直後に、予定のない時間の写真を置いています。<br><strong>「こんな人におすすめ」の後</strong>（<code>yugure.jpg</code>・夕）「日が落ちるころ、港の色が変わる。同じ場所が、違って見えてきます。」同じ場所の見え方が変わるという、この企画の主題そのものです。<br><strong>FAQの後・最終CTAの直前</strong>（<code>joyato.jpg</code>・夜）「常夜燈に灯りが入る。潮を待った船が、今日もここへ帰ってきます。」ヒーローの常夜燈（昼）と対になり、申し込みの直前に一拍おきます。<br>長辺2000px・5:3で書き出し、いずれも210〜240KB。英字ラベルは廃止済みなので、キャプションは罫＋和文だけです。</td></tr>
