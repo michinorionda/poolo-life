@@ -686,6 +686,13 @@ img { display: block; max-width: 100%; }
   letter-spacing: 0.04em;
 }
 
+/* ============ 番号ラベルを和文で出す（.ja / .is-ja） ============ */
+/* 英字の飾りラベルを使わない方針（2026-09-02）に伴い、Jost 前提だった
+   番号ラベルを和文でも組めるようにした変種。書体だけ Zen Kaku に寄せる。 */
+.day-num.ja { font-family: var(--head); font-weight: 700; letter-spacing: 0.1em; }
+.ps-num.ja { font-family: var(--head); font-weight: 700; letter-spacing: 0.16em; }
+.step-no.is-ja { font-family: var(--head); letter-spacing: 0.16em; }
+
 /* ============ 写真ブレイク（.photo-break） ============ */
 .photo-break {
   position: relative;
@@ -1698,7 +1705,7 @@ img { display: block; max-width: 100%; }
   display: inline-block;
   font-size: 22px;
   letter-spacing: 0.08em;
-  margin-left: 0.5em;
+  margin-left: 0;   /* 英字ラベル「Point」を廃したので、番号だけを左端に置く */
   vertical-align: -2px;
 }
 .point-title {
