@@ -610,6 +610,10 @@ img { display: block; max-width: 100%; }
   background: var(--brand);
   margin-top: 18px;
 }
+/* 【使用しない・2026-09-02】セクション見出しの英字ラベル（Concept / Program 等）。
+   和文の見出しの隣に、同じ意味の英字を飾りで置くと「AIが作った感じ」が出る。
+   新しいページでは .sec-spine に .sec-num（連番 or 和文ラベル）だけを置くこと。
+   定義は過去ページの表示を壊さないために残してあるだけ。 */
 .sec-en {
   display: block;
   margin-top: 16px;
