@@ -75,6 +75,7 @@
       <a href="../higashikawa/">8月回のページ（第1回）</a>
       <a href="#september">9月募集への対応</a>
       <a href="#writing">文言ルールへの追随</a>
+      <a href="#tomonoura-sync">鞆の浦LPへの追随</a>
       <a href="#answers">企画の確認事項への所見</a>
       <a href="#todo">確定待ちの項目へ</a>
     </div>
@@ -256,8 +257,31 @@
     </div>
   </section>
 
+  <section class="rv-sec" id="tomonoura-sync">
+    <div class="rv-sec-head"><span class="rv-sec-num">09</span><h2>鞆の浦LPの更新に追随</h2></div>
+    <div class="rv-body">
+      <p>鞆の浦LPが 2026-09-02 に「ページ構成の型」の正規リファレンスになり、そこから7つのコミットで手が入っていました。同じ型で組んでいるこのページにも、同じ変更を入れています。いちばん大きいのは <code>bddc011</code>、<strong>飾りの英字ラベルを全撤去し、構造を担うものは和文に置き換える</strong>という方針転換です。</p>
+      <p>撤去の対象になったのは、意味を持たずに雰囲気だけを作っていた英字でした。<code>.sec-en</code>（Concept／Why Higashikawa など）が11箇所、要点欄の Date／Place／Seats／Fee、CTA の Application／Join us、About の見出し、夏冬比較の Summer／Winter、向き・不向きの Recommended／Not for。ヒーローの <code>POOLO × COMPATH WINTER</code> も落としました。</p>
+      <p>いっぽう<strong>構造を担っていた英字は、消さずに和文へ移しています。</strong>Day 1／Day 2／Day 3 は「1日目・2日目・3日目」に、3つの柱の 01／02／03 は「その1・その2・その3」に。DS 側に <code>.day-num.ja</code> と <code>.ps-num.ja</code>、<code>.step-no.is-ja</code> が用意されていたので、それを使いました。</p>
+    </div>
+    <table class="rv-table" style="margin-top:20px;">
+      <tbody>
+        <tr><th><code>bddc011</code><br>英字の撤去</th><td>飾りの英字を26箇所撤去、構造を担う9箇所を和文へ。本文に残る英字は固有名詞（POOLO／School for Life Compath／NVC／MEISHI／LINE／CODOLI）だけになった</td></tr>
+        <tr><th><code>496ce15</code><br>ヒーローの足元</th><td><code>.hero-foot</code>（家紋＋「東川を使って、自分を見る。」＋英字）と <code>.hero-chip</code>（写真上の「Compath／この校舎で、3日間を過ごします」）を削除。家紋はフッターに1つ残っているので、ヒーローと二重に出ていた</td></tr>
+        <tr><th><code>559c392</code><br>写真キャプション</th><td>写真ブレイクの <code>.pb-caption</code> を4つとも撤去。「Dusk ／ 12月の東川は、15時を過ぎるともう夕方になります。」のような英字＋和文の編集キャプションが、英字撤去の方針と正面から衝突するため</td></tr>
+        <tr><th><code>e447274</code><br>矢印</th><td>外部リンクの <code>↗</code> を <code>↗︎</code>（異体字セレクタ付き）に。スマホで絵文字として表示される問題の修正。3箇所</td></tr>
+        <tr><th><code>f047036</code><br>2倍ダーシ</th><td><code>——</code> は前回の文言ルール対応（08）ですでに全廃済み。現在0件で、確認だけ</td></tr>
+        <tr><th>DSカタログ</th><td>写真ギャラリーのカードが <code>.gallery-head-en</code>（"Scenes"）を使ったプレビューだったので、和文だけに直した。カードの説明にも「飾りの英字ラベルは使わない」と理由つきで明記。READMEのコンポーネント表も更新</td></tr>
+        <tr><th>入れなかったもの</th><td><code>af9ff48</code>（05以降に写真ブレイクを3つ追加）と <code>8b4c465</code>（「日時：後日ご案内します」をカット）は鞆の浦固有の内容なので見送り。このページの写真ブレイクは4枚で、05のあとにも1枚あります</td></tr>
+      </tbody>
+    </table>
+    <div class="rv-body" style="margin-top:22px;">
+      <p><strong>ひとつ気づいた点があります。</strong>写真キャプションを撤去したことで、<strong>写真が何を写しているのかを説明する場所がページから無くなりました。</strong>鞆の浦は現地の風景写真なので困りませんが、このページの写真は<strong>すべて8月回の記録</strong>です。「これは前回の写真である」と伝える役目の一部をキャプションが担っていました。いまはお知らせバンドとギャラリー脚注2箇所とFAQの計4箇所が残っているので情報としては足りていますが、<strong>写真ブレイクの4枚だけは、文脈なしで夏の緑が出ます。</strong>ここは気になるようなら、脚注を1行足すか、写真ブレイクを冬の写真に差し替えるかだと思います。</p>
+    </div>
+  </section>
+
   <section class="rv-sec" id="todo">
-    <div class="rv-sec-head"><span class="rv-sec-num">09</span><h2>確定待ち・確認したいこと</h2></div>
+    <div class="rv-sec-head"><span class="rv-sec-num">10</span><h2>確定待ち・確認したいこと</h2></div>
     <div class="rv-body">
       <p>公開前に潰す必要があるものを、重い順に。うち上4件は、叩きを読んでいて気づいた点です。</p>
     </div>
@@ -284,7 +308,7 @@
   </section>
 
   <section class="rv-sec">
-    <div class="rv-sec-head"><span class="rv-sec-num">10</span><h2>ページ仕様（セクションと使用コンポーネント）</h2></div>
+    <div class="rv-sec-head"><span class="rv-sec-num">11</span><h2>ページ仕様（セクションと使用コンポーネント）</h2></div>
     <table class="rv-table">
       <tbody>
         <tr><th>固定ヘッダー</th><td><code>.brand-row</code>／右上リンクは8月回のページへ</td></tr>
@@ -316,7 +340,7 @@
   </section>
 
   <section class="rv-sec">
-    <div class="rv-sec-head"><span class="rv-sec-num">11</span><h2>デザインシステム（poolo-ds）へ還元したもの</h2></div>
+    <div class="rv-sec-head"><span class="rv-sec-num">12</span><h2>デザインシステム（poolo-ds）へ還元したもの</h2></div>
     <div class="rv-body">
       <p>「写真をふんだんに使う」という要件に対して、既存のDSには <code>.photo-break</code>（1枚の裁ち落とし）しかありませんでした。ページ側に書きっぱなしにせず、<strong>写真ギャラリーのコンポーネントとしてDSに追加</strong>しています。</p>
     </div>
@@ -333,7 +357,7 @@
   </section>
 
   <section class="rv-sec">
-    <div class="rv-sec-head"><span class="rv-sec-num">12</span><h2>公開前チェックリスト</h2></div>
+    <div class="rv-sec-head"><span class="rv-sec-num">13</span><h2>公開前チェックリスト</h2></div>
     <ul class="rv-check">
       <li><strong>LINEグループの招待URL</strong>を4か所に差し込む（ヘッダー／追従バー／中間CTA／最終CTA）</li>
       <li><strong>参加費・定員・申込締切</strong>を確定して4系統に反映する</li>
