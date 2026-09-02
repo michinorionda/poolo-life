@@ -296,6 +296,15 @@ img { display: block; max-width: 100%; }
   .hero--long-title .hero-title .t-lg { font-size: clamp(34px, 4.4vw, 58px); }
 }
 
+/* 広い画面ほどコピー欄が痩せる問題の補正（2026-09-02）。
+   .hero-copy の左パディングは版面のセンタリング由来で 0.5×vw で増えるのに、
+   カラム幅は 0.46×vw でしか増えないため、1600px を超えると
+   「画面を広げるほど本文が狭くなる」状態になっていた。
+   1500px 以上でカラム比を広げ、パディングより速く伸びるようにする。 */
+@media (min-width: 1500px) {
+  .hero-grid { grid-template-columns: minmax(0, 54%) minmax(0, 46%); }
+}
+
 @media (max-width: 860px) {
   .hero-grid { grid-template-columns: minmax(0, 1fr); }
   .hero-copy {
