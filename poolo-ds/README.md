@@ -255,7 +255,8 @@ group はカタログの `@dsCard group="…"` と対応。
 | `.link-out` | 外部サイトへの小さな導線（`<a>＋<span class="arrow">↗</span>`）。散文セクションの末尾に置く。人物カードの `.person-links` と同じ見え方 | Sections |
 | `.flow-list` / `.flow-item` / `.flow-time` / `.flow-title` / `.flow-desc` | 当日の流れ（4フェーズ・時刻＋タイトル＋説明） | Sections |
 | `.sec-questions` / `.q-list` / `.q-item` / `.q-no`(.kanji) / `.q-text` / `.q-helper` | 当日の問い（ブルー淡面・漢数字番号・明朝） | Sections |
-| `.notice-bar` / `.notice-tag` / `.notice-text` / `.notice-link` | お知らせバンド（一行アナウンス） | Content |
+| `.notice-bar` / `.notice-tag` / `.notice-text` / `.notice-link` | お知らせバンド（一行アナウンス）。**レイアウトは `.notice-bar a` に載っている**ので、リンクを持たない帯には効かない | Content |
+| `.notice-bar--static` | リンクを持たない、注記だけのお知らせ帯。`<a>` の代わりに `.shell` を flex コンテナにする。長い注記でもタグの右に留まる（561px以上）。**`<a>` が無い帯はこれを付けないと、罫線に文字が張りつく** | Content |
 | `.summary` / `.summary-grid` / `.summary-cell` / `.summary-label`(.en/.ja) / `.summary-value` | イベント要点（4カラム：日時／形式／定員／参加費） | Content |
 | `.photo-break`(--left/--right) / `.pb-frame` / `.pb-caption`(-en/-rule/-text) | 写真ブレイク（裁ち落とし＋足元ブルー淡面＋編集キャプション） | Content |
 | `.voice-list` / `.voice-item` / `.voice-quote`(.vq-mark) / `.voice-attr` / `.voice-note` | 参加者の声（引用＝明朝・属性＝Noto・掲載注記） | Content |
