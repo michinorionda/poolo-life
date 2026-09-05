@@ -584,8 +584,30 @@ img { display: block; max-width: 100%; }
 }
 .notice-link .arrow { font-family: var(--en); margin-left: 0.4em; }
 .notice-bar a:hover .notice-link { color: var(--brand); }
+
+/* リンクを持たない、注記だけのお知らせ帯（.notice-bar--static）。
+   既定の .notice-bar は <a> が flex コンテナなので、リンクが無いと
+   配置も上下パディングも効かず、罫線に文字が張りつく。
+   ※ここは padding-block を使う。padding のショートハンドだと
+     .shell の padding-inline（左右の版面余白）を打ち消してしまう。 */
+.notice-bar--static > .shell {
+  display: flex;
+  align-items: center;
+  gap: clamp(14px, 2.4vw, 26px);
+  padding-block: 17px;
+  flex-wrap: wrap;
+}
+/* 既定の .notice-text は flex-basis:auto（＝内容幅）なので、注記が長いと
+   タグの隣に入りきらず、行ごと折り返してタグだけが浮く。基準を 0 にして
+   残り幅を配分させ、2〜3行になってもタグの右に留める。
+   ※561px 以上に限定する。560px 以下は既定の .notice-text が
+     width:100% で段積みになる設計で、flex-basis:0 はそれを打ち消す。 */
+@media (min-width: 561px) {
+  .notice-bar--static > .shell .notice-text { flex: 1 1 0; line-height: 1.9; }
+}
 @media (max-width: 560px) {
   .notice-bar a { gap: 12px; padding: 15px 0; }
+  .notice-bar--static > .shell { gap: 12px; padding-block: 15px; }
   .notice-text { font-size: 13px; width: 100%; order: 3; }
   .notice-link { font-size: 12.5px; }
 }

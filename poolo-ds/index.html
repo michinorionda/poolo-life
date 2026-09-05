@@ -534,7 +534,7 @@
 
   <!-- @dsCard group="Content" -->
   <div class="cat-card">
-    <div class="cat-card-label"><span class="name">お知らせバンド</span><span class="cls">.notice-bar / .notice-tag / .notice-link</span><span class="use">一行アナウンス。ブルーのタグ＋本文＋リンク。</span></div>
+    <div class="cat-card-label"><span class="name">お知らせバンド</span><span class="cls">.notice-bar / .notice-tag / .notice-link</span><span class="use">一行アナウンス。ブルーのタグ＋本文＋リンク。<strong>レイアウトは <code>.notice-bar a</code> に載っている</strong>ので、リンクが無い帯には効かない（→次のカード）。</span></div>
     <div class="cat-card-preview">
       <section class="notice-bar" aria-label="お知らせ">
         <div class="shell">
@@ -543,6 +543,19 @@
             <span class="notice-text">POOLO LIFE 12期を募集中です！</span>
             <span class="notice-link">詳しくはこちら<span class="arrow">↗</span></span>
           </a>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <!-- @dsCard group="Content" -->
+  <div class="cat-card">
+    <div class="cat-card-label"><span class="name">お知らせ帯（リンクなし）</span><span class="cls">.notice-bar.notice-bar--static / .notice-tag / .notice-text</span><span class="use">注記だけの帯。<strong>&lt;a&gt; が無い帯は必ずこの変種を付ける。</strong>付け忘れると上下パディングも配置も効かず、罫線に文字が張りつく。長い注記でもタグの右に留まる（561px以上。560px以下は既定どおり段積み）。</span></div>
+    <div class="cat-card-preview">
+      <section class="notice-bar notice-bar--static" style="border-top:none;border-bottom:none;" aria-label="ご了承いただきたいこと">
+        <div class="shell">
+          <span class="notice-tag">ご了承ください</span>
+          <span class="notice-text">12月上旬は、雪が降りはじめる頃です。積雪量は年によって異なるため、掲載している写真と風景が異なる場合があります。</span>
         </div>
       </section>
     </div>
