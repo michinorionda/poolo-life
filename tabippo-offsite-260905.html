@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow,noarchive,nosnippet">
+<title>TABIPPO 下期キックオフ合宿 設計｜チェンマイ 3h×2日</title>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#1a1a1a; --sub:#4a4a4a; --mute:#7a7a7a; --hint:#a8a8a8;
+  --bg:#faf9f6; --bg-deep:#f3f1ea; --card:#ffffff; --line:#e0ddd3;
+  --accent:#2D6A4F; --accent-bg:#E9F5EE; --accent-deep:#1f4f3a;
+  --amber:#7A5500; --amber-bg:#F7EFD8;
+  --serif:'Shippori Mincho',serif; --sans:'Noto Sans JP',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--bg);color:var(--ink);line-height:1.95;font-weight:400;-webkit-font-smoothing:antialiased}
+.wrap{max-width:980px;margin:0 auto;padding:0 1.5rem}
+section{padding:3rem 0}
+
+.topbar{padding:0.7rem 0;background:var(--accent);color:#fff;font-size:0.74rem;letter-spacing:0.1em;text-align:center}
+.topbar a{color:#fff;text-decoration:none;border-bottom:1px solid rgba(255,255,255,0.4)}
+
+.header{padding:3.5rem 0 2.8rem;background:linear-gradient(135deg,var(--accent-bg) 0%,var(--bg) 70%);border-bottom:2px solid var(--accent);text-align:center}
+.badge-row{display:flex;justify-content:center;gap:0.6rem;margin-bottom:1.4rem;flex-wrap:wrap}
+.case-badge{display:inline-block;font-size:0.65rem;letter-spacing:0.3em;color:#fff;background:var(--accent);padding:0.4rem 1.2rem;border-radius:30px;font-weight:600}
+.internal-badge{display:inline-block;font-size:0.65rem;letter-spacing:0.3em;color:#fff;background:var(--ink);padding:0.4rem 1.2rem;border-radius:30px;font-weight:600}
+.header-title{font-family:var(--serif);font-size:1.95rem;font-weight:600;letter-spacing:0.05em;line-height:1.7;color:var(--ink);margin-bottom:0.5rem}
+.header-sub{font-family:var(--serif);font-size:0.96rem;color:var(--sub);letter-spacing:0.05em;margin-bottom:1.4rem}
+.header-meta{display:inline-flex;gap:1.4rem;padding:0.55rem 1.4rem;background:#fff;border:1px solid var(--line);border-radius:3px;font-size:0.74rem;color:var(--mute);letter-spacing:0.08em}
+.header-meta b{color:var(--accent);font-weight:600;font-family:var(--serif)}
+
+.objective-box{background:var(--accent-bg);border-left:4px solid var(--accent);padding:1.7rem 1.9rem;border-radius:3px;max-width:880px;margin:2.5rem auto 0}
+.obj-label{font-size:0.66rem;letter-spacing:0.3em;color:var(--accent);font-weight:600;margin-bottom:0.6rem}
+.obj-main{font-family:var(--serif);font-size:1rem;color:var(--ink);line-height:2.05;font-weight:500;letter-spacing:0.03em}
+
+.section-head{text-align:center;margin-bottom:2.4rem}
+.sec-tag{display:inline-block;font-family:var(--serif);font-size:0.7rem;letter-spacing:0.35em;font-weight:600;color:var(--accent);padding:0.35rem 1rem;border:1px solid var(--accent);margin-bottom:0.8rem}
+.sec-title{font-family:var(--serif);font-size:1.4rem;font-weight:600;letter-spacing:0.05em;line-height:1.6;color:var(--ink);border-bottom:1px solid var(--line);padding-bottom:0.7rem;display:inline-block}
+
+.timeline{position:relative;padding-left:8rem;margin-top:1rem}
+.timeline::before{content:"";position:absolute;left:5.2rem;top:0;bottom:0;width:2px;background:var(--accent-bg)}
+.tl-row{position:relative;margin-bottom:1.4rem;break-inside:avoid;page-break-inside:avoid}
+.tl-time{position:absolute;left:-8rem;width:5.6rem;font-family:var(--serif);font-size:0.84rem;color:var(--accent);font-weight:600;letter-spacing:0.04em;text-align:right;padding-top:0.2rem}
+.tl-dot{position:absolute;left:-1.95rem;top:0.5rem;width:14px;height:14px;background:#fff;border:3px solid var(--accent);border-radius:50%;z-index:1}
+.tl-card{background:#fff;border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:3px;padding:1rem 1.2rem 1.1rem}
+.tl-head{display:flex;align-items:baseline;gap:0.7rem;margin-bottom:0.5rem;flex-wrap:wrap}
+.tl-title{font-family:var(--serif);font-size:1rem;color:var(--ink);font-weight:600;letter-spacing:0.04em}
+.tl-format{font-size:0.66rem;color:#fff;background:var(--accent);padding:0.15rem 0.55rem;border-radius:2px;letter-spacing:0.15em;font-weight:500}
+.tl-format.indiv{background:var(--mute)}
+.tl-format.pair{background:var(--amber)}
+.tl-format.group{background:var(--accent)}
+.tl-format.all{background:var(--ink)}
+.tl-content{font-size:0.86rem;color:var(--sub);line-height:1.85;margin-bottom:0.5rem}
+.tl-facil{font-size:0.78rem;color:var(--mute);line-height:1.8;letter-spacing:0.02em;padding-top:0.5rem;border-top:1px dashed var(--line)}
+.tl-facil b{font-family:var(--serif);font-size:0.66rem;letter-spacing:0.2em;color:var(--ink);font-weight:600;display:block;margin-bottom:0.2rem}
+
+.rules-block{background:var(--bg-deep);padding:3rem 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.rules-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;max-width:780px;margin:0 auto}
+.rule-card{background:#fff;border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:3px;padding:1rem 1.2rem;break-inside:avoid;page-break-inside:avoid}
+.rule-num{font-family:var(--serif);font-size:0.7rem;letter-spacing:0.2em;color:var(--accent);font-weight:600;margin-bottom:0.3rem}
+.rule-text{font-family:var(--serif);font-size:0.95rem;color:var(--ink);line-height:1.85;font-weight:500}
+.rule-card.added{border-left-color:var(--amber)}
+.rule-card.added .rule-num{color:var(--amber)}
+.rules-note{text-align:center;font-size:0.84rem;color:var(--sub);font-family:var(--serif);margin-bottom:1.5rem;line-height:1.95}
+
+.q-table{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--line);font-size:0.86rem;margin-top:1rem}
+.q-table th,.q-table td{padding:0.85rem 1rem;border:1px solid var(--line);text-align:left;line-height:1.85;vertical-align:top}
+.q-table thead th{background:var(--accent);color:#fff;font-family:var(--serif);font-weight:600;letter-spacing:0.04em;font-size:0.84rem}
+.q-table tbody th{background:var(--accent-bg);font-family:var(--serif);color:var(--accent);font-weight:600;text-align:center;width:5.5rem;letter-spacing:0.05em}
+.q-table tbody td.step{font-size:0.78rem;color:var(--mute);width:8rem;text-align:center;font-family:var(--serif);letter-spacing:0.04em}
+.q-table tbody td.q{color:var(--ink);font-family:var(--serif);font-weight:500;line-height:1.9}
+
+.help-block{padding:3rem 0;border-bottom:1px solid var(--line)}
+.help-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:0.9rem;margin-top:1rem}
+.help-card{background:#fff;border:1px solid var(--line);border-top:3px solid var(--amber);border-radius:3px;padding:1.1rem 1.2rem;break-inside:avoid;page-break-inside:avoid}
+.help-num{font-family:var(--serif);font-size:0.7rem;letter-spacing:0.2em;color:var(--amber);font-weight:600;margin-bottom:0.4rem}
+.help-text{font-family:var(--serif);font-size:0.92rem;color:var(--ink);line-height:1.85;font-weight:500}
+.help-note{font-size:0.84rem;color:var(--sub);line-height:1.95;letter-spacing:0.02em;text-align:center;margin-bottom:1rem}
+
+.quote-block{padding:3rem 0;background:var(--bg-deep)}
+.quote-grid{display:flex;flex-direction:column;gap:1rem;max-width:820px;margin:1rem auto 0}
+.quote-card{background:#fff;border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:3px;padding:1.2rem 1.5rem;break-inside:avoid;page-break-inside:avoid}
+.quote-when{font-family:var(--serif);font-size:0.72rem;letter-spacing:0.2em;color:var(--accent);font-weight:600;margin-bottom:0.5rem}
+.quote-text{font-family:var(--serif);font-size:0.96rem;color:var(--ink);line-height:2;font-weight:500;letter-spacing:0.02em}
+.quote-text b{background:var(--accent-bg);padding:0 0.2rem;font-weight:600}
+
+.worksheet-block{padding:3rem 0;border-bottom:1px solid var(--line)}
+.ws-table{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--line);font-size:0.86rem;margin-top:1rem}
+.ws-table th,.ws-table td{padding:0.85rem 1rem;border:1px solid var(--line);text-align:left;line-height:1.85;vertical-align:top}
+.ws-table thead th{background:var(--accent);color:#fff;font-family:var(--serif);font-weight:600;letter-spacing:0.04em;font-size:0.84rem}
+.ws-table tbody td:first-child{background:var(--accent-bg);font-family:var(--serif);color:var(--ink);font-weight:600;width:11rem;font-size:0.82rem;letter-spacing:0.03em}
+.ws-table tbody td:nth-child(2){font-family:var(--serif);color:var(--ink);font-weight:500;width:16rem}
+.ws-table tbody td:nth-child(3){color:var(--sub)}
+
+.checkbox-list{margin-top:1.5rem;max-width:780px;background:#fff;border:1px solid var(--line);border-radius:3px;padding:1.2rem 1.5rem;list-style:none}
+.checkbox-list li{padding:0.6rem 0 0.6rem 2rem;border-bottom:1px dashed var(--line);font-size:0.88rem;color:var(--ink);line-height:1.85;position:relative}
+.checkbox-list li:last-child{border-bottom:none}
+.checkbox-list li::before{content:"☐";position:absolute;left:0.4rem;font-size:1rem;color:var(--accent);top:0.5rem}
+
+.closing-block{padding:3rem 0;background:var(--accent-bg)}
+.closing-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem;margin-top:1rem}
+.cl-card{background:#fff;border:1px solid var(--line);border-radius:3px;padding:1.2rem 1.3rem}
+.cl-card.end{border-top:3px solid var(--accent)}
+.cl-card.bridge{border-top:3px solid var(--amber)}
+.cl-card.percent{border-top:3px solid var(--mute)}
+.cl-label{font-family:var(--serif);font-size:0.7rem;letter-spacing:0.25em;font-weight:600;margin-bottom:0.5rem}
+.cl-card.end .cl-label{color:var(--accent)}
+.cl-card.bridge .cl-label{color:var(--amber)}
+.cl-card.percent .cl-label{color:var(--mute)}
+.cl-title{font-family:var(--serif);font-size:0.96rem;color:var(--ink);font-weight:600;letter-spacing:0.04em;margin-bottom:0.5rem;line-height:1.6}
+.cl-desc{font-size:0.82rem;color:var(--sub);line-height:1.9;letter-spacing:0.02em}
+
+.takeaway-block{padding:3rem 0;background:#fff;border-top:1px solid var(--line)}
+.takeaway-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:1rem}
+.ta-card{background:var(--bg-deep);border:1px solid var(--line);border-top:3px solid var(--accent);border-radius:3px;padding:1.2rem 1.4rem;text-align:center;break-inside:avoid;page-break-inside:avoid}
+.ta-num{font-family:var(--serif);font-size:1.6rem;font-weight:700;color:var(--accent);line-height:1;margin-bottom:0.5rem}
+.ta-text{font-family:var(--serif);font-size:0.9rem;color:var(--ink);line-height:1.85;font-weight:500}
+
+.variant-block{padding:3rem 0;background:var(--bg-deep);border-top:1px solid var(--line)}
+.variant-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;max-width:820px;margin:1rem auto 0}
+.var-card{background:#fff;border:1px solid var(--line);border-radius:3px;padding:1.2rem 1.4rem}
+.var-label{font-family:var(--serif);font-size:0.74rem;letter-spacing:0.2em;color:var(--accent);font-weight:600;margin-bottom:0.4rem}
+.var-title{font-family:var(--serif);font-size:1rem;color:var(--ink);font-weight:600;margin-bottom:0.5rem}
+.var-desc{font-size:0.82rem;color:var(--sub);line-height:1.85}
+
+.footer{padding:3rem 0 3.5rem;background:var(--bg-deep);border-top:1px solid var(--line);text-align:center}
+.footer-nav{display:inline-flex;gap:1.6rem;margin-bottom:1rem;font-size:0.84rem;letter-spacing:0.06em;flex-wrap:wrap;justify-content:center}
+.footer-nav a{color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent);padding-bottom:0.1rem}
+.footer-meta{font-size:0.74rem;color:var(--mute);letter-spacing:0.08em;line-height:2}
+
+@media(max-width:820px){
+  .header-title{font-size:1.5rem}
+  .timeline{padding-left:0}
+  .timeline::before{display:none}
+  .tl-time{position:static;width:auto;text-align:left;padding-top:0;margin-bottom:0.3rem}
+  .tl-dot{display:none}
+  .rules-grid,.closing-grid,.takeaway-grid,.variant-grid{grid-template-columns:1fr}
+  .q-table,.ws-table{font-size:0.78rem}
+  .q-table thead th,.ws-table thead th{font-size:0.76rem}
+}
+
+@media print{
+  body{background:#fff}
+  .topbar,.header,.rules-block,.quote-block,.worksheet-block,.closing-block,.takeaway-block,.variant-block,.footer{background:#fff !important}
+  .tl-card,.rule-card,.help-card,.quote-card,.ta-card,.var-card,.cl-card{break-inside:avoid;page-break-inside:avoid;box-shadow:none}
+  section{padding:1.2rem 0}
+  a{color:inherit}
+}
+.day-band{background:var(--ink);color:#fff;padding:1.4rem 0;text-align:center;margin-top:1rem}
+.day-band .d-num{font-family:var(--serif);font-size:0.7rem;letter-spacing:0.35em;color:#c9c9c9;margin-bottom:0.35rem}
+.day-band .d-title{font-family:var(--serif);font-size:1.15rem;font-weight:600;letter-spacing:0.06em}
+.day-band .d-sub{font-size:0.78rem;color:#c9c9c9;letter-spacing:0.06em;margin-top:0.35rem}
+.warn{background:var(--amber-bg);border-left:4px solid var(--amber);padding:1.2rem 1.4rem;border-radius:3px;margin-top:1.2rem}
+.warn-label{font-size:0.66rem;letter-spacing:0.3em;color:var(--amber);font-weight:600;margin-bottom:0.5rem}
+.warn-text{font-size:0.86rem;color:var(--ink);line-height:1.95}
+.night-block{padding:3.5rem 0;background:var(--ink);color:#fff;text-align:center}
+.night-label{font-family:var(--serif);font-size:0.68rem;letter-spacing:0.35em;color:#bdbdbd;margin-bottom:1rem}
+.night-q{font-family:var(--serif);font-size:1.15rem;line-height:2.2;letter-spacing:0.04em;max-width:760px;margin:0 auto;font-weight:500}
+.night-note{font-size:0.8rem;color:#bdbdbd;line-height:1.95;max-width:640px;margin:1.4rem auto 0}
+.lead{font-size:0.9rem;color:var(--sub);line-height:2;max-width:820px;margin:0 auto 1.5rem;text-align:center}
+</style>
+</head>
+<body>
+
+<div class="topbar">社内限 ・ TABIPPO 役員／社員7名 ・ チェンマイ合宿 2026年9月</div>
+
+<div class="header">
+  <div class="wrap">
+    <div class="badge-row">
+      <span class="case-badge">3h × 2日</span>
+      <span class="internal-badge">社内限</span>
+    </div>
+    <h1 class="header-title">半期振り返り × 個人の軸 × 下期目標</h1>
+    <div class="header-sub">TABIPPO 下期キックオフ合宿 設計</div>
+    <div class="header-meta">
+      <span>参加 <b>7名</b>（社長・役員1・社員5）</span>
+      <span>総時間 <b>6時間</b></span>
+      <span>形式 <b>合宿・一晩を挟む</b></span>
+    </div>
+
+    <div class="objective-box">
+      <div class="obj-label">この2日のゴール</div>
+      <div class="obj-main">
+        2日目の終わりに、7人それぞれが「1年後の自分」「下期にやること3つ」「下期にやめること1つ」を一枚に書き終え、それを他の6人の前で言葉にしている状態。<br>
+        振り返りは目的ではなく、その一枚を書くための材料である。
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 設計原則 -->
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="sec-tag">設計原則</div>
+      <div class="sec-title">この3つを崩すと、設計全体が崩れる</div>
+    </div>
+    <div class="rules-grid" style="grid-template-columns:1fr">
+      <div class="rule-card">
+        <div class="rule-num">原則 01</div>
+        <div class="rule-text">個人が先、会社が後。Day1では会社の話を一切しない。<br>
+        <span style="font-size:0.82rem;color:var(--sub);font-family:var(--sans);font-weight:400">会社の方向を先に置くと、個人ビジョンが「会社の期待に合わせた作文」になる。個人の軸を先に固めてからでないと、Day2は目標設定ではなく目標の受領になる。</span></div>
+      </div>
+      <div class="rule-card">
+        <div class="rule-num">原則 02</div>
+        <div class="rule-text">Day1では決めさせない。決めるのはDay2。<br>
+        <span style="font-size:0.82rem;color:var(--sub);font-family:var(--sans);font-weight:400">Day1で結論を出させると、Day2はその結論を守る防衛戦になる。人は「その場で出した答え」より「夜に一人で思い返して出てきた答え」を信じる。一晩を挟めるのがこの合宿の最大の資産。</span></div>
+      </div>
+      <div class="rule-card added">
+        <div class="rule-num">原則 03</div>
+        <div class="rule-text">経営2名は、Day1で最初に話し、Day2の前半では話さない。<br>
+        <span style="font-size:0.82rem;color:var(--sub);font-family:var(--sans);font-weight:400">7人のうち2人が経営という非対称は消せない。消せない以上、順序で扱う。個人パートは経営が先に鎧を脱ぐ。会社パートは経営が最後に話す。社長が先に会社の未来を語った瞬間、残り5人は「社長の意図を読む作業」に切り替わる。</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DAY 1 -->
+<div class="day-band">
+  <div class="wrap">
+    <div class="d-num">D A Y &nbsp; 1</div>
+    <div class="d-title">個人の軸をつくる</div>
+    <div class="d-sub">3時間 ／ 会社の話はしない</div>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="timeline">
+
+      <div class="tl-row">
+        <div class="tl-time">0:00–0:10</div><div class="tl-dot"></div>
+        <div class="tl-card">
+          <div class="tl-head"><span class="tl-title">オープニング</span><span class="tl-format all">全員</span></div>
+          <div class="tl-content">この2日でやること／やらないことの宣言。ルール共有。そして<b>社長から「ここで出た個人の話は評価に一切使わない」と明言してもらう</b>。</div>
+          <div class="tl-facil"><b>ファシリ注記</b>この一言は社長にしか言えない。役員が代弁しても効かない。事前に本人に依頼しておく。</div>
+        </div>
+      </div>
+
+      <div class="tl-row">
+        <div class="tl-time">0:10–0:22</div><div class="tl-dot"></div>
+        <div class="tl-card">
+          <div class="tl-head"><span class="tl-title">チェックイン</span><span class="tl-format all">全員・90秒／人</span></div>
+          <div class="tl-content">問い：<b>「いま、この場に持ち込んでいる気分を天気で言うと何ですか。そして、その理由は？」</b></div>
+          <div class="tl-facil"><b>ねらい</b>アイスブレイクではなく、7人の本音の温度を測る計器。ここで全員が「晴れ」と言う場は、後半も本音が出ない。</div>
+        </div>
+      </div>
+
+      <div class="tl-row">
+        <div class="tl-time">0:22–0:52</div><div class="tl-dot"></div>
+        <div class="tl-card">
+          <div class="tl-head"><span class="tl-title">半年の棚卸し</span><span class="tl-format indiv">個人・無言30分</span></div>
+          <div class="tl-content">記憶ではなく<b>事実</b>で書く。各自カレンダー・Slack・議事録を実際に開く。5つの問い（下の問い一覧 Q1–Q5）に書き込む。</div>
+          <div class="tl-facil"><b>ファシリ注記</b>「30分は長い」と感じるが、20分を過ぎてから出るものが本命。途中で切らない。無言を徹底。</div>
+        </div>
+      </div>
+
+      <div class="tl-row">
+        <div class="tl-time">0:52–1:37</div><div class="tl-dot"></div>
+        <div class="tl-card">
+          <div class="tl-head"><span class="tl-title">ペアで語る（3ラウンド）</span><span class="tl-format pair">ペア・15分×3</span></div>
+          <div class="tl-content">15分の内訳＝<b>話す7分／聞き手が質問5分／「今の話で一番効いた一言」を返す3分</b>。ラウンドごとに相手を替える。7人なので毎回1人が余る → 余った1人はその回<b>3人組</b>に入る。</div>
+          <div class="tl-facil"><b>絶対ルール</b>聞き手はアドバイス禁止。質問だけ。「解決しにこない」。ここを緩めると全ラウンドが相談会になる。</div>
+        </div>
+      </div>
+
+      <div class="tl-row">
+        <div class="tl-time">1:37–1:47</div><div class="tl-dot"></div>
+        <div class="tl-card">
+          <div class="tl-head"><span class="tl-title">休憩</span><span class="tl-format indiv">10分</span></div>
+          <div class="tl-content">スマホを見てよい唯一の時間として明示する。他の時間は伏せてもらう。</div>
+        </div>
+      </div>
+
+      <div class="tl-row">
+        <div class="tl-time">1:47–2:17</div><div class="tl-dot"></div>
+        <div class="tl-card">
+          <div class="tl-head"><span class="tl-title">自分の軸を掘る</span><span class="tl-format indiv">個人・30分</span></div>
+          <div class="tl-content">問い一覧 Q6–Q10。最後は必ず一文に落とす。<b>「私は（　　　　）のためにTABIPPOにいる。」</b></div>
+          <div class="tl-facil"><b>ファシリ注記</b>ここが本日の山。手が止まる人が必ず出るので、介助フック（後述）を用意しておく。埋まらない人がいても急かさない。「空欄のまま持ち帰る」も認める。</div>
+        </div>
+      </div>
+
+      <div class="tl-row">
+        <div class="tl-time">2:17–2:52</div><div class="tl-dot"></div>
+        <div class="tl-card">
+          <div class="tl-head"><span class="tl-title">全員に共有（3分／人）</span><span class="tl-format all">全員</span></div>
+          <div class="tl-content">話す型を固定する：①この半年、時間が一番流れた先 ②一番エネルギーが出た瞬間 ③「私は◯◯のためにTABIPPOにいる」 ④まだうまく言葉にできていないこと</div>
+          <div class="tl-facil"><b>順番が最重要</b>①社長 → ②役員（あなた） → ③社員5人。<b>経営2人は必ず「うまくいかなかったこと・迷っていること」から話す</b>。ここで武勇伝を語ると、残り5人は全員が優等生の顔をする。</div>
+        </div>
+      </div>
+
+      <div class="tl-row">
+        <div class="tl-time">2:52–3:00</div><div class="tl-dot"></div>
+        <div class="tl-card">
+          <div class="tl-head"><span class="tl-title">クロージング／一晩の問い</span><span class="tl-format all">全員</span></div>
+          <div class="tl-content">明日の予告と、<b>一晩の問いを1つだけ</b>渡して解散。</div>
+          <div class="tl-facil"><b>言い回し</b>「今夜は答えを出さないでください。考えるだけにしてください。」——結論を持って寝させない。</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- 一晩の問い -->
+<div class="night-block">
+  <div class="wrap">
+    <div class="night-label">一 晩 の 問 い</div>
+    <div class="night-q">
+      「明日、会社の未来の話をします。<br>
+      もし明日、たった一つだけTABIPPOに変えてほしいことを言えるとしたら、それは何ですか。<br>
+      そして——<b style="border-bottom:1px solid #fff">それをこれまで言えていないのは、なぜですか。</b>」
+    </div>
+    <div class="night-note">
+      渡すのはこの1問だけ。後半の一文が本命。前半だけだと改善提案が集まるが、後半をつけると「なぜこの組織で本音が出ないのか」の構造が出てくる。Day2の匿名書き出しは、この問いの続きとして機能する。
+    </div>
+  </div>
+</div>
+
+<!-- DAY 2 -->
+<div class="day-band">
+  <div class="wrap">
+    <div class="d-num">D A Y &nbsp; 2</div>
+    <div class="d-title">会社の未来 → 下期の目標</div>
+    <div class="d-sub">3時間 ／ 個人の軸と会社の方向を交差させる</div>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="timeline">
+
+      <div class="tl-row">
+        <div class="tl-time">0:00–0:12</div><div class="tl-dot"></div>
+        <div class="tl-card">
+          <div class="tl-head"><span class="tl-title">チェックイン</span><span class="tl-format all">全員・90秒／人</span></div>
+          <div class="tl-content">問い：<b>「昨夜、一人になってから出てきたものは何ですか。」</b>（一晩の問いへの答えはまだ言わせない）</div>
+          <div class="tl-facil"><b>ファシリ注記</b>ここで答えを言い始める人が出たら止める。「それは次で書いてください」。</div>
+        </div>
+      </div>
+
+      <div class="tl-row">
+        <div class="tl-time">0:12–0:25</div><div class="tl-dot"></div>
+        <div class="tl-card">
+          <div class="tl-head"><span class="tl-title">匿名で書き出す</span><span class="tl-format indiv">個人・無言13分</span></div>
+          <div class="tl-content">全員が<b>同じ色の付箋・同じペン</b>で書く。1枚1つ、1人3枚まで。<br>Q11「TABIPPOに一つだけ変えてほしいこと」／Q12「それを言えていない理由」</div>
+          <div class="tl-facil"><b>匿名性の限界を先に告げる</b>「7人なので筆跡で完全には隠れません。それでも、名前を出さずに机の上に置ける、という一線だけは守ります」。隠せるフリをするより、限界を認めたほうが本音は出る。</div>
+        </div>
+      </div>
+
+      <div class="tl-row">
+        <div class="tl-time">0:25–0:35</div><div class="tl-dot"></div>
+        <div class="tl-card">
+          <div class="tl-head"><span class="tl-title">全部貼る／無言で読む</span><span class="tl-format all">全員・10分</span></div>
+          <div class="tl-content">壁に全部貼り、<b>10分間、誰も声を出さずに読む</b>。感想もリアクションも禁止。</div>
+          <div class="tl-facil"><b>ねらい</b>沈黙のまま読む10分が、この2日で一番効く時間になる可能性が高い。短縮しない。</div>
+        </div>
+      </div>
+
+      <div class="tl-row">
+        <div class="tl-time">0:35–1:15</div><div class="tl-dot"></div>
+        <div class="tl-card">
+          <div class="tl-head"><span class="tl-title">対話（社員5人が主語）</span><span class="tl-format group">全員・40分</span></div>
+          <div class="tl-content">問い一覧 Q13–Q16 を順に開く。<b>社長と役員（あなた）はこの40分、一切発言しない。</b></div>
+          <div class="tl-facil"><b>あなたの役割</b>タイムキープは社員1名に委譲。あなたは問いを読み上げるだけ。意見・補足・訂正を一切しない。ここで一言でも挟むと、以降40分は「役員の見解に沿った議論」になる。</div>
+        </div>
+      </div>
+
+      <div class="tl-row">
+        <div class="tl-time">1:15–1:25</div><div class="tl-dot"></div>
+        <div class="tl-card">
+          <div class="tl-head"><span class="tl-title">休憩</span><span class="tl-format indiv">10分</span></div>
+          <div class="tl-content">社長がここで頭を整理する時間でもある。あえて話しかけない。</div>
+        </div>
+      </div>
+
+      <div class="tl-row">
+        <div class="tl-time">1:25–1:50</div><div class="tl-dot"></div>
+        <div class="tl-card">
+          <div class="tl-head"><span class="tl-title">社長の応答</span><span class="tl-format all">社長・25分</span></div>
+          <div class="tl-content">貼られた紙に対して、<b>3分類でしか答えない</b>。<br>①いま変えられること　②変えられないこと（＋その理由）　③考えたことがなかったこと<br>最後の5分で、社長から下期の会社の方向を話す。</div>
+          <div class="tl-facil"><b>禁止ワード：「検討します」</b>必ず3つのどれかに入れてもらう。「考えたことがなかった」と言えることが、この25分の価値。冒頭に「これは決定ではありません」と前置きしてもらう（それでも半分は方針として受け取られる）。</div>
+        </div>
+      </div>
+
+      <div class="tl-row">
+        <div class="tl-time">1:50–2:30</div><div class="tl-dot"></div>
+        <div class="tl-card">
+          <div class="tl-head"><span class="tl-title">目標を一枚に書く</span><span class="tl-format indiv">個人・40分</span></div>
+          <div class="tl-content">Day1の「軸」と、いま聞いた会社の方向を交差させる。問い一覧 Q17–Q22。<br>①1年後の自分　②下期にやること<b>3つまで</b>　③下期に<b>やめること1つ（必須）</b>　④助けてもらう人</div>
+          <div class="tl-facil"><b>「やめること」は必須項目</b>ここを任意にすると全員が空欄にする。目標が足されるだけの設計は、「振り返る時間がない」という元の問題をそのまま再生産する。</div>
+        </div>
+      </div>
+
+      <div class="tl-row">
+        <div class="tl-time">2:30–2:55</div><div class="tl-dot"></div>
+        <div class="tl-card">
+          <div class="tl-head"><span class="tl-title">宣言と、記憶の預け合い</span><span class="tl-format all">全員・25分</span></div>
+          <div class="tl-content">一人ずつ4項目を宣言。<b>他の6人は、その人の「やめること」だけを自分のメモに書き取る。</b>そして「それをやっているのを見かけたら、声をかける」と約束する。</div>
+          <div class="tl-facil"><b>これが唯一の継続装置</b>1ヶ月後の再集合が取れない以上、仕組みは制度ではなく他人の記憶に預ける。人は自分の宣言を忘れるが、他人の宣言は覚えている。7人という小ささが効くのはここ。</div>
+        </div>
+      </div>
+
+      <div class="tl-row">
+        <div class="tl-time">2:55–3:00</div><div class="tl-dot"></div>
+        <div class="tl-card">
+          <div class="tl-head"><span class="tl-title">クローズ</span><span class="tl-format all">全員</span></div>
+          <div class="tl-content">一枚を全員が写真に撮る。「この写真を、次に開くのはいつか」を各自が声に出して言って終了。</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- 問い一覧 -->
+<section style="background:var(--bg-deep);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="sec-tag">問い一覧</div>
+      <div class="sec-title">当日使う問い、全22問</div>
+    </div>
+    <p class="lead">読み上げ順にそのまま並べてある。ワークシートに印刷して配れば、これがそのまま当日の台本になる。</p>
+
+    <table class="q-table">
+      <thead><tr><th style="width:6rem">Day</th><th style="width:9rem">ブロック</th><th style="width:3.5rem">No.</th><th>問い</th></tr></thead>
+      <tbody>
+        <tr><th rowspan="10">Day 1</th><td class="step" rowspan="5">半年の棚卸し<br>（個人30分）</td><td class="step">Q1</td><td class="q">この半年、あなたの時間は実際どこに流れましたか。記憶ではなく<b>カレンダーとSlackを実際に開いて</b>、時間の多い順に上位5つを書き出してください。</td></tr>
+        <tr><td class="step">Q2</td><td class="q">その5つのうち、いまも「やってよかった」と思えるのはどれですか。なぜそう思えるのですか。</td></tr>
+        <tr><td class="step">Q3</td><td class="q">逆に、時間は使ったのに手応えがなかったのはどれですか。それは<b>やり方が悪かったのですか、それとも、そもそも自分がやることではなかったのですか。</b></td></tr>
+        <tr><td class="step">Q4</td><td class="q">この半年で、誰かに「ありがとう」と言われた場面を1つ思い出してください。その人は、あなたの<b>何に対して</b>言ったのだと思いますか。</td></tr>
+        <tr><td class="step">Q5</td><td class="q">この半年で一番、悔しかった／情けなかった場面は何ですか。<span style="color:var(--mute);font-size:0.8rem">（※これは共有しなくて構いません、と明示する）</span></td></tr>
+
+        <tr><td class="step" rowspan="5">自分の軸を掘る<br>（個人30分）</td><td class="step">Q6</td><td class="q">この半年で、時間を忘れて没頭した瞬間を3つ挙げてください。その3つに<b>共通しているもの</b>は何ですか。</td></tr>
+        <tr><td class="step">Q7</td><td class="q">あなたが「これは自分がやらなくてもいい」と感じる仕事には、どんな共通点がありますか。</td></tr>
+        <tr><td class="step">Q8</td><td class="q">TABIPPOで働いていなかったら、あなたはいま何をしていたと思いますか。それと比べて、いまの自分は何を得て、<b>何を諦めていますか。</b></td></tr>
+        <tr><td class="step">Q9</td><td class="q">会社のミッションを一旦忘れてください。<b>あなた個人は、何のためにTABIPPOにいますか。</b></td></tr>
+        <tr><td class="step">Q10</td><td class="q">一文で書いてください。「私は（　　　　　　　　）のためにTABIPPOにいる。」</td></tr>
+
+        <tr><th rowspan="12">Day 2</th><td class="step" rowspan="2">匿名書き出し<br>（個人13分）</td><td class="step">Q11</td><td class="q">TABIPPOに、一つだけ変えてほしいことは何ですか。<span style="color:var(--mute);font-size:0.8rem">（1枚1つ、1人3枚まで）</span></td></tr>
+        <tr><td class="step">Q12</td><td class="q">それを、これまで言えていなかったとしたら、<b>それはなぜですか。</b><span style="color:var(--mute);font-size:0.8rem">（これも匿名で1枚）</span></td></tr>
+
+        <tr><td class="step" rowspan="4">対話<br>（40分・経営は沈黙）</td><td class="step">Q13</td><td class="q">この壁の中で、<b>一番読むのがしんどかった1枚</b>はどれですか。</td></tr>
+        <tr><td class="step">Q14</td><td class="q">「誰が書いたか」ではなく「<b>なぜこれが書かれたか</b>」を話しましょう。この紙が生まれた背景には、何がありますか。</td></tr>
+        <tr><td class="step">Q15</td><td class="q">これは、いつからある問題ですか。最近生まれたものですか、それとも何年も置かれたままのものですか。</td></tr>
+        <tr><td class="step">Q16</td><td class="q">もしこの1枚が解決したら、TABIPPOの何が具体的に変わりますか。<b>誰の、どの1日が変わりますか。</b></td></tr>
+
+        <tr><td class="step" rowspan="6">目標を一枚に<br>（個人40分）</td><td class="step">Q17</td><td class="q">1年後（2027年9月）、あなたはどんな状態でいたいですか。役職や数字ではなく「<b>何をしている自分か</b>」で書いてください。</td></tr>
+        <tr><td class="step">Q18</td><td class="q">Day1に書いた「私は◯◯のためにTABIPPOにいる」と、いま書いた1年後の姿は、繋がっていますか。<b>繋がっていないなら、どちらが嘘ですか。</b></td></tr>
+        <tr><td class="step">Q19</td><td class="q">下期4ヶ月でやることを、<b>3つまで</b>に絞ってください。4つ目は書かないでください。</td></tr>
+        <tr><td class="step">Q20</td><td class="q">この半年やっていて、<b>下期はやらないこと</b>を1つ書いてください。<span style="color:var(--mute);font-size:0.8rem">（必須・空欄不可）</span></td></tr>
+        <tr><td class="step">Q21</td><td class="q">その「やめること」を、誰に伝えておく必要がありますか。いつ伝えますか。</td></tr>
+        <tr><td class="step">Q22</td><td class="q">下期、誰に助けてもらいますか。その人に、<b>帰国後の最初の1週間で</b>何を頼みますか。</td></tr>
+      </tbody>
+    </table>
+
+    <div class="warn">
+      <div class="warn-label">ペアワークの聞き手が使う質問（Day1・アドバイス禁止）</div>
+      <div class="warn-text">
+        P1「いま話してくれた中で、一番言いにくかったのはどれですか」<br>
+        P2「それをやっているとき、あなたはどんな顔をしていたと思いますか」<br>
+        P3「もし半年前に戻れるとしたら、どこで別の選択をしますか」<br>
+        P4「その話、TABIPPO以外の場所でも同じことが起きていませんか」<br>
+        <span style="color:var(--mute);font-size:0.82rem">この4つだけを印刷して聞き手に持たせる。それ以外を言わない、という縛りが効く。</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ファシリ台本 -->
+<div class="quote-block">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="sec-tag">ファシリ台本</div>
+      <div class="sec-title">転換点で、そのまま読む言葉</div>
+    </div>
+    <div class="quote-grid">
+      <div class="quote-card">
+        <div class="quote-when">DAY1 冒頭 ／ 社長が言う</div>
+        <div class="quote-text">「この2日、僕も一参加者です。<b>ここで話される個人の話は、評価には一切使いません。</b>約束します。」</div>
+      </div>
+      <div class="quote-card">
+        <div class="quote-when">DAY1 冒頭 ／ あなたが言う</div>
+        <div class="quote-text">「<b>今日は会社の話をしません。</b>明日します。今日は徹底的に、自分の話だけをしてください。」</div>
+      </div>
+      <div class="quote-card">
+        <div class="quote-when">DAY1 ペアワーク前</div>
+        <div class="quote-text">「聞く側は<b>アドバイス禁止</b>です。質問だけしてください。<b>解決しにこないでください。</b>」</div>
+      </div>
+      <div class="quote-card">
+        <div class="quote-when">DAY1 全員共有の前</div>
+        <div class="quote-text">「僕と（社長）から先に話します。<b>うまくいかなかったことから話します。</b>」</div>
+      </div>
+      <div class="quote-card">
+        <div class="quote-when">DAY1 クローズ</div>
+        <div class="quote-text">「今夜は<b>答えを出さないでください。</b>考えるだけにしてください。」</div>
+      </div>
+      <div class="quote-card">
+        <div class="quote-when">DAY2 匿名書き出しの前</div>
+        <div class="quote-text">「全員<b>同じペン</b>で書いてください。7人なので筆跡で完全には隠れません。それでも、<b>名前を出さずに机の上に置ける</b>、という一線だけは今日守ります。」</div>
+      </div>
+      <div class="quote-card">
+        <div class="quote-when">DAY2 対話の前 ／ 社長に向かって</div>
+        <div class="quote-text">「（社長）、ここから<b>40分、聞くだけ</b>でお願いします。頷きもほどほどに。」</div>
+      </div>
+      <div class="quote-card">
+        <div class="quote-when">DAY2 社長の応答の前</div>
+        <div class="quote-text">「ここから（社長）に答えてもらいます。<b>『検討します』は無しです。</b>できる／できない／考えたことがなかった、の3つのどれかに必ず入れてください。」</div>
+      </div>
+      <div class="quote-card">
+        <div class="quote-when">DAY2 宣言の前</div>
+        <div class="quote-text">「他の6人は、その人の<b>『やめること』だけ</b>をメモしてください。下期のどこかでそれをやっているのを見かけたら、声をかける。<b>それが今回の唯一の仕組みです。</b>」</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 介助フック -->
+<div class="help-block">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="sec-tag">介助フック</div>
+      <div class="sec-title">詰まったとき、投げる一手</div>
+    </div>
+    <p class="help-note">起きる確率が高い順に並べてある。カードに書いて手元に置く。</p>
+    <div class="help-grid">
+      <div class="help-card">
+        <div class="help-num">HOOK 01</div>
+        <div class="help-text">Q9（何のためにいるか）で手が止まる<br><span style="font-size:0.82rem;color:var(--sub);font-family:var(--sans);font-weight:400">→「では逆に、<b>辞めるとしたら何が一番惜しいですか。</b>」</span></div>
+      </div>
+      <div class="help-card">
+        <div class="help-num">HOOK 02</div>
+        <div class="help-text">Day2の対話で沈黙が続く<br><span style="font-size:0.82rem;color:var(--sub);font-family:var(--sans);font-weight:400">→「いま、言葉にしにくいことを考えている人、手を挙げてください。」<b>内容は聞かない。</b>手が挙がった事実だけで場が動く。</span></div>
+      </div>
+      <div class="help-card">
+        <div class="help-num">HOOK 03</div>
+        <div class="help-text">誰かが会社批判に流れて止まらない<br><span style="font-size:0.82rem;color:var(--sub);font-family:var(--sans);font-weight:400">→「それを、<b>あなた自身が下期にできること</b>に翻訳すると何になりますか。」</span></div>
+      </div>
+      <div class="help-card">
+        <div class="help-num">HOOK 04</div>
+        <div class="help-text">社員が明らかに社長の顔色を見ている<br><span style="font-size:0.82rem;color:var(--sub);font-family:var(--sans);font-weight:400">→<b>「（社長）、5分だけ席を外してもらえますか。」</b>最終手段。<b>使う可能性があることを事前に社長と握っておく</b>（その場で言うと角が立つ）。</span></div>
+      </div>
+      <div class="help-card">
+        <div class="help-num">HOOK 05</div>
+        <div class="help-text">目標が全部「会社のためにやること」で埋まっている<br><span style="font-size:0.82rem;color:var(--sub);font-family:var(--sans);font-weight:400">→「<b>そこに、あなたの1年後は入っていますか。</b>」</span></div>
+      </div>
+      <div class="help-card">
+        <div class="help-num">HOOK 06</div>
+        <div class="help-text">Q20（やめること）が空欄のまま<br><span style="font-size:0.82rem;color:var(--sub);font-family:var(--sans);font-weight:400">→「やめられないのは、<b>誰に悪いと思っているからですか。</b>その人には、もう話しましたか。」</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ワークシート -->
+<div class="worksheet-block">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="sec-tag">ワークシート</div>
+      <div class="sec-title">2枚だけ印刷する</div>
+    </div>
+
+    <h3 style="font-family:var(--serif);font-size:1rem;margin-top:1.5rem;color:var(--accent)">シート1｜Day1：この半年と、自分の軸</h3>
+    <table class="ws-table">
+      <thead><tr><th>欄</th><th>書くこと</th><th>設計意図</th></tr></thead>
+      <tbody>
+        <tr><td>時間の行き先 TOP5</td><td>Q1（事実ベース・時間順）</td><td>感想から始めさせない。事実から始めると美化できない</td></tr>
+        <tr><td>よかった／報われなかった</td><td>Q2・Q3</td><td>「やり方の問題」と「役割の問題」を分ける欄をあえて分割</td></tr>
+        <tr><td>ありがとうの場面</td><td>Q4</td><td>自己評価ではなく他者から見た自分の強みを拾う</td></tr>
+        <tr><td>悔しかった場面</td><td>Q5（共有任意）</td><td>共有しない前提だからこそ本音が書ける。この欄が翌日効いてくる</td></tr>
+        <tr><td>没頭の3場面と共通項</td><td>Q6</td><td>「やりたいこと」を聞かずに、行動の事実から軸を逆算する</td></tr>
+        <tr><td>手放せる仕事の共通点</td><td>Q7</td><td>Q20（やめること）の伏線。前日に書かせておく</td></tr>
+        <tr><td>もしTABIPPOにいなかったら</td><td>Q8</td><td>「得たもの／諦めたもの」を並べると、軸が輪郭を持つ</td></tr>
+        <tr><td style="background:var(--amber-bg) !important">私は（　）のためにTABIPPOにいる</td><td>Q9・Q10</td><td><b>Day1唯一の必須記入欄。</b>翌日Q18でここに戻ってくる</td></tr>
+      </tbody>
+    </table>
+
+    <h3 style="font-family:var(--serif);font-size:1rem;margin-top:2rem;color:var(--accent)">シート2｜Day2：下期の一枚</h3>
+    <table class="ws-table">
+      <thead><tr><th>欄</th><th>書くこと</th><th>設計意図</th></tr></thead>
+      <tbody>
+        <tr><td>1年後の自分（2027年9月）</td><td>Q17「何をしている自分か」</td><td>役職・数字を禁止して、状態で書かせる</td></tr>
+        <tr><td>シート1との接続チェック</td><td>Q18（繋がっている／いない）</td><td><b>ここが本設計の要。</b>個人の軸と1年後がズレていたら、その場で言語化させる</td></tr>
+        <tr><td>下期にやること（3つまで）</td><td>Q19</td><td>枠を3つしか印刷しない。物理的に4つ目を書けなくする</td></tr>
+        <tr><td style="background:var(--amber-bg) !important">下期にやめること（1つ）</td><td>Q20・Q21</td><td><b>必須。</b>他の6人がここだけを書き取る。継続装置の本体</td></tr>
+        <tr><td>助けてもらう人／最初の依頼</td><td>Q22</td><td>「帰国後1週間で」と期限を切る。抽象的な決意で終わらせない</td></tr>
+        <tr><td>他の6人の「やめること」</td><td>宣言タイムに書き取る欄（6行）</td><td>制度の代わりに他人の記憶に預ける。この欄がシート2の裏面</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- 事前準備 -->
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="sec-tag">事前準備</div>
+      <div class="sec-title">合宿前に、社長と握っておくこと</div>
+    </div>
+    <p class="lead">この4つが握れているかで、当日の質は決まる。特に2番目は当日その場で頼んでも守られない。</p>
+    <ul class="checkbox-list">
+      <li>Day1冒頭で「<b>ここで出た個人の話は評価に一切使わない</b>」と自分の言葉で宣言してもらう</li>
+      <li>Day1の全員共有で<b>最初に話す。しかも、うまくいかなかったこと・迷っていることから</b>話してもらう</li>
+      <li>Day2の前半40分は<b>一切発言しない</b>。応答は休憩後にまとめて行う</li>
+      <li>Day2の応答は「できる／できない／考えたことがなかった」の3分類。<b>「検討します」は使わない</b>。冒頭に「これは決定ではない」と前置きする</li>
+      <li>（保険）HOOK 04「5分だけ席を外してもらう」を使う可能性があることを、事前に伝えて了解を得ておく</li>
+    </ul>
+
+    <h3 style="font-family:var(--serif);font-size:1rem;margin-top:2rem;color:var(--accent)">持ち物・環境</h3>
+    <ul class="checkbox-list">
+      <li>付箋：<b>全員同じ色</b>（1色のみ・複数色を混ぜない）／ ペン：<b>全員同じ種類</b>を人数分</li>
+      <li>紙を貼れる壁または模造紙（Day2で21枚以上が並ぶ想定）</li>
+      <li>ワークシート2種を人数分＋予備。ペアワーク用の質問カード（P1–P4）を7枚</li>
+      <li>タイマー（音が出るもの）。<b>タイムキープは社員1名に委譲</b>する</li>
+      <li>各自が自分のカレンダー／Slackを見られる端末（Q1で必須）</li>
+      <li>Day1に会社資料・数値資料を<b>持ち込まない</b>。目に入るだけで会社の話に引き戻される</li>
+    </ul>
+  </div>
+</section>
+
+<!-- 弱点 -->
+<div class="closing-block">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="sec-tag">この設計の弱点</div>
+      <div class="sec-title">先に認めておく3つ</div>
+    </div>
+    <div class="closing-grid">
+      <div class="cl-card end">
+        <div class="cl-label">弱点 01</div>
+        <div class="cl-title">設計者が参加者を兼ねている</div>
+        <div class="cl-desc">あなたは進行しながら自分の振り返りもする。実質、他の6人の半分しか自分の時間を取れない。タイムキープを社員に委譲しても、これは埋まらない。<b>7人中1人が犠牲になる設計だと自覚した上で受け入れるか</b>、外部ファシリを入れるかの二択。</div>
+      </div>
+      <div class="cl-card bridge">
+        <div class="cl-label">弱点 02</div>
+        <div class="cl-title">7人での匿名は成立しない</div>
+        <div class="cl-desc">同じペンを使っても、書く内容と文体で誰かは推測される。この設計は「バレない」ではなく「<b>名前を出さずに机に置ける</b>」という一段低い保証しか提供していない。隠せるフリをせず、限界を先に宣言することでかろうじて機能させている。</div>
+      </div>
+      <div class="cl-card percent">
+        <div class="cl-label">弱点 03</div>
+        <div class="cl-title">継続装置が「他人の記憶」だけ</div>
+        <div class="cl-desc">1ヶ月後の再集合が取れないため、下期4ヶ月を支えるのは6人の記憶と声かけのみ。制度的な強制力はゼロで、<b>おそらく3ヶ月後には効果が半減する</b>。それでも、何も置かないよりは強い。既存の全体会議・1on1・Slackのどれかに寄生させられるなら、いつでも上書きしたほうがいい。</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  <div class="wrap">
+    <div class="footer-meta">
+      TABIPPO 社内合宿 設計ドキュメント ／ 2026年9月 チェンマイ<br>
+      参加7名（社長・役員1・社員5）／ 3時間 × 2日 ／ 社内限
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
