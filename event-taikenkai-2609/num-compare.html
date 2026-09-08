@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<title>ヒーローの数字：組み方の比較</title>
+<link rel="stylesheet" href="../poolo-ds/tokens.css">
+<link rel="stylesheet" href="../poolo-ds/components.css">
+<style>
+  body { background: var(--bg); padding-top: 0; }
+  .cmp { max-width: 1160px; margin-inline: auto; padding: 56px clamp(22px,5.4vw,72px) 120px; }
+  .cmp-lede h1 { font-family: var(--mincho); font-weight: 900; font-size: var(--fs-xl); letter-spacing: .05em; margin: 0 0 var(--sp-near); }
+  .cmp-lede p { font-family: var(--body); font-size: var(--fs-sm); line-height: var(--lh-body); color: var(--ink-72); max-width: 44em; margin: 0; }
+  .row { border-top: 1px solid var(--line); padding: clamp(30px,4vw,48px) 0; }
+  .row-head { display: flex; align-items: baseline; gap: 16px; margin-bottom: clamp(18px,2.4vw,28px); }
+  .row-no { font-family: var(--en); font-size: 12px; font-weight: 600; letter-spacing: .2em; color: var(--brand); }
+  .row-name { font-family: var(--head); font-size: 15px; font-weight: 700; letter-spacing: .06em; color: var(--ink); }
+  .row-why { font-family: var(--body); font-size: 12.5px; line-height: 1.9; color: var(--ink-60); margin-left: auto; max-width: 30em; text-align: right; }
+  @media (max-width: 720px) { .row-head { flex-wrap: wrap; } .row-why { text-align: left; margin-left: 0; width: 100%; } }
+  .spec { font-family: var(--body); font-size: 11.5px; color: var(--ink-40); margin-top: 14px; }
+
+  /* 見出しの土台（告知ページの t-sm / t-lg と同じ値） */
+  .h { font-family: var(--mincho); font-feature-settings: 'palt'; color: var(--ink); }
+  .h .s { display: block; font-size: clamp(16px,1.9vw,24px); font-weight: 700; letter-spacing: .24em; line-height: 1.5; margin-bottom: clamp(12px,2vh,22px); }
+  .h .l { display: block; font-size: clamp(34px,4.4vw,58px); font-weight: 900; letter-spacing: .04em; line-height: 1.34; }
+  .h .em { color: var(--brand); }
+
+  /* ---- 案ごとの数字の組み ---- */
+  /* A 現行：Jost 600・1.16em */
+  .vA .n { font-family: var(--en); font-weight: 600; font-size: 1.16em; letter-spacing: .01em; line-height: 1; margin-inline: .06em; }
+  /* B 明朝のまま・級数だけ上げる */
+  .vB .n { font-size: 1.14em; letter-spacing: 0; margin-inline: .04em; }
+  /* C 明朝・大きく・詰める */
+  .vC .n { font-size: 1.3em; letter-spacing: -.02em; margin-inline: .05em; line-height: 1; }
+  /* D 何もしない（素） */
+  .vD .n { }
+  /* E Jost 300・大きく（明朝の細い部分に寄せる） */
+  .vE .n { font-family: var(--en); font-weight: 300; font-size: 1.34em; letter-spacing: .0em; line-height: 1; margin-inline: .07em; }
+  /* F 明朝・大きく・ブランドブルー */
+  .vF .n { font-size: 1.3em; letter-spacing: -.02em; margin-inline: .05em; line-height: 1; color: var(--brand); }
+  .vF .em { color: var(--ink); }
+  /* G 明朝・大きく・数字だけベースラインを揃えて、和文側の字間を詰める */
+  .vG .l { letter-spacing: .01em; }
+  .vG .n { font-size: 1.34em; letter-spacing: -.03em; margin-inline: .06em; line-height: 1; }
+</style>
+</head>
+<body>
+<div class="cmp">
+
+  <div class="cmp-lede">
+    <h1>ヒーローの数字を、どう組むか</h1>
+    <p>最初の案（A）は Jost の 600 を 1.16em で置いていました。Jost は幾何学サンセリフで、0 は真円、9 は円と直線。Zen Old Mincho は縦画が太く横画が細い明朝で、同じ行に並べると<strong>片方だけ抑揚がゼロ</strong>になります。大きくしているぶん、その平たさがよけいに見えました。以下は組み方の比較です。数字以外の値（級数・字間・行送り）は告知ページと同じにしてあります。</p>
+    <p style="margin-top:18px;padding:16px 20px;background:var(--brand-pale);"><strong>採用したのは C（明朝・1.32em・字間 −0.02em）。</strong>2026-09-08 に5本へ反映しました。書体を変えずに級数と字間だけで差をつけています。明朝の数字は縦画が太いので、大きくすれば和文より重くなり、それだけで数字が主役になります。<br>
+    BRAND.md の「欧文・数字は Jost」は、日付帯やラベルのように<strong>欧文が単独で立つ場所</strong>の話で、明朝の見出しの内側には持ち込まない、という整理にしました。</p>
+  </div>
+
+  <div class="row vA">
+    <div class="row-head"><span class="row-no">A</span><span class="row-name">Jost 600・1.16em（いまの案）</span>
+      <span class="row-why">欧文と和文が直交して数字は立つ。ただし明朝の抑揚に対して数字だけ monoline なので、値札を貼ったように見える。</span></div>
+    <div class="h"><span class="s"><span class="n">30</span>代の生き方を</span><span class="l"><span class="em">問い直す</span><span class="n">90</span>分。</span></div>
+    <p class="spec">font-family: Jost / weight 600 / 1.16em / tracking .01em</p>
+  </div>
+
+  <div class="row vD">
+    <div class="row-head"><span class="row-no">D</span><span class="row-name">何もしない（素の明朝）</span>
+      <span class="row-why">比較用の基準。明朝の数字は和文と同じ骨格なので破綻はしないが、数字が図として立たない。</span></div>
+    <div class="h"><span class="s"><span class="n">30</span>代の生き方を</span><span class="l"><span class="em">問い直す</span><span class="n">90</span>分。</span></div>
+    <p class="spec">指定なし（Zen Old Mincho・weight を継承）</p>
+  </div>
+
+  <div class="row vB">
+    <div class="row-head"><span class="row-no">B</span><span class="row-name">明朝のまま・級数だけ 1.14em</span>
+      <span class="row-why">書体を変えず、大きさだけで差をつける。抑揚が揃うので線が濁らない。差は小さい。</span></div>
+    <div class="h"><span class="s"><span class="n">30</span>代の生き方を</span><span class="l"><span class="em">問い直す</span><span class="n">90</span>分。</span></div>
+    <p class="spec">Zen Old Mincho / weight 継承（900）/ 1.14em</p>
+  </div>
+
+  <div class="row vC">
+    <div class="row-head"><span class="row-no">C</span><span class="row-name">明朝・1.3em・字間を詰める</span>
+      <span class="row-why">B をもう一段強くした案。明朝の数字は縦画が太いので、大きくすると和文より重くなり、数字が主役になる。</span></div>
+    <div class="h"><span class="s"><span class="n">30</span>代の生き方を</span><span class="l"><span class="em">問い直す</span><span class="n">90</span>分。</span></div>
+    <p class="spec">Zen Old Mincho / weight 900 / 1.3em / tracking −.02em</p>
+  </div>
+
+  <div class="row vG">
+    <div class="row-head"><span class="row-no">G</span><span class="row-name">明朝・1.34em・和文側の字間も詰める</span>
+      <span class="row-why">C の字間を全体で締めた案。数字と和文が一続きの塊になり、「90分」がひとつの語として読める。</span></div>
+    <div class="h"><span class="s"><span class="n">30</span>代の生き方を</span><span class="l"><span class="em">問い直す</span><span class="n">90</span>分。</span></div>
+    <p class="spec">Zen Old Mincho / weight 900 / 1.34em / 数字 −.03em・和文 .01em</p>
+  </div>
+
+  <div class="row vE">
+    <div class="row-head"><span class="row-no">E</span><span class="row-name">Jost 300・1.34em（細く・大きく）</span>
+      <span class="row-why">欧文を残したい場合の案。太さを 600→300 に落として明朝の細い横画に寄せ、そのぶん大きくする。</span></div>
+    <div class="h"><span class="s"><span class="n">30</span>代の生き方を</span><span class="l"><span class="em">問い直す</span><span class="n">90</span>分。</span></div>
+    <p class="spec">font-family: Jost / weight 300 / 1.34em</p>
+  </div>
+
+  <div class="row vF">
+    <div class="row-head"><span class="row-no">F</span><span class="row-name">明朝・1.3em・数字をブランドブルー</span>
+      <span class="row-why">C の色違い。ブルーを「問い直す」から数字に移している（同じ行にブルーは1箇所までなので、両方は置けない）。</span></div>
+    <div class="h"><span class="s"><span class="n">30</span>代の生き方を</span><span class="l"><span class="em">問い直す</span><span class="n">90</span>分。</span></div>
+    <p class="spec">Zen Old Mincho / weight 900 / 1.3em / color: --brand</p>
+  </div>
+
+</div>
+</body>
+</html>
