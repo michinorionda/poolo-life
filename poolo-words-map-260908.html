@@ -168,7 +168,7 @@ h3{font-family:var(--mincho);font-size:1.12rem;font-weight:700;letter-spacing:.0
 
   <figure>
     <div class="map-wrap">
-    <svg id="map" viewBox="0 0 1000 540" role="img" aria-label="破線の輪郭が自分。左に対象、その中に納得の円、輪郭をまたぐつながりの円、重なりが豊かさ。納得から出た問いの矢印が輪郭を越えて他者に当たり、返事が戻って納得を書き換える。他者の先に社会の点が並び、差し出す矢印が届く。輪郭の内側には外へ出ない片道の矢印。下に届く距離の目盛り。">
+    <svg id="map" viewBox="0 0 1000 540" role="img" aria-label="破線の輪郭が自分。左に対象、その中に納得の円、輪郭をまたぐつながりの円、重なりが豊かさ。対象から出た違和感の線が納得の中で問いになり、問いの矢印が輪郭を越えて他者に当たり、返事が戻って納得を書き換える。他者の先に社会の点が並び、差し出す矢印が届く。輪郭の内側には外へ出ない片道の矢印。下に届く距離の目盛り。">
       <defs>
         <clipPath id="mp-g"><circle cx="300" cy="255" r="95"/></clipPath>
         <marker id="mp-a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
@@ -210,7 +210,7 @@ h3{font-family:var(--mincho);font-size:1.12rem;font-weight:700;letter-spacing:.0
 
       <!-- 違和感（手1・手2） -->
       <g class="loc" id="g-iwakan">
-        <line x1="92" y1="255" x2="203" y2="255" stroke="currentColor" stroke-width="1.2" opacity=".55"/>
+        <path d="M 92 255 C 180 255, 230 222, 322 229" fill="none" stroke="currentColor" stroke-width="1.2" opacity=".55"/>
         <text x="148" y="246" text-anchor="middle" font-size="11" fill="currentColor" opacity=".75">違和感</text>
         <text x="148" y="272" text-anchor="middle" font-size="9.5" fill="#189BBC">手1 溜める ／ 手2 拾う</text>
       </g>
@@ -224,9 +224,9 @@ h3{font-family:var(--mincho);font-size:1.12rem;font-weight:700;letter-spacing:.0
       <!-- 納得 -->
       <g class="loc" id="g-nattoku">
         <circle cx="300" cy="255" r="95" fill="none" stroke="currentColor" stroke-width="1.6"/>
-        <text x="262" y="246" text-anchor="middle" font-size="16" font-weight="700" fill="currentColor">納得</text>
-        <text x="266" y="268" text-anchor="middle" font-size="9.5" fill="currentColor" opacity=".6">自分で決めた、</text>
-        <text x="266" y="282" text-anchor="middle" font-size="9.5" fill="currentColor" opacity=".6">という実感</text>
+        <text x="262" y="264" text-anchor="middle" font-size="16" font-weight="700" fill="currentColor">納得</text>
+        <text x="266" y="286" text-anchor="middle" font-size="9.5" fill="currentColor" opacity=".6">自分で決めた、</text>
+        <text x="266" y="300" text-anchor="middle" font-size="9.5" fill="currentColor" opacity=".6">という実感</text>
       </g>
 
       <!-- つながり -->
@@ -263,7 +263,7 @@ h3{font-family:var(--mincho);font-size:1.12rem;font-weight:700;letter-spacing:.0
       <g class="loc" id="g-kaeri">
         <path d="M 640 265 L 332 286" fill="none" stroke="currentColor" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#mp-k)"/>
         <text x="610" y="284" text-anchor="middle" font-size="10.5" fill="currentColor" opacity=".6">返事</text>
-        <text x="300" y="306" text-anchor="middle" font-size="9.5" fill="#189BBC">手6 書き換える</text>
+        <text x="300" y="322" text-anchor="middle" font-size="9.5" fill="#189BBC">手6 書き換える</text>
       </g>
 
       <!-- 他者 -->
