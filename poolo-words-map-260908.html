@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<meta name="description" content="POOLOの言葉を、一本の問いが飛んで戻ってくる絵の上に置き直した整理の別案。">
+<title>一本の矢印</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@400;700;900&family=Noto+Sans+JP:wght@400;500;700&family=Jost:wght@400;500;600&display=swap">
+<style>
+:root{
+  --brand:#189BBC; --brand-deep:#127E9A; --brand-mid:#8FC6D6; --brand-pale:#DDECF1;
+  --ink:#000; --ink-soft:#1E1E1E;
+  --ink-72:rgba(0,0,0,.72); --ink-55:rgba(0,0,0,.55); --ink-40:rgba(0,0,0,.40);
+  --bg:#FFF; --bg-off:#F9F9F9; --line:#E4E4E4;
+  --radius:2px; --indent:3rem;
+  --mincho:'Zen Old Mincho','Hiragino Mincho ProN','Yu Mincho',serif;
+  --head:'Noto Sans JP','Hiragino Kaku Gothic ProN',sans-serif;
+  --body:'Noto Sans JP','Hiragino Kaku Gothic ProN',sans-serif;
+  --en:'Jost','Noto Sans JP',sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink-soft);
+  font-family:var(--body);font-size:15px;line-height:2.05;letter-spacing:.05em}
+h1,h2,h3,.lede,.claim{font-feature-settings:"palt"}
+p,li,dd,dt,h1,h2,h3,.lede,figcaption{word-break:auto-phrase;text-wrap:pretty}
+:focus-visible{outline:2px solid var(--brand);outline-offset:3px}
+a{color:var(--brand-deep)}
+
+.shell{max-width:1100px;margin:0 auto;padding:0 clamp(22px,5.4vw,72px)}
+.bar{position:sticky;top:0;z-index:50;background:var(--bg);border-bottom:1px solid var(--line)}
+.bar-in{display:flex;align-items:center;gap:clamp(14px,3vw,30px);flex-wrap:wrap;
+  max-width:1100px;margin:0 auto;padding:.7rem clamp(22px,5.4vw,72px);min-height:56px}
+.bar-mark{font-family:var(--en);font-size:.7rem;letter-spacing:.28em;color:var(--brand);font-weight:500;flex:none}
+.bar-nav{display:flex;gap:1.3rem;flex-wrap:wrap}
+.bar-nav a{font-family:var(--head);font-size:.8rem;font-weight:700;color:var(--ink);text-decoration:none;
+  border-bottom:2px solid transparent;padding:.15rem 0;transition:border-color .2s ease}
+.bar-nav a:hover{border-bottom-color:var(--brand)}
+
+.head{padding:clamp(3.5rem,9vw,6rem) 0 0}
+.eyebrow{font-family:var(--en);font-size:.7rem;letter-spacing:.28em;color:var(--brand);font-weight:500;margin:0 0 1.1rem}
+h1{font-family:var(--mincho);font-size:clamp(1.9rem,5.2vw,3rem);font-weight:700;line-height:1.45;
+  letter-spacing:.05em;margin:0 0 1.5rem;max-width:18em}
+.lede{font-size:.95rem;line-height:2.15;color:var(--ink-72);margin:0;max-width:37em}
+.src{font-size:.76rem;color:var(--ink-40);margin:1.6rem 0 0;line-height:1.9;max-width:41em}
+
+section{padding:clamp(3.5rem,8vw,5.5rem) 0 0}
+section + section{margin-top:clamp(3rem,7vw,4.5rem);border-top:1px solid var(--line)}
+.sec-head{display:grid;grid-template-columns:var(--indent) 1fr;gap:0;align-items:start;margin:0 0 2.2rem;max-width:47em}
+.sec-no{font-family:var(--en);font-size:1.05rem;font-weight:500;color:var(--brand);
+  font-variant-numeric:tabular-nums;padding-top:.35rem}
+h2{font-family:var(--mincho);font-size:clamp(1.3rem,3.3vw,1.8rem);font-weight:700;
+  letter-spacing:.06em;line-height:1.55;margin:0}
+.sec-lead{grid-column:2;font-size:.9rem;line-height:2.1;color:var(--ink-72);margin:1rem 0 0;max-width:38em}
+section > *:not(.sec-head){margin-left:var(--indent)}
+@media (max-width:640px){
+  :root{ --indent:0rem }
+  .sec-head{grid-template-columns:1fr;gap:.5rem 0}
+  .sec-no{padding-top:0}
+  .sec-lead{grid-column:1}
+}
+.col{max-width:38em}
+.col p{margin:0 0 1.3em}
+.col p:last-child{margin-bottom:0}
+
+figure{margin:2.4rem 0 0;max-width:62em}
+figure svg{width:100%;max-width:100%;height:auto;display:block;color:var(--ink-soft)}
+figcaption{font-size:.79rem;line-height:1.95;color:var(--ink-40);margin:1rem 0 0;max-width:44em}
+figcaption b{color:var(--ink-72)}
+
+.map-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.map-wrap svg{min-width:760px}
+#map .loc{transition:opacity .18s ease}
+#map.focus .loc{opacity:.14}
+#map.focus .loc.lit{opacity:1}
+#map.focus .base{opacity:.35}
+#map .base{transition:opacity .18s ease}
+
+.chips{display:flex;flex-wrap:wrap;gap:.5rem .55rem;margin:1.6rem 0 0;max-width:62em}
+.chip{font-family:var(--body);font-size:.82rem;letter-spacing:.05em;line-height:1;color:var(--ink);
+  background:var(--bg);border:1px solid var(--line);border-radius:999px;padding:.55rem .9rem;cursor:pointer;
+  transition:border-color .15s ease,background .15s ease,color .15s ease}
+.chip:hover,.chip.on{border-color:var(--brand);color:var(--brand-deep)}
+.chip.on{background:var(--brand-pale)}
+.chip-note{font-size:.76rem;color:var(--ink-40);margin:.9rem 0 0;max-width:44em}
+
+.claim{font-family:var(--mincho);font-size:clamp(1.05rem,2.6vw,1.3rem);line-height:1.85;
+  letter-spacing:.05em;color:var(--ink);border-left:2px solid var(--brand);padding:.2rem 0 .2rem 1.2rem;
+  margin:2.2rem 0;max-width:31em}
+.tbl{width:100%;border-collapse:collapse;margin:1.8rem 0 0;font-size:.83rem;max-width:56em}
+.tbl th,.tbl td{border-bottom:1px solid var(--line);padding:.7rem .9rem .7rem 0;text-align:left;vertical-align:top}
+.tbl th{font-family:var(--head);font-size:.65rem;font-weight:700;letter-spacing:.14em;color:var(--ink-40);
+  border-bottom-color:var(--ink);white-space:nowrap}
+.tbl td.q{font-family:var(--mincho);font-size:.94rem;color:var(--ink);white-space:nowrap}
+.tbl tr[data-loc]{cursor:pointer}
+.tbl tr[data-loc]:hover td,.tbl tr.on td{color:var(--brand-deep)}
+.tbl td.k{white-space:nowrap}
+.tbl td.n{font-family:var(--en);font-variant-numeric:tabular-nums;white-space:nowrap}
+.scroller{overflow-x:auto}
+
+.flows{margin:2rem 0 0;max-width:56em;display:grid;gap:1.6rem}
+.flow{border-top:1px solid var(--ink);padding-top:1rem}
+.flow-who{display:flex;align-items:baseline;gap:.8rem;margin:0 0 .6rem}
+.flow-who b{font-family:var(--mincho);font-size:1.08rem;letter-spacing:.05em;color:var(--ink)}
+.flow-who span{font-size:.78rem;color:var(--ink-40)}
+.steps{display:flex;flex-wrap:wrap;align-items:center;gap:.4rem .5rem;margin:0;padding:0;list-style:none}
+.steps li{font-family:var(--mincho);font-size:1rem;color:var(--ink);letter-spacing:.04em;white-space:nowrap}
+.steps li.last{color:var(--brand-deep);font-weight:700}
+.steps li + li::before{content:"→";font-family:var(--en);color:var(--ink-40);margin-right:.5rem;font-weight:400}
+.flow p{margin:.8rem 0 0;font-size:.85rem;line-height:2;color:var(--ink-72);max-width:40em}
+
+.dl{margin:2rem 0 0;max-width:44em}
+.dl dt{font-family:var(--mincho);font-size:1.12rem;font-weight:700;letter-spacing:.05em;
+  border-top:1px solid var(--ink);padding-top:1rem;margin:1.8rem 0 .7rem}
+.dl dt:first-of-type{margin-top:0}
+.dl dd{margin:0 0 .9em;font-size:.87rem;line-height:2.05;color:var(--ink-72)}
+.dl dd b{color:var(--ink)}
+
+h3{font-family:var(--mincho);font-size:1.12rem;font-weight:700;letter-spacing:.05em;line-height:1.6;
+  color:var(--ink);margin:2.6rem 0 .9rem}
+.col h3:first-child{margin-top:0}
+.defs{margin:1.8rem 0 0;max-width:40em;border-top:1px solid var(--ink)}
+.defs > div{display:grid;grid-template-columns:6em 1fr;gap:1rem;border-bottom:1px solid var(--line);padding:.75rem 0;align-items:baseline}
+.defs b{font-family:var(--mincho);font-size:1.02rem;letter-spacing:.05em;color:var(--ink)}
+.defs span{font-size:.92rem;color:var(--ink)}
+.defs > div.sum b,.defs > div.sum span{color:var(--brand-deep)}
+.defs.rei{max-width:44em}
+.defs.rei > div{grid-template-columns:8.5em 1fr}
+.defs.rei b{font-size:.95rem}
+@media (max-width:640px){ .defs > div{grid-template-columns:5em 1fr;gap:.6rem} .defs.rei > div{grid-template-columns:1fr;gap:.2rem} }
+
+.foot{padding:4rem 0 5rem;margin-top:clamp(3rem,7vw,4.5rem);border-top:1px solid var(--line);
+  font-size:.78rem;line-height:2;color:var(--ink-40);max-width:41em}
+</style>
+</head>
+<body>
+
+<div class="bar">
+  <div class="bar-in">
+    <span class="bar-mark">POOLO</span>
+    <nav class="bar-nav" aria-label="ページ内">
+      <a href="#s00">一枚の図</a>
+      <a href="#s01">読む順</a>
+      <a href="#s02">旅の場所</a>
+      <a href="#s03">なぜ旅か</a>
+      <a href="#s04">開く時期</a>
+      <a href="#s05">変えたところ</a>
+    </nav>
+  </div>
+</div>
+
+<main class="shell">
+
+<header class="head">
+  <p class="eyebrow">概念の整理・別案 ／ 2026-09-08</p>
+  <h1>すべての語は、<br>一本の矢印の上にある</h1>
+  <p class="lede">POOLOの言葉を、上下の段ではなく、一本の問いが飛んで戻ってくる絵の上に置き直した案です。語はどれも、この絵のどこかの場所か、動きの名前になります。本編の整理はそのまま置いて、初見の人に渡す入口として作りました。</p>
+  <p class="src">出典は本編「<a href="poolo-words-260828.html">POOLOで使われる概念たち</a>」と同じです（探究テーマ v1.7／METHOD 探究編 v1.7／人生の豊かさ F=G×H）。語の定義は本編のままです。変えたのは置き方です。納得・つながり・豊かさに添えた一行ずつの言い直し（03）は、本編の01と09にも入れました。</p>
+</header>
+
+<section id="s00">
+  <div class="sec-head">
+    <span class="sec-no">00</span>
+    <h2>一本の矢印に、全部の語を置く</h2>
+    <p class="sec-lead">語の上に指を置くと、図の中の場所だけが残ります。「探究テーマって何ですか」への答えは、「いま飛んでいる一本」で終わります。</p>
+  </div>
+
+  <figure>
+    <div class="map-wrap">
+    <svg id="map" viewBox="0 0 1000 540" role="img" aria-label="破線の輪郭が自分。左に対象、その中に納得の円、輪郭をまたぐつながりの円、重なりが豊かさ。納得から出た問いの矢印が輪郭を越えて他者に当たり、返事が戻って納得を書き換える。他者の先に社会の点が並び、差し出す矢印が届く。輪郭の内側には外へ出ない片道の矢印。下に届く距離の目盛り。">
+      <defs>
+        <clipPath id="mp-g"><circle cx="300" cy="255" r="95"/></clipPath>
+        <marker id="mp-a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M 0 0 L 10 5 L 0 10 z" fill="#189BBC"/>
+        </marker>
+        <marker id="mp-k" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor"/>
+        </marker>
+        <marker id="mp-f" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+          <path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor" opacity=".45"/>
+        </marker>
+      </defs>
+
+      <!-- 自分の輪郭と、並んでいる要素 -->
+      <g class="base">
+        <rect x="120" y="80" width="370" height="360" rx="64" fill="none" stroke="currentColor" stroke-width="1.2" stroke-dasharray="6 4" opacity=".5"/>
+        <rect x="275" y="72" width="60" height="16" fill="#FFFFFF"/>
+        <text x="305" y="85" text-anchor="middle" font-size="11" fill="currentColor" opacity=".5">自分</text>
+        <circle cx="175" cy="140" r="24" fill="none" stroke="currentColor" stroke-width="1" opacity=".25"/>
+        <text x="175" y="144" text-anchor="middle" font-size="10.5" fill="currentColor" opacity=".38">経験</text>
+        <circle cx="163" cy="300" r="24" fill="none" stroke="currentColor" stroke-width="1" opacity=".25"/>
+        <text x="163" y="304" text-anchor="middle" font-size="10.5" fill="currentColor" opacity=".38">価値観</text>
+        <circle cx="185" cy="395" r="22" fill="none" stroke="currentColor" stroke-width="1" opacity=".25"/>
+        <text x="185" y="399" text-anchor="middle" font-size="10.5" fill="currentColor" opacity=".38">知識</text>
+      </g>
+
+      <!-- 対象 -->
+      <g class="loc" id="g-taisho">
+        <rect x="30" y="225" width="60" height="60" rx="8" fill="#FFFFFF" stroke="currentColor" stroke-width="1.4"/>
+        <text x="60" y="260" text-anchor="middle" font-size="13" font-weight="700" fill="currentColor">対象</text>
+        <text x="60" y="306" text-anchor="middle" font-size="10.5" fill="currentColor" opacity=".5">向き合っているもの</text>
+      </g>
+
+      <!-- 旅① -->
+      <g class="loc" id="g-tabi1">
+        <text x="30" y="210" font-size="10.5" font-weight="700" fill="#189BBC">旅 ①</text>
+        <text x="30" y="196" font-size="9.5" fill="#189BBC" opacity=".8">違和感が生まれる場</text>
+      </g>
+
+      <!-- 違和感（手1・手2） -->
+      <g class="loc" id="g-iwakan">
+        <line x1="92" y1="255" x2="203" y2="255" stroke="currentColor" stroke-width="1.2" opacity=".55"/>
+        <text x="148" y="246" text-anchor="middle" font-size="11" fill="currentColor" opacity=".75">違和感</text>
+        <text x="148" y="272" text-anchor="middle" font-size="9.5" fill="#189BBC">手1 溜める ／ 手2 拾う</text>
+      </g>
+
+      <!-- 重なり（豊かさ） -->
+      <g class="loc" id="g-yutakasa">
+        <circle cx="440" cy="255" r="95" fill="#189BBC" fill-opacity=".2" clip-path="url(#mp-g)"/>
+        <text x="370" y="259" text-anchor="middle" font-size="13" font-weight="700" fill="#127E9A">豊かさ</text>
+      </g>
+
+      <!-- 納得 -->
+      <g class="loc" id="g-nattoku">
+        <circle cx="300" cy="255" r="95" fill="none" stroke="currentColor" stroke-width="1.6"/>
+        <text x="262" y="246" text-anchor="middle" font-size="16" font-weight="700" fill="currentColor">納得</text>
+        <text x="266" y="268" text-anchor="middle" font-size="9.5" fill="currentColor" opacity=".6">自分で決めた、</text>
+        <text x="266" y="282" text-anchor="middle" font-size="9.5" fill="currentColor" opacity=".6">という実感</text>
+      </g>
+
+      <!-- つながり -->
+      <g class="loc" id="g-tsunagari">
+        <circle cx="440" cy="255" r="95" fill="none" stroke="#189BBC" stroke-width="2"/>
+        <text x="445" y="374" text-anchor="middle" font-size="14" font-weight="700" fill="#189BBC">つながり</text>
+        <text x="445" y="392" text-anchor="middle" font-size="9.5" fill="#189BBC" opacity=".85">返事が返ってきた、</text>
+        <text x="445" y="406" text-anchor="middle" font-size="9.5" fill="#189BBC" opacity=".85">という実感</text>
+      </g>
+
+      <!-- 問い（往路） -->
+      <g class="loc" id="g-toi">
+        <path d="M 330 228 L 636 250" fill="none" stroke="#189BBC" stroke-width="2.5" marker-end="url(#mp-a)"/>
+        <text x="485" y="217" text-anchor="middle" font-size="16" font-weight="700" fill="#189BBC" stroke="#FFFFFF" stroke-width="5" paint-order="stroke">問い</text>
+      </g>
+      <g class="loc" id="g-tema">
+        <text x="485" y="190" text-anchor="middle" font-size="10.5" fill="#127E9A" stroke="#FFFFFF" stroke-width="4" paint-order="stroke">いま飛んでいる一本 ＝ 探究テーマ</text>
+      </g>
+      <g class="loc" id="g-te3">
+        <text x="318" y="212" text-anchor="middle" font-size="9.5" fill="#189BBC">手3 立てる</text>
+      </g>
+      <g class="loc" id="g-te4">
+        <text x="548" y="308" text-anchor="middle" font-size="9.5" fill="#189BBC">手4 当てる</text>
+        <text x="548" y="322" text-anchor="middle" font-size="9" fill="#189BBC" opacity=".8">輪郭を越える</text>
+      </g>
+
+      <!-- 4条件の両端 -->
+      <g class="loc" id="g-joken">
+        <circle cx="330" cy="228" r="7" fill="#FFFFFF" stroke="#189BBC" stroke-width="2"/>
+        <circle cx="650" cy="255" r="14" fill="none" stroke="#189BBC" stroke-width="2"/>
+      </g>
+
+      <!-- 返事（復路・手6） -->
+      <g class="loc" id="g-kaeri">
+        <path d="M 640 265 L 332 286" fill="none" stroke="currentColor" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#mp-k)"/>
+        <text x="610" y="284" text-anchor="middle" font-size="10.5" fill="currentColor" opacity=".6">返事</text>
+        <text x="300" y="306" text-anchor="middle" font-size="9.5" fill="#189BBC">手6 書き換える</text>
+      </g>
+
+      <!-- 他者 -->
+      <g class="loc" id="g-tasha">
+        <circle cx="650" cy="255" r="8" fill="#189BBC"/>
+        <text x="650" y="228" text-anchor="middle" font-size="14" font-weight="700" fill="#189BBC">他者</text>
+        <text x="650" y="212" text-anchor="middle" font-size="10" fill="#189BBC" opacity=".8">当たる一人</text>
+      </g>
+
+      <!-- 旅② -->
+      <g class="loc" id="g-tabi2">
+        <text x="650" y="330" text-anchor="middle" font-size="10.5" font-weight="700" fill="#189BBC">旅 ②</text>
+        <text x="650" y="344" text-anchor="middle" font-size="9.5" fill="#189BBC" opacity=".8">会いに行く</text>
+      </g>
+
+      <!-- 差し出す（手5） -->
+      <g class="loc" id="g-sashidasu">
+        <path d="M 664 250 L 808 205" fill="none" stroke="#189BBC" stroke-width="1.4" stroke-dasharray="4 4" opacity=".8" marker-end="url(#mp-a)"/>
+        <text x="742" y="252" text-anchor="middle" font-size="9.5" fill="#189BBC">手5 差し出す</text>
+      </g>
+
+      <!-- 社会 -->
+      <g class="loc" id="g-shakai">
+        <circle cx="835" cy="195" r="5" fill="#189BBC" opacity=".75"/>
+        <circle cx="870" cy="160" r="5" fill="#189BBC" opacity=".75"/>
+        <circle cx="905" cy="215" r="5" fill="#189BBC" opacity=".75"/>
+        <circle cx="862" cy="245" r="5" fill="#189BBC" opacity=".75"/>
+        <circle cx="928" cy="168" r="5" fill="#189BBC" opacity=".75"/>
+        <circle cx="900" cy="280" r="5" fill="#189BBC" opacity=".75"/>
+        <text x="880" y="112" text-anchor="middle" font-size="14" font-weight="700" fill="#189BBC">社会</text>
+        <text x="880" y="130" text-anchor="middle" font-size="10" fill="#189BBC" opacity=".8">届いた人の集まり</text>
+      </g>
+
+      <!-- 片道 -->
+      <g class="loc" id="g-katamichi">
+        <path d="M 250 378 A 22 22 0 1 1 228 400" fill="none" stroke="currentColor" stroke-width="1.4" opacity=".55" marker-end="url(#mp-f)"/>
+        <text x="250" y="462" text-anchor="middle" font-size="10.5" fill="currentColor" opacity=".6">片道 ＝ 外へ出ない矢印</text>
+      </g>
+
+      <!-- 届く距離 -->
+      <g class="loc" id="g-lv">
+        <line x1="300" y1="505" x2="940" y2="505" stroke="currentColor" stroke-width="1" opacity=".35"/>
+        <text x="120" y="509" font-size="10.5" fill="currentColor" opacity=".55">届く距離</text>
+        <g font-size="10" fill="currentColor" opacity=".7">
+          <line x1="300" y1="499" x2="300" y2="511" stroke="currentColor"/><text x="300" y="530" text-anchor="middle">Lv.1 自分</text>
+          <line x1="500" y1="499" x2="500" y2="511" stroke="currentColor"/><text x="500" y="530" text-anchor="middle">Lv.2 仲間</text>
+          <line x1="650" y1="499" x2="650" y2="511" stroke="currentColor"/><text x="650" y="530" text-anchor="middle">Lv.3 知らない人</text>
+          <line x1="880" y1="499" x2="880" y2="511" stroke="currentColor"/><text x="880" y="530" text-anchor="middle">Lv.4 続く</text>
+        </g>
+      </g>
+    </svg>
+    </div>
+
+    <div class="chips" aria-label="語を選ぶと、図の中の場所が残ります">
+      <button class="chip" data-loc="g-taisho">対象</button>
+      <button class="chip" data-loc="g-iwakan">違和感</button>
+      <button class="chip" data-loc="g-toi">問い</button>
+      <button class="chip" data-loc="g-toi g-tema">探究テーマ</button>
+      <button class="chip" data-loc="g-tasha">他者</button>
+      <button class="chip" data-loc="g-shakai">社会</button>
+      <button class="chip" data-loc="g-toi g-kaeri g-tasha">探究（往復）</button>
+      <button class="chip" data-loc="g-katamichi">片道</button>
+      <button class="chip" data-loc="g-iwakan g-te3 g-te4 g-sashidasu g-kaeri">六手</button>
+      <button class="chip" data-loc="g-te4 g-tasha">三つの当て方</button>
+      <button class="chip" data-loc="g-lv">四つの深さ（Lv）</button>
+      <button class="chip" data-loc="g-joken g-toi">良い問いの4条件</button>
+      <button class="chip" data-loc="g-nattoku g-tsunagari">納得／つながり</button>
+      <button class="chip" data-loc="g-yutakasa">豊かさ</button>
+      <button class="chip" data-loc="g-tabi1 g-tabi2">旅</button>
+      <button class="chip" data-loc="g-toi g-kaeri g-yutakasa">3周で別の自分</button>
+      <button class="chip" data-loc="g-katamichi">正解を手放す</button>
+    </div>
+    <p class="chip-note">語に触れると、図のその場所だけが残ります。押すと固定、もう一度押すと戻ります。</p>
+  </figure>
+
+  <div class="scroller">
+  <table class="tbl">
+    <thead><tr><th>語</th><th>矢印のどこか</th><th>一言</th></tr></thead>
+    <tbody>
+      <tr data-loc="g-taisho"><td class="q">対象</td><td>出発点</td><td>手で触れられるもの・営み。去年の秋の高知、いまの仕事、あの日の進行</td></tr>
+      <tr data-loc="g-iwakan"><td class="q">違和感</td><td>矢印が生まれる瞬間</td><td>「はずなのに」。手1で溜まり、手2で拾う</td></tr>
+      <tr data-loc="g-toi"><td class="q">問い</td><td>矢印そのもの</td><td>他者に渡せる形をしている。疑問文で、両端が刺さっている</td></tr>
+      <tr data-loc="g-toi g-tema"><td class="q">探究テーマ</td><td>いま飛んでいる一本</td><td>書き換えるたびに v1.0 → v1.1</td></tr>
+      <tr data-loc="g-tasha"><td class="q">他者</td><td>矢印が当たる一人</td><td>社会には当てられない。当てられるのは一人ずつ</td></tr>
+      <tr data-loc="g-shakai"><td class="q">社会</td><td>届いた点の集まり</td><td>場所ではなく人。往復のたびに増える</td></tr>
+      <tr data-loc="g-toi g-kaeri g-tasha"><td class="q">探究</td><td>往復</td><td>飛んで、返って、書き換わる。行き来が止まらないこと</td></tr>
+      <tr data-loc="g-katamichi"><td class="q">片道</td><td>外へ出ない矢印</td><td>曲がり方が三つ。内で折り返す／外から受け取る／言葉が返ってくる</td></tr>
+      <tr data-loc="g-iwakan g-te3 g-te4 g-sashidasu g-kaeri"><td class="q">六手</td><td>一往復を六つに刻んだもの</td><td>他者が要るのは手4と手5だけ</td></tr>
+      <tr data-loc="g-te4 g-tasha"><td class="q">三つの当て方</td><td>当てる角度</td><td>現場当て／ズラし当て／反証当て。共感が返ったら当たっていない</td></tr>
+      <tr data-loc="g-lv"><td class="q">四つの深さ</td><td>届く距離</td><td>Lv.3「知らない人」が必修ライン</td></tr>
+      <tr data-loc="g-joken g-toi"><td class="q">良い問いの4条件</td><td>飛ぶための条件</td><td>続くか／動くか／賭かっているか／半分だけ伝わるか。後の二つが両端</td></tr>
+      <tr data-loc="g-nattoku g-tsunagari"><td class="q">納得／つながり</td><td>重なりを作る二つの円</td><td>自分で決めた、という実感／返事が返ってきた、という実感（→ 03）</td></tr>
+      <tr data-loc="g-yutakasa"><td class="q">豊かさ</td><td>往復のたびに広がる重なり</td><td>自分で決めたことに、返事が返ってきた、という実感。貯まらない代わりに、いつからでも立ち上がる</td></tr>
+      <tr data-loc="g-tabi1 g-tabi2"><td class="q">旅</td><td>矢印を身体で運ぶこと</td><td>出発点にも、当たる先にもある（→ 02）</td></tr>
+      <tr data-loc="g-toi g-kaeri g-yutakasa"><td class="q">3周で別の自分</td><td>往復3回</td><td>変容モデル。1周目には想像できない自分</td></tr>
+      <tr data-loc="g-katamichi"><td class="q">正解を手放す</td><td>片道①②の、対外での呼び名</td><td>12期サイト・note・登壇ではこちらを使う</td></tr>
+    </tbody>
+  </table>
+  </div>
+</section>
+
+<section id="s01">
+  <div class="sec-head">
+    <span class="sec-no">01</span>
+    <h2>同じ一枚を、二方向から読む</h2>
+    <p class="sec-lead">参加者は出発点から。運営は重なりから。本編の4段は、運営の読み方のほうにそのまま残ります。</p>
+  </div>
+
+  <div class="flows">
+    <div class="flow">
+      <p class="flow-who"><b>参加者</b><span>出発点から読む</span></p>
+      <ol class="steps">
+        <li>違和感</li><li>問い</li><li>一人に当てる</li><li>書き換わる</li><li class="last">重なりが広がる</li>
+      </ol>
+      <p>豊かさは、最後に見えるものです。最初に出すと、その語で問い始めてしまう。「豊かさとは何か」は禁句リストの定義型で、本編07が止まる形の筆頭に挙げています。</p>
+    </div>
+    <div class="flow">
+      <p class="flow-who"><b>運営</b><span>重なりから読む</span></p>
+      <ol class="steps">
+        <li>豊かさ</li><li>往復（探究）</li><li>問い</li><li class="last">対象・他者・社会</li>
+      </ol>
+      <p>「何のために／何をするか」の上下です。本編の4段そのもので、正本を組むときの順序。組む人には要りますが、飛ばす人には要りません。</p>
+    </div>
+  </div>
+</section>
+
+<section id="s02">
+  <div class="sec-head">
+    <span class="sec-no">02</span>
+    <h2>旅は、矢印の両端にある</h2>
+    <p class="sec-lead">旅の学校の用語集なのに、本編で旅は入口の語として一度出るだけでした。この絵では、旅の場所が二つ決まります。</p>
+  </div>
+
+  <div class="col">
+    <p>本編06の作例から、一往復ぶんを抜き出します。人物と出来事は動きを見せるための作例で、実データではありません。</p>
+  </div>
+
+  <div class="defs rei">
+    <div><b>対象</b><span>去年の秋の、高知の一人旅。</span></div>
+    <div><b>違和感</b><span>計画して行った名所は、写真を見ないと思い出せない。覚えているのは、雨で予定が飛んだ日に、宿の食堂で相席になった漁師と話した1時間だけ。楽しみにしていたほうが残るはずなのに。</span></div>
+    <div><b>問い v1.0</b><span>なぜ私は、去年の秋の高知で、予定が飛んだ日の相席の1時間だけを覚えているのか？</span></div>
+    <div><b>当てる（旅②）</b><span>その宿に、もう一度行く。食堂のおかみさんに、この問いをそのまま聞く。</span></div>
+    <div><b>返事</b><span>「あんた、あの日だけ時計を見なかったね。ほかの日は、ずっと次の予定の話だった」</span></div>
+    <div><b>書き換え v1.1</b><span>楽しかったのは人と話したことだと思っていた。見ていたのは「次を考えていない時間」だった。<br>私が旅で喜んでいるのは、対話なのか、「次」を手放した時間なのか？</span></div>
+    <div><b>ズラし当て</b><span>旅をしない同僚に当てる。「それ、旅じゃなくてもよくない？ 私は子どもが寝たあとの台所がそれ」。旅を知らない人に、半分だけ伝わった。</span></div>
+    <div><b>v1.2</b><span>なぜ私は、「次」を考えていないときにしか、目の前の人の話が入ってこないのか？</span></div>
+  </div>
+
+  <div class="col" style="margin-top:2rem">
+    <p>違和感が生まれたのは、雨で予定が飛んだ日の食堂でした。当てに行った先は、その宿のおかみさん。出発点にも旅があり、当たる先にも旅がある。ビジョンの「変化は言語化の前に身体で起きる。だから最初に旅を置く」は前者を、六手の手4「現場当て」は後者を指しています。おかみさんの一言で書き換わったのは、旅の楽しさの中身です。人と話したことだと思っていたものが、「次」を手放した時間に変わった。</p>
+    <p>あいだに挟まっているのが、言葉の作業です。拾う、立てる、書き換える。身体で運んで、言葉で直して、また身体で運ぶ。この両端は、机の上では起きません。</p>
+  </div>
+
+  <figure>
+    <svg viewBox="0 0 760 210" role="img" aria-label="左端に対象、右端に他者。両端に旅の印。あいだに違和感、納得、問いが並び、言葉の作業が挟まっている。">
+      <defs>
+        <marker id="tb-a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M 0 0 L 10 5 L 0 10 z" fill="#189BBC"/>
+        </marker>
+      </defs>
+      <!-- 旅① -->
+      <rect x="24" y="60" width="150" height="90" rx="10" fill="#189BBC" fill-opacity=".12" stroke="none"/>
+      <text x="99" y="48" text-anchor="middle" font-size="11" font-weight="700" fill="#189BBC">旅 ①　出発点</text>
+      <rect x="70" y="78" width="58" height="54" rx="8" fill="#FFFFFF" stroke="currentColor" stroke-width="1.4"/>
+      <text x="99" y="110" text-anchor="middle" font-size="13" font-weight="700" fill="currentColor">対象</text>
+      <text x="99" y="172" text-anchor="middle" font-size="10" fill="currentColor" opacity=".55">雨で予定が飛んだ日の食堂</text>
+      <text x="99" y="190" text-anchor="middle" font-size="9.5" fill="#189BBC" opacity=".85">最初に旅を置く（ビジョン）</text>
+
+      <!-- あいだ -->
+      <line x1="130" y1="105" x2="250" y2="105" stroke="currentColor" stroke-width="1.2" opacity=".5"/>
+      <text x="190" y="97" text-anchor="middle" font-size="10.5" fill="currentColor" opacity=".7">違和感</text>
+      <circle cx="320" cy="105" r="62" fill="none" stroke="currentColor" stroke-width="1.5"/>
+      <text x="320" y="110" text-anchor="middle" font-size="14" font-weight="700" fill="currentColor">納得</text>
+      <path d="M 384 96 L 596 96" fill="none" stroke="#189BBC" stroke-width="2.4" marker-end="url(#tb-a)"/>
+      <text x="490" y="84" text-anchor="middle" font-size="13" font-weight="700" fill="#189BBC">問い</text>
+      <path d="M 596 114 L 384 114" fill="none" stroke="currentColor" stroke-width="1.4" stroke-dasharray="5 4"/>
+      <text x="490" y="132" text-anchor="middle" font-size="10" fill="currentColor" opacity=".6">返事</text>
+      <text x="320" y="182" text-anchor="middle" font-size="10" fill="currentColor" opacity=".55">拾う・立てる・書き換える</text>
+      <text x="320" y="198" text-anchor="middle" font-size="9.5" fill="currentColor" opacity=".55">言葉の作業。机の上でできる</text>
+
+      <!-- 旅② -->
+      <rect x="586" y="60" width="150" height="90" rx="10" fill="#189BBC" fill-opacity=".12" stroke="none"/>
+      <text x="661" y="48" text-anchor="middle" font-size="11" font-weight="700" fill="#189BBC">旅 ②　当たる先</text>
+      <circle cx="661" cy="105" r="9" fill="#189BBC"/>
+      <text x="661" y="134" text-anchor="middle" font-size="13" font-weight="700" fill="#189BBC">他者</text>
+      <text x="661" y="172" text-anchor="middle" font-size="10" fill="currentColor" opacity=".55">その宿に、もう一度行く</text>
+      <text x="661" y="190" text-anchor="middle" font-size="9.5" fill="#189BBC" opacity=".85">現場当て（手4）</text>
+    </svg>
+    <figcaption>塗ってある二箇所が、身体で運ぶところです。左は違和感が生まれる場、右は問いを当てに行く先。真ん中の言葉の作業は机の上でできますが、両端は移動しないと起きません。</figcaption>
+  </figure>
+
+  <p class="claim">旅の学校とは、矢印を身体で運ぶ練習をする場所。</p>
+</section>
+
+<section id="s03">
+  <div class="sec-head">
+    <span class="sec-no">03</span>
+    <h2>なぜ旅で、どの豊かさか</h2>
+    <p class="sec-lead">納得とつながりを一行ずつにすると、旅がその両方を一度に起こしていることが見えます。それから、世の中にある豊かさのうち、この一行が取っているものと、取っていないもの。</p>
+  </div>
+
+  <div class="defs">
+    <div><b>納得</b><span>自分で決めた、という実感</span></div>
+    <div><b>つながり</b><span>返事が返ってきた、という実感</span></div>
+    <div class="sum"><b>豊かさ</b><span>自分で決めたことに、返事が返ってきた、という実感</span></div>
+  </div>
+
+  <div class="col" style="margin-top:2rem">
+    <p>重なりというのは、二つの実感が同じ一つのことについて起きている状態です。自分で決めた問いが出ていって、その問いに返事が返ってくる。前半だけなら左の余り（納得はあるが届いていない、34%）、後半だけなら右の余り（返事は返ってきたが、自分で決めたことへの返事ではない、23%）。この実感は貯まりません。返事が返ってくるたびに、そのぶんだけ立ちます。</p>
+
+    <h3>旅は、両方を一度に起こす</h3>
+    <p>旅先では、ふだん判断に使っている外の基準が効きません。評価も相場も、こうすべきも、自分がマイノリティになった土地には届かない。自分で決める以外にない。「旅は自己決定の連続」（2023）。しかも体が先に動くので、借り物の意味は旅先で持ちません。「体は借り物の意味を見抜くセンサー」（2026年2月、那覇）。</p>
+    <p>返事をくれるのも、旅先では知らない人です。知り合いなら問いがなくても会話は続きますが、知らない人が相手だと、渡すものがなければ「何してる人ですか」で止まる。問いを渡せる形にすることを、旅は強います。そして知らない人の返事には忖度が乗っていない。Lv.3「知らない人」が必修なのは、これが理由です。</p>
+    <p>二つを同時に満たす行為は、日常にはあまりありません。転職は自分で決めますが、返事は評価として返ってきます。読書は納得を育てますが、返事がない。</p>
+  </div>
+
+  <figure>
+    <svg viewBox="0 0 760 240" role="img" aria-label="上に旅。そこから二本の矢印が、自分で決めたと、返事が返ってきたの二つの箱に降りる。二つの箱が下でひとつに束ねられ、豊かさの一行になる。">
+      <defs>
+        <marker id="tr-a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M 0 0 L 10 5 L 0 10 z" fill="#189BBC"/>
+        </marker>
+      </defs>
+      <rect x="250" y="14" width="260" height="48" rx="10" fill="#189BBC" fill-opacity=".12"/>
+      <text x="380" y="35" text-anchor="middle" font-size="14" font-weight="700" fill="#189BBC">旅</text>
+      <text x="380" y="52" text-anchor="middle" font-size="9.5" fill="#127E9A">外の基準が消えて、知らない人が返事をくれる場所</text>
+
+      <path d="M 330 62 L 215 100" fill="none" stroke="#189BBC" stroke-width="1.8" marker-end="url(#tr-a)"/>
+      <path d="M 430 62 L 545 100" fill="none" stroke="#189BBC" stroke-width="1.8" marker-end="url(#tr-a)"/>
+
+      <rect x="40" y="104" width="320" height="84" rx="8" fill="#FFFFFF" stroke="currentColor" stroke-width="1.4"/>
+      <text x="200" y="130" text-anchor="middle" font-size="13.5" font-weight="700" fill="currentColor">自分で決めた</text>
+      <text x="200" y="153" text-anchor="middle" font-size="10" fill="currentColor" opacity=".7">外の基準が効かない。自分がマイノリティになる</text>
+      <text x="200" y="171" text-anchor="middle" font-size="10" fill="currentColor" opacity=".7">借り物の意味を、体が見抜く</text>
+
+      <rect x="400" y="104" width="320" height="84" rx="8" fill="#FFFFFF" stroke="#189BBC" stroke-width="1.6"/>
+      <text x="560" y="130" text-anchor="middle" font-size="13.5" font-weight="700" fill="#189BBC">返事が返ってきた</text>
+      <text x="560" y="153" text-anchor="middle" font-size="10" fill="currentColor" opacity=".7">返事をくれるのは知らない人。忖度がない</text>
+      <text x="560" y="171" text-anchor="middle" font-size="10" fill="currentColor" opacity=".7">渡すものがないと、会話が止まる</text>
+
+      <path d="M 200 188 V 206 H 560 V 188 M 380 206 V 216" fill="none" stroke="currentColor" stroke-width="1.2" opacity=".5"/>
+      <text x="380" y="232" text-anchor="middle" font-size="12" font-weight="700" fill="#127E9A">自分で決めたことに、返事が返ってきた、という実感 ＝ 豊かさ</text>
+    </svg>
+    <figcaption>左の箱は納得の側、右の箱はつながりの側です。旅は両方に矢印が伸びている、日常のなかでは珍しい行為です。</figcaption>
+  </figure>
+
+  <div class="col" style="margin-top:2.4rem">
+    <p>では学校は何をするか。旅先で自然に起きることを、旅先以外でも起こせるようにする、というのがこの絵でのPOOLOの位置です。「移動しなくても越境はできる」「旅とはスタンスである」「8割の日常」。参加者は両端を一度は身体で知っている。学校はその往復を日常に持ち帰る練習の場で、02の一文はそのことを言っています。「新しい旅の学校」の新しいは、旅で起きることを日常で起こす学校、と読めます。これはこの案の読みで、正本にはない言い方です。</p>
+
+    <h3>豊かさのうち、どれを取っているか</h3>
+    <p>豊かさの言い方は、17年のあいだにも動いています。感情（2011）、生産・回す（2019）、自己決定（2022）、F＝G×H（2023〜）。世の中の言い方はもっと多い。上の一行に照らすと、入るものと入らないものが分かれます。</p>
+  </div>
+
+  <div class="scroller">
+  <table class="tbl">
+    <thead><tr><th>豊かさの種類</th><th>一行に入るか</th><th>どう扱っているか</th></tr></thead>
+    <tbody>
+      <tr><td class="q">経済（年収・資産）</td><td class="k">入らない</td><td>年収との相関は800万で頭打ち、その先は「創る行為」。POOLOは扱わない</td></tr>
+      <tr><td class="q">達成（到達点・肩書）</td><td class="k">入らない</td><td>面積で見る。到達して終わる点がない。貯まらない</td></tr>
+      <tr><td class="q">所属（仲間がいる安心）</td><td class="k">入らない</td><td>問いが通っていない関係は数に入らない</td></tr>
+      <tr><td class="q">身体（南国的、「ああ生きている」）</td><td class="k">直接は入らない</td><td>ただし「実感」は体で感じるもの。借り物を見抜く側にいる</td></tr>
+      <tr><td class="q">意味（北欧的、「これでいい」）</td><td class="k">前半に入る</td><td>「自分で決めた」＝納得</td></tr>
+      <tr><td class="q">関係（誰かに届いた）</td><td class="k">後半に入る</td><td>「返事が返ってきた」＝つながり</td></tr>
+      <tr><td class="q">貢献・利他</td><td class="k">半分入る</td><td>問いを差し出す（手5）が入口。「純粋な自己中心的利他」</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="col" style="margin-top:2rem">
+    <p>取っているのは、意味と関係が一本の問いで重なったものです。2026年2月の那覇の言い方に戻すと、北欧的な豊かさ（これでいい）を、南国的な体（ああ生きている）で確かめたもの。「体が動くことと、意味に納得できること。その二つが重なったとき、人は自然に前に進める」と「納得とつながりの重なり」は、同じ形をしています。</p>
+
+    <h3>この一つを取る理由</h3>
+    <p>今日から立てられます。経済も達成も年数がかかり、所属には運が混じる。この豊かさは、今日1周まわせば、今日のぶんは立つ。</p>
+    <p>ひとりでは自己完結できません。納得だけなら本と日記で育ちますが、返事は相手がいないと返ってこない。学校がやることは、ここに集まります。返事が返ってくる場所を用意すること。知らない人に当てる練習をさせること。</p>
+    <p>目的にしなくて済みます。「幸福を目的にすることへの嫌悪」「温泉的豊かさくらいの温度感がいい」（2025年5月）。問いを一人に当てて帰ってくるのを繰り返していれば、結果として重なりが広がる。豊かさが禁句リストに入っているのと、この構えは一貫しています。</p>
+  </div>
+
+  <p class="claim">学校がやるのは、返事が返ってくる場所を用意すること。<br>知らない人に当てる練習を、させること。</p>
+
+  <div class="col">
+    <h3>引っかかっているところ</h3>
+    <p>所属を数に入れないのは、POOLOがコミュニティである以上、外から見ると矛盾に見えます。「仲間ができる」を掲げていて、一行ではそれを豊かさと呼ばない。順番の話として読めば通ります。仲間は返事をくれる相手（Lv.2）として先にいて、その仲間に問いを当てたときに初めて数に入る。運営の側で置いてある「3つの自己矛盾」の整理と、この言い方を揃えておきたいところです。</p>
+  </div>
+</section>
+
+<section id="s04">
+  <div class="sec-head">
+    <span class="sec-no">04</span>
+    <h2>語は、必要になった日に開く</h2>
+    <p class="sec-lead">一覧は本編に9つあります。数は減らしません。減らすのは、初日に渡す数です。</p>
+  </div>
+
+  <div class="scroller">
+  <table class="tbl">
+    <thead><tr><th>いつ</th><th>見せるもの</th><th>数</th></tr></thead>
+    <tbody>
+      <tr><td class="q">初日（体験会）</td><td>上の図一枚、初日の一文、六手</td><td class="n">1 ＋ 1 ＋ 6</td></tr>
+      <tr><td class="q">止まったとき</td><td>三つの片道、症状からの逆引き</td><td class="n">3 ＋ 6</td></tr>
+      <tr><td class="q">2周目から</td><td>良い問いの4条件、三つの当て方、四つの深さ、問いの型、深まる5つの軸</td><td class="n">開くたびに一つ</td></tr>
+      <tr><td class="q">運営だけ</td><td>穴4と「運営が黙る技術」、G/H の文字、卒業制作105本の数字、体験会の指標</td><td class="n">参加者には見せない</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <p class="claim">気になったことを問いにして、一人に会いに行く。<br>帰ってきたら、問いを書き直す。</p>
+
+  <div class="col">
+    <p>初日の一文は、これで足りると思っています。これだけ持って帰れれば、残りの語は止まった日か、2周目に開けば間に合います。逆に、初日に六手の先まで渡すと、九つの一覧のどれをいつ思い出せばいいかが分からないまま帰ることになる。</p>
+  </div>
+</section>
+
+<section id="s05">
+  <div class="sec-head">
+    <span class="sec-no">05</span>
+    <h2>本編から変えたところと、失うもの</h2>
+    <p class="sec-lead">変えたのは絵の数、文字、読む順と、三つの語に添えた一行です。そのぶん、本編のほうが上手に言えていたことが一つ残ります。</p>
+  </div>
+
+  <dl class="dl">
+    <dt>納得・つながり・豊かさに、一行ずつ</dt>
+    <dd>本編の01は、納得を「ひとりでも育つ」、つながりを「輪郭をまたぐ」と、図の中の場所で説明していました。場所の説明は、その語が何を指すかまでは言っていません。つながりが知り合いの数に読まれるのはそのためで、この案では三つとも「という実感」で終わる一行にしました（03）。本編の01と09にも同じ一行を入れてあります。正本にはまだない言い方です。</dd>
+
+    <dt>絵を、矢印一本に</dt>
+    <dd>本編では問いが「橋」（03）で、探究が「矢印」（02）でした。同じものを別の絵で描いているので、「問いと探究の違い」が絵の違いに見えます。正本の定義「問いを橋にして」は残し、説明の絵は矢印だけにします。橋では往復も片道も、当てる角度も届く距離も描けません。4条件の「両端が刺さっているか」は、矢印の出発点と着地点で言えます。</dd>
+
+    <dt>G と H の文字を、参加者向けから外す</dt>
+    <dd>「内的な納得(G)」の (G) は運営の記法です。参加者が覚えるのは「納得」と「つながり」で足ります。式で書くのは正本と運営資料だけにします。</dd>
+
+    <dt>読む順を、参加者向けは逆に</dt>
+    <dd>本編の見出しにも「下から読むと、なぜ豊かさになるのかが1本でつながります」とあります。参加者向けの資料は、最初から下から読ませる形にします（01）。</dd>
+
+    <dt>4段は、正本に残す</dt>
+    <dd>「何のために／何をするか」の上下は運営の道具です。正本と本編には残し、対外の一枚からは外します。</dd>
+
+    <dt>失うもの</dt>
+    <dd>本編05の「対象・他者・社会は人の分類ではなく、役割の名前」が、この絵からは読みにくくなります。宿のおかみさんは、旅の中で出会った対象の側の人でもあり、当てに行く他者でもあり、何かを差し出せば社会の一人でもある。矢印の絵では、同じ●が役割を変えると注記で補うことになります。ここは4段のほうが上手に言えていました。</dd>
+
+    <dt>決めていないこと</dt>
+    <dd>「探究テーマ」の語。この絵にすると「いまの問い」と呼びたくなりますが、正本が未決にしている語なので、ここでは決めません。矢印の絵にすると「テーマ」という語の座りの悪さが目立つ、というところまでです。</dd>
+  </dl>
+</section>
+
+<footer class="foot">
+  作成 2026-09-08。概念の整理の別案です。語の定義は本編「<a href="poolo-words-260828.html">POOLOで使われる概念たち</a>」のままで、置き方を変え、納得・つながり・豊かさに一行ずつを添えています。出典：探究テーマ（用語の正本・v1.7）／POOLO_METHOD_探究編 v1.7／人生の豊かさ F=G×H。<br>
+  by TABIPPO
+</footer>
+
+</main>
+
+<script>
+(function(){
+  var map=document.getElementById('map');
+  if(!map) return;
+  var all=Array.prototype.slice.call(map.querySelectorAll('.loc'));
+  var sticky=null;
+  function light(ids){
+    map.classList.add('focus');
+    all.forEach(function(g){ g.classList.toggle('lit', ids.indexOf(g.id)>=0); });
+  }
+  function clear(){
+    if(sticky){ light(sticky); return; }
+    map.classList.remove('focus');
+    all.forEach(function(g){ g.classList.remove('lit'); });
+  }
+  var els=document.querySelectorAll('[data-loc]');
+  Array.prototype.forEach.call(els,function(el){
+    var ids=el.getAttribute('data-loc').split(' ');
+    el.addEventListener('mouseenter',function(){ light(ids); });
+    el.addEventListener('focus',function(){ light(ids); });
+    el.addEventListener('mouseleave',clear);
+    el.addEventListener('blur',clear);
+    el.addEventListener('click',function(){
+      var same = sticky && sticky.join(' ')===ids.join(' ') && el.classList.contains('on');
+      Array.prototype.forEach.call(document.querySelectorAll('[data-loc].on'),function(x){ x.classList.remove('on'); });
+      if(same){ sticky=null; clear(); }
+      else { sticky=ids; el.classList.add('on'); light(ids); }
+    });
+  });
+})();
+</script>
+</body>
+</html>
