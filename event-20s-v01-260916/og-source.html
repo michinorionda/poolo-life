@@ -9,13 +9,22 @@
 <link rel="stylesheet" href="../poolo-ds/slides.css">
 <style>
   /* 書き出し用の台。DSには含めない */
-  body { margin: 0; background: #E9ECED; padding: 40px 24px; }
-  .note { font-family: var(--body); font-size: 13px; line-height: 1.9; color: rgba(0,0,0,.6); max-width: 1200px; margin: 0 auto 20px; }
+  body { margin: 0; background: #E9ECED; padding: 40px 24px 80px; }
+  .note { font-family: var(--body); font-size: 13px; line-height: 1.95; color: rgba(0,0,0,.66); max-width: 1200px; margin: 0 auto 18px; }
+  .note strong { color: #000; }
+  .lbl { font-family: var(--head); font-size: 12px; font-weight: 700; letter-spacing: .18em; color: #127E9A; max-width: 1200px; margin: 44px auto 10px; }
+  /* LINEが切る中央 630×630 の目安。書き出す前に外すこと（.og-wrap の外側に描いている） */
+  .safe { position: relative; width: 1200px; margin: 0 auto; }
+  .safe::after { content: ""; position: absolute; top: 0; left: 285px; width: 630px; height: 630px; border: 2px dashed rgba(0,0,0,.35); pointer-events: none; }
 </style>
 </head>
 <body>
-<p class="note">書き出し方：Chrome DevTools で下の <code>.og-wrap</code> のノードを選び、右クリック →「Capture node screenshot」。等倍で 1200×630 の PNG になります。<br>
-書き出した PNG は <code>images/og.png</code> として置き、index.html の og:image / twitter:image を差し替えてください。</p>
+<p class="note">書き出し方：Chrome DevTools で <code>.og-wrap</code> のノードを選び、右クリック →「Capture node screenshot」。等倍で 1200×630 の PNG になります。書き出した PNG は <code>images/og.png</code> として置き、index.html の og:image / twitter:image を差し替えてください。<br>
+破線は、LINEがトークで切る中央 630×630 の目安です（この枠は <code>.og-wrap</code> の外側に描いてあるので、書き出した PNG には入りません）。</p>
+
+<p class="lbl">A：写真を右に</p>
+<p class="note"><strong>X（Twitter）やFacebookで横位置のまま出るときはこちら。</strong>LINEのトークで配ると、タイトルの頭が破線の外に出て欠けます。</p>
+<div class="safe">
 <div class="og-wrap og--photo">
   <div class="og-photo" style="background-image:url(images/03_kominka_dialogue.jpg)"></div>
   <div class="og-panel">
@@ -32,6 +41,23 @@
       <span>90分／先着10名</span>
     </div>
   </div>
+</div>
+</div>
+
+<p class="lbl">B：LINEのトリミングに耐える組み（推奨）</p>
+<p class="note"><strong>この体験会の申込導線はLINEなので、実際にはこちらが効きます。</strong>2026年9月8日にゼミLPで同じ問題が起きた（「学びの場を創る。」が「場を創る。」まで欠けた）ときの組み方に合わせています。写真は同じLPのものです。</p>
+<div class="safe">
+<div class="og-wrap og--stack">
+  <div class="og-photo" style="background-image:url(images/03_kominka_dialogue.jpg)"></div>
+  <div class="og-body">
+    <p class="og-eyebrow">あたらしい旅の学校 POOLO の体験会</p>
+    <h2 class="og-title">働く意味・生きる意味を、<br><em>見つけにいく</em>90分。</h2>
+  </div>
+  <div class="og-band">
+    <span class="og-band-when">9/16（水）20:00〜</span>
+    <span class="og-band-meta">オンライン・無料・先着10名</span>
+  </div>
+</div>
 </div>
 </body>
 </html>
