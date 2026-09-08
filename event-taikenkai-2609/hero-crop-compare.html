@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex,nofollow">
-<title>30代のヒーロー写真：引き幅の比較</title>
+<title>30代のヒーロー写真：4:3で、どこまで中心に寄せるか</title>
 <link rel="stylesheet" href="../poolo-ds/tokens.css">
 <link rel="stylesheet" href="../poolo-ds/components.css">
 <style>
@@ -25,9 +25,8 @@
 <body>
 
 <div class="lede">
-  <h1>30代の写真、もう一段引く3案</h1>
-  <p><strong>20代後半はA案で確定。</strong>このページは30代の引き幅だけを見比べるものです。</p>
-<p>写真の列を 49% → 42% に狭めたので、枠の形がほぼ正方形になりました。ここに横長（3:2）の画像を入れると、<strong>ブラウザ側で左右がさらに切られます</strong>（表示されるのは中央の65%ほど）。切り出しを広げても、そのぶんがそのまま見えるわけではありません。<br>C案だけ画像の比率を 4:3 に変えています。枠の形に近づくので左右の切り落としが減り、同じ範囲を切り出しても<strong>より引いて見えます</strong>。</p>
+  <h1>4:3のまま、中央の人をどこまで中心に寄せるか</h1>
+  <p><strong>3案とも 4:3（C案の比率）。</strong>元画像の左端が x=0 で、中央の人は x=1760 にいます。切り出しの左端はそれ以上に左へ行けないので、<strong>広げるほど彼は左へ寄ります</strong>。ぴったり中心に置ける上限が 3520px です。引きと中心は、この一本の線の上で選ぶことになります。</p><p>20代後半はA案で確定しています。</p>
 </div>
 
 <!-- ============ 30代ver2 ============ -->
@@ -36,7 +35,7 @@
   <p class="note">左端は0で止まるので、広げるほど中央の人は左へ寄ります（A 45% → B・C 42%）。ぴったり中心に置ける上限は 3520px でした。</p>
 </div>
 
-<div class="cap"><span class="k">A</span><span class="n">3900×2600（3:2）</span><span class="s">いま入れている 3520 の一段引き。中央の人は 45%</span></div>
+<div class="cap"><span class="k">A</span><span class="n">3520×2640</span><span class="s">中央の人がぴったり中心。引きはこれが上限</span></div>
 <section class="hero hero--long-title hero--narrow-photo">
   <div class="hero-grid">
     <div class="hero-copy">
@@ -45,11 +44,11 @@
       <p class="hero-lead">相談するほどでもない、と思っている違和感を、<span class="nb">自分のことばにしていく90分。</span></p>
       <div class="hero-foot"><div class="hero-foot-texts"><span class="hero-foot-ja">書いて、話して、また書く。</span></div></div>
     </div>
-    <figure class="hero-photo"><img src="images/d30_a.jpg" alt="海沿いの道を、肩を組んで並んで歩く3人"></figure>
+    <figure class="hero-photo"><img src="images/e30_a.jpg" alt="海沿いの道を、肩を組んで並んで歩く3人"></figure>
   </div>
 </section>
 
-<div class="cap"><span class="k">B</span><span class="n">4225×2817（3:2・横幅いっぱい）</span><span class="s">3:2 ではこれが最大。中央の人は 42%</span></div>
+<div class="cap"><span class="k">B</span><span class="n">3900×2925</span><span class="s">中央の人は 45%。引きは C にほぼ並ぶ</span></div>
 <section class="hero hero--long-title hero--narrow-photo">
   <div class="hero-grid">
     <div class="hero-copy">
@@ -58,11 +57,11 @@
       <p class="hero-lead">相談するほどでもない、と思っている違和感を、<span class="nb">自分のことばにしていく90分。</span></p>
       <div class="hero-foot"><div class="hero-foot-texts"><span class="hero-foot-ja">書いて、話して、また書く。</span></div></div>
     </div>
-    <figure class="hero-photo"><img src="images/d30_b.jpg" alt="海沿いの道を、肩を組んで並んで歩く3人"></figure>
+    <figure class="hero-photo"><img src="images/e30_b.jpg" alt="海沿いの道を、肩を組んで並んで歩く3人"></figure>
   </div>
 </section>
 
-<div class="cap"><span class="k">C</span><span class="n">4225×3169（4:3・横幅いっぱい）</span><span class="s">比率を枠に寄せた案。左右が切られにくく、いちばん引いて見える</span></div>
+<div class="cap"><span class="k">C</span><span class="n">4225×3169（横幅いっぱい）</span><span class="s">いちばん引き。中央の人は 42%（前回のC案そのもの）</span></div>
 <section class="hero hero--long-title hero--narrow-photo">
   <div class="hero-grid">
     <div class="hero-copy">
@@ -71,7 +70,7 @@
       <p class="hero-lead">相談するほどでもない、と思っている違和感を、<span class="nb">自分のことばにしていく90分。</span></p>
       <div class="hero-foot"><div class="hero-foot-texts"><span class="hero-foot-ja">書いて、話して、また書く。</span></div></div>
     </div>
-    <figure class="hero-photo"><img src="images/d30_c.jpg" alt="海沿いの道を、肩を組んで並んで歩く3人"></figure>
+    <figure class="hero-photo"><img src="images/e30_c.jpg" alt="海沿いの道を、肩を組んで並んで歩く3人"></figure>
   </div>
 </section>
 
