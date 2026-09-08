@@ -896,7 +896,10 @@
   flex-direction: column;
 }
 
-.og--photo .og-title { font-size: 46px; max-width: 14em; }
+/* max-width は指定しない。標準型の 14em（46px 換算で 644px）は、
+   このパネルの内容幅（1200×58% − 左右64px = 568px）より広く、
+   長い和文タイトルがブルーの罫を越えて写真側へはみ出す。パネルに任せる。 */
+.og--photo .og-title { font-size: 46px; max-width: none; }
 
 /* --- 可変版（編集型サムネ）のスケール調整 ----------------------- */
 @container (max-width: 760px) {
