@@ -210,6 +210,15 @@ img { display: block; max-width: 100%; }
   line-height: 1.5;
   margin-bottom: clamp(12px, 2vh, 22px);
 }
+/* 小さい行に長い和文（14文字以上が目安）が入る回に付ける。
+   既定の clamp(16px, 1.9vw, 24px) は、版面が --shell-max で頭打ちになったあとも
+   1.9vw のまま伸びるので、広い画面ほど1行に入らなくなる（1160px では収まって
+   1400px で折り返す、という逆転が起きる）。上限を 20px に下げて頭打ちを先に来させる。 */
+.hero-title .t-sm.is-long {
+  font-size: clamp(15px, 1.55vw, 20px);
+  letter-spacing: 0.18em;
+}
+
 .hero-title .t-lg {
   display: block;
   font-size: clamp(38px, 4.8vw, 66px);
