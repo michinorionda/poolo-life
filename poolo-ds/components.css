@@ -210,13 +210,26 @@ img { display: block; max-width: 100%; }
   line-height: 1.5;
   margin-bottom: clamp(12px, 2vh, 22px);
 }
+/* 小さい行に存在感を持たせる回に付ける。既定の 24px ＋ 字間 0.24em は
+   「ラベルの字間」で、小さいから成立している。大きくしたまま 0.24em を残すと
+   間延びして逆に弱く見えるので、級数と字間はセットで動かす。
+   大見出し（最大58px）に対して 34px ＝ 0.59。太さは 700 のまま据え置く。
+   ここを 900 まで上げると2行が競って、どちらを先に読ませたいかが決まらなくなる
+   （デザイン判断の4つの問い ④）。 */
+.hero-title .t-sm.is-strong {
+  font-size: clamp(21px, 2.6vw, 34px);
+  letter-spacing: 0.10em;
+}
+
 /* 小さい行に長い和文（14文字以上が目安）が入る回に付ける。
    既定の clamp(16px, 1.9vw, 24px) は、版面が --shell-max で頭打ちになったあとも
    1.9vw のまま伸びるので、広い画面ほど1行に入らなくなる（1160px では収まって
-   1400px で折り返す、という逆転が起きる）。上限を 20px に下げて頭打ちを先に来させる。 */
+   1400px で折り返す、という逆転が起きる）。上限で頭打ちを先に来させる。
+   字間を 0.10em に締めたぶん、既定と同じ 24px まで戻しても1行に収まる
+   （長い行では、級数より字間のほうが効く）。 */
 .hero-title .t-sm.is-long {
-  font-size: clamp(15px, 1.55vw, 20px);
-  letter-spacing: 0.18em;
+  font-size: clamp(17px, 1.85vw, 24px);
+  letter-spacing: 0.10em;
 }
 
 .hero-title .t-lg {
