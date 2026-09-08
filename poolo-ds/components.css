@@ -226,6 +226,12 @@ img { display: block; max-width: 100%; }
   letter-spacing: 0.04em;
   line-height: 1.34;
 }
+/* 大きい行に長い和文（.hero--long-title でも収まらない 8文字以上が目安）が
+   入る回に付ける。t-lg は .nb で折り返しを止めることが多く、収まらないと
+   版面の右padding を越えて写真に接する（切れないので気づきにくい）。
+   1400px で「見つけにいく90分」が写真の罫に届いたため追加した。 */
+.hero-title .t-lg.is-long { font-size: clamp(30px, 3.9vw, 48px); }
+
 .hero-title .t-lg .em { color: var(--brand); }
 
 /* 見出しの中の数字を欧文で起こす。「30代」「90分」のように、和文の見出しに
