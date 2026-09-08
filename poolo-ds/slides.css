@@ -751,6 +751,11 @@
    型は .og--* で切り替える。スライドと同じ思想（主役はひとつ）で組む。
    ============================================================= */
 
+/* .kv と同じ理由で、ここで box-sizing を持たせる。ページ側の reset に依存しない。
+   持たせないと width:1200px が内容幅になり、左右パディング 72px ぶん外へ膨らんで
+   1344×754 で書き出される（「等倍で 1200×630」が成り立たなくなる）。 */
+.og-wrap, .og-wrap * { box-sizing: border-box; }
+
 .og-wrap {
   --og-w: 1200px;
   --og-h: 630px;
@@ -860,7 +865,10 @@
 .og--brand .og-sub,
 .og--brand .og-foot { color: var(--on-brand-88); }
 .og--brand .og-foot .og-tag { color: var(--on-brand); }
-.og--brand em, .og--brand .mark {
+/* ブルー面の強調は白い罫。セレクタを .og-wrap.og--brand で始めているのは、
+   下の汎用 .og-wrap em（淡ブルーのマーカー）と詳細度を並べると後勝ちで負け、
+   ブルー地に白いベタ帯が出てしまうため。 */
+.og-wrap.og--brand em, .og-wrap.og--brand .mark {
   font-style: normal;
   background: none;
   border-bottom: 3px solid var(--on-brand-75);
