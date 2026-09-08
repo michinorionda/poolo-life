@@ -219,6 +219,21 @@ img { display: block; max-width: 100%; }
 }
 .hero-title .t-lg .em { color: var(--brand); }
 
+/* 見出しの中の数字を欧文で起こす。「30代」「90分」のように、和文の見出しに
+   数字が食い込む回で使う。明朝の和文に Jost が差さって直交し、数字が図として立つ。
+   BRAND.md の「欧文・数字は Jost」「級数コントラスト」をそのまま見出しに持ち込んだもの。
+   色は足さない。ブルーは .em ひとつに任せて、ここは書体と級数だけで差をつける
+   （同じ行に色が2つ入ると、どちらが主役か決まらなくなる）。
+   line-height: 1 は、1.16em に上げたぶんで行送りが膨らむのを止めるため。 */
+.hero-title .num {
+  font-family: var(--en);
+  font-weight: 600;
+  font-size: 1.16em;
+  letter-spacing: 0.01em;
+  line-height: 1;
+  margin-inline: 0.06em;                /* 和文と欧文のあいだの四分アキ */
+}
+
 .hero-lead {
   margin-top: clamp(24px, 4vh, 40px);
   font-size: 13px;
