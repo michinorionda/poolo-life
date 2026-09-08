@@ -67,6 +67,10 @@
   .gst-name, .gst-role, .gst-bio { word-break:auto-phrase; text-wrap:pretty; }
   @media (max-width:760px) { .ex-grid { grid-template-columns:1fr; } }
 
+  /* ヒーローのタイトルを1行に収める。DSの .hero--long-title は 58px 上限だが、
+     「学びの場を創る。」8文字はこの版面だと 1px 足りずに折り返す。 */
+  @media (min-width: 861px) { .hero--long-title .hero-title .t-lg { font-size: clamp(34px, 4.1vw, 54px); } }
+
   /* ===== ゲスト講師（.gst） ===== */
   .gst-list { display:grid; gap:clamp(32px,5vh,52px); margin-top:clamp(24px,4vh,38px); }
   .gst { display:grid; grid-template-columns:clamp(176px,21vw,236px) minmax(0,1fr); gap:clamp(22px,3vw,38px); align-items:start; border-top:1px solid var(--line); padding-top:clamp(26px,3.6vh,36px); }
@@ -212,9 +216,9 @@
 <main id="top">
 
   <!-- ===== HERO ===== -->
-  <section class="hero">
+  <section class="hero hero--long-title">
     <div class="hero-grid">
-      <div class="hero-copy" style="padding-left:clamp(22px,5.4vw,48px);padding-right:clamp(22px,4vw,48px);">
+      <div class="hero-copy">
         <div class="hero-eyebrow">
           <span class="hero-eyebrow-rule" aria-hidden="true"></span>
           <span class="hero-eyebrow-ja">学びの場を創る人になる</span>
