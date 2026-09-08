@@ -104,6 +104,14 @@ figcaption b{color:var(--ink-72)}
   font-size:.78rem;line-height:2;color:var(--ink-40);max-width:41em}
 
 .ladder-note{font-size:.8rem;color:var(--ink-40);margin:1rem 0 0;max-width:41em}
+.sub{font-family:var(--mincho);font-size:1.12rem;font-weight:700;letter-spacing:.05em;line-height:1.6;color:var(--ink);margin:2.6rem 0 .9rem}
+.defs{margin:1.8rem 0 0;max-width:40em;border-top:1px solid var(--ink)}
+.defs > div{display:grid;grid-template-columns:6em 1fr;gap:1rem;border-bottom:1px solid var(--line);padding:.75rem 0;align-items:baseline}
+.defs b{font-family:var(--mincho);font-size:1.02rem;letter-spacing:.05em;color:var(--ink)}
+.defs span{font-size:.92rem;color:var(--ink)}
+.defs > div.sum b,.defs > div.sum span{color:var(--brand-deep)}
+.tbl td.k{white-space:nowrap}
+@media (max-width:640px){ .defs > div{grid-template-columns:5em 1fr;gap:.6rem} }
 .dl{margin:2rem 0 0;max-width:44em}
 .dl dt{font-family:var(--mincho);font-size:1.12rem;font-weight:700;letter-spacing:.05em;
   border-top:1px solid var(--ink);padding-top:1rem;margin:1.8rem 0 .7rem}
@@ -160,18 +168,18 @@ figcaption b{color:var(--ink-72)}
 <div class="bar"><div class="bar-in">
   <span class="bar-mark">POOLO</span>
   <nav class="bar-nav">
-    <a href="#map">全体</a><a href="#rich">豊かさ</a><a href="#tankyu">探究</a><a href="#question">問い</a><a href="#theme">探究テーマ</a><a href="#three">三つの語</a><a href="#deepen">どう深まるか</a><a href="#cases">4つの例</a><a href="#grain">入口と粒度</a>
+    <a href="#map">全体</a><a href="#rich">豊かさ</a><a href="#tankyu">探究</a><a href="#question">問い</a><a href="#theme">探究テーマ</a><a href="#three">三つの語</a><a href="#deepen">どう深まるか</a><a href="#cases">4つの例</a><a href="#grain">入口と粒度</a><a href="#why">なぜ旅か</a>
   </nav>
 </div></div>
 
 <div class="shell">
 
 <header class="head">
-  <p class="eyebrow">用語の整理 ／ 2026-09-07</p>
+  <p class="eyebrow">用語の整理 ／ 2026-09-08</p>
   <h1>POOLOで使われる概念たち</h1>
   <p class="lede">上から順に、<strong>4段</strong>で並べたものです。いちばん上に豊かさがあり、いちばん下に対象があります。<strong>下から読むと、なぜ豊かさになるのかが1本でつながります。</strong></p>
-  <p class="lede" style="margin-top:1.2rem"><strong>初めての方へ。</strong>00の図だけで、全体の形は分かります。<strong>02に「やり方」（六手）をまとめました。</strong>あとから出てくる 手4・現場当て・Lv.3 は、すべてそこに書いてあります。03から06が用語、07と08が実例と応用です。</p>
-  <p class="src">出典：[[人生の豊かさ_F=G×H]]／[[探究テーマ]]（用語の正本・v1.7）／[[POOLO_METHOD_探究編_v1]]（v1.7）。<strong>この資料には未決の論点を入れていません。</strong>決まっているものだけです。論点のほうは<a href="https://claude.ai/code/artifact/bfdd7062-8f9c-4f52-a1f5-27ae613565e3">概念図「探究と旅と豊かさ」</a>の06にまとめてあります。</p>
+  <p class="lede" style="margin-top:1.2rem"><strong>初めての方へ。</strong>00の図だけで、全体の形は分かります。<strong>02に「やり方」（六手）をまとめました。</strong>あとから出てくる 手4・現場当て・Lv.3 は、すべてそこに書いてあります。03から06が用語、07と08が実例と応用、<strong>09が「なぜ旅で、どの豊かさか」</strong>です。</p>
+  <p class="src">出典：[[人生の豊かさ_F=G×H]]／[[探究テーマ]]（用語の正本・v1.7）／[[POOLO_METHOD_探究編_v1]]（v1.7）。<strong>この資料には未決の論点を入れていません。</strong>決まっているものだけです。論点のほうは<a href="https://claude.ai/code/artifact/bfdd7062-8f9c-4f52-a1f5-27ae613565e3">概念図「探究と旅と豊かさ」</a>の06にまとめてあります。<br>同じ語を一本の矢印の上に置き直した別案が<a href="poolo-words-map-260908.html">「一本の矢印」</a>にあります。</p>
 </header>
 
 <section id="map">
@@ -248,6 +256,18 @@ figcaption b{color:var(--ink-72)}
     <p>掛け算にしてあるのは、<strong>片方を伸ばしたときの伸び方が、もう片方の大きさで決まる</strong>からです。誰にも当てないまま納得だけを深めても、豊かさはあまり増えません。</p>
     <p><strong>そして豊かさは、到達して終わる点ではありません。</strong>大きくなったり、小さくなったりします。だから「達成したか」ではなく「広がりつづけているか」で見ます。</p>
   </div>
+
+  <dl class="dl">
+    <dt>納得</dt>
+    <dd class="def">自分で決めた、という実感。</dd>
+    <dd>判断の基準が自分にあること。<b>自分に照らして決めた</b>という感覚で、外の基準（評価・相場・べき）で決めたときには立ちません。ひとりでも育ちます。読む、記録する、問いを立て直す。ただし、自分で出した答えは本人には納得に見えるので、本物かどうかは下の見分け方で確かめます。</dd>
+    <dt>つながり</dt>
+    <dd class="def">返事が返ってきた、という実感。</dd>
+    <dd><b>自分の問いが誰かに届いて、その人から返事が返ってきた線</b>のことで、知り合いの数とは別です。線は輪郭をまたいでいて、半分は相手の側にあります。だから、ひとりでは生まれません。返事は「わかる」でなくてよく、むしろ<b>ずれた返事のほうが線として太い</b>。</dd>
+    <dt>豊かさ</dt>
+    <dd class="def">自分で決めたことに、返事が返ってきた、という実感。</dd>
+    <dd>上のふたつを重ねただけです。<b>前半だけ</b>だと、自分で決めたが誰にも届いていない。<b>後半だけ</b>だと、返事はあるが自分で決めていない。両方そろった瞬間にだけ立ち、貯まりません。だから、いつからでも立ち上がります。</dd>
+  </dl>
 
   <figure>
     <svg viewBox="0 0 760 372" role="img" aria-label="見出しは、豊かさは納得とつながりの重なりです。破線の輪郭が自分を示し、その中に経験や知識と並んで内的な納得の円がある。他者とのつながりの円は輪郭をまたいで外の他者に届いており、内的な納得と重なった部分だけが豊かさとして塗られている。">
@@ -344,7 +364,7 @@ figcaption b{color:var(--ink-72)}
   </figure>
 
   <div class="col">
-    <p>卒業制作105本を語り方で分類すると、<strong>重なりで語れていた人は43%でした。</strong>34%は左の余り（納得はあるが、届いていない）、23%は右の余り（届いているが、納得がない）。<strong>合わせて57%が、まだ重なりの外にいます。</strong>分類はキーワードによる目安で、因果までは言えません。</p>
+    <p>卒業制作105本を語り方で分類すると、<strong>重なりで語れていた人は43%でした。</strong>34%は左の余り（自分で決めたが、返事が返っていない）、23%は右の余り（返事はあるが、自分で決めていない）。<strong>合わせて57%が、まだ重なりの外にいます。</strong>分類はキーワードによる目安で、因果までは言えません。</p>
   </div>
 
   <p class="fig-tag"><b>Gの見分け方</b>　／　「納得しているつもり」と「納得している」の差</p>
@@ -815,7 +835,7 @@ figcaption b{color:var(--ink-72)}
     <div><h4>賭かっている</h4><p>「なぜ私は、若者に旅を勧めつづけているのか」<br><span style="opacity:.6">答え次第で、<b>いまの仕事の意味が変わる</b>。引き返せない。</span></p></div>
   </div>
 
-  <div class="warn"><b>ただし、賭かっている＝深刻・重い、ではありません。</b>楽しい問いでも賭かっていることはあります。賭けの対象は感情の重さではなく、<b>答えが返ってきたときに動くものがあるかどうか</b>です。「なぜ私は、整っていないワインのほうを覚えているのか」は軽い問いに見えますが、答え次第で店の選び方も、人の見方も変わります。<b>十分に賭かっています。</b></div>
+  <div class="warn"><b>ただし、賭かっている＝深刻・重い、ではありません。</b>楽しい問いでも賭かっていることはあります。賭けの対象は感情の重さではなく、<b>答えが返ってきたときに動くものがあるかどうか</b>です。「なぜ私は、予定が飛んだ日の食堂のことばかり覚えているのか」は軽い問いに見えますが、答え次第で旅の組み方も、人との話し方も変わります。<b>十分に賭かっています。</b></div>
 
   <div class="col">
     <p><strong>形は疑問文です。</strong>叙述文（「私は◯◯な人間だ」）は問いではありません。品詞が違うと、そのあとの動きが変わります。叙述文は確定して閉じ、疑問文は開いたまま残ります。</p>
@@ -931,7 +951,7 @@ figcaption b{color:var(--ink-72)}
   </dl>
 
   <figure>
-    <svg viewBox="0 0 860 250" role="img" aria-label="対象の掘り方は2方向。中へ掘ると詳しくなるが当てる相手が現れない。人へ掘ると人に当たり、旅の行き先が決まる。">
+    <svg viewBox="0 0 860 250" role="img" aria-label="対象の掘り方は2方向。中へ掘ると詳しくなるが当てる相手が現れない。人へ掘ると人に当たり、行き先が決まる。">
       <defs>
         <marker id="m4" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
           <path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor"/>
@@ -941,20 +961,20 @@ figcaption b{color:var(--ink-72)}
         </marker>
       </defs>
       <rect x="60" y="100" width="156" height="60" rx="2" fill="none" stroke="currentColor" stroke-width="1.5"/>
-      <text x="138" y="136" text-anchor="middle" font-size="13" font-weight="700" fill="currentColor">ワインが好き</text>
+      <text x="138" y="136" text-anchor="middle" font-size="13" font-weight="700" fill="currentColor">旅が好き</text>
 
       <line x1="222" y1="130" x2="300" y2="130" stroke="currentColor" stroke-width="1.5"/>
       <path d="M 300 130 L 300 88 L 404 88" fill="none" stroke="currentColor" stroke-width="1.5" marker-end="url(#m4)"/>
       <text x="312" y="78" font-size="11.5" font-weight="700" fill="currentColor" opacity=".7">中へ</text>
       <rect x="420" y="60" width="400" height="56" rx="2" fill="none" stroke="currentColor" stroke-width="1.5"/>
-      <text x="620" y="94" text-anchor="middle" font-size="12.5" fill="currentColor">品種・土壌・醸造法へ</text>
+      <text x="620" y="94" text-anchor="middle" font-size="12.5" fill="currentColor">行き先・宿・安い時期へ</text>
       <text x="620" y="132" text-anchor="middle" font-size="11" fill="currentColor" opacity=".55">詳しくなる。当てる相手は現れない</text>
 
       <path d="M 300 130 L 300 172 L 404 172" fill="none" stroke="#189BBC" stroke-width="2.5" marker-end="url(#m4b)"/>
       <text x="312" y="192" font-size="11.5" font-weight="700" fill="#189BBC">人へ</text>
       <rect x="420" y="144" width="400" height="56" rx="2" fill="none" stroke="#189BBC" stroke-width="1.8"/>
-      <text x="620" y="178" text-anchor="middle" font-size="12.5" font-weight="700" fill="#189BBC">誰が作り、なぜやめないのかへ</text>
-      <text x="620" y="220" text-anchor="middle" font-size="11" font-weight="700" fill="#189BBC">人に当たる。旅の行き先が決まる</text>
+      <text x="620" y="178" text-anchor="middle" font-size="12.5" font-weight="700" fill="#189BBC">あの宿は、なぜ客を相席にするのかへ</text>
+      <text x="620" y="220" text-anchor="middle" font-size="11" font-weight="700" fill="#189BBC">人に当たる。もう一度行く先が決まる</text>
     </svg>
     <figcaption><b>「詳しくなる」と「探究する」の違いは、掘る深さではなく掘る方向です。</b>中へだけ掘るのはマニアで、それ自体は豊かなことですが、Hがゼロのまま止まります。<b>ただし、中へ掘るのが悪いわけではありません。</b>問題は比率と順番です。以下に詳しく書きます。</figcaption>
   </figure>
@@ -992,7 +1012,7 @@ figcaption b{color:var(--ink-72)}
     <figcaption><b>上の道は、進んでいる実感が絶えず返ってきます。下の道は、まず失う。</b>当てた直後に問いが壊れ、そこから2週間は何も起きません。<b>放っておけば、誰でも上を選びます。</b>これは意志の弱さではなく、報酬の出方がまるで違うということです。</figcaption>
   </figure>
 
-  <div class="warn"><b>中へ掘るのは、無駄ではありません。</b>むしろ<b>中へ掘った分だけ、人へ掘ったときに聞けることが増えます。</b>品種をまったく知らない人は、造り手に会っても「おいしいですね」しか言えない。<b>知識は、人に当たるための語彙です。</b>問題は「中へ掘ること」ではなく、<b>中へだけ掘って、そこで完結してしまうこと</b>です。比率と順番の話であって、禁止ではありません。</div>
+  <div class="warn"><b>中へ掘るのは、無駄ではありません。</b>むしろ<b>中へ掘った分だけ、人へ掘ったときに聞けることが増えます。</b>土地のことをまったく知らない人は、宿のおかみさんに会っても「いい宿ですね」しか言えない。<b>知識は、人に当たるための語彙です。</b>問題は「中へ掘ること」ではなく、<b>中へだけ掘って、そこで完結してしまうこと</b>です。比率と順番の話であって、禁止ではありません。</div>
 
   <div class="col">
     <p>他の対象でも、同じ2方向が引けます。<strong>右の列は、どれも調べても出てきません。</strong>その人に聞くしかない。</p>
@@ -1002,7 +1022,7 @@ figcaption b{color:var(--ink-72)}
   <table class="tbl">
     <thead><tr><th>対象</th><th>中へ掘る（詳しくなる）</th><th>人へ掘る（人に当たる）</th></tr></thead>
     <tbody>
-      <tr><td class="q">ワイン</td><td>品種・土壌・醸造法</td><td>なぜこの造り手は、売れない品種をやめないのか</td></tr>
+      <tr><td class="q">旅</td><td>行き先・宿・安い時期</td><td>なぜあの宿のおかみさんは、客を相席にするのか</td></tr>
       <tr><td class="q">コーヒー</td><td>焙煎度・抽出比率・産地</td><td>なぜあの店主は、毎朝同じ一杯を試飲してから店を開けるのか</td></tr>
       <tr><td class="q">建築</td><td>構法・意匠史・法規</td><td>なぜこの家の住人は、設計者の意図と違う使い方をしているのか</td></tr>
       <tr><td class="q">山</td><td>地形・植生・ルート</td><td>なぜあの人は、20年おなじ登山道を整備しつづけているのか</td></tr>
@@ -1032,16 +1052,16 @@ figcaption b{color:var(--ink-72)}
   <figcaption style="margin-left:0"><b>2つ目がいちばん速い判定だと思います。</b>その問いを検索して答えが出るなら、それは中へ掘る問いです。<b>探究の問いは、検索では終わりません</b>。書いてある場所がまだ無いからです。3つ目は、良い問いの4条件でいう「半分だけ伝わるか」を、そのまま口に出して試したものです。</figcaption>
 
   <div class="pair">
-    <div><h4>✕ 対象の中で閉じる問い</h4><p>「良いワインとは何か」<br><span style="opacity:.6">定義型。会いに行く相手が決まらない。</span></p></div>
-    <div><h4>△ 相手だけを問う＝取材</h4><p>「なぜこの造り手は、売れない品種をやめないのか」<br><span style="opacity:.6">人には当たるが、自分が入っていない。</span></p></div>
-    <div><h4>○ 自分が入る＝探究</h4><p>「なぜ私は、売れない品種を作りつづける人にばかり惹かれるのか」<br><span style="opacity:.6">賭かっている。会いに行ける。</span></p></div>
+    <div><h4>✕ 対象の中で閉じる問い</h4><p>「良い旅とは何か」<br><span style="opacity:.6">定義型。会いに行く相手が決まらない。</span></p></div>
+    <div><h4>△ 相手だけを問う＝取材</h4><p>「なぜあの宿のおかみさんは、客を相席にするのか」<br><span style="opacity:.6">人には当たるが、自分が入っていない。</span></p></div>
+    <div><h4>○ 自分が入る＝探究</h4><p>「なぜ私は、予定が飛んだ日の食堂のことばかり覚えているのか」<br><span style="opacity:.6">賭かっている。会いに行ける。</span></p></div>
   </div>
 
   <dl class="dl">
     <dt>社会</dt>
     <dd class="def">自分の問いが届いた人の集まり。問いはここへ出ていく。</dd>
     <dd>対象の向こうにある固定の場所ではなく、探究が進むと広がる<b>変数</b>です。<b>「範囲」ではなく「人」。</b>場所ではないので地図に描けません。描けるのは、誰に届いたかだけ。</dd>
-    <dd><b>広がるとは、対象の外へ出ることです。</b>最初は対象の中の人に届き（同じワインをやっている人）、進むと対象の外の人に届く（ワインを知らない人が「その話、自分にも関係ある」と言う）。だから<b>Lv.3「知らない人に届ける」が全員の必修ライン</b>に置かれています。良い問いの条件<b>「半分だけ伝わるか」</b>は、これの言い換えです。</dd>
+    <dd><b>広がるとは、対象の外へ出ることです。</b>最初は対象の中の人に届き（同じように旅をしている人）、進むと対象の外の人に届く（旅をしない人が「その話、自分にも関係ある」と言う）。だから<b>Lv.3「知らない人に届ける」が全員の必修ライン</b>に置かれています。良い問いの条件<b>「半分だけ伝わるか」</b>は、これの言い換えです。</dd>
   </dl>
 
   <figure>
@@ -1075,7 +1095,7 @@ figcaption b{color:var(--ink-72)}
   <div class="warn"><b>⚠️「仕事になるか」で対象を選ばない。</b>やった瞬間、市場という外の基準で問いを選ぶことになり、また片道で止まります。今度は自分の内側ではなく、市場側で。順序は必ずこちらです。<br><br><b>掘る → 人に当たる → 繰り返す → 結果として仕事の形をしていることがある。</b><br><br>書けるのは「<b>可能性がある</b>」までで、「そうなる」とは言えません。この「起こり得る」を落とさないことが、そのまま設計上のガードになります。</div>
 
   <div class="caveat">
-    <p style="margin:0"><b>三つの語は、人の分類ではありません。</b>ワインの造り手は、<b>見る対象</b>でもあり、<b>当てる他者</b>でもあり、差し出した先の<b>社会</b>でもあります。同じ人が、こちらの向き方で役割を変える。<b>役割の名前だと思ってください。</b></p>
+    <p style="margin:0"><b>三つの語は、人の分類ではありません。</b>宿のおかみさんは、<b>見る対象</b>でもあり、<b>当てる他者</b>でもあり、差し出した先の<b>社会</b>でもあります。同じ人が、こちらの向き方で役割を変える。<b>役割の名前だと思ってください。</b></p>
   </div>
 </section>
 
@@ -1087,55 +1107,55 @@ figcaption b{color:var(--ink-72)}
   </div>
 
   <div class="col">
-    <p><strong>入口は「ワインの味が好き」。</strong>これは対象であって、まだ問いではありません。ここから始めます。</p>
+    <p><strong>入口は「旅が好き」。</strong>理由を聞かれれば「人と話せるから」と答えていました。これは対象であって、まだ問いではありません。ここから始めます。</p>
   </div>
 
   <div class="tl">
     <div class="tl-step">
       <span class="tl-v">0周目 ／ 手1-3　溜める・拾う・立てる</span>
-      <p class="tl-q">なぜ私は、去年あの店で飲んだ、整っていないほうのワインを覚えているのか？</p>
-      <p class="tl-e">違和感はこうでした。<strong>整っているワインのほうが良いはずなのに、記憶に残ったのは明らかに整っていないほう。</strong>この「はずなのに」が違和感です。<br>
-      型は<strong>「なぜ私は〜なのか」</strong>（原因型）。<b>作法</b>場面（あの店）と時期（去年）を入れています。抽象から降りるための梯子です。</p>
+      <p class="tl-q">なぜ私は、去年の秋の高知で、雨で予定が飛んだ日の食堂のことばかり覚えているのか？</p>
+      <p class="tl-e">違和感はこうでした。<strong>予定どおりに回れた日のほうが良い旅のはずなのに、記憶に残ったのは、予定が全部飛んで宿の食堂で相席の漁師と2時間話した日。</strong>この「はずなのに」が違和感です。<br>
+      型は<strong>「なぜ私は〜なのか」</strong>（原因型）。<b>作法</b>場面（宿の食堂）と時期（去年の秋）を入れています。抽象から降りるための梯子です。</p>
     </div>
 
     <div class="tl-step">
       <span class="tl-v">1周目 ／ 手4　現場当て</span>
-      <p class="tl-e"><b>誰に</b>その店の店主に会いに行く。<strong>問いが決まったので、行き先が決まりました。</strong><br>
-      <span class="tl-r">「あれ、造り手が畑を変えた年のやつ。本人は失敗作だって言ってるよ」</span>
-      壊れたのではなく、<strong>ずれが見つかった</strong>。味を見ていたつもりで、実は<strong>事情</strong>を見ていた。</p>
+      <p class="tl-e"><b>誰に</b>その宿にもう一度行き、おかみさんに聞く。<strong>問いが決まったので、行き先が決まりました。</strong><br>
+      <span class="tl-r">「あんた、あの日だけ時計を見なかったね。ほかの日は、ずっと次の予定の話だった」</span>
+      壊れたのではなく、<strong>ずれが見つかった</strong>。人と話したことを喜んでいたつもりで、実は<strong>「次」を手放した時間</strong>を喜んでいた。</p>
       <span class="tl-v" style="margin-top:1.1rem">v1.1</span>
-      <p class="tl-q">私が惹かれているのは、味ではなく「事情が見えること」なのか？</p>
+      <p class="tl-q">私が旅で喜んでいるのは、対話なのか、「次」を手放した時間なのか？</p>
     </div>
 
     <div class="tl-step">
       <span class="tl-v">2周目 ／ 手4　ズラし当て　＋　手5　差し出す</span>
-      <p class="tl-e"><b>誰に</b>ワインを飲まない友人。その問いを持っていない人です。<br>
-      <span class="tl-r">「それ、ワインじゃなくてもよくない？ 私も、完璧なプレゼンより手書きの企画書のほうを覚えてる」</span>
-      <strong>対象の外に届きました。</strong>ワインを知らない人に半分だけ伝わった、ということです。<br>
-      <b>手5</b>「事情が見えるもの」についてZINEを作り、知らない人に配る（<strong>Lv.3</strong>）。</p>
+      <p class="tl-e"><b>誰に</b>旅をしない同僚。その問いを持っていない人です。<br>
+      <span class="tl-r">「それ、旅じゃなくてもよくない？ 私は子どもが寝たあとの台所がそれ」</span>
+      <strong>対象の外に届きました。</strong>旅をしない人に半分だけ伝わった、ということです。<br>
+      <b>手5</b>「次」を手放した時間についてZINEを作り、知らない人に配る（<strong>Lv.3</strong>）。</p>
       <span class="tl-v" style="margin-top:1.1rem">v1.2</span>
-      <p class="tl-q">なぜ私は、作り手の迷いが残っているものにしか、心が動かないのか？</p>
+      <p class="tl-q">なぜ私は、「次」を考えていないときにしか、目の前の人の話が入ってこないのか？</p>
     </div>
 
     <div class="tl-step">
       <span class="tl-v">3周目 ／ 手4　反証当て　＋　手5　続ける</span>
-      <p class="tl-e"><b>誰に</b>役割として否定を頼む。「それ、ただの不完全さフェチでは？」<br>
-      <span class="tl-r">言われて分かった。<strong>不完全なだけのものには動かない。「迷った跡」があるものにだけ動く。</strong></span>
-      <b>手5</b>月1で「迷いが残っているもの」を持ち寄る会を始める（<strong>Lv.4 関係を紡ぐ</strong>）。</p>
+      <p class="tl-e"><b>誰に</b>役割として否定を頼む。「それ、ただ予定に追われているだけでは？ 休めば済む話」<br>
+      <span class="tl-r">言われて分かった。<strong>休んでいるだけの日には起きない。「次」を手放したうえで、目の前に人がいる時間にだけ起きる。</strong></span>
+      <b>手5</b>月1で、予定を決めずに集まる食事の会を始める（<strong>Lv.4 関係を紡ぐ</strong>）。</p>
       <span class="tl-v" style="margin-top:1.1rem">v1.3</span>
-      <p class="tl-q">迷いの跡は、どうすれば残せるのか？</p>
+      <p class="tl-q">「次」を考えない時間は、どうすれば自分で作れるのか？</p>
       <p class="tl-e"><strong>型が変わりました。</strong>「なぜ私は」（原因型）から「どうすれば」（方法型）へ。自分の正体を問う段階が終わって、作る段階に入っています。</p>
     </div>
 
     <div class="tl-step">
       <span class="tl-v">その先 ／ 結果であって、目的ではない</span>
-      <p class="tl-e">会が続くうちに、参加者が「うちの商品の話も聞いてほしい」と言い出す。対価が発生する。<strong>仕事の形をしています。</strong><br>
-      <strong>ただし、ここを目指して対象を選んだわけではありません。</strong>ワインを選んだ時点では、こうなる可能性は見えていない。順序は最後まで「掘る → 人に当たる → 繰り返す」でした。</p>
+      <p class="tl-e">会が続くうちに、参加者が「うちの部署の合宿でもやってほしい」と言い出す。対価が発生する。<strong>仕事の形をしています。</strong><br>
+      <strong>ただし、ここを目指して対象を選んだわけではありません。</strong>高知に行った時点では、こうなる可能性は見えていない。順序は最後まで「掘る → 人に当たる → 繰り返す」でした。</p>
     </div>
   </div>
 
   <figure>
-    <svg viewBox="0 0 860 230" role="img" aria-label="書き換わるほど問いの対象は広がる。ワインから、事情が見えるもの、迷いの跡があるもの、迷いの跡の残し方へ。">
+    <svg viewBox="0 0 860 230" role="img" aria-label="書き換わるほど問いの対象は広がる。高知の旅から、次を手放した時間、目の前の人の話が入る時間、次を考えない時間の作り方へ。">
       <defs>
         <marker id="m6" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
           <path d="M 0 0 L 10 5 L 0 10 z" fill="#189BBC"/>
@@ -1143,29 +1163,29 @@ figcaption b{color:var(--ink-72)}
       </defs>
       <circle cx="110" cy="100" r="26" fill="none" stroke="#189BBC" stroke-width="1.5" opacity=".45"/>
       <text x="110" y="105" text-anchor="middle" font-size="11" font-weight="700" fill="#189BBC">v1.0</text>
-      <text x="110" y="196" text-anchor="middle" font-size="11.5" fill="currentColor">ワイン</text>
+      <text x="110" y="196" text-anchor="middle" font-size="11.5" fill="currentColor">高知の旅</text>
 
       <line x1="146" y1="100" x2="250" y2="100" stroke="#189BBC" stroke-width="1.5" opacity=".5" marker-end="url(#m6)"/>
 
       <circle cx="300" cy="100" r="40" fill="none" stroke="#189BBC" stroke-width="1.8" opacity=".6"/>
       <text x="300" y="105" text-anchor="middle" font-size="11" font-weight="700" fill="#189BBC">v1.1</text>
-      <text x="300" y="196" text-anchor="middle" font-size="11.5" fill="currentColor">事情が見えるもの</text>
+      <text x="300" y="196" text-anchor="middle" font-size="11.5" fill="currentColor">「次」を手放した時間</text>
 
       <line x1="350" y1="100" x2="444" y2="100" stroke="#189BBC" stroke-width="1.5" opacity=".5" marker-end="url(#m6)"/>
 
       <circle cx="510" cy="100" r="56" fill="none" stroke="#189BBC" stroke-width="2" opacity=".8"/>
       <text x="510" y="105" text-anchor="middle" font-size="11" font-weight="700" fill="#189BBC">v1.2</text>
-      <text x="510" y="196" text-anchor="middle" font-size="11.5" fill="currentColor">迷いの跡があるもの</text>
+      <text x="510" y="196" text-anchor="middle" font-size="11.5" fill="currentColor">目の前の人の話が入る時間</text>
 
       <line x1="576" y1="100" x2="656" y2="100" stroke="#189BBC" stroke-width="1.5" opacity=".5" marker-end="url(#m6)"/>
 
       <circle cx="740" cy="100" r="74" fill="none" stroke="#189BBC" stroke-width="2.5"/>
       <text x="740" y="105" text-anchor="middle" font-size="11" font-weight="700" fill="#189BBC">v1.3</text>
-      <text x="740" y="196" text-anchor="middle" font-size="11.5" font-weight="700" fill="#189BBC">迷いの跡の残し方</text>
+      <text x="740" y="196" text-anchor="middle" font-size="11.5" font-weight="700" fill="#189BBC">「次」を考えない時間の作り方</text>
 
       <text x="60" y="224" font-size="10.5" fill="currentColor" opacity=".5">円は、その時点の問いが誰に届きうるかの広さ。周が進むほど、届く相手が増えている。</text>
     </svg>
-    <figcaption><b>問いが具体になると、狭くなりません。むしろ外に開きます。</b>ここが直感に反するところだと思います。<b>細かくなることではなく、当たっている場所が正確になること。</b>正確になるほど、その問いは他の人にも当たるようになります。ワインの話が、手書きの企画書の話になったように。</figcaption>
+    <figcaption><b>問いが具体になると、狭くなりません。むしろ外に開きます。</b>ここが直感に反するところだと思います。<b>細かくなることではなく、当たっている場所が正確になること。</b>正確になるほど、その問いは他の人にも当たるようになります。高知の食堂の話が、台所の話になったように。</figcaption>
   </figure>
 
   <div class="col">
@@ -1176,10 +1196,10 @@ figcaption b{color:var(--ink-72)}
   <table class="tbl">
     <thead><tr><th>動く軸</th><th>v1.0</th><th>v1.3</th></tr></thead>
     <tbody>
-      <tr><td class="q">主語</td><td>ワイン（対象の話）</td><td>私 → さらに「迷いの跡」そのもの</td></tr>
+      <tr><td class="q">主語</td><td>高知の旅（対象の話）</td><td>私 → さらに「次」を考えない時間そのもの</td></tr>
       <tr><td class="q">問いの型</td><td>なぜ私は〜なのか（原因）</td><td>どうすれば〜できるか（方法）</td></tr>
-      <tr><td class="q">場面・固有名詞</td><td>要る（あの店・去年）</td><td>無くていい（もう降りているから）</td></tr>
-      <tr><td class="q">当てる相手</td><td>対象の中の人（店主）</td><td>対象の外の人／反証役</td></tr>
+      <tr><td class="q">場面・固有名詞</td><td>要る（宿の食堂・去年の秋）</td><td>無くていい（もう降りているから）</td></tr>
+      <tr><td class="q">当てる相手</td><td>対象の中の人（宿のおかみさん）</td><td>対象の外の人／反証役</td></tr>
       <tr class="is-hot"><td class="q">届いた範囲＝社会</td><td><strong>1人</strong></td><td><strong>続く場</strong>（Lv.4）</td></tr>
     </tbody>
   </table>
@@ -1204,9 +1224,9 @@ figcaption b{color:var(--ink-72)}
   </div>
 
   <div class="pair">
-    <div><h4>1｜中へ掘りつづける</h4><p>ワインの知識だけが増えていく。<strong>手4が無いので、問いが書き換わりません。</strong>詳しくはなるが、当てる相手が現れない。</p></div>
-    <div><h4>2｜共感で止まる</h4><p>ワイン好き同士で当てる。「わかる」が返ってきて、ずれが出ない。<strong>共感が返ってきたら、当たっていません。</strong>もう一段ズレた相手に当て直す。</p></div>
-    <div><h4>3｜答えを出してしまう</h4><p>v1.0の時点で「私は事情が好きなんだ」と言語化して満足する。<strong>きれいな一文にした瞬間、問いは動かなくなります。</strong>いちばん見えにくく、いちばん多い止まり方です。</p></div>
+    <div><h4>1｜中へ掘りつづける</h4><p>行き先と宿の知識だけが増えていく。<strong>手4が無いので、問いが書き換わりません。</strong>詳しくはなるが、当てる相手が現れない。</p></div>
+    <div><h4>2｜共感で止まる</h4><p>旅好き同士で当てる。「わかる」が返ってきて、ずれが出ない。<strong>共感が返ってきたら、当たっていません。</strong>もう一段ズレた相手に当て直す。</p></div>
+    <div><h4>3｜答えを出してしまう</h4><p>v1.0の時点で「私は予定のない時間が好きなんだ」と言語化して満足する。<strong>きれいな一文にした瞬間、問いは動かなくなります。</strong>いちばん見えにくく、いちばん多い止まり方です。</p></div>
   </div>
   <figcaption style="margin-left:0"><b>これは02の「三つの片道」と対応しています。</b>1が①内で折り返す、3が③言葉が返ってくる。<b>2だけは少し違って、他者は通っているのに、同質すぎて何も返ってこない形です。</b>だから当てた回数ではなく、<b>ずれが返ってきたか</b>で見ます。</figcaption>
 
@@ -1310,9 +1330,9 @@ figcaption b{color:var(--ink-72)}
       <text x="180" y="46" text-anchor="end" font-size="11.5" font-weight="700" fill="currentColor" opacity=".7">入口の語</text>
       <text x="300" y="46" font-size="11.5" font-weight="700" fill="#189BBC">v1.3 で問っていること</text>
 
-      <text x="180" y="92" text-anchor="end" font-size="13" fill="currentColor">ワイン</text>
+      <text x="180" y="92" text-anchor="end" font-size="13" fill="currentColor">高知の旅</text>
       <line x1="196" y1="87" x2="284" y2="87" stroke="#189BBC" stroke-width="1.5" opacity=".5" marker-end="url(#m10)"/>
-      <text x="300" y="92" font-size="12.5" fill="currentColor">迷いの跡は、<tspan font-weight="700" fill="#189BBC">どうすれば</tspan>残せるのか</text>
+      <text x="300" y="92" font-size="12.5" fill="currentColor">「次」を考えない時間は、<tspan font-weight="700" fill="#189BBC">どうすれば</tspan>自分で作れるのか</text>
 
       <text x="180" y="142" text-anchor="end" font-size="13" fill="currentColor">場づくり</text>
       <line x1="196" y1="137" x2="284" y2="137" stroke="#189BBC" stroke-width="1.5" opacity=".5" marker-end="url(#m10)"/>
@@ -1339,14 +1359,14 @@ figcaption b{color:var(--ink-72)}
 
   <div class="col">
     <p class="claim">5例すべてで、入口の語が<br>最後の問いから消えました。</p>
-    <p>ワインを入れて5本、作例を書いてみて、全部同じことが起きました。</p>
+    <p>06の高知を入れて5本、作例を書いてみて、全部同じことが起きました。高知と、この節の「旅」は別の人の作例です。入口が場面まで降りていたか（高知）、まだ語のままか（旅）の違いで、動きは同じでした。</p>
   </div>
 
   <div class="scroller">
   <table class="tbl">
     <thead><tr><th>入口の語</th><th>v1.3 で何を問っているか</th><th>入口の語は</th></tr></thead>
     <tbody>
-      <tr><td class="q">ワイン</td><td>迷いの跡は、どうすれば残せるのか</td><td>消えた</td></tr>
+      <tr><td class="q">高知の旅</td><td>「次」を考えない時間は、どうすれば自分で作れるのか</td><td>消えた</td></tr>
       <tr><td class="q">場づくり</td><td>意図的な「止まり」は、どうすれば設計できるのか</td><td>消えた</td></tr>
       <tr><td class="q">夢中・熱狂</td><td>熱のそばにいる役は、どうすれば成立するのか</td><td>消えた</td></tr>
       <tr><td class="q">豊かさ</td><td>聞ける相手は、どうすれば自分で作れるのか</td><td>消えた</td></tr>
@@ -1403,7 +1423,7 @@ figcaption b{color:var(--ink-72)}
 
   <div class="col">
     <p class="claim">対象が人でなくても、<br>掘れば必ず人の営みに当たる。</p>
-    <p>自然そのものは返事をしません。ワインと同じです。<strong>でも、対象には必ず「それをやっている人」がついています。</strong>05で書いた〈もの・営み〉の〈営み〉が、それです。</p>
+    <p>自然そのものは返事をしません。高知の雨と同じです。<strong>でも、対象には必ず「それをやっている人」がついています。</strong>05で書いた〈もの・営み〉の〈営み〉が、それです。</p>
     <p>宗教はもっと直接的で、<strong>ほとんど人の営みそのもの</strong>です。教義は人が書き、建物は人が建て、続けているのは人。だから宗教から入った人は、他の入口より早く人に当たります。</p>
     <p>逆に言うと、<strong>人が一人もいない対象は、探究できません。</strong>手4で当てる相手が現れないからです。ただし実際には、人が一人もいない対象はほぼありません。その山に登った誰か、その山を守っている誰か、その山について書いた誰かが、必ずいます。</p>
   </div>
@@ -1413,7 +1433,7 @@ figcaption b{color:var(--ink-72)}
     <thead><tr><th>入口の種類</th><th>そのままだと</th><th>触れられる単位に降ろすと</th><th>そこにいる人</th></tr></thead>
     <tbody>
       <tr><td class="q">人の営み</td><td>場づくり</td><td>あの日の進行</td><td>その場にいた参加者</td></tr>
-      <tr><td class="q">もの</td><td>ワイン</td><td>あの一本</td><td>造り手</td></tr>
+      <tr><td class="q">もの</td><td>コーヒー</td><td>あの店の一杯</td><td>店主</td></tr>
       <tr><td class="q">自然</td><td>山</td><td>あの登山道</td><td>道を整備している人</td></tr>
       <tr class="is-hot"><td class="q">制度・信仰</td><td>宗教</td><td>あの寺の朝の勤め</td><td>続けている人</td></tr>
     </tbody>
@@ -1447,8 +1467,100 @@ figcaption b{color:var(--ink-72)}
   </div>
 </section>
 
+<section id="why">
+  <div class="sec-head">
+    <span class="sec-no">09</span>
+    <h2>なぜ旅で、どの豊かさか</h2>
+    <p class="sec-lead">01の三行を並べ直すと、旅がその両方を一度に起こしていることが見えます。それから、世の中にある豊かさのうち、この一行が取っているものと、取っていないもの。</p>
+  </div>
+
+  <div class="defs">
+    <div><b>納得</b><span>自分で決めた、という実感</span></div>
+    <div><b>つながり</b><span>返事が返ってきた、という実感</span></div>
+    <div class="sum"><b>豊かさ</b><span>自分で決めたことに、返事が返ってきた、という実感</span></div>
+  </div>
+
+  <div class="col" style="margin-top:2rem">
+    <p>重なりというのは、二つの実感が同じ一つのことについて起きている状態です。自分で決めた問いが出ていって、その問いに返事が返ってくる。前半だけなら左の余り（34%）、後半だけなら右の余り（23%）。この実感は貯まりません。返事が返ってくるたびに、そのぶんだけ立ちます。</p>
+
+    <h3 class="sub">旅は、両方を一度に起こす</h3>
+    <p>旅先では、ふだん判断に使っている外の基準が効きません。評価も相場も、こうすべきも、自分がマイノリティになった土地には届かない。自分で決める以外にない。「旅は自己決定の連続」（2023）。しかも体が先に動くので、借り物の意味は旅先で持ちません。「体は借り物の意味を見抜くセンサー」（2026年2月、那覇）。</p>
+    <p>返事をくれるのも、旅先では知らない人です。知り合いなら問いがなくても会話は続きますが、知らない人が相手だと、渡すものがなければ「何してる人ですか」で止まる。問いを渡せる形にすることを、旅は強います。そして知らない人の返事には忖度が乗っていない。Lv.3「知らない人に届ける」が必修なのは、これが理由です。06の作例で、違和感が生まれたのも高知の食堂、当てに行った先も高知の宿でした。</p>
+    <p>二つを同時に満たす行為は、日常にはあまりありません。転職は自分で決めますが、返事は評価として返ってきます。読書は納得を育てますが、返事がない。</p>
+  </div>
+
+  <figure>
+    <svg viewBox="0 0 760 240" role="img" aria-label="上に旅。そこから二本の矢印が、自分で決めたと、返事が返ってきたの二つの箱に降りる。二つの箱が下でひとつに束ねられ、豊かさの一行になる。">
+      <defs>
+        <marker id="tr-a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M 0 0 L 10 5 L 0 10 z" fill="#189BBC"/>
+        </marker>
+      </defs>
+      <rect x="250" y="14" width="260" height="48" rx="10" fill="#189BBC" fill-opacity=".12"/>
+      <text x="380" y="35" text-anchor="middle" font-size="14" font-weight="700" fill="#189BBC">旅</text>
+      <text x="380" y="52" text-anchor="middle" font-size="9.5" fill="#127E9A">外の基準が消えて、知らない人が返事をくれる場所</text>
+
+      <path d="M 330 62 L 215 100" fill="none" stroke="#189BBC" stroke-width="1.8" marker-end="url(#tr-a)"/>
+      <path d="M 430 62 L 545 100" fill="none" stroke="#189BBC" stroke-width="1.8" marker-end="url(#tr-a)"/>
+
+      <rect x="40" y="104" width="320" height="84" rx="8" fill="#FFFFFF" stroke="currentColor" stroke-width="1.4"/>
+      <text x="200" y="130" text-anchor="middle" font-size="13.5" font-weight="700" fill="currentColor">自分で決めた</text>
+      <text x="200" y="153" text-anchor="middle" font-size="10" fill="currentColor" opacity=".7">外の基準が効かない。自分がマイノリティになる</text>
+      <text x="200" y="171" text-anchor="middle" font-size="10" fill="currentColor" opacity=".7">借り物の意味を、体が見抜く</text>
+
+      <rect x="400" y="104" width="320" height="84" rx="8" fill="#FFFFFF" stroke="#189BBC" stroke-width="1.6"/>
+      <text x="560" y="130" text-anchor="middle" font-size="13.5" font-weight="700" fill="#189BBC">返事が返ってきた</text>
+      <text x="560" y="153" text-anchor="middle" font-size="10" fill="currentColor" opacity=".7">返事をくれるのは知らない人。忖度がない</text>
+      <text x="560" y="171" text-anchor="middle" font-size="10" fill="currentColor" opacity=".7">渡すものがないと、会話が止まる</text>
+
+      <path d="M 200 188 V 206 H 560 V 188 M 380 206 V 216" fill="none" stroke="currentColor" stroke-width="1.2" opacity=".5"/>
+      <text x="380" y="232" text-anchor="middle" font-size="12" font-weight="700" fill="#127E9A">自分で決めたことに、返事が返ってきた、という実感 ＝ 豊かさ</text>
+    </svg>
+    <figcaption>左の箱は納得の側、右の箱はつながりの側です。旅は両方に矢印が伸びている、日常のなかでは珍しい行為です。</figcaption>
+  </figure>
+
+  <div class="col" style="margin-top:2.4rem">
+    <p>では学校は何をするか。旅先で自然に起きることを、旅先以外でも起こせるようにする、というのがこの図でのPOOLOの位置です。「移動しなくても越境はできる」「旅とはスタンスである」「8割の日常」。参加者は両端を一度は身体で知っている。学校はその往復を日常に持ち帰る練習の場です。「新しい旅の学校」の新しいは、旅で起きることを日常で起こす学校、と読めます。これは私の読みで、正本にはない言い方です。</p>
+
+    <h3 class="sub">豊かさのうち、どれを取っているか</h3>
+    <p>豊かさの言い方は、17年のあいだにも動いています。感情（2011）、生産・回す（2019）、自己決定（2022）、F＝G×H（2023〜）。世の中の言い方はもっと多い。上の一行に照らすと、入るものと入らないものが分かれます。</p>
+  </div>
+
+  <div class="scroller">
+  <table class="tbl">
+    <thead><tr><th>豊かさの種類</th><th>一行に入るか</th><th>どう扱っているか</th></tr></thead>
+    <tbody>
+      <tr><td class="q">経済（年収・資産）</td><td class="k">入らない</td><td>年収との相関は800万で頭打ち、その先は「創る行為」。POOLOは扱わない</td></tr>
+      <tr><td class="q">達成（到達点・肩書）</td><td class="k">入らない</td><td>面積で見る。到達して終わる点がない。貯まらない</td></tr>
+      <tr><td class="q">所属（仲間がいる安心）</td><td class="k">入らない</td><td>問いが通っていない関係は数に入らない</td></tr>
+      <tr><td class="q">身体（南国的、「ああ生きている」）</td><td class="k">直接は入らない</td><td>ただし「実感」は体で感じるもの。借り物を見抜く側にいる</td></tr>
+      <tr><td class="q">意味（北欧的、「これでいい」）</td><td class="k">前半に入る</td><td>「自分で決めた」＝納得</td></tr>
+      <tr><td class="q">関係（誰かに届いた）</td><td class="k">後半に入る</td><td>「返事が返ってきた」＝つながり</td></tr>
+      <tr><td class="q">貢献・利他</td><td class="k">半分入る</td><td>問いを差し出す（手5）が入口。「純粋な自己中心的利他」</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="col" style="margin-top:2rem">
+    <p>取っているのは、意味と関係が一本の問いで重なったものです。2026年2月の那覇の言い方に戻すと、北欧的な豊かさ（これでいい）を、南国的な体（ああ生きている）で確かめたもの。「体が動くことと、意味に納得できること。その二つが重なったとき、人は自然に前に進める」と「納得とつながりの重なり」は、同じ形をしています。</p>
+
+    <h3 class="sub">この一つを取る理由</h3>
+    <p>今日から立てられます。経済も達成も年数がかかり、所属には運が混じる。この豊かさは、今日1周まわせば、今日のぶんは立つ。</p>
+    <p>ひとりでは自己完結できません。納得だけなら本と日記で育ちますが、返事は相手がいないと返ってこない。学校がやることは、ここに集まります。返事が返ってくる場所を用意すること。知らない人に当てる練習をさせること。</p>
+    <p>目的にしなくて済みます。「幸福を目的にすることへの嫌悪」「温泉的豊かさくらいの温度感がいい」（2025年5月）。問いを一人に当てて帰ってくるのを繰り返していれば、結果として重なりが広がる。豊かさが禁句リストに入っているのと、この構えは一貫しています。</p>
+  </div>
+
+  <div class="col" style="margin-top:2.4rem">
+    <p class="claim">学校がやるのは、返事が返ってくる場所を用意すること。<br>知らない人に当てる練習を、させること。</p>
+  </div>
+
+  <div class="caveat">
+    <p style="margin:0"><b>ひとつ引っかかっているところがあります。</b>所属を数に入れないのは、POOLOがコミュニティである以上、外から見ると矛盾に見えます。「仲間ができる」を掲げていて、一行ではそれを豊かさと呼ばない。順番の話として読めば通ります。<b>仲間は返事をくれる相手（Lv.2）として先にいて、その仲間に問いを当てたときに初めて数に入る。</b>運営の側で置いてある「3つの自己矛盾」の整理と、この言い方を揃えておきたいところです。</p>
+  </div>
+</section>
+
 <div class="foot">
-  作成 2026-08-28／改稿 2026-09-02（01を「重なり」で組み直し、02に探究の主図と「止まる」の説明を追加）／改稿 2026-09-07（表題を変更。「点検」「版」の言い方を「見分ける」「書き換わる」に差し替え）。出典：人生の豊かさ_F=G×H／探究テーマ（用語の正本・v1.7）／POOLO_METHOD_探究編 v1.7。<br>
+  作成 2026-08-28／改稿 2026-09-02（01を「重なり」で組み直し、02に探究の主図と「止まる」の説明を追加）／改稿 2026-09-07（表題を変更。「点検」「版」の言い方を「見分ける」「書き換わる」に差し替え）。／改稿 2026-09-08（01に納得・つながり・豊かさの一行ずつを追加。05〜08の作例をワインから高知の旅に差し替え。09「なぜ旅で、どの豊かさか」を追加）。出典：人生の豊かさ_F=G×H／探究テーマ（用語の正本・v1.7）／POOLO_METHOD_探究編 v1.7。<br>
   数字は卒業制作105本の語り方の分類（GxH 43%／G単独 34%／H単独 23%）。分類はキーワードマッチによる目安で、因果は言えません。<br>
   <b>この資料には未決の論点を入れていません。</b>「探究テーマ」という語を変えるかどうかを含む論点は、概念図「探究と旅と豊かさ」の06にまとめてあります。<br>
   by TABIPPO
