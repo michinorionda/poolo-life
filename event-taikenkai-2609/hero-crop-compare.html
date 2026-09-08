@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<title>ヒーロー写真の切り出し：3案ずつの比較</title>
+<link rel="stylesheet" href="../poolo-ds/tokens.css">
+<link rel="stylesheet" href="../poolo-ds/components.css">
+<style>
+  body { padding-top: 0; }
+  .lede { max-width: 1160px; margin-inline: auto; padding: 56px clamp(22px,5.4vw,72px) 0; }
+  .lede h1 { font-family: var(--mincho); font-weight: 900; font-size: var(--fs-xl); letter-spacing: .05em; margin: 0 0 var(--sp-near); }
+  .lede p { font-family: var(--body); font-size: var(--fs-sm); line-height: var(--lh-body); color: var(--ink-72); max-width: 46em; margin: 0 0 10px; }
+  .grp { max-width: 1160px; margin: clamp(48px,6vw,80px) auto 0; padding-inline: clamp(22px,5.4vw,72px); }
+  .grp h2 { font-family: var(--head); font-size: 17px; font-weight: 700; letter-spacing: .08em; color: var(--ink); margin: 0 0 6px; padding-bottom: 12px; border-bottom: 1px solid var(--brand); }
+  .grp .note { font-family: var(--body); font-size: 12.5px; line-height: 1.9; color: var(--ink-60); margin: 12px 0 0; }
+  .cap { max-width: 1160px; margin: clamp(32px,4vw,52px) auto 12px; padding-inline: clamp(22px,5.4vw,72px); display: flex; align-items: baseline; gap: 14px; }
+  .cap .k { font-family: var(--en); font-size: 12px; font-weight: 600; letter-spacing: .2em; color: var(--brand); }
+  .cap .n { font-family: var(--head); font-size: 14.5px; font-weight: 700; letter-spacing: .06em; color: var(--ink); }
+  .cap .s { font-family: var(--body); font-size: 11.5px; color: var(--ink-40); margin-left: auto; }
+  @media (max-width: 700px) { .cap { flex-wrap: wrap; } .cap .s { margin-left: 0; width: 100%; } }
+</style>
+</head>
+<body>
+
+<div class="lede">
+  <h1>ヒーロー写真の切り出し、3案ずつ</h1>
+  <p>どちらも元のヒーロー写真と同じ <strong>3:2（1600×1067）</strong>に統一しています。枠の使われ方は5本の公開ページと同じなので、変わるのは切り出しの範囲だけです。</p>
+  <p><strong>20代後半は、引ける幅がもう残っていません。</strong>元画像が 4334×5779 の縦位置で、3:2 で切ると横幅いっぱいの 4334×2889 が上限です。そこで3案は「引き幅」ではなく<strong>上にどれだけ空を残すか</strong>で振っています。</p>
+</div>
+
+<!-- ============ 30代ver2 ============ -->
+<div class="grp">
+  <h2>30代ver2（元画像 4225×5633）</h2>
+  <p class="note">3人は元画像の下40%にいるので、下端を揃えたまま横幅を広げています。広げるほど、まちと海が入って引きになります。</p>
+</div>
+
+<div class="cap"><span class="k">A</span><span class="n">3600×2400 を切り出し</span><span class="s">いちばん寄り。3人が主役で、背景は最小限</span></div>
+<section class="hero hero--long-title">
+  <div class="hero-grid">
+    <div class="hero-copy">
+      <div class="hero-eyebrow"><span class="hero-eyebrow-rule" aria-hidden="true"></span><span class="hero-eyebrow-ja">自分の納得で、これからを選ぶ</span></div>
+      <h1 class="hero-title"><span class="t-sm is-strong"><span class="num">30</span>代の生き方を</span><span class="t-lg"><span class="nb"><span class="em">問い直す</span><span class="num">90</span>分。</span></span></h1>
+      <p class="hero-lead">相談するほどでもない、と思っている違和感を、<span class="nb">自分のことばにしていく90分。</span></p>
+      <div class="hero-foot"><div class="hero-foot-texts"><span class="hero-foot-ja">書いて、話して、また書く。</span></div></div>
+    </div>
+    <figure class="hero-photo"><img src="images/c30_a.jpg" alt="海沿いの道を、肩を組んで並んで歩く3人"></figure>
+  </div>
+</section>
+
+<div class="cap"><span class="k">B</span><span class="n">4000×2667 を切り出し</span><span class="s">中間。やしの木と護岸、海までが入る</span></div>
+<section class="hero hero--long-title">
+  <div class="hero-grid">
+    <div class="hero-copy">
+      <div class="hero-eyebrow"><span class="hero-eyebrow-rule" aria-hidden="true"></span><span class="hero-eyebrow-ja">自分の納得で、これからを選ぶ</span></div>
+      <h1 class="hero-title"><span class="t-sm is-strong"><span class="num">30</span>代の生き方を</span><span class="t-lg"><span class="nb"><span class="em">問い直す</span><span class="num">90</span>分。</span></span></h1>
+      <p class="hero-lead">相談するほどでもない、と思っている違和感を、<span class="nb">自分のことばにしていく90分。</span></p>
+      <div class="hero-foot"><div class="hero-foot-texts"><span class="hero-foot-ja">書いて、話して、また書く。</span></div></div>
+    </div>
+    <figure class="hero-photo"><img src="images/c30_b.jpg" alt="海沿いの道を、肩を組んで並んで歩く3人"></figure>
+  </div>
+</section>
+
+<div class="cap"><span class="k">C</span><span class="n">4225×2817 を切り出し（横幅いっぱい・最大の引き）</span><span class="s">歩いてきた道の奥行きまで入る</span></div>
+<section class="hero hero--long-title">
+  <div class="hero-grid">
+    <div class="hero-copy">
+      <div class="hero-eyebrow"><span class="hero-eyebrow-rule" aria-hidden="true"></span><span class="hero-eyebrow-ja">自分の納得で、これからを選ぶ</span></div>
+      <h1 class="hero-title"><span class="t-sm is-strong"><span class="num">30</span>代の生き方を</span><span class="t-lg"><span class="nb"><span class="em">問い直す</span><span class="num">90</span>分。</span></span></h1>
+      <p class="hero-lead">相談するほどでもない、と思っている違和感を、<span class="nb">自分のことばにしていく90分。</span></p>
+      <div class="hero-foot"><div class="hero-foot-texts"><span class="hero-foot-ja">書いて、話して、また書く。</span></div></div>
+    </div>
+    <figure class="hero-photo"><img src="images/c30_c.jpg" alt="海沿いの道を、肩を組んで並んで歩く3人"></figure>
+  </div>
+</section>
+
+<!-- ============ 20代後半 ============ -->
+<div class="grp">
+  <h2>20代後半（元画像 4334×5779）</h2>
+  <p class="note">3案とも横幅いっぱいの 4334×2889。切り出す位置を上下にずらして、頭上の空の量を変えています。上げるほど引きに見えます。</p>
+</div>
+
+<div class="cap"><span class="k">A</span><span class="n">上端 1300px から</span><span class="s">いちばん引き。やしの木と対岸まで入り、彼女は小さくなる</span></div>
+<section class="hero hero--long-title">
+  <div class="hero-grid">
+    <div class="hero-copy">
+      <div class="hero-eyebrow"><span class="hero-eyebrow-rule" aria-hidden="true"></span><span class="hero-eyebrow-ja">走ってきた数年を、いちど言い直す</span></div>
+      <h1 class="hero-title"><span class="t-sm is-long"><span class="num">20</span>代後半の働く意義・生きる意味を</span><span class="t-lg is-long"><span class="nb"><span class="em">見つけにいく</span><span class="num">90</span>分</span></span></h1>
+      <p class="hero-lead">同じ温度で話せる相手がいなかった話を、<span class="nb">自分のことばにしていく90分。</span></p>
+      <div class="hero-foot"><div class="hero-foot-texts"><span class="hero-foot-ja">書いて、話して、また書く。</span></div></div>
+    </div>
+    <figure class="hero-photo"><img src="images/c20_a.jpg" alt="海沿いの柵に寄りかかり、こちらを見ている女性"></figure>
+  </div>
+</section>
+
+<div class="cap"><span class="k">B</span><span class="n">上端 1700px から</span><span class="s">中間。頭上に空が残り、護岸の線が奥へ抜ける</span></div>
+<section class="hero hero--long-title">
+  <div class="hero-grid">
+    <div class="hero-copy">
+      <div class="hero-eyebrow"><span class="hero-eyebrow-rule" aria-hidden="true"></span><span class="hero-eyebrow-ja">走ってきた数年を、いちど言い直す</span></div>
+      <h1 class="hero-title"><span class="t-sm is-long"><span class="num">20</span>代後半の働く意義・生きる意味を</span><span class="t-lg is-long"><span class="nb"><span class="em">見つけにいく</span><span class="num">90</span>分</span></span></h1>
+      <p class="hero-lead">同じ温度で話せる相手がいなかった話を、<span class="nb">自分のことばにしていく90分。</span></p>
+      <div class="hero-foot"><div class="hero-foot-texts"><span class="hero-foot-ja">書いて、話して、また書く。</span></div></div>
+    </div>
+    <figure class="hero-photo"><img src="images/c20_b.jpg" alt="海沿いの柵に寄りかかり、こちらを見ている女性"></figure>
+  </div>
+</section>
+
+<div class="cap"><span class="k">C</span><span class="n">上端 2100px から</span><span class="s">いちばん寄り。手元まで入り、表情が大きく出る</span></div>
+<section class="hero hero--long-title">
+  <div class="hero-grid">
+    <div class="hero-copy">
+      <div class="hero-eyebrow"><span class="hero-eyebrow-rule" aria-hidden="true"></span><span class="hero-eyebrow-ja">走ってきた数年を、いちど言い直す</span></div>
+      <h1 class="hero-title"><span class="t-sm is-long"><span class="num">20</span>代後半の働く意義・生きる意味を</span><span class="t-lg is-long"><span class="nb"><span class="em">見つけにいく</span><span class="num">90</span>分</span></span></h1>
+      <p class="hero-lead">同じ温度で話せる相手がいなかった話を、<span class="nb">自分のことばにしていく90分。</span></p>
+      <div class="hero-foot"><div class="hero-foot-texts"><span class="hero-foot-ja">書いて、話して、また書く。</span></div></div>
+    </div>
+    <figure class="hero-photo"><img src="images/c20_c.jpg" alt="海沿いの柵に寄りかかり、こちらを見ている女性"></figure>
+  </div>
+</section>
+
+<div class="grp" style="margin-bottom:120px">
+  <p class="note">決まったら、選んだ案を5本のヒーローに入れて公開します。もっと引きたい・寄せたい場合は、位置を数値で指定してもらえれば作り直します。</p>
+</div>
+
+</body>
+</html>
