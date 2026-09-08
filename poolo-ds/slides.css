@@ -988,8 +988,10 @@
 }
 
 /* 見出しの中の数字を欧文で起こす。告知ページの .hero-title .num と同じ考え方で、
-   OG画像とページのタイトルの見え方を揃えるためのもの。色は足さない。 */
-.og-title .num {
+   OG画像とページのタイトルの見え方を揃えるためのもの。色は足さない。
+   .og-title だけでなく .og-sub / .og-eyebrow の中の「20代後半」等でも使うので、
+   .og-wrap 直下に広く効かせる（class="num" を書いた箇所にしか当たらない）。 */
+.og-wrap .num {
   font-family: var(--en);
   font-weight: 600;
   font-size: 1.16em;
