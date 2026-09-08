@@ -251,7 +251,7 @@ group はカタログの `@dsCard group="…"` と対応。
 | `.mon` | 家紋モノグラム（ブルー線画SVG） | Header |
 | `.hero` / `.hero-grid` / `.hero-copy` / `.hero-photo` / `.hero-chip` | 写真ドリブンHero（左コピー＋右裁ち落とし写真） | Hero |
 | `.hero--long-title` | 長い和文タイトル用のHero変種（`.hero` に付ける）。コピー欄を46%→51%に広げ、右パディングと `t-lg` を調整して、大見出しが写真に重なるのを防ぐ。**和文6文字以上を `t-lg` の1行に置くときは既定だと溢れる**ので、この変種を使う。中身は `@media (min-width: 861px)` で囲ってある（囲まないと860px以下の1カラム化を後勝ちで打ち消す） | Hero |
-| `.hero-eyebrow` / `.hero-title`(.t-sm/.t-lg .em) / `.hero-lead` / `.hero-foot` | Hero内のコピー要素（見出しは明朝、強調語だけブルー） | Hero |
+| `.hero-eyebrow` / `.hero-title`(.t-sm/.t-lg .em/.num) / `.hero-lead` / `.hero-foot` | Hero内のコピー要素（見出しは明朝、強調語だけブルー）。`.num` は見出しの中の数字を Jost で起こす（「<span class="num">30</span>代」「<span class="num">90</span>分」）。1.16em ＋ 四分アキで、明朝の和文に欧文が差さって数字が図として立つ。**色は足さない**（ブルーは `.em` ひとつに任せる。同じ行に色が2つ入ると主役が決まらない）。OG画像側の対応クラスは `slides.css` の `.og-title .num` | Hero |
 | `.hero-band` / `.hero-band-num`(.dow) / `.hero-band-time` / `.hero-band-meta` | ブルーの全幅日付帯 | Hero |
 | `.step-band` / `.step-band-head` / `.step-cell` / `.step-no` / `.step-title` / `.step-desc` | プログラム要約帯（日付帯の直下。3ステップを横並びで先に見せる） | Hero |
 | `.sec` / `.sec-inner` / `.sec-spine` / `.sec-num`(.ja/.small) / `.sec-en` / `.sec-title` / `.sec-lead` | セクション枠＋非対称スパイン（連番／和文ラベル＋明朝見出し） | Sections |

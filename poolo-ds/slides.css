@@ -987,6 +987,17 @@
   background: linear-gradient(transparent 58%, var(--brand-pale) 58%);
 }
 
+/* 見出しの中の数字を欧文で起こす。告知ページの .hero-title .num と同じ考え方で、
+   OG画像とページのタイトルの見え方を揃えるためのもの。色は足さない。 */
+.og-title .num {
+  font-family: var(--en);
+  font-weight: 600;
+  font-size: 1.16em;
+  letter-spacing: 0.01em;
+  line-height: 1;
+  margin-inline: 0.06em;                /* 和文と欧文のあいだの四分アキ */
+}
+
 
 /* =============================================================
    9. バナー／キービジュアル（.kv）— 折れ帯の型
