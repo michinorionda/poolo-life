@@ -3,272 +3,347 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>POOLO 探究テーマ サンプル50｜〜とは何か？の形で、私だけの問いを置く</title>
-<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<title>探究テーマのサンプル｜POOLO</title>
+<meta name="description" content="違和感を問いの形にするときの見本です。3つの型、場面に置いた書き換えの例、40の問いのサンプル。あたらしい旅の学校POOLOの体験会ワークシートからリンクしています。">
+
+<!-- 体験会ワークシート（v2・2026-09〜）の「問いの形にする」設問からリンクしている。
+     URL は過去のワークシートからも張られているので、ファイル名を変えないこと。
+     POOLO Design System（トークン → コンポーネントの順。値はコピペせず参照する） -->
+<link rel="stylesheet" href="poolo-ds/tokens.css">
+<link rel="stylesheet" href="poolo-ds/components.css">
 <style>
-:root{
-  --ink:#1a1a1a; --sub:#4a4a4a; --mute:#7a7a7a; --hint:#a8a8a8;
-  --bg:#faf9f6; --bg-deep:#f3f1ea; --card:#ffffff; --line:#e0ddd3;
-  --green:#2D6A4F; --green-bg:#E9F5EE;
-  --blue:#1B4A7A; --blue-bg:#E3EDF6;
-  --purple:#534AB7; --purple-bg:#ECEAF7;
-  --teal:#1A6B5A; --teal-bg:#DCEBE6;
-  --amber:#7A5500; --amber-bg:#F7EFD8;
-  --red:#8B3A2A; --red-bg:#F4E1DC;
-  --serif:'Shippori Mincho',serif; --sans:'Noto Sans JP',sans-serif;
-}
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{font-family:var(--sans);background:var(--bg);color:var(--ink);line-height:1.95;font-weight:400;-webkit-font-smoothing:antialiased}
-.wrap{max-width:980px;margin:0 auto;padding:0 1.5rem}
-section{padding:3.5rem 0}
+  /* ---- このページだけの部品：サンプルの一覧 ---- */
+  .theme-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 20px;
+    margin-top: var(--sp-group);
+    padding: 14px 0;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    font-size: 13px;
+    letter-spacing: 0.06em;
+  }
+  .theme-nav a { color: var(--ink-72); text-decoration: none; }
+  .theme-nav a:hover { color: var(--brand); }
 
-.header{padding:5rem 0 3.5rem;background:linear-gradient(135deg,var(--bg-deep) 0%,var(--bg) 60%);border-bottom:1px solid var(--line);text-align:center}
-.sample-badge{display:inline-block;font-size:0.65rem;letter-spacing:0.4em;color:#fff;background:var(--amber);padding:0.45rem 1.4rem;border-radius:30px;font-weight:600;margin-bottom:1.5rem}
-.header-title{font-family:var(--serif);font-size:1.95rem;font-weight:600;letter-spacing:0.06em;line-height:1.7;color:var(--ink);margin-bottom:0.8rem}
-.header-sub{font-family:var(--serif);font-size:0.95rem;color:var(--sub);letter-spacing:0.05em;margin-bottom:1.5rem}
-.count-bar{display:inline-flex;gap:1.6rem;padding:0.7rem 1.6rem;background:#fff;border:1px solid var(--line);border-radius:3px;font-size:0.78rem;color:var(--mute);letter-spacing:0.08em}
-.count-bar b{color:var(--green);font-weight:600;font-family:var(--serif);font-size:0.85rem}
+  .theme-cat { margin-top: var(--sp-block); scroll-margin-top: calc(var(--header-h) + 24px); }
+  .theme-cat-title {
+    font-family: var(--head);
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 0.1em;
+    color: var(--brand-deep);
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--ink);
+  }
+  .theme-list { list-style: none; max-width: 720px; }
+  .theme-list li {
+    display: grid;
+    grid-template-columns: 40px 1fr;
+    column-gap: 16px;
+    padding: 18px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .theme-no {
+    font-family: var(--en);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    color: var(--brand);
+    line-height: 2.2;
+    font-variant-numeric: tabular-nums;
+  }
+  .theme-text {
+    font-family: var(--mincho);
+    font-weight: 700;
+    font-feature-settings: "palt";
+    font-size: clamp(15px, 1.9vw, 17px);
+    line-height: 1.95;
+    letter-spacing: 0.04em;
+    color: var(--ink);
+    word-break: auto-phrase;
+    text-wrap: pretty;
+  }
 
-.notice{background:var(--amber-bg);border-left:3px solid var(--amber);padding:1.4rem 1.6rem;border-radius:3px;margin:2rem auto 0;max-width:760px;text-align:left}
-.notice-label{font-size:0.66rem;letter-spacing:0.25em;color:var(--amber);font-weight:600;margin-bottom:0.6rem}
-.notice-main{font-family:var(--serif);font-size:0.98rem;color:var(--ink);line-height:1.95;font-weight:500;letter-spacing:0.03em}
-
-.intro{padding:3.5rem 0;border-bottom:1px solid var(--line)}
-.intro p.lead{font-family:var(--serif);font-size:1.05rem;color:var(--ink);font-weight:500;line-height:2.1;letter-spacing:0.04em;max-width:720px;margin:0 auto 1.2rem;text-align:center}
-.intro p.sub{font-size:0.9rem;color:var(--sub);line-height:2;max-width:680px;margin:0 auto;text-align:center}
-
-.cat{padding:3.5rem 0}
-.cat.alt{background:var(--bg-deep)}
-.cat-head{text-align:center;margin-bottom:2.5rem}
-.cat-mark{display:inline-block;font-family:var(--serif);font-size:0.7rem;letter-spacing:0.35em;font-weight:600;padding:0.35rem 1rem;border:1px solid currentColor;margin-bottom:0.8rem}
-.cat-title{font-family:var(--serif);font-size:1.4rem;font-weight:600;letter-spacing:0.05em;line-height:1.6;color:var(--ink)}
-.cat-sub{font-size:0.78rem;color:var(--mute);letter-spacing:0.1em;margin-top:0.4rem}
-
-.cat-a .cat-mark{color:var(--blue)} .cat-a .theme-card{border-top:3px solid var(--blue)} .cat-a .theme-num{color:var(--blue)}
-.cat-b .cat-mark{color:var(--green)} .cat-b .theme-card{border-top:3px solid var(--green)} .cat-b .theme-num{color:var(--green)}
-.cat-c .cat-mark{color:var(--red)} .cat-c .theme-card{border-top:3px solid var(--red)} .cat-c .theme-num{color:var(--red)}
-.cat-d .cat-mark{color:var(--amber)} .cat-d .theme-card{border-top:3px solid var(--amber)} .cat-d .theme-num{color:var(--amber)}
-.cat-e .cat-mark{color:var(--teal)} .cat-e .theme-card{border-top:3px solid var(--teal)} .cat-e .theme-num{color:var(--teal)}
-.cat-f .cat-mark{color:var(--purple)} .cat-f .theme-card{border-top:3px solid var(--purple)} .cat-f .theme-num{color:var(--purple)}
-.cat-g .cat-mark{color:var(--green)} .cat-g .theme-card{border-top:3px solid var(--green)} .cat-g .theme-num{color:var(--green)}
-.cat-h .cat-mark{color:var(--blue)} .cat-h .theme-card{border-top:3px solid var(--blue)} .cat-h .theme-num{color:var(--blue)}
-.cat-i .cat-mark{color:var(--amber)} .cat-i .theme-card{border-top:3px solid var(--amber)} .cat-i .theme-num{color:var(--amber)}
-
-.theme-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:0.9rem}
-.theme-card{background:var(--card);border:1px solid var(--line);padding:1.2rem 1.3rem 1.3rem;border-radius:3px;display:flex;flex-direction:column;gap:0.6rem;transition:transform .15s ease,box-shadow .15s ease}
-.theme-card:hover{transform:translateY(-2px);box-shadow:0 4px 14px rgba(0,0,0,0.05)}
-.theme-num{font-family:var(--serif);font-size:0.7rem;letter-spacing:0.25em;font-weight:600}
-.theme-text{font-family:var(--serif);font-size:0.96rem;color:var(--ink);line-height:1.85;font-weight:500;letter-spacing:0.02em}
-
-.closing{padding:5rem 0 6rem;background:var(--bg-deep);border-top:1px solid var(--line);text-align:center}
-.closing-quote{font-family:var(--serif);font-size:1.08rem;color:var(--ink);line-height:2.1;letter-spacing:0.05em;font-weight:500;max-width:680px;margin:0 auto 1.5rem;padding:1.5rem 1.8rem;background:#fff;border-left:3px solid var(--green);border-right:3px solid var(--green);text-align:left}
-.closing-meta{font-size:0.75rem;color:var(--mute);letter-spacing:0.1em;line-height:2}
-
-@media(max-width:720px){
-  .header-title{font-size:1.55rem}
-  .cat-title{font-size:1.2rem}
-  .theme-grid{grid-template-columns:1fr}
-  .count-bar{flex-direction:column;gap:0.3rem;text-align:left}
-}
+  /* 書き換えの例（.ba-flow を1組ずつ縦に重ねる） */
+  .ba-stack { display: grid; gap: var(--sp-group); margin-top: var(--sp-group); max-width: 820px; }
+  .ba-stack .ba-items li { font-size: 14px; word-break: auto-phrase; text-wrap: pretty; }
+  .ba-stack .ba-col--after .ba-items li { color: var(--ink); }
 </style>
 </head>
 <body>
 
-<header class="header">
-  <div class="wrap">
-    <span class="sample-badge">SAMPLE ／ 例示</span>
-    <h1 class="header-title">POOLO 探究テーマ サンプル50</h1>
-    <div class="header-sub">「〜とは何か？」の形で、私だけの問いを置く</div>
-    <div class="count-bar">
-      <span><b>50</b>問</span>
-      <span><b>9</b>カテゴリ</span>
-      <span>仕事 ／ 人間関係 ／ 家族 ／ 暮らし ／ 身体 ／ 創造・趣味 ／ 旅 ／ アイデンティティ ／ 違和感</span>
-    </div>
-
-    <div class="notice">
-      <div class="notice-label">この資料について</div>
-      <div class="notice-main">これは「探究テーマって、『〜とは何か？』という問いの形で、自分の生活のすぐそばに置けるんだ」という手触りを伝えるためのサンプル集です。壮大な問いではなく、その人特有の場面・感情・違和感をすくいあげる問いだけを並べています。仕事でも趣味でも、なんでも自由。あなた自身が深ぼることに意味がありそうな、あなた特有の問いに書き換える前提で置かれています。</div>
-    </div>
+<header class="brand-row">
+  <div class="shell">
+    <a class="brand-logo" href="https://tabippo.net/poolo/" target="_blank" rel="noopener">
+      <img src="event-30s-evergreen/images/poolo_logo.png" alt="POOLO あたらしい旅の学校">
+    </a>
+    <nav class="header-nav">
+      <a class="header-link" href="https://tabippo.net/poolo/course/life/" target="_blank" rel="noopener">POOLO とは<span class="arrow" aria-hidden="true">↗︎</span></a>
+    </nav>
   </div>
 </header>
 
-<section class="intro">
-  <div class="wrap">
-    <p class="lead">探究テーマは、3年後の私から逆算する目標ではなく、私の生活のすぐそばにある「〜とは何か？」を仮置きする一行。</p>
-    <p class="sub">ここでは50案すべてを「〜とは何か？」の形で並べました。仕事のことも趣味のことも、日々の感情も、なんでも自由です。大きな哲学ではなく、私自身が深ぼることに意味がありそうな、私だけの場面や感情を問いに変えています。一字一句を真似する必要はなく、自分の言葉で書き換えてください。</p>
-  </div>
-</section>
 
-<section class="cat cat-a">
-  <div class="wrap">
-    <div class="cat-head">
-      <span class="cat-mark">A</span>
-      <h2 class="cat-title">仕事・キャリア・働き方</h2>
-      <div class="cat-sub">6 questions</div>
+<!-- ===== はじめに ===== -->
+<section class="sec">
+  <div class="shell sec-inner">
+    <div class="sec-spine">
+      <div class="sec-num ja small">探究テーマ</div>
     </div>
-    <div class="theme-grid">
-      <div class="theme-card"><div class="theme-num">No. 01</div><div class="theme-text">仕事中に「これだけはやめたくない」と感じる瞬間とは何か？</div></div>
-      <div class="theme-card"><div class="theme-num">No. 02</div><div class="theme-text">会議で発言を飲み込むとき、私が守っているものとは何か？</div></div>
-      <div class="theme-card"><div class="theme-num">No. 03</div><div class="theme-text">評価されると嬉しいのに、どこか虚しい。その「虚しさ」とは何か？</div></div>
-      <div class="theme-card"><div class="theme-num">No. 04</div><div class="theme-text">月曜の朝、私の足を重くしているものとは何か？</div></div>
-      <div class="theme-card"><div class="theme-num">No. 05</div><div class="theme-text">「向いている」と「やりたい」の間にある、私だけのズレとは何か？</div></div>
-      <div class="theme-card"><div class="theme-num">No. 06</div><div class="theme-text">仕事の中で唯一手を抜けない、私のこだわりとは何か？</div></div>
+    <div>
+      <h1 class="sec-title">探究テーマの<span class="nb">サンプル</span></h1>
+      <p class="sec-lead">ワークシートで、違和感を問いの形にするときの見本です。</p>
+      <div class="intro-body">
+        <p>POOLOでは、違和感を問いの形にしたものを「探究テーマ」と呼んでいます。最初はぼんやりしていてよく、人に話すたびに少しずつ書き換わっていきます。</p>
+        <p>このページには、問いの3つの型と、場面に置いて書き換えた例、それから40の問いを並べました。気になる問いがあったら、自分が違和感を覚えた場面に置きかえて使ってください。</p>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="cat cat-b alt">
-  <div class="wrap">
-    <div class="cat-head">
-      <span class="cat-mark">B</span>
-      <h2 class="cat-title">人間関係・コミュニティ・友人</h2>
-      <div class="cat-sub">6 questions</div>
+
+<!-- ===== 01｜3つの型 ===== -->
+<section class="sec sec-questions">
+  <div class="shell sec-inner">
+    <div class="sec-spine">
+      <div class="sec-num">01</div>
     </div>
-    <div class="theme-grid">
-      <div class="theme-card"><div class="theme-num">No. 07</div><div class="theme-text">連絡したくないわけじゃないのに連絡しない、この距離感とは何か？</div></div>
-      <div class="theme-card"><div class="theme-num">No. 08</div><div class="theme-text">友達と呼ぶには遠く、知り合いと呼ぶには近い人たちとは何か？</div></div>
-      <div class="theme-card"><div class="theme-num">No. 09</div><div class="theme-text">グループの中で私が無意識に引き受けている役割とは何か？</div></div>
-      <div class="theme-card"><div class="theme-num">No. 10</div><div class="theme-text">ひとりが好きと言いながら、誘いを待っている。この矛盾とは何か？</div></div>
-      <div class="theme-card"><div class="theme-num">No. 11</div><div class="theme-text">苦手な人を苦手と言いきれない、私の遠慮とは何か？</div></div>
-      <div class="theme-card"><div class="theme-num">No. 12</div><div class="theme-text">「気が合う」と感じる瞬間に、私の中で起きていることとは何か？</div></div>
+    <div>
+      <h2 class="sec-title">問いの、3つの型</h2>
+      <p class="sec-lead">ワークシートと同じ3つです。書きやすいものをひとつ選んでください。</p>
+      <ol class="q-list">
+        <li class="q-item">
+          <span class="q-no"><span class="kanji">一</span></span>
+          <div>
+            <p class="q-text">〜とは何か？</p>
+            <p class="q-helper">言葉にしきれない感覚に、名前をつけたいときに。<br>例：評価面談で「よくやってくれている」と言われた帰り道、うれしさより先にくる虚しさとは何か？</p>
+          </div>
+        </li>
+        <li class="q-item">
+          <span class="q-no"><span class="kanji">二</span></span>
+          <div>
+            <p class="q-text">どうすれば〜できるか？</p>
+            <p class="q-helper">やってみたいこと、変えたいことが、もう見えているときに。<br>例：どうすれば、平日の夜に、誰のためでもない1時間をつくれるか？</p>
+          </div>
+        </li>
+        <li class="q-item">
+          <span class="q-no"><span class="kanji">三</span></span>
+          <div>
+            <p class="q-text">なぜ私は〜なのか？</p>
+            <p class="q-helper">同じ場面で、同じ反応をくり返しているときに。<br>例：なぜ私は、会議で意見を飲み込んだ日にかぎって、帰りの電車で言えなかったことを何度も考えてしまうのか？</p>
+          </div>
+        </li>
+      </ol>
     </div>
   </div>
 </section>
 
-<section class="cat cat-c">
-  <div class="wrap">
-    <div class="cat-head">
-      <span class="cat-mark">C</span>
-      <h2 class="cat-title">家族・パートナーシップ・親子</h2>
-      <div class="cat-sub">6 questions</div>
+
+<!-- ===== 02｜場面に置く ===== -->
+<section class="sec">
+  <div class="shell sec-inner">
+    <div class="sec-spine">
+      <div class="sec-num">02</div>
     </div>
-    <div class="theme-grid">
-      <div class="theme-card"><div class="theme-num">No. 13</div><div class="theme-text">親と話すと声のトーンが変わる、そのときの私とは何か？</div></div>
-      <div class="theme-card"><div class="theme-num">No. 14</div><div class="theme-text">パートナーに見せられない、私の部分とは何か？</div></div>
-      <div class="theme-card"><div class="theme-num">No. 15</div><div class="theme-text">「結婚」と聞いたとき、胸の中で起きる揺れとは何か？</div></div>
-      <div class="theme-card"><div class="theme-num">No. 16</div><div class="theme-text">実家に帰ると戻ってくる、子どもの私とは何か？</div></div>
-      <div class="theme-card"><div class="theme-num">No. 17</div><div class="theme-text">家族に「ありがとう」と言えないとき、私の中にあるものとは何か？</div></div>
-      <div class="theme-card"><div class="theme-num">No. 18</div><div class="theme-text">親と似ていると言われた瞬間、複雑になる感情とは何か？</div></div>
+    <div>
+      <h2 class="sec-title">場面に置くと、<br class="nb">自分の問いになる</h2>
+      <p class="sec-lead">違和感を覚えた場面のなかに、問いを置いてみます。</p>
+      <div class="intro-body">
+        <p>いつ、どこで、誰といたときの話か。それが問いに入っていると、人に話したときに、相手からも具体的な話が返ってきやすくなります。「自分らしさ」や「成長」のような大きな言葉が出てきたら、それを感じた場面に置きかえてみてください。</p>
+      </div>
+
+      <div class="ba-stack">
+        <div class="ba-flow">
+          <div class="ba-col">
+            <p class="ba-label">大きな言葉だけの問い</p>
+            <ul class="ba-items"><li>仕事のやりがいとは何か？</li></ul>
+          </div>
+          <span class="ba-arrow" aria-hidden="true">→</span>
+          <div class="ba-col ba-col--after">
+            <p class="ba-label">場面に置いた問い</p>
+            <ul class="ba-items"><li>月末の数字を達成した日より、新人の資料を一緒に直した日のほうが、帰り道の足取りが軽い。そのとき受け取っているものとは何か？</li></ul>
+          </div>
+        </div>
+
+        <div class="ba-flow">
+          <div class="ba-col">
+            <ul class="ba-items"><li>自分らしさとは何か？</li></ul>
+          </div>
+          <span class="ba-arrow" aria-hidden="true">→</span>
+          <div class="ba-col ba-col--after">
+            <ul class="ba-items"><li>上司に「らしいね」と言われたのに、うれしくなかった日。そこで言われた「らしさ」とは何か？</li></ul>
+          </div>
+        </div>
+
+        <div class="ba-flow">
+          <div class="ba-col">
+            <ul class="ba-items"><li>どうすれば成長できるか？</li></ul>
+          </div>
+          <span class="ba-arrow" aria-hidden="true">→</span>
+          <div class="ba-col ba-col--after">
+            <ul class="ba-items"><li>どうすれば、30代のうちに、会社の外でも名前で声がかかる仕事をひとつ持てるか？</li></ul>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="cat cat-d alt">
-  <div class="wrap">
-    <div class="cat-head">
-      <span class="cat-mark">D</span>
-      <h2 class="cat-title">お金・暮らし・場所</h2>
-      <div class="cat-sub">6 questions</div>
+
+<!-- ===== 03｜サンプル ===== -->
+<section class="sec">
+  <div class="shell sec-inner">
+    <div class="sec-spine">
+      <div class="sec-num">03</div>
     </div>
-    <div class="theme-grid">
-      <div class="theme-card"><div class="theme-num">No. 19</div><div class="theme-text">値段を見ずに買えるものと、何度も悩むものの間にある、私の基準とは何か？</div></div>
-      <div class="theme-card"><div class="theme-num">No. 20</div><div class="theme-text">部屋を片付けたくなる日と、散らかしておきたい日の境目とは何か？</div></div>
-      <div class="theme-card"><div class="theme-num">No. 21</div><div class="theme-text">「今の暮らしを変えたい」の「変えたい」とは何か？</div></div>
-      <div class="theme-card"><div class="theme-num">No. 22</div><div class="theme-text">給料日に、なぜか少し落ちる気分とは何か？</div></div>
-      <div class="theme-card"><div class="theme-num">No. 23</div><div class="theme-text">夜にひとりでいると、明かりを多めにつけたくなる理由とは何か？</div></div>
-      <div class="theme-card"><div class="theme-num">No. 24</div><div class="theme-text">引っ越したい衝動が来るタイミングに共通するものとは何か？</div></div>
+    <div>
+      <h2 class="sec-title">40の問い</h2>
+      <p class="sec-lead">8つの場面ごとに5つずつ。3つの型が混ざっています。</p>
+
+      <nav class="theme-nav" aria-label="場面ごとに移動">
+        <a href="#t-work">仕事・働き方</a>
+        <a href="#t-people">人との関係</a>
+        <a href="#t-family">家族・パートナー</a>
+        <a href="#t-life">暮らし・お金・住む場所</a>
+        <a href="#t-body">からだ・時間</a>
+        <a href="#t-like">好きなこと・学び</a>
+        <a href="#t-travel">旅・土地</a>
+        <a href="#t-now">いまの違和感</a>
+      </nav>
+
+      <div class="theme-cat" id="t-work">
+        <h3 class="theme-cat-title">仕事・働き方</h3>
+        <ol class="theme-list">
+          <li><span class="theme-no">01</span><p class="theme-text">評価面談で「よくやってくれている」と言われた帰り道、うれしさより先にくる虚しさとは何か？</p></li>
+          <li><span class="theme-no">02</span><p class="theme-text">なぜ私は、会議で意見を飲み込んだ日にかぎって、帰りの電車で言えなかったことを何度も考えてしまうのか？</p></li>
+          <li><span class="theme-no">03</span><p class="theme-text">「向いている」と言われる仕事と、時間を忘れる仕事がちがう。そのズレとは何か？</p></li>
+          <li><span class="theme-no">04</span><p class="theme-text">どうすれば、日曜の夕方から月曜のことを考えずに過ごせるか？</p></li>
+          <li><span class="theme-no">05</span><p class="theme-text">同期から転職の報告を受けたとき、「おめでとう」の前に胸をよぎる焦りとは何か？</p></li>
+        </ol>
+      </div>
+
+      <div class="theme-cat" id="t-people">
+        <h3 class="theme-cat-title">人との関係</h3>
+        <ol class="theme-list">
+          <li><span class="theme-no">06</span><p class="theme-text">連絡したくないわけではないのに、既読のまま3日たってしまう。この距離とは何か？</p></li>
+          <li><span class="theme-no">07</span><p class="theme-text">なぜ私は、5人以上の飲み会になると、聞き役にまわってしまうのか？</p></li>
+          <li><span class="theme-no">08</span><p class="theme-text">友だちと呼ぶには遠く、知り合いと呼ぶには近い人たち。私にとって、その人たちとは何か？</p></li>
+          <li><span class="theme-no">09</span><p class="theme-text">どうすれば、苦手な先輩に「それは違うと思います」と、角を立てずに言えるか？</p></li>
+          <li><span class="theme-no">10</span><p class="theme-text">初対面なのに、気がつくと2時間話していた人。その会話のなかで起きていたこととは何か？</p></li>
+        </ol>
+      </div>
+
+      <div class="theme-cat" id="t-family">
+        <h3 class="theme-cat-title">家族・パートナー</h3>
+        <ol class="theme-list">
+          <li><span class="theme-no">11</span><p class="theme-text">実家に帰ると、言葉づかいも食べる量も10年前に戻る。そのとき戻ってくる私とは何か？</p></li>
+          <li><span class="theme-no">12</span><p class="theme-text">なぜ私は、母からの電話にだけ、少しよそいきの声で出てしまうのか？</p></li>
+          <li><span class="theme-no">13</span><p class="theme-text">友人の結婚式の帰り道、うれしさと一緒に残る揺れとは何か？</p></li>
+          <li><span class="theme-no">14</span><p class="theme-text">どうすれば、パートナーに「今日は疲れている」と、その日のうちに言えるようになるか？</p></li>
+          <li><span class="theme-no">15</span><p class="theme-text">「お父さんに似てきたね」と言われたときの、ひと言では言えない気持ちとは何か？</p></li>
+        </ol>
+      </div>
+
+      <div class="theme-cat" id="t-life">
+        <h3 class="theme-cat-title">暮らし・お金・住む場所</h3>
+        <ol class="theme-list">
+          <li><span class="theme-no">16</span><p class="theme-text">値段を見ずに買えるものと、何度もカートに入れては戻すもの。そのあいだにある私の基準とは何か？</p></li>
+          <li><span class="theme-no">17</span><p class="theme-text">給料日なのに、なぜか少し気分が沈む。その気分の正体とは何か？</p></li>
+          <li><span class="theme-no">18</span><p class="theme-text">どうすれば、いまの部屋を、仕事帰りに早く帰りたくなる場所にできるか？</p></li>
+          <li><span class="theme-no">19</span><p class="theme-text">なぜ私は、仕事が詰まっている時期にかぎって、引っ越しのサイトを見てしまうのか？</p></li>
+          <li><span class="theme-no">20</span><p class="theme-text">帰省するたびに「ここで暮らす自分」を想像してしまう。その想像のなかにあるものとは何か？</p></li>
+        </ol>
+      </div>
+
+      <div class="theme-cat" id="t-body">
+        <h3 class="theme-cat-title">からだ・時間</h3>
+        <ol class="theme-list">
+          <li><span class="theme-no">21</span><p class="theme-text">疲れているのに眠れない夜、頭のなかで続いている会話とは何か？</p></li>
+          <li><span class="theme-no">22</span><p class="theme-text">なぜ私は、「忙しい」と口にするとき、少しほっとしているのか？</p></li>
+          <li><span class="theme-no">23</span><p class="theme-text">どうすれば、平日の夜に、誰のためでもない1時間をつくれるか？</p></li>
+          <li><span class="theme-no">24</span><p class="theme-text">30歳の誕生日を過ぎてから、ときどき数えてしまう「あと何年」とは何か？</p></li>
+          <li><span class="theme-no">25</span><p class="theme-text">飲み会の翌朝にくる自己嫌悪の中身とは何か？</p></li>
+        </ol>
+      </div>
+
+      <div class="theme-cat" id="t-like">
+        <h3 class="theme-cat-title">好きなこと・学び</h3>
+        <ol class="theme-list">
+          <li><span class="theme-no">26</span><p class="theme-text">休日、気づけば3時間見ていた動画。私を画面の前に引きとめていたものとは何か？</p></li>
+          <li><span class="theme-no">27</span><p class="theme-text">友だちに「それ、もう趣味じゃないよね」と言われた活動。私にとって、それは何か？</p></li>
+          <li><span class="theme-no">28</span><p class="theme-text">なぜ私は、資格の勉強は続かないのに、旅の計画なら何時間でも立てていられるのか？</p></li>
+          <li><span class="theme-no">29</span><p class="theme-text">どうすれば、撮りためた写真を、人に見せられる形にまとめられるか？</p></li>
+          <li><span class="theme-no">30</span><p class="theme-text">SNSにあげなかった写真に写っている、私だけが知っている理由とは何か？</p></li>
+        </ol>
+      </div>
+
+      <div class="theme-cat" id="t-travel">
+        <h3 class="theme-cat-title">旅・土地</h3>
+        <ol class="theme-list">
+          <li><span class="theme-no">31</span><p class="theme-text">旅先で、かならず市場やスーパーに寄ってしまう。そこで私が見ているものとは何か？</p></li>
+          <li><span class="theme-no">32</span><p class="theme-text">なぜ私は、帰りの飛行機の時間が近づくと、いつも少し無口になるのか？</p></li>
+          <li><span class="theme-no">33</span><p class="theme-text">同じまちを歩いていても、何かが目に入る日と入らない日がある。その違いとは何か？</p></li>
+          <li><span class="theme-no">34</span><p class="theme-text">どうすれば、旅先で感じた「こういう暮らしもあるのか」を、ふだんの毎日に持ち帰れるか？</p></li>
+          <li><span class="theme-no">35</span><p class="theme-text">ひとり旅の3日目あたりから出てくる、ふだんとは違う私とは何か？</p></li>
+        </ol>
+      </div>
+
+      <div class="theme-cat" id="t-now">
+        <h3 class="theme-cat-title">いまの違和感</h3>
+        <ol class="theme-list">
+          <li><span class="theme-no">36</span><p class="theme-text">打ち合わせで笑ってやり過ごしたあと、席に戻るまで残っている後味とは何か？</p></li>
+          <li><span class="theme-no">37</span><p class="theme-text">「ちゃんとしなきゃ」と思った瞬間に浮かぶ顔。その人が求めている「ちゃんと」とは何か？</p></li>
+          <li><span class="theme-no">38</span><p class="theme-text">なぜ私は、周りのライフステージが進むほど、立ち止まりたくなるのか？</p></li>
+          <li><span class="theme-no">39</span><p class="theme-text">どうすれば、「このままでいいのか」を、ひとりで抱えずに話せるか？</p></li>
+          <li><span class="theme-no">40</span><p class="theme-text">SNSで同世代の近況を見たあと、スマホを置いてもしばらく残るもやもやとは何か？</p></li>
+        </ol>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="cat cat-e">
-  <div class="wrap">
-    <div class="cat-head">
-      <span class="cat-mark">E</span>
-      <h2 class="cat-title">身体・健康・時間・老い</h2>
-      <div class="cat-sub">6 questions</div>
+
+<!-- ===== 書いたあとで ===== -->
+<section class="sec">
+  <div class="shell sec-inner">
+    <div class="sec-spine">
+      <div class="sec-num ja small">書いたあとで</div>
     </div>
-    <div class="theme-grid">
-      <div class="theme-card"><div class="theme-num">No. 25</div><div class="theme-text">朝起きた瞬間、体が知らせてくる「今日のサイン」とは何か？</div></div>
-      <div class="theme-card"><div class="theme-num">No. 26</div><div class="theme-text">疲れているのに眠れない夜の、正体とは何か？</div></div>
-      <div class="theme-card"><div class="theme-num">No. 27</div><div class="theme-text">走ると整う私と、走ると壊れる私。その違いとは何か？</div></div>
-      <div class="theme-card"><div class="theme-num">No. 28</div><div class="theme-text">飲んだ翌日にやってくる、自己嫌悪の中身とは何か？</div></div>
-      <div class="theme-card"><div class="theme-num">No. 29</div><div class="theme-text">「忙しい」と口にしているとき、私が隠しているものとは何か？</div></div>
-      <div class="theme-card"><div class="theme-num">No. 30</div><div class="theme-text">年齢を意識する瞬間、私の中で起きていることとは何か？</div></div>
+    <div>
+      <h2 class="sec-title">問いは、書き換わっていい</h2>
+      <div class="intro-body">
+        <p>書いた問いは、このあとの対話で人に話してみます。話したあとに、もう一度書き直す欄がワークシートにあります。そのときに言葉が変わっていたら、それで大丈夫です。</p>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="cat cat-f alt">
-  <div class="wrap">
-    <div class="cat-head">
-      <span class="cat-mark">F</span>
-      <h2 class="cat-title">創造・趣味・学び</h2>
-      <div class="cat-sub">5 questions</div>
-    </div>
-    <div class="theme-grid">
-      <div class="theme-card"><div class="theme-num">No. 31</div><div class="theme-text">私が何時間でも飽きずに見ていられるものとは何か？</div></div>
-      <div class="theme-card"><div class="theme-num">No. 32</div><div class="theme-text">趣味と呼ぶには真剣すぎる、私の活動とは何か？</div></div>
-      <div class="theme-card"><div class="theme-num">No. 33</div><div class="theme-text">続かない習慣と、勝手に続いている習慣。その差とは何か？</div></div>
-      <div class="theme-card"><div class="theme-num">No. 34</div><div class="theme-text">SNSにあげなかった写真の中にある、私だけのものとは何か？</div></div>
-      <div class="theme-card"><div class="theme-num">No. 35</div><div class="theme-text">学びたい気持ちの奥にある欲求とは何か？</div></div>
-    </div>
-  </div>
-</section>
 
-<section class="cat cat-g">
-  <div class="wrap">
-    <div class="cat-head">
-      <span class="cat-mark">G</span>
-      <h2 class="cat-title">旅・地域・自然</h2>
-      <div class="cat-sub">5 questions</div>
+<footer class="footer">
+  <div class="shell footer-inner">
+    <div class="footer-top">
+      <span class="mon" aria-hidden="true">
+        <svg viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-linecap="round">
+          <circle cx="60" cy="60" r="57" stroke-width="1.5"/>
+          <circle cx="60" cy="60" r="51.5" stroke-width="0.75"/>
+          <circle cx="60" cy="42.5" r="9.5" stroke-width="1.5"/>
+          <line x1="30" y1="60.5" x2="46.5" y2="60.5" stroke-width="1.1"/>
+          <line x1="73.5" y1="60.5" x2="90" y2="60.5" stroke-width="1.1"/>
+          <path d="M35 78 Q60 66 85 78" stroke-width="1.5"/>
+          <path d="M44 88 Q60 81 76 88" stroke-width="0.9"/>
+        </svg>
+      </span>
+      <div class="footer-marks">
+        <a href="https://tabippo.net/poolo/" target="_blank" rel="noopener"><img src="event-30s-evergreen/images/poolo_logo03.png" alt="POOLO あたらしい旅の学校"></a>
+        <span class="footer-divider" aria-hidden="true"></span>
+        <a href="https://tabippo.net/" target="_blank" rel="noopener"><img src="event-30s-evergreen/images/tabippo_logo.png" alt="TABIPPO"></a>
+      </div>
     </div>
-    <div class="theme-grid">
-      <div class="theme-card"><div class="theme-num">No. 36</div><div class="theme-text">同じ街を歩いていても、見える日と見えない日の違いとは何か？</div></div>
-      <div class="theme-card"><div class="theme-num">No. 37</div><div class="theme-text">旅先でなぜか必ず立ち寄ってしまう場所とは何か？</div></div>
-      <div class="theme-card"><div class="theme-num">No. 38</div><div class="theme-text">帰ってきたくないと思う旅と、そうでない旅の違いとは何か？</div></div>
-      <div class="theme-card"><div class="theme-num">No. 39</div><div class="theme-text">ひとり旅で初めて出会う、私の中の何かとは何か？</div></div>
-      <div class="theme-card"><div class="theme-num">No. 40</div><div class="theme-text">自然の中にいると整っていく、その感覚の正体とは何か？</div></div>
-    </div>
-  </div>
-</section>
-
-<section class="cat cat-h alt">
-  <div class="wrap">
-    <div class="cat-head">
-      <span class="cat-mark">H</span>
-      <h2 class="cat-title">アイデンティティ・自分とは</h2>
-      <div class="cat-sub">5 questions</div>
-    </div>
-    <div class="theme-grid">
-      <div class="theme-card"><div class="theme-num">No. 41</div><div class="theme-text">「自分らしい」と感じる瞬間の、「らしさ」とは何か？</div></div>
-      <div class="theme-card"><div class="theme-num">No. 42</div><div class="theme-text">子どもの頃から変わっていない、私の核とは何か？</div></div>
-      <div class="theme-card"><div class="theme-num">No. 43</div><div class="theme-text">嫌いだと思っていた自分の一面が、最近少し愛おしい。この変化とは何か？</div></div>
-      <div class="theme-card"><div class="theme-num">No. 44</div><div class="theme-text">名乗りたい肩書きと、実際の肩書きの間にあるものとは何か？</div></div>
-      <div class="theme-card"><div class="theme-num">No. 45</div><div class="theme-text">私がいちばん長く付き合っている感情とは何か？</div></div>
-    </div>
-  </div>
-</section>
-
-<section class="cat cat-i">
-  <div class="wrap">
-    <div class="cat-head">
-      <span class="cat-mark">I</span>
-      <h2 class="cat-title">違和感の言葉化（カテゴリ横断）</h2>
-      <div class="cat-sub">5 questions</div>
-    </div>
-    <div class="theme-grid">
-      <div class="theme-card"><div class="theme-num">No. 46</div><div class="theme-text">何度も同じ場面で湧き上がる「もやっ」とは何か？</div></div>
-      <div class="theme-card"><div class="theme-num">No. 47</div><div class="theme-text">笑ってその場をやり過ごした後に残る、後味とは何か？</div></div>
-      <div class="theme-card"><div class="theme-num">No. 48</div><div class="theme-text">周りが進んでいるのに、私だけ立ち止まりたい。この立ち止まりとは何か？</div></div>
-      <div class="theme-card"><div class="theme-num">No. 49</div><div class="theme-text">「ちゃんとしなきゃ」の「ちゃんと」とは何か？</div></div>
-      <div class="theme-card"><div class="theme-num">No. 50</div><div class="theme-text">説明できないのに、ずっと気になっている一つとは何か？</div></div>
-    </div>
-  </div>
-</section>
-
-<footer class="closing">
-  <div class="wrap">
-    <div class="closing-quote">
-      ここに並ぶ50問は、正解ではなくサンプルです。<br>
-      あなたの生活のすぐそばにある「〜とは何か？」を、あなた自身の言葉で書き換えてください。<br><br>
-      壮大な答えを探すための問いではなく、あなただけが意味を持つ場面・感情・違和感を、もう一度見つめ直すための一行。<br>
-      今日仮置きしたものが、明日には書き換わっていて構いません。
-    </div>
-    <div class="closing-meta">
-      POOLO 探究テーマ サンプル50（「〜とは何か？」の形）<br>
-      ワークでの一例として共有しています ／ 一字一句を真似する必要はありません
+    <div class="footer-bottom">
+      <p class="footer-text">旅と人生をつなぐ、大人の学び／株式会社TABIPPO／株式会社CODOLI</p>
+      <p class="footer-copy">© POOLO. All rights reserved.</p>
     </div>
   </div>
 </footer>
