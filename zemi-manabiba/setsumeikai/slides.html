@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>説明会スライド｜POOLOゼミ 学びの場を、創る。</title>
-<meta name="description" content="POOLOゼミ「学びの場を、創る。」説明会の画面共有用スライド。矢印キーまたはクリックで進みます。">
+<title>体験会スライド｜POOLOゼミ 学びの場を、創る。</title>
+<meta name="description" content="POOLOゼミ「学びの場を、創る。」体験会の画面共有用スライド。矢印キーまたはクリックで進みます。">
 <meta name="robots" content="noindex,nofollow">
 <link rel="stylesheet" href="../../poolo-ds/tokens.css">
 <style>
@@ -27,8 +27,8 @@
 
   /* --- パーツ --- */
   .eyebrow {
-    font-family:var(--en); font-size:clamp(11px,1.05vw,14px); font-weight:500;
-    letter-spacing:.24em; text-transform:uppercase; color:var(--brand);
+    font-family:'Jost', var(--head); font-size:clamp(11px,1.05vw,14px); font-weight:700;
+    letter-spacing:.16em; color:var(--brand);
     margin-bottom:clamp(16px,2.4vh,28px);
   }
   .blue .eyebrow { color:var(--on-brand-75); }
@@ -80,7 +80,7 @@
   .blue .stat span { color:var(--on-brand-75); }
 
   /* 箇条 */
-  ul.pts { list-style:none; margin:clamp(14px,2.4vh,26px) 0 0; padding:0; max-width:32em; }
+  ul.pts { list-style:none; margin:clamp(14px,2.4vh,26px) 0 0; padding:0; max-width:40em; }
   ul.pts li {
     font-family:var(--body); font-size:clamp(14px,1.55vw,21px); line-height:1.95;
     letter-spacing:.04em; color:var(--ink-72);
@@ -95,6 +95,7 @@
   ul.pts li b { color:var(--brand-deep); font-weight:700; }
   .blue ul.pts li { color:var(--on-brand-88); border-color:var(--on-brand-40); }
   .blue ul.pts li::before { background:var(--on-brand); }
+  .blue ul.pts li b { color:var(--on-brand); }
 
   /* 7つの問いグリッド */
   .canvas { display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--line); border:1px solid var(--line); margin-top:clamp(16px,2.6vh,30px); }
@@ -349,16 +350,16 @@
 
 <div class="deck" id="deck">
 
-  <!-- 01 -->
+  <!-- 01 表紙 -->
   <section class="s blue">
-    <div class="eyebrow">POOLO ゼミ 説明会 ／ 2026.09.01</div>
+    <div class="eyebrow">POOLO ゼミ 体験会 ／ 2026.09.15</div>
     <h1 class="jp">旅で見つけた問いから、<br>学びの場を創る。</h1>
     <p class="sub jp">あなたのひとつの問いを、誰かが「参加したい」と思う小さな学びの場にする、3ヶ月・全7回。</p>
   </section>
 
   <!-- 02 自己紹介 -->
   <section class="s">
-    <div class="eyebrow">Who I am</div>
+    <div class="eyebrow">自己紹介</div>
     <div class="me">
       <figure class="me-photo"><img src="images/onda.jpg" alt="恩田倫孝"></figure>
       <div>
@@ -374,9 +375,9 @@
     </div>
   </section>
 
-  <!-- 03 アイスブレイク -->
+  <!-- 03 アイスブレイク（5分） -->
   <section class="s">
-    <div class="eyebrow">Hello</div>
+    <div class="eyebrow">アイスブレイク ／ 5分</div>
     <h2 class="jp">まず、声を出すところから。</h2>
     <div class="ask">
       <div><i>01</i><strong class="jp">お名前</strong><em class="jp">ニックネームでも大丈夫です</em></div>
@@ -386,9 +387,9 @@
     <p class="sub jp">お一人30秒ほどで。気になったことは、途中でいつでも聞いてください。</p>
   </section>
 
-  <!-- 03 ヒアリング① -->
+  <!-- 04 Q1 -->
   <section class="s pale">
-    <div class="eyebrow">Where you are ／ 01</div>
+    <div class="eyebrow">Q1 ／ シートに記入</div>
     <h2 class="jp">今日ここにいる理由に、<br>いちばん近いのはどれですか。</h2>
     <div class="pick">
       <div><i>01</i><span class="jp">受け取る側は十分やってきた。次は<b>創る側</b>に回りたい</span></div>
@@ -401,32 +402,32 @@
       <div><i>08</i><span class="jp"><b>複業や収入の柱</b>を、ひとつ増やしたい</span></div>
       <div><i>09</i><span class="jp">まだ言葉にできていない／<b>なんとなく</b></span></div>
     </div>
-    <p class="sub jp">番号で教えてください。<b>複数あってかまいません</b>。シートの「アンケート」タブからも選べます。</p>
+    <p class="sub jp">シートのQ1で、▼から3つまで選べます。1つだけでも大丈夫です。</p>
   </section>
 
-  <!-- 04 ヒアリング② -->
+  <!-- 05 場をひらいた経験（声で） -->
   <section class="s">
-    <div class="eyebrow">Where you are ／ 02</div>
     <h2 class="jp">これまでに、自分で場をひらいた経験は。</h2>
     <div class="opts">
       <div class="opt"><b>A</b><span class="jp">何度かある</span></div>
       <div class="opt"><b>B</b><span class="jp">一度だけある</span></div>
       <div class="opt"><b>C</b><span class="jp">ない。参加する側だけだった</span></div>
     </div>
+    <p class="sub jp">A・B・Cで、声で教えてください。</p>
   </section>
 
-  <!-- 05 -->
+  <!-- ===== ゼミの話（10分） ===== -->
+
+  <!-- 06 今日のこと -->
   <section class="s">
-    <div class="eyebrow">Today</div>
     <h2 class="jp">今日は、<br>説明を聞く会ではありません。</h2>
     <div class="rule"></div>
-    <p class="big-q jp">90分後、あなたが持って帰るのは<br>「つい語ってしまう話」ひとつです。</p>
+    <p class="big-q jp">90分後、あなたの手元には<br>「つい語ってしまう話」と、<br>それを囲む場の形が残ります。</p>
     <p class="sub jp">ゼミの中身は、ページを読めば分かります。ページを読んでも分からないのは、「自分にそれができるのか」という一点だと思うので。</p>
   </section>
 
-  <!-- 03 -->
+  <!-- 07 11年 -->
   <section class="s off">
-    <div class="eyebrow">Why now</div>
     <h2 class="jp">旅大学から、11年。</h2>
     <div class="stats">
       <div class="stat"><b>700</b><span>回のイベント運営・企画</span></div>
@@ -436,33 +437,31 @@
     <p class="sub jp">送り出す側に、ずっと立ってきました。そこで、見えてしまったことがあります。</p>
   </section>
 
-  <!-- 04 -->
+  <!-- 08 -->
   <section class="s blue">
-    <div class="eyebrow">What I saw</div>
     <h1 class="jp">いちばん学んで、<br>いちばん変わっていたのは、<br>いつも「創った人」でした。</h1>
     <p class="sub jp">参加者としてどれだけ真剣に受け取っても、企画した人の変化には届かない。11年間、ずっとそうでした。</p>
   </section>
 
-  <!-- 05 -->
+  <!-- 09 -->
   <section class="s">
-    <div class="eyebrow">And</div>
     <h2 class="jp">受け取る側は、いつか終わる。<br>創る側には、終わりがない。</h2>
     <div class="rule"></div>
     <p class="sub jp">POOLOが終わると、あんなに濃かった時間が急になくなります。そして「またどこかの講座に申し込む」を繰り返すことになる。<br><br>受け取る側を十分にやってきた人が、次に行く場所。それが、このゼミです。</p>
   </section>
 
-  <!-- 06 -->
+  <!-- 10 -->
   <section class="s pale">
     <div class="kicker">誤解のないように</div>
     <h2 class="jp">壮大な起業の話でも、<br>副業で稼ぐ話でもありません。</h2>
     <div class="rule"></div>
     <p class="big-q jp">つくるのは、参加費1〜3万円・定員6〜10名の、<br>小さくてあたたかい場。</p>
-    <p class="sub jp">人生を賭けなくていい。会社を辞めなくていい。ただ、自分の問いを囲む場をひとつ持つ。それだけです。</p>
+    <p class="sub jp">会社を辞めなくていい。ただ、自分の問いを囲む場をひとつ持つ。それだけです。</p>
   </section>
 
-  <!-- 06-b ゴール：ビフォーアフター -->
+  <!-- 11 ゴール：ビフォーアフター -->
   <section class="s">
-    <div class="eyebrow">Goal ／ 3ヶ月後</div>
+    <div class="eyebrow">3ヶ月後</div>
     <h2 class="jp">さっき選んでもらった理由が、<br>12月22日にはこうなります。</h2>
     <div class="ba">
       <div>
@@ -487,43 +486,59 @@
     <p class="sub jp">どこから入っても、修了時に手元にあるものは同じです。<b class="nb">①埋まった企画キャンバス1枚</b>　<b class="nb">②初回の開催日</b>　<b class="nb">③同期15名</b>。</p>
   </section>
 
-  <!-- 07 -->
+  <!-- ===== ワーク Q2・Q3（10分） ===== -->
+
+  <!-- 12 Q2 -->
   <section class="s">
-    <div class="eyebrow">Work 01 ／ 6分</div>
+    <div class="eyebrow">Q2 ／ 7分</div>
     <h2 class="jp">まず、手を動かします。</h2>
     <div class="task">
-      <p class="jp">旅の中で「つい人に話してしまった」<br>「心が動いた」瞬間を、10個。</p>
-      <small class="jp">・いい話を書こうとしないでください。「人に言うと引かれるかも」くらいが原石です<br>・まとめなくていい。単語でも、途中で切れていても大丈夫<br>・10個埋まらなくても大丈夫。7個でも8個でも</small>
+      <p class="jp">旅の中で「つい人に話してしまった」<br>「心が動いた」瞬間を、5つ。</p>
+      <small class="jp">・いい話を書こうとしなくて大丈夫です。「人に言うと引かれるかも」くらいが原石です<br>・単語でも、途中で切れていてもOK<br>・5つ埋まらなくても、そのまま次へ進みます</small>
     </div>
   </section>
 
-  <!-- 08 -->
+  <!-- 13 Q3 -->
   <section class="s pale">
-    <div class="eyebrow">Work 01 ／ 2分</div>
+    <div class="eyebrow">Q3 ／ 3分</div>
     <h2 class="jp">この中から、1つだけ。</h2>
     <div class="task">
-      <p class="jp">「これについてなら、黙っていられない」<br>そう思えるものに、○をひとつ。</p>
-      <small class="jp">「詳しい」ではなく「黙っていられない」で選んでください。知識の量ではなく、体温の高さです。うまく説明できないものほど、掘る価値があります。</small>
+      <p class="jp">「これについてなら、黙っていられない」<br>そう思えるものを、ひとつ。</p>
+      <small class="jp">迷ったら、いちばん長く話せそうなものを。<br>1つに絞れないときは、いくつかに共通していることを1行で書いてもOKです。</small>
     </div>
   </section>
 
-  <!-- 08-b 実例 -->
+  <!-- ===== 対話（15分） ===== -->
+
+  <!-- 14 対話① -->
+  <section class="s blue">
+    <div class="eyebrow">対話 ／ 12分</div>
+    <h2 class="jp">ワークはここで止めて、<br>一人ずつ、Q3の話を2〜3分で。</h2>
+    <ul class="pts">
+      <li class="jp"><b>話す人</b>　うまくまとめなくて大丈夫です。どうしてそれが残っているのかまで話せたら十分です</li>
+      <li class="jp"><b>聞く人</b>　参加者のつもりで聞いて、話した人の「みんなから」の欄に、あだ名と「いちばんもっと聞きたくなったところ」を一言</li>
+    </ul>
+  </section>
+
+  <!-- ===== ワーク Q4〜Q6（10分） ===== -->
+
+  <!-- 15 実例 -->
   <section class="s">
-    <div class="eyebrow">Examples</div>
+    <div class="eyebrow">例</div>
     <h2 class="jp">その1つが、こうなります。</h2>
     <div class="exs">
       <div>
-        <b class="jp">鹿児島の“辺境”から、<br>日本を見る</b>
+        <b class="jp">鹿児島の「辺境」から、<br>日本を見る</b>
         <span>全4回 ／ 25,000円 ／ 定員8名</span>
         <em class="jp">地域に通い続けた人の、土地から社会を読む場</em>
       </div>
       <div>
-        <b class="jp">北海道、食の裏側<br>― 開拓史と生産者から読み解く</b>
+        <b class="jp">北海道、食の裏側<br>開拓史と生産者から読み解く</b>
         <span>全5回 ／ 30,000円 ／ 定員10名</span>
         <em class="jp">食べ歩きが好きだった人の、産業と歴史をたどる場</em>
       </div>
       <div>
-        <b class="jp">40歳の地図<br>― 旅の問いで、これからを言葉にする</b>
+        <b class="jp">40歳の地図<br>旅の問いで、これからをことばにする</b>
         <span>全4回 ／ 30,000円 ／ 定員6名</span>
         <em class="jp">人生の節目に旅に出た人の、同世代と考える場</em>
       </div>
@@ -531,50 +546,82 @@
     <p class="sub jp">ジャンルはばらばらです。共通しているのは、<b>「旅で見つけた問いが根っこにある」</b>という一点だけ。テーマが被っても大丈夫です。原体験が違えば、まったく別の場になります。</p>
   </section>
 
-  <!-- 08-c Work02 1行にする -->
+  <!-- 16 Q4 -->
   <section class="s pale">
-    <div class="eyebrow">Work 02 ／ 3分</div>
-    <h2 class="jp">では、あなたの1行も<br>この形にしてみてください。</h2>
+    <div class="eyebrow">Q4</div>
+    <h2 class="jp">あなたの1行も、<br>この形にしてみてください。</h2>
     <p class="frame jp"><u>&nbsp;</u> から学ぶ、<u>&nbsp;</u></p>
-    <p class="sub jp">左に<b>あなたの原体験</b>、右に<b>相手が受け取るもの</b>。うまい言葉にしなくて大丈夫です。今日は<b>仮</b>で構いません。むしろ、後で必ず変わります。<br>書けたら、シートの③に入れて「書いた内容を送る」まで押してください。</p>
+    <p class="sub jp">左に<b>あなたの原体験</b>、右に<b>相手が受け取るもの</b>。「みんなから」の一言も見ながら。今日は仮で構いません。</p>
   </section>
 
-  <!-- 09 -->
-  <section class="s blue">
-    <div class="eyebrow">Reveal</div>
-    <h1 class="jp">じつは今のが、<br>ゼミの第1回と、第2回の入り口です。</h1>
-    <p class="sub jp">今日は23分でした。それでも、原石と仮テーマが1つずつ見つかりましたよね。ゼミでは、これを2時間かけて、フィードバックをもらいながらやります。</p>
-  </section>
-
-  <!-- 10 -->
+  <!-- 17 Q5・Q6 -->
   <section class="s">
-    <div class="eyebrow">Fig. 企画キャンバス</div>
-    <h2 class="jp">持ち帰るのは、この1枚。</h2>
-    <div class="canvas">
-      <div class="cvc hot"><i>01</i><strong class="jp">なぜ私が</strong><em class="jp">旅のどの経験が、この問いの根っこにあるのか</em></div>
-      <div class="cvc"><i>02</i><strong class="jp">誰のために</strong><em class="jp">来てほしい一人を、具体的に思い浮かべる</em></div>
-      <div class="cvc"><i>03</i><strong class="jp">一言でいうと</strong><em class="jp">参加者が友人に説明できる、ひとつの文に</em></div>
-      <div class="cvc"><i>04</i><strong class="jp">どんな体験を</strong><em class="jp">何回で、何をして、終わったときどうなっているか</em></div>
-      <div class="cvc"><i>05</i><strong class="jp">いくらで</strong><em class="jp">価値と、続けられる値段のつり合い</em></div>
-      <div class="cvc"><i>06</i><strong class="jp">どう伝えるか</strong><em class="jp">どこで、どんな言葉で届けるか</em></div>
-      <div class="cvc"><i>07</i><strong class="jp">いつ創るか</strong><em class="jp">初回の開催日を、カレンダーに入れる</em></div>
-      <div class="cvc" style="background:var(--bg-off)"><i>—</i><em class="jp">今日やったのは、①だけ。残り6つを、3ヶ月で1つずつ埋めていきます。</em></div>
+    <div class="eyebrow">Q5・Q6</div>
+    <h2 class="jp">その場に、誰が来て、<br>どんな形でひらきますか。</h2>
+    <ul class="pts">
+      <li class="jp"><b>Q5</b>　来てほしい人を、顔が浮かぶ一人で。身近な人でもOKです（「職場の◯◯さん」のように）</li>
+      <li class="jp"><b>Q6</b>　全◯回／参加費◯円／定員◯名。それと、第1回に参加者と何をするかを1行で。直感でOKです</li>
+    </ul>
+  </section>
+
+  <!-- ===== 対話（10分） ===== -->
+
+  <!-- 18 対話② -->
+  <section class="s blue">
+    <div class="eyebrow">対話 ／ 10分</div>
+    <h2 class="jp">一人ずつ、Q4〜Q6を<br>読み上げてください。</h2>
+    <p class="sub jp">どんな人が来そうか、いくらなら来そうか。恩田とみんなで、その場で考えます。</p>
+  </section>
+
+  <!-- ===== Q7（3分） ===== -->
+
+  <!-- 19 Q7 -->
+  <section class="s pale">
+    <div class="eyebrow">Q7 ／ 2分</div>
+    <h2 class="jp">この場を一人で形にするとしたら、<br>どこで止まりそうですか。</h2>
+    <div class="task">
+      <p class="jp">正直に書いてOKです。</p>
+      <small class="jp">例：値段が決められない／人が集まるか不安／続けられるか分からない</small>
     </div>
   </section>
 
-  <!-- 11 -->
-  <section class="s pale">
-    <h2 class="jp">3ヶ月で手に入るのは、<br>1つの企画ではなく、<br>企画を作る「型」のほうです。</h2>
-    <p class="sub jp">埋め終わったキャンバスは手元に残ります。だから2本目、3本目も自分で作れるようになる。</p>
+  <!-- ===== 全7回と参加費（20分） ===== -->
+
+  <!-- 20 種明かし -->
+  <section class="s blue">
+    <h1 class="jp">じつは今のが、<br>ゼミの第1回と、第2回の入り口です。</h1>
+    <p class="sub jp">「みんなから」に書いてもらった一言は、第7回で同期どうしがおたがいの第1号参加者になるときと同じやり方です。ゼミでは、これを1回2時間かけて、フィードバックをもらいながらやります。</p>
   </section>
 
-  <!-- 12 -->
+  <!-- 21 企画キャンバス -->
   <section class="s">
-    <div class="eyebrow">Program ／ 全7回</div>
+    <div class="eyebrow">企画キャンバス</div>
+    <h2 class="jp">3ヶ月で埋めるのは、この1枚。</h2>
+    <div class="canvas">
+      <div class="cvc hot"><i>01</i><strong class="jp">なぜ私が</strong><em class="jp">旅のどの経験が、この問いの根っこにあるのか</em></div>
+      <div class="cvc hot"><i>02</i><strong class="jp">誰のために</strong><em class="jp">来てほしい一人を、具体的に思い浮かべる</em></div>
+      <div class="cvc hot"><i>03</i><strong class="jp">一言でいうと</strong><em class="jp">参加者が友人に説明できる、ひとつの文に</em></div>
+      <div class="cvc"><i>04</i><strong class="jp">どんな体験を</strong><em class="jp">何回で、何をして、終わったときどうなっているか</em></div>
+      <div class="cvc"><i>05</i><strong class="jp">いくらで</strong><em class="jp">価値と、続けられる値段のつり合い</em></div>
+      <div class="cvc"><i>06</i><strong class="jp">どう伝えるか</strong><em class="jp">どこで、どんなことばで届けるか</em></div>
+      <div class="cvc"><i>07</i><strong class="jp">いつ創るか</strong><em class="jp">初回の開催日を、カレンダーに入れる</em></div>
+      <div class="cvc" style="background:var(--bg-off)"><i>今日</i><em class="jp">Q2・Q3が①、Q5が②、Q4が③、Q6が④⑤の入り口でした。3ヶ月かけて、7つを1つずつ埋めていきます。</em></div>
+    </div>
+  </section>
+
+  <!-- 22 まず1本 -->
+  <section class="s pale">
+    <h2 class="jp">まずは1本、<br>創りあげること。</h2>
+    <p class="sub jp">7つの答えが埋まった1枚は、そのまま人に見せられる企画書になります。最終日は、これをお披露目してもらう。そんな3ヶ月です。</p>
+  </section>
+
+  <!-- 23 全7回 -->
+  <section class="s">
+    <div class="eyebrow">全7回</div>
     <h2 class="jp">問いが、ひらける企画になるまで。</h2>
     <div class="rail">
       <div class="rl"><i>1</i><strong class="jp">掘る</strong><em class="jp">旅の棚卸し</em></div>
-      <div class="rl"><i>2</i><strong class="jp">学びにする</strong><em class="jp">たった一人へ</em></div>
+      <div class="rl"><i>2</i><strong class="jp">学びにする</strong><em class="jp">来てほしい一人へ</em></div>
       <div class="rl"><i>3</i><strong class="jp">設計する</strong><em class="jp">ゲスト講義</em></div>
       <div class="rl peak"><i>4</i><strong class="jp">試作する</strong><em class="jp">ミニ開催・山場</em></div>
       <div class="rl"><i>5</i><strong class="jp">磨く</strong><em class="jp">1対1・別日程</em></div>
@@ -584,9 +631,9 @@
     <p class="sub jp">この7つの動詞だけ、覚えて帰ってください。</p>
   </section>
 
-  <!-- 13 -->
+  <!-- 24 ゲスト -->
   <section class="s off">
-    <div class="eyebrow">Guests</div>
+    <div class="eyebrow">ゲスト</div>
     <h2 class="jp">自己流でつまずくのは、<br>「場の設計」と「人の集め方」の2つだけ。</h2>
     <div class="duo">
       <div class="g">
@@ -604,24 +651,24 @@
     </div>
   </section>
 
-  <!-- 14 -->
+  <!-- 25 設計（Q7と照らす） -->
   <section class="s blue">
-    <div class="eyebrow">Design</div>
     <h1 class="jp">「いつかやる」で終われない、<br>そういう設計にしています。</h1>
     <ul class="pts">
       <li class="jp"><b>第4回・ミニ開催</b>　自分のゼミの1コマを、受講生どうしで実際に開く。「3万円の価値があるか」を5つの軸で相互に審査する</li>
       <li class="jp"><b>第5回・1対1</b>　試作のフィードバックを持って、メンターと個別に30〜45分。つまずきを、個別にほどく</li>
       <li class="jp"><b>第7回・開業式</b>　同期どうしが互いの第1号参加者に。初回開催日を、その場でカレンダーに入れて送り出す</li>
     </ul>
+    <p class="sub jp">Q7に書いた「止まりそうなところ」と、照らし合わせてみてください。</p>
   </section>
 
-  <!-- 15 -->
+  <!-- 26 日程 -->
   <section class="s">
-    <div class="eyebrow">Schedule</div>
+    <div class="eyebrow">日程</div>
     <h2 class="jp">10/13〜12/22、隔週火曜20:00–22:00。</h2>
     <table class="sch">
       <tr><td class="no">01</td><td class="dt">10月13日（火）</td><td class="tl jp">旅の棚卸しから、問いを掘る</td><td></td></tr>
-      <tr><td class="no">02</td><td class="dt">10月27日（火）</td><td class="tl jp">たった一人に向けて、問いを"学び"にする</td><td></td></tr>
+      <tr><td class="no">02</td><td class="dt">10月27日（火）</td><td class="tl jp">たった一人に向けて、問いを「学び」にする</td><td></td></tr>
       <tr><td class="no">03</td><td class="dt">11月10日（火）</td><td class="tl jp">学びの場を、設計する</td><td><span class="tg">ゲスト</span></td></tr>
       <tr><td class="no">04</td><td class="dt">11月24日（火）</td><td class="tl jp">ミニ開催で、試作する</td><td><span class="tg">山場</span></td></tr>
       <tr><td class="no">05</td><td class="dt">11/25–12/6</td><td class="tl jp">1対1で、企画を磨く（30–45分）</td><td><span class="tg">別日程</span></td></tr>
@@ -631,35 +678,39 @@
     <p class="sub jp">すべてZoom。欠席回は録画とワークシートを共有します（第4回だけは、できるだけご参加ください）。</p>
   </section>
 
-  <!-- 16 -->
+  <!-- 27 参加費 -->
   <section class="s off">
-    <div class="eyebrow">Fee</div>
+    <div class="eyebrow">参加費</div>
     <h2 class="jp">お金の話を、先にします。</h2>
     <div class="price"><b>77,000</b><span>円（税込）／ 全7回分</span></div>
-    <p class="sub jp">正直、安くはないと思います。含まれているのは、全7回・14時間の講義、ゲスト2名、<b>個別メンタリング1対1</b>、全7回分のワークシート、同期15名からのフィードバック、そして第7回での相互申込。1回あたり11,000円です。</p>
+    <p class="sub jp">安くはないと思います。含まれているのは、全7回・14時間の講義、ゲスト2名、<b>個別メンタリング1対1</b>、全7回分のワークシート、同期15名からのフィードバック、そして第7回での相互申込。1回あたり11,000円です。</p>
   </section>
 
-  <!-- 17 -->
+  <!-- 28 回収 -->
   <section class="s">
-    <div class="eyebrow">Return</div>
+    <div class="eyebrow">回収</div>
     <h2 class="jp">回収の話も、正面から。</h2>
     <dl class="calc">
       <div><dt>1本目の想定規模</dt><dd>2.5万円<small>×定員8名の場合</small></dd></div>
       <div><dt>1本目の売上</dt><dd>20万円<small>参加費77,000円は回収圏</small></dd></div>
       <div><dt>2本目以降</dt><dd>型が残る<small>キャンバスは手元に残り、再現できる</small></dd></div>
     </dl>
-    <p class="sub jp">ただし、これは埋まればの話です。1本目から満席になる保証はありません。だから第6回で集客を扱い、第7回で同期が第1号参加者になる設計にしています。</p>
+    <p class="sub jp">ただし、これは埋まればの話です。1本目から満席になる保証はありません。だから第6回で集客を扱い、第7回で同期が第1号参加者になる設計にしています。さっきQ6に書いた値段と定員で、一度かけ算してみてください。</p>
   </section>
 
-  <!-- 18 -->
+  <!-- 29 回収のほかに -->
   <section class="s pale">
-    <h2 class="jp">それでもいちばん大きいのは、<br>お金ではありません。<br>「自分の場を持っている人になる」ことです。</h2>
-    <p class="sub jp">それは、次の10年ずっと効きます。</p>
+    <h2 class="jp">回収できることはもちろん、<br>それ以上に人生に影響するのは、<br>この3つだと思っています。</h2>
+    <ul class="pts">
+      <li class="jp"><b>自分のコミュニティが創れる</b></li>
+      <li class="jp"><b>学びの幅が広がる</b></li>
+      <li class="jp"><b>新しいつながりが増える</b></li>
+    </ul>
+    <p class="sub jp">リアルとオンラインで10年以上、700回ほど場を開いてきて、そう思ったのでこのゼミを企画しました。</p>
   </section>
 
-  <!-- 19 -->
+  <!-- 30 向く／向かない -->
   <section class="s">
-    <div class="eyebrow">For / Not for</div>
     <h2 class="jp">向いている人と、<br>今回は向かないかもしれない人。</h2>
     <div class="two">
       <div>
@@ -683,23 +734,45 @@
     </div>
   </section>
 
-  <!-- 20 -->
-  <section class="s blue">
-    <div class="eyebrow">Homework</div>
-    <h1 class="jp">今日の宿題。<br>その話を、<br>誰か一人に話してみてください。</h1>
-    <p class="sub jp">今日○をつけた話を、今週中に誰か一人に。友人でも、家族でも構いません。話してみて、相手が前のめりになったら、それは本物です。<br><br>そして何より——話しているとき、自分がどれだけ喋り続けたかを覚えておいてください。</p>
+  <!-- ===== 質問の時間（10分） ===== -->
+
+  <!-- 31 質問 -->
+  <section class="s pale">
+    <div class="eyebrow">質問 ／ 10分</div>
+    <h2 class="jp">いま引っかかっていることを<br>なんでも聞いてください。</h2>
+    <p class="sub jp">「まだ迷っている」「うまく言えない」でも大丈夫です。一人ずつ、順番に聞いていきます。</p>
   </section>
 
-  <!-- 21 -->
+  <!-- ===== クロージング（10分） ===== -->
+
+  <!-- 32 Q8 -->
+  <section class="s blue">
+    <div class="eyebrow">Q8</div>
+    <h1 class="jp">今日の話を、<br>今週だれに話してみますか。</h1>
+    <p class="sub jp">相手は名前で書いてください（「同僚の田中さん」のように）。いつ話すかも一緒に。話しているとき、自分がどれだけ喋り続けたかを覚えておいてください。</p>
+  </section>
+
+  <!-- 33 Q9〜Q11 -->
   <section class="s">
-    <div class="eyebrow">Application</div>
+    <div class="eyebrow">Q9〜Q11</div>
+    <h2 class="jp">最後に、シートの3つを。</h2>
+    <ul class="pts">
+      <li class="jp"><b>Q9</b>　今日の感想や、ゼミへの質問をなんでも</li>
+      <li class="jp"><b>Q10</b>　このゼミの検討度を、▼から</li>
+      <li class="jp"><b>Q11</b>　あなたの企画を個別に壁打ちしますが、興味ありますか</li>
+    </ul>
+  </section>
+
+  <!-- 34 申し込み -->
+  <section class="s">
+    <div class="eyebrow">申し込み</div>
     <h2 class="jp">定員15名・10月13日開講。</h2>
     <ul class="pts">
       <li class="jp"><b>申込締切</b>　2026年9月27日（日）23:59 ／ 定員に達し次第、締切前でも終了</li>
       <li class="jp"><b>申込方法</b>　POOLO公式LINEから、所要5分ほど</li>
-      <li class="jp"><b>迷っている方へ</b>　個別相談の時間を取れます。決めきる前にどうぞ</li>
+      <li class="jp"><b>迷っている方へ</b>　Q11で「興味あり」の方には、個別に壁打ちの時間を取ります</li>
     </ul>
-    <p class="sub jp">今日みなさんが書いたあの1行が、来年の春には誰かが申し込む場になっているかもしれません。そういう3ヶ月です。</p>
+    <p class="sub jp">今日書いたあの1行が、来年の春には誰かが申し込む場になっているかもしれません。そういう3ヶ月です。</p>
   </section>
 
 </div>
@@ -772,7 +845,7 @@
    「変更点をコピー」で公開版へ反映するための一覧を書き出す。
    ========================================================= */
 (function () {
-  var KEY = 'poolo-zemi-slides-edits';
+  var KEY = 'poolo-zemi-slides-edits-v3';
 
   var SEL = [
     '.s h1', '.s h2', '.s .eyebrow', '.s .kicker', '.s .sub', '.s .big-q',
