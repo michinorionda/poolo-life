@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>ファーストビュー3案の比較｜POOLOゼミ 説明会＆体験会 9/23</title>
+<link rel="stylesheet" href="../../../poolo-ds/tokens.css">
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg-off);
+    color: var(--ink-soft);
+    font-family: var(--body);
+  }
+  .head {
+    padding: 36px 32px 24px;
+    border-bottom: 1px solid var(--line);
+    background: var(--bg);
+  }
+  .head h1 {
+    margin: 0 0 10px;
+    font-family: var(--mincho);
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    color: var(--ink);
+  }
+  .head p {
+    margin: 0;
+    font-size: 13px;
+    line-height: 1.9;
+    color: var(--ink-66);
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+    padding: 28px 32px 48px;
+  }
+  .card {
+    background: var(--bg);
+    border: 1px solid var(--line);
+  }
+  .card-head {
+    min-height: 196px; /* 3枚の枠の上辺を揃える */
+    padding: 18px 20px 16px;
+    border-bottom: 1px solid var(--line);
+  }
+  .card-mark {
+    font-family: var(--en);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    color: var(--brand);
+  }
+  .card-title {
+    margin: 6px 0 8px;
+    font-family: var(--mincho);
+    font-size: 17px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    color: var(--ink);
+  }
+  .card-aim {
+    margin: 0;
+    font-size: 12.5px;
+    line-height: 1.85;
+    color: var(--ink-66);
+  }
+  .card-link {
+    display: inline-block;
+    margin-top: 10px;
+    font-size: 12px;
+    color: var(--brand-deep);
+    border-bottom: 1px solid var(--line-pale);
+    text-decoration: none;
+  }
+  /* 1280px幅で描画したページを、列幅に合わせて縮小する */
+  .frame {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1280 / 1000;
+    overflow: hidden;
+    border-top: 1px solid var(--line);
+  }
+  .frame iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1280px;
+    height: 1000px;
+    border: 0;
+    transform-origin: 0 0;
+    transform: scale(var(--k));
+  }
+  @media (max-width: 1100px) {
+    .grid { grid-template-columns: minmax(0, 1fr); }
+  }
+</style>
+</head>
+<body>
+  <header class="head">
+    <h1>ファーストビュー3案の比較</h1>
+    <p>POOLOゼミ「学びの場を、創る。」説明会＆体験会（9/23）の告知ページ。3案ともファーストビュー（見出し・リード・写真）だけが違い、日付帯から下は同じです。各枠は1280px幅で描画したものを縮小しています。</p>
+  </header>
+
+  <div class="grid">
+    <section class="card">
+      <div class="card-head">
+        <span class="card-mark">A</span>
+        <h2 class="card-title">体験型（推奨・現行）</h2>
+        <p class="card-aim">この90分で何をするかを先に言う。「旅の話から企画の1行を書く」と手を動かす中身で誘う。ゼミ名は控えめで、体験会の会として読ませる。</p>
+        <a class="card-link" href="../index.html" target="_blank" rel="noopener">A を単体で開く</a>
+      </div>
+      <div class="frame"><iframe src="../index.html" title="A案" loading="lazy"></iframe></div>
+    </section>
+
+    <section class="card">
+      <div class="card-head">
+        <span class="card-mark">B</span>
+        <h2 class="card-title">問い型</h2>
+        <p class="card-aim">説明会でいちばん多く聞かれる不安「本当に人が集まるのか」を、そのまま見出しに置く。不安を持っている人ほど止まる。体験会の中身は、リードまで読まないと分からない。</p>
+        <a class="card-link" href="b.html" target="_blank" rel="noopener">B を単体で開く</a>
+      </div>
+      <div class="frame"><iframe src="b.html" title="B案" loading="lazy"></iframe></div>
+    </section>
+
+    <section class="card">
+      <div class="card-head">
+        <span class="card-mark">C</span>
+        <h2 class="card-title">事実・会の名前型</h2>
+        <p class="card-aim">ゼミ名、説明会＆体験会、9月23日、無料の順で事実を先に言う。何の会かが一目で分かる。体験の中身や不安には触れないので、ゼミを知らない人には他の説明会と同じに見える。</p>
+        <a class="card-link" href="c.html" target="_blank" rel="noopener">C を単体で開く</a>
+      </div>
+      <div class="frame"><iframe src="c.html" title="C案" loading="lazy"></iframe></div>
+    </section>
+  </div>
+
+<script>
+  // 列幅 ÷ 1280 で縮尺を決める
+  (function () {
+    var frames = document.querySelectorAll('.frame');
+    function fit() {
+      frames.forEach(function (f) {
+        f.style.setProperty('--k', (f.clientWidth / 1280).toFixed(4));
+      });
+    }
+    window.addEventListener('resize', fit);
+    window.addEventListener('load', fit);
+    fit();
+  })();
+</script>
+</body>
+</html>
