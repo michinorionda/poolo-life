@@ -341,6 +341,12 @@ br.pc-br { display: none; }
   .apply-box { margin-top: 32px; }
   .apply-box > * + * { margin-top: 18px; }
 
+  /* 罫か色の帯で区切られた3章（当日の問い・3つの約束・お申し込み）だけ中央にそろえる。
+     箇条書きと申込手順は、文字は左そろえのままひとかたまりで中央に置く */
+  .q .in, .rules .in, .apply .in { text-align: center; }
+  .rules .btn, .apply .btn { margin-inline: auto; }
+  .rules .stack .body, .apply-steps, .apply-note { width: fit-content; margin-inline: auto; text-align: left; }
+
   .ft { padding: 48px 0 56px; }
   .ft .in { display: flex; justify-content: space-between; align-items: center; }
   .ft .in > * + * { margin-top: 0; }
