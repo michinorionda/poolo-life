@@ -64,11 +64,14 @@ img { display: block; max-width: 100%; }
 .h2 {
   font-family: var(--mincho);
   font-weight: 700;
-  font-size: 22px;
+  font-size: 30px;
   line-height: 1.5;
   letter-spacing: 0.04em;
-  color: var(--ink);
+  color: var(--brand-deep);
 }
+/* 見出しの先頭の数字だけ大きく、欧文はJost */
+.h2 .num { font-size: 48px; }
+.h2 .en { font-family: var(--en); font-weight: 500; }
 .body { font-size: 14px; line-height: 1.95; }
 .small { font-size: 12px; }
 .caption { font-size: 11px; color: var(--ink-72); }
@@ -131,18 +134,23 @@ img { display: block; max-width: 100%; }
 .feel-text > * + * { margin-top: 18px; }
 .feel-text > .body + .body { margin-top: 27px; }
 
-/* ---- 当日の問い（青い帯） ---- */
-.q { background: var(--brand); color: #fff; padding-block: 40px; }
-.q .in > * + * { margin-top: 22px; }
-.q-left > * + * { margin-top: 22px; }
-.q .label { color: #fff; }
+/* ---- 当日の問い（白地に上下の罫。読んで、少し書いてみる） ---- */
+.q { border-block: 1px solid var(--line); padding: 52px 0 48px; }
+.q .in > * + *, .q-left > * + *, .q-right > * + * { margin-top: 32px; }
+.q .label { letter-spacing: 0.1em; }
 .q-text {
-  font-family: var(--body);
-  font-weight: 500;
-  font-size: 24px;
-  line-height: 37px;
+  font-family: var(--mincho);
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 1.55;
   letter-spacing: 0.04em;
+  color: var(--ink);
 }
+.q-text .hl { color: var(--brand-deep); }
+.q-prompt { font-size: 12px; }
+.q-lines { padding-top: 12px; margin-top: 20px; }
+.q-lines span { display: block; height: 1px; background: var(--line); }
+.q-lines span + span { margin-top: 40px; }
 
 /* ---- 進め方 ---- */
 .flow { padding-block: 44px; }
@@ -189,7 +197,7 @@ img { display: block; max-width: 100%; }
 .about-text > * + * { margin-top: 22px; }
 .about-photo { margin-top: 22px; }
 .about-kv { width: 100%; height: auto; aspect-ratio: 1600 / 813; }
-.about-town { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border: 1px solid var(--line); }
+.about-award { width: 100%; height: auto; aspect-ratio: 1600 / 813; object-fit: cover; }
 .about-photo .sp-only { margin-top: 22px; }
 .pc-only { display: none; }
 
@@ -254,7 +262,8 @@ img { display: block; max-width: 100%; }
 @media (min-width: 960px) {
   .in { max-width: 1016px; margin-inline: auto; padding-inline: 0; }
   .body { font-size: 14px; }
-  .h2 { font-size: 26px; }
+  .h2 { font-size: 34px; }
+  .h2 .num { font-size: 54px; }
   .cols { display: grid; grid-template-columns: 360px 1fr; column-gap: 80px; }
   .cols-wide { display: grid; grid-template-columns: 560px 1fr; column-gap: 80px; align-items: center; }
 
@@ -289,8 +298,7 @@ img { display: block; max-width: 100%; }
   .q { padding-block: 80px; }
   .q .in { display: grid; grid-template-columns: 640px 1fr; column-gap: 80px; align-items: end; }
   .q .in > * + * { margin-top: 0; }
-  .q-left > * + * { margin-top: 22px; }
-  .q-text { font-size: 34px; line-height: 1.55; }
+  .q-text { font-size: 40px; }
 
   .flow { padding-block: 96px; }
   .steps { margin-top: 44px; display: grid; grid-template-columns: repeat(5, 1fr); column-gap: 28px; }
@@ -316,7 +324,7 @@ img { display: block; max-width: 100%; }
   .about { padding-block: 96px; }
   .about .in { display: grid; grid-template-columns: 560px 1fr; column-gap: 80px; align-items: center; }
   .about-photo { margin-top: 0; }
-  .about-photo .about-town { margin-top: 16px; }
+  .about-photo .about-award { margin-top: 16px; }
 
   .overview { padding-block: 96px; }
   .overview .in { display: grid; grid-template-columns: 360px 1fr; column-gap: 80px; }
@@ -412,9 +420,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="in">
     <div class="q-left">
       <p class="label">当日のワークシートから</p>
-      <p class="q-text">「これがあったから<br><span class="nb">続けられた」と感じた</span><br>場面はありますか？</p>
+      <p class="q-text"><span class="hl">「これがあったから</span><br><span class="nb"><span class="hl">続けられた」</span>と感じた</span><br>場面はありますか？</p>
     </div>
-    <p class="q-help body">仕事でも、仕事以外でも。<br>当日は14の問いを手がかりに、<br>自分の経験を書き出していきます。</p>
+    <div class="q-right">
+      <div class="q-write">
+        <p class="q-prompt">思い浮かぶ場面を、ひとつ。</p>
+        <div class="q-lines" aria-hidden="true"><span></span><span></span></div>
+      </div>
+      <p class="q-help body">仕事でも、仕事以外でも。<br>当日は14の問いを手がかりに、<br>自分の経験を書き出していきます。</p>
+    </div>
   </div>
 </section>
 
@@ -487,7 +501,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <section class="about">
   <div class="in">
     <div class="about-text">
-      <h2 class="h2">POOLOについて</h2>
+      <h2 class="h2"><span class="en">POOLO</span>について</h2>
       <img class="about-kv sp-only" src="images/poolo_keyvisual.jpg" alt="POOLOのキービジュアル。旅と人生をつなぐ大人の学び" loading="lazy">
       <p class="body">POOLO（ポーロ）は、旅を入り口に、自分の生き方・働き方を問い直す大人の学び場です。<span class="nb">2019年に開校し、</span>これまでに<span class="nb">1,200名以上が</span>参加しています。</p>
       <p class="body">POOLOでは、「旅」で日常の外に出て視点を揺さぶり、「問い」で自分の言葉に置き換え、仲間に差し出して「共創」します。旅先で出会った、うまく言えない違和感が、問いの入り口になります。8ヶ月のオンラインプログラム<span class="nb">「POOLO LIFE」は、</span>この行き来をくり返す場です。</p>
@@ -496,7 +510,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
     <figure class="about-photo">
       <img class="about-kv pc-only" src="images/poolo_keyvisual.jpg" alt="POOLOのキービジュアル。旅と人生をつなぐ大人の学び" loading="lazy">
-      <img class="about-town" src="images/trip_town.jpg" alt="古い町並みを見上げながら歩く5人" loading="lazy">
+      <img class="about-award" src="images/peatix_award.jpg" alt="Peatix Community Award 2025 の表彰式。壇上のPOOLO運営メンバー" loading="lazy">
       <p class="caption sp-only">運営：株式会社TABIPPO／株式会社CODOLI<br>Peatix Community Award 2025 受賞</p>
     </figure>
   </div>
