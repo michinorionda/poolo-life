@@ -14,6 +14,9 @@
 <style>
   /* components.css と同じ改行則。slides.css には入っていないため、このページで当てる */
   .sl p, .sl h1, .sl h2, .sl h3 { word-break: auto-phrase; text-wrap: pretty; }
+  /* 06：図の下に3列を収めるため、番号を外して本文を1段小さくする */
+  .sl.is-dense .t-num { display: none; }
+  .sl.is-dense .triad-item p { font-size: 16px; line-height: 1.8; }
 </style>
 </head>
 
@@ -248,7 +251,7 @@
 
 
 <!-- 05 8か月でやること（旅・問い・創る） -->
-<section class="sl sl--triad">
+<section class="sl sl--triad is-dense">
   <div class="sl-top">
     <span class="sl-num">06</span>
     <span class="sl-kicker">POOLO LIFE</span>
@@ -272,17 +275,17 @@
       <div class="triad-item">
         <p class="t-num">01</p>
         <h3>旅</h3>
-        <p>8か月の中盤に、1泊2日の合宿があります。自然や歴史のある土地に、同期と集まります。同期どうしで旅を企画することもあります。</p>
+        <p>8か月の中盤に、1泊2日の合宿。<br>自然や歴史のある土地に集まります。<br>ほかにも、全国の同期を訪ねる旅や、<br>同期と一緒に企画する旅が<br>生まれています。</p>
       </div>
       <div class="triad-item">
         <p class="t-num">02</p>
         <h3>問い</h3>
-        <p>月2回、Zoomで約3時間の<br>講義とワークがあります。<br>今日のように書いて、話します。<br>チームや1on1でも話し合います。</p>
+        <p>月2回、Zoomで約3時間の<br>講義とワークがあります。<br>チームや1on1で話し合うほか、<br>noteでの言語化や音声配信で、<br>問いを発信する人もいます。</p>
       </div>
       <div class="triad-item">
         <p class="t-num">03</p>
         <h3>創る</h3>
-        <p>問いを持って、同期と企画を立てたり、noteに書いたりします。最後は、書き換わってきた問いを卒業制作にまとめます。</p>
+        <p>問いを持って、企画を立てたり、<br>noteに書いたりします。<br>部活やサークルなど、<br>100を超えるチャンネルが生まれます。<br>最後は卒業制作にまとめます。</p>
       </div>
     </div>
   </div>
