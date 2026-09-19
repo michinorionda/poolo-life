@@ -308,6 +308,9 @@ br.pc-br { display: none; }
   .flow { padding-block: 96px; }
   .steps { margin-top: 44px; display: grid; grid-template-columns: repeat(5, 1fr); column-gap: 28px; }
   .step + .step { margin-top: 0; }
+  /* 列が狭いPCでは、文節で折ると行が凸凹になるので1文字単位で詰めて組む */
+  .step p, .quote { word-break: normal; text-wrap: pretty; }
+  .step p .nb, .step p .pc-nb { white-space: normal; }
 
   .take { padding: 0 0 96px; }
   .take .in > * + * { margin-top: 0; }
@@ -487,15 +490,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
     <ul class="voice-list">
       <li class="voice">
-        <p class="quote"><span class="mk">「</span>10年以上今の会社に勤めていますが、<span class="pc-nb">同期が次々と</span>転職していき、自分はこのままでいいのか？と<br>もやもやしていました。もやもやを脱して、自分らしいキャリアを描くきっかけが得られたら嬉しいです。<span class="mk">」</span></p>
+        <p class="quote"><span class="mk">「</span>10年以上今の会社に勤めていますが、同期が次々と転職していき、自分はこのままでいいのか？と<br class="sp-br">もやもやしていました。もやもやを脱して、自分らしいキャリアを描くきっかけが得られたら嬉しいです。<span class="mk">」</span></p>
         <p class="caption">メーカー・企画職／30代・体験会参加者</p>
       </li>
       <li class="voice">
-        <p class="quote"><span class="mk">「</span>これ誰にも言えてなかったんですけど、<span class="nb">仕事というものに</span>熱中できなくなってきてしまっている気がしてて、一通り経験して<span class="nb">面倒になった？</span>飽きた？昔の方がパフォーマンスもよかった<span class="nb">気がする・・</span>年のせい・・？<span class="mk">」</span></p>
+        <p class="quote"><span class="mk">「</span>これ誰にも言えてなかったんですけど、仕事というものに熱中できなくなってきてしまっている気がしてて、一通り経験して面倒になった？飽きた？昔の方がパフォーマンスもよかった<span class="nb">気がする・・</span>年のせい・・？<span class="mk">」</span></p>
         <p class="caption">メーカー・企画開発職／30代・体験会参加者</p>
       </li>
       <li class="voice">
-        <p class="quote"><span class="mk">「</span>周りはライフステージがどんどん進んでるけど、自分は変わってなくて焦る。SNS見てるとモヤモヤする。本当にライフステージ変えたいのかわからない。<span class="nb">今の状態でも</span>幸せだけど、<br class="pc-br">周りからの見え方が気になる。<span class="mk">」</span></p>
+        <p class="quote"><span class="mk">「</span>周りはライフステージがどんどん進んでるけど、自分は変わってなくて焦る。SNS見てるとモヤモヤする。本当にライフステージ変えたいのかわからない。今の状態でも幸せだけど、周りからの見え方が気になる。<span class="mk">」</span></p>
         <p class="caption">在宅ワーク・事務職／30代・体験会参加者</p>
       </li>
     </ul>
