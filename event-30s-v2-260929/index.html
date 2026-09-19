@@ -263,11 +263,8 @@ br.pc-br { display: none; }
    ============================================================= */
 @media (min-width: 960px) {
   .in { max-width: 1016px; margin-inline: auto; padding-inline: 0; }
-  .body { font-size: 14px; }
   .h2 { font-size: 34px; }
   .h2 .num { font-size: 54px; }
-  .cols { display: grid; grid-template-columns: 360px 1fr; column-gap: 80px; }
-  .cols-wide { display: grid; grid-template-columns: 560px 1fr; column-gap: 80px; align-items: center; }
 
   .hd .in { height: 75px; }
   .pc-only { display: block; }
@@ -294,61 +291,54 @@ br.pc-br { display: none; }
   .fv-photo { display: block; flex: 1; margin-left: 80px; border-left: 8px solid var(--brand); }
   .fv-photo img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 100%; }
 
+  /* 冒頭のあとは、中央の640px幅1列で「見出し→本文→写真」の順に読む（1行約42字） */
+  .feel .in, .q .in, .flow .in, .take .in, .rules .in, .voices .in,
+  .about .in, .overview .in, .faq .in, .apply .in { max-width: 640px; }
+  .body, .faq-a { font-size: 15px; }
+
   .feel { padding: 24px 0 96px; }
-  .feel .in { display: grid; grid-template-columns: 480px 1fr; column-gap: 80px; align-items: center; }
-  .feel-text { padding: 0; }
+  .feel-photo img { height: auto; aspect-ratio: 3 / 2; }
+  .feel-text { padding: 40px 0 0; }
   .feel-text > * + * { margin-top: 24px; }
-  .feel .body { max-width: 342px; }
 
   .q { padding-block: 80px; }
-  .q .in { display: grid; grid-template-columns: 640px 1fr; column-gap: 80px; align-items: end; }
-  .q .in > * + * { margin-top: 0; }
+  .q .in > * + * { margin-top: 40px; }
   .q-text { font-size: 40px; }
 
   .flow { padding-block: 96px; }
-  .steps { margin-top: 44px; display: grid; grid-template-columns: repeat(5, 1fr); column-gap: 28px; }
-  .step + .step { margin-top: 0; }
-  /* 列が狭いPCでは、文節で折ると行が凸凹になるので1文字単位で詰めて組む */
-  .step p, .quote { word-break: normal; text-wrap: pretty; }
-  .step p .nb, .step p .pc-nb { white-space: normal; }
+  .steps { margin-top: 32px; }
 
   .take { padding: 0 0 96px; }
-  .take .in > * + * { margin-top: 0; }
 
-  .band { padding: 0 0 96px max(24px, calc((100vw - 1016px) / 2)); }
+  .band { padding: 0 max(24px, calc((100vw - 1016px) / 2)) 96px; }
   .band img { height: 460px; object-position: 50% 75%; }
 
   .rules { padding-block: 80px; }
-  .rules .in { display: grid; grid-template-columns: 560px 1fr; column-gap: 80px; align-items: center; }
-  .rules-apply { margin-top: 0; }
+  .rules-apply { margin-top: 32px; }
+  .rules-apply .btn, .apply-box .btn { width: 376px; }
 
   .voices { padding-block: 96px; }
-  .voices-head { display: grid; grid-template-columns: 360px 1fr; column-gap: 80px; align-items: end; }
-  .voices-head > * + * { margin-top: 0; }
-  .voice-list { margin-top: 28px; display: grid; grid-template-columns: repeat(3, 1fr); column-gap: 36px; }
-  .voice + .voice { margin-top: 0; }
+  .voices-head > * + * { margin-top: 16px; }
+  .voice-list { margin-top: 28px; }
+  .voice + .voice { margin-top: 28px; }
   .voices .caption.last { margin-top: 28px; }
 
   .about { padding-block: 96px; }
-  .about .in { display: grid; grid-template-columns: 560px 1fr; column-gap: 80px; align-items: center; }
-  .about-photo { margin-top: 0; }
-  .about-photo .about-award { margin-top: 16px; }
+  .about-photo { margin-top: 32px; display: grid; grid-template-columns: 1fr 1fr; column-gap: 16px; }
+  .about-photo .about-award { margin-top: 0; }
+  .about-text .caption.pc-only { display: none; }
+  .about-photo .caption.sp-only { display: block; grid-column: 1 / -1; margin-top: 32px; }
 
   .overview { padding-block: 96px; }
-  .overview .in { display: grid; grid-template-columns: 360px 1fr; column-gap: 80px; }
-  .ov { margin-top: 0; }
-  .ov-row { grid-template-columns: 70px 1fr; }
+  .ov { margin-top: 32px; }
   .ov-notes { margin-top: 16px; }
   .ov-notes p + p { margin-top: 16px; }
 
   .faq { padding-block: 96px; }
-  .faq-list { margin-top: 40px; display: grid; grid-template-columns: repeat(2, 1fr); column-gap: 40px; row-gap: 28px; }
-  .faq-item + .faq-item { margin-top: 0; }
-  .faq-a { text-wrap: wrap; }
+  .faq-list { margin-top: 32px; }
 
   .apply { padding-block: 96px; }
-  .apply .in { display: grid; grid-template-columns: 560px 1fr; column-gap: 80px; align-items: center; }
-  .apply-box { margin-top: 0; }
+  .apply-box { margin-top: 32px; }
   .apply-box > * + * { margin-top: 18px; }
 
   .ft { padding: 48px 0 56px; }
@@ -457,7 +447,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <!-- ===== 持ち帰るもの ===== -->
 <section class="take">
-  <div class="in cols">
+  <div class="in">
     <h2 class="h2">持ち帰るもの</h2>
     <p class="body">最後に<span class="nb">「わたしは、＿＿を</span><span class="nb">問います。」</span>と一文で書きます。今週その問いを誰に話してみるかも決めて、<span class="nb">90分を終えます。</span></p>
   </div>
