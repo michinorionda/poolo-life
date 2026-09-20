@@ -58,7 +58,7 @@ img { display: block; max-width: 100%; }
 br.pc-br { display: none; }
 .num { font-family: var(--en); font-weight: 500; }
 /* 文節で改行する（Chrome系）。非対応のブラウザでは通常の改行に戻る */
-.mc, .lead, .body, .feel-body, .q-text, .q-help, .step p, .quote, .faq-a, .faq-q, .ov dd, .fa-main, .fa-sub, .take-body {
+.mc, .lead, .body, .feel-body, .q-text, .q-help, .step p, .faq-a, .faq-q, .ov dd, .fa-main, .fa-sub, .take-body {
   word-break: auto-phrase;
   text-wrap: pretty;
 }
@@ -211,6 +211,7 @@ br.pc-br { display: none; }
 .voices { padding-block: 64px; }
 .voices .in > * + * { margin-top: 44px; }
 .voices-head > * + * { margin-top: 16px; }
+.voices-row { display: flex; flex-direction: column; gap: 44px; }
 .voices-photo img { width: 100%; height: 210px; object-fit: cover; }
 .voice + .voice { margin-top: 44px; }
 .voice-who { font-size: 12px; font-weight: 700; letter-spacing: 0.06em; color: var(--brand-deep); }
@@ -220,6 +221,9 @@ br.pc-br { display: none; }
   font-size: 17px;
   line-height: 2;
   letter-spacing: 0.04em;
+  /* 声は1文字ずつ行末まで詰める。文節で折ると行がそろわず、語の途中でも切れる */
+  word-break: normal;
+  text-wrap: wrap;
 }
 
 /* ---- POOLOについて ---- */
@@ -383,7 +387,8 @@ br.pc-br { display: none; }
   .voices { padding: 0; }
   .voices .in { padding-block: 112px; }
   .voices .in > * + * { margin-top: 40px; }
-  .voices-row { display: flex; align-items: stretch; gap: 96px; }
+  .voices-row { flex-direction: row; align-items: stretch; gap: 96px; }
+  .voices-photo { order: 2; }
   .voice-list { flex: none; width: 640px; }
   .voices-photo { flex: 1; min-width: 0; }
   .voices-photo img { height: 100%; }
@@ -585,6 +590,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <p class="small">参加者が寄せた、体験会に申し込んだときの気持ちです。</p>
     </div>
     <div class="voices-row">
+      <figure class="voices-photo"><img src="images/voices_shade_table.jpg" alt="木陰の机で向かい合って話す2人" loading="lazy"></figure>
       <ul class="voice-list">
         <li class="voice">
           <p class="voice-who">メーカー・企画職／30代・体験会参加者</p>
@@ -599,7 +605,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <p class="quote">「周りはライフステージがどんどん進んでるけど、自分は変わってなくて焦る。SNS見てるとモヤモヤする。本当にライフステージ変えたいのかわからない。今の状態でも幸せだけど、周りからの見え方が気になる。」</p>
         </li>
       </ul>
-      <figure class="voices-photo"><img src="images/voices_shade_table.jpg" alt="木陰の机で向かい合って話す2人" loading="lazy"></figure>
     </div>
     <p class="caption">ご本人が特定されない形で掲載しています。</p>
   </div>
