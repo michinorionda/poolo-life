@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>東川3日間・冬｜体験会v2の型プレビュー</title>
+<link rel="stylesheet" href="../poolo-ds/tokens.css">
+<style> に書く -->
+<link rel="stylesheet" href="../poolo-ds/tokens.css">
+<style>
+/* =============================================================
+   東川3日間・冬を、体験会v2の型に入れたプレビュー
+   Figma「POOLO LP 30代の生き方 スマホ版」最新ページ
+   「提案｜旅先の会話・スマホ 390」「提案｜旅先の会話・PC 1440」が元。
+   通しのモチーフは「紙」。問いは記入する一枚、持ち帰るものは紙片、約束は卓上の札。
+   紙は白＋罫線色の縁、紙のある章の背景だけオフホワイト。
+   見出しの専用レタリングと 01〜05 の数字は images/ の SVG。
+   ============================================================= */
+*, *::before, *::after { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  background: var(--bg);
+  color: var(--ink-soft);
+  font-family: var(--body);
+  font-size: 14px;
+  line-height: 1.95;
+  letter-spacing: 0.02em;
+  line-break: strict;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+h1, h2, h3, p, ul, ol, dl, dd, figure, blockquote { margin: 0; padding: 0; }
+ul, ol { list-style: none; }
+a { color: inherit; text-decoration: none; }
+img { display: block; max-width: 100%; }
+.nb { white-space: nowrap; }
+br.pc-br { display: none; }
+.num { font-family: var(--en); font-weight: 500; }
+/* 文節で改行する（Chrome系）。非対応のブラウザでは通常の改行に戻る */
+.mc, .lead, .body, .feel-body, .q-text, .q-help, .step p, .faq-a, .faq-q, .ov dd, .fa-main, .fa-sub, .take-body {
+  word-break: auto-phrase;
+  text-wrap: pretty;
+}
+
+/* ---- 共通 ---- */
+.in { padding-inline: 24px; }
+/* スマホでは写真を画面の端まで出す章（内側の余白は各章で持つ） */
+.feel .in, .q .in, .rules .in { padding-inline: 0; }
+.body { font-size: 14px; line-height: 1.95; }
+.small { font-size: 12px; }
+.caption { font-size: 11px; color: var(--ink-72); }
+.label { font-size: 11px; font-weight: 700; letter-spacing: 0.06em; }
+/* 文字で組む見出し（参加のきっかけ・開催概要・よくある質問・お申し込み） */
+.h2 {
+  font-family: var(--mincho);
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  color: var(--brand-deep);
+}
+/* 専用レタリングの見出し。高さで大きさを決め、幅は成り行き */
+.lt { display: block; height: 40px; width: auto; }
+/* 専用明朝の数字 01〜05 */
+.no { display: block; height: 13px; width: auto; }
+.btn {
+  display: block;
+  background: var(--brand);
+  color: #fff;
+  text-align: center;
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: 0.06em;
+  line-height: 1.7;
+  padding: 15px 16px;
+  border-radius: 2px;
+  transition: background 0.2s;
+}
+.btn:hover { background: var(--brand-deep); }
+.off { background: var(--bg-off); }
+/* 紙（白い面＋罫線色の縁） */
+.paper { background: #fff; border: 1px solid var(--line); }
+.date { display: flex; align-items: center; gap: 20px; }
+.date-y { display: block; font-family: var(--en); font-weight: 500; font-size: 12px; line-height: 14px; }
+.date-d { display: block; font-family: var(--en); font-weight: 500; font-size: 52px; line-height: 62px; letter-spacing: 0.02em; color: var(--ink); }
+.date-w { display: block; font-size: 12px; font-weight: 700; letter-spacing: 0.06em; line-height: 23px; }
+.date-t { display: block; margin-top: 4px; font-family: var(--en); font-weight: 500; font-size: 20px; line-height: 24px; color: var(--ink); }
+.cond { font-size: 12px; font-weight: 700; letter-spacing: 0.06em; }
+.cond .sep { font-weight: 400; margin-inline: 0.6em; }
+.note { font-size: 11px; color: var(--ink-72); }
+.date-line { font-size: 13px; font-weight: 700; letter-spacing: 0.06em; }
+.date-line .num { font-weight: 500; }
+
+/* ---- ヘッダー ---- */
+.hd { position: sticky; top: 0; z-index: 60; background: #fff; transition: box-shadow 0.2s; }
+.hd.is-stuck { box-shadow: 0 1px 0 var(--line); }
+.hd .in { display: flex; align-items: center; gap: 24px; height: 62px; }
+.hd-logo img { width: 65px; height: auto; }
+.hd-label { font-size: 11px; flex: 1; }
+.hd-cta { display: none; }
+
+/* ---- ファーストビュー（スマホは文字だけ） ---- */
+.fv-copy { padding: 30px 24px 32px; }
+.fv-copy > * + * { margin-top: 18px; }
+.mc {
+  font-family: var(--mincho);
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  color: var(--ink);
+}
+.mc .num { font-weight: 500; line-height: 1; }
+.lead { font-size: 14px; }
+.fv-photo, .fv-bottom { display: none; }
+
+/* ---- こんな気持ちの方へ ---- */
+.feel { padding-bottom: 72px; }
+.feel-photo img { width: 100%; height: 300px; object-fit: cover; }
+.feel-text { padding: 40px 28px 0; }
+.feel-text > * + * { margin-top: 28px; }
+.feel-body {
+  font-family: var(--mincho);
+  font-size: 17px;
+  line-height: 2.1;
+  letter-spacing: 0.04em;
+}
+.feel-note { font-size: 13px; color: var(--ink-66); }
+
+/* ---- 当日の問い（写真の下から紙がせり上がる） ---- */
+.q { padding-bottom: 64px; }
+.q-photo img { width: 100%; height: 300px; object-fit: cover; }
+.q-sheet { position: relative; margin: -56px 28px 0; padding: 36px 24px; }
+.q-sheet > * + * { margin-top: 28px; }
+.q .label { letter-spacing: 0.1em; }
+.q-text {
+  font-family: var(--mincho);
+  font-size: 24px;
+  line-height: 1.55;
+  letter-spacing: 0.04em;
+  color: var(--brand-deep);
+}
+.q-prompt { font-size: 12px; }
+.q-lines { padding-top: 12px; margin-top: 20px; }
+.q-lines span { display: block; height: 1px; background: var(--line-pale); }
+.q-lines span + span { margin-top: 64px; }
+
+/* ---- 90分の流れ ---- */
+.flow { padding: 64px 28px; }
+.route { display: none; }
+.steps { margin-top: 36px; }
+.step + .step { margin-top: 36px; }
+.step > * + * { margin-top: 10px; }
+.step h3 {
+  font-family: var(--mincho);
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1.95;
+  letter-spacing: 0.04em;
+}
+
+/* ---- 持ち帰るもの（紙片） ---- */
+.take { padding: 48px 28px; }
+.take-slip { margin-top: 24px; padding: 24px; }
+
+/* ---- 写真の帯 ---- */
+.band img { width: 100%; height: 260px; object-fit: cover; object-position: 50% 60%; }
+
+/* ---- 3つの約束（卓上の札） ---- */
+.rules { padding-bottom: 64px; }
+.rules-photo img { width: 100%; height: 240px; object-fit: cover; }
+.rules-inner { padding: 28px 28px 0; }
+.rules-card { padding: 36px 24px; }
+.rules-list { margin-top: 24px; }
+.rules-list li { display: flex; align-items: baseline; gap: 12px; }
+.rules-list li + li { margin-top: 18px; }
+.rules-list .no { height: 11px; position: relative; top: -1px; }
+.rules-list span {
+  font-family: var(--mincho);
+  font-weight: 700;
+  font-size: 17px;
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+  color: var(--ink);
+}
+.rules-apply { margin-top: 24px; }
+.rules-apply > * + * { margin-top: 14px; }
+
+/* ---- 参加のきっかけ（対談記事の形） ---- */
+.voices { padding-block: 64px; }
+.voices .in > * + * { margin-top: 44px; }
+.voices-head > * + * { margin-top: 16px; }
+.voices-row { display: flex; flex-direction: column; gap: 44px; }
+.voices-photo img { width: 100%; height: 210px; object-fit: cover; }
+.voice + .voice { margin-top: 44px; }
+.voice-who { font-size: 12px; font-weight: 700; letter-spacing: 0.06em; color: var(--brand-deep); }
+.quote {
+  margin-top: 10px;
+  font-family: var(--mincho);
+  font-size: 17px;
+  line-height: 2;
+  letter-spacing: 0.04em;
+  /* 声は1文字ずつ行末まで詰める。文節で折ると行がそろわず、語の途中でも切れる */
+  word-break: normal;
+  text-wrap: wrap;
+}
+
+/* ---- POOLOについて ---- */
+.about { padding-block: 64px; }
+.about .in > * + *, .about-text > * + *, .about-photo > * + * { margin-top: 28px; }
+.about-kv { width: 100%; height: auto; aspect-ratio: 1600 / 813; object-fit: cover; }
+.about-award { width: 100%; height: auto; aspect-ratio: 1600 / 813; object-fit: cover; border: 1px solid var(--line); }
+.about-link { display: inline-block; font-size: 14px; font-weight: 700; letter-spacing: 0.04em; color: var(--brand-deep); text-decoration: underline; text-underline-offset: 0.3em; }
+.pc-only { display: none; }
+
+/* ---- 開催概要 ---- */
+.overview { padding-block: 64px; }
+.ov { margin-top: 20px; }
+.ov-row { display: grid; grid-template-columns: 70px 1fr; column-gap: 16px; border-top: 1px solid var(--line); padding-block: 14px; }
+.ov dt { font-size: 12px; font-weight: 700; letter-spacing: 0.06em; }
+.ov dd { font-size: 13px; }
+.ov-notes { margin-top: 16px; }
+.ov-notes p + p { margin-top: 16px; }
+
+/* ---- よくある質問 ---- */
+.faq { padding-block: 64px; }
+.faq-list { margin-top: 22px; }
+.faq-item { border-top: 1px solid var(--line); padding-top: 12px; }
+.faq-item + .faq-item { margin-top: 22px; }
+.faq-q { font-weight: 700; }
+.faq-a { margin-top: 12px; }
+
+/* ---- お申し込み（ブランドの青の面） ---- */
+.apply { background: var(--brand); color: #fff; padding: 64px 28px; }
+.apply .in { padding-inline: 0; }
+.apply .in > * + * { margin-top: 24px; }
+.apply-head > * + * { margin-top: 20px; }
+.apply .h2 { color: #fff; font-size: 28px; }
+.apply .date-y, .apply .date-d, .apply .date-w, .apply .date-t { color: #fff; }
+.apply .btn { background: #fff; color: var(--brand-deep); }
+.apply .btn:hover { background: var(--brand-pale); }
+.apply-steps { font-size: 13px; }
+.apply-note { display: grid; grid-template-columns: 70px 1fr; column-gap: 16px; border-top: 1px solid var(--brand-mid); padding-top: 12px; }
+.apply-note dt { font-size: 11px; font-weight: 700; letter-spacing: 0.06em; }
+.apply-note dd { font-size: 12px; }
+
+/* ---- フッター ---- */
+.ft { padding: 32px 0 36px; }
+.ft .in > * + * { margin-top: 16px; }
+.ft-logos { display: flex; align-items: flex-start; gap: 32px; }
+/* ロゴの文字（POOLO／TABIPPO）の縦の中心をそろえる。POOLOは下にキャッチ、TABIPPOは右上に丸があるため枠の中心ではずれる */
+.ft-logos .poolo { width: 64px; margin-top: 4.5px; }
+.ft-logos .tabippo { width: 96px; }
+.ft p { font-size: 11px; color: var(--ink-72); }
+.ft-texts p + p { margin-top: 16px; }
+
+/* ---- 追従ボタン（画面下に固定） ---- */
+.fa {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 50;
+  background: #fff;
+  border-top: 1px solid var(--line);
+  padding: 11px 22px calc(11px + env(safe-area-inset-bottom));
+  transform: translateY(110%);
+  transition: transform 0.3s ease;
+}
+.fa.is-visible { transform: translateY(0); }
+.fa-inner { display: flex; align-items: center; gap: 12px; }
+.fa-texts { flex: 1; min-width: 0; }
+.fa-main, .fa-sub { display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.fa-main { font-size: 12px; font-weight: 700; letter-spacing: 0.04em; color: var(--ink); }
+.fa-sub { font-size: 10px; color: var(--ink-60); letter-spacing: 0.04em; }
+.fa .btn { font-size: 12px; padding: 12px 14px; white-space: nowrap; flex: none; }
+
+/* =============================================================
+   PC（960px以上）：左右112px（1440px幅のとき）、本文の幅は1216px
+   ============================================================= */
+@media (min-width: 960px) {
+  .in { max-width: 1264px; margin-inline: auto; padding-inline: 24px; }
+  .feel .in, .q .in, .rules .in { padding-inline: 24px; }
+  .h2 { font-size: 34px; }
+  .lt { height: 56px; }
+  .body { font-size: 16px; }
+  .pc-only { display: block; }
+  .pc-nb { white-space: nowrap; }
+  br.pc-br { display: inline; }
+  br.sp-br { display: none; }
+  .sp-only { display: none; }
+
+  .hd .in { height: 75px; }
+  .hd-cta { display: inline-block; font-size: 12.5px; padding: 9px 20px; }
+
+  /* 冒頭：左に文、右に写真。下に日付・条件・ボタンの帯 */
+  .fv-top { display: flex; align-items: center; gap: 74px; padding: 40px 64px 56px max(40px, calc((100vw - 1216px) / 2)); }
+  .fv-copy { flex: none; width: min(510px, 42%); padding: 0; }
+  .fv-copy > * + * { margin-top: 40px; }
+  .mc { font-size: 56px; line-height: 1.4; color: var(--brand-deep); }
+  .lead { font-size: 16px; max-width: 440px; }
+  .fv-copy .date, .fv-copy .cond, .fv-copy .btn, .fv-copy .note { display: none; }
+  .fv-photo { display: block; flex: 1; min-width: 0; height: 620px; }
+  .fv-photo img { width: 100%; height: 100%; object-fit: cover; }
+  .fv-bottom { display: flex; align-items: center; gap: 75px; padding-block: 40px; }
+  .fv-how > * + * { margin-top: 8px; }
+  .fv-bottom .btn { width: 368px; margin-left: auto; }
+
+  /* こんな気持ちの方へ：左に写真、右に見出しと本文 */
+  .feel { padding-bottom: 0; }
+  .feel .in { display: flex; align-items: center; gap: 112px; padding-block: 112px; }
+  .feel-photo { flex: none; width: 520px; }
+  .feel-photo img { height: 390px; }
+  .feel-text { flex: 1; max-width: 584px; padding: 0; }
+  .feel-text > * + * { margin-top: 36px; }
+  .feel-body { font-size: 20px; line-height: 2; letter-spacing: 0.05em; }
+  .feel-note { font-size: 14px; }
+
+  /* 当日の問い：写真の上に紙を重ねる */
+  .q { padding-bottom: 0; }
+  .q .in { display: flex; align-items: center; justify-content: center; padding-block: 96px; }
+  .q-photo { flex: none; width: 560px; }
+  .q-photo img { height: 760px; object-position: 0% 50%; }
+  .q-sheet { flex: none; width: 640px; margin: 0 0 0 -88px; padding: 56px; }
+  .q-sheet > * + * { margin-top: 32px; }
+  .q-text { font-size: 38px; }
+  .q-lines span + span { margin-top: 74px; }
+  .q-help { font-size: 15px; }
+
+  /* 90分の流れ：案内板に5つの停留所、下に説明を2列 */
+  .flow { padding: 0; }
+  .flow .in { padding-block: 96px; }
+  .route {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-top: 48px; padding: 28px 8px;
+    border-block: 1px solid var(--line);
+  }
+  .route li { display: flex; align-items: center; gap: 12px; }
+  .route .no { height: 18px; }
+  .route span { font-family: var(--mincho); font-weight: 700; font-size: 17px; letter-spacing: 0.04em; color: var(--ink); white-space: nowrap; }
+  .steps { margin-top: 48px; display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: repeat(3, auto); grid-auto-flow: column; column-gap: 64px; row-gap: 36px; align-items: start; }
+  .step + .step { margin-top: 0; }
+  .step h3 { border-top: 1px solid var(--line); padding-top: 10px; font-size: 19px; }
+  .step p { font-size: 15px; }
+
+  /* 持ち帰るもの：左に見出し、右に紙片 */
+  .take { padding: 0; }
+  .take .in { display: flex; align-items: center; gap: 112px; padding-block: 64px; }
+  .take-head { flex: none; width: 360px; }
+  .take-slip { flex: 1; margin-top: 0; padding: 32px 40px; }
+
+  .band img { height: 560px; object-position: 50% 65%; }
+
+  /* 3つの約束：左に写真、右に札と申込 */
+  .rules { padding-bottom: 0; }
+  .rules .in { display: flex; align-items: center; justify-content: center; gap: 96px; padding-block: 96px; }
+  .rules-photo { flex: none; width: 600px; }
+  .rules-photo img { height: 400px; }
+  .rules-inner { flex: none; width: 464px; padding: 0; }
+  .rules-card { padding: 44px 40px; }
+  .rules-list { margin-top: 28px; }
+  .rules-list li { gap: 16px; }
+  .rules-list li + li { margin-top: 22px; }
+  .rules-list .no { height: 12px; }
+  .rules-list span { font-size: 22px; letter-spacing: 0.05em; }
+  .rules-apply { margin-top: 32px; padding: 8px 40px 0; }
+  .rules-apply > * + * { margin-top: 16px; }
+
+  /* 参加のきっかけ：左に3人の声、右に縦長の写真 */
+  .voices { padding: 0; }
+  .voices .in { padding-block: 112px; }
+  .voices .in > * + * { margin-top: 40px; }
+  .voices-row { flex-direction: row; align-items: stretch; gap: 96px; }
+  .voices-photo { order: 2; }
+  .voice-list { flex: none; width: 640px; }
+  .voices-photo { flex: 1; min-width: 0; }
+  .voices-photo img { height: 100%; }
+  .voice + .voice { margin-top: 52px; }
+  .quote { font-size: 18px; }
+
+  /* POOLOについて：左に文、右に写真2枚 */
+  .about { padding: 0; }
+  .about .in { display: flex; gap: 112px; padding-block: 112px; }
+  .about .in > * + * { margin-top: 0; }
+  .about-text { flex: none; width: 584px; }
+  .about-text > * + * { margin-top: 32px; }
+  .about-photo { flex: none; width: 520px; }
+  .about-photo > * + * { margin-top: 16px; }
+  .about-award { aspect-ratio: auto; height: 345px; }
+
+  /* 開催概要・よくある質問：左に見出し、右に内容 */
+  .overview, .faq { padding: 0; }
+  .overview .in, .faq .in { display: flex; gap: 112px; padding-block: 112px; }
+  .faq .in { padding-top: 96px; }
+  .overview .h2, .faq .h2 { flex: none; width: 360px; }
+  .ov-wrap, .faq-list { flex: 1; max-width: 744px; margin-top: 0; }
+  .ov { margin-top: 0; }
+  .faq-q, .faq-a { font-size: 15px; }
+
+  /* お申し込み：左に見出しと文、右に日付とボタン */
+  .apply { padding: 0; }
+  .apply .in { display: flex; gap: 112px; padding: 104px 24px; }
+  .apply .in > * + * { margin-top: 0; }
+  .apply-head { flex: none; width: 584px; }
+  .apply .h2 { font-size: 34px; }
+  .apply-msg { font-size: 15px; }
+  .apply-box { flex: none; width: 520px; }
+  .apply-box > * + * { margin-top: 24px; }
+
+  .ft { padding: 48px 0 56px; }
+  .ft .in { display: flex; justify-content: space-between; align-items: center; }
+  .ft .in > * + * { margin-top: 0; }
+  .ft-texts { text-align: right; }
+  .ft-texts p + p { margin-top: 8px; }
+
+  .fa { padding: 14px 0 calc(14px + env(safe-area-inset-bottom)); }
+  .fa-inner { max-width: 1216px; margin-inline: auto; }
+  .fa-texts { display: flex; align-items: baseline; gap: 20px; }
+  .fa-main { font-size: 14px; }
+  .fa-sub { font-size: 12px; }
+  .fa .btn { font-size: 14px; padding: 15px 28px; }
+}
+</style>
+<style>
+/* ---- 東川プレビューで足したもの ---- */
+/* letter.py で作った見出し（余白の取り方が既存SVGと違うので高さを換算） */
+.lt-g { display: block; height: 37px; width: auto; }
+/* 3日間：各日の時刻表 */
+.tt { margin-top: 14px; border-top: 1px solid var(--line); }
+.tt div { display: grid; grid-template-columns: 44px 1fr; column-gap: 12px; padding-block: 7px; border-bottom: 1px solid var(--line); font-size: 12.5px; line-height: 1.7; }
+.tt dt { font-family: var(--en); font-weight: 500; color: var(--brand-deep); }
+.step .day { font-size: 12px; font-weight: 700; letter-spacing: 0.06em; color: var(--ink-60); }
+/* 事前準備の紙：11か月の欄 */
+.months { display: grid; grid-template-columns: repeat(4, 1fr); column-gap: 10px; row-gap: 18px; margin-top: 18px; }
+.months span { display: block; padding-top: 22px; border-bottom: 1px solid var(--line-pale); font-family: var(--en); font-size: 11px; color: var(--ink-50); }
+/* 3つの柱：名前と一行 */
+.rules-list li { flex-wrap: wrap; }
+.rules-list small { display: block; width: 100%; padding-left: 30px; margin-top: 2px; font-family: var(--body); font-weight: 400; font-size: 13px; color: var(--ink-72); letter-spacing: 0.02em; }
+.about-links { display: flex; flex-wrap: wrap; gap: 8px 24px; }
+.date-d.wide { letter-spacing: 0; }
+@media (min-width: 960px) {
+  .lt-g { height: 52px; }
+  .steps { grid-template-columns: repeat(3, 1fr); grid-template-rows: auto; grid-auto-flow: row; column-gap: 40px; }
+  .route { justify-content: flex-start; gap: 72px; }
+  .months { grid-template-columns: repeat(6, 1fr); }
+  .rules-list small { padding-left: 34px; font-size: 14px; }
+  .fv-top .mc { font-size: 50px; }
+}
+</style>
+</head>
+<body>
+<div class="fa" id="floatApply"><div class="fa-inner"><div class="fa-texts"><span class="fa-main">2026年を綴じて、紡ぐ、3日間。</span><span class="fa-sub">12/4（金）〜6（日）・北海道・東川町・59,800円</span></div><a class="btn" href="https://line.me/ti/g/AJS8hpCmEP" target="_blank" rel="noopener">LINEグループに入る</a></div></div>
+
+<header class="hd"><div class="in">
+  <a class="hd-logo" href="https://tabippo.net/poolo/" target="_blank" rel="noopener"><img src="images/poolo_logo.png" alt="POOLO あたらしい旅の学校"></a>
+  <span class="hd-label">POOLO × School for Life Compath｜東川3日間・冬</span>
+  <a class="btn hd-cta" href="https://line.me/ti/g/AJS8hpCmEP" target="_blank" rel="noopener">LINEグループに入る</a>
+</div></header>
+
+<section class="fv">
+  <div class="fv-top">
+    <div class="fv-copy">
+      <h1 class="mc"><span class="num">2026</span>年を綴じて、<br><span class="nb">紡ぐ、<span class="num">3</span>日間。</span></h1>
+      <p class="lead">1月から11月まで、月に一枚ずつ選んだ写真を持って、北海道・東川町へ。11枚を並べて一年をたどり、冬のまちを歩いて、いまの自分の目が何に止まるのかを確かめる2泊3日です。</p>
+      <div class="date">
+        <div><span class="date-y">2026</span><span class="date-d wide">12.4–6</span></div>
+        <div><span class="date-w">金曜日〜日曜日</span><span class="date-t">12:00–15:00頃</span></div>
+      </div>
+      <p class="cond">北海道・東川町<span class="sep">／</span>2泊3日<span class="sep">／</span>59,800円</p>
+      <a class="btn" href="https://line.me/ti/g/AJS8hpCmEP" target="_blank" rel="noopener">LINEグループに入る</a>
+      <p class="note">＊写真はすべて2026年8月21〜23日に開催した第1回の記録です。12月は雪の東川になります。</p>
+    </div>
+    <figure class="fv-photo"><img src="images/g_dialogue.jpg" alt="窓辺のテーブルで向かい合って話す"></figure>
+  </div>
+  <div class="fv-bottom in">
+    <div class="date">
+        <div><span class="date-y">2026</span><span class="date-d wide">12.4–6</span></div>
+        <div><span class="date-w">金曜日〜日曜日</span><span class="date-t">12:00–15:00頃</span></div>
+      </div>
+    <div class="fv-how"><p class="cond">北海道・東川町<span class="sep">／</span>2泊3日<span class="sep">／</span>59,800円</p><p class="note">＊写真はすべて8月の第1回の記録です。</p></div>
+    <a class="btn" href="https://line.me/ti/g/AJS8hpCmEP" target="_blank" rel="noopener">LINEグループに入る</a>
+  </div>
+</section>
+
+<section class="feel"><div class="in">
+  <figure class="feel-photo"><img src="images/pb_dusk.jpg" alt="夕暮れの東川。畑の向こうにひろがる空と、遠くの大雪山の稜線" loading="lazy"></figure>
+  <div class="feel-text">
+    <h2><img class="lt" src="images/lt-feel.svg" alt="こんな気持ちの方へ" width="448" height="56"></h2>
+    <p class="feel-body">年始に決めたことを、もう思い出せない。<br>夏が終わって、今年も残り4ヶ月だと気づいた。<br>去年の年末も、気づいたら年が明けていた。<br>立ち止まる時間は、いつも「落ち着いたら」になる。</p>
+    <p class="feel-note">年末に立ち止まる時間は、年末になってからでは取れません。</p>
+  </div>
+</div></section>
+
+<section class="q off"><div class="in">
+  <figure class="q-photo"><img src="images/g_workshop.jpg" alt="机に広げた紙に向かって、手を動かす" loading="lazy"></figure>
+  <div class="q-sheet paper">
+    <p class="label">事前準備</p>
+    <p class="q-text">出発の前に、<br>2026年の11枚を選ぶ。</p>
+    <div class="q-write">
+      <p class="q-prompt">選ぶ基準はひとつだけ。「その月を思い出す一枚」であること。</p>
+      <div class="months" aria-hidden="true"><span>1月</span><span>2月</span><span>3月</span><span>4月</span><span>5月</span><span>6月</span><span>7月</span><span>8月</span><span>9月</span><span>10月</span><span>11月</span></div>
+    </div>
+    <p class="q-help body">このコースは、出発する前から始まります。1月から11月まで、それぞれの月から1枚ずつ写真を選び、事前にアルバムへ入れておいてください。</p>
+  </div>
+</div></section>
+
+<section class="flow"><div class="in">
+  <h2><img class="lt-g" src="images/lt-days.svg" alt="3日間の流れ"></h2>
+  <ul class="route" aria-hidden="true">
+    <li><img class="no" src="images/num-01.svg" alt=""><span>たどる</span></li>
+    <li><img class="no" src="images/num-02.svg" alt=""><span>写す</span></li>
+    <li><img class="no" src="images/num-03.svg" alt=""><span>綴じる</span></li>
+  </ul>
+  <ol class="steps">
+    <li class="step"><img class="no" src="images/num-01.svg" alt="01"><p class="day">12月4日（金）</p><h3>たどる</h3><p class="body">歩いてきた一年をたどる。過去の写真から、一年を振り返ります。</p><dl class="tt"><div><dt>12:00</dt><dd>集合、ランチと交流</dd></div><div><dt>13:00</dt><dd>イントロダクションとグラウンディング</dd></div><div><dt>14:15</dt><dd>写真を使って、2026年を振り返る</dd></div><div><dt>16:30</dt><dd>ひとりの時間</dd></div><div><dt>17:15</dt><dd>1日を綴じるリフレクション</dd></div><div><dt>18:00</dt><dd>東川の食卓を囲む</dd></div><div><dt>20:00</dt><dd>自由時間とキャンドルタイム</dd></div></dl></li>
+    <li class="step"><img class="no" src="images/num-02.svg" alt="02"><p class="day">12月5日（土）</p><h3>写す</h3><p class="body">いまのまなざしを写す。東川を歩き、今の自分が惹かれるものを見ます。</p><dl class="tt"><div><dt>8:30</dt><dd>朝の会</dd></div><div><dt>9:00</dt><dd>町民ゲスト授業｜写真は、人の何を写すのか</dd></div><div><dt>12:30</dt><dd>まちへ移動、各自でランチ</dd></div><div><dt>13:30</dt><dd>ひとりフォトウォーク｜自分の目が向く方へ</dd></div><div><dt>16:00</dt><dd>一枚の写真から、一日を振り返る</dd></div><div><dt>18:00</dt><dd>みんなで夕食をつくる</dd></div><div><dt>20:30</dt><dd>暖炉を囲んでキャンドルタイム</dd></div></dl></li>
+    <li class="step"><img class="no" src="images/num-03.svg" alt="03"><p class="day">12月6日（日）</p><h3>綴じる</h3><p class="body">2026年を綴じて、次の一年を紡ぐ。2日間を振り返り、対話します。</p><dl class="tt"><div><dt>8:30</dt><dd>朝のチェックイン</dd></div><div><dt>9:00</dt><dd>ひとりで、3日間を振り返る</dd></div><div><dt>10:00</dt><dd>リフレクションと対話</dd></div><div><dt>11:45</dt><dd>2026年を綴じて、紡ぐ</dd></div><div><dt>12:30</dt><dd>昼食</dd></div><div><dt>13:30</dt><dd>3日間のチェックアウト</dd></div></dl></li>
+  </ol>
+</div></section>
+
+<section class="take off"><div class="in">
+  <h2 class="take-head"><img class="lt" src="images/lt-take.svg" alt="持ち帰るもの" width="285" height="56"></h2>
+  <div class="take-slip paper"><p class="take-body body">3日目の終わりに持ち帰ってもらいたいのは、次の一年で大切にしたい方角と、まだ答えを出さずに持っておきたい問い。それぞれひとつかふたつあれば十分で、来年の目標が決まっていなくても構いません。</p></div>
+</div></section>
+
+<figure class="band"><img src="images/pb_circle.jpg" alt="校舎の大きな部屋で、参加者が床に座って車座になっている" loading="lazy"></figure>
+
+<section class="rules off"><div class="in">
+  <figure class="rules-photo"><img src="images/g_talkcircle.jpg" alt="床に座って、まちの人の話にじっと耳を傾ける" loading="lazy"></figure>
+  <div class="rules-inner">
+    <div class="rules-card paper">
+      <h2><img class="lt-g" src="images/lt-pillars.svg" alt="3つの柱"></h2>
+      <ol class="rules-list">
+        <li><img class="no" src="images/num-01.svg" alt="01"><span>出会う</span><small>東川で暮らす人と、一緒に振り返る</small></li>
+        <li><img class="no" src="images/num-02.svg" alt="02"><span>体験する</span><small>カメラを持って、冬の東川を歩く</small></li>
+        <li><img class="no" src="images/num-03.svg" alt="03"><span>向き合う</span><small>自分と深く向き合う</small></li>
+      </ol>
+    </div>
+    <div class="rules-apply">
+      <p class="date-line"><span class="num">12/4</span>（金）〜<span class="num">6</span>（日）<br>北海道・東川町・2泊3日・<span class="num">59,800</span>円（税込）</p>
+      <a class="btn" href="https://line.me/ti/g/AJS8hpCmEP" target="_blank" rel="noopener">LINEグループに入る</a>
+      <p class="small">定員・申込締切は調整中です。</p>
+    </div>
+  </div>
+</div></section>
+
+<section class="voices"><div class="in">
+  <div class="voices-head"><h2 class="h2">8月の回に参加した方から</h2><p class="small">第1回を終えたあとのアンケートから、そのまま引いています。冬とは中身の違う3日間ですが、この校舎で何が起きていたのかは伝わると思います。</p></div>
+  <div class="voices-row">
+    <figure class="voices-photo"><img src="images/g_pair.jpg" alt="本を開いて、少人数で話し込む" loading="lazy"></figure>
+    <ul class="voice-list">
+      <li class="voice"><p class="voice-who">8月の回・参加者</p><p class="quote">「自分の強さと弱さを受けとめる3日間。得意な部分が見つかるワークもあり、逆に自分の言葉で表現が難しかった時間もあり、どちらも同時に味わったことで、自分を広く見て受け止めてる時間を過ごすことができた。」</p></li>
+      <li class="voice"><p class="voice-who">8月の回・参加者</p><p class="quote">「何のために生きるのかを考えさせられた3日間でした。多くの方の価値観に触れ、自分で人生を決めている皆さんから自分が日々なんのために生きるのかを考える機会を貰えたから。」</p></li>
+      <li class="voice"><p class="voice-who">8月の回・参加者／いま残っている問いとして</p><p class="quote">「私にとって「心地よい場」って、結局どんな場なんだろう？　自分でやりたいことを選んで、必要なときには人を頼りながらも結局それぞれが自分らしくいながら自然につながれる場が「心地よい場」なのかもしれない。」</p></li>
+      <li class="voice"><p class="voice-who">8月の回・参加者／東川から帰ってやってみたこととして</p><p class="quote">「ロウソクを家に導入した！」</p></li>
+    </ul>
+  </div>
+  <p class="caption">＊2026年8月21〜23日に開催した第1回のあと、参加者ご本人が書いてくださったことばです。手を入れずにそのまま引いています。ご本人が特定されない形で掲載しています。</p>
+</div></section>
+
+<section class="about off"><div class="in">
+  <div class="about-text">
+    <h2><img class="lt-g" src="images/lt-host.svg" alt="主催について"></h2>
+    <img class="about-kv sp-only" src="images/12_poolo_keyvisual.jpg" alt="POOLO「あたらしい旅の学校」キービジュアル" loading="lazy">
+    <p class="body">あたらしい旅の学校 POOLO は、旅を入り口に自分の生き方と働き方を問い直す大人の学び場として2019年に開校し、世界中を旅する20〜30代が全国から集まって、いまは1,200名以上が関わるコミュニティになりました。POOLOには問いを持って、世界や人生に向き合うという文化があります。</p>
+    <p class="body">School for Life Compath は、北海道・東川町で人生の学び舎をつくっています。下敷きにしているのはデンマークのフォルケホイスコーレ、試験も成績もない全寮制の学校です。コンセプトは「私のちいさな問いから社会が変わる」。立ち止まって余白を取り、自分と社会について問い直す場を、個人にも法人にも地域の人にも開いています。</p>
+    <p class="body">この二つは、大学の同じゼミの出身です。10年以上が経った2026年8月にはじめて共同で3日間を開き、定員15名が満席になりました。今回はその第2回を、季節と、問いの立て方を変えて行います。</p>
+    <div class="about-links"><a class="about-link" href="https://michinorionda.github.io/poolo-life/higashikawa/" target="_blank" rel="noopener">8月の回を見る</a><a class="about-link" href="https://schoolforlife-compath.com/" target="_blank" rel="noopener">School for Life Compath について</a></div>
+  </div>
+  <figure class="about-photo">
+    <img class="about-kv pc-only" src="images/12_poolo_keyvisual.jpg" alt="POOLO「あたらしい旅の学校」キービジュアル" loading="lazy">
+    <img class="about-award" src="images/hero_compath.jpg" alt="夕暮れの東川町に立つ School for Life Compath の校舎" loading="lazy">
+    <p class="caption">主催：POOLO（CODOLI）／ School for Life Compath</p>
+  </figure>
+</div></section>
+
+<section class="overview"><div class="in">
+  <h2 class="h2">開催概要</h2>
+  <div class="ov-wrap">
+    <dl class="ov"><div class="ov-row"><dt>イベント名</dt><dd>2026年を綴じて、紡ぐ、3日間。<br>POOLO × School for Life Compath 東川3日間・冬</dd></div><div class="ov-row"><dt>日程</dt><dd>2026年12月4日（金）12:00 〜 12月6日（日）15:00 頃／2泊3日<br>※最終日の解散時刻は仮です</dd></div><div class="ov-row"><dt>会場</dt><dd>School for Life Compath 校舎<br>〒071-1464 北海道上川郡東川町進化台781-6</dd></div><div class="ov-row"><dt>主な行き先</dt><dd>Compath 校舎／東川の森（写真家の方との授業）／東川のまち（神社・カフェ・文化施設など、ひとりフォトウォーク）／まちの温浴施設「きとろん」（希望者）</dd></div><div class="ov-row"><dt>集合・解散</dt><dd>12月4日（金）12:00頃、旭川空港または東川町せんとぴゅあに集合<br>旭川空港から東川町までは車で15分ほどです</dd></div><div class="ov-row"><dt>宿泊</dt><dd>Compath 校舎に2泊<br>※部屋割りは調整中</dd></div><div class="ov-row"><dt>事前準備</dt><dd>2026年1月〜11月から、各月1枚ずつ写真を選んでアルバムに入れておく（計11枚）</dd></div><div class="ov-row"><dt>定員</dt><dd>調整中<br>※8月の回は15名（先着順）でした</dd></div><div class="ov-row"><dt>参加費</dt><dd>59,800円（税込）<br>2泊分の宿泊費／食事（1日目の昼・夜、2日目の朝・夜、3日目の朝・昼）／プログラム費用／全体のコーディネート費用を含みます<br>※東川町までの旅費交通費、自由時間中の飲食費・個人利用分は含みません</dd></div><div class="ov-row"><dt>申込締切</dt><dd>調整中</dd></div><div class="ov-row"><dt>申込方法</dt><dd>まずは LINEグループにご参加ください。募集開始・詳細はグループでお知らせします。</dd></div><div class="ov-row"><dt>キャンセル</dt><dd>調整中</dd></div><div class="ov-row"><dt>主催</dt><dd>POOLO（CODOLI）<br>School for Life Compath</dd></div></dl>
+    <div class="ov-notes">
+      <p class="small">12月上旬は、雪が降りはじめる頃です。積雪量は年によって異なるため、掲載している写真と風景が異なる場合があります。またプログラムはいま設計中で、参加に興味を持ってくださった方の声も聴きながら、このページを書き換えていきます。</p>
+    </div>
+  </div>
+</div></section>
+
+<section class="faq"><div class="in">
+  <h2 class="h2">よくある質問</h2>
+  <dl class="faq-list"><div class="faq-item"><dt class="faq-q">まだ9月です。いま決めないといけませんか？</dt><dd class="faq-a">締切は追ってご案内します。ただ、早めに決めていただくほうが、得るものは多いはずです。ひとつは12月の週末と北海道行きの便が先に埋まるという現実的な理由。もうひとつは、「11枚を選ぶ」と決めた時点から、残りの数ヶ月の見え方が変わるから。9月に決めた方と11月に決めた方では、持って来られる11枚が変わります。</dd></div><div class="faq-item"><dt class="faq-q">写真が得意ではありません。それでも大丈夫ですか？</dt><dd class="faq-a">大丈夫です。上手く撮ることは、このコースの目的ではありません。扱うのは「自分の目が止まったものは何か」のほうです。写真は、自分のまなざしに気づくための手がかりとして使います。</dd></div><div class="faq-item"><dt class="faq-q">カメラは必要ですか。スマホでもいいですか？</dt><dd class="faq-a">スマホのカメラで構いません。上手く撮ることが目的ではないので、いつも使っているもので大丈夫です。カメラをお持ちの方は、そちらで。</dd></div><div class="faq-item"><dt class="faq-q">事前に選ぶ11枚は、どうやって出せばいいですか？</dt><dd class="faq-a">1月から11月まで、各月1枚ずつ「その月を思い出す一枚」を選んで、事前にアルバムへ入れていただきます。共有の方法は、お申し込みのあとにご案内します。</dd></div><div class="faq-item"><dt class="faq-q">雪の中を歩くと聞きました。体力に自信がありません。</dt><dd class="faq-a">登山ではありません。2日目の午前に写真家の方と森を歩き、午後はまちを一人で歩きます。どちらも自分のペースで大丈夫です。</dd></div><div class="faq-item"><dt class="faq-q">どのくらい寒いですか。何を持っていけばいいですか？</dt><dd class="faq-a">12月上旬の東川は雪が積もり、日中も氷点下になる日があります。雪の森を歩く時間があるので、防寒着と靴はしっかりしたものを。持ち物リストは、募集開始のタイミングで詳しくご案内します。</dd></div><div class="faq-item"><dt class="faq-q">関西から参加できますか？</dt><dd class="faq-a">大阪（伊丹）からは JAL2111 が 8:45 発・旭川 10:30 着で、集合の12:00に間に合います。旭川空港から東川町までは車で15分ほどです。ただし帰りは注意が必要です。伊丹行きの直行便は旭川 11:10 発の1日1往復のみで、最終日の解散（15:00頃）には間に合いません。新千歳空港へ移動して夕方以降の便に乗るか、もう1泊するかになります。</dd></div><div class="faq-item"><dt class="faq-q">雪道の運転や移動が不安です。</dt><dd class="faq-a">ご自身での雪道運転は前提にしていません。旭川空港からの移動や、まちと校舎の行き来は送迎を予定しています。</dd></div><div class="faq-item"><dt class="faq-q">8月の回に参加していなくても大丈夫ですか？</dt><dd class="faq-a">はい。8月の回とは、狙いも設計もまったく別の3日間です。初めての方も、8月に参加した方も、どちらも歓迎しています。</dd></div><div class="faq-item"><dt class="faq-q">一人で参加しても大丈夫ですか？</dt><dd class="faq-a">はい。ほとんどの方がおひとりでの参加です。今回は、一人で過ごす時間も意図的に多めに取っています。</dd></div><div class="faq-item"><dt class="faq-q">今年はしんどい一年でした。振り返るのが少し怖いです。</dt><dd class="faq-a">無理に掘り起こす場ではありません。話したくないことは、話さなくて大丈夫です。毎日ひとりの時間があり、初日と2日目の夜には暖炉とキャンドルの時間もあります。静かに火を見て過ごすだけでも構いません。振り返りは、11枚のなかからお祝いしたいことを見ていくところからも始められます。</dd></div><div class="faq-item"><dt class="faq-q">参加費に何が含まれますか？</dt><dd class="faq-a">59,800円（税込）に含まれるのは、2泊分の宿泊費、食事（1日目の昼・夜、2日目の朝・夜、3日目の朝・昼）、プログラム費用、全体のコーディネート費用です。東川町までの旅費交通費と、自由時間中の飲食費・個人利用分は含みません。2日目のお昼は各自でまちの飲食店へ行っていただきます。</dd></div><div class="faq-item"><dt class="faq-q">このページの写真は、冬のものですか？</dt><dd class="faq-a">いいえ。掲載している写真はすべて、2026年8月21〜23日に開催した第1回の記録です。12月は雪の東川になります。冬の写真は、準備でき次第このページに追加します。</dd></div><div class="faq-item"><dt class="faq-q">途中参加・途中離脱はできますか？</dt><dd class="faq-a">3日間で「たどる→写す→綴じる」がひと続きになっているため、全日程のご参加を前提としています。</dd></div></dl>
+</div></section>
+
+<section class="apply" id="apply"><div class="in">
+  <div class="apply-head"><h2 class="h2">お申し込み</h2><p class="apply-msg body">12/4（金）〜6（日）、雪の東川へ。年末の3日間を、いまのうちに空けておいてください。</p></div>
+  <div class="apply-box">
+    <div class="date">
+        <div><span class="date-y">2026</span><span class="date-d wide">12.4–6</span></div>
+        <div><span class="date-w">金曜日〜日曜日</span><span class="date-t">12:00–15:00頃</span></div>
+      </div>
+    <p class="date-line">北海道・東川町・2泊3日・<span class="num">59,800</span>円（税込）</p>
+    <a class="btn" href="https://line.me/ti/g/AJS8hpCmEP" target="_blank" rel="noopener">LINEグループに入る</a>
+    <p class="apply-steps">まずは LINEグループにご参加ください。募集開始・詳細はグループでお知らせします。</p>
+    <dl class="apply-note"><dt>申込締切</dt><dd>定員・申込締切は調整中です。</dd></dl>
+  </div>
+</div></section>
+
+<footer class="ft"><div class="in">
+  <div class="ft-logos"><a href="https://tabippo.net/poolo/" target="_blank" rel="noopener"><img class="poolo" src="images/poolo_logo03.png" alt="POOLO あたらしい旅の学校"></a><a href="https://tabippo.net/" target="_blank" rel="noopener"><img class="tabippo" src="images/tabippo_logo_trim.png" alt="TABIPPO"></a></div>
+  <div class="ft-texts"><p>主催：POOLO（CODOLI）／ School for Life Compath</p><p>© POOLO. All rights reserved.</p></div>
+</div></footer>
+<script>
+/* ヘッダー：スクロールしたら下に罫を出す */
+(function () {
+  var hd = document.querySelector('.hd');
+  if (!hd) return;
+  function f() { hd.classList.toggle('is-stuck', window.scrollY > 4); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+})();
+/* 追従ボタン：冒頭を過ぎたら出し、お申し込み欄とフッターが見えている間は引っ込める */
+(function () {
+  var bar = document.getElementById('floatApply');
+  if (!bar) return;
+  var fv = document.querySelector('.fv');
+  var ends = [document.getElementById('apply'), document.querySelector('.ft')].filter(Boolean);
+  var ticking = false;
+  function update() {
+    var past = fv ? fv.getBoundingClientRect().bottom < window.innerHeight * 0.3 : window.scrollY > 400;
+    var nearEnd = ends.some(function (el) { var r = el.getBoundingClientRect(); return r.top < window.innerHeight && r.bottom > 0; });
+    bar.classList.toggle('is-visible', past && !nearEnd);
+    ticking = false;
+  }
+  window.addEventListener('scroll', function () { if (!ticking) { window.requestAnimationFrame(update); ticking = true; } }, { passive: true });
+  window.addEventListener('resize', update);
+  window.addEventListener('load', update);
+  update();
+})();
+</script>
+</body>
+</html>
