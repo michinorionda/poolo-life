@@ -61,6 +61,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 .voice-attr { order: -1; margin: 0 0 8px !important; font-size: 12px; font-weight: 700; letter-spacing: 0.06em; color: var(--brand-deep); }
 .voice-quote .vq-mark { color: inherit; }
 .voice-attr::before { display: none !important; }
+/* 冒頭の見出しは1行10字あるので、写真と画面の端にかからない大きさに */
+.hero-title .t-lg { font-size: clamp(27px, 3.5vw, 50px) !important; line-height: 1.45; }
 </style>
 </head>
 <body>
