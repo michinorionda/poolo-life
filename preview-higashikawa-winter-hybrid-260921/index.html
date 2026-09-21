@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex">
-<title>東川3日間・冬｜体験会v2の型プレビュー</title>
+<title>東川3日間・冬｜ハイブリッド案プレビュー</title>
 <link rel="stylesheet" href="../poolo-ds/tokens.css">
 <style> に書く -->
 <link rel="stylesheet" href="../poolo-ds/tokens.css">
@@ -444,6 +444,63 @@ br.pc-br { display: none; }
   .fv-top .mc { font-size: 50px; }
 }
 </style>
+
+<style>
+/* ---- ハイブリッドで足したもの（旅の回） ---- */
+/* 冒頭：スマホでも文のすぐ下に写真を出す */
+@media (max-width: 959px) {
+  .feel-photo { display: none; }
+  .feel-text { padding-top: 56px; }
+  .fv-top .fv-photo { display: block; }
+  .fv-top .fv-photo img { width: 100%; height: 300px; object-fit: cover; object-position: 50% 45%; }
+}
+/* 読む章：見出し→リード→散文。囲みも装置も足さない */
+.read { padding-block: 64px; }
+.read .in > * + * { margin-top: 24px; }
+.read-head > * + * { margin-top: 16px; }
+.read-lead { word-break: auto-phrase; text-wrap: balance; font-family: var(--mincho); font-size: 18px; line-height: 1.8; letter-spacing: 0.04em; color: var(--ink); }
+.read-body p { font-size: 15px; line-height: 2.05; }
+.read-body p + p { margin-top: 1.4em; }
+/* 夏と冬：罫だけの2列 */
+.vs { margin-top: 8px; border-top: 1px solid var(--line); }
+.vs-row { display: grid; grid-template-columns: 1fr 1fr; column-gap: 16px; padding-block: 12px; border-bottom: 1px solid var(--line); font-size: 13px; line-height: 1.7; }
+.vs-row.head { font-size: 11px; font-weight: 700; letter-spacing: 0.06em; color: var(--ink-60); }
+.vs-row .now { font-family: var(--mincho); font-weight: 700; font-size: 15px; color: var(--ink); }
+.vs-row.head .now { font-family: var(--body); font-size: 11px; color: var(--brand-deep); }
+/* 8月の記録：4枚の組写真 */
+.record { padding-block: 0 64px; }
+.record-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+.record-grid img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+.record .caption { margin-top: 12px; }
+/* 向き・不向き */
+.fit { padding-block: 64px; }
+.fit-cols > * + * { margin-top: 36px; }
+.fit-label { font-size: 12px; font-weight: 700; letter-spacing: 0.06em; color: var(--brand-deep); }
+.fit-list { margin-top: 12px; border-top: 1px solid var(--line); }
+.fit-list li { padding-block: 11px; border-bottom: 1px solid var(--line); font-size: 14px; line-height: 1.8; }
+.fit-no .fit-label { color: var(--ink-60); }
+@media (min-width: 960px) {
+  .read { padding: 0; }
+  .read .in { display: flex; gap: 112px; padding-block: 104px; }
+  .read .in > * + * { margin-top: 0; }
+  .read-head { flex: none; width: 360px; }
+  .read-head > * + * { margin-top: 28px; }
+  .read-lead { font-size: 20px; }
+  .read-body { flex: 1; max-width: 640px; }
+  .read-body p { font-size: 16px; }
+  .vs { margin-top: 40px; }
+  .vs-row { font-size: 14px; }
+  .vs-row .now { font-size: 16px; }
+  .record { padding: 0 0 96px; }
+  .record-grid { grid-template-columns: repeat(4, 1fr); gap: 8px; }
+  .fit { padding: 0; }
+  .fit .in { display: flex; gap: 112px; padding-block: 112px; }
+  .fit .h2 { flex: none; width: 360px; }
+  .fit-cols { flex: 1; display: grid; grid-template-columns: 1fr 1fr; column-gap: 48px; }
+  .fit-cols > * + * { margin-top: 0; }
+  .band img { object-position: 50% 60%; }
+}
+</style>
 </head>
 <body>
 <div class="fa" id="floatApply"><div class="fa-inner"><div class="fa-texts"><span class="fa-main">2026年を綴じて、紡ぐ、3日間。</span><span class="fa-sub">12/4（金）〜6（日）・北海道・東川町・59,800円</span></div><a class="btn" href="https://line.me/ti/g/AJS8hpCmEP" target="_blank" rel="noopener">LINEグループに入る</a></div></div>
@@ -488,6 +545,19 @@ br.pc-br { display: none; }
   </div>
 </div></section>
 
+<section class="read"><div class="in">
+  <div class="read-head"><h2><img class="lt-g" src="images/lt-about3.svg" alt="この3日間のこと"></h2><p class="read-lead">次の目的地を決める前に。<br>2026年を、綴じて、紡ぐ。</p></div>
+  <div class="read-body"><p>一年を振り返るとき、あなたは何をしますか。手帳を開いたり、カメラロールをさかのぼったり。ただ、それを年末の慌ただしい数日でやろうとして、結局そのまま年を越してしまう、ということが起きがちです。</p><p>この3日間でやるのは、その作業です。1月から11月まで、その月を思い出す写真を一枚ずつ選んで持ってきてもらい、11枚を並べながら、どこで誰といて何に時間を使っていたのかを思い出していきます。翌日は冬のまちに出て、いまの自分の目が何に止まるのかを、もう一度写真で確かめる。過去に撮った写真と、これから撮る写真。手がかりは、この2種類だけ。</p><p>3日目の終わりに持ち帰ってもらいたいのは、次の一年で大切にしたい方角と、まだ答えを出さずに持っておきたい問い。それぞれひとつかふたつあれば十分で、来年の目標が決まっていなくても構いません。綴じるのは2026年で、紡ぐのはそのあとです。</p><p>いまはまだ9月なので、振り返りの話をされても気が早いと感じられると思います。それでも募集を始めているのは、12月の週末と旭川空港行きの便が先に埋まっていくからで、もうひとつ、この3日間には申し込んだ日から始まる部分があるからです。次の「事前準備」に書いた、11枚のことです。</p></div>
+</div></section>
+<figure class="band"><img src="images/band_field.jpg" alt="東川の畑と、その先までひらけた空" loading="lazy"></figure>
+<section class="read"><div class="in">
+  <div class="read-head"><h2><img class="lt-g" src="images/lt-why.svg" alt="なぜ冬の東川か"></h2><p class="read-lead">写真の町で、<br>写真からはじめる。</p></div>
+  <div class="read-body"><p>北海道のほぼ中央、大雪山国立公園の麓に東川町があります。人口はおよそ8,400人。上水道がなく、8,400人全員が地下水で暮らしているまちで、家具をつくり、移住してきた人と元からの住民がゆるやかに混ざり合っています。そして東川町は「写真の町」を名乗っていて、初日はその成り立ちにも触れます。</p><p>写真をテーマにするなら夏でもよかったはずですが、12月にしたのは、冬になると見えるものが減るからです。雪が積もると景色の情報量が落ち、外を歩く速度も自然とゆっくりになる。寒さがあるぶん室内と外の行き来が生まれ、薪ストーブと食事と共同生活の時間が、夏よりずっと一日の中心になっていきます。白い景色のなかでは、何かが目に入ることそのものが少ない。それでも目が止まったものには、意味があるはずだと考えました。</p><p>これは仮説で、まだ確かめていません。12月の東川で、11枚を持ってきた人がその日どこにレンズを向けるのか。そこがこの回でいちばん見たいところです。</p></div>
+</div></section>
+<section class="read"><div class="in">
+  <div class="read-head"><h2><img class="lt-g" src="images/lt-summer.svg" alt="夏の回とのちがい"></h2><p class="read-lead">会場も日数も8月の第1回と同じですが、狙いは反対のほうを向いています。</p></div>
+  <div class="read-body"><div class="vs"><div class="vs-row head"><span>8月の回（第1回）</span><span class="now">12月の回（今回）</span></div><div class="vs-row"><span>人・暮らし・自然との出会い</span><span class="now">自分の一年との再会</span></div><div class="vs-row"><span>世界を広げる</span><span class="now">自分に戻る</span></div><div class="vs-row"><span>長い時間軸で人生を見る</span><span class="now">この一年に絞る</span></div><div class="vs-row"><span>動く・試す</span><span class="now">立ち止まる・振り返る</span></div><div class="vs-row"><span>直感・身体感覚</span><span class="now">写真・内省・対話</span></div><div class="vs-row"><span>新しい選択肢に出会う</span><span class="now">今の自分の関心を知る</span></div></div><p style="margin-top:32px">8月に同じ校舎で3日間を過ごしてみて、ひとつ思ったことがあります。POOLOに集まる人は、話すことや自己開示の最初の一歩が得意な方が多い。そのぶん、そこから先の、深く自分と向き合って対峙するところは、無意識に避けてしまうこともあるのではないか。夏が東川に出会うところから世界の広がっていく3日間だとすれば、冬は東川を使って自分のほうを見る3日間にしたくて、時間の多くをそこに置きます。</p></div>
+</div></section>
 <section class="q off"><div class="in">
   <figure class="q-photo"><img src="images/g_workshop.jpg" alt="机に広げた紙に向かって、手を動かす" loading="lazy"></figure>
   <div class="q-sheet paper">
@@ -515,12 +585,7 @@ br.pc-br { display: none; }
   </ol>
 </div></section>
 
-<section class="take off"><div class="in">
-  <h2 class="take-head"><img class="lt" src="images/lt-take.svg" alt="持ち帰るもの" width="285" height="56"></h2>
-  <div class="take-slip paper"><p class="take-body body">3日目の終わりに持ち帰ってもらいたいのは、次の一年で大切にしたい方角と、まだ答えを出さずに持っておきたい問い。それぞれひとつかふたつあれば十分で、来年の目標が決まっていなくても構いません。</p></div>
-</div></section>
 
-<figure class="band"><img src="images/pb_circle.jpg" alt="校舎の大きな部屋で、参加者が床に座って車座になっている" loading="lazy"></figure>
 
 <section class="rules off"><div class="in">
   <figure class="rules-photo"><img src="images/g_talkcircle.jpg" alt="床に座って、まちの人の話にじっと耳を傾ける" loading="lazy"></figure>
@@ -541,6 +606,21 @@ br.pc-br { display: none; }
   </div>
 </div></section>
 
+<section class="record"><div class="in">
+  <div class="record-grid">
+    <img src="images/g_kitchen2.jpg" alt="校舎の台所に並んで、皆で夕食の準備をする" loading="lazy">
+    <img src="images/g_bookstore.jpg" alt="まちの本屋の店内で本を選ぶ参加者たち" loading="lazy">
+    <img src="images/g_meal.jpg" alt="光の入る食堂で、皆で食事をとる" loading="lazy">
+    <img src="images/g_night.jpg" alt="日が落ちたあとの東川の空と、遠くのまちあかり" loading="lazy">
+  </div>
+  <p class="caption">8月の3日間は、こうでした。写真はすべて2026年8月21〜23日に開催した第1回の記録です。12月は雪の東川になります。</p>
+</div></section>
+
+<section class="take off"><div class="in">
+  <h2 class="take-head"><img class="lt" src="images/lt-take.svg" alt="持ち帰るもの" width="285" height="56"></h2>
+  <div class="take-slip paper"><p class="take-body body">3日目の終わりに持ち帰ってもらいたいのは、次の一年で大切にしたい方角と、まだ答えを出さずに持っておきたい問い。それぞれひとつかふたつあれば十分で、来年の目標が決まっていなくても構いません。</p></div>
+</div></section>
+
 <section class="voices"><div class="in">
   <div class="voices-head"><h2 class="h2">8月の回に参加した方から</h2><p class="small">第1回を終えたあとのアンケートから、そのまま引いています。冬とは中身の違う3日間ですが、この校舎で何が起きていたのかは伝わると思います。</p></div>
   <div class="voices-row">
@@ -553,6 +633,14 @@ br.pc-br { display: none; }
     </ul>
   </div>
   <p class="caption">＊2026年8月21〜23日に開催した第1回のあと、参加者ご本人が書いてくださったことばです。手を入れずにそのまま引いています。ご本人が特定されない形で掲載しています。</p>
+</div></section>
+
+<section class="fit"><div class="in">
+  <h2 class="h2">こんな方に、<br class="pc-br">来てほしい</h2>
+  <div class="fit-cols">
+    <div><p class="fit-label">こんな方へ</p><ul class="fit-list"><li>気づけば今年も走り続けていて、一度立ち止まりたい方</li><li>今年いろいろあったけれど、まだゆっくり振り返れていない方</li><li>来年の目標を考える前に、今の自分を知りたい方</li><li>普段とは違う方法で、自分の一年を振り返ってみたい方</li><li>写真や旅を通して、自分の感覚に触れてみたい方</li><li>人と話す時間と同じくらい、一人で過ごす時間も取ってみたい方</li></ul></div>
+    <div class="fit-no"><p class="fit-label">今回は、向かないかもしれません</p><ul class="fit-list"><li>3日間で、来年の計画をはっきり決めたい方</li><li>効率よく情報収集をしたい方（余白を多く取るため、予定は詰め込みません）</li><li>写真の技術を学びに来たい方（上手く撮ることは目的にしていません）</li><li>観光地を巡る旅を期待している方</li><li>人脈づくりや商談の場を求めている方</li><li>寒さと雪のなかを歩くことが、どうしても難しい方</li></ul></div>
+  </div>
 </div></section>
 
 <section class="about off"><div class="in">
