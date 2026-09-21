@@ -32,7 +32,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <!-- POOLO Design System（トークン → コンポーネントの順。値はコピペせず参照する） -->
 <link rel="stylesheet" href="../poolo-ds/tokens.css">
 <link rel="stylesheet" href="../poolo-ds/components.css">
-<meta name="robots" content="noindex">
 <style>
 /* =============================================================
    東川3日間・冬 アップデート案（元の型はそのまま）
@@ -61,6 +60,17 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 .voice-attr { order: -1; margin: 0 0 8px !important; font-size: 12px; font-weight: 700; letter-spacing: 0.06em; color: var(--brand-deep); }
 .voice-quote .vq-mark { color: inherit; }
 .voice-attr::before { display: none !important; }
+/* フッターのロゴ：30代の体験会 v2 と同じく、TABIPPO（余白を切り落とした画像）をPOOLOの1.5倍の幅にして文字の高さをそろえる。
+   POOLOは下にキャッチがあるので、文字どうしの縦の中心で合わせる（POOLOを少し下げる） */
+.footer-marks { align-items: flex-start; }
+.footer-marks a { align-items: flex-start; min-height: 0; }
+.footer-marks img[src*="poolo_logo"] { height: auto !important; width: 88px; margin-top: 6px; }
+.footer-marks img.tabippo { height: auto !important; width: 132px; }
+.footer-divider { align-self: center; }
+@media (max-width: 860px) {
+  .footer-marks img[src*="poolo_logo"] { width: 64px; margin-top: 4.5px; }
+  .footer-marks img.tabippo { width: 96px; }
+}
 /* 冒頭の見出しは1行10字あるので、写真と画面の端にかからない大きさに */
 .hero-title .t-lg { font-size: clamp(27px, 3.5vw, 50px) !important; line-height: 1.45; }
 </style>
@@ -963,7 +973,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="footer-marks">
         <a href="https://tabippo.net/poolo/" target="_blank" rel="noopener"><img src="images/poolo_logo03.png" alt="POOLO あたらしい旅の学校"></a>
         <span class="footer-divider" aria-hidden="true"></span>
-        <a href="https://tabippo.net/" target="_blank" rel="noopener"><img src="images/tabippo_logo.png" alt="TABIPPO"></a>
+        <a href="https://tabippo.net/" target="_blank" rel="noopener"><img class="tabippo" src="images/tabippo_logo_trim.png" alt="TABIPPO"></a>
       </div>
     </div>
     <div class="footer-bottom">
