@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- ▼たたき台（260925）。確定前のプレビューのため検索避け -->
+<meta name="robots" content="noindex">
+<title>まだ誰にも話していない「やりたい」を、琴平で確かめる。｜香川・琴平 1泊2日｜POOLO</title>
+<meta name="description" content="仕事の話ばかりの毎日で、自分のやりたいことは、しばらく誰にも話していない。香川・琴平で好きなことを始めた人に会い、自分の「やりたい」を15分だけ町でやってみる1泊2日です。2026年12月20日（日）〜21日（月）、定員10名。あたらしい旅の学校POOLO。">
+
+<!-- 色・書体はデザインシステムのトークンを参照する。組みはこのページ固有なので下の <style> に書く（30代LP v2「旅先の会話」と同じ方式） -->
+<link rel="stylesheet" href="../poolo-ds/tokens.css">
+<style>
+/* =============================================================
+   香川・琴平 1泊2日「まだ誰にも話していない「やりたい」を、琴平で確かめる。」
+   型は event-30s-v2-260929（旅先の会話）。通しのモチーフは「紙」。
+   ひらく時間は記入する一枚、持ち帰るものは紙片。紙は白＋罫線色の縁、
+   紙のある章の背景だけオフホワイト。レタリングと数字は images/ のSVG。
+   ============================================================= */
+*, *::before, *::after { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  background: var(--bg);
+  color: var(--ink-soft);
+  font-family: var(--body);
+  font-size: 14px;
+  line-height: 1.95;
+  letter-spacing: 0.02em;
+  line-break: strict;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+h1, h2, h3, p, ul, ol, dl, dd, figure, blockquote { margin: 0; padding: 0; }
+ul, ol { list-style: none; }
+a { color: inherit; text-decoration: none; }
+img { display: block; max-width: 100%; }
+.nb { white-space: nowrap; }
+br.pc-br { display: none; }
+.num { font-family: var(--en); font-weight: 500; }
+/* 文節で改行する（Chrome系）。非対応のブラウザでは通常の改行に戻る */
+.mc, .lead, .body, .feel-body, .feel-note, .open-body p, .town-text p, .sheet-text, .sheet-ex li, .step p, .faq-a, .faq-q, .ov dd, .fa-main, .fa-sub, .take-body, .take-list li, .tt-title, .tt-desc, .fit li, .person p {
+  word-break: auto-phrase;
+  text-wrap: pretty;
+}
+/* 確認待ちの印。公開前に全部消す */
+.tbd { color: #B3261E; font-size: 0.82em; font-weight: 700; letter-spacing: 0.02em; white-space: nowrap; }
+
+/* ---- 共通 ---- */
+.in { padding-inline: 24px; }
+/* スマホでは写真を画面の端まで出す章（内側の余白は各章で持つ） */
+.feel .in, .town .in, .open .in { padding-inline: 0; }
+.body { font-size: 14px; line-height: 1.95; }
+.body + .body { margin-top: 1.4em; }
+.small { font-size: 12px; }
+.caption { font-size: 11px; color: var(--ink-72); }
+.label { font-size: 11px; font-weight: 700; letter-spacing: 0.06em; }
+/* 文字で組む見出し（章の名前） */
+.h2 {
+  font-family: var(--mincho);
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  color: var(--brand-deep);
+}
+.h2 + .lead { margin-top: 16px; }
+/* 専用レタリングの見出し。高さで大きさを決め、幅は成り行き */
+.lt { display: block; height: 40px; width: auto; }
+/* 専用明朝の数字 01〜03 */
+.no { display: block; height: 13px; width: auto; }
+.btn {
+  display: block;
+  background: var(--brand);
+  color: #fff;
+  text-align: center;
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: 0.06em;
+  line-height: 1.7;
+  padding: 15px 16px;
+  border-radius: 2px;
+  transition: background 0.2s;
+}
+.btn:hover { background: var(--brand-deep); }
+.off { background: var(--bg-off); }
+/* 紙（白い面＋罫線色の縁） */
+.paper { background: #fff; border: 1px solid var(--line); }
+/* 日付（Jostの大きな数字） */
+.date { display: flex; align-items: center; gap: 20px; }
+.date-y { display: block; font-family: var(--en); font-weight: 500; font-size: 12px; line-height: 14px; }
+.date-d { display: block; font-family: var(--en); font-weight: 500; font-size: 48px; line-height: 58px; letter-spacing: 0.02em; color: var(--ink); white-space: nowrap; }
+.date-w { display: block; font-size: 12px; font-weight: 700; letter-spacing: 0.06em; line-height: 23px; white-space: nowrap; }
+.date-w .num { font-size: 14px; }
+.cond { font-size: 12px; font-weight: 700; letter-spacing: 0.06em; }
+.cond .sep { font-weight: 400; margin-inline: 0.6em; }
+.note { font-size: 11px; color: var(--ink-72); }
+.date-line { font-size: 13px; font-weight: 700; letter-spacing: 0.06em; }
+.date-line .num { font-weight: 500; }
+
+/* ---- ヘッダー ---- */
+.hd { position: sticky; top: 0; z-index: 60; background: #fff; transition: box-shadow 0.2s; }
+.hd.is-stuck { box-shadow: 0 1px 0 var(--line); }
+.hd .in { display: flex; align-items: center; gap: 24px; height: 62px; }
+.hd-logo img { width: 65px; height: auto; }
+.hd-label { font-size: 11px; flex: 1; }
+.hd-cta { display: none; }
+
+/* ---- 冒頭（スマホは文字→写真） ---- */
+.fv-copy { padding: 30px 24px 32px; }
+.fv-copy > * + * { margin-top: 18px; }
+.mc {
+  font-family: var(--mincho);
+  font-weight: 700;
+  font-size: 34px;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  color: var(--ink);
+}
+/* 見出しの前置き（「まだ誰にも」）。中心の3行より小さく淡く、同じ明朝で受ける */
+.mc-pre {
+  display: block;
+  font-size: 0.5em;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  line-height: 1.6;
+  color: var(--ink-72);
+  margin-bottom: 0.4em;
+}
+.lead { font-size: 14px; }
+.fv-photo img { width: 100%; height: 300px; object-fit: cover; object-position: 50% 60%; }
+.fv-bottom { display: none; }
+
+/* ---- こんな気持ちの方へ ---- */
+.feel { padding: 32px 0 72px; }
+.feel-photo img { width: 100%; height: 300px; object-fit: cover; object-position: 50% 45%; }
+.feel-text { padding: 40px 28px 0; }
+.feel-text > * + * { margin-top: 28px; }
+.feel-body {
+  font-family: var(--mincho);
+  font-size: 17px;
+  line-height: 2.1;
+  letter-spacing: 0.04em;
+}
+.feel-body + .feel-body { margin-top: 1.6em; }
+.feel-note { font-size: 13px; color: var(--ink-66); }
+
+/* ---- 琴平という町 ---- */
+.town { padding-bottom: 72px; }
+.town-photo img { width: 100%; height: 300px; object-fit: cover; object-position: 50% 55%; }
+.town-text { padding: 40px 28px 0; }
+.town-text > * + * { margin-top: 24px; }
+
+/* ---- ひらく時間（写真の下から紙がせり上がる） ---- */
+.open { padding-block: 64px 64px; }
+.open-head { padding-inline: 28px; }
+.open-head > * + * { margin-top: 16px; }
+.open-row { margin-top: 36px; }
+.open-photo img { width: 100%; height: 300px; object-fit: cover; object-position: 50% 55%; }
+.sheet { position: relative; margin: -56px 28px 0; padding: 36px 24px; }
+.sheet > * + * { margin-top: 24px; }
+.sheet .label { letter-spacing: 0.1em; }
+.sheet-text {
+  font-family: var(--mincho);
+  font-size: 24px;
+  line-height: 1.55;
+  letter-spacing: 0.04em;
+  color: var(--brand-deep);
+}
+.sheet-lines { padding-top: 8px; }
+.sheet-lines span { display: block; height: 1px; background: var(--line-pale); }
+.sheet-lines span + span { margin-top: 56px; }
+.sheet-prompt { font-size: 12px; font-weight: 700; letter-spacing: 0.04em; }
+.sheet-ex { margin-top: 8px; font-size: 13px; color: var(--ink-72); }
+.sheet-ex li + li { margin-top: 4px; }
+.open-body { padding: 36px 28px 0; }
+.open-body > * + * { margin-top: 1.4em; }
+
+/* ---- 旅の前と後にも集まります ---- */
+.program { padding: 64px 28px; }
+.steps { margin-top: 36px; }
+.step { border-top: 1px solid var(--line); padding-top: 20px; }
+.step + .step { margin-top: 28px; }
+.step-key { display: flex; align-items: center; gap: 12px; }
+.step-key .no { height: 12px; position: relative; top: -1px; }
+.step-key .label { color: var(--brand-deep); }
+.step h3 {
+  margin-top: 8px;
+  font-family: var(--mincho);
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1.7;
+  letter-spacing: 0.04em;
+  color: var(--ink);
+}
+.step .when { margin-top: 4px; font-size: 12px; color: var(--ink-66); }
+.step p.body { margin-top: 10px; }
+
+/* ---- 2日間の流れ ---- */
+.days { padding: 64px 28px; border-top: 1px solid var(--line); }
+.days-grid { margin-top: 36px; }
+.day + .day { margin-top: 48px; }
+.day-h { display: flex; align-items: baseline; gap: 14px; padding-bottom: 12px; }
+.day-h .date-d { font-size: 36px; line-height: 44px; }
+.day-h .day-w { font-size: 12px; font-weight: 700; letter-spacing: 0.06em; }
+.day-h .day-w > span { display: block; }
+.day-h .day-w .quiet { font-weight: 400; color: var(--ink-66); }
+.tt li { display: grid; grid-template-columns: 52px 1fr; column-gap: 12px; border-top: 1px solid var(--line); padding-block: 12px; }
+.tt-time { font-family: var(--en); font-weight: 500; font-size: 15px; line-height: 1.6; color: var(--ink); }
+.tt-title { font-size: 14px; font-weight: 700; line-height: 1.7; color: var(--ink); }
+.tt-desc { font-size: 12px; color: var(--ink-66); margin-top: 4px; line-height: 1.8; }
+
+/* ---- 会う人たち ---- */
+.people { padding: 64px 28px; border-top: 1px solid var(--line); }
+.person-list { margin-top: 28px; }
+.person { border-top: 1px solid var(--line); padding-top: 16px; }
+.person + .person { margin-top: 24px; }
+.person-role { font-size: 14px; font-weight: 700; color: var(--ink); }
+.person-role .tbd { margin-left: 6px; }
+.person-bio { margin-top: 6px; font-size: 14px; }
+
+/* ---- 写真の帯 ---- */
+.band img { width: 100%; height: 260px; object-fit: cover; object-position: 50% 55%; }
+
+/* ---- 持ち帰るもの（紙片） ---- */
+.take { padding: 48px 28px; }
+.take-slip { margin-top: 24px; padding: 24px; }
+.take-slip > * + * { margin-top: 16px; }
+.take-list li { position: relative; padding-left: 1em; font-size: 13px; line-height: 1.9; }
+.take-list li + li { margin-top: 2px; }
+.take-list .dot { position: absolute; left: 0; top: 0; }
+
+/* ---- こんな方へ ---- */
+.fit { padding: 64px 28px; }
+.fit ul { margin-top: 16px; }
+.fit li { border-top: 1px solid var(--line); padding: 10px 0; font-size: 14px; }
+.fit-sub { margin-top: 36px; font-size: 13px; font-weight: 700; letter-spacing: 0.04em; color: var(--ink); }
+.fit-sub + ul { margin-top: 10px; }
+
+/* ---- POOLOについて ---- */
+.about { padding-block: 64px; }
+.about .in > * + *, .about-text > * + *, .about-photo > * + * { margin-top: 28px; }
+.about-kv { width: 100%; height: auto; aspect-ratio: 1600 / 813; object-fit: cover; }
+.about-link { display: inline-block; font-size: 14px; font-weight: 700; letter-spacing: 0.04em; color: var(--brand-deep); text-decoration: underline; text-underline-offset: 0.3em; }
+.pc-only { display: none; }
+
+/* ---- 開催概要 ---- */
+.overview { padding-block: 64px; }
+.ov { margin-top: 20px; }
+.ov-row { display: grid; grid-template-columns: 70px 1fr; column-gap: 16px; border-top: 1px solid var(--line); padding-block: 14px; }
+.ov dt { font-size: 12px; font-weight: 700; letter-spacing: 0.06em; }
+.ov dd { font-size: 13px; }
+.ov dd strong { font-weight: 700; color: var(--ink); }
+.ov dd .fee { font-family: var(--en); font-weight: 500; font-size: 18px; color: var(--ink); }
+.ov-notes { margin-top: 16px; }
+.ov-notes p + p { margin-top: 12px; }
+
+/* ---- よくある質問 ---- */
+.faq { padding-block: 64px; }
+.faq-list { margin-top: 22px; }
+.faq-item { border-top: 1px solid var(--line); padding-top: 12px; }
+.faq-item + .faq-item { margin-top: 22px; }
+.faq-q { font-weight: 700; }
+.faq-a { margin-top: 12px; }
+
+/* ---- お申し込み（ブランドの青の面） ---- */
+.apply { background: var(--brand); color: #fff; padding: 64px 28px; }
+.apply .in { padding-inline: 0; }
+.apply .in > * + * { margin-top: 24px; }
+.apply-head > * + * { margin-top: 20px; }
+.apply .h2 { color: #fff; font-size: 28px; }
+.apply .date-y, .apply .date-d, .apply .date-w { color: #fff; }
+.apply .btn { background: #fff; color: var(--brand-deep); }
+.apply .btn:hover { background: var(--brand-pale); }
+.apply .tbd { color: #fff; text-decoration: underline; text-underline-offset: 0.25em; }
+.apply-steps { font-size: 13px; }
+.apply-note { display: grid; grid-template-columns: 70px 1fr; column-gap: 16px; border-top: 1px solid var(--brand-mid); padding-top: 12px; }
+.apply-note dt { font-size: 11px; font-weight: 700; letter-spacing: 0.06em; }
+.apply-note dd { font-size: 12px; }
+
+/* ---- フッター ---- */
+.ft { padding: 32px 0 36px; }
+.ft .in > * + * { margin-top: 16px; }
+.ft-logos { display: flex; align-items: flex-start; gap: 32px; }
+/* ロゴの文字（POOLO／TABIPPO）の縦の中心をそろえる */
+.ft-logos .poolo { width: 64px; margin-top: 4.5px; }
+.ft-logos .tabippo { width: 96px; }
+.ft p { font-size: 11px; color: var(--ink-72); }
+.ft-texts p + p { margin-top: 12px; }
+.ft-credit { font-size: 10px; color: var(--ink-60); line-height: 1.8; }
+.ft-credit a { text-decoration: underline; text-underline-offset: 0.2em; }
+
+/* ---- 追従ボタン（画面下に固定） ---- */
+.fa {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 50;
+  background: #fff;
+  border-top: 1px solid var(--line);
+  padding: 11px 22px calc(11px + env(safe-area-inset-bottom));
+  transform: translateY(110%);
+  transition: transform 0.3s ease;
+}
+.fa.is-visible { transform: translateY(0); }
+.fa-inner { display: flex; align-items: center; gap: 12px; }
+.fa-texts { flex: 1; min-width: 0; }
+.fa-main, .fa-sub { display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.fa-main { font-size: 12px; font-weight: 700; letter-spacing: 0.04em; color: var(--ink); }
+.fa-sub { font-size: 10px; color: var(--ink-60); letter-spacing: 0.04em; }
+.fa .btn { font-size: 12px; padding: 12px 14px; white-space: nowrap; flex: none; }
+
+/* =============================================================
+   PC（960px以上）：左右112px（1440px幅のとき）、本文の幅は1216px。
+   読む章（町の本文の続き・前と後・会う人たち・こんな方へ）は中央640pxの1列。
+   ============================================================= */
+@media (min-width: 960px) {
+  .in { max-width: 1264px; margin-inline: auto; padding-inline: 24px; }
+  .feel .in, .town .in, .open .in { padding-inline: 24px; }
+  .h2 { font-size: 34px; }
+  .lt { height: 56px; }
+  .body { font-size: 16px; }
+  .pc-only { display: block; }
+  .pc-nb { white-space: nowrap; }
+  br.pc-br { display: inline; }
+  br.sp-br { display: none; }
+  .sp-only { display: none; }
+  .col { max-width: 640px; margin-inline: auto; }
+
+  .hd .in { height: 75px; }
+  .hd-cta { display: inline-block; font-size: 12.5px; padding: 9px 20px; }
+
+  /* 冒頭：左に文、右に写真。下に日付・条件・ボタンの帯 */
+  .fv-top { display: flex; align-items: center; gap: 74px; padding: 40px 64px 56px max(40px, calc((100vw - 1216px) / 2)); }
+  .fv-copy { flex: none; width: min(510px, 42%); padding: 0; }
+  .fv-copy > * + * { margin-top: 40px; }
+  .mc { font-size: 58px; line-height: 1.4; color: var(--brand-deep); }
+  .lead { font-size: 16px; max-width: 440px; }
+  .fv-copy .date, .fv-copy .cond, .fv-copy .btn, .fv-copy .note { display: none; }
+  .fv-photo { flex: 1; min-width: 0; height: 620px; }
+  .fv-photo img { height: 100%; object-position: 50% 50%; }
+  .fv-bottom { display: flex; align-items: center; gap: 75px; padding-block: 40px; }
+  .fv-how > * + * { margin-top: 8px; }
+  .fv-bottom .btn { width: 368px; margin-left: auto; }
+  .date-d { font-size: 52px; line-height: 62px; }
+
+  /* こんな気持ちの方へ：左に写真、右に見出しと本文 */
+  .feel { padding: 0; }
+  .feel .in { display: flex; align-items: center; gap: 112px; padding-block: 112px; }
+  .feel-photo { flex: none; width: 520px; }
+  .feel-photo img { height: 560px; }
+  .feel-text { flex: 1; max-width: 584px; padding: 0; }
+  .feel-text > * + * { margin-top: 36px; }
+  .feel-body { font-size: 19px; line-height: 2; letter-spacing: 0.05em; }
+  .feel-note { font-size: 14px; }
+
+  /* 琴平という町：左に文、右に写真 */
+  .town { padding-bottom: 0; }
+  .town .in { display: flex; align-items: flex-start; gap: 112px; padding-block: 96px 112px; }
+  .town-text { flex: none; width: 584px; padding: 0; order: 1; }
+  .town-text > * + * { margin-top: 28px; }
+  .town-photo { flex: 1; min-width: 0; order: 2; position: sticky; top: 99px; }
+  .town-photo img { height: 640px; object-position: 45% 50%; }
+
+  /* ひらく時間：写真の上に紙を重ねる。見出しと本文は中央640 */
+  .open { padding-block: 96px; }
+  .open-head { padding: 0; }
+  .open-row { display: flex; align-items: center; justify-content: center; margin-top: 56px; }
+  .open-photo { flex: none; width: 560px; }
+  .open-photo img { height: 760px; object-position: 50% 50%; }
+  .sheet { flex: none; width: 640px; margin: 0 0 0 -88px; padding: 56px; }
+  .sheet > * + * { margin-top: 28px; }
+  .sheet-text { font-size: 36px; }
+  .sheet-lines span + span { margin-top: 68px; }
+  .sheet-prompt { font-size: 13px; }
+  .sheet-ex { font-size: 14px; }
+  .open-body { padding: 56px 0 0; }
+
+  /* 旅の前と後にも集まります：中央640、左に番号と種類、右に見出しと本文 */
+  .program { padding: 0; }
+  .program .in { padding-block: 112px; }
+  .steps { margin-top: 44px; }
+  .step { display: grid; grid-template-columns: 176px 1fr; column-gap: 32px; padding-top: 24px; }
+  .step + .step { margin-top: 32px; }
+  .step-key { align-items: flex-start; flex-direction: column; gap: 10px; }
+  .step-key .no { height: 13px; }
+  .step-key .label { font-size: 12px; }
+  .step h3 { margin-top: 0; font-size: 20px; }
+  .step .when { font-size: 13px; }
+  .step p.body { font-size: 15px; }
+
+  /* 2日間の流れ：左右に1日目・2日目 */
+  .days { padding: 0; }
+  .days .in { padding-block: 96px 112px; }
+  .days-head { max-width: 640px; }
+  .days-grid { display: grid; grid-template-columns: 1fr 1fr; column-gap: 64px; margin-top: 44px; }
+  .day + .day { margin-top: 0; }
+  .day-h .date-d { font-size: 40px; line-height: 48px; }
+  .tt li { grid-template-columns: 64px 1fr; padding-block: 14px; }
+  .tt-time { font-size: 16px; }
+  .tt-title { font-size: 15px; }
+  .tt-desc { font-size: 13px; }
+
+  /* 会う人たち：中央640 */
+  .people { padding: 0; }
+  .people .in { padding-block: 96px 112px; }
+  .person-list { margin-top: 36px; }
+  .person { padding-top: 20px; }
+  .person + .person { margin-top: 28px; }
+  .person-role { font-size: 15px; }
+  .person-bio { font-size: 15px; }
+
+  .band img { height: 560px; object-position: 50% 60%; }
+
+  /* 持ち帰るもの：左に見出し、右に紙片 */
+  .take { padding: 0; }
+  .take .in { display: flex; align-items: center; gap: 112px; padding-block: 64px; }
+  .take-head { flex: none; width: 360px; }
+  .take-slip { flex: 1; margin-top: 0; padding: 32px 40px; }
+  .take-list li { font-size: 14px; }
+
+  /* こんな方へ：中央640 */
+  .fit { padding: 0; }
+  .fit .in { padding-block: 96px 112px; }
+  .fit li { font-size: 15px; padding: 12px 0; }
+  .fit-sub { font-size: 14px; }
+
+  /* POOLOについて：左に文、右にキービジュアル */
+  .about { padding: 0; }
+  .about .in { display: flex; align-items: flex-start; gap: 112px; padding-block: 112px; }
+  .about .in > * + * { margin-top: 0; }
+  .about-text { flex: none; width: 584px; }
+  .about-text > * + * { margin-top: 32px; }
+  .about-photo { flex: none; width: 520px; padding-top: 88px; }
+
+  /* 開催概要・よくある質問：左に見出し、右に内容 */
+  .overview, .faq { padding: 0; }
+  .overview .in, .faq .in { display: flex; gap: 112px; padding-block: 112px; }
+  .faq .in { padding-top: 96px; }
+  .overview .h2, .faq .h2 { flex: none; width: 360px; }
+  .ov-wrap, .faq-list { flex: 1; max-width: 744px; margin-top: 0; }
+  .ov { margin-top: 0; }
+  .ov-row { grid-template-columns: 110px 1fr; }
+  .ov dt { font-size: 13px; }
+  .ov dd { font-size: 14px; }
+  .faq-q, .faq-a { font-size: 15px; }
+
+  /* お申し込み：左に見出しと文、右に日付とボタン */
+  .apply { padding: 0; }
+  .apply .in { display: flex; gap: 112px; padding: 104px 24px; }
+  .apply .in > * + * { margin-top: 0; }
+  .apply-head { flex: none; width: 584px; }
+  .apply .h2 { font-size: 34px; }
+  .apply-msg { font-size: 15px; }
+  .apply-box { flex: none; width: 520px; }
+  .apply-box > * + * { margin-top: 24px; }
+
+  .ft { padding: 48px 0 56px; }
+  .ft .in { display: flex; justify-content: space-between; align-items: flex-start; }
+  .ft .in > * + * { margin-top: 0; }
+  .ft-texts { text-align: right; max-width: 640px; }
+  .ft-texts p + p { margin-top: 8px; }
+
+  .fa { padding: 14px 0 calc(14px + env(safe-area-inset-bottom)); }
+  .fa-inner { max-width: 1216px; margin-inline: auto; }
+  .fa-texts { display: flex; align-items: baseline; gap: 20px; }
+  .fa-main { font-size: 14px; }
+  .fa-sub { font-size: 12px; }
+  .fa .btn { font-size: 14px; padding: 15px 28px; }
+}
+</style>
+</head>
+<body>
+
+<!-- 申込リンク：LINEの流入経路URLが未確定のため、いったん #apply。届いたらこのページの href="#apply" を全部差し替える -->
+
+<!-- ===== 追従ボタン ===== -->
+<div class="fa" id="floatApply">
+  <div class="fa-inner">
+    <div class="fa-texts">
+      <span class="fa-main">まだ誰にも話していない「やりたい」を、琴平で確かめる。</span>
+      <span class="fa-sub"><span class="num">12/20</span>（日）–<span class="num">21</span>（月）・香川・琴平・定員<span class="num">10</span>名</span>
+    </div>
+    <a class="btn" href="#apply">LINEで申し込む</a>
+  </div>
+</div>
+
+<!-- ===== ヘッダー ===== -->
+<header class="hd">
+  <div class="in">
+    <a class="hd-logo" href="https://tabippo.net/poolo/" target="_blank" rel="noopener"><img src="images/poolo_logo.png" alt="POOLO あたらしい旅の学校"></a>
+    <span class="hd-label">あたらしい旅の学校｜香川・琴平 1泊2日</span>
+    <a class="btn hd-cta" href="#apply">LINEで申し込む</a>
+  </div>
+</header>
+
+<!-- ===== 冒頭 ===== -->
+<section class="fv">
+  <div class="fv-top">
+    <div class="fv-copy">
+      <h1 class="mc"><span class="mc-pre">まだ誰にも</span><span class="nb">話していない</span><br><span class="nb">「やりたい」を、</span><br><span class="nb">琴平で確かめる。</span></h1>
+      <p class="lead">仕事の話ばかりの毎日で、<br class="pc-br">自分のやりたいことは、しばらく誰にも話していない。<br class="pc-br">香川・琴平で<span class="nb">好きなことを始めた人に会い、</span><br class="pc-br"><span class="nb">自分の「やりたい」を</span><span class="nb">15分だけ町でやってみる1泊2日です。</span></p>
+      <div class="date">
+        <div><span class="date-y">2026</span><span class="date-d">12.20–21</span></div>
+        <div><span class="date-w">日曜日 <span class="num">12:30</span> 集合</span><span class="date-w">月曜日 <span class="num">15:00</span> 解散</span></div>
+      </div>
+      <p class="cond">香川・琴平<span class="sep">／</span>1泊2日<span class="sep">／</span>定員10名</p>
+      <a class="btn" href="#apply">LINEで申し込む</a>
+      <p class="note">POOLOの卒業生も、POOLOがはじめての方も参加できます。</p>
+    </div>
+    <figure class="fv-photo"><img src="images/sando_steps_shops.jpg" alt="琴平の参道の石段。店の軒先の間を人が登っていく"></figure>
+  </div>
+  <div class="fv-bottom in">
+    <div class="date">
+      <div><span class="date-y">2026</span><span class="date-d">12.20–21</span></div>
+      <div><span class="date-w">日曜日 <span class="num">12:30</span> 集合</span><span class="date-w">月曜日 <span class="num">15:00</span> 解散</span></div>
+    </div>
+    <div class="fv-how">
+      <p class="cond">香川・琴平<span class="sep">／</span>1泊2日<span class="sep">／</span>定員10名</p>
+      <p class="note">POOLOの卒業生も、POOLOがはじめての方も参加できます。</p>
+    </div>
+    <a class="btn" href="#apply">LINEで申し込む</a>
+  </div>
+</section>
+
+<!-- ===== こんな気持ちの方へ ===== -->
+<section class="feel">
+  <div class="in">
+    <figure class="feel-photo">
+      <img src="images/steps_light.jpg" alt="木々のあいだから光が差す金刀比羅宮の石段" loading="lazy">
+    </figure>
+    <div class="feel-text">
+      <h2><img class="lt" src="images/lt-feel.svg" alt="こんな気持ちの方へ" width="448" height="56"></h2>
+      <div>
+        <p class="feel-body">休みの日に豆を挽いてコーヒーを淹れる。旅先で撮った写真を、誰に見せるでもなくフォルダに並べている。友だちに本を薦めるときだけ、少し早口になる。好きなことは誰にでもあるのに、それを人に向けて「始める」となると、途端に大ごとに感じてしまいます。お店を開くほどでも、副業にするほどでもないし、何から始めればいいのかも分からない。</p>
+        <p class="feel-body">POOLOを卒業して、自分の問いを持ち帰った人も。これからPOOLOに参加するか、考えている人も。好きなことを始める手前で立ち止まっている時間は、たぶん同じくらい長いのだと思います。</p>
+      </div>
+      <p class="feel-note">この旅では、好きなことを始めた人たちに琴平で会い、2日目には、自分の「やりたい」を町の中で一度<span class="nb">ひらいてみます。</span>持ってくるのは、まだ誰にも話していない「やりたい」ひとつで足ります。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 琴平という町 ===== -->
+<section class="town">
+  <div class="in">
+    <figure class="town-photo">
+      <img src="images/sando_town_view.jpg" alt="参道の石段の上から見下ろした琴平の町と讃岐の山" loading="lazy">
+    </figure>
+    <div class="town-text">
+      <h2 class="h2">琴平という町</h2>
+      <p class="body">香川県のほぼ真ん中、人口7,700人ほどの琴平町は、金刀比羅宮（こんぴらさん）の門前町です。江戸時代には「一生に一度はこんぴら参り」と言われ、いまも年間200万人を超える人が、本宮まで785段の石段を登りに訪れます。昔の人の日記には、よその町から来ても琴平だけはよそ者扱いされなかった、と書かれているそうです。</p>
+      <p class="body">この町が変わりはじめたのは2021年ごろでした。コロナで観光客が半分近くまで減ったころ、参道の店の経営者が30代・40代へと入れ替わり、同じ時期に移住してきた人たちが5軒ほど店や事業を始めています。築60年の空きビルを、カフェとイベントスペースとシェアアトリエとホステルが入る「HAKOBUNE」に変えた人もいます。</p>
+      <p class="body">TABIPPOは2021年から琴平に通っていて、そのとき町で出会った人たちの話から「好きが琴開く（ことひらく）」ということばをつくりました。一人ひとりが好きなことを自分のやり方で始めて、それが町を少しずつひらいていく。5年たったいまでは、町の人たち自身がこのことばで琴平のことを話してくれるようになりました。</p>
+      <p class="body">町の人と話していて、印象に残っていることばがあります。琴平はもう完成された町に見えるかもしれないけれど、最初はみんなそうじゃなかった。今回会いに行くのは、その「最初」を覚えている人たちです。<span class="tbd">発言の掲載はご本人に要確認</span></p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ひらく時間 ===== -->
+<section class="open off">
+  <div class="in">
+    <div class="open-head col">
+      <h2 class="h2">ひらく時間</h2>
+      <p class="lead">2日目の午前、自分の「やりたい」を、<span class="nb">町の中で15分だけやってみる時間です。</span></p>
+    </div>
+    <div class="open-row">
+      <figure class="open-photo"><img src="images/torii_path.jpg" alt="金刀比羅宮の大鳥居をくぐって参道を歩く人たち" loading="lazy"></figure>
+      <div class="sheet paper">
+        <p class="label">2日目、一人一枚</p>
+        <p class="sheet-text"><span class="nb">わたしの</span><span class="nb">「やりたい」は、</span></p>
+        <div class="sheet-lines" aria-hidden="true"><span></span><span></span></div>
+        <div>
+          <p class="sheet-prompt">15分、町の人に向けてやってみること</p>
+          <ul class="sheet-ex">
+            <li>コーヒーを淹れて、その場にいる人に配る</li>
+            <li>撮りためた写真を何枚か見せて、撮ったときの話をする</li>
+            <li>好きな本を1冊持ってきて、どこが好きなのかを話す</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="open-body col">
+      <p class="body">やることは人それぞれで、聞き手は一緒に旅をした参加者と、琴平の町の人たちです。場所はHAKOBUNEのイベントスペースを考えています。<span class="tbd">場所は要確認</span></p>
+      <p class="body">準備は紙1枚分で足ります。何をひらくかは、事前オンラインで一緒に考えます。「好きが琴開く」の町で、自分の好きを一度だけ町にひらいてみる。うまくやることより、やってみたあとに何を感じたかを大事にしたいと思っています。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 旅の前と後にも集まります ===== -->
+<section class="program">
+  <div class="in col">
+    <h2 class="h2"><span class="nb">旅の前と後にも</span><span class="nb">集まります</span></h2>
+    <p class="lead">事前オンライン、現地での1泊2日、事後オンラインの3つで、ひとつのプログラムです。</p>
+    <ol class="steps">
+      <li class="step">
+        <div class="step-key"><img class="no" src="images/num-01.svg" alt="01"><span class="label">事前・オンライン</span></div>
+        <div>
+          <h3><span class="nb">まだ話していない「やりたい」を</span><span class="nb">持ち寄る</span></h3>
+          <p class="when">60分／12月上旬 <span class="tbd">日時は要確認</span></p>
+          <p class="body">琴平がどんな町で、どんな人たちが何を始めてきたのかを聞きます。そのあと、参加者一人ひとりが自分の好きなことをひとつ話し、2日目の「ひらく時間」に何をやってみるかを一緒に考えます。</p>
+        </div>
+      </li>
+      <li class="step">
+        <div class="step-key"><img class="no" src="images/num-02.svg" alt="02"><span class="label">現地・1泊2日</span></div>
+        <div>
+          <h3>琴平で、始めた人に会う</h3>
+          <p class="when">2026年12月20日（日）12:30 〜 21日（月）15:00</p>
+          <p class="body">1日目は石段を登り、好きなことを小さく始めた人たちの話を聞き、夜は町の人と食卓を囲みます。2日目は町の人と1対1で過ごす時間と、自分の好きをひらく時間があります。</p>
+        </div>
+      </li>
+      <li class="step">
+        <div class="step-key"><img class="no" src="images/num-03.svg" alt="03"><span class="label">事後・オンライン</span></div>
+        <div>
+          <h3>続けてみたことを話す</h3>
+          <p class="when">60分／2027年1月 <span class="tbd">日時は要確認</span></p>
+          <p class="body">旅から帰って3〜4週間後に、もう一度集まります。帰ってから小さく続けてみたこと、やろうとして止まっていること、琴平で会った人の顔を思い出した場面。それぞれの続きを話します。</p>
+        </div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ===== 2日間の流れ ===== -->
+<section class="days">
+  <div class="in">
+    <div class="days-head">
+      <h2 class="h2">2日間の流れ</h2>
+      <p class="lead">2日目が月曜日なので、15時には解散します。<span class="tbd">時間はすべて要確認</span></p>
+    </div>
+    <div class="days-grid">
+      <div class="day">
+        <div class="day-h">
+          <span class="date-d">12.20</span>
+          <span class="day-w"><span>日曜日・1日目</span><span class="quiet"><span class="num">12:30</span> JR琴平駅 集合</span></span>
+        </div>
+        <ul class="tt">
+          <li><span class="tt-time">12:30</span><div><p class="tt-title">集合・自己紹介</p><p class="tt-desc">事前オンラインで話した「やりたい」を、あらためて一人ずつ共有します。</p></div></li>
+          <li><span class="tt-time">13:15</span><div><p class="tt-title">こんぴらさんの石段を、<span class="nb">2人1組で登る</span></p><p class="tt-desc">本宮まで785段。POOLOの卒業生と、これからの人が組になって、話しながら登ります。</p></div></li>
+          <li><span class="tt-time">15:30</span><div><p class="tt-title">始めた人たちの話を聞く</p><p class="tt-desc">HAKOBUNEで、琴平で好きなことを始めた2〜3人から、最初のころの話と、いま困っていることを聞きます。</p></div></li>
+          <li><span class="tt-time">17:00</span><div><p class="tt-title">参道と商店街を歩く</p><p class="tt-desc">聞いた話を思い出しながら、夕方の参道を歩きます。気になった店には寄り道してください。</p></div></li>
+          <li><span class="tt-time">18:30</span><div><p class="tt-title">町の人と夕食</p><p class="tt-desc">話を聞いた方々も一緒に、食卓を囲みます。</p></div></li>
+        </ul>
+      </div>
+      <div class="day">
+        <div class="day-h">
+          <span class="date-d">12.21</span>
+          <span class="day-w"><span>月曜日・2日目</span><span class="quiet"><span class="num">15:00</span> JR琴平駅 解散</span></span>
+        </div>
+        <ul class="tt">
+          <li><span class="tt-time">7:30</span><div><p class="tt-title">朝の参道を歩く・朝食</p><p class="tt-desc">店が開く前の、人の少ない参道を歩きます。</p></div></li>
+          <li><span class="tt-time">9:00</span><div><p class="tt-title">町の人と1対1で過ごす（90分）</p><p class="tt-desc">参加者1人に町の人1人。店の開店準備や仕事を手伝いながら、一緒に過ごします。</p></div></li>
+          <li><span class="tt-time">11:00</span><div><p class="tt-title">ひらく時間</p><p class="tt-desc">一人15分ずつ、自分の「やりたい」を、参加者と町の人に向けてやってみます。</p></div></li>
+          <li><span class="tt-time">12:30</span><div><p class="tt-title">昼食</p></div></li>
+          <li><span class="tt-time">13:30</span><div><p class="tt-title">振り返り</p><p class="tt-desc">個人ワーク、3〜4人での対話、全員での共有。帰ってから続けてみることを、ひとつ書いて持ち帰ります。</p></div></li>
+          <li><span class="tt-time">15:00</span><div><p class="tt-title">JR琴平駅 解散</p></div></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 会う人たち ===== -->
+<section class="people">
+  <div class="in col">
+    <h2 class="h2">会う人たち</h2>
+    <p class="lead">いま、町の方々にお願いしているところです。お名前は決まり次第掲載します。<span class="tbd">お名前・プロフィールは要確認</span></p>
+    <ul class="person-list">
+      <li class="person">
+        <p class="person-role">参道の商店 店主<span class="tbd">要確認</span></p>
+        <p class="person-bio">参道で代々続く店を営む方。店の改築を機に、町の人と一緒に動き出したころの話と、次の世代に「始めていいんだ」と伝えたいという想いを聞きます。</p>
+      </li>
+      <li class="person">
+        <p class="person-role">HAKOBUNE<span class="tbd">要確認</span></p>
+        <p class="person-bio">親戚の空き家をきっかけに琴平で事業を始め、築60年のビルをHAKOBUNEに変えた方。宿やお店を、どういう順番で、どれくらいの大きさから始めたのかを聞きます。</p>
+      </li>
+      <li class="person">
+        <p class="person-role">移住して店を開いた方<span class="tbd">要確認</span></p>
+        <p class="person-bio">旅やツアーで琴平に来たことをきっかけに移り住み、小さく店を始めた方。始める前に何に迷って、何が最後に背中を押したのかを聞きます。</p>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===== 写真の帯 ===== -->
+<figure class="band"><img src="images/town_mountains.jpg" alt="琴平の町並みと、雲のかかった讃岐の山" loading="lazy"></figure>
+
+<!-- ===== 持ち帰るもの ===== -->
+<section class="take off">
+  <div class="in">
+    <h2 class="take-head"><img class="lt" src="images/lt-take.svg" alt="持ち帰るもの" width="285" height="56"></h2>
+    <div class="take-slip paper">
+      <p class="take-body body">この2日間で、好きなことが仕事になるとは約束しません。持ち帰ってほしいのは、一度やってみた、という小さな経験です。</p>
+      <ul class="take-list">
+        <li><span class="dot">・</span>自分の好きを、人の前で一度ひらいた</li>
+        <li><span class="dot">・</span>琴平に、また会いに行きたい人ができた</li>
+        <li><span class="dot">・</span>帰ってから続けてみることを、ひとつ決めた</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ===== こんな方へ ===== -->
+<section class="fit">
+  <div class="in col">
+    <h2 class="h2">こんな方へ</h2>
+    <ul>
+      <li>好きなことはあるけれど、まだ誰にも見せていない</li>
+      <li>仕事にするかは決めていないが、好きなことを少し外に出してみたい</li>
+      <li>POOLOを卒業して、自分の問いの続きを手を動かしながら考えたい</li>
+      <li>POOLOが気になっていて、どんな人たちがいるのかを知りたい</li>
+      <li>何かを始めた人の話を、始めたころの話から聞きたい</li>
+    </ul>
+    <p class="fit-sub">今回は、向かないかもしれない方</p>
+    <ul>
+      <li>開業や副業の具体的なノウハウを学びたい方</li>
+      <li>こんぴら参りを中心にした観光を期待している方</li>
+      <li>人前で何かをすることが、どうしても負担になる方（ひらく時間は、話すだけでもかまいません）</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===== POOLOについて ===== -->
+<section class="about off">
+  <div class="in">
+    <div class="about-text">
+      <h2><img class="lt" src="images/lt-about.svg" alt="POOLOについて" width="420" height="56"></h2>
+      <img class="about-kv sp-only" src="images/poolo_keyvisual.jpg" alt="POOLOのキービジュアル。旅と人生をつなぐ大人の学び" loading="lazy">
+      <p class="body">あたらしい旅の学校 POOLOは、旅をきっかけに、自分の人生やこれからについて考えるコミュニティです。旅、対話、仲間、問い、実践を通して「自分がどう生きたいのか」を考える。POOLOには、問いを持って世界や人生に向き合う文化があります。</p>
+      <p class="body">POOLOを運営するTABIPPOは、2021年から琴平町に通ってきました。学生やPOOLOのメンバーと一緒に町を訪ね、2025年度は4回、町の11の事業者と一緒に、TABIPPOのコミュニティのための特典もつくっています。今回の旅は、その5年のあいだに出会った人たちにお願いして組み立てています。</p>
+      <a class="about-link" href="https://tabippo.net/poolo/course/life/" target="_blank" rel="noopener">POOLO LIFEのページを見る</a>
+    </div>
+    <figure class="about-photo pc-only">
+      <img class="about-kv" src="images/poolo_keyvisual.jpg" alt="POOLOのキービジュアル。旅と人生をつなぐ大人の学び" loading="lazy">
+      <p class="caption">運営：株式会社TABIPPO</p>
+    </figure>
+  </div>
+</section>
+
+<!-- ===== 開催概要 ===== -->
+<section class="overview">
+  <div class="in">
+    <h2 class="h2">開催概要</h2>
+    <div class="ov-wrap">
+      <dl class="ov">
+        <div class="ov-row"><dt>名称</dt><dd><strong>まだ誰にも話していない「やりたい」を、琴平で確かめる。</strong><br>香川・琴平で、好きなことを始めた人に会う1泊2日</dd></div>
+        <div class="ov-row"><dt>日程</dt><dd><strong>2026年12月20日（日）12:30 〜 12月21日（月）15:00</strong><br>このほかに、事前オンライン（12月上旬）・事後オンライン（2027年1月）の回があります（各60分）</dd></div>
+        <div class="ov-row"><dt>集合・解散</dt><dd>JR琴平駅 <span class="tbd">要確認</span><br>香川県仲多度郡琴平町</dd></div>
+        <div class="ov-row"><dt>アクセス</dt><dd>高松空港からリムジンバスで約45分／JR土讃線 琴平駅<br>大阪からは高速バスもあります</dd></div>
+        <div class="ov-row"><dt>宿泊</dt><dd>HAKOBUNE 4階のホステル <span class="tbd">要確認</span></dd></div>
+        <div class="ov-row"><dt>定員</dt><dd><strong>10名</strong></dd></div>
+        <div class="ov-row"><dt>主な対象</dt><dd>POOLOの卒業生と、POOLOに興味がある方<br>POOLOに参加したことがない方も参加できます</dd></div>
+        <div class="ov-row"><dt>参加費</dt><dd>一般 <span class="fee">20,000</span>円／POOLO生 <span class="fee">17,000</span>円 <span class="tbd">金額は要確認</span><br>事前オンライン・現地1泊2日・事後オンラインを含むプログラム参加費です。POOLO生は卒業生・在籍生の方。<br>宿泊・夕食・朝食・昼食などは参加費とは別に、現地でお支払いいただきます（金額は<span class="tbd">要確認</span>）。琴平までの往復交通費は各自でご負担ください。</dd></div>
+        <div class="ov-row"><dt>申込締切</dt><dd><span class="tbd">要確認</span></dd></div>
+        <div class="ov-row"><dt>申込方法</dt><dd>POOLO公式LINEを友だち追加のうえ、LINE内のご案内からお申し込みください。</dd></div>
+        <div class="ov-row"><dt>キャンセル</dt><dd>お申し込み後の返金はいたしかねます。宿や現地の受け入れ準備の都合によるものです。<span class="tbd">要確認</span></dd></div>
+        <div class="ov-row"><dt>主催</dt><dd>あたらしい旅の学校 POOLO（株式会社TABIPPO）<span class="tbd">共催・協力先は要確認</span></dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<!-- ===== よくある質問 ===== -->
+<section class="faq">
+  <div class="in">
+    <h2 class="h2">よくある質問</h2>
+    <dl class="faq-list">
+      <div class="faq-item"><dt class="faq-q">一人で参加しても大丈夫ですか？</dt><dd class="faq-a">はい。おひとりでの参加を想定しています。事前オンラインで一度顔を合わせてから現地に向かうので、初対面の方ばかりでも大丈夫です。</dd></div>
+      <div class="faq-item"><dt class="faq-q">POOLOに参加したことがなくても参加できますか？</dt><dd class="faq-a">はい。POOLOの卒業生と、POOLOが気になっている方が一緒に参加する旅です。</dd></div>
+      <div class="faq-item"><dt class="faq-q">「好きなこと」がすぐに思いつきません。</dt><dd class="faq-a">それでも大丈夫です。事前オンラインで、ふだんの休日の過ごし方や、つい時間を使ってしまうことから一緒に探します。</dd></div>
+      <div class="faq-item"><dt class="faq-q">人前で何かをするのが苦手です。</dt><dd class="faq-a">ひらく時間は、好きなことについて話すだけでもかまいません。聞き手は、2日間を一緒に過ごした参加者と町の人たちです。</dd></div>
+      <div class="faq-item"><dt class="faq-q">2日目は月曜日ですが、何時に終わりますか？</dt><dd class="faq-a">15:00にJR琴平駅で解散します。その日のうちに首都圏・関西へ戻れる時間です。<span class="tbd">帰りの便・列車の目安は要確認</span></dd></div>
+      <div class="faq-item"><dt class="faq-q">事前・事後オンラインへの参加は必須ですか？</dt><dd class="faq-a">1泊2日と合わせてひとつのプログラムとして設計しているので、どちらもご参加いただくことを前提としています。</dd></div>
+    </dl>
+  </div>
+</section>
+
+<!-- ===== お申し込み ===== -->
+<section class="apply" id="apply">
+  <div class="in">
+    <div class="apply-head">
+      <h2 class="h2">お申し込み</h2>
+      <p class="apply-msg body">気になった方は、<span class="nb">POOLO公式LINEから</span>お申し込みください。定員は10名です。</p>
+    </div>
+    <div class="apply-box">
+      <div class="date">
+        <div><span class="date-y">2026</span><span class="date-d">12.20–21</span></div>
+        <div><span class="date-w">日曜日 <span class="num">12:30</span> 集合</span><span class="date-w">月曜日 <span class="num">15:00</span> 解散</span></div>
+      </div>
+      <p class="date-line">香川・琴平・1泊2日・定員<span class="num">10</span>名</p>
+      <a class="btn" href="#apply">LINEで申し込む</a>
+      <p class="apply-steps">1. POOLO公式LINEを友だち追加<br>2. LINE内の案内からこの旅に申し込む</p>
+      <dl class="apply-note"><dt>申込締切</dt><dd><span class="tbd">要確認</span>。LINEのリンクも確定後に差し替えます。</dd></dl>
+    </div>
+  </div>
+</section>
+
+<!-- ===== フッター ===== -->
+<footer class="ft">
+  <div class="in">
+    <div class="ft-logos">
+      <a href="https://tabippo.net/poolo/" target="_blank" rel="noopener"><img class="poolo" src="images/poolo_logo03.png" alt="POOLO あたらしい旅の学校"></a>
+      <a href="https://tabippo.net/" target="_blank" rel="noopener"><img class="tabippo" src="images/tabippo_logo_trim.png" alt="TABIPPO"></a>
+    </div>
+    <div class="ft-texts">
+      <p>主催：あたらしい旅の学校 POOLO<br>株式会社TABIPPO</p>
+      <p class="ft-credit">写真：<a href="https://commons.wikimedia.org/wiki/File:Konpira_Shrine,_Kagawa_Prefecture;_November_2019_(08).jpg" target="_blank" rel="noopener">Sei F</a>（<a href="https://creativecommons.org/licenses/by-sa/2.0/" target="_blank" rel="noopener">CC BY-SA 2.0</a>）／<a href="https://commons.wikimedia.org/wiki/File:150504_Kogohira_Kagawa_pref_Japan02n.jpg" target="_blank" rel="noopener">663highland</a>（<a href="https://creativecommons.org/licenses/by/2.5/" target="_blank" rel="noopener">CC BY 2.5</a>）、Wikimedia Commons</p>
+      <p>© POOLO. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ヘッダー：スクロールしたら下に罫を出す */
+(function () {
+  var hd = document.querySelector('.hd');
+  if (!hd) return;
+  function f() { hd.classList.toggle('is-stuck', window.scrollY > 4); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+})();
+/* 追従ボタン：冒頭を過ぎたら出し、お申し込み欄とフッターが見えている間は引っ込める */
+(function () {
+  var bar = document.getElementById('floatApply');
+  if (!bar) return;
+  var fv = document.querySelector('.fv');
+  var ends = [document.getElementById('apply'), document.querySelector('.ft')].filter(Boolean);
+  var ticking = false;
+  function update() {
+    var past = fv ? fv.getBoundingClientRect().bottom < window.innerHeight * 0.3 : window.scrollY > 400;
+    var nearEnd = ends.some(function (el) { var r = el.getBoundingClientRect(); return r.top < window.innerHeight && r.bottom > 0; });
+    bar.classList.toggle('is-visible', past && !nearEnd);
+    ticking = false;
+  }
+  window.addEventListener('scroll', function () { if (!ticking) { window.requestAnimationFrame(update); ticking = true; } }, { passive: true });
+  window.addEventListener('resize', update);
+  window.addEventListener('load', update);
+  update();
+})();
+</script>
+</body>
+</html>
