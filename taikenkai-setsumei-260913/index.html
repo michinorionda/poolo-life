@@ -6,7 +6,7 @@
 <title>POOLO LIFE のご紹介｜POOLO 体験会</title>
 <meta name="robots" content="noindex,nofollow">
 
-<!-- 体験会の2回目の対話のあと、運営が画面共有して話す7枚。
+<!-- 体験会の2回目の対話のあと、運営が画面共有して話す11枚（260929に探究の3枚を追加）。
      ワークシート（ワークシート原紙_260913）の帯からリンクしている。
      順序厳守：tokens が先 -->
 <link rel="stylesheet" href="../poolo-ds/tokens.css">
@@ -17,6 +17,44 @@
   /* 06：図の下に3列を収めるため、番号を外して本文を1段小さくする */
   .sl.is-dense .t-num { display: none; }
   .sl.is-dense .triad-item p { font-size: 16px; line-height: 1.8; }
+
+  /* 探究：なぜ／深まる／行動（260929追加） */
+  .path { display: grid; grid-template-columns: 170px repeat(3, minmax(0,1fr)); gap: 0 30px; align-items: stretch; padding: 12px 20px; }
+  .path + .path { margin-top: 10px; }
+  .path.is-solve { background: var(--bg-off); }
+  .path.is-ask { background: var(--brand-pale); }
+  .path-way { font-family: var(--mincho); font-size: 20px; font-weight: 700; color: #000; align-self: center; line-height: 1.5; }
+  .path.is-solve .path-way { color: #808080; }
+  .path-n { position: relative; background: #fff; padding: 10px 14px; font-size: 15px; line-height: 1.65; color: var(--ink-soft); }
+  .path-n b { display: block; font-size: 12px; color: #808080; font-weight: 700; margin-bottom: 2px; }
+  .path.is-ask .path-n b { color: var(--brand-deep); }
+  .path-n:not(:last-child)::after { content: ""; position: absolute; right: -21px; top: 50%; width: 9px; height: 9px; border-top: 2px solid var(--brand); border-right: 2px solid var(--brand); transform: translate(0,-50%) rotate(45deg); }
+  .path.is-solve .path-n:not(:last-child)::after { border-color: #B0B0B0; }
+  .path-n.is-q { font-family: var(--mincho); font-size: 16px; color: #000; }
+  .why-start { align-self: flex-start; display: inline-block; border: 1px dashed #B0B0B0; padding: 8px 16px; font-family: var(--mincho); font-size: 19px; color: #000; margin: 14px 0 12px; }
+  .why-start span { font-family: var(--sans, 'Noto Sans JP'), sans-serif; font-size: 12px; font-weight: 700; color: #808080; margin-right: 12px; }
+
+  .deep { display: grid; grid-template-columns: repeat(5, minmax(0,1fr)); gap: 0 26px; margin-top: 22px; }
+  .deep-col { display: flex; flex-direction: column; }
+  .deep-v { font-family: 'Jost', sans-serif; font-size: 14px; font-weight: 600; letter-spacing: 1.5px; color: var(--brand); }
+  .deep-q { position: relative; font-family: var(--mincho); font-size: 16.5px; line-height: 1.6; color: #000; border-top: 2px solid var(--brand); padding-top: 10px; margin-top: 4px; min-height: 132px; }
+  .deep-col:first-child .deep-q { border-top-color: #B0B0B0; color: #555; }
+  .deep-col:first-child .deep-v { color: #808080; }
+  .deep-q::after { content: ""; position: absolute; right: -19px; top: -6px; width: 9px; height: 9px; border-top: 2px solid var(--brand); border-right: 2px solid var(--brand); transform: rotate(45deg); }
+  .deep-col:last-child .deep-q::after { display: none; }
+  .deep-by { font-size: 13.5px; line-height: 1.65; color: #555; margin-top: 10px; }
+  .deep-add { align-self: flex-start; margin-top: 10px; font-size: 12.5px; font-weight: 700; color: var(--brand-deep); background: var(--brand-pale); padding: 2px 10px; }
+
+  .lane { display: grid; grid-template-columns: 80px repeat(5, minmax(0,1fr)); gap: 0 14px; align-items: stretch; }
+  .lane + .lane { margin-top: 10px; }
+  .lane-lab { font-family: var(--mincho); font-size: 19px; font-weight: 700; color: #000; align-self: center; }
+  .lane-c { padding: 12px 14px; font-size: 15px; line-height: 1.65; }
+  .lane.is-q .lane-c { background: var(--bg-off); font-family: var(--mincho); font-size: 15.5px; color: #000; }
+  .lane.is-act .lane-c { background: var(--brand-pale); color: #000; }
+  .lane.is-act .lane-c:first-of-type { background: var(--bg-off); color: #555; }
+  .lane-c b { display: block; font-family: 'Jost', sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 1px; color: var(--brand); margin-bottom: 2px; }
+  .lane-ties { display: grid; grid-template-columns: 80px repeat(5, minmax(0,1fr)); gap: 0 14px; height: 10px; }
+  .lane-ties i { display: block; width: 2px; height: 10px; background: var(--brand-mid); margin: 0 auto; }
 </style>
 </head>
 
@@ -40,7 +78,7 @@
 
   <div class="sl-foot">
     <p class="sl-src">あたらしい旅の学校 POOLO／運営：株式会社TABIPPO・株式会社CODOLI</p>
-    <span class="sl-pg">01 / 08</span>
+    <span class="sl-pg">01 / 11</span>
   </div>
 </section>
 
@@ -110,7 +148,7 @@
 
   <div class="sl-foot">
     <p class="sl-src">あたらしい旅の学校 POOLO</p>
-    <span class="sl-pg">02 / 08</span>
+    <span class="sl-pg">02 / 11</span>
   </div>
 </section>
 
@@ -152,14 +190,141 @@
 
   <div class="sl-foot">
     <p class="sl-src">あたらしい旅の学校 POOLO</p>
-    <span class="sl-pg">03 / 08</span>
+    <span class="sl-pg">03 / 11</span>
   </div>
 </section>
+
+<!-- 探究：なぜ（260929追加） -->
+<section class="sl">
+  <div class="sl-top">
+    <span class="sl-num">04</span>
+    <span class="sl-kicker">なぜ探究なのか</span>
+    <span class="sl-meta">POOLO LIFE 体験会</span>
+  </div>
+
+  <div class="sl-body is-top">
+    <h2>違和感を、すぐに解決しないで問いにする</h2>
+    <div class="why-start"><span>はじまり</span>人生、このままでいいんだっけ</div>
+
+    <div class="path is-solve">
+      <p class="path-way">解決しようと<br>すると</p>
+      <div class="path-n"><b>答え</b>転職すればいい。<br>資格を取ればいい。</div>
+      <div class="path-n"><b>やってみる</b>求人を眺める。講座に申し込む。</div>
+      <div class="path-n"><b>しばらくして</b>また「このままでいいのかな」。<br>元の場所に戻る。</div>
+    </div>
+    <div class="path is-ask">
+      <p class="path-way">問いに<br>すると</p>
+      <div class="path-n is-q"><b>問い</b>私が「自分で選んでいる」と<br>感じられるのは、どんな時間か</div>
+      <div class="path-n"><b>人に話す</b>同期や上司から、それぞれの<br>「自分で選べた時間」の話が<br>返ってくる。</div>
+      <div class="path-n"><b>その先</b>問いが書き換わり、会いたい人や、試したいことが増えていく。</div>
+    </div>
+
+    <p class="sl-text" style="margin-top:18px;max-width:none;font-size:16px;line-height:1.75">答えは、会社やSNS、AIからいくらでも届きます。それでも「自分で決めた」と思えないとき、違和感を問いにして人に話すと、自分の行き先が少しずつ見えてきます。</p>
+  </div>
+
+  <div class="sl-foot">
+    <p class="sl-src">例は作例です。</p>
+    <span class="sl-pg">04 / 11</span>
+  </div>
+</section>
+
+
+<!-- 探究：深まる（260929追加） -->
+<section class="sl">
+  <div class="sl-top">
+    <span class="sl-num">05</span>
+    <span class="sl-kicker">問いの深まり</span>
+    <span class="sl-meta">POOLO LIFE 体験会</span>
+  </div>
+
+  <div class="sl-body is-top">
+    <h2>人に話すたびに、問いに何かが加わっていく</h2>
+
+    <div class="deep">
+      <div class="deep-col">
+        <p class="deep-v">はじまり</p>
+        <p class="deep-q">人生、このままでいいんだっけ</p>
+        <p class="deep-by">ぼんやりした違和感。「そう思った瞬間」を1週間メモする。</p>
+      </div>
+      <div class="deep-col">
+        <p class="deep-v">v1.0</p>
+        <p class="deep-q">私が「自分で選んでいる」と感じられるのは、どんな時間か</p>
+        <p class="deep-by">メモを並べると、どれも予定を自分以外が決めていた。</p>
+        <span class="deep-add">＋ 場面</span>
+      </div>
+      <div class="deep-col">
+        <p class="deep-v">v1.1</p>
+        <p class="deep-q">自分で選べていると感じるのは、時間の長さか、先に確保しているかどうかか</p>
+        <p class="deep-by">同期「朝の30分だけは、誰にも渡さないと決めてる」</p>
+        <span class="deep-add">＋ 他の人の場面</span>
+      </div>
+      <div class="deep-col">
+        <p class="deep-v">v1.4</p>
+        <p class="deep-q">「自分で選んだ」と感じるのは、ひとりで決めたときか、誰かに差し出したときか</p>
+        <p class="deep-by">案を同僚に見せて「いいね。私ならこうする」と返ってきた瞬間が、いちばん楽しかった。</p>
+        <span class="deep-add">＋ 前提の見直し</span>
+      </div>
+      <div class="deep-col">
+        <p class="deep-v">v2.0</p>
+        <p class="deep-q">私が選んだものを受け取ってくれる人と、どうやって出会いつづけられるか</p>
+        <p class="deep-by">旅先で店を開いた人「自分で選んだ実感は毎日ある。でも、来てくれる人がいないと続かない」</p>
+        <span class="deep-add">＋ 次の選択</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="sl-foot">
+    <p class="sl-src">最初は自分ひとりの問いだったのが、v2.0では人との関係が入っています。例は作例です。</p>
+    <span class="sl-pg">05 / 11</span>
+  </div>
+</section>
+
+
+<!-- 探究：行動が変わる（260929追加） -->
+<section class="sl">
+  <div class="sl-top">
+    <span class="sl-num">06</span>
+    <span class="sl-kicker">問いと行動</span>
+    <span class="sl-meta">POOLO LIFE 体験会</span>
+  </div>
+
+  <div class="sl-body is-top">
+    <h2>問いが変わると、行動も変わっていく</h2>
+
+    <div style="margin-top:var(--sp-item)">
+      <div class="lane is-q">
+        <p class="lane-lab">問い</p>
+        <div class="lane-c"><b>はじまり</b>このままで<br>いいんだっけ</div>
+        <div class="lane-c"><b>v1.0</b>自分で選んでいると<br>感じるのは、<br>どんな時間か</div>
+        <div class="lane-c"><b>v1.1</b>時間の長さか、<br>先に確保して<br>いるかどうかか</div>
+        <div class="lane-c"><b>v1.4</b>ひとりで<br>決めたときか、<br>誰かに<br>差し出したときか</div>
+        <div class="lane-c"><b>v2.0</b>受け取って<br>くれる人と、<br>どう出会い<br>つづけるか</div>
+      </div>
+      <div class="lane-ties"><span></span><i></i><i></i><i></i><i></i><i></i></div>
+      <div class="lane is-act">
+        <p class="lane-lab">行動</p>
+        <div class="lane-c">転職するかしないかで<br>考えて、止まっていた</div>
+        <div class="lane-c">そう思った瞬間を、<br>1週間メモする</div>
+        <div class="lane-c">月に1日、予定を<br>全部自分で決める<br>日を作る</div>
+        <div class="lane-c">週2時間で<br>たたき台を作り、<br>同僚に見せる</div>
+        <div class="lane-c">作ったものを、<br>社外の勉強会で<br>発表する</div>
+      </div>
+    </div>
+
+    <p class="sl-text" style="margin-top:var(--sp-group);max-width:none">行動が変わると、会う人や返ってくる話が変わり、それがまた問いを書き換えます。この行き来を重ねるうちに、人生が少しずつ変わっていきます。</p>
+  </div>
+
+  <div class="sl-foot">
+    <p class="sl-src">POOLO LIFEの8か月で、この行き来を何周か回します。例は作例です。</p>
+    <span class="sl-pg">06 / 11</span>
+  </div>
+</section>
+
 
 <!-- 04 豊かさ（3項目） -->
 <section class="sl sl--triad">
   <div class="sl-top">
-    <span class="sl-num">04</span>
+    <span class="sl-num">07</span>
     <span class="sl-kicker">豊かさ</span>
     <span class="sl-meta">POOLO LIFE 体験会</span>
   </div>
@@ -177,7 +342,7 @@
   <text x="112" y="160" text-anchor="middle" font-family="Zen Old Mincho, serif" font-size="24" font-weight="700" fill="#000">納得</text>
   <text x="112" y="186" text-anchor="middle" font-family="Noto Sans JP, sans-serif" font-size="13" fill="#808080">自分で決めた</text>
   <text x="368" y="160" text-anchor="middle" font-family="Zen Old Mincho, serif" font-size="24" font-weight="700" fill="#000">つながり</text>
-  <text x="368" y="186" text-anchor="middle" font-family="Noto Sans JP, sans-serif" font-size="13" fill="#808080">返事が返ってきた</text>
+  <text x="368" y="186" text-anchor="middle" font-family="Noto Sans JP, sans-serif" font-size="13" fill="#808080">分かち合えた</text>
   <text x="240" y="168" text-anchor="middle" font-family="Zen Old Mincho, serif" font-size="24" font-weight="700" fill="#127E9A">豊かさ</text>
 </svg></div>
       <div>
@@ -187,11 +352,11 @@
         </div>
         <div style="border-top:1px solid var(--line);padding:10px 0 12px">
           <h3 style="margin:0 0 4px;font-family:var(--mincho);font-size:22px;color:#000">つながり</h3>
-          <p class="sl-text" style="margin:0;font-size:16px;line-height:1.7;max-width:none">返事が返ってきた、という実感。<br>問いを人に話して、話が返ってきたときに。</p>
+          <p class="sl-text" style="margin:0;font-size:16px;line-height:1.7;max-width:none">誰かと分かち合えた、という実感。<br>問いを人に話して、相手からもその人の話が返ってきたときに。</p>
         </div>
         <div style="border-top:1px solid var(--line);padding:10px 0 12px">
           <h3 style="margin:0 0 4px;font-family:var(--mincho);font-size:22px;color:#127E9A">豊かさ</h3>
-          <p class="sl-text" style="margin:0;font-size:16px;line-height:1.7;max-width:none">自分で決めたことに、返事が返ってきた、という実感。<br>同じ一つの問いで、2つが重なったぶんだけ生まれます。</p>
+          <p class="sl-text" style="margin:0;font-size:16px;line-height:1.7;max-width:none">自分で決めた行動を通じて、誰かと分かち合えた、という実感。<br>分かち合いは、行動の途中でも、結果でも起きます。</p>
         </div>
       </div>
     </div>
@@ -199,7 +364,7 @@
 
   <div class="sl-foot">
     <p class="sl-src">今日のQ9で立てた問いを、Q12で決めた人に話すところから始まります。</p>
-    <span class="sl-pg">04 / 08</span>
+    <span class="sl-pg">07 / 11</span>
   </div>
 </section>
 
@@ -207,7 +372,7 @@
 <!-- 04 旅・問い・創る（3項目） -->
 <section class="sl sl--triad">
   <div class="sl-top">
-    <span class="sl-num">05</span>
+    <span class="sl-num">08</span>
     <span class="sl-kicker">旅・問い・創る</span>
     <span class="sl-meta">POOLO LIFE 体験会</span>
   </div>
@@ -245,7 +410,7 @@
 
   <div class="sl-foot">
     <p class="sl-src">3つで1周です。POOLO LIFEの8か月で、これを何周か回していきます。</p>
-    <span class="sl-pg">05 / 08</span>
+    <span class="sl-pg">08 / 11</span>
   </div>
 </section>
 
@@ -253,7 +418,7 @@
 <!-- 05 8か月でやること（旅・問い・創る） -->
 <section class="sl sl--triad is-dense">
   <div class="sl-top">
-    <span class="sl-num">06</span>
+    <span class="sl-num">09</span>
     <span class="sl-kicker">POOLO LIFE</span>
     <span class="sl-meta">POOLO LIFE 体験会</span>
   </div>
@@ -292,7 +457,7 @@
 
   <div class="sl-foot">
     <p class="sl-src">講義は録画があるので、あとから見ることもできます。</p>
-    <span class="sl-pg">06 / 08</span>
+    <span class="sl-pg">09 / 11</span>
   </div>
 </section>
 
@@ -300,7 +465,7 @@
 <!-- 06 13期（数字） -->
 <section class="sl sl--data">
   <div class="sl-top">
-    <span class="sl-num">07</span>
+    <span class="sl-num">10</span>
     <span class="sl-kicker">13期</span>
     <span class="sl-meta">POOLO LIFE 体験会</span>
   </div>
@@ -329,7 +494,7 @@
 
   <div class="sl-foot">
     <p class="sl-src">あたらしい旅の学校 POOLO</p>
-    <span class="sl-pg">07 / 08</span>
+    <span class="sl-pg">10 / 11</span>
   </div>
 </section>
 
@@ -337,7 +502,7 @@
 <!-- 07 このあと（主張） -->
 <section class="sl sl--statement">
   <div class="sl-top">
-    <span class="sl-num">08</span>
+    <span class="sl-num">11</span>
     <span class="sl-kicker">このあと</span>
     <span class="sl-meta">POOLO LIFE 体験会</span>
   </div>
@@ -349,7 +514,7 @@
 
   <div class="sl-foot">
     <p class="sl-src">あたらしい旅の学校 POOLO</p>
-    <span class="sl-pg">08 / 08</span>
+    <span class="sl-pg">11 / 11</span>
   </div>
 </section>
 
