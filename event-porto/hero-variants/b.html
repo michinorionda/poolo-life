@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>B案（ふたりの対比）｜考えることと、始めること。｜POOLO × PORTO</title>
+<!-- 狙い：タイトルの2語「考えること／始めること」を、当日話すふたりに対応させて見せる。
+     写真は原寸（357×245）のまま小さく置き、引き伸ばさない。 -->
+<link rel="stylesheet" href="../../poolo-ds/tokens.css">
+<link rel="stylesheet" href="../../poolo-ds/components.css">
+<style>
+/* ---- B案だけの最小限のCSS。値はすべて tokens.css の var(--…) ---- */
+.hero-b {
+  padding-top: clamp(36px, 5vh, 56px);
+  padding-bottom: clamp(36px, 5vh, 56px);
+}
+/* 上段：見出し（左）と原寸写真（右）。写真は下揃え */
+.hero-b-top {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  column-gap: clamp(28px, 4vw, 64px);
+  align-items: end;
+}
+.hero-b-photo {
+  width: 357px;                                   /* 画像の原寸。引き伸ばさない */
+  max-width: 100%;
+  border-left: var(--bw-frame) solid var(--brand); /* Hero と同じブルーの額装罫 */
+}
+.hero-b-photo img { width: 100%; height: auto; }
+.hero-b-photo figcaption {
+  margin-top: var(--sp-near);
+  font-family: var(--body);
+  font-size: var(--fs-label);
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  color: var(--ink-55);
+}
+
+/* 下段：考えること／始めること の2列 */
+.pair {
+  margin-top: clamp(32px, 5vh, 52px);
+  border-top: 1px solid var(--ink);
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: clamp(28px, 4vw, 64px);
+}
+.pair-col { padding-top: clamp(22px, 3vh, 30px); }
+.pair-col + .pair-col {
+  border-left: 1px solid var(--line);
+  padding-left: clamp(28px, 4vw, 64px);
+  margin-left: calc(clamp(28px, 4vw, 64px) * -1); /* 罫を2列の中央に置く */
+}
+.pair-word {
+  font-family: var(--mincho);
+  font-weight: 900;
+  font-feature-settings: 'palt';
+  font-size: var(--fs-xl);
+  letter-spacing: var(--ls-head);
+  line-height: var(--lh-tight);
+  color: var(--ink);
+}
+.pair-who {
+  margin-top: var(--sp-near);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  column-gap: 1em;
+  row-gap: var(--sp-tie);
+}
+.pair-role {
+  font-family: var(--head);
+  font-size: var(--fs-label);
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: var(--brand-deep);
+}
+.pair-name {
+  font-family: var(--mincho);
+  font-weight: 700;
+  font-feature-settings: 'palt';
+  font-size: var(--fs-md);
+  letter-spacing: 0.08em;
+  color: var(--ink);
+}
+.pair-desc {
+  margin-top: var(--sp-near);
+  font-family: var(--body);
+  font-size: var(--fs-xs);
+  line-height: var(--lh-loose);
+  letter-spacing: 0.06em;
+  color: var(--ink-72);
+  max-width: 34em;
+  word-break: auto-phrase;
+  text-wrap: pretty;
+}
+
+@media (max-width: 860px) {
+  .hero-b-top { grid-template-columns: minmax(0, 1fr); row-gap: var(--sp-group); }
+  .hero-b-photo { width: 100%; max-width: 357px; }
+}
+@media (max-width: 640px) {
+  .pair { grid-template-columns: minmax(0, 1fr); margin-top: var(--sp-group); }
+  .pair-col + .pair-col {
+    border-left: none;
+    border-top: 1px solid var(--line);
+    padding-left: 0;
+    margin-left: 0;
+    margin-top: var(--sp-item);
+  }
+  .pair-col { padding-top: var(--sp-item); }
+}
+</style>
+</head>
+<body>
+
+<!-- ===== Brand row（固定ヘッダー） ===== -->
+<header class="brand-row">
+  <div class="shell">
+    <a class="brand-logo" href="https://tabippo.net/poolo/" target="_blank" rel="noopener">
+      <img src="../images/poolo_logo.png" alt="POOLO あたらしい旅の学校">
+    </a>
+    <nav class="header-nav">
+      <a class="header-link" href="https://porto.tokyo/" target="_blank" rel="noopener">PORTO とは<span class="arrow" aria-hidden="true">↗</span></a>
+      <a class="header-cta" href="#apply">申し込む</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ===== HERO（B案：ふたりの対比） ===== -->
+<section class="hero hero-b">
+  <div class="shell">
+
+    <div class="hero-b-top">
+      <div>
+        <div class="hero-eyebrow">
+          <span class="hero-eyebrow-rule" aria-hidden="true"></span>
+          <span class="hero-eyebrow-ja">旅と問いと、居場所と　vol.1</span>
+        </div>
+        <h1 class="hero-title">
+          <span class="t-sm is-long">日本橋のバーで、問いを話す夜</span>
+          <span class="t-lg"><span class="nb">考えることと、</span><br><span class="nb"><span class="em">始める</span>こと。</span></span>
+        </h1>
+      </div>
+      <figure class="hero-b-photo">
+        <!-- ▼仮：低解像度の写真を原寸で置いている。公開前にPORTOから元データをもらって差し替える -->
+        <img src="../images/porto_counter.jpg" width="357" height="245" alt="PORTO日本橋のカウンター。お客さんと店長が乾杯している">
+        <figcaption>日替わりの店長が立つ、PORTO日本橋</figcaption>
+      </figure>
+    </div>
+
+    <div class="pair">
+      <div class="pair-col">
+        <p class="pair-word">考えること</p>
+        <p class="pair-who">
+          <span class="pair-role">あたらしい旅の学校POOLO</span>
+          <span class="pair-name">恩田 通則（みっちー）</span>
+        </p>
+        <p class="pair-desc">当日は「問いと探究の往還」の話をします。気になったことを問いにして、人に話し、返ってきたことばでまた問いを書き換える。POOLOでは、この行き来が続いている状態を探究と呼んでいます。</p>
+      </div>
+      <div class="pair-col">
+        <p class="pair-word">始めること</p>
+        <p class="pair-who">
+          <span class="pair-role">ソーシャルバーPORTO 代表</span>
+          <span class="pair-name">嶋田 匠（たくみさん）</span>
+        </p>
+        <p class="pair-desc">当日は「コアキナイ」の話をします。コアキナイは、個人の小さな商いを育てる集まりで、PORTO日本橋もコアキナイのメンバーが運営しています。</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ブルーの日付パネル（全幅） -->
+  <div class="hero-band">
+    <div class="shell hero-band-inner">
+      <span class="hero-band-num">10.19<span class="dow nb">月</span></span>
+      <span class="hero-band-time nb">19:30 – 21:20（19:00 開場）</span>
+      <span class="hero-band-meta">
+        <span class="nb">ソーシャルバーPORTO 日本橋</span>
+        <span class="nb">定員〇〇名</span>
+      </span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== イベント要点 ===== -->
+<section class="summary">
+  <div class="shell">
+    <dl class="summary-grid">
+      <div class="summary-cell">
+        <dt class="summary-label"><span class="ja">日時</span></dt>
+        <dd class="summary-value">2026年10月19日（月）<small>19:30〜21:20／19:00開場</small></dd>
+      </div>
+      <div class="summary-cell">
+        <dt class="summary-label"><span class="ja">場所</span></dt>
+        <dd class="summary-value">PORTO日本橋<small>水天宮前駅から徒歩3分</small></dd>
+      </div>
+      <div class="summary-cell">
+        <dt class="summary-label"><span class="ja">定員</span></dt>
+        <dd class="summary-value">〇〇名</dd>
+      </div>
+      <div class="summary-cell">
+        <dt class="summary-label"><span class="ja">参加費</span></dt>
+        <dd class="summary-value">〇〇円<small>1ドリンク付き</small></dd>
+      </div>
+    </dl>
+  </div>
+</section>
+
+</body>
+</html>

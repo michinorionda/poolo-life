@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>C案（問いが主役）｜考えることと、始めること。｜POOLO × PORTO</title>
+<!-- 狙い：当日扱う問いの例を明朝で大きく置く。ブルーのベタ面は問いにだけ（BRAND.md）。
+     写真はベタ面の上に原寸（429×297）の窓として置き、引き伸ばさない。
+     日付は hero-band ではなく、問いの下の白地に置く（ブルー面が2段続くのを避けるため）。 -->
+<link rel="stylesheet" href="../../poolo-ds/tokens.css">
+<link rel="stylesheet" href="../../poolo-ds/components.css">
+<style>
+/* ---- C案だけの最小限のCSS。値はすべて tokens.css の var(--…) ---- */
+
+/* 上段：ブルーのベタ面に問い */
+.hero-c-q {
+  background: var(--brand);
+  color: var(--on-brand);
+}
+.hero-c-q-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  column-gap: clamp(32px, 5vw, 80px);
+  align-items: end;
+  padding-top: clamp(40px, 6vh, 60px);
+  padding-bottom: clamp(40px, 6vh, 60px);
+}
+.hero-c-label {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-family: var(--body);
+  font-size: var(--fs-xs);
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  color: var(--on-brand-88);
+}
+.hero-c-label::before {
+  content: '';
+  width: 30px;
+  height: 1px;
+  background: var(--on-brand-75);
+  flex: 0 0 auto;
+}
+.hero-c-question {
+  margin-top: clamp(22px, 3.6vh, 36px);
+  font-family: var(--mincho);
+  font-weight: 700;
+  font-feature-settings: 'palt';
+  font-size: var(--fs-2xl);
+  letter-spacing: var(--ls-head);
+  line-height: 1.42;
+  color: var(--on-brand);
+  word-break: auto-phrase;
+  text-wrap: pretty;
+}
+.hero-c-helper {
+  margin-top: var(--sp-item);
+  font-family: var(--body);
+  font-size: var(--fs-sm);
+  line-height: var(--lh-body);
+  letter-spacing: 0.06em;
+  color: var(--on-brand-88);
+  max-width: 32em;
+  word-break: auto-phrase;
+  text-wrap: pretty;
+}
+/* 写真の窓：原寸で置き、白の額で縁取る */
+.hero-c-window {
+  width: 429px;                                   /* 画像の原寸。引き伸ばさない */
+  max-width: 100%;
+}
+.hero-c-window img {
+  width: 100%;
+  height: auto;
+  border: var(--bw-frame) solid var(--on-brand);  /* 白の額装 */
+}
+.hero-c-window figcaption {
+  margin-top: var(--sp-near);
+  font-family: var(--body);
+  font-size: var(--fs-label);
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  color: var(--on-brand-88);
+}
+
+/* 下段：白地に回のタイトルと日付 */
+.hero-c-title { border-bottom: 1px solid var(--line); }
+.hero-c-title-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  column-gap: clamp(32px, 5vw, 80px);
+  align-items: end;
+  padding-top: clamp(32px, 4.5vh, 44px);
+  padding-bottom: clamp(32px, 4.5vh, 44px);
+}
+.hero-c-when {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  row-gap: var(--sp-tie);
+  color: var(--brand);                            /* 日付帯の数字を白地に反転 */
+  padding-bottom: var(--sp-tie);
+}
+.hero-c-when .hero-band-num .dow { color: var(--ink); }
+.hero-c-when-meta {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 1.6em;
+  row-gap: 2px;
+  margin-top: var(--sp-tie);
+  font-family: var(--body);
+  font-size: var(--fs-label);
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  color: var(--ink-66);
+}
+
+@media (max-width: 860px) {
+  .hero-c-q-inner { grid-template-columns: minmax(0, 1fr); row-gap: var(--sp-group); }
+  .hero-c-title-inner { grid-template-columns: minmax(0, 1fr); row-gap: var(--sp-group); }
+  .hero-c-when { align-items: flex-start; }
+}
+@media (max-width: 640px) {
+  .hero-c-q-inner { padding-top: 40px; padding-bottom: 40px; }
+  .hero-c-question { font-size: clamp(28px, 7.4vw, 38px); }
+  .hero-c-helper { font-size: var(--fs-xs); }
+  .hero-c-window figcaption { letter-spacing: 0.12em; }
+}
+</style>
+</head>
+<body>
+
+<!-- ===== Brand row（固定ヘッダー） ===== -->
+<header class="brand-row">
+  <div class="shell">
+    <a class="brand-logo" href="https://tabippo.net/poolo/" target="_blank" rel="noopener">
+      <img src="../images/poolo_logo.png" alt="POOLO あたらしい旅の学校">
+    </a>
+    <nav class="header-nav">
+      <a class="header-link" href="https://porto.tokyo/" target="_blank" rel="noopener">PORTO とは<span class="arrow" aria-hidden="true">↗</span></a>
+      <a class="header-cta" href="#apply">申し込む</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ===== HERO（C案：問いが主役） ===== -->
+<section class="hero hero-c">
+
+  <!-- 上段：ブルーのベタ面に、当日出そうな問いの例 -->
+  <div class="hero-c-q">
+    <div class="shell hero-c-q-inner">
+      <div>
+        <p class="hero-c-label">たとえば、こんな問い</p>
+        <p class="hero-c-question"><span class="nb">やりたいことは、</span><span class="nb">仕事にしないと</span><span class="nb">いけないのか。</span></p>
+        <p class="hero-c-helper">好きなことを始めてみたい。けれど、お金にするかどうかを考えたところで、いつも手が止まる。当日の問いは、参加した人たちがその場で出します。</p>
+      </div>
+      <figure class="hero-c-window">
+        <!-- ▼仮：低解像度の写真を原寸で置いている。公開前にPORTOから元データをもらって差し替える -->
+        <img src="../images/porto_window.jpg" width="429" height="297" alt="PORTOの窓際の席で、お客さんたちが話している">
+        <figcaption>日替わりの店長が立つ、PORTO日本橋</figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <!-- 下段：白地に回のタイトルと日付 -->
+  <div class="hero-c-title">
+    <div class="shell hero-c-title-inner">
+      <div>
+        <div class="hero-eyebrow">
+          <span class="hero-eyebrow-rule" aria-hidden="true"></span>
+          <span class="hero-eyebrow-ja">旅と問いと、居場所と　vol.1</span>
+        </div>
+        <h1 class="hero-title">
+          <span class="t-sm is-long">日本橋のバーで、問いを話す夜</span>
+          <span class="t-lg is-long"><span class="nb">考えることと、</span><span class="nb"><span class="em">始める</span>こと。</span></span>
+        </h1>
+      </div>
+      <div class="hero-c-when">
+        <span class="hero-band-num">10.19<span class="dow nb">月</span></span>
+        <span class="hero-band-time nb">19:30 – 21:20（19:00 開場）</span>
+        <span class="hero-c-when-meta">
+          <span class="nb">ソーシャルバーPORTO 日本橋</span>
+          <span class="nb">定員〇〇名</span>
+        </span>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<!-- ===== イベント要点 ===== -->
+<section class="summary">
+  <div class="shell">
+    <dl class="summary-grid">
+      <div class="summary-cell">
+        <dt class="summary-label"><span class="ja">日時</span></dt>
+        <dd class="summary-value">2026年10月19日（月）<small>19:30〜21:20／19:00開場</small></dd>
+      </div>
+      <div class="summary-cell">
+        <dt class="summary-label"><span class="ja">場所</span></dt>
+        <dd class="summary-value">PORTO日本橋<small>水天宮前駅から徒歩3分</small></dd>
+      </div>
+      <div class="summary-cell">
+        <dt class="summary-label"><span class="ja">定員</span></dt>
+        <dd class="summary-value">〇〇名</dd>
+      </div>
+      <div class="summary-cell">
+        <dt class="summary-label"><span class="ja">参加費</span></dt>
+        <dd class="summary-value">〇〇円<small>1ドリンク付き</small></dd>
+      </div>
+    </dl>
+  </div>
+</section>
+
+</body>
+</html>
