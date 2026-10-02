@@ -38,7 +38,7 @@ img { display: block; max-width: 100%; }
 br.pc-br { display: none; }
 .num { font-family: var(--en); font-weight: 500; }
 /* 文節で改行する（Chrome系）。非対応のブラウザでは通常の改行に戻る */
-.mc, .lead, .body, .feel-body, .feel-note, .open-body p, .town-text p, .sheet-text, .sheet-ex li, .step p, .faq-a, .faq-q, .ov dd, .fa-main, .fa-sub, .take-body, .take-list li, .tt-title, .tt-desc, .fit li, .person p {
+.mc, .lead, .body, .feel-body, .feel-note, .open-body p, .town-text p, .sheet-text, .sheet-ex li, .step p, .faq-a, .faq-q, .ov dd, .fa-main, .fa-sub, .take-body, .take-list li, .tt-title, .tt-desc, .fit li, .person p, .guest-bio {
   word-break: auto-phrase;
   text-wrap: pretty;
 }
@@ -219,6 +219,17 @@ br.pc-br { display: none; }
 .person-role { font-size: 14px; font-weight: 700; color: var(--ink); }
 .person-role .tbd { margin-left: 6px; }
 .person-bio { margin-top: 6px; font-size: 14px; }
+
+/* ---- ゲスト ---- */
+.guests { padding: 64px 28px; border-top: 1px solid var(--line); }
+.guest-list { margin-top: 28px; }
+.guest { display: grid; grid-template-columns: 96px 1fr; column-gap: 16px; row-gap: 12px; border-top: 1px solid var(--line); padding-top: 20px; }
+.guest + .guest { margin-top: 28px; }
+.guest-photo img { width: 96px; height: 96px; object-fit: cover; }
+.guest-head { align-self: center; }
+.guest-name { font-family: var(--mincho); font-weight: 700; font-size: 18px; line-height: 1.6; letter-spacing: 0.04em; color: var(--ink); }
+.guest-role { margin-top: 4px; font-size: 12px; color: var(--ink-66); line-height: 1.7; }
+.guest-bio { grid-column: 1 / -1; font-size: 14px; }
 
 /* ---- 写真の帯 ---- */
 .band img { width: 100%; height: 260px; object-fit: cover; object-position: 50% 55%; }
@@ -407,6 +418,19 @@ br.pc-br { display: none; }
   .person + .person { margin-top: 28px; }
   .person-role { font-size: 15px; }
   .person-bio { font-size: 15px; }
+
+  /* ゲスト：中央640、左に写真、右に名前と経歴 */
+  .guests { padding: 0; }
+  .guests .in { padding-block: 96px 112px; }
+  .guest-list { margin-top: 36px; }
+  .guest { grid-template-columns: 160px 1fr; column-gap: 32px; padding-top: 24px; }
+  .guest + .guest { margin-top: 32px; }
+  .guest-photo { grid-row: 1 / span 2; }
+  .guest-photo img { width: 160px; height: 160px; }
+  .guest-head { align-self: start; }
+  .guest-name { font-size: 20px; }
+  .guest-role { font-size: 13px; }
+  .guest-bio { grid-column: 2; font-size: 15px; }
 
   .band img { height: 560px; object-position: 50% 60%; }
 
@@ -652,6 +676,32 @@ br.pc-br { display: none; }
       <li class="person">
         <p class="person-role">池 龍太郎さん（五人百姓 池商店 28代目店主）<span class="tbd">要確認</span></p>
         <p class="person-bio">金刀比羅宮の参道の69段目で、1245年創業の飴屋を営んでいます。コロナ禍で人通りが減ったときに「今しかない」と思い、店を100年ぶりにリニューアル。動き出したころの話と、次の世代にバトンを渡したいという想いを聞きます。</p>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===== ゲスト ===== -->
+<section class="guests">
+  <div class="in col">
+    <h2 class="h2">ゲスト</h2>
+    <p class="lead">POOLOとTABIPPOから、この2人が一緒に琴平へ行きます。</p>
+    <ul class="guest-list">
+      <li class="guest">
+        <figure class="guest-photo"><img src="images/guest_onda.jpg" alt="恩田 倫孝" loading="lazy"></figure>
+        <div class="guest-head">
+          <p class="guest-name">恩田 倫孝（みっちー）</p>
+          <p class="guest-role">株式会社TABIPPO 取締役／株式会社コオドリ 代表</p>
+        </div>
+        <p class="guest-bio body">新潟県出身。商社に勤めたあと、1年間の世界一周を経て、2014年からTABIPPOに参画。POOLOの前身となる「旅大学」を立ち上げ、累計700回のイベントを企画・運営してきました。2019年にPOOLOを立ち上げ、2024年には旅と教育の会社コオドリを創業。渡航国数は51。今回の旅を企画しました。</p>
+      </li>
+      <li class="guest">
+        <figure class="guest-photo"><img src="images/guest_shimizu.jpg" alt="清水 直哉" loading="lazy"></figure>
+        <div class="guest-head">
+          <p class="guest-name">清水 直哉（しみなお）</p>
+          <p class="guest-role">株式会社TABIPPO 代表取締役</p>
+        </div>
+        <p class="guest-bio body">1988年、群馬県生まれ。21歳で世界一周の旅に出て、22歳で仲間とTABIPPOを設立。新卒で入った広告代理店で新規事業の立ち上げを経験したあと、26歳で株式会社TABIPPOを創業しました。旅を軸に、WEBメディア、野外フェス、出版、スクール、観光のマーケティング支援などの事業をつくっています。やさしいローカルマガジン「たずね」の琴平編では、町の方々との座談会で聞き手を務めました。</p>
       </li>
     </ul>
   </div>
