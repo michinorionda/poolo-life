@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>レビュー｜旅と問いと、居場所と vol.1 告知ページ</title>
+<link rel="stylesheet" href="../poolo-ds/tokens.css">
+<link rel="stylesheet" href="../poolo-ds/components.css">
+<style>
+  .rv-frame { width: 100%; height: 720px; border: 1px solid var(--line); background: var(--bg); }
+  .rv-table { width: 100%; border-collapse: collapse; font-size: var(--fs-sm); }
+  .rv-table th, .rv-table td { border-bottom: 1px solid var(--line); padding: var(--sp-near) 8px; text-align: left; vertical-align: top; }
+  .rv-table th { font-family: var(--head); font-weight: 700; white-space: nowrap; }
+  .rv-links a { color: var(--brand-deep); border-bottom: 1px solid var(--brand); }
+</style>
+</head>
+<body>
+
+<header class="brand-row">
+  <div class="shell">
+    <span class="brand-logo"><img src="images/poolo_logo.png" alt="POOLO"></span>
+    <nav class="header-nav">
+      <a class="header-link" href="./">告知ページを開く<span class="arrow" aria-hidden="true">↗</span></a>
+    </nav>
+  </div>
+</header>
+
+<section class="sec">
+  <div class="shell sec-inner">
+    <div class="sec-spine"><div class="sec-num">01</div></div>
+    <div>
+      <h2 class="sec-title">なぜ作るのか</h2>
+      <p class="sec-lead">POOLO×PORTOの共同イベント vol.1（2026年10月19日・月）の告知ページ。軸はA案「考えることと、始めること。」で決定（10/1）。</p>
+      <div class="intro-body">
+        <p>当日の流れは、ふたりのキートーク（たくみさん＝コアキナイの話、みっちー＝問いと探究の往還の話）から、テーブルでの問いだし、3つの問いでの哲学対話へ進む。ページでは「やりたいことはあるけれど、まだ形になっていない人」に向けて、ふたりの話と哲学対話の両方を、来る前に想像できるところまで説明する。</p>
+        <p>Notionの企画案（9/17）にある「旅→問い→居場所で席替えする回」から中身が変わったので、シリーズ名「旅と問いと、居場所と」は残し、今回のテーマをタイトルにした。</p>
+        <p class="rv-links"><a href="https://app.notion.com/p/3de1a12d782981df93e6e6e95f3ee794" target="_blank" rel="noopener">Notion「POOLO×PORTO 共同企画」↗</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="shell sec-inner">
+    <div class="sec-spine"><div class="sec-num">02</div></div>
+    <div>
+      <h2 class="sec-title">参考にしたもの</h2>
+      <p class="sec-lead">バーで開く哲学対話の告知ページは、調べた範囲では見つからなかった。</p>
+      <div class="intro-body">
+        <p>哲学カフェの告知は、テーマの問いと、対話のルールだけを載せるものが多い（例：<a href="https://event21.co.jp/ibekatu/user/0011717.htm" target="_blank" rel="noopener">蒲田哲学カフェ</a>）。東京大学UTCPの解説では、哲学対話は「数人から数十人が輪になり、問いを出し合って考えを深める」活動とされている（<a href="https://utcp.c.u-tokyo.ac.jp/publications/pdf/UTCP-Uehiro%20Booklet%2011-208-222.pdf" target="_blank" rel="noopener">UTCP Booklet</a>）。</p>
+        <p>今回の回は、そこにふたりの話と、PORTOというバーの場があるのが違うところ。哲学対話を知らない人が多い前提で、「哲学対話とは？」の節と、当日出そうな問いの例を3つ載せた。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="shell sec-inner">
+    <div class="sec-spine"><div class="sec-num">03</div></div>
+    <div>
+      <h2 class="sec-title">ファーストビューの3案</h2>
+      <p class="sec-lead">各案の狙いと推奨は、比較ページの下に書いてある。</p>
+      <iframe class="rv-frame" src="hero-variants/compare.html" title="ファーストビュー3案の比較"></iframe>
+      <p class="rv-links" style="margin-top: var(--sp-near);"><a href="hero-variants/compare.html">比較ページを全画面で開く ↗</a></p>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="shell sec-inner">
+    <div class="sec-spine"><div class="sec-num">04</div></div>
+    <div>
+      <h2 class="sec-title">仕様</h2>
+      <p class="sec-lead">鞆の浦のページ（正規リファレンス）の並びから引き算した。</p>
+      <table class="rv-table">
+        <tr><th>順</th><th>セクション</th><th>使う部品</th></tr>
+        <tr><td>1</td><td>ヘッダー・ファーストビュー・日付帯</td><td>.brand-row / .hero.hero--long-title / .hero-band</td></tr>
+        <tr><td>2</td><td>要点（日時・場所・定員・参加費）／共催のお知らせ</td><td>.summary / .notice-bar--static</td></tr>
+        <tr><td>3</td><td>01 この夜が生まれたわけ</td><td>.sec ＋ .sec-lead ＋ .intro-body</td></tr>
+        <tr><td>4</td><td>写真</td><td>.photo-break--right</td></tr>
+        <tr><td>5</td><td>人｜この夜に話すふたり</td><td>.people-list</td></tr>
+        <tr><td>6</td><td>02 当日の流れ（19:00〜21:20）</td><td>.flow-list</td></tr>
+        <tr><td>7</td><td>「哲学対話」とは？</td><td>.sec-questions ＋ .intro-body</td></tr>
+        <tr><td>8</td><td>問｜たとえば、こんな問い</td><td>.sec-questions ＋ .q-list</td></tr>
+        <tr><td>9</td><td>こんな人に</td><td>.fit-grid</td></tr>
+        <tr><td>10</td><td>POOLO × PORTO</td><td>.about</td></tr>
+        <tr><td>11</td><td>03 開催概要／よくある質問／最終CTA／フッター</td><td>.terms-list / .faq-list / .cta / .footer</td></tr>
+      </table>
+      <div class="intro-body" style="margin-top: var(--sp-group);">
+        <p>外したもの：プログラム要約帯（1日だけの回なので）、この回で体験すること、持ち帰ってほしいもの（Before→After）、中間CTA。10/1に提案した「4段階の図」も、当日の流れの表と内容が重なるので入れていない。</p>
+        <p>飾りの英字ラベル（Concept、Date など）は、ページのどこにも置いていない。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec-questions">
+  <div class="shell sec-inner">
+    <div class="sec-spine"><div class="sec-num ja small">要確認</div></div>
+    <div>
+      <h2 class="sec-title">公開の前に決めること</h2>
+      <table class="rv-table">
+        <tr><th>項目</th><th>いまのページ</th><th>誰と決めるか</th></tr>
+        <tr><td>参加費・定員</td><td>〇〇円（1ドリンク付き）・〇〇名</td><td>たくみさん</td></tr>
+        <tr><td>申込方法</td><td>〇〇。ボタンはページ内の開催概要に飛ぶだけ</td><td>POOLO（LINEかフォームか）</td></tr>
+        <tr><td>写真</td><td>PORTOサイトのコラージュから切り出した仮の写真（約360px幅で粗い）。使ってよいかも未確認</td><td>たくみさんに元データをもらう</td></tr>
+        <tr><td>ふたりの写真・肩書き・経歴</td><td>写真は空枠。経歴は分かっている範囲だけ</td><td>たくみさん・みっちー</td></tr>
+        <tr><td>21:20以降</td><td>「そのまま残って、カウンターで話していくこともできます」</td><td>たくみさん（何時まで残れるか）</td></tr>
+        <tr><td>ソフトドリンク</td><td>FAQで「選べます」と書いている</td><td>たくみさん</td></tr>
+        <tr><td>3つの問いの選び方</td><td>「3つを選び」とだけ書いている</td><td>当日の進行役</td></tr>
+        <tr><td>OG画像</td><td>未作成。いまは仮の写真を指定</td><td>案が決まってから作る</td></tr>
+      </table>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>

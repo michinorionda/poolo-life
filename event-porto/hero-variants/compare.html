@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>ヒーロー3案の比較｜考えることと、始めること。｜POOLO × PORTO</title>
+<link rel="stylesheet" href="../../poolo-ds/tokens.css">
+<link rel="stylesheet" href="../../poolo-ds/components.css">
+<style>
+body { padding-top: 0; background: var(--bg-off); }
+.cmp { max-width: 1480px; margin-inline: auto; padding: clamp(28px, 4vh, 48px) var(--shell-pad) 80px; }
+.cmp-h1 {
+  font-family: var(--mincho);
+  font-weight: 700;
+  font-feature-settings: 'palt';
+  font-size: var(--fs-lg);
+  letter-spacing: var(--ls-head);
+  line-height: var(--lh-head);
+  color: var(--ink);
+}
+.cmp-sub {
+  margin-top: var(--sp-near);
+  font-size: var(--fs-sm);
+  line-height: var(--lh-body);
+  color: var(--ink-66);
+  max-width: 46em;
+}
+.cmp-h2 {
+  margin-top: var(--sp-block);
+  padding-top: var(--sp-item);
+  border-top: 1px solid var(--ink);
+  font-family: var(--head);
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--ink);
+}
+.cmp-row {
+  margin-top: var(--sp-item);
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(16px, 2vw, 28px);
+}
+.cmp-col { min-width: 0; }
+.cmp-label {
+  font-family: var(--head);
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--ink);
+  margin-bottom: var(--sp-near);
+}
+.cmp-label a {
+  font-weight: 500;
+  font-size: var(--fs-xs);
+  color: var(--brand-deep);
+  border-bottom: 1px solid var(--brand);
+  margin-left: 0.8em;
+}
+.frame {
+  position: relative;
+  overflow: hidden;
+  background: var(--bg);
+  border: 1px solid var(--line);
+}
+.frame iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border: 0;
+  transform-origin: 0 0;
+  background: var(--bg);
+}
+.frame.is-pc iframe { width: 1280px; height: 900px; }
+.frame.is-sp iframe { width: 390px; height: 844px; }
+.note {
+  margin-top: var(--sp-near);
+  font-size: var(--fs-xs);
+  line-height: var(--lh-body);
+  letter-spacing: 0.04em;
+  color: var(--ink-72);
+}
+.note dt {
+  font-weight: 700;
+  color: var(--ink);
+  margin-top: var(--sp-tie);
+}
+.note dt:first-child { margin-top: 0; }
+.note dd { margin: 0; }
+.verdict {
+  margin-top: var(--sp-item);
+  background: var(--bg);
+  border: 1px solid var(--line);
+  padding: var(--sp-item) clamp(18px, 3vw, 32px);
+  max-width: 52em;
+}
+.verdict-title {
+  font-family: var(--mincho);
+  font-weight: 700;
+  font-size: var(--fs-md);
+  letter-spacing: var(--ls-head);
+  color: var(--ink);
+}
+.verdict p {
+  margin-top: var(--sp-near);
+  font-size: var(--fs-sm);
+  line-height: var(--lh-body);
+  color: var(--ink-72);
+}
+@media (max-width: 860px) {
+  .cmp-row { grid-template-columns: minmax(0, 1fr); }
+}
+</style>
+</head>
+<body>
+<main class="cmp">
+  <h1 class="cmp-h1">ファーストビュー3案の比較</h1>
+  <p class="cmp-sub">POOLO × PORTO「考えることと、始めること。」の告知ページ。上の段はPC（1280px幅を縮小表示）、下の段はスマホ（390px幅）。各案はリンクから単体でも開けます。写真はすべて仮（約360×250の低解像度）です。</p>
+
+  <h2 class="cmp-h2">PC（1280px）</h2>
+  <div class="cmp-row">
+    <div class="cmp-col">
+      <p class="cmp-label">A案　標準形<a href="a.html" target="_blank" rel="noopener">単体で開く</a></p>
+      <div class="frame is-pc"><iframe src="a.html" title="A案 PC" loading="lazy"></iframe></div>
+      <dl class="note">
+        <dt>狙い</dt><dd>本体ページのヒーローそのまま。左にコピー、右に裁ち落としの写真、下にブルーの日付帯。</dd>
+        <dt>想定効果</dt><dd>他の告知ページと同じ型なので、POOLOのページだと一目で分かる。バーの空気が最初に伝わる。</dd>
+        <dt>弱いところ</dt><dd>357px幅の写真を約630px幅まで引き伸ばしていて、PCではぼやけて見える。タイトルの2語が誰の話なのかは、本文まで読まないと分からない。</dd>
+      </dl>
+    </div>
+    <div class="cmp-col">
+      <p class="cmp-label">B案　ふたりの対比<a href="b.html" target="_blank" rel="noopener">単体で開く</a></p>
+      <div class="frame is-pc"><iframe src="b.html" title="B案 PC" loading="lazy"></iframe></div>
+      <dl class="note">
+        <dt>狙い</dt><dd>「考えること」は恩田（問いと探究の往還）、「始めること」は嶋田（コアキナイ）と、タイトルの2語を当日話すふたりに対応させる。写真は原寸のまま右上に小さく置く。</dd>
+        <dt>想定効果</dt><dd>タイトルを読んだ直後に、誰が何を話す夜かが分かる。写真を引き伸ばさないので、低解像度でも粗が目立たない。</dd>
+        <dt>弱いところ</dt><dd>ファーストビューの文字量が3案で一番多い。スマホでは2列が縦に積まれ、日付帯まで遠くなる。</dd>
+      </dl>
+    </div>
+    <div class="cmp-col">
+      <p class="cmp-label">C案　問いが主役<a href="c.html" target="_blank" rel="noopener">単体で開く</a></p>
+      <div class="frame is-pc"><iframe src="c.html" title="C案 PC" loading="lazy"></iframe></div>
+      <dl class="note">
+        <dt>狙い</dt><dd>当日出そうな問いの例「やりたいことは、仕事にしないといけないのか。」をブルーのベタ面に明朝で大きく置く。写真は白い額で縁取った原寸の窓。回のタイトルと日付はその下の白地に置く。</dd>
+        <dt>想定効果</dt><dd>何を話す夜かが、問いの文そのもので伝わる。SNSから来た人の足が止まりやすい。</dd>
+        <dt>弱いところ</dt><dd>回のタイトルと主催が2段目に下がり、何の会かが分かるのが一拍遅れる。BRAND.md 4章の「問いはページ上部に置かない」と向きが逆。ブルー面の白文字はコントラストが低めで、問いの行が長いと読みにくい。</dd>
+      </dl>
+    </div>
+  </div>
+
+  <h2 class="cmp-h2">スマホ（390px）</h2>
+  <div class="cmp-row">
+    <div class="cmp-col">
+      <p class="cmp-label">A案</p>
+      <div class="frame is-sp"><iframe src="a.html" title="A案 スマホ" loading="lazy"></iframe></div>
+    </div>
+    <div class="cmp-col">
+      <p class="cmp-label">B案</p>
+      <div class="frame is-sp"><iframe src="b.html" title="B案 スマホ" loading="lazy"></iframe></div>
+    </div>
+    <div class="cmp-col">
+      <p class="cmp-label">C案</p>
+      <div class="frame is-sp"><iframe src="c.html" title="C案 スマホ" loading="lazy"></iframe></div>
+    </div>
+  </div>
+
+  <h2 class="cmp-h2">推奨</h2>
+  <div class="verdict">
+    <p class="verdict-title">B案（ふたりの対比）を推します。</p>
+    <p>この回の中身は、ふたりの話を聞いてから問いを出す、という順番です。B案はその順番をファーストビューに置いていて、タイトルの「考えること」「始めること」が誰の話かまで、スクロールせずに分かります。写真を原寸で置くので、いま手元にある低解像度の写真のままでも公開できます。日付帯と要点はA案と同じ部品なので、本体ページへの差し替えはヒーローの中だけで済みます。</p>
+    <p>C案は問いの文が強く、SNSのシェア画像（OG画像）には向いています。ページの先頭に置くと、BRAND.mdの「何の会かを説明しきってから問う」順番と逆になるので、ページ本体ではなくOG画像の案として残すのがよさそうです。A案は、PORTOから高解像度の写真をもらえたときに改めて検討する価値があります。</p>
+  </div>
+</main>
+
+<script>
+(function () {
+  function fit() {
+    document.querySelectorAll('.frame').forEach(function (frame) {
+      var iframe = frame.querySelector('iframe');
+      var baseW = frame.classList.contains('is-sp') ? 390 : 1280;
+      var baseH = frame.classList.contains('is-sp') ? 844 : 900;
+      var w = frame.clientWidth;
+      var scale = frame.classList.contains('is-sp') ? Math.min(1, w / baseW) : w / baseW;
+      var left = Math.max(0, (w - baseW * scale) / 2);
+      iframe.style.transform = 'scale(' + scale + ')';
+      iframe.style.left = left + 'px';
+      frame.style.height = Math.round(baseH * scale) + 'px';
+    });
+  }
+  window.addEventListener('resize', fit);
+  window.addEventListener('load', fit);
+  fit();
+})();
+</script>
+</body>
+</html>
