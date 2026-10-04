@@ -30,6 +30,7 @@
   .path.is-ask .path-n b { color: var(--brand-deep); }
   .path-n:not(:last-child)::after { content: ""; position: absolute; right: -21px; top: 50%; width: 9px; height: 9px; border-top: 2px solid var(--brand); border-right: 2px solid var(--brand); transform: translate(0,-50%) rotate(45deg); }
   .path.is-solve .path-n:not(:last-child)::after { border-color: #B0B0B0; }
+  .reply .path-n::after, .path-n.is-solo::after { display: none; }
   .path-n.is-q { font-family: var(--mincho); font-size: 16px; color: #000; }
   .why-start { align-self: flex-start; display: inline-block; border: 1px dashed #B0B0B0; padding: 8px 16px; font-family: var(--mincho); font-size: 19px; color: #000; margin: 14px 0 12px; }
   .why-start span { font-family: var(--sans, 'Noto Sans JP'), sans-serif; font-size: 12px; font-weight: 700; color: #808080; margin-right: 12px; }
@@ -78,7 +79,7 @@
 
   <div class="sl-foot">
     <p class="sl-src">あたらしい旅の学校 POOLO／運営：株式会社TABIPPO・株式会社CODOLI</p>
-    <span class="sl-pg">01 / 11</span>
+    <span class="sl-pg">01 / 12</span>
   </div>
 </section>
 
@@ -99,7 +100,7 @@
         <!-- ワークシートの設問番号 -->
         <g font-family="Jost, sans-serif" font-size="14" font-weight="600" letter-spacing="1.5" fill="#189BBC" text-anchor="middle">
           <text x="90"  y="34">Q3</text>
-          <text x="315" y="34">Q4〜Q8</text>
+          <text x="315" y="34">Q4・Q5</text>
           <text x="540" y="34">Q9</text>
           <text x="990" y="34">Q10</text>
         </g>
@@ -143,12 +144,12 @@
       </svg>
     </div>
 
-    <p class="fig-cap">2回目の対話のあと、Q9で書いた問いの言葉が少し変わった人もいると思います。<br>人に話そうとして言葉を探すと、ひとりで書いていたときには出てこなかった言葉が出てきます。</p>
+    <p class="fig-cap">Q3で書いた最初の言葉と、対話のあとに書いた問いを、見比べてみてください。<br>人に話そうとして言葉を探すと、ひとりで書いていたときには出てこなかった言葉が出てきます。</p>
   </div>
 
   <div class="sl-foot">
     <p class="sl-src">あたらしい旅の学校 POOLO</p>
-    <span class="sl-pg">02 / 11</span>
+    <span class="sl-pg">02 / 12</span>
   </div>
 </section>
 
@@ -190,14 +191,44 @@
 
   <div class="sl-foot">
     <p class="sl-src">あたらしい旅の学校 POOLO</p>
-    <span class="sl-pg">03 / 11</span>
+    <span class="sl-pg">03 / 12</span>
   </div>
 </section>
+
+<!-- 実際に起きたこと（261004追加） -->
+<section class="sl">
+  <div class="sl-top">
+    <span class="sl-num">04</span>
+    <span class="sl-kicker">実際に起きたこと</span>
+    <span class="sl-meta">POOLO LIFE 体験会</span>
+  </div>
+
+  <div class="sl-body is-top">
+    <h2>問いを外に出すと、問いが返ってくる</h2>
+    <div class="why-start"><span>はじまり</span>自分は、他者とどう生きるのか</div>
+    <p class="sl-text" style="max-width:none;font-size:16px;line-height:1.75;margin-top:0">POOLO代表の恩田が、10月3日にnoteに書いた問いです。その日のうちに、POOLOのメンバー2人から返事が届きました。</p>
+
+    <div class="reply" style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;margin-top:12px;padding:14px 20px;background:var(--brand-pale)">
+      <div class="path-n"><b>1人目</b>人と一緒に、を軸に置くと、依存してしまいそう。その人がいないとだめ、離れていかないように、と考えてしまう。</div>
+      <div class="path-n"><b>2人目</b>その人のことは大好きなのに、その人といるときの自分は、好きになれないことがある。</div>
+    </div>
+    <div style="text-align:center;color:var(--brand);font-size:22px;line-height:1;margin:4px 0" aria-hidden="true">↓</div>
+    <div class="path-n is-q is-solo" style="border:2px solid var(--brand);font-size:19px;padding:12px 20px"><b>書き換わった問い</b>人に頼ることと、人が離れていくのを許さないことは、どう違うのか</div>
+
+    <p class="sl-text" style="margin-top:12px;max-width:none;font-size:16px;line-height:1.7">返ってきた一人ひとりの「私はこう感じる」で、問いが書き換わりました。<br>POOLO LIFEの8か月は、これを同期とくり返していく時間です。</p>
+  </div>
+
+  <div class="sl-foot">
+    <p class="sl-src">メンバーの言葉は、短く言い換えています。</p>
+    <span class="sl-pg">04 / 12</span>
+  </div>
+</section>
+
 
 <!-- 探究：なぜ（260929追加） -->
 <section class="sl">
   <div class="sl-top">
-    <span class="sl-num">04</span>
+    <span class="sl-num">05</span>
     <span class="sl-kicker">なぜ探究なのか</span>
     <span class="sl-meta">POOLO LIFE 体験会</span>
   </div>
@@ -224,7 +255,7 @@
 
   <div class="sl-foot">
     <p class="sl-src">例は作例です。</p>
-    <span class="sl-pg">04 / 11</span>
+    <span class="sl-pg">05 / 12</span>
   </div>
 </section>
 
@@ -232,7 +263,7 @@
 <!-- 探究：深まる（260929追加） -->
 <section class="sl">
   <div class="sl-top">
-    <span class="sl-num">05</span>
+    <span class="sl-num">06</span>
     <span class="sl-kicker">問いの深まり</span>
     <span class="sl-meta">POOLO LIFE 体験会</span>
   </div>
@@ -275,7 +306,7 @@
 
   <div class="sl-foot">
     <p class="sl-src">最初は自分ひとりの問いだったのが、v2.0では人との関係が入っています。例は作例です。</p>
-    <span class="sl-pg">05 / 11</span>
+    <span class="sl-pg">06 / 12</span>
   </div>
 </section>
 
@@ -283,7 +314,7 @@
 <!-- 探究：行動が変わる（260929追加） -->
 <section class="sl">
   <div class="sl-top">
-    <span class="sl-num">06</span>
+    <span class="sl-num">07</span>
     <span class="sl-kicker">問いと行動</span>
     <span class="sl-meta">POOLO LIFE 体験会</span>
   </div>
@@ -316,7 +347,7 @@
 
   <div class="sl-foot">
     <p class="sl-src">POOLO LIFEの8か月で、この行き来を何周か回します。例は作例です。</p>
-    <span class="sl-pg">06 / 11</span>
+    <span class="sl-pg">07 / 12</span>
   </div>
 </section>
 
@@ -324,7 +355,7 @@
 <!-- 04 豊かさ（3項目） -->
 <section class="sl sl--triad">
   <div class="sl-top">
-    <span class="sl-num">07</span>
+    <span class="sl-num">08</span>
     <span class="sl-kicker">豊かさ</span>
     <span class="sl-meta">POOLO LIFE 体験会</span>
   </div>
@@ -364,7 +395,7 @@
 
   <div class="sl-foot">
     <p class="sl-src">今日のQ9で立てた問いを、Q12で決めた人に話すところから始まります。</p>
-    <span class="sl-pg">07 / 11</span>
+    <span class="sl-pg">08 / 12</span>
   </div>
 </section>
 
@@ -372,7 +403,7 @@
 <!-- 04 旅・問い・創る（3項目） -->
 <section class="sl sl--triad">
   <div class="sl-top">
-    <span class="sl-num">08</span>
+    <span class="sl-num">09</span>
     <span class="sl-kicker">旅・問い・創る</span>
     <span class="sl-meta">POOLO LIFE 体験会</span>
   </div>
@@ -410,7 +441,7 @@
 
   <div class="sl-foot">
     <p class="sl-src">3つで1周です。POOLO LIFEの8か月で、これを何周か回していきます。</p>
-    <span class="sl-pg">08 / 11</span>
+    <span class="sl-pg">09 / 12</span>
   </div>
 </section>
 
@@ -418,7 +449,7 @@
 <!-- 05 8か月でやること（旅・問い・創る） -->
 <section class="sl sl--triad is-dense">
   <div class="sl-top">
-    <span class="sl-num">09</span>
+    <span class="sl-num">10</span>
     <span class="sl-kicker">POOLO LIFE</span>
     <span class="sl-meta">POOLO LIFE 体験会</span>
   </div>
@@ -457,7 +488,7 @@
 
   <div class="sl-foot">
     <p class="sl-src">講義は録画があるので、あとから見ることもできます。</p>
-    <span class="sl-pg">09 / 11</span>
+    <span class="sl-pg">10 / 12</span>
   </div>
 </section>
 
@@ -465,7 +496,7 @@
 <!-- 06 13期（数字） -->
 <section class="sl sl--data">
   <div class="sl-top">
-    <span class="sl-num">10</span>
+    <span class="sl-num">11</span>
     <span class="sl-kicker">13期</span>
     <span class="sl-meta">POOLO LIFE 体験会</span>
   </div>
@@ -494,7 +525,7 @@
 
   <div class="sl-foot">
     <p class="sl-src">あたらしい旅の学校 POOLO</p>
-    <span class="sl-pg">10 / 11</span>
+    <span class="sl-pg">11 / 12</span>
   </div>
 </section>
 
@@ -502,19 +533,19 @@
 <!-- 07 このあと（主張） -->
 <section class="sl sl--statement">
   <div class="sl-top">
-    <span class="sl-num">11</span>
+    <span class="sl-num">12</span>
     <span class="sl-kicker">このあと</span>
     <span class="sl-meta">POOLO LIFE 体験会</span>
   </div>
 
   <div class="sl-body">
     <p class="sl-hero">ワークシートに戻って、<br><em>Q13・Q14</em>を選んでください。</p>
-    <p class="st-note">説明会でPOOLO LIFEの話をもっと聞きたいかがQ13、問いの壁打ちを希望するかがQ14です。選んだら、Q10で今日の問いをもう一度書きます。</p>
+    <p class="st-note">説明会でPOOLO LIFEの話をもっと聞きたいかがQ13、問いの壁打ちを希望するかがQ14です。</p>
   </div>
 
   <div class="sl-foot">
     <p class="sl-src">あたらしい旅の学校 POOLO</p>
-    <span class="sl-pg">11 / 11</span>
+    <span class="sl-pg">12 / 12</span>
   </div>
 </section>
 
