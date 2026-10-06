@@ -317,12 +317,14 @@ br.pc-br { display: none; }
   .fv-copy { flex: none; width: min(510px, 42%); padding: 0; }
   .fv-copy > * + * { margin-top: 40px; }
   .mc { font-size: 58px; line-height: 1.4; color: var(--brand-deep); }
-  .lead { font-size: 16px; max-width: 440px; }
+  .lead { font-size: 16px; }
+  .pc-nb { white-space: nowrap; }
   .fv-copy .date, .fv-copy .cond, .fv-copy .btn, .fv-copy .note { display: none; }
   .fv-photo { flex: 1; min-width: 0; height: 620px; }
   .fv-photo img { height: 100%; object-position: 50% 50%; }
   .fv-bottom { display: flex; align-items: center; gap: 75px; padding-block: 40px; }
   .fv-how > * + * { margin-top: 8px; }
+  .fv-how .cond { white-space: nowrap; }
   .fv-bottom .btn { width: 368px; margin-left: auto; }
   .date-d { font-size: 52px; line-height: 62px; }
 
@@ -474,7 +476,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="fv-top">
     <div class="fv-copy">
       <h1 class="mc"><span class="mc-pre">日本橋のバーで、問いを話す夜</span><span class="nb">考えることと、</span><br><span class="nb">始めること。</span></h1>
-      <p class="lead">日本橋のソーシャルバーPORTOで、<span class="nb">小さな商いを続ける人と、</span><span class="nb">問いを探究する人の話を聞きます。</span>そのあと、参加した人たちで問いを出し合い、選んだ問いについて、<span class="nb">お酒を片手にみんなで話します。</span></p>
+      <p class="lead"><span class="pc-nb">日本橋のソーシャルバーPORTOで、</span><br class="pc-br"><span class="pc-nb">小さな商いを続ける人と、問いを探究する人の話を聞きます。</span><br class="pc-br"><span class="pc-nb">そのあと、参加した人たちで問いを出し合い、</span><br class="pc-br"><span class="pc-nb">選んだ問いについて、お酒を片手にみんなで話します。</span></p>
       <div class="date">
         <div><span class="date-y">2026</span><span class="date-d">10.19</span></div>
         <div><span class="date-w">月曜日 <span class="num">20:00</span> 開始</span><span class="date-w"><span class="num">19:30</span> 開場</span></div>
