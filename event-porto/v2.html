@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-5MNNQMQ');</script>
+<!-- End Google Tag Manager -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- ▼v2の型で組み直した案（261006）。index.html と入れ替えるまで検索避け -->
+<meta name="robots" content="noindex">
+<title>考えることと、始めること。日本橋のバーで、問いを話す夜｜旅と問いと、居場所と vol.1｜POOLO × PORTO</title>
+<meta name="description" content="日本橋のソーシャルバーPORTOで、小さな商いを続ける人と、問いを探究する人の話を聞き、その場で出た問いについてみんなで話す夜。2026年10月19日（月）20:00〜、参加無料・定員10名。あたらしい旅の学校POOLO × ソーシャルバーPORTO。">
+
+<!-- ===== Open Graph ===== -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://michinorionda.github.io/poolo-life/event-porto/">
+<meta property="og:title" content="考えることと、始めること。日本橋のバーで、問いを話す夜｜POOLO × PORTO">
+<meta property="og:description" content="小さな商いを続ける人と、問いを探究する人の話を聞き、その場で出た問いについてみんなで話す夜。2026年10月19日（月）20:00〜、PORTO日本橋。参加無料。">
+<!-- ▼専用OG画像は未作成。いまはファーストビューの写真 -->
+<meta property="og:image" content="https://michinorionda.github.io/poolo-life/event-porto/images/porto_kanpai.jpg">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:site_name" content="POOLO LIFE">
+<meta name="twitter:card" content="summary_large_image">
+
+<!-- 色・書体はデザインシステムのトークンを参照する。組みはこのページ固有なので下の <style> に書く（30代LP v2「旅先の会話」・琴平LPと同じ方式） -->
+<link rel="stylesheet" href="../poolo-ds/tokens.css">
+<style>
+/* =============================================================
+   旅と問いと、居場所と vol.1「考えることと、始めること。」
+   型は event-30s-v2-260929（旅先の会話）と event-kotohira。通しのモチーフは「紙」。
+   問いの例は記入する一枚、哲学対話の約束は卓上の札。
+   ============================================================= */
+*, *::before, *::after { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  background: var(--bg);
+  color: var(--ink-soft);
+  font-family: var(--body);
+  font-size: 14px;
+  line-height: 1.95;
+  letter-spacing: 0.02em;
+  line-break: strict;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+h1, h2, h3, p, ul, ol, dl, dd, figure, blockquote { margin: 0; padding: 0; }
+ul, ol { list-style: none; }
+a { color: inherit; text-decoration: none; }
+img { display: block; max-width: 100%; }
+.nb { white-space: nowrap; }
+br.pc-br { display: none; }
+.num { font-family: var(--en); font-weight: 500; }
+/* 文節で改行する（Chrome系）。非対応のブラウザでは通常の改行に戻る */
+.mc, .lead, .body, .feel-body, .feel-note, .town-text p, .q-text, .q-help, .q-ex li, .faq-a, .faq-q, .ov dd, .fa-main, .fa-sub, .tt-title, .tt-desc, .fit li, .guest-bio, .rules-text p {
+  word-break: auto-phrase;
+  text-wrap: pretty;
+}
+
+/* ---- 共通 ---- */
+.in { padding-inline: 24px; }
+/* スマホでは写真を画面の端まで出す章（内側の余白は各章で持つ） */
+.feel .in, .town .in, .q .in, .rules .in { padding-inline: 0; }
+.body { font-size: 14px; line-height: 1.95; }
+.body + .body { margin-top: 1.4em; }
+.small { font-size: 12px; }
+.caption { font-size: 11px; color: var(--ink-72); }
+.label { font-size: 11px; font-weight: 700; letter-spacing: 0.06em; }
+/* 文字で組む見出し（章の名前） */
+.h2 {
+  font-family: var(--mincho);
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  color: var(--brand-deep);
+}
+.h2 + .lead { margin-top: 16px; }
+/* 専用レタリングの見出し。高さで大きさを決め、幅は成り行き */
+.lt { display: block; height: 40px; width: auto; }
+/* 専用明朝の数字 01〜03 */
+.no { display: block; height: 13px; width: auto; }
+.btn {
+  display: block;
+  background: var(--brand);
+  color: #fff;
+  text-align: center;
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: 0.06em;
+  line-height: 1.7;
+  padding: 15px 16px;
+  border-radius: 2px;
+  transition: background 0.2s;
+}
+.btn:hover { background: var(--brand-deep); }
+.off { background: var(--bg-off); }
+/* 紙（白い面＋罫線色の縁） */
+.paper { background: #fff; border: 1px solid var(--line); }
+/* 日付（Jostの大きな数字） */
+.date { display: flex; align-items: center; gap: 20px; }
+.date-y { display: block; font-family: var(--en); font-weight: 500; font-size: 12px; line-height: 14px; }
+.date-d { display: block; font-family: var(--en); font-weight: 500; font-size: 48px; line-height: 58px; letter-spacing: 0.02em; color: var(--ink); white-space: nowrap; }
+.date-w { display: block; font-size: 12px; font-weight: 700; letter-spacing: 0.06em; line-height: 23px; white-space: nowrap; }
+.date-w .num { font-size: 14px; }
+.cond { font-size: 12px; font-weight: 700; letter-spacing: 0.06em; }
+.cond .sep { font-weight: 400; margin-inline: 0.6em; }
+.note { font-size: 11px; color: var(--ink-72); }
+.date-line { font-size: 13px; font-weight: 700; letter-spacing: 0.06em; }
+.date-line .num { font-weight: 500; }
+
+/* ---- ヘッダー ---- */
+.hd { position: sticky; top: 0; z-index: 60; background: #fff; transition: box-shadow 0.2s; }
+.hd.is-stuck { box-shadow: 0 1px 0 var(--line); }
+.hd .in { display: flex; align-items: center; gap: 24px; height: 62px; }
+.hd-logo img { width: 65px; height: auto; }
+.hd-label { font-size: 11px; flex: 1; }
+.hd-cta { display: none; }
+
+/* ---- 冒頭（スマホは文字→写真） ---- */
+.fv-copy { padding: 30px 24px 32px; }
+.fv-copy > * + * { margin-top: 18px; }
+.mc {
+  font-family: var(--mincho);
+  font-weight: 700;
+  font-size: 34px;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  color: var(--ink);
+}
+/* 見出しの前置き（「日本橋のバーで、問いを話す夜」）。中心の2行より小さく淡く、同じ明朝で受ける */
+.mc-pre {
+  display: block;
+  font-size: 0.5em;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  line-height: 1.6;
+  color: var(--ink-72);
+  margin-bottom: 0.4em;
+}
+.lead { font-size: 14px; }
+.fv-photo img { width: 100%; height: 300px; object-fit: cover; object-position: 50% 40%; }
+.fv-bottom { display: none; }
+
+/* ---- こんな気持ちの方へ ---- */
+.feel { padding: 32px 0 72px; }
+.feel-photo img { width: 100%; height: 300px; object-fit: cover; object-position: 40% 50%; }
+.feel-text { padding: 40px 28px 0; }
+.feel-text > * + * { margin-top: 28px; }
+.feel-body {
+  font-family: var(--mincho);
+  font-size: 17px;
+  line-height: 2.1;
+  letter-spacing: 0.04em;
+}
+.feel-body + .feel-body { margin-top: 1.6em; }
+.feel-note { font-size: 13px; color: var(--ink-66); }
+
+/* ---- この夜が生まれたわけ ---- */
+.town { padding-bottom: 72px; }
+.town-photo img { width: 100%; height: 300px; object-fit: cover; object-position: 50% 55%; }
+.town-text { padding: 40px 28px 0; }
+.town-text > * + * { margin-top: 24px; }
+
+/* ---- この夜に話すふたり ---- */
+.guests { padding: 64px 28px; border-top: 1px solid var(--line); }
+.guest-list { margin-top: 28px; }
+.guest { display: grid; grid-template-columns: 96px 1fr; column-gap: 16px; row-gap: 12px; border-top: 1px solid var(--line); padding-top: 20px; }
+.guest + .guest { margin-top: 28px; }
+.guest-photo img { width: 96px; height: 96px; object-fit: cover; }
+.guest-head { align-self: center; }
+.guest-name { font-family: var(--mincho); font-weight: 700; font-size: 18px; line-height: 1.6; letter-spacing: 0.04em; color: var(--ink); }
+.guest-role { margin-top: 4px; font-size: 12px; color: var(--ink-66); line-height: 1.7; }
+.guest-bio { grid-column: 1 / -1; font-size: 14px; }
+.guest-talk { grid-column: 1 / -1; }
+.guest-talk .label { color: var(--brand-deep); }
+.guest-talk p.body { margin-top: 4px; }
+
+/* ---- たとえば、こんな問い（写真の下から紙がせり上がる） ---- */
+.q { padding-bottom: 64px; }
+.q-photo img { width: 100%; height: 300px; object-fit: cover; }
+.q-sheet { position: relative; margin: -56px 28px 0; padding: 36px 24px; }
+.q-sheet > * + * { margin-top: 28px; }
+.q .label { letter-spacing: 0.1em; }
+.q-text {
+  font-family: var(--mincho);
+  font-size: 24px;
+  line-height: 1.55;
+  letter-spacing: 0.04em;
+  color: var(--brand-deep);
+}
+.q-prompt { font-size: 12px; }
+.q-lines { padding-top: 12px; margin-top: 20px; }
+.q-lines span { display: block; height: 1px; background: var(--line-pale); }
+.q-lines span + span { margin-top: 64px; }
+.q-ex { font-size: 13px; color: var(--ink-72); }
+.q-ex li + li { margin-top: 4px; }
+
+/* ---- 当日の流れ ---- */
+.flow { padding: 64px 28px; }
+.tt { margin-top: 28px; }
+.tt li { display: grid; grid-template-columns: 52px 1fr; column-gap: 12px; border-top: 1px solid var(--line); padding-block: 12px; }
+.tt-time { font-family: var(--en); font-weight: 500; font-size: 15px; line-height: 1.6; color: var(--ink); }
+.tt-title { font-size: 14px; font-weight: 700; line-height: 1.7; color: var(--ink); }
+.tt-desc { font-size: 12px; color: var(--ink-66); margin-top: 4px; line-height: 1.8; }
+
+/* ---- 哲学対話と3つの約束（卓上の札） ---- */
+.rules { padding-block: 64px; }
+.rules-text { padding: 0 28px; }
+.rules-text > * + * { margin-top: 20px; }
+.rules-inner { padding: 36px 28px 0; }
+.rules-card { padding: 36px 24px; }
+.rules-list { margin-top: 24px; }
+.rules-list li { display: flex; align-items: baseline; gap: 12px; }
+.rules-list li + li { margin-top: 18px; }
+.rules-list .no { height: 11px; position: relative; top: -1px; }
+.rules-list span {
+  font-family: var(--mincho);
+  font-weight: 700;
+  font-size: 17px;
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+  color: var(--ink);
+}
+
+/* ---- こんな方へ ---- */
+.fit { padding: 64px 28px; }
+.fit ul { margin-top: 16px; }
+.fit li { border-top: 1px solid var(--line); padding: 10px 0; font-size: 14px; }
+.fit-sub { margin-top: 36px; font-size: 13px; font-weight: 700; letter-spacing: 0.04em; color: var(--ink); }
+.fit-sub + ul { margin-top: 10px; }
+
+/* ---- POOLOとPORTO ---- */
+.about { padding-block: 64px; }
+.about .in > * + * { margin-top: 36px; }
+.about-item > * + * { margin-top: 20px; }
+.about-item img { width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; }
+.about-name { font-family: var(--mincho); font-weight: 700; font-size: 18px; letter-spacing: 0.04em; color: var(--ink); }
+.about-link { display: inline-block; font-size: 14px; font-weight: 700; letter-spacing: 0.04em; color: var(--brand-deep); text-decoration: underline; text-underline-offset: 0.3em; }
+
+/* ---- 開催概要 ---- */
+.overview { padding-block: 64px; }
+.ov { margin-top: 20px; }
+.ov-row { display: grid; grid-template-columns: 70px 1fr; column-gap: 16px; border-top: 1px solid var(--line); padding-block: 14px; }
+.ov dt { font-size: 12px; font-weight: 700; letter-spacing: 0.06em; }
+.ov dd { font-size: 13px; }
+.ov dd strong { font-weight: 700; color: var(--ink); }
+
+/* ---- よくある質問 ---- */
+.faq { padding-block: 64px; }
+.faq-list { margin-top: 22px; }
+.faq-item { border-top: 1px solid var(--line); padding-top: 12px; }
+.faq-item + .faq-item { margin-top: 22px; }
+.faq-q { font-weight: 700; }
+.faq-a { margin-top: 12px; }
+
+/* ---- お申し込み（ブランドの青の面） ---- */
+.apply { background: var(--brand); color: #fff; padding: 64px 28px; }
+.apply .in { padding-inline: 0; }
+.apply .in > * + * { margin-top: 24px; }
+.apply-head > * + * { margin-top: 20px; }
+.apply .h2 { color: #fff; font-size: 28px; }
+.apply .date-y, .apply .date-d, .apply .date-w { color: #fff; }
+.apply .btn { background: #fff; color: var(--brand-deep); }
+.apply .btn:hover { background: var(--brand-pale); }
+.apply-steps { font-size: 13px; }
+
+/* ---- フッター ---- */
+.ft { padding: 32px 0 36px; }
+.ft .in > * + * { margin-top: 16px; }
+.ft-logos { display: flex; align-items: center; gap: 28px; }
+.ft-logos .poolo { width: 64px; }
+.ft-logos .porto { width: 88px; }
+.ft p { font-size: 11px; color: var(--ink-72); }
+.ft-texts p + p { margin-top: 12px; }
+
+/* ---- 追従ボタン（画面下に固定） ---- */
+.fa {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 50;
+  background: #fff;
+  border-top: 1px solid var(--line);
+  padding: 11px 22px calc(11px + env(safe-area-inset-bottom));
+  transform: translateY(110%);
+  transition: transform 0.3s ease;
+}
+.fa.is-visible { transform: translateY(0); }
+.fa-inner { display: flex; align-items: center; gap: 12px; }
+.fa-texts { flex: 1; min-width: 0; }
+.fa-main, .fa-sub { display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.fa-main { font-size: 12px; font-weight: 700; letter-spacing: 0.04em; color: var(--ink); }
+.fa-sub { font-size: 10px; color: var(--ink-60); letter-spacing: 0.04em; }
+.fa .btn { font-size: 12px; padding: 12px 14px; white-space: nowrap; flex: none; }
+
+/* =============================================================
+   PC（960px以上）：左右112px（1440px幅のとき）、本文の幅は1216px。
+   読む章（話すふたり・当日の流れ・こんな方へ）は中央640pxの1列。
+   ============================================================= */
+@media (min-width: 960px) {
+  .in { max-width: 1264px; margin-inline: auto; padding-inline: 24px; }
+  .feel .in, .town .in, .q .in, .rules .in { padding-inline: 24px; }
+  .h2 { font-size: 34px; }
+  .lt { height: 56px; }
+  .body { font-size: 16px; }
+  br.pc-br { display: inline; }
+  br.sp-br { display: none; }
+  .col { max-width: 640px; margin-inline: auto; }
+
+  .hd .in { height: 75px; }
+  .hd-cta { display: inline-block; font-size: 12.5px; padding: 9px 20px; }
+
+  /* 冒頭：左に文、右に写真。下に日付・条件・ボタンの帯 */
+  .fv-top { display: flex; align-items: center; gap: 74px; padding: 40px 64px 56px max(40px, calc((100vw - 1216px) / 2)); }
+  .fv-copy { flex: none; width: min(510px, 42%); padding: 0; }
+  .fv-copy > * + * { margin-top: 40px; }
+  .mc { font-size: 58px; line-height: 1.4; color: var(--brand-deep); }
+  .lead { font-size: 16px; max-width: 440px; }
+  .fv-copy .date, .fv-copy .cond, .fv-copy .btn, .fv-copy .note { display: none; }
+  .fv-photo { flex: 1; min-width: 0; height: 620px; }
+  .fv-photo img { height: 100%; object-position: 50% 50%; }
+  .fv-bottom { display: flex; align-items: center; gap: 75px; padding-block: 40px; }
+  .fv-how > * + * { margin-top: 8px; }
+  .fv-bottom .btn { width: 368px; margin-left: auto; }
+  .date-d { font-size: 52px; line-height: 62px; }
+
+  /* こんな気持ちの方へ：左に写真、右に見出しと本文 */
+  .feel { padding: 0; }
+  .feel .in { display: flex; align-items: center; gap: 112px; padding-block: 112px; }
+  .feel-photo { flex: none; width: 520px; }
+  .feel-photo img { height: 560px; }
+  .feel-text { flex: 1; max-width: 584px; padding: 0; }
+  .feel-text > * + * { margin-top: 36px; }
+  .feel-body { font-size: 19px; line-height: 2; letter-spacing: 0.05em; }
+  .feel-note { font-size: 14px; }
+
+  /* この夜が生まれたわけ：左に文、右に写真 */
+  .town { padding-bottom: 0; }
+  .town .in { display: flex; align-items: flex-start; gap: 112px; padding-block: 96px 112px; }
+  .town-text { flex: none; width: 584px; padding: 0; order: 1; }
+  .town-text > * + * { margin-top: 28px; }
+  .town-photo { flex: 1; min-width: 0; order: 2; position: sticky; top: 99px; }
+  .town-photo img { height: 640px; object-position: 50% 50%; }
+
+  /* この夜に話すふたり：中央640、左に写真、右に名前と経歴 */
+  .guests { padding: 0; }
+  .guests .in { padding-block: 96px 112px; }
+  .guest-list { margin-top: 36px; }
+  .guest { grid-template-columns: 160px 1fr; column-gap: 32px; padding-top: 24px; }
+  .guest + .guest { margin-top: 40px; }
+  .guest-photo { grid-row: 1 / span 3; }
+  .guest-photo img { width: 160px; height: 160px; }
+  .guest-head { align-self: start; }
+  .guest-name { font-size: 20px; }
+  .guest-role { font-size: 13px; }
+  .guest-bio, .guest-talk { grid-column: 2; font-size: 15px; }
+
+  /* たとえば、こんな問い：写真の上に紙を重ねる */
+  .q { padding-bottom: 0; }
+  .q .in { display: flex; align-items: center; justify-content: center; padding-block: 96px; }
+  .q-photo { flex: none; width: 560px; }
+  .q-photo img { height: 760px; object-position: 30% 50%; }
+  .q-sheet { flex: none; width: 640px; margin: 0 0 0 -88px; padding: 56px; }
+  .q-sheet > * + * { margin-top: 32px; }
+  .q-text { font-size: 36px; }
+  .q-lines span + span { margin-top: 74px; }
+  .q-help, .q-ex { font-size: 15px; }
+
+  /* 当日の流れ：中央640 */
+  .flow { padding: 0; }
+  .flow .in { padding-block: 96px 112px; }
+  .tt { margin-top: 36px; }
+  .tt li { grid-template-columns: 72px 1fr; padding-block: 14px; }
+  .tt-time { font-size: 16px; }
+  .tt-title { font-size: 15px; }
+  .tt-desc { font-size: 13px; }
+
+  /* 哲学対話：左に文、右に札 */
+  .rules { padding: 0; }
+  .rules .in { display: flex; align-items: center; justify-content: center; gap: 96px; padding-block: 96px; }
+  .rules-text { flex: none; width: 584px; padding: 0; }
+  .rules-text > * + * { margin-top: 28px; }
+  .rules-inner { flex: none; width: 464px; padding: 0; }
+  .rules-card { padding: 44px 40px; }
+  .rules-list { margin-top: 28px; }
+  .rules-list li { gap: 16px; }
+  .rules-list li + li { margin-top: 22px; }
+  .rules-list .no { height: 12px; }
+  .rules-list span { font-size: 20px; letter-spacing: 0.05em; }
+
+  /* こんな方へ：中央640 */
+  .fit { padding: 0; }
+  .fit .in { padding-block: 96px 112px; }
+  .fit li { font-size: 15px; padding: 12px 0; }
+  .fit-sub { font-size: 14px; }
+
+  /* POOLOとPORTO：左右に1つずつ */
+  .about { padding: 0; }
+  .about .in { padding-block: 112px; }
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; column-gap: 96px; }
+  .about .in > * + * { margin-top: 48px; }
+  .about-item > * + * { margin-top: 24px; }
+  .about-name { font-size: 20px; }
+
+  /* 開催概要・よくある質問：左に見出し、右に内容 */
+  .overview, .faq { padding: 0; }
+  .overview .in, .faq .in { display: flex; gap: 112px; padding-block: 112px; }
+  .faq .in { padding-top: 96px; }
+  .overview .h2, .faq .h2 { flex: none; width: 360px; }
+  .ov-wrap, .faq-list { flex: 1; max-width: 744px; margin-top: 0; }
+  .ov { margin-top: 0; }
+  .ov-row { grid-template-columns: 110px 1fr; }
+  .ov dt { font-size: 13px; }
+  .ov dd { font-size: 14px; }
+  .faq-q, .faq-a { font-size: 15px; }
+
+  /* お申し込み：左に見出しと文、右に日付とボタン */
+  .apply { padding: 0; }
+  .apply .in { display: flex; gap: 112px; padding: 104px 24px; }
+  .apply .in > * + * { margin-top: 0; }
+  .apply-head { flex: none; width: 584px; }
+  .apply .h2 { font-size: 34px; }
+  .apply-box { flex: none; width: 520px; }
+  .apply-box > * + * { margin-top: 24px; }
+
+  .ft { padding: 48px 0 56px; }
+  .ft .in { display: flex; justify-content: space-between; align-items: flex-start; }
+  .ft .in > * + * { margin-top: 0; }
+  .ft-texts { text-align: right; max-width: 640px; }
+  .ft-texts p + p { margin-top: 8px; }
+
+  .fa { padding: 14px 0 calc(14px + env(safe-area-inset-bottom)); }
+  .fa-inner { max-width: 1216px; margin-inline: auto; }
+  .fa-texts { display: flex; align-items: baseline; gap: 20px; }
+  .fa-main { font-size: 14px; }
+  .fa-sub { font-size: 12px; }
+  .fa .btn { font-size: 14px; padding: 15px 28px; }
+}
+</style>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5MNNQMQ"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<!-- 申込リンク：LINEの流入経路URLが届くまで #apply。届いたら href="#apply" の申込ボタン（追従・ヘッダー・冒頭2か所・お申し込み）を差し替える -->
+
+<!-- ===== 追従ボタン ===== -->
+<div class="fa" id="floatApply">
+  <div class="fa-inner">
+    <div class="fa-texts">
+      <span class="fa-main">考えることと、始めること。</span>
+      <span class="fa-sub"><span class="num">10/19</span>（月）<span class="num">20:00</span>〜・PORTO日本橋・参加無料・定員<span class="num">10</span>名</span>
+    </div>
+    <a class="btn" href="#apply">LINEで申し込む</a>
+  </div>
+</div>
+
+<!-- ===== ヘッダー ===== -->
+<header class="hd">
+  <div class="in">
+    <a class="hd-logo" href="https://tabippo.net/poolo/" target="_blank" rel="noopener"><img src="images/poolo_logo.png" alt="POOLO あたらしい旅の学校"></a>
+    <span class="hd-label">旅と問いと、居場所と vol.1｜POOLO × PORTO</span>
+    <a class="btn hd-cta" href="#apply">LINEで申し込む</a>
+  </div>
+</header>
+
+<!-- ===== 冒頭 ===== -->
+<section class="fv">
+  <div class="fv-top">
+    <div class="fv-copy">
+      <h1 class="mc"><span class="mc-pre">日本橋のバーで、問いを話す夜</span><span class="nb">考えることと、</span><br><span class="nb">始めること。</span></h1>
+      <p class="lead">日本橋のソーシャルバーPORTOで、<span class="nb">小さな商いを続ける人と、</span><span class="nb">問いを探究する人の話を聞きます。</span>そのあと、参加した人たちで問いを出し合い、選んだ問いについて、<span class="nb">お酒を片手にみんなで話します。</span></p>
+      <div class="date">
+        <div><span class="date-y">2026</span><span class="date-d">10.19</span></div>
+        <div><span class="date-w">月曜日 <span class="num">20:00</span> 開始</span><span class="date-w"><span class="num">19:30</span> 開場</span></div>
+      </div>
+      <p class="cond">PORTO日本橋<span class="sep">／</span>参加無料<span class="sep">／</span>定員10名</p>
+      <a class="btn" href="#apply">LINEで申し込む</a>
+      <p class="note">あたらしい旅の学校POOLO × ソーシャルバーPORTO</p>
+    </div>
+    <figure class="fv-photo"><img src="images/porto_kanpai.jpg" alt="PORTO日本橋のカウンターで、お客さんたちが瓶を掲げて乾杯している"></figure>
+  </div>
+  <div class="fv-bottom in">
+    <div class="date">
+      <div><span class="date-y">2026</span><span class="date-d">10.19</span></div>
+      <div><span class="date-w">月曜日 <span class="num">20:00</span> 開始</span><span class="date-w"><span class="num">19:30</span> 開場</span></div>
+    </div>
+    <div class="fv-how">
+      <p class="cond">PORTO日本橋<span class="sep">／</span>参加無料<span class="sep">／</span>定員10名</p>
+      <p class="note">あたらしい旅の学校POOLO × ソーシャルバーPORTO</p>
+    </div>
+    <a class="btn" href="#apply">LINEで申し込む</a>
+  </div>
+</section>
+
+<!-- ===== こんな気持ちの方へ ===== -->
+<section class="feel">
+  <div class="in">
+    <figure class="feel-photo">
+      <img src="images/porto_wall.jpg" alt="写真が並ぶ壁の前で、店長とお客さんが笑いながら話している" loading="lazy">
+    </figure>
+    <div class="feel-text">
+      <h2><img class="lt" src="images/lt-feel.svg" alt="こんな気持ちの方へ" width="448" height="56"></h2>
+      <div>
+        <p class="feel-body">やってみたいことはあるのに、まだ始めていない。小さく始めてはみたものの、続けるかどうか迷っている。ひとりで考えていると、いつも同じところで手が止まってしまう。</p>
+        <p class="feel-body">PORTOでは、会社の仕事とは別に、月に1回カウンターに立つ店長たちがいます。POOLOでは、気になったことを問いにして、仲間と話しながら考え続けている人たちがいます。この夜は、その両方の話を聞いてから、浮かんだ問いを、はじめて会う人たちと話します。</p>
+      </div>
+      <p class="feel-note">まだ形になっていない「やりたい」があれば、それを持ってきてください。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== この夜が生まれたわけ ===== -->
+<section class="town">
+  <div class="in">
+    <figure class="town-photo">
+      <img src="images/porto_interior.jpg" alt="開店前のPORTO日本橋。木のカウンターとスツールが並んでいる" loading="lazy">
+    </figure>
+    <div class="town-text">
+      <h2 class="h2">この夜が生まれたわけ</h2>
+      <p class="body">2026年5月、POOLOのみっちーがPORTOのカウンターで、代表のたくみさんと話した夜がはじまりです。</p>
+      <p class="body">PORTOは、毎月1回お店に立つ日替わりの店長たちが営むソーシャルバーです。2018年に有楽町で始まり、いまは日本橋蛎殻町や長野県辰野町にもお店があります。つくったのは、たくみさんこと嶋田匠さん。たくみさんは、居場所には「よりどころ」と「やくどころ」の両方が要る、と考えてきました。いるだけで認められる関係と、誰かの役に立って必要とされる関係のことです。</p>
+      <p class="body">5月のその夜は、問い、探究、コミュニティ、贈与など、POOLOで毎日のように使っていることばが、カウンターのあちこちで普通に交わされていました。そこでたくみさんから聞いたのが、コアキナイが生まれた話です。PORTOに人が集まるようになって、何かを試してみるときのハードルが下がり、自分のつくったものを誰かに差し出すことも、前より気軽にできるようになった。そこから、個人の小さな商いを育てる集まり「コアキナイ」ができたそうです。</p>
+      <p class="body">POOLOでは、気になったことを問いにして、人に話し、返ってきたことばでまた問いを書き換えることを大切にしています。POOLOは考え続けることを、PORTOは小さく始めることを、それぞれ大事にしてきました。その2つのやり方を持ち寄って、参加する人と一緒に話す夜を開くことにしました。</p>
+      <p class="body">シリーズの名前「旅と問いと、居場所と」は、「旅と問いと」をPOOLOから、「居場所と」をPORTOから取っています。今回がその1回目です。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== この夜に話すふたり ===== -->
+<section class="guests">
+  <div class="in col">
+    <h2 class="h2">この夜に話すふたり</h2>
+    <p class="lead">はじめの25分で、ふたりがそれぞれの話をします。そのあとの問いだしと対話は、この話を手がかりに進みます。</p>
+    <ul class="guest-list">
+      <li class="guest">
+        <figure class="guest-photo"><img src="images/person_shimada.jpg" alt="嶋田 匠" loading="lazy" style="object-position: center 30%;"></figure>
+        <div class="guest-head">
+          <p class="guest-name">嶋田 匠（たくみ）</p>
+          <p class="guest-role">森みたいな株式会社 代表／ソーシャルバーPORTO</p>
+        </div>
+        <!-- ▼経歴は本人提供の文面（10/2 Slack）をそのまま載せている -->
+        <p class="guest-bio body">1992年、東京生まれ。2015年に株式会社リクルートキャリア（現/株式会社リクルート）に新卒入社。約3年間リクルート代理店の経営支援/組織開発に従事し、独立。2018年に日替わり店長のソーシャルバー「PORTO（ポルト）」を有楽町に開業。その後、北品川・日本橋蛎殻町・長野県辰野町に店舗を展開。</p>
+        <p class="guest-bio body">2019年から、コアキナイ（個商×小商）が生まれ育つエコシステム「コアキナイ」を主宰。4ヶ月でコアキナイをつくるゼミや、お互いのコアキナイを育み合うコミュニティ、コミュニティの拠点となる職住一体のシェアハウス、コアキナイを差し出すガレージを運営。2025年から、小田原市石橋に週替わりの家守で営まれるゲストハウス兼シェアハウス「森みたいな家」を開業。暮らしを起点に都市と地域の活かし合う繋がりを実践・探究する。代表を務める「森みたいな株式会社」では、マイプロジェクトデザイン領域／コミュニティデザイン領域で、それぞれ官民学の幅広いクライアントとの共創に取り組む。</p>
+        <div class="guest-talk">
+          <p class="label">当日の話</p>
+          <p class="body">コアキナイの話をします。会社の仕事とは別に、自分で小さく何かを始めてみる。そんな大人のマイプロジェクトが、PORTOとコアキナイでどう生まれてきたのかを聞きます。</p>
+        </div>
+      </li>
+      <li class="guest">
+        <figure class="guest-photo"><img src="images/guest_onda.jpg" alt="恩田 倫孝" loading="lazy"></figure>
+        <div class="guest-head">
+          <p class="guest-name">恩田 倫孝（みっちー）</p>
+          <p class="guest-role">株式会社TABIPPO 取締役／株式会社コオドリ 代表</p>
+        </div>
+        <p class="guest-bio body">新潟県出身。商社に勤めたあと、1年間の世界一周を経て、2014年からTABIPPOに参画。POOLOの前身となる「旅大学」を立ち上げ、累計700回のイベントを企画・運営してきました。2019年にPOOLOを立ち上げ、2024年には旅と教育の会社コオドリを創業。渡航国数は51。</p>
+        <div class="guest-talk">
+          <p class="label">当日の話</p>
+          <p class="body">「問いと探究の往還」の話をします。気になったことを問いにして、人に話し、返ってきたことばでまた問いを書き換える。POOLOでは、この行き来が続いている状態を探究と呼んでいます。ひとりで考え続けるだけだったり、始めたことを人に見せなかったりすると、この行き来は途中で止まります。当日は、行き来を続けるためにPOOLOでしていることを話します。</p>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===== たとえば、こんな問い ===== -->
+<section class="q off">
+  <div class="in">
+    <figure class="q-photo"><img src="images/porto_sign.jpg" alt="PORTOの木の看板と、カウンターに並ぶお酒の瓶" loading="lazy"></figure>
+    <div class="q-sheet paper">
+      <p class="label">たとえば、こんな問いが出るかもしれません</p>
+      <p class="q-text">やりたいことは、<br><span class="nb">仕事にしないと</span><br><span class="nb">いけないのか。</span></p>
+      <div class="q-write">
+        <p class="q-prompt">あなたなら、どう考えますか。</p>
+        <div class="q-lines" aria-hidden="true"><span></span><span></span></div>
+      </div>
+      <ul class="q-ex">
+        <li>始める前に、どこまで考えておけばいいのか。</li>
+        <li>誰かの役に立っていないと、そこにいてはいけないのか。</li>
+      </ul>
+      <p class="q-help body">当日の問いは、参加した人たちがその場で出します。ここに書いたのは、ふたりの話から浮かびそうな問いの例です。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 当日の流れ ===== -->
+<section class="flow">
+  <div class="in col">
+    <h2 class="h2">当日の流れ</h2>
+    <p class="lead">ふたりの話を聞いたあと、テーブルごとに問いを出し、選んだ問いについて全員で話します。</p>
+    <ul class="tt">
+      <li><span class="tt-time">19:30</span><div><p class="tt-title">開場</p><p class="tt-desc">受付をして、カウンターで最初の1杯を注文してください。</p></div></li>
+      <li><span class="tt-time">20:00</span><div><p class="tt-title">この夜が生まれたわけ（5分）</p><p class="tt-desc">POOLOとPORTOが、なぜ一緒にこの夜を開くのかを、みっちーとたくみさんから話します。</p></div></li>
+      <li><span class="tt-time">20:05</span><div><p class="tt-title">チェックイン（10分）</p><p class="tt-desc">同じテーブルの人と、呼ばれたい名前と、今日ここに来た理由をひとことずつ話します。</p></div></li>
+      <li><span class="tt-time">20:15</span><div><p class="tt-title">ふたりの話（25分）</p><p class="tt-desc">たくみさんからコアキナイの話、みっちーから問いと探究の往還の話を聞きます。</p></div></li>
+      <li><span class="tt-time">20:40</span><div><p class="tt-title">テーブルで問いを出す（10分）</p><p class="tt-desc">3〜4人のテーブルで、ふたりの話を聞いて浮かんだ問いを書き出します。</p></div></li>
+      <li><span class="tt-time">20:50</span><div><p class="tt-title">選んだ問いで、哲学対話（40分）</p><p class="tt-desc">テーブルから出た問いの中から選び、参加者全員で話します。</p></div></li>
+      <li><span class="tt-time">21:30</span><div><p class="tt-title">この夜の感想を聞かせてもらう（10分）</p><p class="tt-desc">シリーズの1回目なので、よかったところと、次に変えたほうがいいところを参加者から聞かせてもらいます。</p></div></li>
+      <li><span class="tt-time">21:40</span><div><p class="tt-title">チェックアウト（10分）</p><p class="tt-desc">今夜持ち帰る問いを、ひとりずつ話して終わります。</p></div></li>
+      <!-- ▼何時までカウンターで残れるかは【要確認】 -->
+      <li><span class="tt-time">21:50</span><div><p class="tt-title">おわり</p><p class="tt-desc">そのまま残って、カウンターで話していくこともできます。</p></div></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===== 哲学対話と3つの約束 ===== -->
+<section class="rules off">
+  <div class="in">
+    <div class="rules-text">
+      <h2 class="h2">「哲学対話」とは</h2>
+      <p class="body">ひとつの問いについて、輪になって、それぞれが自分のことばで考えを話す時間です。</p>
+      <p class="body">哲学の知識はいりません。本で読んだことより、自分が経験したことや、いま感じていることから話します。ほかの人の考えを聞いて、自分の考えが少し変わっていくのを楽しむ時間なので、最後に結論をまとめることもしません。はじめての方も、そのまま来てください。</p>
+    </div>
+    <div class="rules-inner">
+      <div class="rules-card paper">
+        <h2><img class="lt" src="images/lt-rules.svg" alt="3つの約束" width="280" height="64"></h2>
+        <ol class="rules-list">
+          <li><img class="no" src="images/num-01.svg" alt="01"><span>何を話してもいい</span></li>
+          <li><img class="no" src="images/num-02.svg" alt="02"><span>人の考えを否定しない</span></li>
+          <li><img class="no" src="images/num-03.svg" alt="03"><span>話さずに聞いているだけでもいい</span></li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== こんな方へ ===== -->
+<section class="fit">
+  <div class="in col">
+    <h2 class="h2">こんな方へ</h2>
+    <ul>
+      <li>やってみたいことはあるけれど、まだ始めていない</li>
+      <li>小さく何かを始めてみたものの、続けるかどうか迷っている</li>
+      <li>ひとりで考えていると、いつも同じところで止まってしまう</li>
+      <li>はじめて会う人と、少し深い話をするのが好き</li>
+      <li>PORTOに一度行ってみたかった。POOLOのことが少し気になっていた</li>
+    </ul>
+    <p class="fit-sub">今回は、向かないかもしれない方</p>
+    <ul>
+      <li>副業や起業の具体的な始め方を知りたい方</li>
+      <li>ゲストの講演をじっくり聞きたい方（話を聞く時間は25分です）</li>
+      <li>名刺交換や商談の相手を探している方</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===== POOLOとPORTO ===== -->
+<section class="about off">
+  <div class="in">
+    <h2 class="h2">POOLOとPORTO</h2>
+    <div class="about-grid">
+      <div class="about-item">
+        <img src="images/poolo_keyvisual.jpg" alt="POOLOのキービジュアル。旅と人生をつなぐ大人の学び" loading="lazy">
+        <p class="about-name">あたらしい旅の学校 POOLO</p>
+        <p class="body">旅をきっかけに、自分の人生やこれからについて考えるコミュニティです。8ヶ月のプログラムの中で、気になったことを問いにして、仲間と話しながら探究を続けます。運営は株式会社TABIPPOです。</p>
+        <a class="about-link" href="https://tabippo.net/poolo/course/life/" target="_blank" rel="noopener">POOLO LIFEのページを見る</a>
+      </div>
+      <div class="about-item">
+        <img src="images/porto_kanpai.jpg" alt="PORTO日本橋のカウンターで乾杯するお客さんたち" loading="lazy">
+        <p class="about-name">ソーシャルバー PORTO</p>
+        <p class="body">「いつでも安心して帰ってこられる」「何かが生まれるつながりが生まれる」、そんな港町のような場をつくりたい、という想いから名づけられたバーです。毎月1回お店に立つ日替わりの店長たちが営んでいて、会社で働く人も、独立して働く人も、いまは働いていない人も、アーティストも、マーケターも、歯医者さんも店長をしています。</p>
+        <a class="about-link" href="https://porto.tokyo/" target="_blank" rel="noopener">PORTOのページを見る</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 開催概要 ===== -->
+<section class="overview">
+  <div class="in">
+    <h2 class="h2">開催概要</h2>
+    <div class="ov-wrap">
+      <dl class="ov">
+        <div class="ov-row"><dt>名称</dt><dd><strong>考えることと、始めること。日本橋のバーで、問いを話す夜</strong><br>旅と問いと、居場所と vol.1</dd></div>
+        <div class="ov-row"><dt>日時</dt><dd><strong>2026年10月19日（月）20:00〜21:50</strong><br>19:30開場</dd></div>
+        <div class="ov-row"><dt>会場</dt><dd>ソーシャルバーPORTO日本橋<br>〒103-0014 東京都中央区日本橋蛎殻町1-21-6 コアキナイビル2F<br>水天宮前駅から徒歩3分、人形町駅から徒歩6分、茅場町駅から徒歩7分</dd></div>
+        <div class="ov-row"><dt>定員</dt><dd><strong>10名</strong>（先着順）</dd></div>
+        <div class="ov-row"><dt>参加費</dt><dd><strong>無料</strong><br>飲み物は、カウンターで各自ご注文ください</dd></div>
+        <div class="ov-row"><dt>申込方法</dt><dd>POOLOの公式LINEを友だち追加すると、申込フォームが届きます。フォームに答えていただいた時点で、申込完了です。</dd></div>
+        <div class="ov-row"><dt>主催</dt><dd>あたらしい旅の学校 POOLO（株式会社TABIPPO）<br>ソーシャルバー PORTO</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<!-- ===== よくある質問 ===== -->
+<section class="faq">
+  <div class="in">
+    <h2 class="h2">よくある質問</h2>
+    <dl class="faq-list">
+      <div class="faq-item"><dt class="faq-q">ひとりで参加しても大丈夫ですか？</dt><dd class="faq-a">はい。テーブルは3〜4人で、はじめにチェックインで話す時間があります。おひとりで来る方が多いと思います。</dd></div>
+      <div class="faq-item"><dt class="faq-q">哲学対話に参加したことがありません。</dt><dd class="faq-a">大丈夫です。哲学の知識はいりませんし、話さずに聞いているだけでもかまいません。</dd></div>
+      <!-- ▼ソフトドリンクの有無は【要確認】 -->
+      <div class="faq-item"><dt class="faq-q">お酒が飲めなくても参加できますか？</dt><dd class="faq-a">はい。ソフトドリンクも選べます。</dd></div>
+      <div class="faq-item"><dt class="faq-q">POOLOやPORTOのことを知らなくても参加できますか？</dt><dd class="faq-a">はい。どちらにも関わったことがない方も歓迎しています。</dd></div>
+    </dl>
+  </div>
+</section>
+
+<!-- ===== お申し込み ===== -->
+<section class="apply" id="apply">
+  <div class="in">
+    <div class="apply-head">
+      <h2 class="h2">お申し込み</h2>
+      <p class="apply-msg body">気になった方は、POOLO公式LINEからお申し込みください。参加無料、定員は10名です。21:50に終わったあとも、話し足りなければカウンターで続けられます。</p>
+    </div>
+    <div class="apply-box">
+      <div class="date">
+        <div><span class="date-y">2026</span><span class="date-d">10.19</span></div>
+        <div><span class="date-w">月曜日 <span class="num">20:00</span> 開始</span><span class="date-w"><span class="num">19:30</span> 開場</span></div>
+      </div>
+      <p class="date-line">PORTO日本橋・参加無料・定員<span class="num">10</span>名</p>
+      <a class="btn" href="#apply">LINEで申し込む</a>
+      <p class="apply-steps">1. POOLO公式LINEを友だち追加<br>2. 届いた申込フォームに答える</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== フッター ===== -->
+<footer class="ft">
+  <div class="in">
+    <div class="ft-logos">
+      <a href="https://tabippo.net/poolo/" target="_blank" rel="noopener"><img class="poolo" src="images/poolo_logo03.png" alt="POOLO あたらしい旅の学校"></a>
+      <a href="https://porto.tokyo/" target="_blank" rel="noopener"><img class="porto" src="images/porto_logo.svg" alt="PORTO"></a>
+    </div>
+    <div class="ft-texts">
+      <p>主催：あたらしい旅の学校 POOLO ／ ソーシャルバー PORTO</p>
+      <p>© POOLO. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ヘッダー：スクロールしたら下に罫を出す */
+(function () {
+  var hd = document.querySelector('.hd');
+  if (!hd) return;
+  function f() { hd.classList.toggle('is-stuck', window.scrollY > 4); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+})();
+/* 追従ボタン：冒頭を過ぎたら出し、お申し込み欄とフッターが見えている間は引っ込める */
+(function () {
+  var bar = document.getElementById('floatApply');
+  if (!bar) return;
+  var fv = document.querySelector('.fv');
+  var ends = [document.getElementById('apply'), document.querySelector('.ft')].filter(Boolean);
+  var ticking = false;
+  function update() {
+    var past = fv ? fv.getBoundingClientRect().bottom < window.innerHeight * 0.3 : window.scrollY > 400;
+    var nearEnd = ends.some(function (el) { var r = el.getBoundingClientRect(); return r.top < window.innerHeight && r.bottom > 0; });
+    bar.classList.toggle('is-visible', past && !nearEnd);
+    ticking = false;
+  }
+  window.addEventListener('scroll', function () { if (!ticking) { window.requestAnimationFrame(update); ticking = true; } }, { passive: true });
+  window.addEventListener('resize', update);
+  window.addEventListener('load', update);
+  update();
+})();
+</script>
+</body>
+</html>
