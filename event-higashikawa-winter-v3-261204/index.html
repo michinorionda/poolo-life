@@ -126,16 +126,8 @@ br.pc-br { display: none; }
 .fv-copy { padding: 30px 24px 32px; }
 .fv-copy > * + * { margin-top: 18px; }
 /* メインコピーの書体・大きさ・色は midashi.css の「見出し・大」（.midashi-l）に任せる */
-.mc-pre {
-  display: block;
-  font-family: var(--mincho);
-  font-size: 0.5em;
-  font-weight: 500;
-  letter-spacing: 0.2em;
-  line-height: 1.6;
-  color: var(--ink-72);
-  margin-bottom: 0.4em;
-}
+/* 行頭の「は左にはみ出させ、2026 の頭を上下の行の字頭とそろえる */
+.mc-hang { margin-left: -0.4em; }
 .lead { font-size: 14px; }
 .fv-photo img { width: 100%; height: 300px; object-fit: cover; object-position: 50% 55%; }
 .fv-photo .caption { padding: 8px 24px 0; }
@@ -545,7 +537,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <section class="fv">
   <div class="fv-top">
     <div class="fv-copy">
-      <h1 class="mc midashi-l"><span class="mc-pre">12月の東川で過ごす2泊3日</span><span class="nb">写真の町・東川で、</span><br><span class="nb">「2026年を綴じて、</span><br><span class="nb">紡ぐ」3日間</span></h1>
+      <h1 class="mc midashi-l"><span class="nb">写真の町・東川で、</span><br><span class="nb mc-hang">「2026年を綴じて、</span><br><span class="nb">紡ぐ」3日間</span></h1>
       <p class="lead"><span class="nb">「今年は、何をしていた一年だったんだろう」</span><span class="nb">「どんな一年だったんだろう」。</span>そう思いはじめる<span class="nb">12月のはじめに、</span><span class="nb">北海道の東川町で、</span><span class="nb">自分と向き合う2泊3日です。</span></p>
       <div class="date">
         <div><span class="date-y">2026</span><span class="date-d">12.4–6</span></div>
