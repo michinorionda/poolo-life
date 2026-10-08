@@ -1,0 +1,652 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<meta name="description" content="POOLO旅の学校の基礎資料。世界と日本の旅の歴史、旅の役割、旅による人生の変容を、年表・グラフ・図で整理したもの。">
+<title>旅の歴史と人生｜POOLO 旅の学校</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@400;700&family=Noto+Sans+JP:wght@400;500;700&family=Jost:wght@400;500;600&display=swap">
+<style>
+/* 版面：左に章番号のスパイン、右に本文の非対称グリッド。POOLOの白・黒・ブランドブルー1色で、罫で面を立てる。光の面だけで組む単一テーマ。 */
+:root{
+  --brand:#189BBC; --brand-deep:#127E9A; --brand-mid:#8FC6D6; --brand-pale:#DDECF1;
+  --ink:#000; --ink-soft:#1E1E1E; --ink-72:rgba(0,0,0,.72); --ink-55:rgba(0,0,0,.55); --ink-40:rgba(0,0,0,.40);
+  --bg:#FFFFFF; --bg-off:#F9F9F9; --line:#E4E4E4; --line-pale:#C2DCE5;
+  --mincho:'Zen Old Mincho','Hiragino Mincho ProN','Yu Mincho',serif;
+  --body:'Noto Sans JP','Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif;
+  --en:'Jost','Helvetica Neue',Arial,sans-serif;
+  --fs-label:11px; --fs-xs:12.5px; --fs-sm:14px; --fs-base:16px; --fs-md:20px; --fs-lg:26px;
+  --fs-xl:clamp(28px,4vw,40px); --fs-2xl:clamp(34px,5.6vw,58px);
+  --radius:2px;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink-soft);font-family:var(--body);font-size:var(--fs-base);line-height:1.95;letter-spacing:.02em;margin:0}
+.shell{max-width:1040px;margin:0 auto;padding-inline:clamp(16px,5vw,56px)}
+a{color:var(--brand-deep);text-underline-offset:3px;text-decoration-thickness:1px}
+a:hover{color:var(--brand)}
+a:focus-visible{outline:2px solid var(--brand);outline-offset:2px}
+h1,h2,h3{font-feature-settings:"palt";text-wrap:balance;margin:0}
+p{margin:0}
+.num{font-family:var(--en);font-variant-numeric:tabular-nums}
+
+/* ---------- 表紙 ---------- */
+.cover{padding-block:clamp(48px,9vw,104px) clamp(40px,6vw,72px);border-bottom:1px solid var(--line)}
+.cover-meta{display:flex;flex-wrap:wrap;gap:6px 20px;font-size:var(--fs-xs);color:var(--ink-55);letter-spacing:.08em}
+.cover-meta b{color:var(--brand-deep);font-weight:700}
+.cover h1{font-family:var(--mincho);font-weight:700;font-size:var(--fs-2xl);line-height:1.35;letter-spacing:.04em;color:var(--ink);margin-top:28px}
+.cover-lead{max-width:40em;margin-top:28px;color:var(--ink-72);line-height:2.05}
+.toc{margin-top:44px;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));border-top:1px solid var(--ink)}
+.toc a{display:grid;grid-template-columns:auto 1fr;gap:4px 14px;padding:16px 16px 18px 0;text-decoration:none;color:var(--ink);border-bottom:1px solid var(--line)}
+.toc .n{font-family:var(--en);font-size:28px;line-height:1;color:var(--brand);font-weight:500;grid-row:span 2}
+.toc .t{font-weight:700;font-size:var(--fs-sm);line-height:1.6}
+.toc .d{font-size:var(--fs-xs);color:var(--ink-55);line-height:1.6}
+.toc a:hover .t{color:var(--brand-deep)}
+
+/* ---------- 章 ---------- */
+.chapter{display:grid;grid-template-columns:120px minmax(0,1fr);gap:0 40px;padding-block:clamp(56px,8vw,96px);border-bottom:1px solid var(--line)}
+.spine{position:relative}
+.spine-inner{position:sticky;top:calc(env(safe-area-inset-top,0px) + 24px);border-top:3px solid var(--brand);padding-top:12px}
+.spine .lab{font-size:var(--fs-label);letter-spacing:.18em;color:var(--ink-55);font-weight:700}
+.spine .big{font-family:var(--en);font-size:64px;line-height:1;color:var(--brand);font-weight:500;margin-top:6px}
+.ch-body{min-width:0}
+.ch-title{font-family:var(--mincho);font-weight:700;font-size:var(--fs-xl);line-height:1.4;color:var(--ink);letter-spacing:.04em}
+.ch-lead{margin-top:20px;max-width:38em;font-size:17px;color:var(--ink-72);line-height:2.05}
+.sub{margin-top:64px}
+.sub-title{font-size:var(--fs-md);font-weight:700;color:var(--ink);line-height:1.55;letter-spacing:.04em;padding-bottom:12px;border-bottom:1px solid var(--line)}
+.sub-lead{margin-top:14px;max-width:40em;color:var(--ink-72)}
+.prose{max-width:40em;margin-top:16px}
+.prose p+p{margin-top:1em}
+.src{font-size:var(--fs-xs);color:var(--ink-55);line-height:1.8;margin-top:14px}
+.src a{color:var(--ink-55)}
+
+/* ---------- 年表（世界・日本） ---------- */
+.era-list{list-style:none;margin:28px 0 0;padding:0}
+.era{display:grid;grid-template-columns:150px minmax(0,1fr);gap:4px 28px;padding-block:22px;border-top:1px solid var(--line)}
+.era:last-child{border-bottom:1px solid var(--line)}
+.era-when{font-family:var(--en);font-variant-numeric:tabular-nums;color:var(--brand-deep);font-size:var(--fs-sm);font-weight:500;letter-spacing:.04em;line-height:1.6}
+.era-when span{display:block;font-family:var(--body);font-weight:700;color:var(--ink);font-size:var(--fs-md);letter-spacing:.04em;margin-top:2px}
+.era-items{list-style:none;margin:0;padding:0;display:grid;gap:12px;min-width:0}
+.era-items li{padding-left:16px;position:relative;font-size:15px;line-height:1.85}
+.era-items li::before{content:"";position:absolute;left:0;top:.8em;width:6px;height:6px;background:var(--brand);border-radius:1px}
+.era-items .y{font-family:var(--en);font-variant-numeric:tabular-nums;font-weight:600;color:var(--ink);margin-right:.4em}
+
+/* ---------- 表 ---------- */
+.tbl-wrap{overflow-x:auto;margin-top:24px;-webkit-overflow-scrolling:touch}
+table{width:100%;border-collapse:collapse;font-size:var(--fs-sm);line-height:1.75;min-width:560px}
+th,td{text-align:left;vertical-align:top;padding:12px 14px 12px 0;border-bottom:1px solid var(--line)}
+thead th{font-size:var(--fs-xs);color:var(--ink-55);font-weight:700;letter-spacing:.06em;border-bottom:1px solid var(--ink)}
+td:first-child{font-weight:700;color:var(--ink)}
+td .num{white-space:nowrap}
+
+/* ---------- 図・グラフ ---------- */
+figure{margin:28px 0 0}
+.fig-title{font-weight:700;color:var(--ink);font-size:17px;line-height:1.6}
+.fig-sub{font-size:var(--fs-xs);color:var(--ink-55);margin-top:2px}
+.chart{margin-top:14px;overflow-x:auto}
+.chart svg{display:block;width:100%;min-width:520px;height:auto}
+figcaption{font-size:var(--fs-xs);color:var(--ink-55);line-height:1.8;margin-top:10px;max-width:46em}
+.legend{display:flex;flex-wrap:wrap;gap:6px 20px;font-size:var(--fs-xs);color:var(--ink-72);margin-top:8px}
+.legend i{display:inline-block;width:18px;height:3px;vertical-align:middle;margin-right:6px}
+
+/* お蔭参りのバー */
+.bars{margin-top:22px;display:grid;gap:14px;max-width:640px}
+.bar-row{display:grid;grid-template-columns:64px minmax(0,1fr) 72px;align-items:center;gap:14px}
+.bar-row .yr{font-family:var(--en);font-weight:600;color:var(--ink)}
+.bar-track{height:22px;background:var(--bg-off);border:1px solid var(--line);position:relative}
+.bar-fill{position:absolute;inset:0 auto 0 0;background:var(--brand)}
+.bar-row .v{font-family:var(--en);font-variant-numeric:tabular-nums;font-weight:600;color:var(--ink);text-align:right}
+.bar-row .v small{font-family:var(--body);font-weight:400;font-size:var(--fs-label);color:var(--ink-55)}
+
+/* 6つの役割 */
+.roles{margin-top:28px;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));border-top:1px solid var(--ink)}
+.role{padding:20px 20px 22px 0;border-bottom:1px solid var(--line);display:grid;gap:10px;align-content:start}
+.role h4{margin:0;font-size:17px;font-weight:700;color:var(--ink);letter-spacing:.04em}
+.role dl{margin:0;display:grid;grid-template-columns:auto minmax(0,1fr);gap:4px 12px;font-size:var(--fs-sm);line-height:1.7}
+.role dt{color:var(--ink-55);font-size:var(--fs-xs);padding-top:2px}
+.role dd{margin:0}
+
+/* コーエンの5類型 */
+.cohen{margin-top:28px}
+.cohen-axis{display:flex;justify-content:space-between;gap:16px;font-size:var(--fs-xs);color:var(--ink-55);padding-bottom:8px;border-bottom:2px solid var(--brand-mid);position:relative}
+.cohen-axis::after{content:"";position:absolute;right:-1px;bottom:-6px;border-left:9px solid var(--brand-mid);border-top:5px solid transparent;border-bottom:5px solid transparent}
+.cohen ol{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr))}
+.cohen li{padding:16px 14px 16px 0;border-right:1px solid var(--line);display:grid;gap:6px;align-content:start}
+.cohen li+li{padding-left:14px}
+.cohen li:last-child{border-right:0}
+.cohen .k{font-family:var(--en);font-weight:600;color:var(--brand)}
+.cohen h4{margin:0;font-size:15px;font-weight:700;color:var(--ink)}
+.cohen p{font-size:13.5px;line-height:1.75;color:var(--ink-72)}
+.cohen li.deep h4{color:var(--brand-deep)}
+.cohen li.deep{background:var(--brand-pale)}
+.cohen li.deep{padding-left:14px}
+
+/* 変容の3段階 */
+.stages{margin-top:28px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:36px;position:relative}
+.stage{border-top:3px solid var(--ink);padding-top:16px;display:grid;gap:12px;align-content:start;position:relative;min-width:0}
+.stage.mid{border-top-color:var(--brand)}
+.stage:not(:last-child)::after{content:"→";position:absolute;right:-28px;top:14px;font-family:var(--en);color:var(--ink-40);font-size:20px}
+.stage .when{font-size:var(--fs-xs);color:var(--ink-55);letter-spacing:.06em}
+.stage h4{margin:0;font-family:var(--mincho);font-size:24px;font-weight:700;color:var(--ink);line-height:1.4}
+.stage h4 small{font-family:var(--body);font-size:var(--fs-sm);font-weight:500;color:var(--ink-55);margin-left:6px}
+.stage ul{list-style:none;margin:0;padding:0;display:grid;gap:8px;font-size:var(--fs-sm);line-height:1.7}
+.stage ul .who{display:block;font-size:var(--fs-xs);color:var(--ink-55)}
+.stage .conds{border-top:1px solid var(--line);padding-top:10px;display:grid;gap:6px}
+.stage .conds span{font-size:var(--fs-sm);font-weight:700;color:var(--ink)}
+.stage .conds b{font-family:var(--en);color:var(--brand);margin-right:6px}
+
+/* 条件リスト */
+.conditions{list-style:none;margin:24px 0 0;padding:0;counter-reset:c;max-width:44em}
+.conditions li{display:grid;grid-template-columns:44px minmax(0,1fr);gap:4px 16px;padding-block:16px;border-top:1px solid var(--line)}
+.conditions li:last-child{border-bottom:1px solid var(--line)}
+.conditions .c{font-family:var(--en);font-size:28px;line-height:1.1;color:var(--brand);font-weight:500}
+.conditions h4{margin:0;font-size:17px;color:var(--ink);font-weight:700}
+.conditions p{font-size:var(--fs-sm);color:var(--ink-72);line-height:1.8;margin-top:4px}
+
+.finding{margin-top:24px;max-width:40em;font-family:var(--mincho);font-size:var(--fs-md);line-height:1.8;color:var(--ink);font-weight:700}
+
+/* 確認と出典 */
+.end{padding-block:clamp(56px,8vw,88px)}
+.end h2{font-family:var(--mincho);font-size:var(--fs-lg);color:var(--ink)}
+.end ul{margin:16px 0 0;padding-left:1.2em;max-width:44em;font-size:var(--fs-sm);line-height:1.9}
+.end li+li{margin-top:6px}
+.end .cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px 40px;margin-top:20px}
+.end h3{font-size:var(--fs-sm);font-weight:700;color:var(--ink);border-bottom:1px solid var(--line);padding-bottom:6px}
+.end .cols ul{padding-left:1.1em;margin-top:10px;font-size:13px;line-height:1.85}
+.foot{border-top:1px solid var(--line);padding-block:28px 40px;font-size:var(--fs-xs);color:var(--ink-55);display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-between}
+.foot b{font-family:var(--en);letter-spacing:.12em;color:var(--ink);font-weight:600}
+
+@media (max-width:760px){
+  .chapter{grid-template-columns:minmax(0,1fr);gap:20px}
+  .spine-inner{position:static;display:flex;align-items:baseline;gap:14px}
+  .spine .big{font-size:44px;margin-top:0}
+  .era{grid-template-columns:minmax(0,1fr)}
+  .cohen ol{grid-template-columns:minmax(0,1fr)}
+  .cohen li{border-right:0;border-bottom:1px solid var(--line);padding-left:0}
+  .cohen li+li{padding-left:0}
+  .cohen li.deep{padding-left:12px}
+  .stages{grid-template-columns:minmax(0,1fr);gap:36px}
+  .stage:not(:last-child)::after{content:"↓";right:auto;left:0;top:auto;bottom:-32px}
+  .bar-row{grid-template-columns:52px minmax(0,1fr) 64px;gap:10px}
+}
+@media (prefers-reduced-motion:no-preference){ html{scroll-behavior:smooth} }
+</style>
+
+</head>
+<body>
+<header class="shell cover">
+  <div class="cover-meta"><b>POOLO 旅の学校</b><span>基礎資料</span><span class="num">2026.10.08</span></div>
+  <h1>旅の歴史と、<br>旅が人生にもたらすもの</h1>
+  <p class="cover-lead">人は数万年前から移動を続けてきました。そのうち、帰ってくる前提で出かける移動が旅で、目的は交易・信仰・学び・楽しみと時代ごとに変わってきています。POOLOのメンバーと運営が、旅を歴史と研究の両面から知るためにまとめた資料です。数字と年代は、出典で確かめられるものだけを載せています。</p>
+  <nav class="toc" aria-label="目次">
+    <a href="#ch1"><span class="n">1</span><span class="t">世界の旅の歴史</span><span class="d">先史から現代まで、誰がなぜ旅をしたか</span></a>
+    <a href="#ch2"><span class="n">2</span><span class="t">日本の旅の歴史</span><span class="d">古代の官道から令和のインバウンドまで</span></a>
+    <a href="#ch3"><span class="n">3</span><span class="t">旅の役割</span><span class="d">社会と個人にとって旅が果たしてきたこと</span></a>
+    <a href="#ch4"><span class="n">4</span><span class="t">旅を通じた人生の変容</span><span class="d">旅が人を変える仕組みの理論と研究</span></a>
+  </nav>
+</header>
+
+<main class="shell">
+
+<!-- ================= 第1章 ================= -->
+<section class="chapter" id="ch1">
+  <div class="spine"><div class="spine-inner"><div class="lab">第1章</div><div class="big">1</div></div></div>
+  <div class="ch-body">
+    <h2 class="ch-title">世界の旅の歴史</h2>
+    <p class="ch-lead">旅の主役は、長いあいだ商人・巡礼者・学者といった限られた人でした。19世紀の鉄道とトマス・クックの団体旅行で旅は一般の人に開かれ、2025年には国境を越える旅が年15.2億回に達しています。</p>
+
+    <ol class="era-list">
+      <li class="era">
+        <div class="era-when">約7万〜5万年前<span>先史</span></div>
+        <ul class="era-items">
+          <li>アフリカで現れたホモ・サピエンスが、<span class="y">7万〜5万年前</span>からアフリカを出て、オーストラリア、ヨーロッパ、北米へ広がった。新しい土地に住みつくための移住にあたる。</li>
+          <li>UN Tourismは旅行者を「ふだんの生活圏の外へ1年未満の旅をする人」と定義している。帰ってくる前提の移動を旅と呼ぶなら、旅が生まれるのは帰る場所としての定住地ができてから、と整理できる。</li>
+        </ul>
+      </li>
+      <li class="era">
+        <div class="era-when">前8世紀〜5世紀<span>古代</span></div>
+        <ul class="era-items">
+          <li><span class="y">前2世紀〜15世紀</span>シルクロード。陸路だけで6,400km以上。全行程を一人で通す人はまれで、中継地ごとの商人がつないだ。</li>
+          <li><span class="y">前776年〜393年</span>古代オリンピック。大会の前に使者が休戦を告げて回り、選手と巡礼者が安全に旅できるようにした。</li>
+          <li>ヘロドトスはペルシア帝国内を歩き、見聞きしたことを『歴史』にまとめた。</li>
+          <li>ローマの幹線道路は総延長40万km以上。富裕層は温泉地バイアエに別荘を建て、エジプトのメムノンの巨像には訪問者の落書きが107点残る。</li>
+        </ul>
+      </li>
+      <li class="era">
+        <div class="era-when">9〜15世紀<span>中世の巡礼と<br>大旅行家</span></div>
+        <ul class="era-items">
+          <li>エルサレム・ローマ・サンティアゴ・デ・コンポステーラが三大巡礼地。サンティアゴへの道は<span class="y">2024年</span>に499,239人が歩いて巡礼証明書を受け取った。1985年は690人。</li>
+          <li>イスラムのハッジは、体力と資力のある人が一生に一度行う義務。2024年の参加者は約183万人。</li>
+          <li>玄奘（629〜645年）、マルコ・ポーロ（1271〜1295年）、イブン・バットゥータ（1325〜1354年）が長い旅の記録を残した。</li>
+        </ul>
+      </li>
+      <li class="era">
+        <div class="era-when">1488〜1522年<span>大航海時代</span></div>
+        <ul class="era-items">
+          <li>喜望峰の回航、大西洋の横断、インド航路を経て、マゼランの船団が初の世界一周を果たした。5隻・約270人で出航し、戻ったのは1隻・18人。</li>
+          <li>大陸の間で作物・動物・病気が行き交う一方、先住民の征服と奴隷化も伴った。</li>
+        </ul>
+      </li>
+      <li class="era">
+        <div class="era-when">1660年ごろ〜1840年代<span>グランドツアー</span></div>
+        <ul class="era-items">
+          <li>イギリスの貴族の若者が17〜22歳で大陸を回った教育の旅。期間は2〜3年が多く、パリからアルプスを越えてローマへ向かった。</li>
+          <li>古典の美術に直接触れ、語学と社交の作法を身につけ、人脈を作るのが目的。家庭教師が同行した。今の留学やギャップイヤーの源流にあたる。</li>
+        </ul>
+      </li>
+      <li class="era">
+        <div class="era-when">1830〜1870年代<span>近代ツーリズム</span></div>
+        <ul class="era-items">
+          <li><span class="y">1841年</span>トマス・クックが、禁酒大会に向かう約500人の鉄道旅行を手配した。運賃は1人1シリング。多くの人にとって初めての鉄道だった。</li>
+          <li>クックは海外ツアー（1855年）、ホテルクーポン（1868年）、222日間の世界一周ツアー（1872年）と、旅行会社の仕組みを一つずつ作った。</li>
+          <li>ベデカーの案内書が、ガイドブックを手に自分で旅をする形を定めた。</li>
+        </ul>
+      </li>
+      <li class="era">
+        <div class="era-when">1936〜1970年<span>マスツーリズム</span></div>
+        <ul class="era-items">
+          <li><span class="y">1936年</span>ILOの有給休暇条約。同じ年にフランスで有給休暇が法律になった。</li>
+          <li><span class="y">1950年</span>チャーター便のパッケージ旅行が始まり、<span class="y">1970年</span>には座席366席のボーイング747が就航した。</li>
+        </ul>
+      </li>
+      <li class="era">
+        <div class="era-when">1957年〜現在<span>個人の旅と、<br>その揺り戻し</span></div>
+        <ul class="era-items">
+          <li>ロンドンからインド・ネパールへ陸路で向かう「ヒッピー・トレイル」。<span class="y">1973年</span>にその経験から生まれた94ページの冊子が、ロンリープラネットになった。</li>
+          <li>LCCとAirbnbで、旅を自分で組み立てる人が増えた。</li>
+          <li><span class="y">2020年</span>国際観光客は前年から74%減。2025年には過去最多を更新した。</li>
+          <li>ヴェネツィアは2024年に日帰り客から5ユーロの入域料を取り始めた。旅を増やすことから、受け入れる側の暮らしを考える段階に移っている。</li>
+        </ul>
+      </li>
+    </ol>
+    <p class="src">出典：<a href="https://en.wikipedia.org/wiki/History_of_tourism" target="_blank" rel="noopener">History of tourism</a>、<a href="https://www.untourism.int/glossary-tourism-terms" target="_blank" rel="noopener">UN Tourism 用語集</a>、<a href="https://infovaticana.com/2025/01/03/el-camino-de-santiago-cierra-el-2024-con-un-nuevo-record-de-peregrinos/" target="_blank" rel="noopener">Infovaticana</a>、<a href="https://www.encyclopedia.com/history/encyclopedias-almanacs-transcripts-and-maps/grand-tour-0" target="_blank" rel="noopener">Encyclopedia.com</a>、<a href="https://www.erih.net/how-it-started/stories-about-people-biographies/biography/cook" target="_blank" rel="noopener">ERIH</a>、<a href="https://en.wikipedia.org/wiki/Hippie_trail" target="_blank" rel="noopener">Hippie trail</a>、<a href="https://finestresullarte.info/en/news/venice-doubles-access-fees-more-days-to-pay-and-10-euros-for-latecomers" target="_blank" rel="noopener">Finestre sull'Arte</a></p>
+
+    <div class="sub">
+      <h3 class="sub-title">旅の記録を残した3人</h3>
+      <p class="sub-lead">どの記録も、後の時代の旅人と学問に読み継がれました。</p>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>人物</th><th>旅の期間</th><th>目的と行き先</th><th>移動距離</th><th>残した記録</th></tr></thead>
+          <tbody>
+            <tr><td><a href="https://en.wikipedia.org/wiki/Xuanzang" target="_blank" rel="noopener">玄奘</a></td><td><span class="num">629〜645</span>年</td><td>経典を求め、出国禁止を破ってインドのナーランダー僧院へ。657部の経典を持ち帰った</td><td>記録なし</td><td>『大唐西域記』</td></tr>
+            <tr><td><a href="https://en.wikipedia.org/wiki/Marco_Polo" target="_blank" rel="noopener">マルコ・ポーロ</a></td><td><span class="num">1271〜1295</span>年</td><td>17歳でヴェネツィアを出て、元のフビライの宮廷に約17年</td><td><span class="num">約2.4万km</span></td><td>『東方見聞録』</td></tr>
+            <tr><td><a href="https://en.wikipedia.org/wiki/Ibn_Battuta" target="_blank" rel="noopener">イブン・バットゥータ</a></td><td><span class="num">1325〜1354</span>年</td><td>21歳でメッカ巡礼に出て、そのまま北アフリカからインド・中国まで</td><td><span class="num">約11.7万km</span></td><td>『大旅行記（リフラ）』</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="sub">
+      <h3 class="sub-title">国際観光客の推移</h3>
+      <figure>
+        <div class="fig-title">国際観光客は75年で61倍、2025年に15.2億人</div>
+        <div class="fig-sub">国境を越えた観光客の到着数（延べ、年間）</div>
+        <div class="chart" id="chart-world" role="img" aria-label="国際観光客は1950年の2500万人から2025年の15.2億人へ。2020年はコロナ禍で約4億人に減った"></div>
+        <figcaption>UN Tourism（旧UNWTO）の推計。1950・1980・2013年は<a href="https://www.theglobalist.com/global-jet-set/" target="_blank" rel="noopener">The Globalist</a>、2018年は<a href="https://www.portfolio.hu/en/economy/20190628/this-is-how-the-number-of-tourists-changed-over-the-last-70-years-389877" target="_blank" rel="noopener">Portfolio.hu</a>、2019〜2024年は<a href="https://www.untourism.int/news/international-tourism-recovers-pre-pandemic-levels-in-2024" target="_blank" rel="noopener">UN Tourism</a>、2025年は<a href="https://www.hospitalitynet.org/news/4130515.html" target="_blank" rel="noopener">発表の転載</a>。2020年は前年比74%減からの概算。点のない年はデータを結んだ線です。</figcaption>
+      </figure>
+      <p class="prose">旅が大きく増えたのは、ジェット機とパッケージ旅行が広がった1960年代以降です。2020年に一度7割以上減っても、5年で過去最多まで戻っています。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 第2章 ================= -->
+<section class="chapter" id="ch2">
+  <div class="spine"><div class="spine-inner"><div class="lab">第2章</div><div class="big">2</div></div></div>
+  <div class="ch-body">
+    <h2 class="ch-title">日本の旅の歴史</h2>
+    <p class="ch-lead">日本の旅は、国に命じられて歩く古代の旅から始まり、江戸時代の伊勢参りで庶民のものになりました。戦後は1964年の海外渡航自由化で海外旅行が始まり、2025年には訪日客が初めて4,000万人を超えています。</p>
+
+    <div class="sub">
+      <h3 class="sub-title">「たび」という言葉</h3>
+      <div class="prose">
+        <p>語源には定説がなく、「たどる日」「他日」「外日」など多くの説があります。柳田國男がとったのは「給べ（たべ）」説で、旅人が道沿いの家で食べ物や寝床を乞うときの言葉から来たとするものです。古い旅が、道中の人の助けなしには成り立たなかったことが分かります。</p>
+      </div>
+      <p class="src">出典：<a href="https://gogen-yurai.jp/tabi/" target="_blank" rel="noopener">語源由来辞典</a>、<a href="https://ja.wikipedia.org/wiki/旅" target="_blank" rel="noopener">旅（Wikipedia）</a></p>
+    </div>
+
+    <ol class="era-list">
+      <li class="era">
+        <div class="era-when">7〜9世紀<span>古代</span></div>
+        <ul class="era-items">
+          <li>律令制で都から七道がのび、約16kmごとに駅家を置いた。駅馬を使えるのは駅鈴を持つ役人だけ。</li>
+          <li>世界大百科事典は、古代の旅は強制的な旅が主だったとしている。防人は任期3年で食料も自前、税の品を都へ運ぶ運脚には帰り道で餓死する人もいた。</li>
+          <li><span class="y">630年〜</span>遣唐使。後期は4隻・数百人で渡り、遭難する船もある命がけの航海だった。</li>
+          <li>万葉集では「草枕」が旅にかかる枕詞。旅先で草を枕に寝ることから来ている。</li>
+        </ul>
+      </li>
+      <li class="era">
+        <div class="era-when">10〜16世紀<span>参詣と修行、<br>歌を詠む旅</span></div>
+        <ul class="era-items">
+          <li><span class="y">907年〜</span>上皇の熊野詣。後白河院は34回通い、1118年の白河院の参詣は総勢814人。尾根道に続く行列が「蟻の熊野詣」と呼ばれた。</li>
+          <li>紀貫之『土佐日記』は55日間の帰京の記録。菅原孝標女『更級日記』は13歳で上総から京へ約3か月かけた旅から始まる。</li>
+          <li>西行は69歳でも陸奥へ旅をした。一遍は全国を遊行して念仏札を約25万人に配った。宗祇は旅の途中、箱根で亡くなった。</li>
+          <li>室町時代に伊勢講ができ、御師が講の人々を受け入れた。</li>
+        </ul>
+      </li>
+      <li class="era">
+        <div class="era-when">1601〜1867年<span>江戸</span></div>
+        <ul class="era-items">
+          <li>日本橋を起点に五街道が整う。旅には村の名主などが出す通行手形が要り、旅先で死んでも故郷へ知らせなくてよいという「捨て往来」もあった。</li>
+          <li>伊勢参りはふだんの年でも年30万〜40万人。伊勢講では仲間でお金を積み立て、くじで選ばれた人が代表で参詣した。一生に一度の旅を、村の仲間で支える仕組みだった。</li>
+          <li><span class="y">1689年</span>松尾芭蕉が曾良と江戸を出て、約150日・約2,400kmを歩いた（『おくのほそ道』）。</li>
+          <li><span class="y">1810年</span>八隅蘆庵『旅行用心集』。「よその土地の風俗や言葉を笑わない」などの心得をまとめた旅の指南書。</li>
+          <li>富士講、約40日で四国を一周する遍路、農閑期の湯治。遍路の「お接待」は今も残り、年10万〜30万人が歩くと推計されている。</li>
+        </ul>
+      </li>
+      <li class="era">
+        <div class="era-when">1872〜1912年<span>明治</span></div>
+        <ul class="era-items">
+          <li><span class="y">1872年</span>新橋〜横浜の鉄道開業。29kmを53分で結んだ。</li>
+          <li><span class="y">1886年</span>東京師範学校の男子生徒99名が東京と銚子を往復した「長途遠足」が、修学旅行の始まりとされる。旅を学校教育に組み込んだ日本独特の形で、今も続いている。</li>
+          <li><span class="y">1893年</span>渋沢栄一らが関わり、外国人を迎える「喜賓会」ができた。<span class="y">1912年</span>には今のJTBの源流、ジャパン・ツーリスト・ビューローが作られた。</li>
+        </ul>
+      </li>
+      <li class="era">
+        <div class="era-when">1960〜1980年代<span>戦後〜昭和</span></div>
+        <ul class="era-items">
+          <li><span class="y">1964年</span>観光の海外渡航が自由化。年1回・持ち出し500ドルまで。最初のハワイ9日間ツアーは36万4,000円で、大卒公務員の初任給の19倍だった。同じ年に東海道新幹線が開業した。</li>
+          <li><span class="y">1970年</span>大阪万博に6,422万人。その1か月後に国鉄が「ディスカバー・ジャパン」を始め、少人数の旅を勧めた。</li>
+          <li><span class="y">1979年</span>『地球の歩き方』創刊。<span class="y">1986年</span>沢木耕太郎『深夜特急』が出て、長い旅をする若者が生まれた。</li>
+        </ul>
+      </li>
+      <li class="era">
+        <div class="era-when">2003年〜現在<span>平成〜令和</span></div>
+        <ul class="era-items">
+          <li><span class="y">2003年</span>ビジット・ジャパン・キャンペーン開始。当時の訪日客は約521万人。2006年に観光立国推進基本法、2008年に観光庁。</li>
+          <li>20代の出国率は1996年の24.6%から2008年に18.4%まで下がり、2017年に25.5%へ戻った。2024年は21.9%で、全世代の10.5%を大きく上回る。</li>
+          <li>國學院大學の塩谷英生教授は、旅券を持つ人が人口の16.8%にとどまることから、日本人全体の海外旅行離れのほうが大きな問題だと述べている。</li>
+        </ul>
+      </li>
+    </ol>
+    <p class="src">出典：<a href="https://kotobank.jp/word/旅-561340" target="_blank" rel="noopener">コトバンク「旅」</a>、<a href="https://www.westjr.co.jp/company/info/issue/bsignal/07_vol_115/feature01.html" target="_blank" rel="noopener">JR西日本 Blue Signal</a>、<a href="https://kotobank.jp/word/伊勢参り-432660" target="_blank" rel="noopener">コトバンク「伊勢参り」</a>、<a href="https://ja.wikipedia.org/wiki/おくのほそ道" target="_blank" rel="noopener">おくのほそ道</a>、<a href="https://ja.wikipedia.org/wiki/修学旅行" target="_blank" rel="noopener">修学旅行</a>、<a href="https://tokushima-u.repo.nii.ac.jp/record/2006694/files/h30sprohokoku_57.pdf" target="_blank" rel="noopener">徳島大学の論文（喜賓会）</a>、<a href="https://www.travelvoice.jp/20140120-14994" target="_blank" rel="noopener">トラベルボイス（渡航自由化）</a>、<a href="https://www.nippon.com/ja/features/h00281/" target="_blank" rel="noopener">nippon.com</a>、<a href="https://www.travelvoice.jp/20250819-158229" target="_blank" rel="noopener">トラベルボイス（若者の海外旅行）</a></p>
+
+    <div class="sub">
+      <h3 class="sub-title">お蔭参り：人口の1割以上が伊勢を目指した年</h3>
+      <p class="sub-lead">およそ60年に一度、爆発的な集団参詣が起きました。沿道の人々が施しをしたので、着の身着のままでも参加できました。主人や親に黙って出る「抜け参り」も、参詣の証拠を持ち帰れば咎められませんでした。</p>
+      <div class="bars" id="okage" aria-label="お蔭参りの参加者が当時の人口に占めた割合"></div>
+      <p class="src">参加者数は世界大百科事典（<a href="https://kotobank.jp/word/お蔭参り-38781" target="_blank" rel="noopener">コトバンク「お蔭参り」</a>）、人口に対する割合は<a href="https://ja.wikipedia.org/wiki/おかげ参り" target="_blank" rel="noopener">おかげ参り（Wikipedia）</a>による。割合は幅のある推計の中央値。</p>
+    </div>
+
+    <div class="sub">
+      <h3 class="sub-title">出ていく旅から、迎える旅へ</h3>
+      <figure>
+        <div class="fig-title">2025年、訪日客は出国する日本人の2.9倍になった</div>
+        <div class="fig-sub">日本人出国者数と訪日外国人数（年間）</div>
+        <div class="legend"><span><i style="background:var(--ink-40)"></i>日本人出国者</span><span><i style="background:var(--brand)"></i>訪日外国人</span></div>
+        <div class="chart" id="chart-japan" role="img" aria-label="日本人出国者は1990年に1000万人を超え2019年に2008万人。訪日外国人は2003年の521万人から2025年の4268万人へ"></div>
+        <figcaption>日本人出国者の2020年までは法務省『出入国管理統計年報』（<a href="https://www.ipss.go.jp/syoushika/tohkei/Data/Popular2022/T10-08.files/sheet001.htm" target="_blank" rel="noopener">社人研の集計表</a>）、1964年は<a href="https://www.travelvoice.jp/20140120-14994" target="_blank" rel="noopener">トラベルボイス</a>。訪日外国人と2021年以降の出国者はJNTOの推計を伝える報道（<a href="https://www.aviationwire.jp/?p=243149" target="_blank" rel="noopener">Aviation Wire</a>、<a href="https://www.travelvoice.jp/20250819-158229" target="_blank" rel="noopener">トラベルボイス</a>、<a href="https://www.travelvoice.jp/20260121-159116" target="_blank" rel="noopener">同</a>、<a href="https://yamatogokoro.jp/inbound_data/59128/" target="_blank" rel="noopener">やまとごころ</a>）と<a href="https://ja.wikipedia.org/wiki/ビジット・ジャパン・キャンペーン" target="_blank" rel="noopener">ビジット・ジャパン・キャンペーン</a>。点のない年はデータを結んだ線です。</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 第3章 ================= -->
+<section class="chapter" id="ch3">
+  <div class="spine"><div class="spine-inner"><div class="lab">第3章</div><div class="big">3</div></div></div>
+  <div class="ch-body">
+    <h2 class="ch-title">旅の役割</h2>
+    <p class="ch-lead">1章と2章の歴史を並べると、旅は6つの役割を果たしてきました。どの役割も形を変えて今も続いています。</p>
+
+    <div class="roles">
+      <div class="role"><h4>物と情報を運ぶ</h4><dl><dt>世界</dt><dd>シルクロード、乳香の道</dd><dt>日本</dt><dd>運脚、遣唐使</dd><dt>今</dt><dd>出張、商談、国際会議</dd></dl></div>
+      <div class="role"><h4>信仰を実践する</h4><dl><dt>世界</dt><dd>サンティアゴ巡礼、ハッジ</dd><dt>日本</dt><dd>熊野詣、伊勢参り、四国遍路</dd><dt>今</dt><dd>巡礼路を歩く旅、寺社めぐり</dd></dl></div>
+      <div class="role"><h4>学ぶ</h4><dl><dt>世界</dt><dd>ヘロドトス、グランドツアー</dd><dt>日本</dt><dd>遣唐使、修学旅行</dd><dt>今</dt><dd>留学、ギャップイヤー、ワーキングホリデー</dd></dl></div>
+      <div class="role"><h4>休む・楽しむ</h4><dl><dt>世界</dt><dd>ローマの保養地バイアエ、地中海のパッケージ旅行</dd><dt>日本</dt><dd>湯治、新婚旅行</dd><dt>今</dt><dd>有給休暇を使った観光</dd></dl></div>
+      <div class="role"><h4>人と人をつなぐ</h4><dl><dt>世界</dt><dd>古代オリンピックの休戦</dd><dt>日本</dt><dd>伊勢講、遍路のお接待</dd><dt>今</dt><dd>国際交流、旅仲間のコミュニティ</dd></dl></div>
+      <div class="role"><h4>地域を支える</h4><dl><dt>世界</dt><dd>トマス・クック以降の観光産業</dd><dt>日本</dt><dd>伊勢の御師、宿場町</dd><dt>今</dt><dd>インバウンド、地方の観光まちづくり</dd></dl></div>
+    </div>
+
+    <div class="sub">
+      <h3 class="sub-title">社会にとっての役割</h3>
+      <div class="prose">
+        <p>世界旅行ツーリズム協議会（WTTC）の2026年4月の発表では、2025年の旅行・観光は世界GDPの9.8%（11.6兆ドル）、雇用の10.9%（3億6,600万人）を占めました。江戸の伊勢で御師が800軒を超えたように、旅人を迎えることは昔から地域の暮らしを支えてきました。</p>
+        <p>UN Tourism（旧UNWTO）が1999年に採択した世界観光倫理憲章は、第1条を「人々と社会の相互理解と尊重への観光の貢献」としています。その一方で、旅が増えすぎると住民の暮らしを侵します。京都やヴェネツィアの対策は、旅の役割を受け入れる側から問い直す動きです。</p>
+      </div>
+      <p class="src">出典：<a href="https://www.asianhospitality.com/travel-tourism-11-6-trillion-2025-wttc-report/" target="_blank" rel="noopener">Asian Hospitality（WTTC発表の報道）</a>、<a href="https://www.untourism.int/global-code-of-ethics-for-tourism" target="_blank" rel="noopener">UN Tourism 世界観光倫理憲章</a>、<a href="https://www.untourism.int/news/tourism-raises-its-voice-for-peace" target="_blank" rel="noopener">UN Tourism 声明（2022年）</a></p>
+    </div>
+
+    <div class="sub">
+      <h3 class="sub-title">個人にとっての役割：研究者はどう見てきたか</h3>
+      <p class="sub-lead">観光の研究では、「現代の観光は浅いのか、何かを探しているのか」が長く議論されてきました。</p>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>研究者</th><th>年</th><th>言ったこと</th></tr></thead>
+          <tbody>
+            <tr><td><a href="https://www.penguinrandomhouse.com/books/16085/the-image-by-daniel-j-boorstin/9780679741800/" target="_blank" rel="noopener">ブーアスティン</a></td><td class="num">1962</td><td>昔の旅人（トラベラー）は自分から体験を取りに行ったが、現代の観光客（ツーリスト）は用意された体験を受け取るだけになった。報道されるために作られる出来事を「疑似イベント」と呼んだ。</td></tr>
+            <tr><td><a href="https://www.ucpress.edu/books/the-tourist/paper" target="_blank" rel="noopener">マキャーネル</a></td><td class="num">1973</td><td>観光客はその土地の「本物の裏側」を見たがっている。観光地はそれに応えて、裏側に入ったと感じさせる空間を用意する（演出された真正性）。</td></tr>
+            <tr><td><a href="https://www.sagepub.com/en-us/sam/the-tourist-gaze-30/book234297" target="_blank" rel="noopener">アーリ</a></td><td class="num">1990</td><td>観光客が何を見どころと感じるかは、社会やメディアによって作られる（観光のまなざし）。第3版（2011）では写真とSNSの時代も扱う。</td></tr>
+            <tr><td><a href="https://cris.huji.ac.il/en/publications/a-phenomenology-of-tourist-experiences/" target="_blank" rel="noopener">コーエン</a></td><td class="num">1979</td><td>この議論を受けて、旅には5つの型があるとした（下の図）。</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <figure class="cohen">
+        <div class="fig-title">コーエンの5類型：生きる意味の拠り所をどこに置く旅か</div>
+        <div class="fig-sub">コーエンは拠り所を「センター」と呼んだ。4と5は、旅がその人の生き方に触れる旅</div>
+        <div class="cohen-axis" style="margin-top:16px"><span>自分の社会の中に拠り所がある</span><span>社会の外に拠り所を探す</span></div>
+        <ol>
+          <li><span class="k">1</span><h4>レクリエーション型</h4><p>楽しんで元気を取り戻し、日常に帰る</p></li>
+          <li><span class="k">2</span><h4>気晴らし型</h4><p>日常の退屈をいっとき忘れる</p></li>
+          <li><span class="k">3</span><h4>経験型</h4><p>ほかの土地の本物の暮らしを見たい</p></li>
+          <li class="deep"><span class="k">4</span><h4>実験型</h4><p>いろいろな生き方を試し、自分に合う拠り所を探す</p></li>
+          <li class="deep"><span class="k">5</span><h4>実存型</h4><p>自分の社会とは別の場所に、新しい拠り所を見つける</p></li>
+        </ol>
+        <figcaption>類型の説明は<a href="https://tourismosjournal.aegean.gr/article/download/228/198/389" target="_blank" rel="noopener">Chheang 2011</a>による要約。</figcaption>
+      </figure>
+    </div>
+
+    <div class="sub">
+      <h3 class="sub-title">旅と幸福感</h3>
+      <p class="sub-lead">楽しいだけの旅の効果は長く続かず、旅の前後に何をするかで残るものが変わります。</p>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>研究</th><th>対象</th><th>分かったこと</th></tr></thead>
+          <tbody>
+            <tr><td><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC2837207/" target="_blank" rel="noopener">Nawijnら（2010）</a></td><td>オランダの成人<span class="num">1,530</span>人</td><td>旅行に出る人は出発前の幸福度が高かった。帰ってからは差がなくなり、「とてもリラックスできた」旅でも効果は2週間ほど。</td></tr>
+            <tr><td><a href="https://www.jstage.jst.go.jp/article/joh/51/1/51_K8004/_article" target="_blank" rel="noopener">de Bloomら（2009）</a></td><td>休暇の研究<span class="num">7</span>本のメタ分析</td><td>休暇で健康と幸福感は上がるが、仕事に戻るとすぐ薄れる。</td></tr>
+            <tr><td><a href="https://www.jstage.jst.go.jp/article/jafit/27/0/27_73/_article/-char/ja/" target="_blank" rel="noopener">宮川・小口（2020）</a></td><td>海外修学旅行の高校生</td><td>旅の体験を思い出して楽しむ工夫（セイバリング）をした生徒ほど、幸福感が上がった。</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 第4章 ================= -->
+<section class="chapter" id="ch4">
+  <div class="spine"><div class="spine-inner"><div class="lab">第4章</div><div class="big">4</div></div></div>
+  <div class="ch-body">
+    <h2 class="ch-title">旅を通じた人生の変容</h2>
+    <p class="ch-lead">旅が人を変えるのは、旅先でこれまでの考え方が通じない出来事に出会い、それを自分で振り返って意味づけたときです。先行研究をまとめたPungら（2020）はこの流れをモデルにしており、100年前の人類学から今の心理学まで、同じ形が繰り返し示されてきました。</p>
+
+    <div class="sub">
+      <h3 class="sub-title">4つの理論は、旅を同じ3段階で見ている</h3>
+      <div class="stages">
+        <div class="stage">
+          <div class="when">出発するとき</div>
+          <h4>分離<small>キャンベルの「出立」</small></h4>
+          <ul><li>日常の場所と肩書きを離れる</li></ul>
+          <div class="conds"><span><b>1</b>日常から離れる</span></div>
+        </div>
+        <div class="stage mid">
+          <div class="when">旅先で</div>
+          <h4>過渡<small>キャンベルの「試練」</small></h4>
+          <ul>
+            <li>考え方が通じない出来事<span class="who">メジローの「混乱を招くジレンマ」</span></li>
+            <li>肩書きのない人どうしのつながり<span class="who">ターナーの「コミュニタス」</span></li>
+          </ul>
+          <div class="conds"><span><b>2</b>揺らぐ出来事に出会う</span><span><b>3</b>現地の人と関係を作る</span></div>
+        </div>
+        <div class="stage">
+          <div class="when">帰ってから</div>
+          <h4>統合<small>キャンベルの「帰還」</small></h4>
+          <ul><li>体験を振り返って意味づける</li><li>生き方や仕事が変わる</li></ul>
+          <div class="conds"><span><b>4</b>振り返って言葉にする</span><span><b>5</b>生き方につなげる</span></div>
+        </div>
+      </div>
+      <p class="src">段階の名前はファン・ヘネップ『通過儀礼』（1909）による。青い数字は、この章の最後の「人生に残る旅の条件」と対応しています。</p>
+
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>理論</th><th>年</th><th>言ったこと</th><th>旅に当てはめると</th></tr></thead>
+          <tbody>
+            <tr><td><a href="https://press.uchicago.edu/ucp/books/book/chicago/R/bo38180827.html" target="_blank" rel="noopener">ファン・ヘネップ『通過儀礼』</a></td><td class="num">1909</td><td>成人・結婚・死など人生の節目の儀礼は、どれも分離・過渡・統合の3段階をもつ。</td><td>日常を離れ、旅先でどちらでもない時間を過ごし、変わった自分で日常に戻る。</td></tr>
+            <tr><td><a href="https://cse.iitk.ac.in/users/amit/books/turner-1969-ritual-process-structure.html" target="_blank" rel="noopener">ターナーのリミナリティとコミュニタス</a></td><td class="num">1969</td><td>地位も肩書きもない真ん中の状態がリミナリティ。そこで上下のない人どうしのつながり（コミュニタス）が生まれる。1978年の共著では巡礼をこの経験の場として分析した。</td><td>旅先で初対面の人と、肩書きなしに深く話せる。</td></tr>
+            <tr><td><a href="https://saleonard.people.ysu.edu/Campbell%20notes.html" target="_blank" rel="noopener">キャンベル「英雄の旅」</a></td><td class="num">1949</td><td>世界中の神話は「出立・試練・帰還」という共通の型をもつ。英雄は未知の世界へ出て、得たものを持ち帰る。</td><td>帰ってきて、得たものを周りに渡すところまでが旅。</td></tr>
+            <tr><td><a href="https://www.tc.columbia.edu/articles/2014/october/jack-mezirow-who-transformed-the-field-of-adult-learning-d/" target="_blank" rel="noopener">メジローの変容的学習</a></td><td class="num">1978</td><td>大人の学びは「混乱を招くジレンマ」から始まり、自分の前提を見直し、新しい役割を試し、自信をつけていく。</td><td>旅先のカルチャーショックが、このジレンマにあたる。</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="sub">
+      <h3 class="sub-title">旅で変わるときに起きていること</h3>
+      <div class="prose">
+        <p>Kirillovaら（2017）は旅の語り10件を分析し、変容のきっかけになる出来事は旅の終わり近くに起きやすく、強い入り混じった感情を伴うと報告しました。同じ研究者たちの別の調査では、旅行者はきっかけが起きるまで生き方を振り返らず、帰国後に感じた不安が生き方の変化につながっていました。</p>
+        <p>Pungら（2020）のモデルでは、旅先でのどっちつかずの状態、カルチャーショック、困難がきっかけになり、その体験を旅行者が振り返って解釈したときに、価値観・知識・ものの見方が変わります。</p>
+      </div>
+      <p class="src">出典：<a href="https://research.polyu.edu.hk/en/publications/what-triggers-transformative-tourism-experiences/" target="_blank" rel="noopener">Kirillova et al. 2017（TRR）</a>、<a href="https://research.polyu.edu.hk/en/publications/tourism-and-existential-transformation-an-empirical-investigation/" target="_blank" rel="noopener">Kirillova et al. 2017（JTR）</a>、<a href="https://ideas.repec.org/a/eee/anture/v81y2020ics0160738320300293.html" target="_blank" rel="noopener">Pung, Gnoth &amp; Del Chiappa 2020</a></p>
+    </div>
+
+    <div class="sub">
+      <h3 class="sub-title">心理学の研究が示したこと</h3>
+      <p class="sub-lead">何が伸びるかによって、関係していた旅の形が違います。自分を知ることと創造性には一つの土地に長く関わる滞在が、他者への信頼には違いに気づく体験をいくつも重ねることが関係していました。</p>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>研究</th><th>対象</th><th>伸びたもの</th><th>関係していた旅の形</th></tr></thead>
+          <tbody>
+            <tr><td><a href="https://www.fsv.uni-jena.de/en/88451/pedes" target="_blank" rel="noopener">Zimmermann &amp; Neyer（2013）</a></td><td>ドイツの大学生。留学した<span class="num">527</span>人としなかった<span class="num">607</span>人</td><td>新しいものへの開放性と協調性が上がり、情緒の不安定さが下がった</td><td>現地で新しい人間関係ができたこと</td></tr>
+            <tr><td><a href="https://willmaddux.web.unc.edu/wp-content/uploads/sites/15846/2018/02/OBHDP-Culture-and-Self.pdf" target="_blank" rel="noopener">Adamら（2018）</a></td><td>6つの研究、計<span class="num">1,874</span>人</td><td>「自分が何者か」がはっきりし、キャリアの選択もはっきりした</td><td>住んだ期間。国の数とは関係がなかった</td></tr>
+            <tr><td><a href="https://www.sciencedaily.com/releases/2009/04/090423105848.htm" target="_blank" rel="noopener">Maddux &amp; Galinsky（2009）</a></td><td>MBA生など5つの研究</td><td>創造性</td><td>海外に住んだ期間と、現地の文化への適応。旅行した期間とは関係がなかった</td></tr>
+            <tr><td><a href="https://willmaddux.web.unc.edu/wp-content/uploads/sites/15846/2018/04/AMJ-Fashion-and-Creativity.pdf" target="_blank" rel="noopener">Godartら（2015）</a></td><td>ファッションハウス<span class="num">270</span>社のディレクター、11年分</td><td>コレクションの創造性</td><td>海外で働いた深さがいちばん強く関係し、国の数は中くらいがよかった</td></tr>
+            <tr><td><a href="https://willmaddux.web.unc.edu/wp-content/uploads/sites/15846/2019/01/SPPS-Travel-and-Trust.pdf" target="_blank" rel="noopener">Caoら（2014）</a></td><td>5つの研究。渡航前後を追った中国の成人<span class="num">245</span>人を含む</td><td>見知らぬ人への信頼</td><td>訪れた国の数。国ごとの「違い」に目を向けた人ほど信頼が上がった</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="src">どの研究も相関や短期の実験が中心で、旅が必ず人を変えるとまでは言えない点には注意が必要です。</p>
+    </div>
+
+    <div class="sub">
+      <h3 class="sub-title">日本の研究</h3>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>調査</th><th>対象</th><th>分かったこと</th></tr></thead>
+          <tbody>
+            <tr><td><a href="https://www.mhlw.go.jp/houdou/2004/12/h1227-3.html" target="_blank" rel="noopener">厚生労働省（2004）</a></td><td>ワーキングホリデーなどの経験者約<span class="num">6,400</span>人</td><td>身についたものの上位は国際感覚・異文化適応力82.8%、積極性82.1%、コミュニケーション能力80.5%。動機には「将来を考える時間が欲しかった」21.5%もある。帰国後の月収は21.7万円から18.7万円に下がっていた。</td></tr>
+            <tr><td><a href="https://kaken.nii.ac.jp/en/grant/KAKENHI-PROJECT-25245078/" target="_blank" rel="noopener">横田雅弘ほか（科研費）</a></td><td>留学経験者<span class="num">4,489</span>人と未経験者<span class="num">1,298</span>人</td><td>留学は能力、キャリア、価値観、社会への関わり、人生の満足度に影響していた。</td></tr>
+            <tr><td><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12230070/" target="_blank" rel="noopener">Nakajima &amp; Oguchi（2025）</a></td><td>変容的な旅をした日本人<span class="num">482</span>人</td><td>きっかけは異文化・自然の景色・現地の人との交流で、欧米と同じ。日本では自分の未熟さに気づく「謙虚さ」が多く挙がった。広島や福島を訪ねる旅や、出張もきっかけになっていた。</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="sub">
+      <h3 class="sub-title">人生に残る旅の条件</h3>
+      <p class="sub-lead">ここまでの理論と研究を重ねると、旅が人生に残るには次の5つが関わっています。</p>
+      <ol class="conditions">
+        <li><span class="c">1</span><div><h4>日常から離れる</h4><p>肩書きやいつもの役割が通じない場に身を置く（ファン・ヘネップ、ターナー）。</p></div></li>
+        <li><span class="c">2</span><div><h4>考え方が揺らぐ出来事に出会う</h4><p>異文化、困難、強い感情を伴う体験（メジロー、Kirillovaら、Pungら）。</p></div></li>
+        <li><span class="c">3</span><div><h4>現地の人と関係を作る</h4><p>留学生の性格の変化も、創造性の伸びも、現地との関わりの深さで説明できた（Zimmermann &amp; Neyer、Maddux &amp; Galinsky）。</p></div></li>
+        <li><span class="c">4</span><div><h4>振り返って言葉にする</h4><p>体験を解釈したときに変容が起きる（Pungら、Kirillovaら）。楽しいだけの旅の効果は2週間ほどで薄れる（3章）。</p></div></li>
+        <li><span class="c">5</span><div><h4>帰ってから生き方につなげる</h4><p>帰国後の感情が生き方の変化を生む（Kirillovaら）。得たものを持ち帰って周りに渡すところまでが旅に含まれる（キャンベル）。</p></div></li>
+      </ol>
+      <p class="prose">このうち3・4・5は旅先での偶然に任せなくてもよく、仲間や場の設計で支えられる部分です。</p>
+    </div>
+  </div>
+</section>
+
+<section class="end">
+  <h2>公開前に確かめたい数字</h2>
+  <ul>
+    <li>トマス・クックの1841年の参加者数は、出典によって485人・500人・540人と分かれる。</li>
+    <li>お蔭参りの人数は、世界大百科事典とWikipediaで少し違う（1705年は362万人と330万〜370万人）。</li>
+    <li>2025年の国際観光客数（15.2億人）、WTTCの経済規模、JNTOの2024・2025年の数字は、公式発表を伝える報道で確かめたもの。公式ページでの最終確認がまだ。</li>
+    <li>マキャーネル1973年論文の要旨、キャンベルの出版年と序文は、原典を開いて確認できていない。</li>
+  </ul>
+  <div class="cols">
+    <div><h3>1章の主な出典</h3><ul>
+      <li><a href="https://en.wikipedia.org/wiki/History_of_tourism" target="_blank" rel="noopener">History of tourism（Wikipedia）</a></li>
+      <li><a href="https://www.untourism.int/news/international-tourism-recovers-pre-pandemic-levels-in-2024" target="_blank" rel="noopener">UN Tourism：2024年に回復</a></li>
+      <li><a href="https://www.gresham.ac.uk/node/11527" target="_blank" rel="noopener">Gresham College：The Grand Tour</a></li>
+      <li><a href="https://en.wikipedia.org/wiki/Thomas_Cook" target="_blank" rel="noopener">Thomas Cook（Wikipedia）</a></li>
+    </ul></div>
+    <div><h3>2章の主な出典</h3><ul>
+      <li><a href="https://kotobank.jp/word/お蔭参り-38781" target="_blank" rel="noopener">コトバンク「お蔭参り」</a></li>
+      <li><a href="https://kotobank.jp/word/熊野詣-57491" target="_blank" rel="noopener">コトバンク「熊野詣」</a></li>
+      <li><a href="https://ja.wikipedia.org/wiki/ディスカバー・ジャパン" target="_blank" rel="noopener">ディスカバー・ジャパン（Wikipedia）</a></li>
+      <li><a href="https://www.newsweekjapan.jp/articles/-/27857" target="_blank" rel="noopener">ニューズウィーク日本版：若者の海外旅行</a></li>
+    </ul></div>
+    <div><h3>3・4章の主な出典</h3><ul>
+      <li><a href="https://tourismosjournal.aegean.gr/article/download/320/281/552" target="_blank" rel="noopener">The Tourist Gaze 3.0 書評</a></li>
+      <li><a href="https://www.york.ac.uk/projects/pilgrimage/content/soc_anth.html" target="_blank" rel="noopener">York大学：Pilgrims and Pilgrimage</a></li>
+      <li><a href="https://business.rice.edu/wisdom/peer-reviewed-research/how-living-abroad-can-clarify-your-sense-self" target="_blank" rel="noopener">Rice Business Wisdom（Adamら）</a></li>
+      <li><a href="https://www.psypost.org/new-study-confirms-mark-twains-saying-travel-is-fatal-to-prejudice/" target="_blank" rel="noopener">PsyPost（Caoら）</a></li>
+    </ul></div>
+  </div>
+</section>
+</main>
+
+<footer class="shell"><div class="foot"><span><b>POOLO</b>　by TABIPPO</span><span>2026年10月8日時点の調査にもとづく</span></div></footer>
+
+<script>
+(function(){
+  var NS='http://www.w3.org/2000/svg';
+  function el(tag,attrs,text){var e=document.createElementNS(NS,tag);for(var k in attrs)e.setAttribute(k,attrs[k]);if(text!=null)e.textContent=text;return e;}
+  var C={ink:'#000',soft:'rgba(0,0,0,.55)',grid:'#E4E4E4',axis:'#999',grey:'rgba(0,0,0,.40)',brand:'#189BBC',deep:'#127E9A'};
+
+  /* 万人単位の値を表示用に */
+  function man(v,approx){var s=v>=10000?(Math.round(v/1000)/10)+'億人':(v>=100?Math.round(v).toLocaleString('ja-JP'):(Math.round(v*10)/10).toLocaleString('ja-JP'))+'万人';return (approx?'約':'')+s;}
+
+  function lineChart(target,o){
+    var W=760,H=o.h||360,L=72,R=W-36,T=40,B=H-40;
+    var svg=el('svg',{viewBox:'0 0 '+W+' '+H,'font-family':"'Noto Sans JP',sans-serif",'font-size':'12'});
+    var X=function(y){return L+(y-o.x0)/(o.x1-o.x0)*(R-L);},Y=function(v){return B-v/o.ymax*(B-T);};
+    o.yticks.forEach(function(v){svg.appendChild(el('line',{x1:L,x2:R,y1:Y(v),y2:Y(v),stroke:C.grid}));svg.appendChild(el('text',{x:L-10,y:Y(v)+4,'text-anchor':'end',fill:C.soft,'font-size':'11.5'},o.ylab(v)));});
+    svg.appendChild(el('line',{x1:L,x2:R,y1:B,y2:B,stroke:C.axis}));
+    o.xticks.forEach(function(y){svg.appendChild(el('text',{x:X(y),y:B+22,'text-anchor':'middle',fill:C.soft,'font-size':'11.5','font-family':"'Jost',sans-serif"},String(y)));});
+    o.series.forEach(function(s){
+      var d=s.rows.map(function(r,i){return (i?'L':'M')+X(r[0]).toFixed(1)+' '+Y(r[1]).toFixed(1);}).join(' ');
+      svg.appendChild(el('path',{d:d,fill:'none',stroke:s.color,'stroke-width':s.w||2,'stroke-linejoin':'round'}));
+      s.rows.forEach(function(r){var last=r===s.rows[s.rows.length-1]&&s.accentLast;var c=el('circle',{cx:X(r[0]),cy:Y(r[1]),r:last?5.5:3.2,fill:(last&&s.lastColor)||s.color});c.appendChild(el('title',{},r[0]+'年：'+man(r[1],r[3])));svg.appendChild(c);});
+      (s.labels||[]).forEach(function(lb){var r=s.rows.filter(function(q){return q[0]===lb.y;})[0];if(!r)return;
+        svg.appendChild(el('text',{x:X(r[0])+(lb.dx||0),y:Y(r[1])+(lb.dy||-12),'text-anchor':lb.a||'middle',fill:lb.c||C.ink,'font-size':'12.5','font-weight':lb.b?'700':'400'},man(r[1],r[3])));
+        if(lb.note)svg.appendChild(el('text',{x:X(r[0])+(lb.dx||0),y:Y(r[1])+(lb.dy||-12)+17,'text-anchor':lb.a||'middle',fill:C.soft,'font-size':'11.5'},lb.note));
+      });
+    });
+    target.appendChild(svg);
+  }
+
+  /* 国際観光客（万人） */
+  lineChart(document.getElementById('chart-world'),{
+    x0:1950,x1:2025,ymax:160000,yticks:[0,50000,100000,150000],xticks:[1950,1960,1970,1980,1990,2000,2010,2020],
+    ylab:function(v){return v?(v/10000)+'億人':'0';},
+    series:[{color:C.grey,accentLast:true,lastColor:C.brand,rows:[[1950,2500],[1980,27800],[2013,108700],[2016,123500],[2018,140000],[2019,150000],[2020,40000,0,true],[2023,130000],[2024,140000],[2025,152000]],
+      labels:[{y:1950,dy:-12,a:'start',dx:-4},{y:1980},{y:2019,a:'end',dx:-16},{y:2020,dy:26,note:'コロナ禍で前年比74%減'},{y:2025,b:true,c:C.deep,dy:-14}]}]
+  });
+  /* 日本：出国者と訪日客（万人） */
+  lineChart(document.getElementById('chart-japan'),{
+    x0:1964,x1:2025,ymax:4600,yticks:[0,1000,2000,3000,4000],xticks:[1965,1975,1985,1995,2005,2015,2025],
+    ylab:function(v){return v?v.toLocaleString('ja-JP')+'万人':'0';},
+    series:[
+      {color:C.grey,rows:[[1964,12.8],[1965,26.6],[1970,93.6],[1980,390.9],[1985,494.8],[1990,1099.7],[1995,1529.8],[2000,1781.9],[2019,2008.1],[2020,317.4],[2021,51.2],[2024,1301],[2025,1473.2]],
+        labels:[{y:1990,a:'end',dx:-8,dy:-6,note:'1,000万人を超える'},{y:2019,dy:-12},{y:2025,a:'start',dx:8,dy:16}]},
+      {color:C.brand,w:2.5,accentLast:true,rows:[[2003,521],[2013,1036],[2019,3188],[2021,24.6],[2024,3687],[2025,4268]],
+        labels:[{y:2003,dy:-12,a:'end',dx:-6},{y:2025,a:'end',dx:-10,dy:-12,b:true}]}
+    ]
+  });
+
+  /* お蔭参り */
+  var ok=[[1705,'362万人',12.5],[1771,'207万人',6],[1830,'427万人',13]];
+  var box=document.getElementById('okage');
+  ok.forEach(function(r){var row=document.createElement('div');row.className='bar-row';
+    row.innerHTML='<span class="yr">'+r[0]+'</span><div class="bar-track"><div class="bar-fill" style="width:'+(r[2]/15*100)+'%"></div></div><span class="v">約'+r[2]+'%<br><small>'+r[1]+'</small></span>';
+    box.appendChild(row);});
+  var scale=document.createElement('div');scale.className='src';scale.style.marginTop='0';scale.textContent='バーの長さは当時の人口に対する参加者の割合（目盛りの右端が15%）。';box.appendChild(scale);
+})();
+</script>
+
+</body>
+</html>
