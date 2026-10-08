@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- ▼たたき台（261008）。確定前のプレビューのため検索避け -->
+<meta name="robots" content="noindex">
+<title>COMMONSの1年に、恵比寿で乾杯する。｜POOLO COMMONS 1周年パーティー</title>
+<meta name="description" content="旅好きのオンラインコミュニティ POOLO COMMONSは、2025年11月に始まって1年になります。2026年11月1日（日）18:00、恵比寿で1年を祝うパーティーを開きます。COMMONSのメンバーでなくても参加できます。">
+
+<!-- 色・書体はデザインシステムのトークンを参照する。組みはこのページ固有なので下の <style> に書く（琴平LPと同じ方式） -->
+<link rel="stylesheet" href="../poolo-ds/tokens.css">
+<style> に書く（30代LP v2「旅先の会話」と同じ方式） -->
+<link rel="stylesheet" href="../poolo-ds/tokens.css">
+<style>
+/* =============================================================
+   POOLO COMMONS 1周年パーティー（2026/11/1・恵比寿）
+   型は event-kotohira（琴平）と event-30s-v2-260929 のV2。
+   持ってくる本の案内だけ「紙」の面にする。数字は images/ のSVG（琴平と共通）。
+   ============================================================= */
+*, *::before, *::after { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  background: var(--bg);
+  color: var(--ink-soft);
+  font-family: var(--body);
+  font-size: 14px;
+  line-height: 1.95;
+  letter-spacing: 0.02em;
+  line-break: strict;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+h1, h2, h3, p, ul, ol, dl, dd, figure, blockquote { margin: 0; padding: 0; }
+ul, ol { list-style: none; }
+a { color: inherit; text-decoration: none; }
+img { display: block; max-width: 100%; }
+.nb { white-space: nowrap; }
+br.pc-br { display: none; }
+.num { font-family: var(--en); font-weight: 500; }
+/* 文節で改行する（Chrome系）。非対応のブラウザでは通常の改行に戻る */
+.mc, .lead, .body, .feel-body, .feel-note, .open-body p, .town-text p, .sheet-text, .sheet-ex li, .step p, .faq-a, .faq-q, .ov dd, .fa-main, .fa-sub, .take-body, .take-list li, .tt-title, .tt-desc, .fit li, .person p {
+  word-break: auto-phrase;
+  text-wrap: pretty;
+}
+/* 確認待ちの印。公開前に全部消す */
+.tbd { color: #B3261E; font-size: 0.82em; font-weight: 700; letter-spacing: 0.02em; white-space: nowrap; }
+
+/* ---- 共通 ---- */
+.in { padding-inline: 24px; }
+/* スマホでは写真を画面の端まで出す章（内側の余白は各章で持つ） */
+.feel .in, .town .in, .open .in { padding-inline: 0; }
+.body { font-size: 14px; line-height: 1.95; }
+.body + .body { margin-top: 1.4em; }
+.small { font-size: 12px; }
+.caption { font-size: 11px; color: var(--ink-72); }
+.label { font-size: 11px; font-weight: 700; letter-spacing: 0.06em; }
+/* 文字で組む見出し（章の名前） */
+.h2 {
+  font-family: var(--mincho);
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  color: var(--brand-deep);
+}
+.h2 + .lead { margin-top: 16px; }
+/* 専用レタリングの見出し。高さで大きさを決め、幅は成り行き */
+.lt { display: block; height: 40px; width: auto; }
+/* 専用明朝の数字 01〜03 */
+.no { display: block; height: 13px; width: auto; }
+.btn {
+  display: block;
+  background: var(--brand);
+  color: #fff;
+  text-align: center;
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: 0.06em;
+  line-height: 1.7;
+  padding: 15px 16px;
+  border-radius: 2px;
+  transition: background 0.2s;
+}
+.btn:hover { background: var(--brand-deep); }
+.off { background: var(--bg-off); }
+/* 紙（白い面＋罫線色の縁） */
+.paper { background: #fff; border: 1px solid var(--line); }
+/* 日付（Jostの大きな数字） */
+.date { display: flex; align-items: center; gap: 20px; }
+.date-y { display: block; font-family: var(--en); font-weight: 500; font-size: 12px; line-height: 14px; }
+.date-d { display: block; font-family: var(--en); font-weight: 500; font-size: 48px; line-height: 58px; letter-spacing: 0.02em; color: var(--ink); white-space: nowrap; }
+.date-w { display: block; font-size: 12px; font-weight: 700; letter-spacing: 0.06em; line-height: 23px; white-space: nowrap; }
+.date-w .num { font-size: 14px; }
+.cond { font-size: 12px; font-weight: 700; letter-spacing: 0.06em; }
+.cond .sep { font-weight: 400; margin-inline: 0.6em; }
+.note { font-size: 11px; color: var(--ink-72); }
+.date-line { font-size: 13px; font-weight: 700; letter-spacing: 0.06em; }
+.date-line .num { font-weight: 500; }
+
+/* ---- ヘッダー ---- */
+.hd { position: sticky; top: 0; z-index: 60; background: #fff; transition: box-shadow 0.2s; }
+.hd.is-stuck { box-shadow: 0 1px 0 var(--line); }
+.hd .in { display: flex; align-items: center; gap: 24px; height: 62px; }
+.hd-logo img { width: 65px; height: auto; }
+.hd-label { font-size: 11px; flex: 1; }
+.hd-cta { display: none; }
+
+/* ---- 冒頭（スマホは文字→写真） ---- */
+.fv-copy { padding: 30px 24px 32px; }
+.fv-copy > * + * { margin-top: 18px; }
+.mc {
+  font-family: var(--mincho);
+  font-weight: 700;
+  font-size: 34px;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  color: var(--ink);
+}
+/* 見出しの前置き（「まだ誰にも」）。中心の3行より小さく淡く、同じ明朝で受ける */
+.mc-pre {
+  display: block;
+  font-size: 0.5em;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  line-height: 1.6;
+  color: var(--ink-72);
+  margin-bottom: 0.4em;
+}
+.lead { font-size: 14px; }
+.fv-photo img { width: 100%; height: 300px; object-fit: cover; object-position: 50% 60%; }
+.fv-bottom { display: none; }
+
+/* ---- こんな気持ちの方へ ---- */
+.feel { padding: 32px 0 72px; }
+.feel-photo img { width: 100%; height: 300px; object-fit: cover; object-position: 50% 45%; }
+.feel-text { padding: 40px 28px 0; }
+.feel-text > * + * { margin-top: 28px; }
+.feel-body {
+  font-family: var(--mincho);
+  font-size: 17px;
+  line-height: 2.1;
+  letter-spacing: 0.04em;
+}
+.feel-body + .feel-body { margin-top: 1.6em; }
+.feel-note { font-size: 13px; color: var(--ink-66); }
+
+/* ---- 琴平という町 ---- */
+.town { padding-bottom: 72px; }
+.town-photo img { width: 100%; height: 300px; object-fit: cover; object-position: 50% 55%; }
+.town-text { padding: 40px 28px 0; }
+.town-text > * + * { margin-top: 24px; }
+
+/* ---- ひらく時間（写真の下から紙がせり上がる） ---- */
+.open { padding-block: 64px 64px; }
+.open-head { padding-inline: 28px; }
+.open-head > * + * { margin-top: 16px; }
+.open-row { margin-top: 36px; }
+.open-photo img { width: 100%; height: 300px; object-fit: cover; object-position: 50% 55%; }
+.sheet { position: relative; margin: -56px 28px 0; padding: 36px 24px; }
+.sheet > * + * { margin-top: 24px; }
+.sheet .label { letter-spacing: 0.1em; }
+.sheet-text {
+  font-family: var(--mincho);
+  font-size: 24px;
+  line-height: 1.55;
+  letter-spacing: 0.04em;
+  color: var(--brand-deep);
+}
+.sheet-lines { padding-top: 8px; }
+.sheet-lines span { display: block; height: 1px; background: var(--line-pale); }
+.sheet-lines span + span { margin-top: 56px; }
+.sheet-prompt { font-size: 12px; font-weight: 700; letter-spacing: 0.04em; }
+.sheet-ex { margin-top: 8px; font-size: 13px; color: var(--ink-72); }
+.sheet-ex li + li { margin-top: 4px; }
+.open-body { padding: 36px 28px 0; }
+.open-body > * + * { margin-top: 1.4em; }
+
+/* ---- 旅の前と後にも集まります ---- */
+.program { padding: 64px 28px; }
+.steps { margin-top: 36px; }
+.step { border-top: 1px solid var(--line); padding-top: 20px; }
+.step + .step { margin-top: 28px; }
+.step-key { display: flex; align-items: center; gap: 12px; }
+.step-key .no { height: 12px; position: relative; top: -1px; }
+.step-key .label { color: var(--brand-deep); }
+.step h3 {
+  margin-top: 8px;
+  font-family: var(--mincho);
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1.7;
+  letter-spacing: 0.04em;
+  color: var(--ink);
+}
+.step .when { margin-top: 4px; font-size: 12px; color: var(--ink-66); }
+.step p.body { margin-top: 10px; }
+
+/* ---- 2日間の流れ ---- */
+.days { padding: 64px 28px; border-top: 1px solid var(--line); }
+.days-grid { margin-top: 36px; }
+.day + .day { margin-top: 48px; }
+.day-h { display: flex; align-items: baseline; gap: 14px; padding-bottom: 12px; }
+.day-h .date-d { font-size: 36px; line-height: 44px; }
+.day-h .day-w { font-size: 12px; font-weight: 700; letter-spacing: 0.06em; }
+.day-h .day-w > span { display: block; }
+.day-h .day-w .quiet { font-weight: 400; color: var(--ink-66); }
+.tt li { display: grid; grid-template-columns: 52px 1fr; column-gap: 12px; border-top: 1px solid var(--line); padding-block: 12px; }
+.tt-time { font-family: var(--en); font-weight: 500; font-size: 15px; line-height: 1.6; color: var(--ink); }
+.tt-title { font-size: 14px; font-weight: 700; line-height: 1.7; color: var(--ink); }
+.tt-desc { font-size: 12px; color: var(--ink-66); margin-top: 4px; line-height: 1.8; }
+
+/* ---- 会う人たち ---- */
+.people { padding: 64px 28px; border-top: 1px solid var(--line); }
+.person-list { margin-top: 28px; }
+.person { border-top: 1px solid var(--line); padding-top: 16px; }
+.person + .person { margin-top: 24px; }
+.person-role { font-size: 14px; font-weight: 700; color: var(--ink); }
+.person-role .tbd { margin-left: 6px; }
+.person-bio { margin-top: 6px; font-size: 14px; }
+
+/* ---- 写真の帯 ---- */
+.band img { width: 100%; height: 260px; object-fit: cover; object-position: 50% 55%; }
+
+/* ---- 持ち帰るもの（紙片） ---- */
+.take { padding: 48px 28px; }
+.take-slip { margin-top: 24px; padding: 24px; }
+.take-slip > * + * { margin-top: 16px; }
+.take-list li { position: relative; padding-left: 1em; font-size: 13px; line-height: 1.9; }
+.take-list li + li { margin-top: 2px; }
+.take-list .dot { position: absolute; left: 0; top: 0; }
+
+/* ---- こんな方へ ---- */
+.fit { padding: 64px 28px; }
+.fit ul { margin-top: 16px; }
+.fit li { border-top: 1px solid var(--line); padding: 10px 0; font-size: 14px; }
+.fit-sub { margin-top: 36px; font-size: 13px; font-weight: 700; letter-spacing: 0.04em; color: var(--ink); }
+.fit-sub + ul { margin-top: 10px; }
+
+/* ---- POOLOについて ---- */
+.about { padding-block: 64px; }
+.about .in > * + *, .about-text > * + *, .about-photo > * + * { margin-top: 28px; }
+.about-kv { width: 100%; height: auto; aspect-ratio: 1600 / 813; object-fit: cover; }
+.about-link { display: inline-block; font-size: 14px; font-weight: 700; letter-spacing: 0.04em; color: var(--brand-deep); text-decoration: underline; text-underline-offset: 0.3em; }
+.pc-only { display: none; }
+
+/* ---- 開催概要 ---- */
+.overview { padding-block: 64px; }
+.ov { margin-top: 20px; }
+.ov-row { display: grid; grid-template-columns: 70px 1fr; column-gap: 16px; border-top: 1px solid var(--line); padding-block: 14px; }
+.ov dt { font-size: 12px; font-weight: 700; letter-spacing: 0.06em; }
+.ov dd { font-size: 13px; }
+.ov dd strong { font-weight: 700; color: var(--ink); }
+.ov dd .fee { font-family: var(--en); font-weight: 500; font-size: 18px; color: var(--ink); }
+.ov-notes { margin-top: 16px; }
+.ov-notes p + p { margin-top: 12px; }
+
+/* ---- よくある質問 ---- */
+.faq { padding-block: 64px; }
+.faq-list { margin-top: 22px; }
+.faq-item { border-top: 1px solid var(--line); padding-top: 12px; }
+.faq-item + .faq-item { margin-top: 22px; }
+.faq-q { font-weight: 700; }
+.faq-a { margin-top: 12px; }
+
+/* ---- お申し込み（ブランドの青の面） ---- */
+.apply { background: var(--brand); color: #fff; padding: 64px 28px; }
+.apply .in { padding-inline: 0; }
+.apply .in > * + * { margin-top: 24px; }
+.apply-head > * + * { margin-top: 20px; }
+.apply .h2 { color: #fff; font-size: 28px; }
+.apply .date-y, .apply .date-d, .apply .date-w { color: #fff; }
+.apply .btn { background: #fff; color: var(--brand-deep); }
+.apply .btn:hover { background: var(--brand-pale); }
+.apply .tbd { color: #fff; text-decoration: underline; text-underline-offset: 0.25em; }
+.apply-steps { font-size: 13px; }
+.apply-note { display: grid; grid-template-columns: 70px 1fr; column-gap: 16px; border-top: 1px solid var(--brand-mid); padding-top: 12px; }
+.apply-note dt { font-size: 11px; font-weight: 700; letter-spacing: 0.06em; }
+.apply-note dd { font-size: 12px; }
+
+/* ---- フッター ---- */
+.ft { padding: 32px 0 36px; }
+.ft .in > * + * { margin-top: 16px; }
+.ft-logos { display: flex; align-items: flex-start; gap: 32px; }
+/* ロゴの文字（POOLO／TABIPPO）の縦の中心をそろえる */
+.ft-logos .poolo { width: 64px; margin-top: 4.5px; }
+.ft-logos .tabippo { width: 96px; }
+.ft p { font-size: 11px; color: var(--ink-72); }
+.ft-texts p + p { margin-top: 12px; }
+.ft-credit { font-size: 10px; color: var(--ink-60); line-height: 1.8; }
+.ft-credit a { text-decoration: underline; text-underline-offset: 0.2em; }
+
+/* ---- 追従ボタン（画面下に固定） ---- */
+.fa {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 50;
+  background: #fff;
+  border-top: 1px solid var(--line);
+  padding: 11px 22px calc(11px + env(safe-area-inset-bottom));
+  transform: translateY(110%);
+  transition: transform 0.3s ease;
+}
+.fa.is-visible { transform: translateY(0); }
+.fa-inner { display: flex; align-items: center; gap: 12px; }
+.fa-texts { flex: 1; min-width: 0; }
+.fa-main, .fa-sub { display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.fa-main { font-size: 12px; font-weight: 700; letter-spacing: 0.04em; color: var(--ink); }
+.fa-sub { font-size: 10px; color: var(--ink-60); letter-spacing: 0.04em; }
+.fa .btn { font-size: 12px; padding: 12px 14px; white-space: nowrap; flex: none; }
+
+/* =============================================================
+   PC（960px以上）：左右112px（1440px幅のとき）、本文の幅は1216px。
+   読む章（町の本文の続き・前と後・会う人たち・こんな方へ）は中央640pxの1列。
+   ============================================================= */
+@media (min-width: 960px) {
+  .in { max-width: 1264px; margin-inline: auto; padding-inline: 24px; }
+  .feel .in, .town .in, .open .in { padding-inline: 24px; }
+  .h2 { font-size: 34px; }
+  .lt { height: 56px; }
+  .body { font-size: 16px; }
+  .pc-only { display: block; }
+  .pc-nb { white-space: nowrap; }
+  br.pc-br { display: inline; }
+  br.sp-br { display: none; }
+  .sp-only { display: none; }
+  .col { max-width: 640px; margin-inline: auto; }
+
+  .hd .in { height: 75px; }
+  .hd-cta { display: inline-block; font-size: 12.5px; padding: 9px 20px; }
+
+  /* 冒頭：左に文、右に写真。下に日付・条件・ボタンの帯 */
+  .fv-top { display: flex; align-items: center; gap: 74px; padding: 40px 64px 56px max(40px, calc((100vw - 1216px) / 2)); }
+  .fv-copy { flex: none; width: min(510px, 42%); padding: 0; }
+  .fv-copy > * + * { margin-top: 40px; }
+  .mc { font-size: 58px; line-height: 1.4; color: var(--brand-deep); }
+  .lead { font-size: 16px; max-width: 440px; }
+  .fv-copy .date, .fv-copy .cond, .fv-copy .btn, .fv-copy .note { display: none; }
+  .fv-photo { flex: 1; min-width: 0; height: 620px; }
+  .fv-photo img { height: 100%; object-position: 50% 50%; }
+  .fv-bottom { display: flex; align-items: center; gap: 75px; padding-block: 40px; }
+  .fv-how > * + * { margin-top: 8px; }
+  .fv-bottom .btn { width: 368px; margin-left: auto; }
+  .date-d { font-size: 52px; line-height: 62px; }
+
+  /* こんな気持ちの方へ：左に写真、右に見出しと本文 */
+  .feel { padding: 0; }
+  .feel .in { display: flex; align-items: center; gap: 112px; padding-block: 112px; }
+  .feel-photo { flex: none; width: 520px; }
+  .feel-photo img { height: 560px; }
+  .feel-text { flex: 1; max-width: 584px; padding: 0; }
+  .feel-text > * + * { margin-top: 36px; }
+  .feel-body { font-size: 19px; line-height: 2; letter-spacing: 0.05em; }
+  .feel-note { font-size: 14px; }
+
+  /* 琴平という町：左に文、右に写真 */
+  .town { padding-bottom: 0; }
+  .town .in { display: flex; align-items: flex-start; gap: 112px; padding-block: 96px 112px; }
+  .town-text { flex: none; width: 584px; padding: 0; order: 1; }
+  .town-text > * + * { margin-top: 28px; }
+  .town-photo { flex: 1; min-width: 0; order: 2; position: sticky; top: 99px; }
+  .town-photo img { height: 640px; object-position: 45% 50%; }
+
+  /* ひらく時間：写真の上に紙を重ねる。見出しと本文は中央640 */
+  .open { padding-block: 96px; }
+  .open-head { padding: 0; }
+  .open-row { display: flex; align-items: center; justify-content: center; margin-top: 56px; }
+  .open-photo { flex: none; width: 560px; }
+  .open-photo img { height: 760px; object-position: 50% 50%; }
+  .sheet { flex: none; width: 640px; margin: 0 0 0 -88px; padding: 56px; }
+  .sheet > * + * { margin-top: 28px; }
+  .sheet-text { font-size: 36px; }
+  .sheet-lines span + span { margin-top: 68px; }
+  .sheet-prompt { font-size: 13px; }
+  .sheet-ex { font-size: 14px; }
+  .open-body { padding: 56px 0 0; }
+
+  /* 旅の前と後にも集まります：中央640、左に番号と種類、右に見出しと本文 */
+  .program { padding: 0; }
+  .program .in { padding-block: 112px; }
+  .steps { margin-top: 44px; }
+  .step { display: grid; grid-template-columns: 176px 1fr; column-gap: 32px; padding-top: 24px; }
+  .step + .step { margin-top: 32px; }
+  .step-key { align-items: flex-start; flex-direction: column; gap: 10px; }
+  .step-key .no { height: 13px; }
+  .step-key .label { font-size: 12px; }
+  .step h3 { margin-top: 0; font-size: 20px; }
+  .step .when { font-size: 13px; }
+  .step p.body { font-size: 15px; }
+
+  /* 2日間の流れ：左右に1日目・2日目 */
+  .days { padding: 0; }
+  .days .in { padding-block: 96px 112px; }
+  .days-head { max-width: 640px; }
+  .days-grid { display: grid; grid-template-columns: 1fr 1fr; column-gap: 64px; margin-top: 44px; }
+  .day + .day { margin-top: 0; }
+  .day-h .date-d { font-size: 40px; line-height: 48px; }
+  .tt li { grid-template-columns: 64px 1fr; padding-block: 14px; }
+  .tt-time { font-size: 16px; }
+  .tt-title { font-size: 15px; }
+  .tt-desc { font-size: 13px; }
+
+  /* 会う人たち：中央640 */
+  .people { padding: 0; }
+  .people .in { padding-block: 96px 112px; }
+  .person-list { margin-top: 36px; }
+  .person { padding-top: 20px; }
+  .person + .person { margin-top: 28px; }
+  .person-role { font-size: 15px; }
+  .person-bio { font-size: 15px; }
+
+  .band img { height: 560px; object-position: 50% 60%; }
+
+  /* 持ち帰るもの：左に見出し、右に紙片 */
+  .take { padding: 0; }
+  .take .in { display: flex; align-items: center; gap: 112px; padding-block: 64px; }
+  .take-head { flex: none; width: 360px; }
+  .take-slip { flex: 1; margin-top: 0; padding: 32px 40px; }
+  .take-list li { font-size: 14px; }
+
+  /* こんな方へ：中央640 */
+  .fit { padding: 0; }
+  .fit .in { padding-block: 96px 112px; }
+  .fit li { font-size: 15px; padding: 12px 0; }
+  .fit-sub { font-size: 14px; }
+
+  /* POOLOについて：左に文、右にキービジュアル */
+  .about { padding: 0; }
+  .about .in { display: flex; align-items: flex-start; gap: 112px; padding-block: 112px; }
+  .about .in > * + * { margin-top: 0; }
+  .about-text { flex: none; width: 584px; }
+  .about-text > * + * { margin-top: 32px; }
+  .about-photo { flex: none; width: 520px; padding-top: 88px; }
+
+  /* 開催概要・よくある質問：左に見出し、右に内容 */
+  .overview, .faq { padding: 0; }
+  .overview .in, .faq .in { display: flex; gap: 112px; padding-block: 112px; }
+  .faq .in { padding-top: 96px; }
+  .overview .h2, .faq .h2 { flex: none; width: 360px; }
+  .ov-wrap, .faq-list { flex: 1; max-width: 744px; margin-top: 0; }
+  .ov { margin-top: 0; }
+  .ov-row { grid-template-columns: 110px 1fr; }
+  .ov dt { font-size: 13px; }
+  .ov dd { font-size: 14px; }
+  .faq-q, .faq-a { font-size: 15px; }
+
+  /* お申し込み：左に見出しと文、右に日付とボタン */
+  .apply { padding: 0; }
+  .apply .in { display: flex; gap: 112px; padding: 104px 24px; }
+  .apply .in > * + * { margin-top: 0; }
+  .apply-head { flex: none; width: 584px; }
+  .apply .h2 { font-size: 34px; }
+  .apply-msg { font-size: 15px; }
+  .apply-box { flex: none; width: 520px; }
+  .apply-box > * + * { margin-top: 24px; }
+
+  .ft { padding: 48px 0 56px; }
+  .ft .in { display: flex; justify-content: space-between; align-items: flex-start; }
+  .ft .in > * + * { margin-top: 0; }
+  .ft-texts { text-align: right; max-width: 640px; }
+  .ft-texts p + p { margin-top: 8px; }
+
+  .fa { padding: 14px 0 calc(14px + env(safe-area-inset-bottom)); }
+  .fa-inner { max-width: 1216px; margin-inline: auto; }
+  .fa-texts { display: flex; align-items: baseline; gap: 20px; }
+  .fa-main { font-size: 14px; }
+  .fa-sub { font-size: 12px; }
+  .fa .btn { font-size: 14px; padding: 15px 28px; }
+}
+
+/* ---- 1日の流れ（1日だけなので中央640の1列） ---- */
+.oneday .days-grid { display: block; }
+.band img { object-position: 50% 30%; }
+@media (min-width: 960px) { .band img { object-position: 50% 30%; } }
+@media (min-width: 960px) {
+  .oneday .days-grid { max-width: 640px; }
+}
+</style>
+</head>
+<body>
+
+<!-- 申込リンク：LINEの流入経路URLが未確定のため、いったん #apply。届いたらこのページの href="#apply" を全部差し替える -->
+
+<!-- ===== 追従ボタン ===== -->
+<div class="fa" id="floatApply">
+  <div class="fa-inner">
+    <div class="fa-texts">
+      <span class="fa-main">COMMONSの1年に、恵比寿で乾杯する。</span>
+      <span class="fa-sub"><span class="num">11/1</span>（日）<span class="num">18:00</span> 開場・恵比寿・<span class="num">3,000</span>円</span>
+    </div>
+    <a class="btn" href="#apply">LINEで申し込む</a>
+  </div>
+</div>
+
+<!-- ===== ヘッダー ===== -->
+<header class="hd">
+  <div class="in">
+    <a class="hd-logo" href="https://tabippo.net/poolo/" target="_blank" rel="noopener"><img src="images/poolo_logo.png" alt="POOLO あたらしい旅の学校"></a>
+    <span class="hd-label">旅好きのコミュニティ｜POOLO COMMONS 1周年</span>
+    <a class="btn hd-cta" href="#apply">LINEで申し込む</a>
+  </div>
+</header>
+
+<!-- ===== 冒頭 ===== -->
+<section class="fv">
+  <div class="fv-top">
+    <div class="fv-copy">
+      <h1 class="mc"><span class="mc-pre">POOLO COMMONS 1周年</span><span class="nb">COMMONSの</span><br><span class="nb">1年に、恵比寿で</span><br><span class="nb">乾杯する。</span></h1>
+      <p class="lead">旅好きのオンラインコミュニティ POOLO COMMONSは、2025年11月に始まって、この11月で1年になります。<br class="pc-br">ふだんはZoomとSlackで会っている仲間と、前にいたメンバーと、その友達と。<br class="pc-br"><span class="nb">毎月ひとつ、</span><span class="nb">やったことのないことに</span><span class="nb">挑戦してきた1年を、</span><span class="nb">顔を合わせて祝う夜です。</span></p>
+      <div class="date">
+        <div><span class="date-y">2026</span><span class="date-d">11.01</span></div>
+        <div><span class="date-w">日曜日 <span class="num">18:00</span> 開場</span><span class="date-w"><span class="num">21:00</span> 終了</span></div>
+      </div>
+      <p class="cond">東京・恵比寿<span class="sep">／</span>参加費3,000円<span class="sep">／</span>定員50名</p>
+      <a class="btn" href="#apply">LINEで申し込む</a>
+      <p class="note">COMMONSのメンバーでなくても参加できます。</p>
+    </div>
+    <figure class="fv-photo"><img src="images/bridge_back.jpg" alt="鉄橋の上に並んで、川の向こうを眺める仲間たちの後ろ姿"></figure>
+  </div>
+  <div class="fv-bottom in">
+    <div class="date">
+      <div><span class="date-y">2026</span><span class="date-d">11.01</span></div>
+      <div><span class="date-w">日曜日 <span class="num">18:00</span> 開場</span><span class="date-w"><span class="num">21:00</span> 終了</span></div>
+    </div>
+    <div class="fv-how">
+      <p class="cond">東京・恵比寿<span class="sep">／</span>参加費3,000円<span class="sep">／</span>定員50名</p>
+      <p class="note">COMMONSのメンバーでなくても参加できます。</p>
+    </div>
+    <a class="btn" href="#apply">LINEで申し込む</a>
+  </div>
+</section>
+
+<!-- ===== この1年のこと ===== -->
+<section class="feel">
+  <div class="in">
+    <figure class="feel-photo">
+      <img src="images/zoom_meetup.jpg" alt="オンラインの定例ミートアップ。Zoomの画面に並んだメンバーが手を振っている" loading="lazy">
+    </figure>
+    <div class="feel-text">
+      <h2 class="h2">この1年のこと</h2>
+      <div>
+        <p class="feel-body">2025年11月、最初の定例ミートアップには、52人のうち30人がZoomに集まりました。それから毎月ひとつテーマを決めて、やったことのないことに挑戦してきました。7月はショート動画をつくり、9月は自分の声で音声配信をして、10月は「新しい旅」に挑戦しています。11月のテーマは読書です。</p>
+        <p class="feel-body">オンラインのコミュニティなので、住んでいる場所はばらばらです。それでも、東京駅に集まってサイコロをふる「ぶらりサイコロ旅」や、朝の皇居ラン、シルバーウィークのご飯会「共通メシ」と、メンバーが自分で立てた企画で、画面の外で会う日が少しずつ増えてきました。</p>
+      </div>
+      <p class="feel-note">1周年の夜は、その1年をまとめて振り返り、2年目にやることを話す日にします。いまのメンバーも、前にいたメンバーも、まだCOMMONSに入っていない人も来られます。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 当日やること ===== -->
+<section class="program">
+  <div class="in col">
+    <h2 class="h2">当日やること</h2>
+    <p class="lead">乾杯のあと、この1年を写真で振り返り、メンバーを表彰して、最後に持ってきた本を交換します。</p>
+    <ol class="steps">
+      <li class="step">
+        <div class="step-key"><img class="no" src="images/num-01.svg" alt="01"><span class="label">振り返る</span></div>
+        <div>
+          <h3><span class="nb">1年分の写真を、</span><span class="nb">スライドで見る</span></h3>
+          <p class="when">19:10ごろ／10分</p>
+          <p class="body">11月の最初の定例から10月の新しい旅まで、メンバーから集めた「この1年のお気に入りの1枚」を流します。会場の壁にも、月ごとに写真を貼っておきます。</p>
+        </div>
+      </li>
+      <li class="step">
+        <div class="step-key"><img class="no" src="images/num-02.svg" alt="02"><span class="label">表彰する</span></div>
+        <div>
+          <h3>COMMONS AWARD</h3>
+          <p class="when">19:20ごろ／30分</p>
+          <p class="body">この1年の挑戦から、メンバーの投票で表彰します。部門は「いちばん新しかった挑戦」「いちばん人が集まった企画」などを考えています。毎月ひとりずつ選んできた「月間チャレンジャー」も、ここで紹介します。<span class="tbd">部門は要確認</span></p>
+        </div>
+      </li>
+      <li class="step">
+        <div class="step-key"><img class="no" src="images/num-03.svg" alt="03"><span class="label">交換する</span></div>
+        <div>
+          <h3>本のプレゼント交換</h3>
+          <p class="when">19:50ごろ／30分</p>
+          <p class="body">11月のテーマが読書なので、旅や人生で影響を受けた本を1冊、包んで持ってきてください。くじで番号を引いたら、その本を持ってきた人を会場で探して、選んだ理由を聞きにいきます。</p>
+        </div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ===== 当日の流れ ===== -->
+<section class="days oneday">
+  <div class="in col">
+    <div class="days-head">
+      <h2 class="h2">当日の流れ</h2>
+      <p class="lead">同じ日の13:00から、オンラインの定例ミートアップもあります。夜だけの参加でも大丈夫です。<span class="tbd">定例の形式は要確認</span></p>
+    </div>
+    <div class="days-grid">
+      <div class="day">
+        <div class="day-h">
+          <span class="date-d">11.01</span>
+          <span class="day-w"><span>日曜日</span><span class="quiet">coba恵比寿</span></span>
+        </div>
+        <ul class="tt">
+          <li><span class="tt-time">18:00</span><div><p class="tt-title">開場</p><p class="tt-desc">受付で本を預かり、名札に「COMMONSに入った月」を書きます。はじめての方は「はじめて」と書いてください。</p></div></li>
+          <li><span class="tt-time">18:30</span><div><p class="tt-title">乾杯</p><p class="tt-desc">運営のあいさつは短くして、すぐに乾杯します。</p></div></li>
+          <li><span class="tt-time">18:40</span><div><p class="tt-title">歓談</p></div></li>
+          <li><span class="tt-time">19:10</span><div><p class="tt-title">1年分の写真をスライドで見る</p></div></li>
+          <li><span class="tt-time">19:20</span><div><p class="tt-title">COMMONS AWARD</p></div></li>
+          <li><span class="tt-time">19:50</span><div><p class="tt-title">本のプレゼント交換</p></div></li>
+          <li><span class="tt-time">20:20</span><div><p class="tt-title">2年目の発表</p><p class="tt-desc">運営から、2年目にやることを発表します。続けて、来年やってみたいことを一人ひとつ紙に書いて、壁に貼ります。</p></div></li>
+          <li><span class="tt-time">20:40</span><div><p class="tt-title">集合写真</p></div></li>
+          <li><span class="tt-time">21:00</span><div><p class="tt-title">終了</p><p class="tt-desc">21:30までは、残って話していけます。<span class="tbd">会場の利用時間は要確認</span></p></div></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 写真の帯 ===== -->
+<figure class="band"><img src="images/offkai_dinner.jpg" alt="COMMONSのメンバーのオフ会。ピザの並んだテーブルを囲んでカメラに笑いかけている" loading="lazy"></figure>
+
+<!-- ===== 持ってくるもの ===== -->
+<section class="take off">
+  <div class="in">
+    <h2 class="h2 take-head">持ってくるもの</h2>
+    <div class="take-slip paper">
+      <p class="take-body body">本を1冊、中身が見えないように包んで持ってきてください。旅や人生で影響を受けた本でも、最近読んでよかった本でもかまいません。文庫でも写真集でも大丈夫です。</p>
+      <ul class="take-list">
+        <li><span class="dot">・</span>交換用の本 1冊（包んだもの）</li>
+        <li><span class="dot">・</span>旅先で買ったものをひとつ身につけてくると、話のきっかけになります</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ===== こんな方へ ===== -->
+<section class="fit">
+  <div class="in col">
+    <h2 class="h2">こんな方へ</h2>
+    <ul>
+      <li>COMMONSのメンバーで、Slackでしか話したことのない人に会ってみたい</li>
+      <li>前にCOMMONSにいて、久しぶりにみんなの顔を見たい</li>
+      <li>メンバーの友達に誘われて、COMMONSがどんな場所か見てみたい</li>
+      <li>POOLOを卒業して、COMMONSに入るかどうか考えている</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===== POOLO COMMONSについて ===== -->
+<section class="about off">
+  <div class="in">
+    <div class="about-text">
+      <h2 class="h2"><span class="nb">POOLO COMMONS</span><span class="nb">について</span></h2>
+      <img class="about-kv sp-only" src="images/bridge_front.jpg" alt="鉄橋の上に並んで、こちらを向いて立つ仲間たち" loading="lazy">
+      <p class="body">POOLO COMMONSは、旅好きのためのオンラインコミュニティです。「毎月ひとつ、やったことのないことをやる」を掲げて、月ごとのテーマに挑戦したり、メンバー同士で企画を立てて集まったりしています。あたらしい旅の学校POOLOの卒業生が中心ですが、卒業生でない方も参加しています。</p>
+      <p class="body">参加費は月額3,000円で、いつでも入会・退会できます。1周年の会で気になった方は、12月から参加できます。<span class="tbd">入会の受付期間は要確認</span></p>
+      <a class="about-link" href="https://tabippo.net/poolocommons/" target="_blank" rel="noopener">POOLO COMMONSのページを見る</a>
+    </div>
+    <figure class="about-photo pc-only">
+      <img class="about-kv" src="images/bridge_front.jpg" alt="鉄橋の上に並んで、こちらを向いて立つ仲間たち" loading="lazy">
+      <p class="caption">運営：株式会社TABIPPO</p>
+    </figure>
+  </div>
+</section>
+
+<!-- ===== 開催概要 ===== -->
+<section class="overview">
+  <div class="in">
+    <h2 class="h2">開催概要</h2>
+    <div class="ov-wrap">
+      <dl class="ov">
+        <div class="ov-row"><dt>名称</dt><dd><strong>POOLO COMMONS 1周年パーティー</strong></dd></div>
+        <div class="ov-row"><dt>日時</dt><dd><strong>2026年11月1日（日）18:00開場・18:30開始</strong><br>21:00終了</dd></div>
+        <div class="ov-row"><dt>会場</dt><dd>coba恵比寿 <span class="tbd">住所・最寄り駅は要確認</span></dd></div>
+        <div class="ov-row"><dt>定員</dt><dd><strong>50名</strong> <span class="tbd">会場の上限は要確認</span></dd></div>
+        <div class="ov-row"><dt>参加費</dt><dd><span class="fee">3,000</span>円（飲み物と軽食つき）<br><span class="tbd">早割・友達と2人での申込割を入れるかは要確認</span></dd></div>
+        <div class="ov-row"><dt>対象</dt><dd>POOLO COMMONSのメンバー、前にいたメンバー、その友達、COMMONSが気になっている方</dd></div>
+        <div class="ov-row"><dt>持ち物</dt><dd>交換用の本 1冊（包んだもの）</dd></div>
+        <div class="ov-row"><dt>申込方法</dt><dd>POOLO公式LINEを友だち追加のうえ、LINE内のご案内からお申し込みください。</dd></div>
+        <div class="ov-row"><dt>申込締切</dt><dd><span class="tbd">要確認</span></dd></div>
+        <div class="ov-row"><dt>主催</dt><dd>POOLO COMMONS（株式会社TABIPPO）</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<!-- ===== よくある質問 ===== -->
+<section class="faq">
+  <div class="in">
+    <h2 class="h2">よくある質問</h2>
+    <dl class="faq-list">
+      <div class="faq-item"><dt class="faq-q">COMMONSのメンバーでなくても参加できますか？</dt><dd class="faq-a">はい。前にCOMMONSにいた方も、メンバーの友達も、COMMONSが気になっている方も参加できます。</dd></div>
+      <div class="faq-item"><dt class="faq-q">一人で参加しても大丈夫ですか？</dt><dd class="faq-a">はい。本のプレゼント交換では、くじで引いた本の持ち主を会場で探しにいくので、はじめての方とも自然に話せます。</dd></div>
+      <div class="faq-item"><dt class="faq-q">本は新しいものでないといけませんか？</dt><dd class="faq-a">読んだ本でかまいません。交換した相手の手に渡るので、書き込みの多いものは避けてください。</dd></div>
+      <div class="faq-item"><dt class="faq-q">昼の定例ミートアップにも出る必要はありますか？</dt><dd class="faq-a">いいえ。夜だけの参加で大丈夫です。</dd></div>
+      <div class="faq-item"><dt class="faq-q">途中から参加したり、途中で帰ったりしてもいいですか？</dt><dd class="faq-a">はい。COMMONS AWARDは19:20ごろから始まります。</dd></div>
+    </dl>
+  </div>
+</section>
+
+<!-- ===== お申し込み ===== -->
+<section class="apply" id="apply">
+  <div class="in">
+    <div class="apply-head">
+      <h2 class="h2">お申し込み</h2>
+      <p class="apply-msg body">参加する方は、<span class="nb">POOLO公式LINEから</span>お申し込みください。友達を誘うときは、このページを送ってもらえると助かります。</p>
+    </div>
+    <div class="apply-box">
+      <div class="date">
+        <div><span class="date-y">2026</span><span class="date-d">11.01</span></div>
+        <div><span class="date-w">日曜日 <span class="num">18:00</span> 開場</span><span class="date-w"><span class="num">21:00</span> 終了</span></div>
+      </div>
+      <p class="date-line">東京・恵比寿・参加費<span class="num">3,000</span>円・定員<span class="num">50</span>名</p>
+      <a class="btn" href="#apply">LINEで申し込む</a>
+      <p class="apply-steps">1. POOLO公式LINEを友だち追加<br>2. LINE内の案内から1周年パーティーに申し込む</p>
+      <dl class="apply-note"><dt>申込締切</dt><dd><span class="tbd">要確認</span>。LINEのリンクも確定後に差し替えます。</dd></dl>
+    </div>
+  </div>
+</section>
+
+<!-- ===== フッター ===== -->
+<footer class="ft">
+  <div class="in">
+    <div class="ft-logos">
+      <a href="https://tabippo.net/poolo/" target="_blank" rel="noopener"><img class="poolo" src="images/poolo_logo03.png" alt="POOLO あたらしい旅の学校"></a>
+      <a href="https://tabippo.net/" target="_blank" rel="noopener"><img class="tabippo" src="images/tabippo_logo_trim.png" alt="TABIPPO"></a>
+    </div>
+    <div class="ft-texts">
+      <p>主催：POOLO COMMONS<br>株式会社TABIPPO</p>
+      <p>© POOLO. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ヘッダー：スクロールしたら下に罫を出す */
+(function () {
+  var hd = document.querySelector('.hd');
+  if (!hd) return;
+  function f() { hd.classList.toggle('is-stuck', window.scrollY > 4); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+})();
+/* 追従ボタン：冒頭を過ぎたら出し、お申し込み欄とフッターが見えている間は引っ込める */
+(function () {
+  var bar = document.getElementById('floatApply');
+  if (!bar) return;
+  var fv = document.querySelector('.fv');
+  var ends = [document.getElementById('apply'), document.querySelector('.ft')].filter(Boolean);
+  var ticking = false;
+  function update() {
+    var past = fv ? fv.getBoundingClientRect().bottom < window.innerHeight * 0.3 : window.scrollY > 400;
+    var nearEnd = ends.some(function (el) { var r = el.getBoundingClientRect(); return r.top < window.innerHeight && r.bottom > 0; });
+    bar.classList.toggle('is-visible', past && !nearEnd);
+    ticking = false;
+  }
+  window.addEventListener('scroll', function () { if (!ticking) { window.requestAnimationFrame(update); ticking = true; } }, { passive: true });
+  window.addEventListener('resize', update);
+  window.addEventListener('load', update);
+  update();
+})();
+</script>
+</body>
+</html>
