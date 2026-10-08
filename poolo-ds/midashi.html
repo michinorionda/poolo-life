@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>専用明朝・見出し｜poolo-ds</title>
+<meta name="robots" content="noindex">
+<link rel="stylesheet" href="tokens.css">
+<link rel="stylesheet" href="midashi.css">
+<style>
+  body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--body); }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 56px 24px 96px; }
+  .intro { font-size: var(--fs-sm); line-height: 1.9; color: var(--ink-72); margin: 0 0 48px; }
+  .item { border-top: 1px solid var(--line); padding: 28px 0 36px; }
+  .meta { font-size: var(--fs-xs); color: var(--ink-72); margin: 0 0 14px; line-height: 1.8; }
+  .meta code { font-size: 12px; }
+  h1, h2, h3 { margin: 0; }
+  .cmp { font-family: var(--mincho); font-weight: 900; color: var(--brand-deep); font-size: 36px; line-height: 1.3; }
+  @media (min-width: 960px) { .cmp { font-size: 56px; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <p class="intro">専用明朝・見出し（v0.2・2026-10-08）。Zen Old Mincho Black を元に、かなを小さくして字間を詰めた組み方を書体に入れたもの。<code>tokens.css</code> のあとに <code>midashi.css</code> を読み込み、見出しにクラスを付けたところだけ変わる。PCとスマホで大きさが切り替わるので、画面幅を変えて確かめられる。</p>
+
+  <div class="item">
+    <p class="meta">見出し・大　<code>.midashi-l</code>　スマホ36px／PC56px・行間130%　ファーストビューのメインコピー</p>
+    <h1 class="midashi-l">30代の生き方を<br>問い直す、90分。</h1>
+  </div>
+  <div class="item">
+    <p class="meta">見出し・中　<code>.midashi-m</code>　スマホ30px／PC34px・行間140%　章見出し</p>
+    <h2 class="midashi-m">こんな気持ちの方へ</h2>
+  </div>
+  <div class="item">
+    <p class="meta">見出し・小　<code>.midashi-s</code>　スマホ20px／PC24px・行間150%　章の中の小見出し</p>
+    <h3 class="midashi-s">当日の問い</h3>
+  </div>
+  <div class="item">
+    <p class="meta">見出し・大　<code>.midashi-l</code>　3行以上・カギ括弧を含む場合</p>
+    <h1 class="midashi-l">まだ誰にも話していない<br>「やりたい」を、<br>琴平で確かめる。</h1>
+  </div>
+  <div class="item">
+    <p class="meta">比べ用：今の明朝（<code>--mincho</code>・Black）を同じ大きさで組んだもの</p>
+    <h1 class="cmp">30代の生き方を<br>問い直す、90分。</h1>
+  </div>
+</div>
+</body>
+</html>

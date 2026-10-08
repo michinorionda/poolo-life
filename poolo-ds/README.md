@@ -19,6 +19,8 @@ POOLO（by TABIPPO）のイベント告知ページを、**コピペではなく
 | `slides.html` | **スライドの型カタログ**。12種の型を1枚ずつ実装済み。ここから写して中身を差し替える。 |
 | `og.html` | **OG画像・編集型サムネのカタログ**。4種。 |
 | `kv.html` | **バナー／キービジュアルのカタログ**（`.kv` 折れ帯の型）。6種。 |
+| `midashi.css` | **専用明朝・見出し**（2026-10-08〜）。`fonts/PooloMincho-Display.woff2` を読み込み、見出しのクラス3つ（`.midashi-l` / `-m` / `-s`）を定義する。**読み込んだページだけ**に効く（`tokens.css` からは読んでいない）。 |
+| `midashi.html` | 専用明朝・見出しのカタログ。3段の大きさと、今の明朝との比べ。 |
 | `BRAND.md` | 言葉・トーン・視覚言語の思想（声のトーン／掲載ルール／ページ構成の型）。 |
 | `TAIKENKAI-LP.md` | **オンライン体験会LPの型**（v2「旅先の会話」、2026-09-20〜）。章の並び・紙の扱い・使わないもの・経緯。基準ページは `../event-30s-v2-260929/`。 |
 | `README.md` | 本書。 |
@@ -26,6 +28,7 @@ POOLO（by TABIPPO）のイベント告知ページを、**コピペではなく
 > **読み込みの組み合わせ**
 > 告知ページ → `tokens.css` ＋ `components.css`
 > スライド・OG画像 → `tokens.css` ＋ `slides.css`
+> 専用明朝・見出しを使うページ → 上の組み合わせに `midashi.css` を足す（tokens のあと）
 > （`tokens.css` が常に先。フォントの `@import` はそこに1本化されている）
 
 ---
@@ -69,6 +72,7 @@ POOLO（by TABIPPO）のイベント告知ページを、**コピペではなく
 | `--head` | Zen Kaku Gothic New | データ／UI見出し（要点の値・flow-title・FAQ・ボタン） |
 | `--body` | Noto Sans JP | 本文（body 15px / line-height 2.05 / letter-spacing 0.05em） |
 | `--en` | Jost | 英字ラベル・数字（日付帯・sec-num・Q番号・コピーライト） |
+| `--mincho-display` | POOLO Mincho Display | **専用明朝・見出し**。`midashi.css` を読み込んだページだけで使える（下の「専用明朝・見出し」） |
 
 ### レイアウト・その他
 | トークン | 値 | 用途 |
@@ -113,6 +117,39 @@ POOLO（by TABIPPO）のイベント告知ページを、**コピペではなく
 | `--sp-group` | `40px` | 小見出しと、その外側 |
 | `--sp-block` | `72px` | ブロックとブロック |
 | `--sp-sec` | `clamp(88px, 12vh, 132px)` | セクションとセクション |
+
+---
+
+## 専用明朝・見出し（`midashi.css`・2026-10-08〜）
+
+Zen Old Mincho Black を元に、かなを88%・約物を80%に小さくし、字の墨の端どうしの間隔をそろえた見出し用の書体（POOLO 専用明朝 見出し v0.2）。詰めが字幅に入っているので、CSSで書体を指定するだけで同じ組みになる。全ページの標準ではなく、**ページごとに選んで使う**。
+
+| 呼び名 | クラス | スマホ | PC（960px以上） | 行間 | 使う場所 |
+|---|---|---|---|---|---|
+| 見出し・大 | `.midashi-l` | 36px | 56px | 130% | ファーストビューのメインコピー |
+| 見出し・中 | `.midashi-m` | 30px | 34px | 140% | 章見出し |
+| 見出し・小 | `.midashi-s` | 20px | 24px | 150% | 章の中の小見出し |
+
+色は `--brand-deep`。見え方は `midashi.html` で確かめる。
+
+**入れ方**
+```html
+<link rel="stylesheet" href="../poolo-ds/tokens.css">
+<link rel="stylesheet" href="../poolo-ds/components.css">
+<link rel="stylesheet" href="../poolo-ds/midashi.css">
+<h1 class="midashi-l">30代の生き方を<br>問い直す、90分。</h1>
+```
+ページ内 `<style>` で完結させているページ（基準ページの形）は、`<link>` で `midashi.css` だけ足す。既存の見出しのクラス（`.sec-title` など）に `midashi-m` を**足す**のではなく、見出しの書体・大きさ・色は `midashi-*` に任せる（既存クラスの `font-size` や `letter-spacing` が残ると組みが崩れる）。
+
+**守ること**
+- `font-feature-settings: "palt"` や `letter-spacing` を重ねない（二重に詰まる）。`midashi.css` 側で止めてある
+- `font-weight: bold` を付けない。字形がもともと Black なので、ブラウザが擬似的に太らせる
+- 本文・問い・引用には使わない（`BRAND.md` 3章の「明朝は見出しと問いだけ」はそのまま。問いは今の `--mincho`）
+- フォントが読み込めないときは、今の明朝（Zen Old Mincho）で表示される
+
+**指示されたときの読み方**：「専用明朝の見出し」「midashi」「見出し・大／中／小」と言われたら、このファイルとクラスのこと。どの見出しに当てるか指定がなければ、メインコピー＝大、章見出し＝中にする。
+
+**作り直し**：書体の元データとビルドは手元の `~/Documents/poolo-font`（`build_v02.py`）。作り直したら `fonts/PooloMincho-Display.woff2` を差し替える。woff2 はJIS第1水準まで（4,206字・0.99MB）。第2水準の漢字は今の明朝で表示される。ライセンスは元の書体と同じ SIL Open Font License。
 
 ---
 
