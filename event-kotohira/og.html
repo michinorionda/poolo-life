@@ -13,7 +13,13 @@ html, body { margin: 0; padding: 0; background: #fff; }
 .og--stack .og-photo { flex-basis: 250px; border-bottom: 4px solid var(--brand); background-position: 50% 42%; }
 .og--stack .og-body { gap: 10px; }
 .og--stack .og-eyebrow { font-size: 15px; }
-.og--stack .og-title { font-size: 40px; line-height: 1.42; }
+.og--stack .og-title { font-size: 44px; line-height: 1.4; letter-spacing: 0.02em; }
+/* 3段：「やりたい」の行をいちばん大きくブルーに、前後の2行は黒で受ける */
+.og--stack .og-title > span { display: block; }
+.og--stack .og-title .t-pre { font-size: 30px; letter-spacing: 0.08em; }
+.og--stack .og-title .kb-o { margin-left: -0.5em; }
+.og--stack .og-title .kb-c { margin-right: -0.42em; }
+.og--stack .og-title .t-key { font-size: 72px; line-height: 1.25; color: var(--brand-deep); }
 .og--stack .og-band { flex-basis: 74px; background: var(--bg); color: var(--brand); border-top: 1px solid var(--line); margin-inline: 72px; }
 .og--stack .og-band-meta { color: var(--ink-72); }
 </style>
@@ -23,7 +29,7 @@ html, body { margin: 0; padding: 0; background: #fff; }
   <div class="og-photo" style="background-image:url(images/bridge_lanterns.jpg)"></div>
   <div class="og-body">
     <p class="og-eyebrow">あたらしい旅の学校 POOLO</p>
-    <h2 class="og-title">香川・琴平で、<br>「やりたい」を<br><em>心ゆくまで語る1泊2日。</em></h2>
+    <h2 class="og-title"><span class="t-pre">香川・琴平で、</span><span class="t-key"><span class="kb-o">「</span>やりたい<span class="kb-c">」</span>を</span><span>心ゆくまで語る1泊2日。</span></h2>
   </div>
   <div class="og-band">
     <span class="og-band-when">12/20（日）〜21（月）</span>
