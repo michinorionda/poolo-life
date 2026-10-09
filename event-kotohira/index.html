@@ -361,7 +361,9 @@ br.pc-br { display: none; }
   .fv-copy { flex: none; width: min(510px, 42%); padding: 0; }
   .fv-copy > * + * { margin-top: 40px; }
   .mc { font-size: 40px; }
-  .lead { font-size: 16px; max-width: 440px; }
+  .lead { font-size: 16px; }
+  /* PCは1文を2行ずつにして、文のあいだを少しあける */
+  .lead-gap { display: block; height: 0.9em; }
   .fv-copy .date, .fv-copy .cond, .fv-copy .btn, .fv-copy .note { display: none; }
   .fv-photo { flex: 1; min-width: 0; height: 620px; }
   .fv-photo img { height: 100%; object-position: 50% 50%; }
@@ -538,7 +540,7 @@ br.pc-br { display: none; }
   <div class="fv-top">
     <div class="fv-copy">
       <h1 class="mc"><span class="mc-pre">香川・琴平で、</span><span class="mc-key"><span class="kb-o">「</span>やりたい<span class="kb-c">」</span>を</span><span class="mc-sub"><span class="nb">心ゆくまで語る</span><wbr><span class="nb">1泊2日。</span></span></h1>
-      <p class="lead">仕事の話ばかりの毎日で、<br class="pc-br">自分のやりたいことは、しばらく誰にも話していない。<br class="pc-br">香川・琴平で<span class="nb">好きなことを始めた人に会い、</span><br class="pc-br"><span class="nb">町の人と話しながら、</span><span class="nb">自分の「やりたい」を確かめる1泊2日です。</span></p>
+      <p class="lead">仕事の話ばかりの毎日で、<br class="pc-br">自分のやりたいことは、しばらく誰にも話していない。<span class="lead-gap"></span>香川・琴平で<span class="nb">好きなことを始めた人に会い、</span><span class="nb">町の人と話しながら、</span><br class="pc-br"><span class="nb">自分の「やりたい」を確かめる1泊2日です。</span></p>
       <div class="date">
         <div><span class="date-y">2026</span><span class="date-d">12.20–21</span></div>
         <div><span class="date-w">日曜日 <span class="num">12:30</span> 集合</span><span class="date-w">月曜日 <span class="num">15:00</span> 解散</span></div>
