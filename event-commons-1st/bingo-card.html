@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>挑戦のおすそわけ カード｜POOLO COMMONS 1周年パーティー</title>
+<link rel="stylesheet" href="../poolo-ds/tokens.css">
+<style>
+/* =============================================================
+   挑戦のおすそわけ カード（A5縦・148×210mm、印刷用）
+   会場で立ったまま書くので、マスは3列×4行。1マス＝お題＋名前＋挑戦。
+   右上の丸は「いちばん考えもしなかった挑戦」に印をつける場所。
+   ============================================================= */
+@page { size: 148mm 210mm; margin: 0; }
+*, *::before, *::after { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body { background: #E9ECED; font-family: var(--body); color: var(--ink-soft); -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+.sheet {
+  width: 148mm; height: 210mm; margin: 24px auto; background: #fff;
+  padding: 7.5mm 8mm 6mm; display: flex; flex-direction: column; gap: 2.6mm; overflow: hidden;
+}
+@media print { body { background: #fff; } .sheet { margin: 0; } }
+
+/* 見出し */
+.hd { display: flex; justify-content: space-between; align-items: flex-end; border-bottom: 0.5mm solid var(--brand); padding-bottom: 2.4mm; }
+.hd-pre { font-family: var(--head); font-weight: 700; font-size: 7.5pt; letter-spacing: 0.08em; color: var(--brand-deep); }
+.hd-title { font-family: var(--mincho); font-weight: 700; font-size: 22pt; line-height: 1.15; letter-spacing: 0.06em; color: var(--ink); margin-top: 1mm; }
+.hd-right { text-align: right; }
+.hd-date { font-family: var(--en); font-weight: 500; font-size: 13pt; letter-spacing: 0.04em; color: var(--ink); line-height: 1.1; }
+.hd-place { font-size: 7pt; letter-spacing: 0.06em; margin-top: 0.8mm; }
+
+/* わたしの名前・遊び方 */
+.me { display: flex; align-items: flex-end; gap: 3mm; font-size: 7.5pt; font-weight: 700; color: var(--ink); }
+.me .line { flex: 1; border-bottom: 0.25mm solid var(--ink-40); height: 6mm; }
+.rule { font-size: 7pt; line-height: 1.7; letter-spacing: 0.02em; word-break: auto-phrase; text-wrap: pretty; }
+.nb { white-space: nowrap; }
+.rule b { color: var(--brand-deep); font-weight: 700; }
+
+/* マス */
+.grid { flex: 1; min-height: 0; display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(4, 1fr); border-top: 0.25mm solid var(--ink-55); border-left: 0.25mm solid var(--ink-55); }
+.cell { position: relative; border-right: 0.25mm solid var(--ink-55); border-bottom: 0.25mm solid var(--ink-55); padding: 2mm 2.2mm 1.8mm; display: flex; flex-direction: column; min-width: 0; }
+.odai { font-family: var(--head); font-weight: 700; font-size: 7.2pt; line-height: 1.4; color: var(--ink); padding-right: 4.6mm; min-height: 6mm; }
+.maru { position: absolute; top: 1.8mm; right: 1.8mm; width: 3.6mm; height: 3.6mm; border: 0.25mm solid var(--brand); border-radius: 50%; }
+.f { display: flex; align-items: flex-end; gap: 1.4mm; font-size: 5.8pt; letter-spacing: 0.06em; color: var(--ink-60); }
+.f .line { flex: 1; border-bottom: 0.2mm solid var(--ink-40); }
+.f-name { margin-top: 1.4mm; height: 5.4mm; }
+.f-name .line { height: 5.4mm; }
+.f-what { margin-top: 0.6mm; flex: 1; flex-direction: column; align-items: stretch; gap: 0; }
+.f-what .lab { height: 4.2mm; display: flex; align-items: flex-end; }
+.f-what .line { flex: 1; min-height: 3.6mm; }
+/* COMMONSのテーマ月のマスだけ、お題の色を変える */
+.cell.is-commons .odai { color: var(--brand-deep); }
+
+/* 下の段 */
+.foot { display: grid; grid-template-columns: 1fr 1.45fr; gap: 3mm; }
+.box { border: 0.25mm solid var(--ink-40); padding: 2mm 2.6mm; }
+.box-h { font-family: var(--head); font-weight: 700; font-size: 7.2pt; color: var(--ink); letter-spacing: 0.04em; }
+.prize { margin-top: 1.2mm; font-size: 6.6pt; line-height: 1.7; }
+.prize .num { font-family: var(--en); font-weight: 500; }
+.take .f { margin-top: 1.2mm; height: 4.6mm; font-size: 6pt; }
+.take .f .line { height: 4.6mm; }
+.take .row2 { display: grid; grid-template-columns: 1.4fr 1fr; gap: 3mm; }
+.take .note { font-size: 6pt; color: var(--ink-60); margin-top: 0.6mm; }
+.sig { display: flex; justify-content: space-between; align-items: center; font-size: 6pt; color: var(--ink-60); letter-spacing: 0.04em; }
+.sig img { height: 4.2mm; width: auto; }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <header class="hd">
+    <div>
+      <p class="hd-pre" style="margin:0">POOLO COMMONS 1周年パーティー</p>
+      <h1 class="hd-title" style="margin:0">挑戦のおすそわけ</h1>
+    </div>
+    <div class="hd-right">
+      <div class="hd-date">2026.11.01</div>
+      <div class="hd-place">恵比寿</div>
+    </div>
+  </header>
+
+  <div class="me">わたしの名前<span class="line"></span></div>
+
+  <p class="rule" style="margin:0">12マスのビンゴです。お題に合う人を探して挑戦を聞いたら、<b>相手の名前と挑戦</b>をマスに書き込みます。書けるのは、<b>自分がやったことも考えたこともない挑戦</b>だけ。1人につき1マスまでです。20時すぎに、いちばん考えもしなかった挑戦の<b class="nb">右上の丸</b>を塗ってください。</p>
+
+  <div class="grid">
+    <div class="cell"><span class="maru"></span><p class="odai" style="margin:0">自分と違う仕事の人の挑戦</p><div class="f f-name">名前<span class="line"></span></div><div class="f f-what"><span class="lab">挑戦</span><span class="line"></span><span class="line"></span></div></div>
+    <div class="cell"><span class="maru"></span><p class="odai" style="margin:0">10歳以上はなれた人の挑戦</p><div class="f f-name">名前<span class="line"></span></div><div class="f f-what"><span class="lab">挑戦</span><span class="line"></span><span class="line"></span></div></div>
+    <div class="cell"><span class="maru"></span><p class="odai" style="margin:0"><span class="nb">自分が行ったことのない</span><span class="nb">土地でした挑戦</span></p><div class="f f-name">名前<span class="line"></span></div><div class="f f-what"><span class="lab">挑戦</span><span class="line"></span><span class="line"></span></div></div>
+
+    <div class="cell"><span class="maru"></span><p class="odai" style="margin:0">聞いて思わず笑った挑戦</p><div class="f f-name">名前<span class="line"></span></div><div class="f f-what"><span class="lab">挑戦</span><span class="line"></span><span class="line"></span></div></div>
+    <div class="cell"><span class="maru"></span><p class="odai" style="margin:0"><span class="nb">自分なら3日で</span><span class="nb">やめそうな挑戦</span></p><div class="f f-name">名前<span class="line"></span></div><div class="f f-what"><span class="lab">挑戦</span><span class="line"></span><span class="line"></span></div></div>
+    <div class="cell"><span class="maru"></span><p class="odai" style="margin:0">1円もかからない挑戦</p><div class="f f-name">名前<span class="line"></span></div><div class="f f-what"><span class="lab">挑戦</span><span class="line"></span><span class="line"></span></div></div>
+
+    <div class="cell"><span class="maru"></span><p class="odai" style="margin:0">1日で終わった挑戦</p><div class="f f-name">名前<span class="line"></span></div><div class="f f-what"><span class="lab">挑戦</span><span class="line"></span><span class="line"></span></div></div>
+    <div class="cell"><span class="maru"></span><p class="odai" style="margin:0">10年続いている習慣</p><div class="f f-name">名前<span class="line"></span></div><div class="f f-what"><span class="lab">挑戦</span><span class="line"></span><span class="line"></span></div></div>
+    <div class="cell"><span class="maru"></span><p class="odai" style="margin:0"><span class="nb">人に言うのが</span><span class="nb">少し恥ずかしい挑戦</span></p><div class="f f-name">名前<span class="line"></span></div><div class="f f-what"><span class="lab">挑戦</span><span class="line"></span><span class="line"></span></div></div>
+
+    <div class="cell is-commons"><span class="maru"></span><p class="odai" style="margin:0"><span class="nb">COMMONSの月のテーマで</span><span class="nb">やった挑戦</span></p><div class="f f-name">名前<span class="line"></span></div><div class="f f-what"><span class="lab">挑戦</span><span class="line"></span><span class="line"></span></div></div>
+    <div class="cell"><span class="maru"></span><p class="odai" style="margin:0">まだ誰にも話していない挑戦</p><div class="f f-name">名前<span class="line"></span></div><div class="f f-what"><span class="lab">挑戦</span><span class="line"></span><span class="line"></span></div></div>
+    <div class="cell"><span class="maru"></span><p class="odai" style="margin:0">明日からできそうな挑戦</p><div class="f f-name">名前<span class="line"></span></div><div class="f f-what"><span class="lab">挑戦</span><span class="line"></span><span class="line"></span></div></div>
+  </div>
+
+  <div class="foot">
+    <div class="box">
+      <p class="box-h" style="margin:0">そろったら</p>
+      <p class="prize" style="margin:0">横に<span class="num">3</span>つか縦に<span class="num">4</span>つで、ドリンク<span class="num">1</span>杯<br><span class="num">12</span>マス全部で、景品があります</p>
+    </div>
+    <div class="box take">
+      <p class="box-h" style="margin:0">持ち帰る挑戦（30日だけ試す）</p>
+      <div class="f">挑戦<span class="line"></span></div>
+      <div class="row2">
+        <div class="f">教えてくれた人<span class="line"></span></div>
+        <div class="f">はじめる日<span class="line"></span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sig">
+    <span>旅好きの挑戦と習慣化のコミュニティ POOLO COMMONS</span>
+    <img src="images/poolo_logo.png" alt="POOLO">
+  </div>
+
+</div>
+</body>
+</html>
