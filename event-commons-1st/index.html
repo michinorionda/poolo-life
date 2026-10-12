@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- ▼たたき台（261008）。確定前のプレビューのため検索避け -->
 <meta name="robots" content="noindex">
-<title>COMMONSの1年に、恵比寿で乾杯する。｜POOLO COMMONS 1周年パーティー</title>
-<meta name="description" content="旅好きのオンラインコミュニティ POOLO COMMONSは、2025年11月に始まって1年になります。2026年11月1日（日）18:00、恵比寿で1年を祝うパーティーを開きます。COMMONSのメンバーでなくても参加できます。">
+<title>挑戦の縁日｜POOLO COMMONS 1周年</title>
+<meta name="description" content="旅好きの挑戦と習慣化のコミュニティ POOLO COMMONSの1周年。2026年11月1日（日）18:00から恵比寿で、屋台を回って小さな挑戦を試す「挑戦の縁日」を開きます。三日坊主の方も、手ぶらで来てください。">
 
 <!-- 色・書体はデザインシステムのトークンを参照する。組みはこのページ固有なので下の <style> に書く（琴平LPと同じ方式） -->
 <link rel="stylesheet" href="../poolo-ds/tokens.css">
@@ -473,6 +473,23 @@ br.pc-br { display: none; }
 @media (min-width: 960px) {
   .oneday .days-grid { max-width: 640px; }
 }
+
+/* ---- 屋台の一覧（PCは2列） ---- */
+.stalls { padding: 64px 28px; border-top: 1px solid var(--line); }
+.stall-list { margin-top: 28px; }
+.stall { border-top: 1px solid var(--line); padding-block: 16px; }
+.stall-month { font-size: 11px; font-weight: 700; letter-spacing: 0.06em; color: var(--brand-deep); }
+.stall-name { margin-top: 4px; font-family: var(--mincho); font-weight: 700; font-size: 18px; line-height: 1.6; letter-spacing: 0.04em; color: var(--ink); }
+.stall-desc { margin-top: 6px; font-size: 13px; line-height: 1.85; }
+@media (min-width: 960px) {
+  .stalls { padding: 0; }
+  .stalls .in { padding-block: 96px 112px; }
+  .stalls-head { max-width: 640px; }
+  .stall-list { display: grid; grid-template-columns: 1fr 1fr; column-gap: 64px; margin-top: 44px; }
+  .stall { padding-block: 20px 24px; }
+  .stall-name { font-size: 20px; }
+  .stall-desc { font-size: 14px; }
+}
 </style>
 </head>
 <body>
@@ -483,8 +500,8 @@ br.pc-br { display: none; }
 <div class="fa" id="floatApply">
   <div class="fa-inner">
     <div class="fa-texts">
-      <span class="fa-main">COMMONSの1年に、恵比寿で乾杯する。</span>
-      <span class="fa-sub"><span class="num">11/1</span>（日）<span class="num">18:00</span> 開場・恵比寿・<span class="num">3,000</span>円</span>
+      <span class="fa-main">POOLO COMMONS 1周年　挑戦の縁日</span>
+      <span class="fa-sub"><span class="num">11/1</span>（日）<span class="num">18:00</span> 開場・恵比寿・<span class="num">3,000</span>円・手ぶらで参加できます</span>
     </div>
     <a class="btn" href="#apply">LINEで申し込む</a>
   </div>
@@ -494,7 +511,7 @@ br.pc-br { display: none; }
 <header class="hd">
   <div class="in">
     <a class="hd-logo" href="https://tabippo.net/poolo/" target="_blank" rel="noopener"><img src="images/poolo_logo.png" alt="POOLO あたらしい旅の学校"></a>
-    <span class="hd-label">旅好きのコミュニティ｜POOLO COMMONS 1周年</span>
+    <span class="hd-label">旅好きの挑戦と習慣化のコミュニティ｜POOLO COMMONS 1周年</span>
     <a class="btn hd-cta" href="#apply">LINEで申し込む</a>
   </div>
 </header>
@@ -503,15 +520,15 @@ br.pc-br { display: none; }
 <section class="fv">
   <div class="fv-top">
     <div class="fv-copy">
-      <h1 class="mc"><span class="mc-pre">POOLO COMMONS 1周年</span><span class="nb">COMMONSの</span><br><span class="nb">1年に、恵比寿で</span><br><span class="nb">乾杯する。</span></h1>
-      <p class="lead">旅好きのオンラインコミュニティ POOLO COMMONSは、2025年11月に始まって、この11月で1年になります。<br class="pc-br">ふだんはZoomとSlackで会っている仲間と、前にいたメンバーと、その友達と。<br class="pc-br"><span class="nb">毎月ひとつ、</span><span class="nb">やったことのないことに</span><span class="nb">挑戦してきた1年を、</span><span class="nb">顔を合わせて祝う夜です。</span></p>
+      <h1 class="mc"><span class="mc-pre">POOLO COMMONS 1周年</span><span class="nb">三日坊主でも</span><br><span class="nb">来てほしい、</span><br><span class="nb">挑戦の縁日。</span></h1>
+      <p class="lead">旅好きの挑戦と習慣化のコミュニティ POOLO COMMONSは、この11月で1年になります。<br class="pc-br">1周年の夜は、会場に屋台を並べて、この1年に毎月やってきた小さな挑戦を、来た人が一つずつ試せる縁日にします。<br class="pc-br"><span class="nb">入口では続かなかった習慣を供養して、</span><span class="nb">帰りには誰かの習慣をもらって帰ります。</span></p>
       <div class="date">
         <div><span class="date-y">2026</span><span class="date-d">11.01</span></div>
         <div><span class="date-w">日曜日 <span class="num">18:00</span> 開場</span><span class="date-w"><span class="num">21:00</span> 終了</span></div>
       </div>
-      <p class="cond">東京・恵比寿<span class="sep">／</span>参加費3,000円<span class="sep">／</span>定員50名</p>
+      <p class="cond">東京・恵比寿<span class="sep">／</span>参加費3,000円<span class="sep">／</span>手ぶらで参加できます</p>
       <a class="btn" href="#apply">LINEで申し込む</a>
-      <p class="note">COMMONSのメンバーでなくても参加できます。</p>
+      <p class="note">COMMONSのメンバーでなくても、はじめての方も参加できます。</p>
     </div>
     <figure class="fv-photo"><img src="images/bridge_back.jpg" alt="鉄橋の上に並んで、川の向こうを眺める仲間たちの後ろ姿"></figure>
   </div>
@@ -521,8 +538,8 @@ br.pc-br { display: none; }
       <div><span class="date-w">日曜日 <span class="num">18:00</span> 開場</span><span class="date-w"><span class="num">21:00</span> 終了</span></div>
     </div>
     <div class="fv-how">
-      <p class="cond">東京・恵比寿<span class="sep">／</span>参加費3,000円<span class="sep">／</span>定員50名</p>
-      <p class="note">COMMONSのメンバーでなくても参加できます。</p>
+      <p class="cond">東京・恵比寿<span class="sep">／</span>参加費3,000円<span class="sep">／</span>手ぶらで参加できます</p>
+      <p class="note">COMMONSのメンバーでなくても、はじめての方も参加できます。</p>
     </div>
     <a class="btn" href="#apply">LINEで申し込む</a>
   </div>
@@ -538,44 +555,76 @@ br.pc-br { display: none; }
       <h2 class="h2">この1年のこと</h2>
       <div>
         <p class="feel-body">2025年11月、最初の定例ミートアップには、52人のうち30人がZoomに集まりました。それから毎月ひとつテーマを決めて、やったことのないことに挑戦してきました。7月はショート動画をつくり、9月は自分の声で音声配信をして、10月は「新しい旅」に挑戦しています。11月のテーマは読書です。</p>
-        <p class="feel-body">オンラインのコミュニティなので、住んでいる場所はばらばらです。それでも、東京駅に集まってサイコロをふる「ぶらりサイコロ旅」や、朝の皇居ラン、シルバーウィークのご飯会「共通メシ」と、メンバーが自分で立てた企画で、画面の外で会う日が少しずつ増えてきました。</p>
+        <p class="feel-body">挑戦と言っても、ひとつひとつは小さなものです。一人だと三日で止まってしまうことも、同じ月に同じテーマで動いている人がいると、もう少し続けられる。この1年、COMMONSでいちばん多く見てきたのは、そういう場面でした。</p>
       </div>
-      <p class="feel-note">1周年の夜は、その1年をまとめて振り返り、2年目にやることを話す日にします。いまのメンバーも、前にいたメンバーも、まだCOMMONSに入っていない人も来られます。</p>
+      <p class="feel-note">1周年の夜は、その1年の挑戦を、COMMONSをまだ知らない人にもまとめて試してもらう日にします。いまのメンバーも、前にいたメンバーも、その友達も来られます。<span class="tbd">2段落目の言い回しは運営の実感に合わせて要確認</span></p>
     </div>
   </div>
 </section>
 
-<!-- ===== 当日やること ===== -->
+<!-- ===== 当日の回り方 ===== -->
 <section class="program">
   <div class="in col">
-    <h2 class="h2">当日やること</h2>
-    <p class="lead">乾杯のあと、この1年を写真で振り返り、メンバーを表彰して、最後に持ってきた本を交換します。</p>
+    <h2 class="h2">当日の回り方</h2>
+    <p class="lead">入口で三日坊主を供養して、縁日で屋台を回り、帰りに誰かの習慣をもらって帰ります。来る時間も帰る時間も自由です。</p>
     <ol class="steps">
       <li class="step">
-        <div class="step-key"><img class="no" src="images/num-01.svg" alt="01"><span class="label">振り返る</span></div>
+        <div class="step-key"><img class="no" src="images/num-01.svg" alt="01"><span class="label">入口で</span></div>
         <div>
-          <h3><span class="nb">1年分の写真を、</span><span class="nb">スライドで見る</span></h3>
-          <p class="when">19:10ごろ／10分</p>
-          <p class="body">11月の最初の定例から10月の新しい旅まで、メンバーから集めた「この1年のお気に入りの1枚」を流します。会場の壁にも、月ごとに写真を貼っておきます。</p>
+          <h3>三日坊主を供養する</h3>
+          <p class="when">受付でいつでも</p>
+          <p class="body">日記、筋トレ、語学アプリ、毎朝の早起き。これまでに続かなかった習慣をひとつ紙に書いて、入口の供養台に納めます。書いた紙は乾杯のあとに、いくつか読み上げます。名前は書かなくてかまいません。</p>
         </div>
       </li>
       <li class="step">
-        <div class="step-key"><img class="no" src="images/num-02.svg" alt="02"><span class="label">表彰する</span></div>
+        <div class="step-key"><img class="no" src="images/num-02.svg" alt="02"><span class="label">縁日で</span></div>
         <div>
-          <h3>COMMONS AWARD</h3>
-          <p class="when">19:20ごろ／30分</p>
-          <p class="body">この1年の挑戦から、メンバーの投票で表彰します。部門は「いちばん新しかった挑戦」「いちばん人が集まった企画」などを考えています。毎月ひとりずつ選んできた「月間チャレンジャー」も、ここで紹介します。<span class="tbd">部門は要確認</span></p>
+          <h3><span class="nb">屋台を回って、</span><span class="nb">小さな挑戦を試す</span></h3>
+          <p class="when">18:45ごろから</p>
+          <p class="body">COMMONSの月ごとのテーマを、屋台にして並べます。屋台に立つのは、その月を企画したメンバーです。1つの屋台は10分ほどで回れるので、気になったものから順に試してください。回った屋台の数だけ、スタンプが押されます。</p>
         </div>
       </li>
       <li class="step">
-        <div class="step-key"><img class="no" src="images/num-03.svg" alt="03"><span class="label">交換する</span></div>
+        <div class="step-key"><img class="no" src="images/num-03.svg" alt="03"><span class="label">帰りに</span></div>
         <div>
-          <h3>本のプレゼント交換</h3>
-          <p class="when">19:50ごろ／30分</p>
-          <p class="body">11月のテーマが読書なので、旅や人生で影響を受けた本を1冊、包んで持ってきてください。くじで番号を引いたら、その本を持ってきた人を会場で探して、選んだ理由を聞きにいきます。</p>
+          <h3><span class="nb">誰かの習慣を</span><span class="nb">もらって帰る</span></h3>
+          <p class="when">20:30ごろ</p>
+          <p class="body">自分が続けている小さな習慣を1枚のカードに書いて、くじで交換します。「朝いちばんに窓を開ける」くらいの大きさで十分です。引いたカードの習慣を、帰ってから30日だけ試してみてください。</p>
         </div>
       </li>
     </ol>
+  </div>
+</section>
+
+<!-- ===== 縁日の屋台 ===== -->
+<section class="stalls">
+  <div class="in">
+    <div class="stalls-head">
+      <h2 class="h2">縁日の屋台</h2>
+      <p class="lead">この1年のテーマから、屋台をいくつか出します。並びと中身はメンバーと相談して決めているところです。<span class="tbd">屋台の数・中身・担当は要確認</span></p>
+    </div>
+    <ul class="stall-list">
+      <li class="stall">
+        <p class="stall-month">7月のテーマ　ショート動画</p>
+        <p class="stall-name">15秒の動画を撮る屋台</p>
+        <p class="stall-desc">スマホで15秒の動画を1本撮って、その場で見せ合います。撮るのは、今日ここに来るまでの道のりでもかまいません。</p>
+      </li>
+      <li class="stall">
+        <p class="stall-month">9月のテーマ　音声配信</p>
+        <p class="stall-name">30秒だけ声を録る屋台</p>
+        <p class="stall-desc">「最近はじめたこと」を30秒で話して録音します。自分の声を聞き返すところまでが、この屋台の挑戦です。</p>
+      </li>
+      <li class="stall">
+        <p class="stall-month">10月のテーマ　新しい旅</p>
+        <p class="stall-name">サイコロで次の旅先を決める屋台</p>
+        <p class="stall-desc">サイコロを2回ふって、行き先と過ごし方を決めます。出た目のとおりに行けたら、COMMONSのSlackで報告してください。</p>
+      </li>
+      <li class="stall">
+        <p class="stall-month">11月のテーマ　読書</p>
+        <p class="stall-name">一文だけの本棚</p>
+        <p class="stall-desc">好きな本の一文を、短冊に書いて棚に貼ります。本を持ってきた方は、ここで交換もできます。</p>
+      </li>
+    </ul>
   </div>
 </section>
 
@@ -593,14 +642,13 @@ br.pc-br { display: none; }
           <span class="day-w"><span>日曜日</span><span class="quiet">coba恵比寿</span></span>
         </div>
         <ul class="tt">
-          <li><span class="tt-time">18:00</span><div><p class="tt-title">開場</p><p class="tt-desc">受付で本を預かり、名札に「COMMONSに入った月」を書きます。はじめての方は「はじめて」と書いてください。</p></div></li>
-          <li><span class="tt-time">18:30</span><div><p class="tt-title">乾杯</p><p class="tt-desc">運営のあいさつは短くして、すぐに乾杯します。</p></div></li>
-          <li><span class="tt-time">18:40</span><div><p class="tt-title">歓談</p></div></li>
-          <li><span class="tt-time">19:10</span><div><p class="tt-title">1年分の写真をスライドで見る</p></div></li>
-          <li><span class="tt-time">19:20</span><div><p class="tt-title">COMMONS AWARD</p></div></li>
-          <li><span class="tt-time">19:50</span><div><p class="tt-title">本のプレゼント交換</p></div></li>
-          <li><span class="tt-time">20:20</span><div><p class="tt-title">2年目の発表</p><p class="tt-desc">運営から、2年目にやることを発表します。続けて、来年やってみたいことを一人ひとつ紙に書いて、壁に貼ります。</p></div></li>
-          <li><span class="tt-time">20:40</span><div><p class="tt-title">集合写真</p></div></li>
+          <li><span class="tt-time">18:00</span><div><p class="tt-title">開場・三日坊主の供養</p><p class="tt-desc">受付で、続かなかった習慣をひとつ紙に書いて納めます。</p></div></li>
+          <li><span class="tt-time">18:30</span><div><p class="tt-title">乾杯</p><p class="tt-desc">COMMONSの1年を写真で5分だけ振り返って、乾杯します。供養した習慣もいくつか読み上げます。</p></div></li>
+          <li><span class="tt-time">18:45</span><div><p class="tt-title">縁日 前半</p><p class="tt-desc">屋台を自由に回ります。</p></div></li>
+          <li><span class="tt-time">19:40</span><div><p class="tt-title">COMMONS AWARD</p><p class="tt-desc">この1年の挑戦から、メンバーの投票で表彰します。</p></div></li>
+          <li><span class="tt-time">20:00</span><div><p class="tt-title">縁日 後半</p></div></li>
+          <li><span class="tt-time">20:30</span><div><p class="tt-title">習慣の交換</p><p class="tt-desc">続けている小さな習慣をカードに書いて、くじで交換します。</p></div></li>
+          <li><span class="tt-time">20:45</span><div><p class="tt-title">集合写真</p></div></li>
           <li><span class="tt-time">21:00</span><div><p class="tt-title">終了</p><p class="tt-desc">21:30までは、残って話していけます。<span class="tbd">会場の利用時間は要確認</span></p></div></li>
         </ul>
       </div>
@@ -616,10 +664,10 @@ br.pc-br { display: none; }
   <div class="in">
     <h2 class="h2 take-head">持ってくるもの</h2>
     <div class="take-slip paper">
-      <p class="take-body body">本を1冊、中身が見えないように包んで持ってきてください。旅や人生で影響を受けた本でも、最近読んでよかった本でもかまいません。文庫でも写真集でも大丈夫です。</p>
+      <p class="take-body body">手ぶらで来てください。供養の紙も、習慣のカードも、会場に用意しておきます。来る前に、続かなかった習慣と、いま続いている小さな習慣を、ひとつずつ思い出しておいてもらえると助かります。</p>
       <ul class="take-list">
-        <li><span class="dot">・</span>交換用の本 1冊（包んだもの）</li>
-        <li><span class="dot">・</span>旅先で買ったものをひとつ身につけてくると、話のきっかけになります</li>
+        <li><span class="dot">・</span>本の交換をしたい方は、好きな本を1冊</li>
+        <li><span class="dot">・</span>動画と音声の屋台を回る方は、充電したスマホ</li>
       </ul>
     </div>
   </div>
@@ -630,10 +678,11 @@ br.pc-br { display: none; }
   <div class="in col">
     <h2 class="h2">こんな方へ</h2>
     <ul>
-      <li>COMMONSのメンバーで、Slackでしか話したことのない人に会ってみたい</li>
+      <li>何かを始めても、三日坊主で終わってしまうことが多い</li>
+      <li>新しいことを始めたいけれど、一人だと続く気がしない</li>
+      <li>COMMONSが気になっていて、どんなことをしているのか試してみたい</li>
       <li>前にCOMMONSにいて、久しぶりにみんなの顔を見たい</li>
-      <li>メンバーの友達に誘われて、COMMONSがどんな場所か見てみたい</li>
-      <li>POOLOを卒業して、COMMONSに入るかどうか考えている</li>
+      <li>COMMONSのメンバーで、Slackでしか話したことのない人に会ってみたい</li>
     </ul>
   </div>
 </section>
@@ -644,8 +693,8 @@ br.pc-br { display: none; }
     <div class="about-text">
       <h2 class="h2"><span class="nb">POOLO COMMONS</span><span class="nb">について</span></h2>
       <img class="about-kv sp-only" src="images/bridge_front.jpg" alt="鉄橋の上に並んで、こちらを向いて立つ仲間たち" loading="lazy">
-      <p class="body">POOLO COMMONSは、旅好きのためのオンラインコミュニティです。「毎月ひとつ、やったことのないことをやる」を掲げて、月ごとのテーマに挑戦したり、メンバー同士で企画を立てて集まったりしています。あたらしい旅の学校POOLOの卒業生が中心ですが、卒業生でない方も参加しています。</p>
-      <p class="body">参加費は月額3,000円で、いつでも入会・退会できます。1周年の会で気になった方は、12月から参加できます。<span class="tbd">入会の受付期間は要確認</span></p>
+      <p class="body">POOLO COMMONSは、旅好きの挑戦と習慣化のコミュニティです。「毎月ひとつ、やったことのないことをやる」を掲げて、月ごとのテーマに挑戦したり、メンバー同士で企画を立てて集まったりしています。あたらしい旅の学校POOLOの卒業生が中心ですが、卒業生でない方も参加しています。</p>
+      <p class="body">参加費は月額3,000円で、いつでも入会・退会できます。縁日でもらった習慣を、COMMONSのSlackで報告しながら続けることもできます。<span class="tbd">入会の受付期間は要確認</span></p>
       <a class="about-link" href="https://tabippo.net/poolocommons/" target="_blank" rel="noopener">POOLO COMMONSのページを見る</a>
     </div>
     <figure class="about-photo pc-only">
@@ -661,13 +710,13 @@ br.pc-br { display: none; }
     <h2 class="h2">開催概要</h2>
     <div class="ov-wrap">
       <dl class="ov">
-        <div class="ov-row"><dt>名称</dt><dd><strong>POOLO COMMONS 1周年パーティー</strong></dd></div>
-        <div class="ov-row"><dt>日時</dt><dd><strong>2026年11月1日（日）18:00開場・18:30開始</strong><br>21:00終了</dd></div>
+        <div class="ov-row"><dt>名称</dt><dd><strong>POOLO COMMONS 1周年　挑戦の縁日</strong></dd></div>
+        <div class="ov-row"><dt>日時</dt><dd><strong>2026年11月1日（日）18:00開場・18:30乾杯</strong><br>21:00終了。途中からの参加、途中でのお帰りもできます</dd></div>
         <div class="ov-row"><dt>会場</dt><dd>coba恵比寿 <span class="tbd">住所・最寄り駅は要確認</span></dd></div>
         <div class="ov-row"><dt>定員</dt><dd><strong>50名</strong> <span class="tbd">会場の上限は要確認</span></dd></div>
         <div class="ov-row"><dt>参加費</dt><dd><span class="fee">3,000</span>円（飲み物と軽食つき）<br><span class="tbd">早割・友達と2人での申込割を入れるかは要確認</span></dd></div>
-        <div class="ov-row"><dt>対象</dt><dd>POOLO COMMONSのメンバー、前にいたメンバー、その友達、COMMONSが気になっている方</dd></div>
-        <div class="ov-row"><dt>持ち物</dt><dd>交換用の本 1冊（包んだもの）</dd></div>
+        <div class="ov-row"><dt>対象</dt><dd>どなたでも。POOLO COMMONSのメンバー、前にいたメンバー、その友達、COMMONSが気になっている方</dd></div>
+        <div class="ov-row"><dt>持ち物</dt><dd>なし（本の交換をしたい方は本を1冊）</dd></div>
         <div class="ov-row"><dt>申込方法</dt><dd>POOLO公式LINEを友だち追加のうえ、LINE内のご案内からお申し込みください。</dd></div>
         <div class="ov-row"><dt>申込締切</dt><dd><span class="tbd">要確認</span></dd></div>
         <div class="ov-row"><dt>主催</dt><dd>POOLO COMMONS（株式会社TABIPPO）</dd></div>
@@ -681,11 +730,11 @@ br.pc-br { display: none; }
   <div class="in">
     <h2 class="h2">よくある質問</h2>
     <dl class="faq-list">
-      <div class="faq-item"><dt class="faq-q">COMMONSのメンバーでなくても参加できますか？</dt><dd class="faq-a">はい。前にCOMMONSにいた方も、メンバーの友達も、COMMONSが気になっている方も参加できます。</dd></div>
-      <div class="faq-item"><dt class="faq-q">一人で参加しても大丈夫ですか？</dt><dd class="faq-a">はい。本のプレゼント交換では、くじで引いた本の持ち主を会場で探しにいくので、はじめての方とも自然に話せます。</dd></div>
-      <div class="faq-item"><dt class="faq-q">本は新しいものでないといけませんか？</dt><dd class="faq-a">読んだ本でかまいません。交換した相手の手に渡るので、書き込みの多いものは避けてください。</dd></div>
+      <div class="faq-item"><dt class="faq-q">COMMONSのメンバーでなくても参加できますか？</dt><dd class="faq-a">はい。前にCOMMONSにいた方も、メンバーの友達も、COMMONSのことをはじめて知った方も参加できます。</dd></div>
+      <div class="faq-item"><dt class="faq-q">一人で参加しても大丈夫ですか？</dt><dd class="faq-a">はい。屋台ではその月を企画したメンバーが待っているので、一人で回っても話す相手がいます。</dd></div>
+      <div class="faq-item"><dt class="faq-q">三日坊主の供養では、何をするのですか？</dt><dd class="faq-a">続かなかった習慣を紙に書いて、入口の供養台に納めるだけです。乾杯のあとにいくつか読み上げますが、名前は出しません。</dd></div>
+      <div class="faq-item"><dt class="faq-q">交換した習慣は、必ず続けないといけませんか？</dt><dd class="faq-a">いいえ。30日だけ試してみて、合わなければやめてかまいません。続いたら、COMMONSのSlackで教えてもらえると嬉しいです。</dd></div>
       <div class="faq-item"><dt class="faq-q">昼の定例ミートアップにも出る必要はありますか？</dt><dd class="faq-a">いいえ。夜だけの参加で大丈夫です。</dd></div>
-      <div class="faq-item"><dt class="faq-q">途中から参加したり、途中で帰ったりしてもいいですか？</dt><dd class="faq-a">はい。COMMONS AWARDは19:20ごろから始まります。</dd></div>
     </dl>
   </div>
 </section>
@@ -695,16 +744,16 @@ br.pc-br { display: none; }
   <div class="in">
     <div class="apply-head">
       <h2 class="h2">お申し込み</h2>
-      <p class="apply-msg body">参加する方は、<span class="nb">POOLO公式LINEから</span>お申し込みください。友達を誘うときは、このページを送ってもらえると助かります。</p>
+      <p class="apply-msg body">参加する方は、<span class="nb">POOLO公式LINEから</span>お申し込みください。三日坊主の友達を誘うときは、このページを送ってもらえると助かります。</p>
     </div>
     <div class="apply-box">
       <div class="date">
         <div><span class="date-y">2026</span><span class="date-d">11.01</span></div>
         <div><span class="date-w">日曜日 <span class="num">18:00</span> 開場</span><span class="date-w"><span class="num">21:00</span> 終了</span></div>
       </div>
-      <p class="date-line">東京・恵比寿・参加費<span class="num">3,000</span>円・定員<span class="num">50</span>名</p>
+      <p class="date-line">東京・恵比寿・参加費<span class="num">3,000</span>円・手ぶらで参加できます</p>
       <a class="btn" href="#apply">LINEで申し込む</a>
-      <p class="apply-steps">1. POOLO公式LINEを友だち追加<br>2. LINE内の案内から1周年パーティーに申し込む</p>
+      <p class="apply-steps">1. POOLO公式LINEを友だち追加<br>2. LINE内の案内から挑戦の縁日に申し込む</p>
       <dl class="apply-note"><dt>申込締切</dt><dd><span class="tbd">要確認</span>。LINEのリンクも確定後に差し替えます。</dd></dl>
     </div>
   </div>
