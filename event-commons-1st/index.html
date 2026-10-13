@@ -511,6 +511,15 @@ br.pc-br { display: none; }
 .pc-only-i { display: none; }
 @media (min-width: 960px) { .pc-only-i { display: inline; } }
 
+/* ---- お申し込み：ボタンの下に余白をとる ---- */
+.apply-box .btn + .apply-steps { margin-top: 40px; }
+.apply-steps { line-height: 2.1; }
+.apply-steps + .apply-note { margin-top: 32px; }
+@media (min-width: 960px) {
+  .apply-box .btn + .apply-steps { margin-top: 44px; }
+  .apply-steps { font-size: 14px; }
+}
+
 /* ---- 冒頭のキャッチ（見出しより一段小さく） ---- */
 .fv-catch { font-size: 20px; }
 @media (min-width: 960px) { .fv-copy .fv-catch { font-size: 26px; margin-top: 28px; } }
