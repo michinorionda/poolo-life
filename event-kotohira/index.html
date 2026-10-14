@@ -62,6 +62,8 @@ br.pc-br { display: none; }
 /* 文節で改行する。本文には BudouX で文節の切れ目に <wbr> を入れてあり（Safariでも効く）、それ以外の場所では折り返さない。
    本文を書き換えたら、<wbr> を入れ直す：npm i budoux のあと node event-kotohira/wbr.js event-kotohira/index.html（何度かけても同じ結果になる） */
 body { word-break: keep-all; overflow-wrap: anywhere; }
+/* 長い本文は文節で切らず、行末まで詰めて組む（句読点の禁則は line-break: strict で守る）。文節で折り返すのは見出し・リード・箇条書きなど短い文だけ */
+.body, .feel-body, .feel-note, .person-bio, .guest-bio, .take-body, .faq-a { word-break: normal; }
 /* 確認待ちの印。公開前に全部消す */
 .tbd { color: #B3261E; font-size: 0.82em; font-weight: 700; letter-spacing: 0.02em; white-space: nowrap; }
 
@@ -576,10 +578,10 @@ body { word-break: keep-all; overflow-wrap: anywhere; }
     <div class="feel-text">
       <h2><img class="lt" src="images/lt-feel.svg" alt="こんな気持ちの方へ" width="448" height="56"></h2>
       <div>
-        <p class="feel-body">休みの<wbr>日に<wbr>豆を<wbr>挽いて<wbr>コーヒーを<wbr>淹れる。<wbr>旅先で<wbr>撮った<wbr>写真を、<wbr>誰に<wbr>見せる<wbr>でもなく<wbr>フォルダに<wbr>並べている。<wbr>友だちに<wbr>本を<wbr>薦める<wbr>ときだけ、<wbr>少し<wbr>早口に<wbr>なる。<wbr>好きなことは<wbr>誰にでもあるのに、<wbr>それを<wbr>人に<wbr>向けて<wbr>「始める」⁠と<wbr>なると、<wbr>途端に<wbr>大ごとに<wbr>感じてしまいます。<wbr>お店を<wbr>開く<wbr>ほどでも、<wbr>副業に<wbr>する<wbr>ほどでも<wbr>ないし、<wbr>何から<wbr>始めれば<wbr>いいのかも<wbr>分からない。</p>
-        <p class="feel-body">好きなことを<wbr>始める<wbr>手前で<wbr>迷った<wbr>経験は、<wbr>きっと<wbr>誰にでもあります。<wbr>この<wbr>旅に<wbr>来るのも<wbr>同じような<wbr>人たちなので、<wbr>お互いの<wbr>「やりたい」⁠を<wbr>気兼ねなく<wbr>話せます。</p>
+        <p class="feel-body">休みの<wbr>日に<wbr>豆を<wbr>挽いて<wbr>コーヒーを<wbr>淹れる。<wbr>旅先で<wbr>撮った<wbr>写真を、<wbr>誰に<wbr>見せる<wbr>でもなく<wbr>フォルダに<wbr>並べている。<wbr>友だちに<wbr>本を<wbr>薦める<wbr>ときだけ、<wbr>少し<wbr>早口に<wbr>なる。<wbr>好きなことは<wbr>誰にでもあるのに、<wbr>それを<wbr>人に<wbr>向けて<wbr>「始める」⁠と<wbr>なると、<wbr>途端に<wbr>大ごとに<wbr>感じてしまいます。<wbr>お店を<wbr>開く<wbr>ほどでも、<wbr>副業に<wbr>する<wbr>ほどでも<wbr>ないし、<wbr>何から<wbr>始めれば<wbr>いいのかも<wbr><span class="nb">分からない。</span></p>
+        <p class="feel-body">好きなことを<wbr>始める<wbr>手前で<wbr>迷った<wbr>経験は、<wbr>きっと<wbr>誰にでもあります。<wbr>この<wbr>旅に<wbr>来るのも<wbr>同じような<wbr>人たちなので、<wbr>お互いの<wbr>「やりたい」⁠を<wbr>気兼ねなく<wbr><span class="nb">話せます。</span></p>
       </div>
-      <p class="feel-note">この<wbr>旅では、<wbr>好きなことを<wbr>始めた<wbr>人たちに<wbr>琴平で<wbr>会い、<wbr>町の<wbr>方と、<wbr>自分の<wbr>「やりたい」⁠を<wbr>心ゆくまで<wbr>語ります。<wbr>持ってくるのは、<wbr>まだ誰にも<wbr>話していない<wbr>「やりたい」<wbr>ひとつで<wbr>足ります。</p>
+      <p class="feel-note">この<wbr>旅では、<wbr>好きなことを<wbr>始めた<wbr>人たちに<wbr>琴平で<wbr>会い、<wbr>町の<wbr>方と、<wbr>自分の<wbr>「やりたい」⁠を<wbr>心ゆくまで<wbr>語ります。<wbr>持ってくるのは、<wbr>まだ誰にも<wbr>話していない<wbr>「やりたい」<wbr>ひとつで<wbr><span class="nb">足ります。</span></p>
     </div>
   </div>
 </section>
@@ -592,10 +594,10 @@ body { word-break: keep-all; overflow-wrap: anywhere; }
     </figure>
     <div class="town-text">
       <h2 class="h2">琴平という<wbr>町</h2>
-      <p class="body">香川県の<wbr>ほぼ<wbr>真ん中、<wbr>人口7,600人ほどの<wbr>琴平町は、<wbr>金刀比羅宮<wbr>（こんぴらさん）⁠の<wbr>門前町です。<wbr>江戸時代には<wbr>「一生に<wbr>一度は<wbr>こんぴら参り」⁠と<wbr>言われ、<wbr>いまも<wbr>年間200万人を<wbr>超える<wbr>人が、<wbr>本宮まで<wbr>785段の<wbr>石段を<wbr>登りに<wbr>訪れます。<wbr>昔の<wbr>人の<wbr>日記には、<wbr>よその<wbr>町から<wbr>来ても<wbr>琴平だけは<wbr>よそ者扱いされなかった、<wbr>と<wbr>書かれている<wbr>そうです。</p>
-      <p class="body">この<wbr>町が<wbr>変わりはじめたのは、<wbr>コロナ禍の<wbr>ころでした。<wbr>人通りが<wbr>減った<wbr>参道で、<wbr>飴屋の<wbr>池商店が<wbr>100年ぶりに<wbr>店を<wbr>リニューアル。<wbr>2021年には<wbr>琴平バスの<wbr>楠木さんが<wbr>若い<wbr>世代を<wbr>集めて<wbr>勉強会を<wbr>開き、<wbr>そこから<wbr>店を<wbr>開く<wbr>人、<wbr>改装する<wbr>人が<wbr>続きました。<wbr>外から<wbr>移り住んだ<wbr>人も<wbr>加わっていて、<wbr>築60年の<wbr>廃ビルを、<wbr>カフェと<wbr>イベントスペースと<wbr>シェアアトリエと<wbr>ホステルが<wbr>入る<wbr>「HAKOBUNE」⁠に<wbr>変えた<wbr>人もいます。</p>
-      <p class="body">TABIPPOは<wbr>2021年から<wbr>琴平に<wbr>通っていて、<wbr>そのとき<wbr>町で<wbr>出会った<wbr>人たちの<wbr>話から<wbr>「好きが<wbr>コトひらく」⁠という<wbr>ことばを<wbr>つくりました。<wbr>一人ひとりが<wbr>好きなことを<wbr>自分の<wbr>やり方で<wbr>始めて、<wbr>それが<wbr>町を<wbr>少しずつ<wbr>ひらいていく。<wbr>5年たったいまでは、<wbr>町の<wbr>人たち自身が<wbr>この<wbr>ことばで<wbr>琴平の<wbr>ことを<wbr>話して<wbr>くれるように<wbr>なりました。</p>
-      <p class="body">やさしい<wbr>ローカルマガジン<a href="https://tazune.q4one.co.jp/articles/01/" target="_blank" rel="noopener">「たずね」⁠の<wbr>琴平編</a>で、<wbr>参道の<wbr>池商店の<wbr>池龍太郎さんは<wbr>「今は<wbr>たまたま<wbr>『僕が<wbr>走っている<wbr>番』⁠なんだという<wbr>感覚が<wbr>あります」⁠と<wbr>話しています。<wbr>今回会いに<wbr>行くのは、<wbr>コロナ禍の<wbr>ころに<wbr>最初の<wbr>一歩を<wbr>踏み出した<wbr>人たちです。</p>
+      <p class="body">香川県の<wbr>ほぼ<wbr>真ん中、<wbr>人口7,600人ほどの<wbr>琴平町は、<wbr>金刀比羅宮<wbr>（こんぴらさん）⁠の<wbr>門前町です。<wbr>江戸時代には<wbr>「一生に<wbr>一度は<wbr>こんぴら参り」⁠と<wbr>言われ、<wbr>いまも<wbr>年間200万人を<wbr>超える<wbr>人が、<wbr>本宮まで<wbr>785段の<wbr>石段を<wbr>登りに<wbr>訪れます。<wbr>昔の<wbr>人の<wbr>日記には、<wbr>よその<wbr>町から<wbr>来ても<wbr>琴平だけは<wbr>よそ者扱いされなかった、<wbr>と<wbr>書かれている<wbr><span class="nb">そうです。</span></p>
+      <p class="body">この<wbr>町が<wbr>変わりはじめたのは、<wbr>コロナ禍の<wbr>ころでした。<wbr>人通りが<wbr>減った<wbr>参道で、<wbr>飴屋の<wbr>池商店が<wbr>100年ぶりに<wbr>店を<wbr>リニューアル。<wbr>2021年には<wbr>琴平バスの<wbr>楠木さんが<wbr>若い<wbr>世代を<wbr>集めて<wbr>勉強会を<wbr>開き、<wbr>そこから<wbr>店を<wbr>開く<wbr>人、<wbr>改装する<wbr>人が<wbr>続きました。<wbr>外から<wbr>移り住んだ<wbr>人も<wbr>加わっていて、<wbr>築60年の<wbr>廃ビルを、<wbr>カフェと<wbr>イベントスペースと<wbr>シェアアトリエと<wbr>ホステルが<wbr>入る<wbr>「HAKOBUNE」⁠に<wbr>変えた<wbr><span class="nb">人もいます。</span></p>
+      <p class="body">TABIPPOは<wbr>2021年から<wbr>琴平に<wbr>通っていて、<wbr>そのとき<wbr>町で<wbr>出会った<wbr>人たちの<wbr>話から<wbr>「好きが<wbr>コトひらく」⁠という<wbr>ことばを<wbr>つくりました。<wbr>一人ひとりが<wbr>好きなことを<wbr>自分の<wbr>やり方で<wbr>始めて、<wbr>それが<wbr>町を<wbr>少しずつ<wbr>ひらいていく。<wbr>5年たったいまでは、<wbr>町の<wbr>人たち自身が<wbr>この<wbr>ことばで<wbr>琴平の<wbr>ことを<wbr>話してくれるように<wbr><span class="nb">なりました。</span></p>
+      <p class="body">やさしい<wbr>ローカルマガジン<a href="https://tazune.q4one.co.jp/articles/01/" target="_blank" rel="noopener">「たずね」⁠の<wbr>琴平編</a>で、<wbr>参道の<wbr>池商店の<wbr>池龍太郎さんは<wbr>「今は<wbr>たまたま<wbr>『僕が<wbr>走っている<wbr>番』⁠なんだという<wbr>感覚が<wbr>あります」⁠と<wbr>話しています。<wbr>今回会いに<wbr>行くのは、<wbr>コロナ禍の<wbr>ころに<wbr>最初の<wbr>一歩を<wbr>踏み出した<wbr><span class="nb">人たちです。</span></p>
     </div>
   </div>
 </section>
@@ -646,19 +648,19 @@ body { word-break: keep-all; overflow-wrap: anywhere; }
     <ul class="person-list">
       <li class="person">
         <p class="person-role">近江 淳さん<br class="sp-br">（株式会社地方創生／<wbr><span class="nb">KOTOVEGAS オーナー）</span></p>
-        <p class="person-bio">2019年ごろ、<wbr>シャッター商店街を<wbr>どうにかしたいと<wbr>考えて<wbr>琴平を<wbr>訪れ、<wbr>2020年に<wbr>〈琴平文具店〉⁠を<wbr>開きました。<wbr>いまは<wbr>商店街の<wbr>空き店舗や<wbr>空き家を<wbr>生かした<wbr>KOTOVEGASを<wbr>営んでいます。<wbr>KOTOVEGASの<wbr>ことと、<wbr>株式会社地方創生が<wbr>琴平で<wbr>手がけている<wbr>事業の<wbr>話を<wbr>聞きます。</p>
+        <p class="person-bio">2019年ごろ、<wbr>シャッター商店街を<wbr>どうにかしたいと<wbr>考えて<wbr>琴平を<wbr>訪れ、<wbr>2020年に<wbr>〈琴平文具店〉⁠を<wbr>開きました。<wbr>いまは<wbr>商店街の<wbr>空き店舗や<wbr>空き家を<wbr>生かした<wbr>KOTOVEGASを<wbr>営んでいます。<wbr>KOTOVEGASの<wbr>ことと、<wbr>株式会社地方創生が<wbr>琴平で<wbr>手がけている<wbr>事業の<wbr>話を<wbr><span class="nb">聞きます。</span></p>
       </li>
       <li class="person">
         <p class="person-role">松田 穂花さん<br class="sp-br">（株式会社地方創生）</p>
-        <p class="person-bio">学生の<wbr>ころ、<wbr>TABIPPOと<wbr>株式会社地方創生の<wbr>モニターツアーで<wbr>初めて<wbr>琴平を<wbr>訪れ、<wbr>大学を<wbr>卒業して<wbr>神奈川から<wbr>移り住みました。<wbr>いまは<wbr>KOTOVEGASで、<wbr>商店街の<wbr>空き店舗を<wbr>生かす仕事を<wbr>しています。<wbr>ほかの<wbr>会社の<wbr>内定を<wbr>断って、<wbr>琴平を<wbr>選んだ<wbr>ときの<wbr>話を<wbr>聞きます。</p>
+        <p class="person-bio">学生の<wbr>ころ、<wbr>TABIPPOと<wbr>株式会社地方創生の<wbr>モニターツアーで<wbr>初めて<wbr>琴平を<wbr>訪れ、<wbr>大学を<wbr>卒業して<wbr>神奈川から<wbr>移り住みました。<wbr>いまは<wbr>KOTOVEGASで、<wbr>商店街の<wbr>空き店舗を<wbr>生かす仕事を<wbr>しています。<wbr>ほかの<wbr>会社の<wbr>内定を<wbr>断って、<wbr>琴平を<wbr>選んだ<wbr>ときの<wbr>話を<wbr><span class="nb">聞きます。</span></p>
       </li>
       <li class="person">
         <p class="person-role">楠木 泰二朗さん<br class="sp-br">（琴平バス株式会社 代表取締役）</p>
-        <p class="person-bio">琴平で<wbr>生まれ育ち、<wbr>参道の<wbr>入り口で<wbr><span class="nb">〈コトリ コワーキング＆ホステル琴平〉</span>を<wbr>営んでいます。<wbr>2021年に<wbr>若い<wbr>世代と<wbr>勉強会を<wbr>開いた<wbr>ことが、<wbr>町の<wbr>人が<wbr>次々に<wbr>動き出すきっかけに<wbr>なりました。<wbr>データで<wbr>見る<wbr>町の<wbr>今を<wbr>聞きます。</p>
+        <p class="person-bio">琴平で<wbr>生まれ育ち、<wbr>参道の<wbr>入り口で<wbr>〈コトリ コワーキング＆ホステル琴平〉⁠を<wbr>営んでいます。<wbr>2021年に<wbr>若い<wbr>世代と<wbr>勉強会を<wbr>開いた<wbr>ことが、<wbr>町の<wbr>人が<wbr>次々に<wbr>動き出すきっかけに<wbr>なりました。<wbr>データで<wbr>見る<wbr>町の<wbr>今を<wbr><span class="nb">聞きます。</span></p>
       </li>
       <li class="person">
         <p class="person-role">池 龍太郎さん<br class="sp-br">（五人百姓 池商店 28代目店主）</p>
-        <p class="person-bio">金刀比羅宮の<wbr>参道の<wbr>69段目で、<wbr>1245年創業の<wbr>飴屋を<wbr>営んでいます。<wbr>コロナ禍で<wbr>人通りが<wbr>減った<wbr>ときに<wbr>「今しかない」⁠と<wbr>思い、<wbr>店を<wbr>100年ぶりに<wbr>リニューアル。<wbr>琴平の<wbr>歴史を<wbr>聞きます。</p>
+        <p class="person-bio">金刀比羅宮の<wbr>参道の<wbr>69段目で、<wbr>1245年創業の<wbr>飴屋を<wbr>営んでいます。<wbr>コロナ禍で<wbr>人通りが<wbr>減った<wbr>ときに<wbr>「今しかない」⁠と<wbr>思い、<wbr>店を<wbr>100年ぶりに<wbr>リニューアル。<wbr>琴平の<wbr>歴史を<wbr><span class="nb">聞きます。</span></p>
       </li>
     </ul>
   </div>
@@ -675,7 +677,7 @@ body { word-break: keep-all; overflow-wrap: anywhere; }
           <p class="guest-name">恩田 倫孝<wbr>（みっちー）</p>
           <p class="guest-role">株式会社TABIPPO 取締役／<br class="sp-br">株式会社コオドリ 代表</p>
         </div>
-        <p class="guest-bio body">新潟県出身。<wbr>商社に<wbr>勤めた<wbr>あと、<wbr>1年間の<wbr>世界一周を<wbr>経て、<wbr>2014年から<wbr>TABIPPOに<wbr>参画。<wbr>POOLOの<wbr>前身と<wbr>なる<wbr>「旅大学」⁠を<wbr>立ち上げ、<wbr>累計700回の<wbr>イベントを<wbr>企画・<wbr>運営してきました。<wbr>2019年に<wbr>POOLOを<wbr>立ち上げ、<wbr>2024年には<wbr>旅と<wbr>教育の<wbr>会社コオドリを<wbr>創業。<wbr>渡航国数は51。<wbr>今回の<wbr>旅を<wbr>企画しました。</p>
+        <p class="guest-bio body">新潟県出身。<wbr>商社に<wbr>勤めた<wbr>あと、<wbr>1年間の<wbr>世界一周を<wbr>経て、<wbr>2014年から<wbr>TABIPPOに<wbr>参画。<wbr>POOLOの<wbr>前身と<wbr>なる<wbr>「旅大学」⁠を<wbr>立ち上げ、<wbr>累計700回の<wbr>イベントを<wbr>企画・<wbr>運営してきました。<wbr>2019年に<wbr>POOLOを<wbr>立ち上げ、<wbr>2024年には<wbr>旅と<wbr>教育の<wbr>会社コオドリを<wbr>創業。<wbr>渡航国数は51。<wbr>今回の<wbr>旅を<wbr><span class="nb">企画しました。</span></p>
       </li>
       <li class="guest">
         <figure class="guest-photo"><img src="images/guest_shimizu.jpg" alt="清水 直哉" loading="lazy"></figure>
@@ -683,7 +685,7 @@ body { word-break: keep-all; overflow-wrap: anywhere; }
           <p class="guest-name">清水 直哉<wbr>（しみなお）</p>
           <p class="guest-role">株式会社TABIPPO 代表取締役</p>
         </div>
-        <p class="guest-bio body">1988年、<wbr>群馬県生まれ。<wbr>21歳で<wbr>世界一周の<wbr>旅に<wbr>出て、<wbr>22歳で<wbr>仲間と<wbr>TABIPPOを<wbr>設立。<wbr>新卒で<wbr>入った<wbr>広告代理店で<wbr>新規事業の<wbr>立ち上げを<wbr>経験した<wbr>あと、<wbr>26歳で<wbr>株式会社TABIPPOを<wbr>創業しました。<wbr>旅を<wbr>軸に、<wbr>WEBメディア、<wbr>野外フェス、<wbr>出版、<wbr>スクール、<wbr>観光の<wbr>マーケティング支援などの<wbr>事業を<wbr>つくっています。<wbr>やさしい<wbr>ローカルマガジン<wbr>「たずね」⁠の<wbr>琴平編では、<wbr>町の方々との<wbr>座談会で<wbr>聞き手を<wbr>務めました。</p>
+        <p class="guest-bio body">1988年、<wbr>群馬県生まれ。<wbr>21歳で<wbr>世界一周の<wbr>旅に<wbr>出て、<wbr>22歳で<wbr>仲間と<wbr>TABIPPOを<wbr>設立。<wbr>新卒で<wbr>入った<wbr>広告代理店で<wbr>新規事業の<wbr>立ち上げを<wbr>経験した<wbr>あと、<wbr>26歳で<wbr>株式会社TABIPPOを<wbr>創業しました。<wbr>旅を<wbr>軸に、<wbr>WEBメディア、<wbr>野外フェス、<wbr>出版、<wbr>スクール、<wbr>観光の<wbr>マーケティング支援などの<wbr>事業を<wbr>つくっています。<wbr>やさしい<wbr>ローカルマガジン<wbr>「たずね」⁠の<wbr>琴平編では、<wbr>町の方々との<wbr>座談会で<wbr>聞き手を<wbr><span class="nb">務めました。</span></p>
       </li>
     </ul>
   </div>
@@ -697,7 +699,7 @@ body { word-break: keep-all; overflow-wrap: anywhere; }
   <div class="in">
     <h2 class="take-head"><img class="lt" src="images/lt-take.svg" alt="持ち帰るもの" width="285" height="56"></h2>
     <div class="take-slip paper">
-      <p class="take-body body">この<wbr>2日間で、<wbr>好きなことが<wbr>仕事に<wbr>なるとは<wbr>約束しません。<wbr>持ち帰って<wbr>ほしいのは、<wbr><span class="nb">自分の「やりたい」⁠を</span><wbr>一度<wbr>人に<wbr>話してみた、という<wbr>小さな<wbr>経験です。</p>
+      <p class="take-body body">この<wbr>2日間で、<wbr>好きなことが<wbr>仕事に<wbr>なるとは<wbr>約束しません。<wbr>持ち帰って<wbr>ほしいのは、<wbr>自分の<wbr>「やりたい」⁠を<wbr>一度<wbr>人に<wbr>話してみた、という<wbr>小さな<wbr><span class="nb">経験です。</span></p>
       <ul class="take-list">
         <li><span class="dot">・</span>自分の<wbr>「やりたい」⁠を、<wbr><span class="nb">初めて人に話した</span></li>
         <li><span class="dot">・</span>琴平に、<wbr><span class="nb">また会いに行きたい人ができた</span></li>
@@ -732,8 +734,8 @@ body { word-break: keep-all; overflow-wrap: anywhere; }
     <div class="about-text">
       <h2><img class="lt" src="images/lt-about.svg" alt="POOLOについて" width="420" height="56"></h2>
       <img class="about-kv sp-only" src="images/poolo_keyvisual.jpg" alt="POOLOのキービジュアル。旅と人生をつなぐ大人の学び" loading="lazy">
-      <p class="body">あたらしい<wbr>旅の<wbr>学校 POOLOは、<wbr>旅を<wbr>きっかけに、<wbr>自分の<wbr>人生や<wbr>これからに<wbr>ついて<wbr>考える<wbr>コミュニティです。<wbr>旅、<wbr>対話、<wbr>仲間、<wbr>問い、<wbr>実践を<wbr>通して<wbr>「自分が<wbr>どう<wbr>生きたいのか」⁠を<wbr>考える。<wbr>POOLOには、<wbr>問いを<wbr>持って<wbr>世界や<wbr>人生に<wbr>向き合う<wbr>文化が<wbr>あります。</p>
-      <p class="body">POOLOを<wbr>運営する<wbr>TABIPPOは、<wbr>2021年から<wbr>琴平町に<wbr>通ってきました。<wbr>学生や<wbr>POOLOの<wbr>メンバーと<wbr>一緒に<wbr>町を<wbr>訪ね、<wbr>2025年度は<wbr>4回、<wbr>町の<wbr>11の<wbr>事業者と<wbr>一緒に、<wbr>TABIPPOの<wbr>コミュニティの<wbr>ための<wbr>特典も<wbr>つくっています。<wbr>今回の<wbr>旅は、<wbr>その<wbr>5年の<wbr>あいだに<wbr>出会った<wbr>人たちに<wbr>お願いして<wbr>組み立てています。</p>
+      <p class="body">あたらしい<wbr>旅の<wbr>学校 POOLOは、<wbr>旅を<wbr>きっかけに、<wbr>自分の<wbr>人生や<wbr>これからに<wbr>ついて<wbr>考える<wbr>コミュニティです。<wbr>旅、<wbr>対話、<wbr>仲間、<wbr>問い、<wbr>実践を<wbr>通して<wbr>「自分が<wbr>どう<wbr>生きたいのか」⁠を<wbr>考える。<wbr>POOLOには、<wbr>問いを<wbr>持って<wbr>世界や<wbr>人生に<wbr>向き合う<wbr>文化が<wbr><span class="nb">あります。</span></p>
+      <p class="body">POOLOを<wbr>運営する<wbr>TABIPPOは、<wbr>2021年から<wbr>琴平町に<wbr>通ってきました。<wbr>学生や<wbr>POOLOの<wbr>メンバーと<wbr>一緒に<wbr>町を<wbr>訪ね、<wbr>2025年度は<wbr>4回、<wbr>町の<wbr>11の<wbr>事業者と<wbr>一緒に、<wbr>TABIPPOの<wbr>コミュニティの<wbr>ための<wbr>特典も<wbr>つくっています。<wbr>今回の<wbr>旅は、<wbr>その<wbr>5年の<wbr>あいだに<wbr>出会った<wbr>人たちに<wbr>お願いして<wbr><span class="nb">組み立てています。</span></p>
       <a class="about-link" href="https://tabippo.net/poolo/course/life/" target="_blank" rel="noopener">POOLO LIFEの<wbr>ページを<wbr>見る</a>
     </div>
     <figure class="about-photo pc-only">
@@ -771,10 +773,10 @@ body { word-break: keep-all; overflow-wrap: anywhere; }
   <div class="in">
     <h2 class="h2">よくある質問</h2>
     <dl class="faq-list">
-      <div class="faq-item"><dt class="faq-q">一人で<wbr>参加しても<wbr>大丈夫ですか？</dt><dd class="faq-a">はい。<wbr>おひとりでの<wbr>参加を<wbr>想定しています。<wbr>1日目の<wbr>最初に<wbr>1時間ほど、<wbr>参加者同士の<wbr>紹介の<wbr>時間を<wbr>とるので、<wbr>初対面の<wbr>方ばかりでも<wbr>大丈夫です。</dd></div>
-      <div class="faq-item"><dt class="faq-q">POOLOに<wbr>参加したことがなくても<wbr>参加できますか？</dt><dd class="faq-a">はい。<wbr>POOLOの<wbr>卒業生と、<wbr>POOLOが<wbr>気になっている<wbr>方が<wbr>一緒に<wbr>参加する<wbr>旅です。</dd></div>
-      <div class="faq-item"><dt class="faq-q">「好きなこと」⁠が<wbr>すぐに<wbr>思いつきません。</dt><dd class="faq-a">それでも<wbr>大丈夫です。<wbr>1日目の<wbr>イントロダクションで、<wbr>ふだんの<wbr>休日の<wbr>過ごし方や、<wbr>つい<wbr>時間を<wbr>使ってしまう<wbr>ことから<wbr>一緒に<wbr>探します。</dd></div>
-      <div class="faq-item"><dt class="faq-q">2日目は<wbr>月曜日ですが、<wbr>何時に<wbr>終わりますか？</dt><dd class="faq-a">15:00に<wbr>解散します。<wbr>その<wbr>日の<wbr>うちに<wbr>首都圏・関西へ<wbr>戻れる<wbr>時間です。<wbr>時間のある方は、<wbr>18時ごろまで<wbr>「放課後タイム」⁠として<wbr>町に<wbr>残れます。</dd></div>
+      <div class="faq-item"><dt class="faq-q">一人で<wbr>参加しても<wbr>大丈夫ですか？</dt><dd class="faq-a">はい。<wbr>おひとりでの<wbr>参加を<wbr>想定しています。<wbr>1日目の<wbr>最初に<wbr>1時間ほど、<wbr>参加者同士の<wbr>紹介の<wbr>時間を<wbr>とるので、<wbr>初対面の<wbr>方ばかりでも<wbr><span class="nb">大丈夫です。</span></dd></div>
+      <div class="faq-item"><dt class="faq-q">POOLOに<wbr>参加したことがなくても<wbr>参加できますか？</dt><dd class="faq-a">はい。<wbr>POOLOの<wbr>卒業生と、<wbr>POOLOが<wbr>気になっている<wbr>方が<wbr>一緒に<wbr>参加する<wbr><span class="nb">旅です。</span></dd></div>
+      <div class="faq-item"><dt class="faq-q">「好きなこと」⁠が<wbr>すぐに<wbr>思いつきません。</dt><dd class="faq-a">それでも<wbr>大丈夫です。<wbr>1日目の<wbr>イントロダクションで、<wbr>ふだんの<wbr>休日の<wbr>過ごし方や、<wbr>つい<wbr>時間を<wbr>使ってしまう<wbr>ことから<wbr>一緒に<wbr><span class="nb">探します。</span></dd></div>
+      <div class="faq-item"><dt class="faq-q">2日目は<wbr>月曜日ですが、<wbr>何時に<wbr>終わりますか？</dt><dd class="faq-a">15:00に<wbr>解散します。<wbr>その<wbr>日の<wbr>うちに<wbr>首都圏・関西へ<wbr>戻れる<wbr>時間です。<wbr>時間のある方は、<wbr>18時ごろまで<wbr>「放課後タイム」⁠として<wbr>町に<wbr><span class="nb">残れます。</span></dd></div>
     </dl>
   </div>
 </section>
@@ -784,7 +786,7 @@ body { word-break: keep-all; overflow-wrap: anywhere; }
   <div class="in">
     <div class="apply-head">
       <h2 class="h2">お申し込み</h2>
-      <p class="apply-msg body">気になった方は、<wbr><span class="nb">POOLO公式LINEから</span><wbr>お申し込みください。<wbr>定員は<wbr>10名です。</p>
+      <p class="apply-msg body">気になった方は、<wbr>POOLO公式LINEから<wbr>お申し込みください。<wbr>定員は<wbr><span class="nb">10名です。</span></p>
     </div>
     <div class="apply-box">
       <div class="date">

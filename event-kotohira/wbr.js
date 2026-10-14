@@ -82,4 +82,6 @@ for (const [a, b] of FIX) out = out.split(a).join(b);
 out = out.split('香川・<wbr>琴平').join('香川・琴平').split('香川・琴平').join('香川・\u2060琴平');
 // 閉じかっこのすぐ後ろの助詞で行が変わらないよう、間に WORD JOINER（U+2060）を入れる
 out = out.replace(/([」』）〉])(?:<wbr>)?([をのとがにもへでやな])/g, '$1\u2060$2');
+// 本文の段落（行末まで詰めて組む段落）は、最後の文節を折り返さない。「す。」だけの最終行を防ぐ
+out = out.replace(/(<(p|dd) class="[^"]*\b(?:body|feel-body|feel-note|person-bio|guest-bio|take-body|faq-a)\b[^"]*">(?:(?!<\/\2>)[\s\S])*?)<wbr>([^<]{1,10})(<\/\2>)/g, '$1<span class="nb">$3</span>$4');
 fs.writeFileSync(file, head + out);
