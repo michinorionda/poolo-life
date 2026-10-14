@@ -53,12 +53,15 @@ a { color: inherit; text-decoration: none; }
 img { display: block; max-width: 100%; }
 .nb { white-space: nowrap; }
 br.pc-br { display: none; }
+/* 幅の狭いスマホ（〜389px）では日付を少し小さくして、横にはみ出さないようにする */
+@media (max-width: 389px) { .fv .date-d, .apply .date-d { font-size: 40px; line-height: 50px; } }
+@media (max-width: 339px) { .fv .date-d, .apply .date-d { font-size: 32px; line-height: 42px; } }
+/* スマホだけで改行する */
+@media (min-width: 960px) { br.sp-br { display: none; } }
 .num { font-family: var(--en); font-weight: 500; }
-/* 文節で改行する（Chrome系）。非対応のブラウザでは通常の改行に戻る */
-.mc, .lead, .body, .feel-body, .feel-note, .open-body p, .town-text p, .sheet-text, .sheet-ex li, .step p, .faq-a, .faq-q, .ov dd, .fa-main, .fa-sub, .take-body, .take-list li, .tt-title, .tt-desc, .fit li, .person p, .guest-bio {
-  word-break: auto-phrase;
-  text-wrap: pretty;
-}
+/* 文節で改行する。本文には BudouX で文節の切れ目に <wbr> を入れてあり（Safariでも効く）、それ以外の場所では折り返さない。
+   本文を書き換えたら、<wbr> を入れ直す：npm i budoux のあと node event-kotohira/wbr.js event-kotohira/index.html（何度かけても同じ結果になる） */
+body { word-break: keep-all; overflow-wrap: anywhere; }
 /* 確認待ちの印。公開前に全部消す */
 .tbd { color: #B3261E; font-size: 0.82em; font-weight: 700; letter-spacing: 0.02em; white-space: nowrap; }
 
@@ -138,7 +141,7 @@ br.pc-br { display: none; }
 .mc > span { display: block; }
 .mc .nb { display: inline; }
 .mc-pre { font-size: 0.68em; letter-spacing: 0.08em; margin-bottom: 0.3em; }
-.mc-key { font-size: 1.6em; line-height: 1.3; color: var(--brand-deep); }
+.mc-key { font-size: 1.6em; line-height: 1.3; color: var(--brand-deep); white-space: nowrap; }
 /* かぎ括弧の字面の外側の空きを詰める（この明朝は palt が括弧に効かない） */
 .kb-o { margin-left: -0.48em; }
 .kb-c { margin-right: -0.42em; }
@@ -375,9 +378,9 @@ br.pc-br { display: none; }
   /* こんな気持ちの方へ：左に写真、右に見出しと本文 */
   .feel { padding: 0; }
   .feel .in { display: flex; align-items: center; gap: 112px; padding-block: 112px; }
-  .feel-photo { flex: none; width: 520px; }
+  .feel-photo { flex: 0 1 520px; min-width: 0; }
   .feel-photo img { height: 560px; }
-  .feel-text { flex: 1; max-width: 584px; padding: 0; }
+  .feel-text { flex: 1 1 584px; min-width: 0; max-width: 584px; padding: 0; }
   .feel-text > * + * { margin-top: 36px; }
   .feel-body { font-size: 19px; line-height: 2; letter-spacing: 0.05em; }
   .feel-note { font-size: 14px; }
@@ -385,7 +388,7 @@ br.pc-br { display: none; }
   /* 琴平という町：左に文、右に写真 */
   .town { padding-bottom: 0; }
   .town .in { display: flex; align-items: flex-start; gap: 112px; padding-block: 96px 112px; }
-  .town-text { flex: none; width: 584px; padding: 0; order: 1; }
+  .town-text { flex: 0 1 584px; min-width: 0; padding: 0; order: 1; }
   .town-text > * + * { margin-top: 28px; }
   .town-photo { flex: 1; min-width: 0; order: 2; position: sticky; top: 99px; }
   .town-photo img { height: 640px; object-position: 45% 50%; }
@@ -456,7 +459,7 @@ br.pc-br { display: none; }
   /* 持ち帰るもの：左に見出し、右に紙片 */
   .take { padding: 0; }
   .take .in { display: flex; align-items: center; gap: 112px; padding-block: 64px; }
-  .take-head { flex: none; width: 360px; }
+  .take-head { flex: 0 1 360px; min-width: 0; }
   .take-slip { flex: 1; margin-top: 0; padding: 32px 40px; }
   .take-list li { font-size: 14px; }
 
@@ -468,17 +471,17 @@ br.pc-br { display: none; }
 
   /* POOLOについて：左に文、右にキービジュアル */
   .about { padding: 0; }
-  .about .in { display: flex; align-items: flex-start; gap: 112px; padding-block: 112px; }
+  .about .in { display: flex; align-items: flex-start; gap: clamp(48px, 8vw, 112px); padding-block: 112px; }
   .about .in > * + * { margin-top: 0; }
-  .about-text { flex: none; width: 584px; }
+  .about-text { flex: 0 1 584px; min-width: 0; }
   .about-text > * + * { margin-top: 32px; }
-  .about-photo { flex: none; width: 520px; padding-top: 88px; }
+  .about-photo { flex: 0 1 520px; min-width: 0; padding-top: 88px; }
 
   /* 開催概要・よくある質問：左に見出し、右に内容 */
   .overview, .faq { padding: 0; }
   .overview .in, .faq .in { display: flex; gap: 112px; padding-block: 112px; }
   .faq .in { padding-top: 96px; }
-  .overview .h2, .faq .h2 { flex: none; width: 360px; }
+  .overview .h2, .faq .h2 { flex: 0 1 360px; min-width: 0; }
   .ov-wrap, .faq-list { flex: 1; max-width: 744px; margin-top: 0; }
   .ov { margin-top: 0; }
   .ov-row { grid-template-columns: 110px 1fr; }
@@ -490,10 +493,10 @@ br.pc-br { display: none; }
   .apply { padding: 0; }
   .apply .in { display: flex; gap: 112px; padding: 104px 24px; }
   .apply .in > * + * { margin-top: 0; }
-  .apply-head { flex: none; width: 584px; }
+  .apply-head { flex: 0 1 584px; min-width: 0; }
   .apply .h2 { font-size: 34px; }
   .apply-msg { font-size: 15px; }
-  .apply-box { flex: none; width: 520px; }
+  .apply-box { flex: 0 1 520px; min-width: 0; }
   .apply-box > * + * { margin-top: 24px; }
 
   .ft { padding: 48px 0 56px; }
@@ -519,10 +522,10 @@ br.pc-br { display: none; }
 <div class="fa" id="floatApply">
   <div class="fa-inner">
     <div class="fa-texts">
-      <span class="fa-main">香川・琴平で、「やりたい」を心ゆくまで語る1泊2日。</span>
-      <span class="fa-sub"><span class="num">12/20</span>（日）–<span class="num">21</span>（月）・香川・琴平・定員<span class="num">10</span>名</span>
+      <span class="fa-main">香川・⁠琴平で、<wbr>「やりたい」⁠を<wbr>心ゆくまで<wbr>語る<wbr>1泊2日。</span>
+      <span class="fa-sub"><span class="num">12/20</span>（日）<wbr>–<span class="num">21</span>（月）<wbr>・香川・⁠琴平・定員<span class="num">10</span>名</span>
     </div>
-    <a class="btn" href="#apply">LINEで申し込む</a>
+    <a class="btn" href="#apply">LINEで<wbr>申し込む</a>
   </div>
 </div>
 
@@ -530,8 +533,8 @@ br.pc-br { display: none; }
 <header class="hd">
   <div class="in">
     <a class="hd-logo" href="https://tabippo.net/poolo/" target="_blank" rel="noopener"><img src="images/poolo_logo.png" alt="POOLO あたらしい旅の学校"></a>
-    <span class="hd-label">あたらしい旅の学校｜香川・琴平 1泊2日</span>
-    <a class="btn hd-cta" href="#apply">LINEで申し込む</a>
+    <span class="hd-label">あたらしい<wbr>旅の<wbr>学校｜香川・⁠琴平 1泊2日</span>
+    <a class="btn hd-cta" href="#apply">LINEで<wbr>申し込む</a>
   </div>
 </header>
 
@@ -539,15 +542,15 @@ br.pc-br { display: none; }
 <section class="fv">
   <div class="fv-top">
     <div class="fv-copy">
-      <h1 class="mc"><span class="mc-pre">香川・琴平で、</span><span class="mc-key"><span class="kb-o">「</span>やりたい<span class="kb-c">」</span>を</span><span class="mc-sub"><span class="nb">心ゆくまで語る</span><wbr><span class="nb">1泊2日。</span></span></h1>
-      <p class="lead">仕事の話ばかりの毎日で、<br class="pc-br">自分のやりたいことは、しばらく誰にも話していない。<span class="lead-gap"></span>香川・琴平で<span class="nb">好きなことを始めた人に会い、</span><span class="nb">町の人と、</span><br class="pc-br"><span class="nb">自分の「やりたい」を心ゆくまで語る1泊2日です。</span></p>
+      <h1 class="mc"><span class="mc-pre">香川・⁠琴平で、</span><span class="mc-key"><span class="kb-o">「</span>やりたい<span class="kb-c">」</span>を</span><span class="mc-sub"><wbr><span class="nb">心ゆくまで語る</span><wbr><span class="nb">1泊2日。</span><wbr></span></h1>
+      <p class="lead">仕事の<wbr>話ばかりの<wbr>毎日で、<br class="pc-br">自分の<wbr>やりたい<wbr>ことは、<wbr>しばらく<wbr>誰にも<wbr>話していない。<span class="lead-gap"></span>香川・⁠琴平で<wbr>好きなことを<wbr>始めた<wbr>人に<wbr>会い、<wbr>町の人と、<br class="pc-br"><wbr><span class="nb">自分の「やりたい」⁠を</span><wbr>心ゆくまで<wbr>語る<wbr>1泊2日です。</p>
       <div class="date">
         <div><span class="date-y">2026</span><span class="date-d">12.20–21</span></div>
         <div><span class="date-w">日曜日 <span class="num">12:30</span> 集合</span><span class="date-w">月曜日 <span class="num">15:00</span> 解散</span></div>
       </div>
-      <p class="cond">香川・琴平<span class="sep">／</span>1泊2日<span class="sep">／</span>定員10名</p>
-      <a class="btn" href="#apply">LINEで申し込む</a>
-      <p class="note">POOLOの卒業生も、POOLOがはじめての方も参加できます。</p>
+      <p class="cond">香川・⁠琴平<span class="sep">／</span>1泊2日<span class="sep">／</span>定員10名</p>
+      <a class="btn" href="#apply">LINEで<wbr>申し込む</a>
+      <p class="note">POOLOの<wbr>卒業生も、<wbr>POOLOが<wbr>はじめての<wbr>方も<wbr>参加できます。</p>
     </div>
     <figure class="fv-photo"><img src="images/bridge_lanterns.jpg" alt="提灯の下がる橋の上で、並んで笑う参加者たち"></figure>
   </div>
@@ -557,10 +560,10 @@ br.pc-br { display: none; }
       <div><span class="date-w">日曜日 <span class="num">12:30</span> 集合</span><span class="date-w">月曜日 <span class="num">15:00</span> 解散</span></div>
     </div>
     <div class="fv-how">
-      <p class="cond">香川・琴平<span class="sep">／</span>1泊2日<span class="sep">／</span>定員10名</p>
-      <p class="note">POOLOの卒業生も、POOLOがはじめての方も参加できます。</p>
+      <p class="cond">香川・⁠琴平<span class="sep">／</span>1泊2日<span class="sep">／</span>定員10名</p>
+      <p class="note">POOLOの<wbr>卒業生も、<wbr>POOLOが<wbr>はじめての<wbr>方も<wbr>参加できます。</p>
     </div>
-    <a class="btn" href="#apply">LINEで申し込む</a>
+    <a class="btn" href="#apply">LINEで<wbr>申し込む</a>
   </div>
 </section>
 
@@ -573,10 +576,10 @@ br.pc-br { display: none; }
     <div class="feel-text">
       <h2><img class="lt" src="images/lt-feel.svg" alt="こんな気持ちの方へ" width="448" height="56"></h2>
       <div>
-        <p class="feel-body">休みの日に豆を挽いてコーヒーを淹れる。旅先で撮った写真を、誰に見せるでもなくフォルダに並べている。友だちに本を薦めるときだけ、少し早口になる。好きなことは誰にでもあるのに、それを人に向けて「始める」となると、途端に大ごとに感じてしまいます。お店を開くほどでも、副業にするほどでもないし、何から始めればいいのかも分からない。</p>
-        <p class="feel-body">好きなことを始める手前で迷った経験は、きっと誰にでもあります。この旅に来るのも同じような人たちなので、お互いの「やりたい」を気兼ねなく話せます。</p>
+        <p class="feel-body">休みの<wbr>日に<wbr>豆を<wbr>挽いて<wbr>コーヒーを<wbr>淹れる。<wbr>旅先で<wbr>撮った<wbr>写真を、<wbr>誰に<wbr>見せる<wbr>でもなく<wbr>フォルダに<wbr>並べている。<wbr>友だちに<wbr>本を<wbr>薦める<wbr>ときだけ、<wbr>少し<wbr>早口に<wbr>なる。<wbr>好きなことは<wbr>誰にでもあるのに、<wbr>それを<wbr>人に<wbr>向けて<wbr>「始める」⁠と<wbr>なると、<wbr>途端に<wbr>大ごとに<wbr>感じてしまいます。<wbr>お店を<wbr>開く<wbr>ほどでも、<wbr>副業に<wbr>する<wbr>ほどでも<wbr>ないし、<wbr>何から<wbr>始めれば<wbr>いいのかも<wbr>分からない。</p>
+        <p class="feel-body">好きなことを<wbr>始める<wbr>手前で<wbr>迷った<wbr>経験は、<wbr>きっと<wbr>誰にでもあります。<wbr>この<wbr>旅に<wbr>来るのも<wbr>同じような<wbr>人たちなので、<wbr>お互いの<wbr>「やりたい」⁠を<wbr>気兼ねなく<wbr>話せます。</p>
       </div>
-      <p class="feel-note">この旅では、好きなことを始めた人たちに琴平で会い、町の方と、<span class="nb">自分の「やりたい」を心ゆくまで語ります。</span>持ってくるのは、まだ誰にも話していない「やりたい」ひとつで足ります。</p>
+      <p class="feel-note">この<wbr>旅では、<wbr>好きなことを<wbr>始めた<wbr>人たちに<wbr>琴平で<wbr>会い、<wbr>町の<wbr>方と、<wbr>自分の<wbr>「やりたい」⁠を<wbr>心ゆくまで<wbr>語ります。<wbr>持ってくるのは、<wbr>まだ誰にも<wbr>話していない<wbr>「やりたい」<wbr>ひとつで<wbr>足ります。</p>
     </div>
   </div>
 </section>
@@ -588,11 +591,11 @@ br.pc-br { display: none; }
       <img src="images/lantern_street.jpg" alt="黄色い提灯が並ぶ琴平の通りを歩く人たち" loading="lazy">
     </figure>
     <div class="town-text">
-      <h2 class="h2">琴平という町</h2>
-      <p class="body">香川県のほぼ真ん中、人口7,600人ほどの琴平町は、金刀比羅宮（こんぴらさん）の門前町です。江戸時代には「一生に一度はこんぴら参り」と言われ、いまも年間200万人を超える人が、本宮まで785段の石段を登りに訪れます。昔の人の日記には、よその町から来ても琴平だけはよそ者扱いされなかった、と書かれているそうです。</p>
-      <p class="body">この町が変わりはじめたのは、コロナ禍のころでした。人通りが減った参道で、飴屋の池商店が100年ぶりに店をリニューアル。2021年には琴平バスの楠木さんが若い世代を集めて勉強会を開き、そこから店を開く人、改装する人が続きました。外から移り住んだ人も加わっていて、築60年の廃ビルを、カフェとイベントスペースとシェアアトリエとホステルが入る「HAKOBUNE」に変えた人もいます。</p>
-      <p class="body">TABIPPOは2021年から琴平に通っていて、そのとき町で出会った人たちの話から「好きがコトひらく」ということばをつくりました。一人ひとりが好きなことを自分のやり方で始めて、それが町を少しずつひらいていく。5年たったいまでは、町の人たち自身がこのことばで琴平のことを話してくれるようになりました。</p>
-      <p class="body">やさしいローカルマガジン<a href="https://tazune.q4one.co.jp/articles/01/" target="_blank" rel="noopener">「たずね」の琴平編</a>で、参道の池商店の池龍太郎さんは「今はたまたま『僕が走っている番』なんだという感覚があります」と話しています。今回会いに行くのは、コロナ禍のころに最初の一歩を踏み出した人たちです。</p>
+      <h2 class="h2">琴平という<wbr>町</h2>
+      <p class="body">香川県の<wbr>ほぼ<wbr>真ん中、<wbr>人口7,600人ほどの<wbr>琴平町は、<wbr>金刀比羅宮<wbr>（こんぴらさん）⁠の<wbr>門前町です。<wbr>江戸時代には<wbr>「一生に<wbr>一度は<wbr>こんぴら参り」⁠と<wbr>言われ、<wbr>いまも<wbr>年間200万人を<wbr>超える<wbr>人が、<wbr>本宮まで<wbr>785段の<wbr>石段を<wbr>登りに<wbr>訪れます。<wbr>昔の<wbr>人の<wbr>日記には、<wbr>よその<wbr>町から<wbr>来ても<wbr>琴平だけは<wbr>よそ者扱いされなかった、<wbr>と<wbr>書かれている<wbr>そうです。</p>
+      <p class="body">この<wbr>町が<wbr>変わりはじめたのは、<wbr>コロナ禍の<wbr>ころでした。<wbr>人通りが<wbr>減った<wbr>参道で、<wbr>飴屋の<wbr>池商店が<wbr>100年ぶりに<wbr>店を<wbr>リニューアル。<wbr>2021年には<wbr>琴平バスの<wbr>楠木さんが<wbr>若い<wbr>世代を<wbr>集めて<wbr>勉強会を<wbr>開き、<wbr>そこから<wbr>店を<wbr>開く<wbr>人、<wbr>改装する<wbr>人が<wbr>続きました。<wbr>外から<wbr>移り住んだ<wbr>人も<wbr>加わっていて、<wbr>築60年の<wbr>廃ビルを、<wbr>カフェと<wbr>イベントスペースと<wbr>シェアアトリエと<wbr>ホステルが<wbr>入る<wbr>「HAKOBUNE」⁠に<wbr>変えた<wbr>人もいます。</p>
+      <p class="body">TABIPPOは<wbr>2021年から<wbr>琴平に<wbr>通っていて、<wbr>そのとき<wbr>町で<wbr>出会った<wbr>人たちの<wbr>話から<wbr>「好きが<wbr>コトひらく」⁠という<wbr>ことばを<wbr>つくりました。<wbr>一人ひとりが<wbr>好きなことを<wbr>自分の<wbr>やり方で<wbr>始めて、<wbr>それが<wbr>町を<wbr>少しずつ<wbr>ひらいていく。<wbr>5年たったいまでは、<wbr>町の<wbr>人たち自身が<wbr>この<wbr>ことばで<wbr>琴平の<wbr>ことを<wbr>話して<wbr>くれるように<wbr>なりました。</p>
+      <p class="body">やさしい<wbr>ローカルマガジン<a href="https://tazune.q4one.co.jp/articles/01/" target="_blank" rel="noopener">「たずね」⁠の<wbr>琴平編</a>で、<wbr>参道の<wbr>池商店の<wbr>池龍太郎さんは<wbr>「今は<wbr>たまたま<wbr>『僕が<wbr>走っている<wbr>番』⁠なんだという<wbr>感覚が<wbr>あります」⁠と<wbr>話しています。<wbr>今回会いに<wbr>行くのは、<wbr>コロナ禍の<wbr>ころに<wbr>最初の<wbr>一歩を<wbr>踏み出した<wbr>人たちです。</p>
     </div>
   </div>
 </section>
@@ -601,8 +604,8 @@ br.pc-br { display: none; }
 <section class="days">
   <div class="in">
     <div class="days-head">
-      <h2 class="h2">2日間の流れ</h2>
-      <p class="lead">2日目が月曜日なので、15時にいったん解散します。そのあとも残れる方は、18時ごろまで「放課後タイム」として町で過ごせます。</p>
+      <h2 class="h2">2日間の<wbr>流れ</h2>
+      <p class="lead">2日目が<wbr>月曜日なので、<wbr>15時に<wbr>いったん<wbr>解散します。<wbr>そのあとも<wbr>残れる<wbr>方は、<wbr>18時ごろまで<wbr>「放課後タイム」⁠として<wbr>町で<wbr>過ごせます。</p>
     </div>
     <div class="days-grid">
       <div class="day">
@@ -611,11 +614,11 @@ br.pc-br { display: none; }
           <span class="day-w"><span>日曜日・1日目</span><span class="quiet"><span class="num">12:30</span> JR琴平駅 集合</span></span>
         </div>
         <ul class="tt">
-          <li><span class="tt-time">12:30</span><div><p class="tt-title">集合・イントロダクション</p><p class="tt-desc">昼食を済ませてお集まりください。1時間ほどかけて、参加者同士の紹介と、琴平の町の話をします。紹介では一人ずつ、まだ誰にも話していない「やりたい」もひとつ話します。</p></div></li>
-          <li><span class="tt-time">13:30</span><div><p class="tt-title">池さん・楠木さんの話を聞く</p><p class="tt-desc">コトリ コワーキング＆ホステル琴平で、池さんから琴平の歴史を、楠木さんからデータで見る町の今を聞きます。聞き手は清水です。</p></div></li>
-          <li><span class="tt-time">15:00</span><div><p class="tt-title">近江さんの話を聞く</p><p class="tt-desc">近江さんから、商店街の空き店舗を生かしたKOTOVEGASのことと、株式会社地方創生が琴平で手がけている事業の話を聞きます。</p></div></li>
-          <li><span class="tt-time">16:30</span><div><p class="tt-title">チェックイン・自由時間</p><p class="tt-desc">それぞれの宿に荷物を置いたら、夜まで2時間ほど自由に過ごします。気になった店に寄っても、宿で休んでも大丈夫です。</p></div></li>
-          <li><span class="tt-time">18:30</span><div><p class="tt-title">町の人と話す夜</p><p class="tt-desc">ブルワリーを貸し切って、町の人と過ごします。テーブルごとに町の方が1人入り、参加者3人ほどで囲みます。自分の「やりたい」を話し、相手の好きを聞く時間です。</p></div></li>
+          <li><span class="tt-time">12:30</span><div><p class="tt-title">集合・イントロダクション</p><p class="tt-desc">昼食を<wbr>済ませてお集まりください。<wbr>1時間ほど<wbr>かけて、<wbr>参加者同士の<wbr>紹介と、<wbr>琴平の<wbr>町の<wbr>話を<wbr>します。<wbr>紹介では<wbr>一人ずつ、<wbr>まだ誰にも<wbr>話していない<wbr>「やりたい」⁠も<wbr>ひとつ話します。</p></div></li>
+          <li><span class="tt-time">13:30</span><div><p class="tt-title">池さん・<wbr>楠木さんの<wbr>話を<wbr>聞く</p><p class="tt-desc">楠木さんが<wbr>営むコトリで、<wbr>池さんから<wbr>琴平の<wbr>歴史を、<wbr>楠木さんから<wbr>データで<wbr>見る<wbr>町の<wbr>今を<wbr>聞きます。<wbr><span class="nb">聞き手は清水です。</span></p></div></li>
+          <li><span class="tt-time">15:00</span><div><p class="tt-title">近江さんの<wbr>話を<wbr>聞く</p><p class="tt-desc">近江さんから、<wbr>商店街の<wbr>空き店舗を<wbr>生かした<wbr>KOTOVEGASの<wbr>ことと、<wbr>株式会社地方創生が<wbr>琴平で<wbr>手がけている<wbr>事業の<wbr>話を<wbr>聞きます。</p></div></li>
+          <li><span class="tt-time">16:30</span><div><p class="tt-title">チェックイン・<wbr>自由時間</p><p class="tt-desc">それぞれの<wbr>宿に<wbr>荷物を<wbr>置いたら、<wbr>夜まで<wbr>2時間ほど<wbr>自由に<wbr>過ごします。<wbr>気になった<wbr>店に<wbr>寄っても、<wbr>宿で<wbr>休んでも<wbr>大丈夫です。</p></div></li>
+          <li><span class="tt-time">18:30</span><div><p class="tt-title">町の人と<wbr>話す夜</p><p class="tt-desc">ブルワリーを<wbr>貸し切って、<wbr>町の人と<wbr>過ごします。<wbr>テーブルごとに<wbr>町の<wbr>方が<wbr>1人入り、<wbr>参加者3人ほどで<wbr>囲みます。<wbr>自分の<wbr>「やりたい」⁠を<wbr>話し、<wbr><span class="nb">相手の好きを聞く時間です。</span></p></div></li>
         </ul>
       </div>
       <div class="day">
@@ -624,11 +627,11 @@ br.pc-br { display: none; }
           <span class="day-w"><span>月曜日・2日目</span><span class="quiet"><span class="num">15:00</span> JR琴平駅 解散</span></span>
         </div>
         <ul class="tt">
-          <li><span class="tt-time tt-time-ja">早朝</span><div><p class="tt-title">こんぴらさんへ参拝。<span class="nb">石段を2人1組で登る</span></p><p class="tt-desc">本宮まで785段。POOLOの卒業生と、これからの人が組になり、昨夜話した「好き」の続きを話しながら登ります。下りてきたら朝食です。</p></div></li>
-          <li><span class="tt-time">10:30</span><div><p class="tt-title">商店街へ・自由余白タイム</p><p class="tt-desc">参道や商店街を歩いて、1日目に話を聞いた人や、夜に話した人のところへ、もう一度会いに行く時間です。昼食もこの時間に、それぞれでとります。</p></div></li>
-          <li><span class="tt-time">13:30</span><div><p class="tt-title">振り返り・「やりたい」の発表</p><p class="tt-desc">2日間を振り返り、一人ずつ自分の「やりたい」を発表します。帰ってから続けてみることを、ひとつ書いて持ち帰ります。</p></div></li>
+          <li><span class="tt-time tt-time-ja">早朝</span><div><p class="tt-title">こんぴらさんへ<wbr>参拝。<wbr><span class="nb">石段を2人1組で登る</span></p><p class="tt-desc">本宮まで<wbr>785段。<wbr>POOLOの<wbr>卒業生と、<wbr>これからの<wbr>人が<wbr>組に<wbr>なり、<wbr>昨夜話した<wbr>「好き」⁠の<wbr>続きを<wbr>話しながら<wbr>登ります。<wbr>下りてきたら<wbr>朝食です。</p></div></li>
+          <li><span class="tt-time">10:30</span><div><p class="tt-title">商店街へ・<wbr>自由余白タイム</p><p class="tt-desc">参道や<wbr>商店街を<wbr>歩いて、<wbr>1日目に<wbr>話を<wbr>聞いた<wbr>人や、<wbr>夜に<wbr>話した<wbr>人の<wbr>ところへ、<wbr>もう一度<wbr>会いに<wbr>行く<wbr>時間です。<wbr>昼食も<wbr>この<wbr>時間に、<wbr>それぞれで<wbr>とります。</p></div></li>
+          <li><span class="tt-time">13:30</span><div><p class="tt-title">振り返り・<wbr>「やりたい」⁠の<wbr>発表</p><p class="tt-desc">2日間を<wbr>振り返り、<wbr>一人ずつ<wbr>自分の<wbr>「やりたい」⁠を<wbr>発表します。<wbr>帰ってから<wbr>続けてみる<wbr>ことを、<wbr>ひとつ<wbr>書いて<wbr>持ち帰ります。</p></div></li>
           <li><span class="tt-time">15:00</span><div><p class="tt-title">解散</p></div></li>
-          <li><span class="tt-time tt-time-ja">〜18時</span><div><p class="tt-title">放課後タイム</p><p class="tt-desc">時間のある方は、18時ごろまで町に残って過ごせます。参加は自由です。</p></div></li>
+          <li><span class="tt-time tt-time-ja">〜18時</span><div><p class="tt-title">放課後タイム</p><p class="tt-desc">時間のある方は、<wbr>18時ごろまで<wbr>町に<wbr>残って<wbr>過ごせます。<wbr>参加は<wbr>自由です。</p></div></li>
         </ul>
       </div>
     </div>
@@ -639,23 +642,23 @@ br.pc-br { display: none; }
 <section class="people">
   <div class="in col">
     <h2 class="h2">会う人たち</h2>
-    <p class="lead">琴平で、この旅を一緒につくってくださる方々です。</p>
+    <p class="lead">琴平で、<wbr>この<wbr>旅を<wbr>一緒に<wbr>つくってくださる<wbr>方々です。</p>
     <ul class="person-list">
       <li class="person">
-        <p class="person-role">近江 淳さん（株式会社地方創生／KOTOVEGAS オーナー）</p>
-        <p class="person-bio">2019年ごろ、シャッター商店街をどうにかしたいと考えて琴平を訪れ、2020年に〈琴平文具店〉を開きました。いまは商店街の空き店舗や空き家を生かしたKOTOVEGASを営んでいます。KOTOVEGASのことと、株式会社地方創生が琴平で手がけている事業の話を聞きます。</p>
+        <p class="person-role">近江 淳さん<br class="sp-br">（株式会社地方創生／<wbr><span class="nb">KOTOVEGAS オーナー）</span></p>
+        <p class="person-bio">2019年ごろ、<wbr>シャッター商店街を<wbr>どうにかしたいと<wbr>考えて<wbr>琴平を<wbr>訪れ、<wbr>2020年に<wbr>〈琴平文具店〉⁠を<wbr>開きました。<wbr>いまは<wbr>商店街の<wbr>空き店舗や<wbr>空き家を<wbr>生かした<wbr>KOTOVEGASを<wbr>営んでいます。<wbr>KOTOVEGASの<wbr>ことと、<wbr>株式会社地方創生が<wbr>琴平で<wbr>手がけている<wbr>事業の<wbr>話を<wbr>聞きます。</p>
       </li>
       <li class="person">
-        <p class="person-role">松田 穂花さん（株式会社地方創生）</p>
-        <p class="person-bio">学生のころ、TABIPPOと株式会社地方創生のモニターツアーで初めて琴平を訪れ、大学を卒業して神奈川から移り住みました。いまはKOTOVEGASで、商店街の空き店舗を生かす仕事をしています。ほかの会社の内定を断って、琴平を選んだときの話を聞きます。</p>
+        <p class="person-role">松田 穂花さん<br class="sp-br">（株式会社地方創生）</p>
+        <p class="person-bio">学生の<wbr>ころ、<wbr>TABIPPOと<wbr>株式会社地方創生の<wbr>モニターツアーで<wbr>初めて<wbr>琴平を<wbr>訪れ、<wbr>大学を<wbr>卒業して<wbr>神奈川から<wbr>移り住みました。<wbr>いまは<wbr>KOTOVEGASで、<wbr>商店街の<wbr>空き店舗を<wbr>生かす仕事を<wbr>しています。<wbr>ほかの<wbr>会社の<wbr>内定を<wbr>断って、<wbr>琴平を<wbr>選んだ<wbr>ときの<wbr>話を<wbr>聞きます。</p>
       </li>
       <li class="person">
-        <p class="person-role">楠木 泰二朗さん（琴平バス株式会社 代表取締役）</p>
-        <p class="person-bio">琴平で生まれ育ち、参道の入り口で〈コトリ コワーキング＆ホステル琴平〉を営んでいます。2021年に若い世代と勉強会を開いたことが、町の人が次々に動き出すきっかけになりました。データで見る町の今を聞きます。</p>
+        <p class="person-role">楠木 泰二朗さん<br class="sp-br">（琴平バス株式会社 代表取締役）</p>
+        <p class="person-bio">琴平で<wbr>生まれ育ち、<wbr>参道の<wbr>入り口で<wbr><span class="nb">〈コトリ コワーキング＆ホステル琴平〉</span>を<wbr>営んでいます。<wbr>2021年に<wbr>若い<wbr>世代と<wbr>勉強会を<wbr>開いた<wbr>ことが、<wbr>町の<wbr>人が<wbr>次々に<wbr>動き出すきっかけに<wbr>なりました。<wbr>データで<wbr>見る<wbr>町の<wbr>今を<wbr>聞きます。</p>
       </li>
       <li class="person">
-        <p class="person-role">池 龍太郎さん（五人百姓 池商店 28代目店主）</p>
-        <p class="person-bio">金刀比羅宮の参道の69段目で、1245年創業の飴屋を営んでいます。コロナ禍で人通りが減ったときに「今しかない」と思い、店を100年ぶりにリニューアル。琴平の歴史を聞きます。</p>
+        <p class="person-role">池 龍太郎さん<br class="sp-br">（五人百姓 池商店 28代目店主）</p>
+        <p class="person-bio">金刀比羅宮の<wbr>参道の<wbr>69段目で、<wbr>1245年創業の<wbr>飴屋を<wbr>営んでいます。<wbr>コロナ禍で<wbr>人通りが<wbr>減った<wbr>ときに<wbr>「今しかない」⁠と<wbr>思い、<wbr>店を<wbr>100年ぶりに<wbr>リニューアル。<wbr>琴平の<wbr>歴史を<wbr>聞きます。</p>
       </li>
     </ul>
   </div>
@@ -669,36 +672,36 @@ br.pc-br { display: none; }
       <li class="guest">
         <figure class="guest-photo"><img src="images/guest_onda.jpg" alt="恩田 倫孝" loading="lazy"></figure>
         <div class="guest-head">
-          <p class="guest-name">恩田 倫孝（みっちー）</p>
-          <p class="guest-role">株式会社TABIPPO 取締役／株式会社コオドリ 代表</p>
+          <p class="guest-name">恩田 倫孝<wbr>（みっちー）</p>
+          <p class="guest-role">株式会社TABIPPO 取締役／<br class="sp-br">株式会社コオドリ 代表</p>
         </div>
-        <p class="guest-bio body">新潟県出身。商社に勤めたあと、1年間の世界一周を経て、2014年からTABIPPOに参画。POOLOの前身となる「旅大学」を立ち上げ、累計700回のイベントを企画・運営してきました。2019年にPOOLOを立ち上げ、2024年には旅と教育の会社コオドリを創業。渡航国数は51。今回の旅を企画しました。</p>
+        <p class="guest-bio body">新潟県出身。<wbr>商社に<wbr>勤めた<wbr>あと、<wbr>1年間の<wbr>世界一周を<wbr>経て、<wbr>2014年から<wbr>TABIPPOに<wbr>参画。<wbr>POOLOの<wbr>前身と<wbr>なる<wbr>「旅大学」⁠を<wbr>立ち上げ、<wbr>累計700回の<wbr>イベントを<wbr>企画・<wbr>運営してきました。<wbr>2019年に<wbr>POOLOを<wbr>立ち上げ、<wbr>2024年には<wbr>旅と<wbr>教育の<wbr>会社コオドリを<wbr>創業。<wbr>渡航国数は51。<wbr>今回の<wbr>旅を<wbr>企画しました。</p>
       </li>
       <li class="guest">
         <figure class="guest-photo"><img src="images/guest_shimizu.jpg" alt="清水 直哉" loading="lazy"></figure>
         <div class="guest-head">
-          <p class="guest-name">清水 直哉（しみなお）</p>
+          <p class="guest-name">清水 直哉<wbr>（しみなお）</p>
           <p class="guest-role">株式会社TABIPPO 代表取締役</p>
         </div>
-        <p class="guest-bio body">1988年、群馬県生まれ。21歳で世界一周の旅に出て、22歳で仲間とTABIPPOを設立。新卒で入った広告代理店で新規事業の立ち上げを経験したあと、26歳で株式会社TABIPPOを創業しました。旅を軸に、WEBメディア、野外フェス、出版、スクール、観光のマーケティング支援などの事業をつくっています。やさしいローカルマガジン「たずね」の琴平編では、町の方々との座談会で聞き手を務めました。</p>
+        <p class="guest-bio body">1988年、<wbr>群馬県生まれ。<wbr>21歳で<wbr>世界一周の<wbr>旅に<wbr>出て、<wbr>22歳で<wbr>仲間と<wbr>TABIPPOを<wbr>設立。<wbr>新卒で<wbr>入った<wbr>広告代理店で<wbr>新規事業の<wbr>立ち上げを<wbr>経験した<wbr>あと、<wbr>26歳で<wbr>株式会社TABIPPOを<wbr>創業しました。<wbr>旅を<wbr>軸に、<wbr>WEBメディア、<wbr>野外フェス、<wbr>出版、<wbr>スクール、<wbr>観光の<wbr>マーケティング支援などの<wbr>事業を<wbr>つくっています。<wbr>やさしい<wbr>ローカルマガジン<wbr>「たずね」⁠の<wbr>琴平編では、<wbr>町の方々との<wbr>座談会で<wbr>聞き手を<wbr>務めました。</p>
       </li>
     </ul>
   </div>
 </section>
 
 <!-- ===== 写真の帯 ===== -->
-<figure class="band"><img src="images/bridge_group.jpg" alt="清酒「金陵」の看板が見える橋に集まる参加者たち" loading="lazy"></figure>
+<figure class="band"><img src="images/bridge_group.jpg" alt="清酒「金陵」⁠の看板が見える橋に集まる参加者たち" loading="lazy"></figure>
 
 <!-- ===== 持ち帰るもの ===== -->
 <section class="take off">
   <div class="in">
     <h2 class="take-head"><img class="lt" src="images/lt-take.svg" alt="持ち帰るもの" width="285" height="56"></h2>
     <div class="take-slip paper">
-      <p class="take-body body">この2日間で、好きなことが仕事になるとは約束しません。持ち帰ってほしいのは、<span class="nb">自分の「やりたい」を</span>一度人に話してみた、という小さな経験です。</p>
+      <p class="take-body body">この<wbr>2日間で、<wbr>好きなことが<wbr>仕事に<wbr>なるとは<wbr>約束しません。<wbr>持ち帰って<wbr>ほしいのは、<wbr><span class="nb">自分の「やりたい」⁠を</span><wbr>一度<wbr>人に<wbr>話してみた、という<wbr>小さな<wbr>経験です。</p>
       <ul class="take-list">
-        <li><span class="dot">・</span>自分の「やりたい」を、初めて人に話した</li>
-        <li><span class="dot">・</span>琴平に、また会いに行きたい人ができた</li>
-        <li><span class="dot">・</span>帰ってから続けてみることを、ひとつ決めた</li>
+        <li><span class="dot">・</span>自分の<wbr>「やりたい」⁠を、<wbr><span class="nb">初めて人に話した</span></li>
+        <li><span class="dot">・</span>琴平に、<wbr><span class="nb">また会いに行きたい人ができた</span></li>
+        <li><span class="dot">・</span>帰ってから<wbr>続けてみる<wbr>ことを、<wbr>ひとつ<wbr>決めた</li>
       </ul>
     </div>
   </div>
@@ -709,16 +712,16 @@ br.pc-br { display: none; }
   <div class="in col">
     <h2 class="h2">こんな方へ</h2>
     <ul>
-      <li>好きなことはあるけれど、まだ誰にも見せていない</li>
-      <li>仕事にするかは決めていないが、好きなことを少し外に出してみたい</li>
-      <li>POOLOを卒業して、自分の問いの続きを手を動かしながら考えたい</li>
-      <li>POOLOが気になっていて、どんな人たちがいるのかを知りたい</li>
-      <li>何かを始めた人の話を、始めたころの話から聞きたい</li>
+      <li>好きなことは<wbr>あるけれど、<wbr><span class="nb">まだ誰にも見せていない</span></li>
+      <li>仕事に<wbr>するかは<wbr>決めていないが、<wbr>好きなことを<wbr>少し<wbr>外に<wbr>出してみたい</li>
+      <li>POOLOを<wbr>卒業して、<wbr>自分の<wbr>問いの<wbr>続きを<wbr>手を<wbr>動かしながら<wbr>考えたい</li>
+      <li>POOLOが<wbr>気になっていて、<wbr><span class="nb">どんな人たちがいるのかを知りたい</span></li>
+      <li>何かを<wbr>始めた<wbr>人の<wbr>話を、<wbr><span class="nb">始めたころの話から聞きたい</span></li>
     </ul>
-    <p class="fit-sub">今回は、向かないかもしれない方</p>
+    <p class="fit-sub">今回は、<wbr>向かないかもしれない<wbr>方</p>
     <ul>
-      <li>開業や副業の具体的なノウハウを学びたい方</li>
-      <li>こんぴら参りを中心にした観光を期待している方</li>
+      <li>開業や<wbr>副業の<wbr>具体的な<wbr>ノウハウを<wbr>学びたい方</li>
+      <li>こんぴら参りを<wbr>中心に<wbr>した<wbr>観光を<wbr>期待している<wbr>方</li>
     </ul>
   </div>
 </section>
@@ -729,9 +732,9 @@ br.pc-br { display: none; }
     <div class="about-text">
       <h2><img class="lt" src="images/lt-about.svg" alt="POOLOについて" width="420" height="56"></h2>
       <img class="about-kv sp-only" src="images/poolo_keyvisual.jpg" alt="POOLOのキービジュアル。旅と人生をつなぐ大人の学び" loading="lazy">
-      <p class="body">あたらしい旅の学校 POOLOは、旅をきっかけに、自分の人生やこれからについて考えるコミュニティです。旅、対話、仲間、問い、実践を通して「自分がどう生きたいのか」を考える。POOLOには、問いを持って世界や人生に向き合う文化があります。</p>
-      <p class="body">POOLOを運営するTABIPPOは、2021年から琴平町に通ってきました。学生やPOOLOのメンバーと一緒に町を訪ね、2025年度は4回、町の11の事業者と一緒に、TABIPPOのコミュニティのための特典もつくっています。今回の旅は、その5年のあいだに出会った人たちにお願いして組み立てています。</p>
-      <a class="about-link" href="https://tabippo.net/poolo/course/life/" target="_blank" rel="noopener">POOLO LIFEのページを見る</a>
+      <p class="body">あたらしい<wbr>旅の<wbr>学校 POOLOは、<wbr>旅を<wbr>きっかけに、<wbr>自分の<wbr>人生や<wbr>これからに<wbr>ついて<wbr>考える<wbr>コミュニティです。<wbr>旅、<wbr>対話、<wbr>仲間、<wbr>問い、<wbr>実践を<wbr>通して<wbr>「自分が<wbr>どう<wbr>生きたいのか」⁠を<wbr>考える。<wbr>POOLOには、<wbr>問いを<wbr>持って<wbr>世界や<wbr>人生に<wbr>向き合う<wbr>文化が<wbr>あります。</p>
+      <p class="body">POOLOを<wbr>運営する<wbr>TABIPPOは、<wbr>2021年から<wbr>琴平町に<wbr>通ってきました。<wbr>学生や<wbr>POOLOの<wbr>メンバーと<wbr>一緒に<wbr>町を<wbr>訪ね、<wbr>2025年度は<wbr>4回、<wbr>町の<wbr>11の<wbr>事業者と<wbr>一緒に、<wbr>TABIPPOの<wbr>コミュニティの<wbr>ための<wbr>特典も<wbr>つくっています。<wbr>今回の<wbr>旅は、<wbr>その<wbr>5年の<wbr>あいだに<wbr>出会った<wbr>人たちに<wbr>お願いして<wbr>組み立てています。</p>
+      <a class="about-link" href="https://tabippo.net/poolo/course/life/" target="_blank" rel="noopener">POOLO LIFEの<wbr>ページを<wbr>見る</a>
     </div>
     <figure class="about-photo pc-only">
       <img class="about-kv" src="images/poolo_keyvisual.jpg" alt="POOLOのキービジュアル。旅と人生をつなぐ大人の学び" loading="lazy">
@@ -746,18 +749,18 @@ br.pc-br { display: none; }
     <h2 class="h2">開催概要</h2>
     <div class="ov-wrap">
       <dl class="ov">
-        <div class="ov-row"><dt>名称</dt><dd><strong>香川・琴平で、「やりたい」を心ゆくまで語る1泊2日。</strong><br>香川・琴平で、好きなことを始めた人に会う1泊2日</dd></div>
-        <div class="ov-row"><dt>日程</dt><dd><strong>2026年12月20日（日）12:30 〜 12月21日（月）15:00</strong><br>15:00の解散後、18:00ごろまで残れる方は「放課後タイム」があります（参加自由）</dd></div>
+        <div class="ov-row"><dt>名称</dt><dd><strong>香川・⁠琴平で、<wbr><span class="nb">「やりたい」⁠を</span><wbr><span class="nb">心ゆくまで語る1泊2日。</span><wbr></strong><br>香川・⁠琴平で、<wbr>好きなことを<wbr><span class="nb">始めた人に会う1泊2日</span></dd></div>
+        <div class="ov-row"><dt>日程</dt><dd><strong>2026年12月20日<wbr>（日）<wbr>12:30 〜 12月21日<wbr>（月）<wbr>15:00</strong><br>15:00の<wbr>解散後、<wbr>18:00ごろまで<wbr>残れる<wbr>方は<wbr>「放課後タイム」⁠が<wbr>あります<wbr>（参加自由）</dd></div>
         <div class="ov-row"><dt>集合・解散</dt><dd>JR琴平駅<br>香川県仲多度郡琴平町</dd></div>
-        <div class="ov-row"><dt>アクセス</dt><dd>高松空港からリムジンバスで約45分／JR土讃線 琴平駅<br>大阪からは高速バスもあります</dd></div>
-        <div class="ov-row"><dt>宿泊</dt><dd>宿は各自でご予約のうえ、現地でお支払いください。どこも1泊5,000円〜10,000円ほどです。<br><a href="https://www.kotori-japan.com" target="_blank" rel="noopener">コトリ コワーキング＆ホステル琴平</a>／<a href="https://cabin-kotohira.com" target="_blank" rel="noopener">cabin（HAKOBUNE）</a>／<a href="https://travel.rakuten.co.jp/HOTEL/192293/192293.html" target="_blank" rel="noopener">コトヒラクラスカ</a>／<a href="https://gokankotohira.booking.chillnn.com/ja/" target="_blank" rel="noopener">GOKAN</a></dd></div>
+        <div class="ov-row"><dt>アクセス</dt><dd>高松空港から<wbr>リムジンバスで<wbr>約45分<br>JR土讃線 琴平駅<br>大阪からは<wbr>高速バスも<wbr>あります</dd></div>
+        <div class="ov-row"><dt>宿泊</dt><dd>宿は<wbr>各自で<wbr>ご予約の<wbr>うえ、<wbr>現地で<wbr>お支払いください。<wbr>どこも<wbr>1泊5,000円〜10,000円ほどです。<br>・<a href="https://www.kotori-japan.com" target="_blank" rel="noopener">コトリ コワーキング＆ホステル琴平</a><br>・<a href="https://cabin-kotohira.com" target="_blank" rel="noopener">cabin（HAKOBUNE）</a><br>・<a href="https://travel.rakuten.co.jp/HOTEL/192293/192293.html" target="_blank" rel="noopener">コトヒラクラスカ</a><br>・<a href="https://gokankotohira.booking.chillnn.com/ja/" target="_blank" rel="noopener">GOKAN</a></dd></div>
         <div class="ov-row"><dt>定員</dt><dd><strong>10名</strong></dd></div>
-        <div class="ov-row"><dt>主な対象</dt><dd>POOLOの卒業生と、POOLOに興味がある方<br>POOLOに参加したことがない方も参加できます</dd></div>
-        <div class="ov-row"><dt>参加費</dt><dd>一般 <span class="fee">17,000</span>円／POOLO生 <span class="fee">15,000</span>円<br>現地1泊2日のプログラム参加費です。POOLO生は卒業生・在籍生の方。<br>宿泊費と、1日目の夜の懇親会費5,500円（料理・クラフトビール飲み放題・2時間）、ほかの食事代は、参加費とは別に現地でお支払いください。琴平までの往復交通費は各自でご負担ください。</dd></div>
-        <div class="ov-row"><dt>申込締切</dt><dd>定員に達し次第、締め切ります</dd></div>
-        <div class="ov-row"><dt>申込方法</dt><dd>POOLO公式LINEを友だち追加のうえ、LINE内のご案内からお申し込みください。</dd></div>
-        <div class="ov-row"><dt>キャンセル</dt><dd>お申し込み後の返金はいたしかねます。</dd></div>
-        <div class="ov-row"><dt>主催</dt><dd>あたらしい旅の学校 POOLO（株式会社TABIPPO）</dd></div>
+        <div class="ov-row"><dt>主な対象</dt><dd>POOLOの<wbr>卒業生と、<wbr>POOLOに<wbr>興味がある方<br>POOLOに<wbr>参加したことがない方も<wbr>参加できます</dd></div>
+        <div class="ov-row"><dt>参加費</dt><dd>一般 <span class="fee">17,000</span>円／POOLO生 <span class="fee">15,000</span>円<br>現地1泊2日の<wbr>プログラム参加費です。<wbr>POOLO生は<wbr>卒業生・在籍生の方。<br>宿泊費と、<wbr>1日目の<wbr>夜の<wbr>懇親会費5,500円<wbr>（料理・クラフトビール飲み放題・<wbr>2時間）、<wbr>ほかの<wbr>食事代は、<wbr>参加費とは<wbr>別に<wbr>現地で<wbr>お支払いください。<wbr>琴平までの<wbr>往復交通費は<wbr>各自で<wbr>ご負担ください。</dd></div>
+        <div class="ov-row"><dt>申込締切</dt><dd>定員に<wbr>達し次第、<wbr>締め切ります</dd></div>
+        <div class="ov-row"><dt>申込方法</dt><dd>POOLO公式LINEを<wbr>友だち追加の<wbr>うえ、<wbr>LINE内の<wbr>ご案内から<wbr>お申し込みください。</dd></div>
+        <div class="ov-row"><dt>キャンセル</dt><dd>お申し込み後の<wbr>返金は<wbr>いたしかねます。</dd></div>
+        <div class="ov-row"><dt>主催</dt><dd>あたらしい<wbr>旅の<wbr>学校 POOLO<wbr>（株式会社TABIPPO）</dd></div>
       </dl>
     </div>
   </div>
@@ -768,10 +771,10 @@ br.pc-br { display: none; }
   <div class="in">
     <h2 class="h2">よくある質問</h2>
     <dl class="faq-list">
-      <div class="faq-item"><dt class="faq-q">一人で参加しても大丈夫ですか？</dt><dd class="faq-a">はい。おひとりでの参加を想定しています。1日目の最初に1時間ほど、参加者同士の紹介の時間をとるので、初対面の方ばかりでも大丈夫です。</dd></div>
-      <div class="faq-item"><dt class="faq-q">POOLOに参加したことがなくても参加できますか？</dt><dd class="faq-a">はい。POOLOの卒業生と、POOLOが気になっている方が一緒に参加する旅です。</dd></div>
-      <div class="faq-item"><dt class="faq-q">「好きなこと」がすぐに思いつきません。</dt><dd class="faq-a">それでも大丈夫です。1日目のイントロダクションで、ふだんの休日の過ごし方や、つい時間を使ってしまうことから一緒に探します。</dd></div>
-      <div class="faq-item"><dt class="faq-q">2日目は月曜日ですが、何時に終わりますか？</dt><dd class="faq-a">15:00に解散します。その日のうちに首都圏・関西へ戻れる時間です。時間のある方は、18時ごろまで「放課後タイム」として町に残れます。</dd></div>
+      <div class="faq-item"><dt class="faq-q">一人で<wbr>参加しても<wbr>大丈夫ですか？</dt><dd class="faq-a">はい。<wbr>おひとりでの<wbr>参加を<wbr>想定しています。<wbr>1日目の<wbr>最初に<wbr>1時間ほど、<wbr>参加者同士の<wbr>紹介の<wbr>時間を<wbr>とるので、<wbr>初対面の<wbr>方ばかりでも<wbr>大丈夫です。</dd></div>
+      <div class="faq-item"><dt class="faq-q">POOLOに<wbr>参加したことがなくても<wbr>参加できますか？</dt><dd class="faq-a">はい。<wbr>POOLOの<wbr>卒業生と、<wbr>POOLOが<wbr>気になっている<wbr>方が<wbr>一緒に<wbr>参加する<wbr>旅です。</dd></div>
+      <div class="faq-item"><dt class="faq-q">「好きなこと」⁠が<wbr>すぐに<wbr>思いつきません。</dt><dd class="faq-a">それでも<wbr>大丈夫です。<wbr>1日目の<wbr>イントロダクションで、<wbr>ふだんの<wbr>休日の<wbr>過ごし方や、<wbr>つい<wbr>時間を<wbr>使ってしまう<wbr>ことから<wbr>一緒に<wbr>探します。</dd></div>
+      <div class="faq-item"><dt class="faq-q">2日目は<wbr>月曜日ですが、<wbr>何時に<wbr>終わりますか？</dt><dd class="faq-a">15:00に<wbr>解散します。<wbr>その<wbr>日の<wbr>うちに<wbr>首都圏・関西へ<wbr>戻れる<wbr>時間です。<wbr>時間のある方は、<wbr>18時ごろまで<wbr>「放課後タイム」⁠として<wbr>町に<wbr>残れます。</dd></div>
     </dl>
   </div>
 </section>
@@ -781,17 +784,17 @@ br.pc-br { display: none; }
   <div class="in">
     <div class="apply-head">
       <h2 class="h2">お申し込み</h2>
-      <p class="apply-msg body">気になった方は、<span class="nb">POOLO公式LINEから</span>お申し込みください。定員は10名です。</p>
+      <p class="apply-msg body">気になった方は、<wbr><span class="nb">POOLO公式LINEから</span><wbr>お申し込みください。<wbr>定員は<wbr>10名です。</p>
     </div>
     <div class="apply-box">
       <div class="date">
         <div><span class="date-y">2026</span><span class="date-d">12.20–21</span></div>
         <div><span class="date-w">日曜日 <span class="num">12:30</span> 集合</span><span class="date-w">月曜日 <span class="num">15:00</span> 解散</span></div>
       </div>
-      <p class="date-line">香川・琴平・1泊2日・定員<span class="num">10</span>名</p>
-      <a class="btn" href="#apply">LINEで申し込む</a>
-      <p class="apply-steps">1. POOLO公式LINEを友だち追加<br>2. LINE内の案内からこの旅に申し込む</p>
-      <dl class="apply-note"><dt>申込締切</dt><dd>定員に達し次第、締め切ります。</dd></dl>
+      <p class="date-line">香川・⁠琴平・1泊2日・定員<span class="num">10</span>名</p>
+      <a class="btn" href="#apply">LINEで<wbr>申し込む</a>
+      <p class="apply-steps">1. POOLO公式LINEを<wbr>友だち追加<br>2. LINE内の<wbr>案内から<wbr>この<wbr>旅に<wbr>申し込む</p>
+      <dl class="apply-note"><dt>申込締切</dt><dd>定員に<wbr>達し次第、<wbr>締め切ります。</dd></dl>
     </div>
   </div>
 </section>
@@ -804,7 +807,7 @@ br.pc-br { display: none; }
       <a href="https://tabippo.net/" target="_blank" rel="noopener"><img class="tabippo" src="images/tabippo_logo_trim.png" alt="TABIPPO"></a>
     </div>
     <div class="ft-texts">
-      <p>主催：あたらしい旅の学校 POOLO<br>株式会社TABIPPO</p>
+      <p>主催：あたらしい<wbr>旅の<wbr>学校 POOLO<br>株式会社TABIPPO</p>
       <p>© POOLO. All rights reserved.</p>
     </div>
   </div>
