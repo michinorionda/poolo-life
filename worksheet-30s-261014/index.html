@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>30代の生き方を問い直す ワークシート</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@500;600&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--blue:#189BBC;--ink:#1f2a30;--sub:#5b6970;--line:#dfe5e8;--bg:#F9F9F9;--card:#fff}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Zen Kaku Gothic New","Noto Sans JP",sans-serif;font-size:16px;line-height:1.75;-webkit-text-size-adjust:100%}
+.wrap{max-width:680px;margin:0 auto;padding:24px 16px 120px}
+header{padding:16px 0 8px;border-bottom:2px solid var(--blue);margin-bottom:20px}
+header .k{color:var(--blue);font-weight:700;font-size:13px}
+header h1{font-size:24px;margin:4px 0 0;line-height:1.4}
+.name{background:var(--card);border:1px solid var(--line);padding:16px;margin-bottom:16px}
+.name label{font-weight:700;display:block;margin-bottom:6px}
+.box{background:var(--card);border:1px solid var(--line);padding:16px 18px;margin:16px 0;white-space:pre-line}
+.box b{display:block;color:var(--blue);margin-bottom:4px}
+.sec{margin:40px 0 8px;display:flex;align-items:baseline;gap:10px;border-top:1px solid var(--blue);padding-top:12px}
+.sec .t{font-family:Jost,sans-serif;font-weight:600;color:var(--blue);font-size:22px}
+.sec .l{font-weight:700;font-size:17px}
+.band{background:var(--blue);color:#fff;padding:14px 18px;margin:14px 0;white-space:pre-line;font-weight:500}
+.band a{color:#fff}
+.q{background:var(--card);border:1px solid var(--line);padding:18px;margin:14px 0}
+.q .h{display:flex;gap:10px;align-items:flex-start}
+.q .n{font-family:Jost,sans-serif;font-weight:600;color:var(--blue);font-size:17px;flex:none;min-width:2.6em}
+.q .p{font-weight:700;white-space:pre-line}
+.note{font-size:14px;color:var(--sub);background:var(--bg);padding:10px 12px;margin:10px 0 0;white-space:pre-line}
+.note b{display:block;color:var(--blue)}
+textarea,input[type=text],select{width:100%;font:inherit;font-size:16px;border:1px solid #c9d2d6;border-radius:4px;padding:10px 12px;margin-top:12px;background:#fff;color:var(--ink)}
+textarea{min-height:96px;resize:vertical}
+.field{margin-top:10px}
+.field label{font-size:14px;color:var(--sub);display:block}
+.field textarea{margin-top:4px;min-height:48px}
+a{color:var(--blue)}
+.saved{position:fixed;right:12px;bottom:12px;background:var(--ink);color:#fff;font-size:12px;padding:4px 10px;border-radius:12px;opacity:0;transition:opacity .3s}
+.saved.on{opacity:.85}
+.send{background:var(--card);border:1px solid var(--blue);padding:18px;margin:32px 0}
+.send p{margin:0 0 10px}
+button{font:inherit;font-weight:700;background:var(--blue);color:#fff;border:0;border-radius:4px;padding:12px 18px;width:100%;cursor:pointer;font-size:16px}
+#msg{font-size:14px;color:var(--blue);margin-top:8px;min-height:1em}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+<div class="k">POOLO LIFE 体験会</div>
+<h1>30代の生き方を問い直す</h1>
+</header>
+
+<div class="name"><label for="who">お名前（ニックネーム＠今いる場所）</label><input type="text" id="who" data-k="name" placeholder="例：もなみ＠千葉"></div>
+
+<div class="box"><b>今日の90分について</b>・答えは、見つからなくて大丈夫
+・そのかわり、考えつづけられる問いをひとつ持ち帰る
+・問いには、いつ・どこで・誰と、を入れる
+・最後に、今週やってみることを1つ決める
+・途中でわからなくなっても大丈夫</div>
+<div class="box"><b>今日のルール</b>・上手な言葉にしなくてもいい
+・斜に構えない／かっこつけない
+・沈黙を焦らない
+・人の話には、アドバイスをせずに、問いで返す
+・「〜してみたら？」のような聞き方もしない</div>
+<p style="font-size:14px;color:var(--sub)">書いた内容は、この端末に自動で保存されます。最後に「回答をコピー」でまとめて送ってください。</p>
+
+<div id="main"></div>
+
+<div class="send">
+<p><b>最後に：回答を送ってください</b></p>
+<p style="font-size:14px">ボタンを押すと、全部の回答がコピーされます。Zoomのチャットに貼り付けて送ってください。</p>
+<button id="copy">回答をコピー</button>
+<div id="msg"></div>
+</div>
+</div>
+<div class="saved" id="saved">保存しました</div>
+
+<script>
+const PREF=['北海道','青森県','岩手県','宮城県','秋田県','山形県','福島県','茨城県','栃木県','群馬県','埼玉県','千葉県','東京都','神奈川県','新潟県','富山県','石川県','福井県','山梨県','長野県','岐阜県','静岡県','愛知県','三重県','滋賀県','京都府','大阪府','兵庫県','奈良県','和歌山県','鳥取県','島根県','岡山県','広島県','山口県','徳島県','香川県','愛媛県','高知県','福岡県','佐賀県','長崎県','熊本県','大分県','宮崎県','鹿児島県','沖縄県','海外'];
+const S=(t,l)=>({sec:[t,l]}), B=(h)=>({band:h}), X=(h)=>({box:h});
+const Q=(n,p,o={})=>Object.assign({n,p},o);
+const DATA=[
+S('1分','チェックイン'),
+X('①〜③とQ2①は、選択肢から1つ選びます'),
+Q('①','POOLOのことは、どのくらい知っていましたか？',{sel:['今日はじめて知った','名前やSNSは見たことがある','知り合いに参加者・卒業生がいる','前にも体験会やイベントに来たことがある']}),
+Q('②','最近の旅との距離は？',{sel:['旅は暮らしの一部になっている','年に何回か行く','行きたいけれど、最近は行けていない','旅はあまりしない']}),
+Q('③','いまの自分にいちばん近いものは？',{sel:['このままでいいのかな、と感じている','深い話を同じ温度でできる仲間がほしい','ひとりで考えると、何を感じているか分からなくなる','始めたい気持ちはあるのに、先延ばしにしている','今いる世界だけで、可能性を決めたくない']}),
+S('3分','アイスブレイク'),
+Q('Q1','今日参加したきっかけは？\nどんなことを期待していますか？\n何が起こったら嬉しいですか？'),
+Q('Q2①','今住んでいる場所は？',{sel:PREF}),
+Q('Q2②','自己紹介をお願いします！',{notes:['趣味・仕事・興味関心・性格・\n最近行ってよかった場所（近所でもOK）']}),
+S('15分','ワーク'),
+Q('Q3','30代のいま、何かに違和感を感じていたり、\n逆に何かに期待していたり、\n揺れているものはありますか？',{notes:['特定のシーン、人との会話のなか、ふと一人になったとき。なんでも構いません\n3行くらいで、うまく言葉にしなくてOK。\n予約のときに書いてくれたことから始めても大丈夫です','<b>例</b>仕事は合っているのに、このままでいいのかと思う']}),
+Q('Q4','Q3のうち、いちばん引っかかるものをひとつ選んで、\n最近それを感じたのはいつ、どこで、\n誰といたときですか？',{notes:['1回の出来事で、下の5つを1行ずつ埋めてください。\n最後の行は、そのとき実際にしたことと、しなかったこと','<b>例</b>いつ＝先月の金曜の夜\nどこで＝同期との飲み会\n誰と＝同期3人\n一言＝「転職したら年収が上がった」\nしたこと・しなかったこと＝笑って聞いていたけど、自分の話はしなかった'],fields:['いつ','どこで','誰と','そのとき起きたこと・言われた一言','そのとき自分がしたこと・しなかったこと']}),
+Q('Q5','反対に、最近「これはいいな」と\n気持ちが軽くなった場面はありますか？',{notes:['Q4が仕事の場面なら、Q5も仕事のなかで探すと、Q4と比べやすくなります','<b>例</b>いつ＝先週の火曜\nどこで＝職場の休憩スペース\n誰と＝後輩\n一言＝「相談してよかったです」'],fields:['いつ','どこで','誰と','そのとき起きたこと・言われた一言']}),
+Q('Q6','誰かと一緒にいて、相手も自分も\n満ちていたと感じたのは、いつ、どこで、\n誰といたときですか？\nそのとき、相手には何が起きていましたか？',{notes:['仕事でも、仕事以外でも。1回の出来事を3行くらいで']}),
+Q('Q7','誰にも頼まれていないのに、\n自然と夢中になれた経験は何ですか？',{notes:['子どもの頃のことでも、最近のことでも']}),
+S('18分','対話'),
+B('ワークはひとまずここまでで止めてください！\n対話タイムに入ります！\nQ4とQ5の場面を、左の人から1人6分ずつ話します'),
+X('<b>話す人</b>・いちばん左の人から順に。話す人が画面を共有します\n・Q4とQ5の場面を、思い出しながら話します\n・話している間は、誰も書きません'),
+X('<b>質問する人　アドバイスはせずに、次の3つを順に聞きます</b>①「そのとき、実際には何をした？　何をしなかった？」\n②「どちらも大事で、まだ選べていないことはある？」\n③「この話を、聞いてみたい人は誰？」'),
+X('<b>メモする人　質問はせずに聞きます</b>・話す人が「〜もあるけど」と流したことをメモする\n・最後に1つだけ聞く\n　「さっき言いかけた〇〇、もう少し聞いていい？」\n・全員が話し終わったら、メモを本人に伝えて、Q17・Q18へ'),
+S('4分','ワーク'),
+Q('Q17','対話で出てきた「どちらも大事で、\nまだ選べていないこと」を書いてください。',{notes:['「こう思っている／でも、こうも思っている」の形で。\n対話で出てこなかった人は、Q4とQ5の場面を見比べて','<b>例</b>いまの仕事は、ちゃんと合っている／\nでも、このままでいいとは思えない'],fields:['こう思っている','でも、こうも思っている']}),
+Q('Q18','メモする人から、あなたが言いかけたことを\n教えてもらって、書いてください。',{notes:['対話で出てきた「聞いてみたい人」も書きます。\n「〜な人」ではなく、思い浮かぶ顔で。イニシャルでOK'],fields:['言いかけたこと','聞いてみたい人']}),
+S('10分','ワーク'),
+Q('Q8①','「いつかやりたいな」と思いながら、\nそっと脇に置いてきたことはありますか？',{notes:['30代になって後回しにしてきたこと、\n消してきた「やってみたいこと」でもOKです']}),
+Q('Q8②','Q8①に書いたことを、最後にやろうとして、\nやめたのはいつでしたか？',{notes:['何があったか、1回の出来事を3行くらいで。\nQ8①に書き足しても大丈夫です']}),
+Q('Q9','Q3の違和感を、Q4・Q5で書いた場面のなかに\n置いて、問いの形にしてみてください。',{notes:['いくつ書いてもOKです。\n「〜すべきか」は、はい・いいえで答えが出ると終わってしまうので、下の3つの手順で書き直します','<b>書き直す3つの手順</b>1. 「すべきか」を外して、心が動いたところだけを書く\n2. Q4・Q5の場面（いつ・どこで・誰といたとき）に置く\n3. Q17の2つの思いを、1つの問いに入れる\n　 形は「〇〇のとき、〇〇なのはなぜ？」\n　 Q18の人を入れると、その人に聞いてみたくなります','<b>書けたら確かめる</b>読み返して、今週やってみることが1つ浮かぶか。\n浮かばなければ、場面をもう少し小さくします','<b>例</b>成長のために、転職した方がいいのか\n→ 同期が転職したと聞いた飲み会と、後輩に相談された日\n→ 後輩に頼られると嬉しいのに、同期の転職の話を聞くと焦るのはなぜ？\n→ 今週やってみること：その後輩に、なぜ自分に相談してくれたのかを聞く','<b>ほかの例</b>がむしゃらに働いてきたけど、このままでいいのか\n→ プロジェクトが終わった週の打ち上げの夜\n→ なぜ私は、やり切ったはずの夜に、何も感じなかったのか\n\n地元に帰った方がいいのか\n→ お盆の帰省で、地元で店を始めた友達と飲んだ夜\n→ なぜ私は、その友達の話にうらやましさを感じたのか','POOLOでは、こうして立てた問いを「探究テーマ」と呼んでいます。<a href="https://michinorionda.github.io/poolo-life/poolo-inquiry-themes-sample.html" target="_blank">サンプルはこちら</a>']}),
+S('12分','対話'),
+B('ワークはひとまずここまでで止めてください！\n対話タイムに入ります！\nQ9の問いを、左の人から1人4分ずつ話します'),
+X('<b>話す人</b>・いちばん左の人から順に。話す人が画面を共有します\n・Q9の問いを読み上げて、その形にした理由も話します'),
+X('<b>聞く人　アドバイスはせずに、問いで返します</b>例：「それを感じたのは、誰といたとき？」\n例：「その問いで、今週やってみることは浮かぶ？」'),
+S('2分','ワーク'),
+Q('Q10','わたしは、＿＿＿＿＿＿を問います。',{notes:['対話のあとに、Q9のなかからひとつだけ選んで書いてください。言葉が変わっていてOKです']}),
+S('8分','POOLOの説明'),
+B('ここで、POOLO LIFEの説明をします\n<a href="https://michinorionda.github.io/poolo-life/taikenkai-setsumei-260913/" target="_blank">説明のページはこちら</a>'),
+Q('Q13','POOLOの説明を詳しく聞きたいですか？',{notes:['オンライン・無料で、より詳しいPOOLOの説明が聞けます'],sel:['POOLOに入会したい','説明会に参加したい🙋','検討したいです👀','少し興味あります！','必要なさそうです…']}),
+Q('Q14','良かったら、あなたの問いやテーマを\n壁打ちしますが、興味ありますか？',{sel:['興味あります！','少し興味あります！','必要なさそうです…']}),
+S('7分','リフレクション'),
+Q('Q16','今日の90分を終えて、\nいま感じていることは何ですか？',{notes:['気持ちでも、からだの感覚でも。ひと言でOKです','<b>例</b>少しすっきりした／まだもやもやしている／話してみて、意外だった']}),
+Q('Q11','今日、何が分からなくなりましたか？',{notes:['分かったことより、分からなくなったことを書いてみてください']}),
+Q('Q12','この問いを持って、今週、\n誰と何をしてみますか？',{notes:['誰と・どこで・いつ（日付）・何をする、の4つを書きます。\n相手はQ18の人でもOK。AIではなく、人とやってみてください','<b>例</b>10/17の夜、同僚のTさんと電話で、\nQ4の飲み会の話を10分聞いてもらう'],fields:['誰と','どこで','いつ','何をする']}),
+Q('Q12②','送れる相手なら、いまその人に\n最初の連絡を送ってみてください。',{notes:['送ったら、日時を書きます。いま送れない相手なら、文面を書いて、送る日時を決めてください','<b>切り出し方の例</b>「答えはいらないので、10分だけ聞いてほしい」','<b>重く感じたら</b>もっと小さくしてOKです。\n例：会うのが重ければ、メッセージで1つだけ聞く'],fields:['送った日時／送る日時','文面']}),
+S('5分','クロージング'),
+B('ご参加ありがとうございます！\nPOOLO LIFE 13期 参加者募集中！\n2027年3月から開講です。\n<a href="https://tabippo.net/poolo/course/life/" target="_blank">POOLO LIFEのサイトはこちら</a>'),
+Q('Q15','あなたのSNSアカウントを教えてください',{notes:['Instagram・X・noteなど、書ける範囲でOKです']}),
+X('<b>Instagramでもつながってください</b>POOLO公式　<a href="https://www.instagram.com/poolo.official/" target="_blank">@poolo.official</a>\n恩田（POOLO代表）　<a href="https://www.instagram.com/michinorionda/" target="_blank">@michinorionda</a>'),
+X('<b>POOLO COMMONS もやっています</b>毎月ひとつ、やったことのないことに挑戦する、旅好きのオンラインコミュニティです。\nPOOLOへの参加を考え中の方も入れます。\n<a href="https://tabippo.net/poolocommons/" target="_blank">詳しくはこちら</a>'),
+];
+const KEY='poolo-30s-1014';
+let st={};try{st=JSON.parse(localStorage.getItem(KEY))||{}}catch(e){}
+const main=document.getElementById('main');
+const esc=s=>s.replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+let h='';
+DATA.forEach(d=>{
+ if(d.sec){h+=`<div class="sec"><span class="t">${d.sec[0]}</span><span class="l">${d.sec[1]}</span></div>`;return}
+ if(d.band){h+=`<div class="band">${d.band}</div>`;return}
+ if(d.box){h+=`<div class="box">${d.box}</div>`;return}
+ h+=`<div class="q"><div class="h"><span class="n">${d.n}</span><span class="p">${d.p}</span></div>`;
+ (d.notes||[]).forEach(n=>h+=`<div class="note">${n}</div>`);
+ if(d.sel){h+=`<select data-k="${d.n}"><option value="">選んでください</option>${d.sel.map(o=>`<option>${esc(o)}</option>`).join('')}</select>`}
+ else if(d.fields){d.fields.forEach(f=>h+=`<div class="field"><label>${f}：</label><textarea data-k="${d.n}|${f}" rows="1"></textarea></div>`)}
+ else h+=`<textarea data-k="${d.n}"></textarea>`;
+ h+=`</div>`;
+});
+main.innerHTML=h;
+const els=[...document.querySelectorAll('[data-k]')];
+const sv=document.getElementById('saved');let tm;
+els.forEach(el=>{
+ if(st[el.dataset.k]!=null)el.value=st[el.dataset.k];
+ el.addEventListener('input',()=>{st[el.dataset.k]=el.value;try{localStorage.setItem(KEY,JSON.stringify(st))}catch(e){}
+  sv.classList.add('on');clearTimeout(tm);tm=setTimeout(()=>sv.classList.remove('on'),900)});
+});
+function text(){
+ let out=['【30代の生き方を問い直す 10/14】','名前：'+(st.name||'')];
+ DATA.forEach(d=>{if(!d.n)return;
+  if(d.fields){out.push('■'+d.n);d.fields.forEach(f=>out.push(f+'：'+(st[d.n+'|'+f]||'')))}
+  else out.push('■'+d.n+'\n'+(st[d.n]||''));
+ });
+ return out.join('\n');
+}
+document.getElementById('copy').onclick=async()=>{
+ const t=text(),m=document.getElementById('msg');
+ try{await navigator.clipboard.writeText(t);m.textContent='コピーしました。Zoomのチャットに貼り付けて送ってください。'}
+ catch(e){const ta=document.createElement('textarea');ta.value=t;document.body.appendChild(ta);ta.select();
+  try{document.execCommand('copy');m.textContent='コピーしました。Zoomのチャットに貼り付けて送ってください。'}catch(e2){m.textContent='コピーできませんでした。'}ta.remove()}
+};
+</script>
+</body>
+</html>
