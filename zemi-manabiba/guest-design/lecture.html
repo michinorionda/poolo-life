@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>講義内容のご相談｜POOLOゼミ 第3回 学びの場を、設計する</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --c-blue: #189BBC;
+    --c-blue-deep: #127E9A;
+    --c-blue-pale: #B8E0EB;
+    --c-blue-mist: #E8F4F7;
+    --c-base: #FAFCFD;
+    --c-base-deep: #F0F6F8;
+    --c-text: #2C3E47;
+    --c-text-soft: #5F7684;
+    --c-line: #D5E2E8;
+    --font-jp: 'Noto Sans JP', sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: var(--font-jp);
+    color: var(--c-text);
+    background: var(--c-base);
+    line-height: 1.9;
+    letter-spacing: 0.03em;
+    font-feature-settings: "palt";
+  }
+  .container { max-width: 760px; margin: 0 auto; padding: 0 32px; }
+
+  .hero { text-align: center; padding: 80px 0 48px; }
+  .hero__kicker { font-size: 13px; color: var(--c-blue); letter-spacing: 0.14em; font-weight: 500; margin-bottom: 14px; }
+  .hero__title { font-weight: 500; font-size: 30px; color: var(--c-blue-deep); letter-spacing: 0.1em; line-height: 1.6; margin-bottom: 16px; }
+  .hero__sub { font-size: 14px; color: var(--c-text-soft); letter-spacing: 0.1em; }
+
+  .sender { padding: 40px 0; text-align: center; border-top: 1px solid var(--c-line); border-bottom: 1px solid var(--c-line); }
+  .sender__name { font-size: 15px; font-weight: 500; color: var(--c-blue-deep); margin-bottom: 8px; letter-spacing: 0.06em; }
+  .sender__contact { font-size: 13px; color: var(--c-text-soft); line-height: 2; }
+  .sender__contact a { color: var(--c-blue-deep); text-decoration: none; border-bottom: 1px solid var(--c-blue-pale); }
+
+  section { padding: 72px 0; border-bottom: 1px solid var(--c-line); }
+  section:last-of-type { border-bottom: none; }
+  .section-title { font-weight: 500; font-size: 22px; color: var(--c-blue-deep); letter-spacing: 0.08em; line-height: 1.6; margin-bottom: 32px; padding-bottom: 12px; border-bottom: 1px solid var(--c-blue); display: inline-block; }
+  .lead { font-size: 15px; line-height: 2; margin-bottom: 24px; }
+  .lead:last-child { margin-bottom: 0; }
+
+  .addressee { font-size: 20px; font-weight: 500; color: var(--c-blue-deep); letter-spacing: 0.08em; margin-bottom: 28px; padding-bottom: 16px; border-bottom: 1px solid var(--c-blue-pale); }
+
+  .outline { width: 100%; border-collapse: collapse; font-size: 14px; }
+  .outline th, .outline td { text-align: left; padding: 16px 20px; border-bottom: 1px solid var(--c-line); vertical-align: top; }
+  .outline th { width: 28%; font-weight: 500; color: var(--c-text-soft); background: var(--c-base-deep); font-size: 13px; }
+  .outline td { color: var(--c-blue-deep); font-weight: 500; }
+  .outline td small { display: block; font-size: 12.5px; font-weight: 400; color: var(--c-text-soft); margin-top: 4px; }
+  .outline tr:last-child th, .outline tr:last-child td { border-bottom: none; }
+
+  .timeline { list-style: none; border-top: 1px solid var(--c-line); }
+  .timeline li { display: grid; grid-template-columns: 112px 1fr; gap: 16px; padding: 16px 12px; border-bottom: 1px solid var(--c-line); font-size: 14px; }
+  .timeline .time { color: var(--c-blue-deep); font-weight: 500; letter-spacing: 0.04em; }
+  .timeline .what b { font-weight: 500; color: var(--c-text); }
+  .timeline .what span { display: block; font-size: 13px; color: var(--c-text-soft); }
+  .timeline li.is-guest { background: var(--c-blue-mist); border-left: 3px solid var(--c-blue); }
+  .timeline li.is-guest .what b { color: var(--c-blue-deep); }
+
+  .rounds { list-style: none; }
+  .rounds li { display: grid; grid-template-columns: 112px 1fr; gap: 16px; padding: 14px 12px; border-bottom: 1px solid var(--c-line); font-size: 14px; }
+  .rounds li:last-child { border-bottom: none; }
+  .rounds .date { color: var(--c-text-soft); font-size: 13px; }
+  .rounds .name { font-weight: 500; color: var(--c-text); }
+  .rounds .name span { display: block; font-weight: 400; font-size: 13px; color: var(--c-text-soft); }
+  .rounds li.is-guest { background: var(--c-blue-mist); border-left: 3px solid var(--c-blue); }
+  .rounds li.is-guest .name { color: var(--c-blue-deep); }
+
+  .plans { list-style: none; border-top: 1px solid var(--c-line); margin-bottom: 16px; }
+  .plans li { display: grid; grid-template-columns: 112px 1fr; gap: 16px; padding: 14px 12px; border-bottom: 1px solid var(--c-line); font-size: 14px; }
+  .plans .who { color: var(--c-text-soft); font-size: 13px; }
+  .plans .theme { font-weight: 500; color: var(--c-blue-deep); }
+  .plans .theme span { display: block; font-weight: 400; font-size: 13px; color: var(--c-text-soft); }
+  .footnote { font-size: 13px; color: var(--c-text-soft); }
+
+  .asks { list-style: none; counter-reset: ask; margin-bottom: 32px; }
+  .asks li { counter-increment: ask; position: relative; padding: 20px 0 20px 56px; border-bottom: 1px solid var(--c-line); font-size: 15px; line-height: 1.9; }
+  .asks li:last-child { border-bottom: none; }
+  .asks li::before { content: counter(ask, decimal-leading-zero); position: absolute; left: 0; top: 19px; font-size: 18px; font-weight: 500; color: var(--c-blue); letter-spacing: 0.06em; }
+  .asks li span { display: block; font-size: 13px; color: var(--c-text-soft); margin-top: 4px; }
+
+  .box { background: var(--c-blue-mist); border-radius: 6px; padding: 26px 30px; }
+  .box__head { font-size: 13px; font-weight: 500; color: var(--c-blue-deep); letter-spacing: 0.08em; margin-bottom: 8px; }
+  .box p { font-size: 14px; line-height: 1.95; }
+
+  .closing { font-size: 15px; line-height: 2; }
+  .closing .sign { margin-top: 28px; text-align: right; font-weight: 500; color: var(--c-blue-deep); }
+
+  footer { padding: 40px 0 64px; text-align: center; font-size: 12px; color: var(--c-text-soft); letter-spacing: 0.08em; border-top: 1px solid var(--c-line); }
+
+  @media (max-width: 600px) {
+    .container { padding: 0 16px; }
+    .hero { padding: 56px 0 36px; }
+    .hero__title { font-size: 23px; }
+    section { padding: 56px 0; }
+    .section-title { font-size: 19px; }
+    .outline th, .outline td { display: block; width: 100%; }
+    .outline th { padding: 12px 16px 6px; border-bottom: none; }
+    .outline td { padding: 4px 16px 14px; }
+    .timeline li, .rounds li, .plans li { grid-template-columns: 1fr; gap: 2px; }
+    .asks li { padding-left: 44px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="container">
+    <p class="hero__kicker">POOLOゼミ「学びの場を、創る。」第3回</p>
+    <h1 class="hero__title">講義内容のご相談</h1>
+    <p class="hero__sub">2026年11月10日（火）　学びの場を、設計する</p>
+  </div>
+</header>
+
+
+<main class="container">
+
+  <section>
+    <p class="addressee">アフロさんへ</p>
+    <p class="lead">ゼミは10月13日に開講して、第1回を無事終えました！参加者が第1回で書いたシートと全7回の流れを見直して、当日お話しいただきたいことをまとめたので、お送りします。アフロさんのお考えに合わせて変えていただいて大丈夫です。</p>
+  </section>
+
+  <section>
+    <h2 class="section-title">当日の概要</h2>
+    <table class="outline">
+      <tr><th>日時</th><td>2026年11月10日（火）20:15〜21:25<small>20:05ごろ、Zoomにご入室をお願いいたします。</small></td></tr>
+      <tr><th>ご登壇</th><td>講義40分＋参加者からの質疑30分（計70分）<small>前後の時間は、恩田が進行します。</small></td></tr>
+      <tr><th>形式</th><td>オンライン（Zoom）</td></tr>
+      <tr><th>参加者</th><td>9名<small>20代後半〜40代の社会人。</small></td></tr>
+    </table>
+  </section>
+
+  <section>
+    <h2 class="section-title">当日の2時間</h2>
+    <ul class="timeline">
+      <li><span class="time">20:00</span><span class="what"><b>チェックイン</b></span></li>
+      <li class="is-guest"><span class="time">20:15</span><span class="what"><b>講義（40分）</b><span>ここからご登壇をお願いいたします</span></span></li>
+      <li class="is-guest"><span class="time">20:55</span><span class="what"><b>質疑（30分）</b><span>参加者が、自分の企画に引きつけて質問します。21:25でご退出いただけます</span></span></li>
+      <li><span class="time">21:25</span><span class="what"><b>ワーク</b></span></li>
+      <li><span class="time">21:50</span><span class="what"><b>チェックアウト</b><span>次回までの課題の確認</span></span></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2 class="section-title">第3回の位置づけ</h2>
+    <p class="lead">参加者は、第1回で旅の経験からテーマを1つ決め、第2回で来てほしい一人とコンセプトを考えてきます。第3回は、アフロさんのお話を聞いたあと、参加者それぞれが自分でひらく学びの場（全4回）の流れを考えます。</p>
+    <p class="lead">2週間後の第4回では、その学びの場の最初の20分を、参加者どうしで実際にやってみて、感想を伝え合う予定です。アフロさんのお話を聞いたその日に自分の企画に取り入れて、2週間後に試せる流れです。</p>
+    <ul class="rounds">
+      <li><span class="date">10/13（火）</span><span class="name">第1回　旅の棚卸しから、問いを掘りテーマを仮決めする</span></li>
+      <li><span class="date">10/27（火）</span><span class="name">第2回　来てほしい一人に向けて、問いを学びにする</span></li>
+      <li class="is-guest"><span class="date">11/10（火）</span><span class="name">第3回　学びの場を、設計する<span>アフロさんにご登壇をお願いしている回です</span></span></li>
+      <li><span class="date">11/24（火）</span><span class="name">第4回　ミニ開催で、試作する<span>各自が20分をひらいて、参加者どうしで感想を返し合います</span></span></li>
+      <li><span class="date">別日程</span><span class="name">第5回　1対1で、企画を磨く</span></li>
+      <li><span class="date">12/8（火）</span><span class="name">第6回　自分の場に、人を集める</span></li>
+      <li><span class="date">12/22（火）</span><span class="name">第7回　ひらいて、送り出す（開業式）</span></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2 class="section-title">参加者の企画</h2>
+    <p class="lead">第1回の時点で、参加者が書いた仮テーマです。</p>
+    <ul class="plans">
+      <li><span class="who">えりい</span><span class="theme">ひとり時間から学ぶ、あなただけの心地よさ</span></li>
+      <li><span class="who">タクト</span><span class="theme">地域の民俗行事に参加する、高校生向けの探究学習</span></li>
+      <li><span class="who">Yoko</span><span class="theme">温泉から学ぶ、その国のマナー</span></li>
+      <li><span class="who">ターコイズ</span><span class="theme">与那国島から学ぶ、民泊</span></li>
+      <li><span class="who">スー</span><span class="theme">旅先で知った歴史から学ぶ、これからの生き方</span></li>
+      <li><span class="who">もじゃ</span><span class="theme">失敗から学ぶ、キャラ立ちの感性<span>マルタの猫かぶりマラソン、不登校の人をバンジージャンプに連れて行く会など</span></span></li>
+      <li><span class="who">あらし</span><span class="theme">失敗から学ぶ、人生を楽しく生きるチャレンジ力<span>下手くそに全力でやってみる会</span></span></li>
+    </ul>
+    <p class="footnote">ほか2名の企画と、第2回で書き直した1行は、10月27日のあとにお送りします。</p>
+  </section>
+
+  <section>
+    <h2 class="section-title">お話しいただきたいこと</h2>
+    <p class="lead">8月にお送りした依頼書のとおり、「動機づけ」から企画を考える視点を、参加者にいちばん持ち帰ってほしいと思っています。具体的には、次の4つをお願いできると嬉しいです！</p>
+    <ol class="asks">
+      <li>泡パや脳汁銭湯など、これまでの企画を2〜3本例に、最初に何を思いついて、どんな順番で形にしていったか</li>
+      <li>名前やコンセプトの一言を、どう決めているか<span>聞いた人が「行きたい」と思うかどうかを、どこで判断しているか</span></li>
+      <li>もしアフロさんが、定員6〜10名・予算も知名度もない小さな学びの場をつくるとしたら、どこから考えるか</li>
+      <li>人の集め方について、アフロさんの考え方やアドバイス</li>
+    </ol>
+    <div class="box">
+      <p class="box__head">質疑の30分</p>
+      <p>実際に参加者から、自分が考えている企画の相談などが出てくるかなと思っています。</p>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="section-title">このあとの予定</h2>
+    <table class="outline">
+      <tr><th>11月10日（火）</th><td>当日。20:05ごろZoomにご入室をお願いいたします</td></tr>
+    </table>
+  </section>
+
+  <section class="closing">
+    <p>お忙しいところすみません、内容について気になるところがあれば、なんでもご相談ください。引き続きよろしくお願いいたします！</p>
+    <p class="sign">恩田倫孝</p>
+  </section>
+
+</main>
+
+<footer>あたらしい旅の学校POOLO（ポーロ）ゼミ「学びの場を、創る。」｜株式会社TABIPPO＆CODOLI</footer>
+
+</body>
+</html>
