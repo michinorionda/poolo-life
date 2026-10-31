@@ -61,7 +61,7 @@ img { display: block; max-width: 100%; }
 br.pc-br { display: none; }
 .num { font-family: var(--en); font-weight: 500; }
 /* 文節で改行する（Chrome系）。非対応のブラウザでは通常の改行に戻る */
-.mc, .lead, .body, .feel-body, .feel-note, .open-body p, .town-text p, .sheet-text, .sheet-ex li, .step p, .faq-a, .faq-q, .ov dd, .fa-main, .fa-sub, .take-body, .take-list li, .tt-title, .tt-desc, .fit li, .diff li, .note, .caption {
+.mc, .lead, .body, .feel-body, .feel-note, .open-body p, .town-text p, .sheet-text, .sheet-ex li, .step p, .faq-a, .faq-q, .ov dd, .fa-main, .fa-sub, .take-body, .take-list li, .tt-title, .tt-desc, .fit li, .note, .caption {
   word-break: auto-phrase;
   text-wrap: pretty;
 }
@@ -192,16 +192,6 @@ br.pc-br { display: none; }
 .open-body { padding: 36px 28px 0; }
 .open-body > * + * { margin-top: 1.4em; }
 
-/* ---- 8月の回とのちがい ---- */
-.diff-sec { padding: 64px 28px; }
-.diff { margin-top: 28px; }
-.diff-row { display: grid; grid-template-columns: 1fr 1fr; column-gap: 16px; border-top: 1px solid var(--line); padding-block: 10px; }
-.diff-row.is-head { padding-block: 0 8px; border-top: 0; }
-.diff-row.is-head span { font-size: 11px; font-weight: 700; letter-spacing: 0.06em; }
-.diff-row.is-head span + span { color: var(--brand-deep); }
-.diff-row li, .diff-row > span { font-size: 13px; }
-.diff-row > span + span { color: var(--ink); font-weight: 700; }
-.diff-sec .body.after { margin-top: 28px; }
 
 /* ---- 東川という町 ---- */
 .town { padding-bottom: 72px; }
@@ -403,13 +393,6 @@ br.pc-br { display: none; }
   .sheet-ex { font-size: 14px; }
   .open-body { padding: 56px 0 0; }
 
-  /* 8月の回とのちがい：中央640 */
-  .diff-sec { padding: 0; }
-  .diff-sec .in { padding-block: 112px; }
-  .diff { margin-top: 40px; }
-  .diff-row { column-gap: 32px; padding-block: 12px; }
-  .diff-row.is-head span { font-size: 12px; }
-  .diff-row > span { font-size: 15px; }
 
   /* 東川という町：左に文、右に写真 */
   .town { padding-bottom: 0; }
@@ -538,7 +521,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="fv-top">
     <div class="fv-copy">
       <h1 class="mc midashi-l"><span class="nb">写真の町・東川で、</span><br><span class="nb mc-hang">「2026年を綴じて、</span><br><span class="nb">紡ぐ」3日間</span></h1>
-      <p class="lead"><span class="nb">「今年は、何をしていた一年だったんだろう」</span><span class="nb">「どんな一年だったんだろう」。</span>そう思いはじめる<span class="nb">12月のはじめに、</span><span class="nb">北海道の東川町で、</span><span class="nb">自分と向き合う2泊3日です。</span></p>
+      <p class="lead"><span class="nb">「今年は、何をしていた一年だったんだろう」</span><span class="nb">「どんな一年だったんだろう」。</span>そう思いはじめる<span class="nb">12月のはじめに、</span><span class="nb">北海道の東川町で、</span><span class="nb">普段の急ぐペースをゆるめて、</span><span class="nb">身体の感覚と一緒に</span><span class="nb">自分と向き合う2泊3日です。</span></p>
       <div class="date">
         <div><span class="date-y">2026</span><span class="date-d">12.4–6</span></div>
         <div><span class="date-w">金曜日 <span class="num">12:00</span> 集合</span><span class="date-w">日曜日 <span class="num">15:00</span> 頃 解散</span></div>
@@ -576,6 +559,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div>
         <p class="feel-body">年始に決めたことを、もう思い出せない。手帳の1月のページに何か書いた記憶はあっても、中身は忘れてしまった。夏が終わって、今年も残り3ヶ月だと気づく。早いし、まだ何も変わっていない気もする。</p>
         <p class="feel-body">去年の年末も、気づいたら年が明けていました。12月は毎年いちばん慌ただしい月で、立ち止まる時間はいつも「落ち着いたら」になる。そして、落ち着く日はなかなか来ません。</p>
+        <p class="feel-body">普段は、頭で考えて早く答えを出すことが多く、疲れや寒さ、気持ちの動きのような身体の感覚は後回しになりがちです。</p>
       </div>
       <p class="feel-note">この3日間では、1月から11月まで一枚ずつ選んだ写真を持って東川に集まり、東川で暮らす方たちと一緒に2026年を見返します。</p>
     </div>
@@ -652,26 +636,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </section>
 
-<!-- ===== 8月の回とのちがい ===== -->
-<section class="diff-sec">
-  <div class="in col">
-    <h2 class="h2"><span class="nb">8月の回との</span><span class="nb">ちがい</span></h2>
-    <p class="body">会場も日数も8月の第1回と同じですが、3日間で大切にすることを変えています。</p>
-    <div class="diff" role="table" aria-label="8月の回と12月の回で大切にすること">
-      <div class="diff-row is-head" role="row"><span role="columnheader">8月の回（第1回）</span><span role="columnheader">12月の回（今回）</span></div>
-      <div class="diff-row" role="row"><span role="cell">人・暮らし・自然との出会い</span><span role="cell">自分の一年との再会</span></div>
-      <div class="diff-row" role="row"><span role="cell">世界を広げる</span><span role="cell">自分に戻る</span></div>
-      <div class="diff-row" role="row"><span role="cell">長い時間軸で人生を見る</span><span role="cell">この一年に絞る</span></div>
-      <div class="diff-row" role="row"><span role="cell">動く・試す</span><span role="cell">立ち止まる・振り返る</span></div>
-      <div class="diff-row" role="row"><span role="cell">直感・身体感覚</span><span role="cell">写真・内省・対話</span></div>
-      <div class="diff-row" role="row"><span role="cell">新しい選択肢に出会う</span><span role="cell">今の自分の関心を知る</span></div>
-    </div>
-    <p class="body after">8月に同じ校舎で3日間を過ごしてみて、ひとつ思ったことがあります。POOLOに集まる人は、話すことや自己開示の最初の一歩が得意な方が多い。そのぶん、そこから先の、深く自分と向き合って対峙するところは、無意識に避けてしまうこともあるのではないか。夏が東川に出会うところから世界の広がっていく3日間だとすれば、冬は東川を使って自分のほうを見る3日間にしたくて、時間の多くをそこに置きます。</p>
-  </div>
-</section>
-
 <!-- ===== 東川という町 ===== -->
-<section class="town off">
+<section class="town">
   <div class="in">
     <figure class="town-photo">
       <img src="images/g_field.jpg" alt="東川の畑と、その先までひらけた空（8月の回）" loading="lazy">
@@ -680,7 +646,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="town-text">
       <h2 class="h2">東川という町</h2>
       <p class="body">北海道のほぼ中央、大雪山国立公園の麓に東川町があります。人口はおよそ8,400人。上水道がなく、8,400人全員が地下水で暮らしているまちで、家具をつくり、移住してきた人と元からの住民がゆるやかに混ざり合っています。そして東川町は「写真の町」を名乗っていて、初日はその成り立ちにも触れます。</p>
-      <p class="body">写真をテーマにするなら夏でもよかったはずですが、12月にしたのは、冬になると見えるものが減るからです。雪が積もると景色の情報量が落ち、外を歩く速度も自然とゆっくりになる。寒さがあるぶん室内と外の行き来が生まれ、薪ストーブと食事と共同生活の時間が、夏よりずっと一日の中心になっていきます。白い景色のなかでは、何かが目に入ることそのものが少ない。それでも目が止まったものには、意味があるはずだと考えました。</p>
+      <p class="body">写真をテーマにするなら夏でもよかったはずですが、12月にしたのは、冬になると見えるものが減るからです。雪が積もると景色の情報量が落ち、外を歩く速度も自然とゆっくりになる。雪を踏む音や頬に当たる冷たさのように、身体が先に気づくことも増えます。寒さがあるぶん室内と外の行き来が生まれ、薪ストーブと食事と共同生活の時間が、夏よりずっと一日の中心になっていきます。白い景色のなかでは、何かが目に入ることそのものが少ない。それでも目が止まったものには、意味があるはずだと考えました。</p>
       <p class="body">これは仮説で、まだ確かめていません。12月の東川で、11枚を持ってきた人がその日どこにレンズを向けるのか。そこがこの回でいちばん見たいところです。</p>
     </div>
   </div>
@@ -691,7 +657,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="in">
     <div class="days-head">
       <h2 class="h2">3日間の流れ</h2>
-      <p class="lead">余白を十分に取り、時間をかけて対話する。意図的にペースをゆっくりにするのが、東川・Compath のスタイルです。いまの時間割は案で、各プログラムの詳細は Compath と調整しています。参加を考えてくださっている方の声も聴きながら、こちらを一緒に作っていきます。</p>
+      <p class="lead">余白を十分に取り、時間をかけて対話する。急いで答えを出さず、身体の感覚を確かめながら考える。意図的にペースをゆっくりにするのが、東川・Compath のスタイルです。いまの時間割は案で、各プログラムの詳細は Compath と調整しています。参加を考えてくださっている方の声も聴きながら、こちらを一緒に作っていきます。</p>
     </div>
     <div class="days-list">
       <div class="day">
@@ -753,11 +719,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="in">
     <h2 class="take-head"><img class="lt" src="images/lt-take.svg" alt="持ち帰るもの" width="285" height="56"></h2>
     <div class="take-slip paper">
-      <p class="take-body body">この3日間で「来年の目標が決まる」とも「やりたいことが見つかる」ともお約束はできませんし、そこまで行かないほうが自然だと思っています。最終日に東川を出るとき、手元にあってほしいのはこの3つです。</p>
+      <p class="take-body body">この3日間で「来年の目標が決まる」とも「やりたいことが見つかる」ともお約束はできませんし、そこまで行かないほうが自然だと思っています。最終日に東川を出るとき、手元にあってほしいのはこの4つです。</p>
       <ul class="take-list">
         <li><span class="dot">・</span>次の一年で大切にしたい方角が、なんとなく見えている</li>
         <li><span class="dot">・</span>まだ答えを出さずに持っておきたい問いが、ひとつかふたつある</li>
         <li><span class="dot">・</span>答えはまだないけれど、自分がいまどこにいるかは少し分かった</li>
+        <li><span class="dot">・</span>急がないときの自分の身体の感覚を、少し覚えている</li>
       </ul>
       <p class="take-body body">急がずに、その問いと一緒に年を越してください。</p>
     </div>
@@ -807,6 +774,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <li>普段とは違う方法で、自分の一年を振り返ってみたい方</li>
       <li>写真や旅を通して、自分の感覚に触れてみたい方</li>
       <li>人と話す時間と同じくらい、一人で過ごす時間も取ってみたい方</li>
+      <li>頭で考える毎日が続いて、身体の感覚を取り戻したい方</li>
     </ul>
     <p class="fit-sub">今回は、向かないかもしれない方</p>
     <ul>
@@ -876,6 +844,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="faq-item"><dt class="faq-q">写真が得意ではありません。それでも大丈夫ですか？</dt><dd class="faq-a"><p>大丈夫です。上手く撮ることは、このコースの目的ではありません。扱うのは「自分の目が止まったものは何か」のほうです。写真は、自分のまなざしに気づくための手がかりとして使います。</p></dd></div>
       <div class="faq-item"><dt class="faq-q">カメラは必要ですか。スマホでもいいですか？</dt><dd class="faq-a"><p>スマホのカメラで構いません。いつも使っているもので大丈夫です。カメラをお持ちの方は、そちらで。</p></dd></div>
       <div class="faq-item"><dt class="faq-q">事前に選ぶ11枚は、どうやって出せばいいですか？</dt><dd class="faq-a"><p>1月から11月まで、各月1枚ずつ「その月を思い出す一枚」を選んで、事前にアルバムへ入れていただきます。共有の方法は、お申し込みのあとにご案内します。</p></dd></div>
+      <div class="faq-item"><dt class="faq-q">身体と向き合う、というのは何をするんですか？</dt><dd class="faq-a"><p>特別な運動をするわけではありません。雪の中を歩く、暖炉の火にあたる、みんなで夕食をつくって食べる、温浴施設で温まる。そうした時間のなかで気づいた疲れや寒さ、気持ちの動きを、言葉にする前に一度確かめます。</p></dd></div>
       <div class="faq-item"><dt class="faq-q">雪の中を歩くと聞きました。体力に自信がありません。</dt><dd class="faq-a"><p>登山ではありません。2日目の午前に写真家の方と森を歩き、午後はまちを一人で歩きます。どちらも自分のペースで大丈夫です。</p></dd></div>
       <div class="faq-item"><dt class="faq-q">どのくらい寒いですか。何を持っていけばいいですか？</dt><dd class="faq-a"><p>12月上旬の東川は雪が積もり、日中も氷点下になる日があります。雪の森を歩く時間があるので、防寒着と靴はしっかりしたものを。持ち物リストは、お申し込みのあとに詳しくご案内します。</p></dd></div>
       <div class="faq-item"><dt class="faq-q">関西から参加できますか？</dt><dd class="faq-a"><p>大阪（伊丹）からは JAL2111 が 8:45 発・旭川 10:30 着で、集合の12:00に間に合います。旭川空港から東川町までは車で15分ほどです。</p><p>帰りは注意が必要です。伊丹行きの直行便は旭川 11:10 発の1日1往復のみで、最終日の解散（15:00頃）には間に合いません。新千歳空港へ移動して夕方以降の便に乗るか、もう1泊するかになります。</p></dd></div>
