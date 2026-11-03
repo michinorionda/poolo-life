@@ -45,6 +45,8 @@ body{background:var(--bg);color:var(--ink);font-family:var(--ja);font-size:15.5p
 a:focus-visible, summary:focus-visible, button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 .sheet{background:var(--paper);border:1px solid var(--line);padding:48px clamp(18px,5vw,56px) 56px}
 header{border-bottom:1px solid var(--line);padding-bottom:26px}
+.kv{margin:-48px calc(-1*clamp(18px,5vw,56px)) 32px}
+.kv img{display:block;width:100%;height:auto}
 .meta{font-family:var(--num);color:var(--sub);font-size:13px;letter-spacing:.04em;margin:0 0 6px}
 h1{font-size:clamp(28px,5vw,38px);line-height:1.35;margin:0 0 8px;font-weight:700;text-wrap:balance}
 .sub1{font-size:clamp(16px,2.4vw,19px);color:var(--deep);font-weight:500;margin:0 0 16px}
@@ -300,6 +302,7 @@ ol.todo li{margin-bottom:8px;font-size:14.5px}
 .numgrid{grid-template-columns:repeat(2,minmax(0,1fr))}
 .numgrid>div+div{padding-left:0;border-left:0}
 .sheet{padding:32px 18px 40px}
+.kv{margin:-32px -18px 24px}
 nav ol{columns:1}
 .offer{grid-template-columns:repeat(2,minmax(0,1fr))}
 .offer>div:not(:nth-child(4n+1)){padding-left:0;border-left:0}
@@ -386,6 +389,7 @@ tr:target td{background:color-mix(in srgb,var(--accent) 10%,var(--paper))}
   <!-- ===================== 読みもの ===================== -->
   <main id="doc" class="sheet">
     <header>
+      <figure class="kv"><img src="images/kv.jpg" width="1734" height="907" alt="青い潮だまりの水彩イラスト。しゃがんだ人が水の中のウニに手を伸ばし、まわりでは話しながら見守る人、岩に座ってノートに書く人、身をかがめて水をのぞく人がいる。"></figure>
       <p class="meta">2026.10.29</p>
       <h1>あたらしい旅の学校POOLO（ポーロ）の探究</h1>
       <p class="sub1">すぐには答えの出ない問いとともに、人生を旅するように面白がる</p>
