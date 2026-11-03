@@ -3,273 +3,305 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>POOLO 探究テーマ サンプル50｜〜とは何か？の形で、私だけの問いを置く</title>
-<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<title>探究テーマのサンプル｜POOLO</title>
+<meta name="description" content="POOLO LIFE体験会のワークシートQ8で使う、「なぜ私は、［場面］になると、［〜してしまう］のか」の形の問いのサンプル30問と、問いの立て方の作例です。">
+<link rel="stylesheet" href="poolo-ds/tokens.css">
+<link rel="stylesheet" href="poolo-ds/components.css">
 <style>
-:root{
-  --ink:#1a1a1a; --sub:#4a4a4a; --mute:#7a7a7a; --hint:#a8a8a8;
-  --bg:#faf9f6; --bg-deep:#f3f1ea; --card:#ffffff; --line:#e0ddd3;
-  --green:#2D6A4F; --green-bg:#E9F5EE;
-  --blue:#1B4A7A; --blue-bg:#E3EDF6;
-  --purple:#534AB7; --purple-bg:#ECEAF7;
-  --teal:#1A6B5A; --teal-bg:#DCEBE6;
-  --amber:#7A5500; --amber-bg:#F7EFD8;
-  --red:#8B3A2A; --red-bg:#F4E1DC;
-  --serif:'Shippori Mincho',serif; --sans:'Noto Sans JP',sans-serif;
+body { padding-top: 0; }
+
+/* ---------- 表紙 ---------- */
+.top { border-bottom: 1px solid var(--line); }
+.top-inner { padding-top: clamp(56px, 10vh, 104px); padding-bottom: clamp(48px, 8vh, 88px); }
+.top-label {
+  font-family: var(--en); font-size: var(--fs-label); font-weight: 500;
+  letter-spacing: var(--ls-label); text-transform: uppercase; color: var(--brand);
 }
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{font-family:var(--sans);background:var(--bg);color:var(--ink);line-height:1.95;font-weight:400;-webkit-font-smoothing:antialiased}
-.wrap{max-width:980px;margin:0 auto;padding:0 1.5rem}
-section{padding:3.5rem 0}
+.top-label .ja { font-family: var(--body); font-weight: 700; letter-spacing: 0.12em; margin-left: 0.8em; color: var(--ink-60); text-transform: none; }
+.top-title {
+  margin-top: var(--sp-item);
+  font-family: var(--mincho); font-weight: 700; font-feature-settings: "palt";
+  font-size: var(--fs-xl); line-height: var(--lh-head); letter-spacing: 0.06em; color: var(--ink);
+  word-break: auto-phrase; text-wrap: pretty;
+}
+.top-lead {
+  margin-top: var(--sp-group); max-width: 38em;
+  font-size: 15px; line-height: var(--lh-loose); color: var(--ink-72);
+  word-break: auto-phrase; text-wrap: pretty;
+}
+.top-lead + .top-lead { margin-top: var(--sp-near); }
+.top-form {
+  margin-top: var(--sp-group); max-width: 40em;
+  border-left: 3px solid var(--brand); padding: 6px 0 6px 20px;
+}
+.top-form-label { font-size: var(--fs-xs); font-weight: 700; letter-spacing: 0.1em; color: var(--ink-55); }
+.top-form-text {
+  margin-top: var(--sp-tie);
+  font-family: var(--mincho); font-weight: 700; font-feature-settings: "palt";
+  font-size: var(--fs-md); line-height: 1.8; letter-spacing: 0.05em; color: var(--ink);
+}
 
-.header{padding:5rem 0 3.5rem;background:linear-gradient(135deg,var(--bg-deep) 0%,var(--bg) 60%);border-bottom:1px solid var(--line);text-align:center}
-.sample-badge{display:inline-block;font-size:0.65rem;letter-spacing:0.4em;color:#fff;background:var(--amber);padding:0.45rem 1.4rem;border-radius:30px;font-weight:600;margin-bottom:1.5rem}
-.header-title{font-family:var(--serif);font-size:1.95rem;font-weight:600;letter-spacing:0.06em;line-height:1.7;color:var(--ink);margin-bottom:0.8rem}
-.header-sub{font-family:var(--serif);font-size:0.95rem;color:var(--sub);letter-spacing:0.05em;margin-bottom:1.5rem}
-.count-bar{display:inline-flex;gap:1.6rem;padding:0.7rem 1.6rem;background:#fff;border:1px solid var(--line);border-radius:3px;font-size:0.78rem;color:var(--mute);letter-spacing:0.08em}
-.count-bar b{color:var(--green);font-weight:600;font-family:var(--serif);font-size:0.85rem}
+/* ---------- 01 作例（Q4からQ10まで） ---------- */
+.sec-example { background: var(--bg-off); }
+.ex-flow { list-style: none; max-width: 680px; border-top: 1px solid var(--ink); }
+.ex-step {
+  display: grid; grid-template-columns: 88px minmax(0, 1fr); column-gap: 24px;
+  padding: var(--sp-item) 0; border-bottom: 1px solid var(--line);
+}
+.ex-q { font-family: var(--en); font-weight: 500; font-size: 13px; letter-spacing: 0.2em; color: var(--brand-deep); line-height: 2; }
+.ex-what { font-size: var(--fs-xs); font-weight: 700; letter-spacing: 0.08em; color: var(--ink-55); }
+.ex-text { margin-top: 2px; font-size: 15px; line-height: 1.95; color: var(--ink-soft); word-break: auto-phrase; text-wrap: pretty; }
+.ex-step.is-q .ex-text,
+.ex-step.is-rewrite .ex-text {
+  font-family: var(--mincho); font-weight: 700; font-feature-settings: "palt";
+  font-size: 17px; letter-spacing: 0.04em; color: var(--ink);
+}
+.ex-step.is-rewrite { border-bottom: 1px solid var(--ink); }
+.ex-diff { color: var(--brand-deep); border-bottom: 1px solid var(--brand-mid); }
+.ex-note { margin-top: var(--sp-near); font-size: var(--fs-xs); line-height: 1.9; color: var(--ink-60); word-break: auto-phrase; text-wrap: pretty; }
 
-.notice{background:var(--amber-bg);border-left:3px solid var(--amber);padding:1.4rem 1.6rem;border-radius:3px;margin:2rem auto 0;max-width:760px;text-align:left}
-.notice-label{font-size:0.66rem;letter-spacing:0.25em;color:var(--amber);font-weight:600;margin-bottom:0.6rem}
-.notice-main{font-family:var(--serif);font-size:0.98rem;color:var(--ink);line-height:1.95;font-weight:500;letter-spacing:0.03em}
+/* ---------- 02 サンプル30 ---------- */
+.cat-nav { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: var(--sp-block); }
+.cat-nav a {
+  display: inline-flex; align-items: center; min-height: 40px; padding: 0 16px;
+  border: 1px solid var(--line); border-radius: var(--radius);
+  font-size: var(--fs-sm); font-weight: 500; letter-spacing: 0.06em; color: var(--ink-72);
+  transition: border-color var(--trans-fast), color var(--trans-fast);
+}
+.cat-nav a:hover { border-color: var(--brand); color: var(--brand-deep); }
+.cat-nav a .n { font-family: var(--en); font-size: 12px; color: var(--ink-40); margin-left: 8px; }
 
-.intro{padding:3.5rem 0;border-bottom:1px solid var(--line)}
-.intro p.lead{font-family:var(--serif);font-size:1.05rem;color:var(--ink);font-weight:500;line-height:2.1;letter-spacing:0.04em;max-width:720px;margin:0 auto 1.2rem;text-align:center}
-.intro p.sub{font-size:0.9rem;color:var(--sub);line-height:2;max-width:680px;margin:0 auto;text-align:center}
+.cat + .cat { margin-top: var(--sp-block); }
+.cat { scroll-margin-top: 24px; }
+.cat-head { display: flex; align-items: baseline; gap: 14px; padding-bottom: var(--sp-near); border-bottom: 1px solid var(--ink); }
+.cat-title { font-family: var(--mincho); font-weight: 700; font-feature-settings: "palt"; font-size: 22px; letter-spacing: 0.08em; color: var(--ink); }
+.cat-count { font-family: var(--en); font-size: 12px; letter-spacing: 0.16em; color: var(--ink-40); }
 
-.cat{padding:3.5rem 0}
-.cat.alt{background:var(--bg-deep)}
-.cat-head{text-align:center;margin-bottom:2.5rem}
-.cat-mark{display:inline-block;font-family:var(--serif);font-size:0.7rem;letter-spacing:0.35em;font-weight:600;padding:0.35rem 1rem;border:1px solid currentColor;margin-bottom:0.8rem}
-.cat-title{font-family:var(--serif);font-size:1.4rem;font-weight:600;letter-spacing:0.05em;line-height:1.6;color:var(--ink)}
-.cat-sub{font-size:0.78rem;color:var(--mute);letter-spacing:0.1em;margin-top:0.4rem}
+.qs { list-style: none; max-width: 720px; }
+.qs li {
+  display: grid; grid-template-columns: 34px minmax(0, 1fr); column-gap: 14px;
+  padding: var(--sp-item) 0; border-bottom: 1px solid var(--line);
+}
+.qs .no { font-family: var(--en); font-weight: 500; font-size: 13px; letter-spacing: 0.06em; color: var(--brand); line-height: 2.2; }
+.qs .from { font-size: var(--fs-xs); line-height: 1.85; color: var(--ink-55); word-break: auto-phrase; text-wrap: pretty; }
+.qs .from::before { content: "Q7　"; font-family: var(--en); font-weight: 500; letter-spacing: 0.1em; color: var(--ink-40); }
+.qs .q {
+  margin-top: 8px;
+  font-family: var(--mincho); font-weight: 700; font-feature-settings: "palt";
+  font-size: 16.5px; line-height: 1.9; letter-spacing: 0.03em; color: var(--ink);
+  word-break: auto-phrase; text-wrap: pretty;
+}
 
-.cat-a .cat-mark{color:var(--blue)} .cat-a .theme-card{border-top:3px solid var(--blue)} .cat-a .theme-num{color:var(--blue)}
-.cat-b .cat-mark{color:var(--green)} .cat-b .theme-card{border-top:3px solid var(--green)} .cat-b .theme-num{color:var(--green)}
-.cat-c .cat-mark{color:var(--red)} .cat-c .theme-card{border-top:3px solid var(--red)} .cat-c .theme-num{color:var(--red)}
-.cat-d .cat-mark{color:var(--amber)} .cat-d .theme-card{border-top:3px solid var(--amber)} .cat-d .theme-num{color:var(--amber)}
-.cat-e .cat-mark{color:var(--teal)} .cat-e .theme-card{border-top:3px solid var(--teal)} .cat-e .theme-num{color:var(--teal)}
-.cat-f .cat-mark{color:var(--purple)} .cat-f .theme-card{border-top:3px solid var(--purple)} .cat-f .theme-num{color:var(--purple)}
-.cat-g .cat-mark{color:var(--green)} .cat-g .theme-card{border-top:3px solid var(--green)} .cat-g .theme-num{color:var(--green)}
-.cat-h .cat-mark{color:var(--blue)} .cat-h .theme-card{border-top:3px solid var(--blue)} .cat-h .theme-num{color:var(--blue)}
-.cat-i .cat-mark{color:var(--amber)} .cat-i .theme-card{border-top:3px solid var(--amber)} .cat-i .theme-num{color:var(--amber)}
+/* ---------- 03 見直す ---------- */
+.check-list { list-style: none; max-width: 680px; border-top: 1px solid var(--ink); counter-reset: ck; }
+.check-list li { padding: var(--sp-item) 0 var(--sp-item) 48px; border-bottom: 1px solid var(--line); position: relative; counter-increment: ck; }
+.check-list li::before {
+  content: counter(ck); position: absolute; left: 0; top: var(--sp-item);
+  font-family: var(--en); font-weight: 500; font-size: 22px; line-height: 1.3; color: var(--brand);
+}
+.check-title { font-family: var(--body); font-weight: 700; font-size: 16px; letter-spacing: 0.05em; color: var(--ink); line-height: 1.7; }
+.check-desc { margin-top: 6px; font-size: 14px; line-height: 1.95; color: var(--ink-66); word-break: auto-phrase; text-wrap: pretty; }
+.check-desc .eg { display: block; margin-top: 6px; font-size: var(--fs-xs); color: var(--ink-55); }
 
-.theme-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:0.9rem}
-.theme-card{background:var(--card);border:1px solid var(--line);padding:1.2rem 1.3rem 1.3rem;border-radius:3px;display:flex;flex-direction:column;gap:0.6rem;transition:transform .15s ease,box-shadow .15s ease}
-.theme-card:hover{transform:translateY(-2px);box-shadow:0 4px 14px rgba(0,0,0,0.05)}
-.theme-num{font-family:var(--serif);font-size:0.7rem;letter-spacing:0.25em;font-weight:600}
-.theme-text{font-family:var(--serif);font-size:0.96rem;color:var(--ink);line-height:1.85;font-weight:500;letter-spacing:0.02em}
+/* ---------- おわり ---------- */
+.end { background: var(--bg-off); }
+.end-inner { padding-top: clamp(56px, 9vh, 96px); padding-bottom: clamp(56px, 9vh, 96px); }
+.end-text { max-width: 38em; font-size: 15px; line-height: var(--lh-loose); color: var(--ink-72); word-break: auto-phrase; text-wrap: pretty; }
+.end-decl {
+  margin-top: var(--sp-group); max-width: 38em; background: var(--bg); border: 1px solid var(--line); border-left: 3px solid var(--brand);
+  padding: 20px 24px; font-family: var(--mincho); font-weight: 700; font-size: var(--fs-md); letter-spacing: 0.05em; line-height: 1.8; color: var(--ink);
+}
+.end-meta { margin-top: var(--sp-group); font-size: var(--fs-xs); color: var(--ink-50); letter-spacing: 0.06em; }
 
-.closing{padding:5rem 0 6rem;background:var(--bg-deep);border-top:1px solid var(--line);text-align:center}
-.closing-quote{font-family:var(--serif);font-size:1.08rem;color:var(--ink);line-height:2.1;letter-spacing:0.05em;font-weight:500;max-width:680px;margin:0 auto 1.5rem;padding:1.5rem 1.8rem;background:#fff;border-left:3px solid var(--green);border-right:3px solid var(--green);text-align:left}
-.closing-meta{font-size:0.75rem;color:var(--mute);letter-spacing:0.1em;line-height:2}
-
-@media(max-width:720px){
-  .header-title{font-size:1.55rem}
-  .cat-title{font-size:1.2rem}
-  .theme-grid{grid-template-columns:1fr}
-  .count-bar{flex-direction:column;gap:0.3rem;text-align:left}
+@media (max-width: 640px) {
+  .shell { padding-inline: 16px; }
+  .top-title { font-size: 28px; }
+  .ex-step { grid-template-columns: minmax(0, 1fr); row-gap: 2px; }
+  .ex-q { line-height: 1.6; }
+  .cat-nav { margin-bottom: var(--sp-group); }
+  .cat-nav a { min-height: 36px; padding: 0 12px; font-size: 13px; }
+  .qs .q { font-size: 16px; }
+  .check-list li { padding-left: 38px; }
 }
 </style>
 </head>
 <body>
 
-<header class="header">
-  <div class="wrap">
-    <span class="sample-badge">SAMPLE ／ 例示</span>
-    <h1 class="header-title">POOLO 探究テーマ サンプル50</h1>
-    <div class="header-sub">「〜とは何か？」の形で、私だけの問いを置く</div>
-    <div class="count-bar">
-      <span><b>50</b>問</span>
-      <span><b>9</b>カテゴリ</span>
-      <span>仕事 ／ 人間関係 ／ 家族 ／ 暮らし ／ 身体 ／ 創造・趣味 ／ 旅 ／ アイデンティティ ／ 違和感</span>
-    </div>
-
-    <div class="notice">
-      <div class="notice-label">この資料について</div>
-      <div class="notice-main">これは「探究テーマって、『〜とは何か？』という問いの形で、自分の生活のすぐそばに置けるんだ」という手触りを伝えるためのサンプル集です。壮大な問いではなく、その人特有の場面・感情・違和感をすくいあげる問いだけを並べています。仕事でも趣味でも、なんでも自由。あなた自身が深ぼることに意味がありそうな、あなた特有の問いに書き換える前提で置かれています。</div>
+<header class="top">
+  <div class="shell top-inner">
+    <div class="top-label">Sample<span class="ja">POOLO LIFE 体験会ワークシート Q8</span></div>
+    <h1 class="top-title">探究テーマのサンプル</h1>
+    <p class="top-lead">体験会のワークシートQ8で、Q7の一文を問いの形にするときに見るページです。仕事・人との関係・家族・暮らし・好きなこと・旅の6つに分けて、30問を並べました。どれも、Q7で書く「〜したいのに、〜してしまう」の一文から立てています。</p>
+    <p class="top-lead">POOLOでは、こうして立てた問いのうち、いま自分が掲げているものを「探究テーマ」と呼んでいます。8ヶ月のあいだに、仲間と話すたびに何度も書き換えていきます。今日書く問いは、最初の一本で大丈夫です。</p>
+    <div class="top-form">
+      <div class="top-form-label">Q8で使う形</div>
+      <div class="top-form-text">なぜ私は、［場面］になると、<br>［〜してしまう］のか</div>
     </div>
   </div>
 </header>
 
-<section class="intro">
-  <div class="wrap">
-    <p class="lead">探究テーマは、3年後の私から逆算する目標ではなく、私の生活のすぐそばにある「〜とは何か？」を仮置きする一行。</p>
-    <p class="sub">ここでは50案すべてを「〜とは何か？」の形で並べました。仕事のことも趣味のことも、日々の感情も、なんでも自由です。大きな哲学ではなく、私自身が深ぼることに意味がありそうな、私だけの場面や感情を問いに変えています。一字一句を真似する必要はなく、自分の言葉で書き換えてください。</p>
-  </div>
-</section>
-
-<section class="cat cat-a">
-  <div class="wrap">
-    <div class="cat-head">
-      <span class="cat-mark">A</span>
-      <h2 class="cat-title">仕事・キャリア・働き方</h2>
-      <div class="cat-sub">6 questions</div>
+<section class="sec sec-example" id="example">
+  <div class="shell sec-inner">
+    <div class="sec-spine">
+      <div class="sec-num">01</div>
+      <span class="sec-en">Example</span>
     </div>
-    <div class="theme-grid">
-      <div class="theme-card"><div class="theme-num">No. 01</div><div class="theme-text">仕事中に「これだけはやめたくない」と感じる瞬間とは何か？</div></div>
-      <div class="theme-card"><div class="theme-num">No. 02</div><div class="theme-text">会議で発言を飲み込むとき、私が守っているものとは何か？</div></div>
-      <div class="theme-card"><div class="theme-num">No. 03</div><div class="theme-text">評価されると嬉しいのに、どこか虚しい。その「虚しさ」とは何か？</div></div>
-      <div class="theme-card"><div class="theme-num">No. 04</div><div class="theme-text">月曜の朝、私の足を重くしているものとは何か？</div></div>
-      <div class="theme-card"><div class="theme-num">No. 05</div><div class="theme-text">「向いている」と「やりたい」の間にある、私だけのズレとは何か？</div></div>
-      <div class="theme-card"><div class="theme-num">No. 06</div><div class="theme-text">仕事の中で唯一手を抜けない、私のこだわりとは何か？</div></div>
-    </div>
-  </div>
-</section>
-
-<section class="cat cat-b alt">
-  <div class="wrap">
-    <div class="cat-head">
-      <span class="cat-mark">B</span>
-      <h2 class="cat-title">人間関係・コミュニティ・友人</h2>
-      <div class="cat-sub">6 questions</div>
-    </div>
-    <div class="theme-grid">
-      <div class="theme-card"><div class="theme-num">No. 07</div><div class="theme-text">連絡したくないわけじゃないのに連絡しない、この距離感とは何か？</div></div>
-      <div class="theme-card"><div class="theme-num">No. 08</div><div class="theme-text">友達と呼ぶには遠く、知り合いと呼ぶには近い人たちとは何か？</div></div>
-      <div class="theme-card"><div class="theme-num">No. 09</div><div class="theme-text">グループの中で私が無意識に引き受けている役割とは何か？</div></div>
-      <div class="theme-card"><div class="theme-num">No. 10</div><div class="theme-text">ひとりが好きと言いながら、誘いを待っている。この矛盾とは何か？</div></div>
-      <div class="theme-card"><div class="theme-num">No. 11</div><div class="theme-text">苦手な人を苦手と言いきれない、私の遠慮とは何か？</div></div>
-      <div class="theme-card"><div class="theme-num">No. 12</div><div class="theme-text">「気が合う」と感じる瞬間に、私の中で起きていることとは何か？</div></div>
+    <div>
+      <h2 class="sec-title">Q4の場面が、<br>Q10の問いになるまで</h2>
+      <p class="sec-lead">ワークシートの例を一本につなげた作例です。Q4で書いた場面が、Q7の一文になり、Q8で問いになります。そのあとの対話で返ってきた質問をきっかけに、Q10で問いの言葉が変わりました。</p>
+      <ol class="ex-flow">
+        <li class="ex-step">
+          <div class="ex-q">Q4</div>
+          <div><div class="ex-what">最近それを感じた場面</div><div class="ex-text">先週の金曜、会社の飲み会で、先輩に「次は何がやりたいの？」と聞かれて、笑ってごまかした。</div></div>
+        </li>
+        <li class="ex-step">
+          <div class="ex-q">Q7</div>
+          <div><div class="ex-what">〜したいのに、〜してしまう</div><div class="ex-text">やりたいことを話したいのに、聞かれると笑ってごまかしてしまう。</div></div>
+        </li>
+        <li class="ex-step is-q">
+          <div class="ex-q">Q8</div>
+          <div><div class="ex-what">問いの形にする</div><div class="ex-text">なぜ私は、職場の人に「次は何がやりたいの？」と聞かれると、笑ってごまかしてしまうのか</div></div>
+        </li>
+        <li class="ex-step">
+          <div class="ex-q">対話</div>
+          <div><div class="ex-what">聞く人から返ってきた質問</div><div class="ex-text">「学生のころの友だちに同じことを聞かれても、ごまかす？」と聞かれて、友だちには普通に話せていることに気づいた。先輩の前だと、答えで自分を評価されている気がしていた。</div></div>
+        </li>
+        <li class="ex-step is-rewrite">
+          <div class="ex-q">Q10</div>
+          <div><div class="ex-what">書き換えた問い</div><div class="ex-text">なぜ私は、<span class="ex-diff">答えで自分を評価されると感じる相手</span>に将来の話を聞かれると、笑ってごまかしてしまうのか</div></div>
+        </li>
+      </ol>
+      <p class="ex-note">「職場の人」が「答えで自分を評価されると感じる相手」に変わりました。この書き換えで、次に話を聞いてみたい相手（その先輩本人や、評価面談をする上司）が決まります。</p>
     </div>
   </div>
 </section>
 
-<section class="cat cat-c">
-  <div class="wrap">
-    <div class="cat-head">
-      <span class="cat-mark">C</span>
-      <h2 class="cat-title">家族・パートナーシップ・親子</h2>
-      <div class="cat-sub">6 questions</div>
+<section class="sec" id="samples">
+  <div class="shell sec-inner">
+    <div class="sec-spine">
+      <div class="sec-num">02</div>
+      <span class="sec-en">30 Questions</span>
     </div>
-    <div class="theme-grid">
-      <div class="theme-card"><div class="theme-num">No. 13</div><div class="theme-text">親と話すと声のトーンが変わる、そのときの私とは何か？</div></div>
-      <div class="theme-card"><div class="theme-num">No. 14</div><div class="theme-text">パートナーに見せられない、私の部分とは何か？</div></div>
-      <div class="theme-card"><div class="theme-num">No. 15</div><div class="theme-text">「結婚」と聞いたとき、胸の中で起きる揺れとは何か？</div></div>
-      <div class="theme-card"><div class="theme-num">No. 16</div><div class="theme-text">実家に帰ると戻ってくる、子どもの私とは何か？</div></div>
-      <div class="theme-card"><div class="theme-num">No. 17</div><div class="theme-text">家族に「ありがとう」と言えないとき、私の中にあるものとは何か？</div></div>
-      <div class="theme-card"><div class="theme-num">No. 18</div><div class="theme-text">親と似ていると言われた瞬間、複雑になる感情とは何か？</div></div>
+    <div>
+      <h2 class="sec-title">サンプル30問</h2>
+      <p class="sec-lead">小さい字がQ7の一文、明朝の行がQ8の問いです。自分の場面に近いものを見つけたら、場所や相手を自分のものに入れ替えて使ってください。場面の入れ方は、Q8の形から少し崩しても大丈夫です。</p>
+
+      <nav class="cat-nav" aria-label="カテゴリ">
+        <a href="#cat-work">仕事<span class="n">6</span></a>
+        <a href="#cat-people">人との関係<span class="n">5</span></a>
+        <a href="#cat-family">家族・パートナー<span class="n">5</span></a>
+        <a href="#cat-life">暮らし・お金<span class="n">4</span></a>
+        <a href="#cat-like">好きなこと<span class="n">5</span></a>
+        <a href="#cat-travel">旅<span class="n">5</span></a>
+      </nav>
+
+      <div class="cat" id="cat-work">
+        <div class="cat-head"><h3 class="cat-title">仕事</h3><span class="cat-count">01–06</span></div>
+        <ol class="qs">
+          <li><span class="no">01</span><div><div class="from">会議で自分の案を出したいのに、誰かが言うのを待ってしまう</div><div class="q">なぜ私は、週の定例で自分の案があるときほど、先に誰かが言ってくれるのを待ってしまうのか</div></div></li>
+          <li><span class="no">02</span><div><div class="from">新しい仕事に手を挙げたいのに、先に断ってしまう</div><div class="q">なぜ私は、上司に新しい案件の話をされると、やりたいかを考える前に「いまは手一杯です」と返してしまうのか</div></div></li>
+          <li><span class="no">03</span><div><div class="from">褒められたら喜びたいのに、すぐに流してしまう</div><div class="q">なぜ私は、評価面談で成果を褒められると、「たまたまです」と言って話を終わらせてしまうのか</div></div></li>
+          <li><span class="no">04</span><div><div class="from">仕事の面白さを話したいのに、肩書きだけで済ませてしまう</div><div class="q">なぜ私は、初対面の人に仕事を聞かれると、会社名と職種だけを答えて、何が面白いのかは話さずに終えてしまうのか</div></div></li>
+          <li><span class="no">05</span><div><div class="from">働く場所を変えたいのに、求人を見るだけで閉じてしまう</div><div class="q">なぜ私は、日曜の夜に転職サイトを開くと、気になる求人を保存するだけで、応募は「来月にしよう」と先に延ばしてしまうのか</div></div></li>
+          <li><span class="no">06</span><div><div class="from">早く帰りたいのに、頼まれていないところまで直してしまう</div><div class="q">なぜ私は、提出前の資料を見返すと、誰にも頼まれていない図まで作り直してしまうのか</div></div></li>
+        </ol>
+      </div>
+
+      <div class="cat" id="cat-people">
+        <div class="cat-head"><h3 class="cat-title">人との関係</h3><span class="cat-count">07–11</span></div>
+        <ol class="qs">
+          <li><span class="no">07</span><div><div class="from">昔の友だちに連絡したいのに、送らずに閉じてしまう</div><div class="q">なぜ私は、誕生日の通知で学生時代の友だちの名前を見ると、文面まで打ってから送らずに閉じてしまうのか</div></div></li>
+          <li><span class="no">08</span><div><div class="from">自分のことも聞いてほしいのに、聞き役にまわってしまう</div><div class="q">なぜ私は、久しぶりに友だちと飲むと、自分の近況を聞かれる前に、相手の話を聞く側にまわってしまうのか</div></div></li>
+          <li><span class="no">09</span><div><div class="from">気の進まない誘いは断りたいのに、あいまいに返してしまう</div><div class="q">なぜ私は、気の進まない飲み会に誘われると、断る理由があっても「行けたら行く」と返してしまうのか</div></div></li>
+          <li><span class="no">10</span><div><div class="from">新しい人と会ってみたいのに、いつものメンバーに声をかけてしまう</div><div class="q">なぜ私は、休日の予定を立てるとき、会ってみたい人がいても、いつもの3人に先に連絡してしまうのか</div></div></li>
+          <li><span class="no">11</span><div><div class="from">友だちの報告を喜びたいのに、少し距離をとってしまう</div><div class="q">なぜ私は、グループLINEで結婚や出産の報告が続くと、「おめでとう」を送ったあとに通知を切ってしまうのか</div></div></li>
+        </ol>
+      </div>
+
+      <div class="cat" id="cat-family">
+        <div class="cat-head"><h3 class="cat-title">家族・パートナー</h3><span class="cat-count">12–16</span></div>
+        <ol class="qs">
+          <li><span class="no">12</span><div><div class="from">親に近況を話したいのに、「元気だよ」で済ませてしまう</div><div class="q">なぜ私は、母からの電話で仕事のことを聞かれると、困っていることがあっても「元気だよ」で済ませてしまうのか</div></div></li>
+          <li><span class="no">13</span><div><div class="from">将来の話をしたいのに、冗談にしてしまう</div><div class="q">なぜ私は、パートナーと住む場所やこれからの仕事の話になると、本気で考えていることほど冗談にして流してしまうのか</div></div></li>
+          <li><span class="no">14</span><div><div class="from">実家でもゆっくりしたいのに、長女の役に戻ってしまう</div><div class="q">なぜ私は、年末に実家へ帰ると、30代になったいまも、誰にも頼まれずに台所に立って、長女の役に戻ってしまうのか</div></div></li>
+          <li><span class="no">15</span><div><div class="from">自分の言葉で子どもに向き合いたいのに、父と同じ言い方をしてしまう</div><div class="q">なぜ私は、子どもを叱るときになると、子どものころ苦手だった父と同じ言い方をしてしまうのか</div></div></li>
+          <li><span class="no">16</span><div><div class="from">疲れたと言いたいのに、黙って片づけてしまう</div><div class="q">なぜ私は、平日の夜にくたくたで帰っても、パートナーに頼まずに洗い物を全部済ませてしまうのか</div></div></li>
+        </ol>
+      </div>
+
+      <div class="cat" id="cat-life">
+        <div class="cat-head"><h3 class="cat-title">暮らし・お金</h3><span class="cat-count">17–20</span></div>
+        <ol class="qs">
+          <li><span class="no">17</span><div><div class="from">休日はゆっくりしたいのに、予定で埋めてしまう</div><div class="q">なぜ私は、何も予定のない土曜日が近づくと、木曜のうちに予定を入れて埋めてしまうのか</div></div></li>
+          <li><span class="no">18</span><div><div class="from">ほしいものは自分で決めて買いたいのに、誰かの一言を待ってしまう</div><div class="q">なぜ私は、ほしい服を見つけても、友だちに「似合う」と言われるまで買えずにいてしまうのか</div></div></li>
+          <li><span class="no">19</span><div><div class="from">引っ越したいのに、毎回見送ってしまう</div><div class="q">なぜ私は、「次こそ引っ越す」と決めているのに、賃貸の更新の案内が届くとまた更新してしまうのか</div></div></li>
+          <li><span class="no">20</span><div><div class="from">準備を済ませたいのに、別のことを始めてしまう</div><div class="q">なぜ私は、翌朝に大事なプレゼンがある夜ほど、資料を開かずに部屋の掃除を始めてしまうのか</div></div></li>
+        </ol>
+      </div>
+
+      <div class="cat" id="cat-like">
+        <div class="cat-head"><h3 class="cat-title">好きなこと</h3><span class="cat-count">21–25</span></div>
+        <ol class="qs">
+          <li><span class="no">21</span><div><div class="from">撮った写真を見せたいのに、カメラロールに置いたままにしてしまう</div><div class="q">なぜ私は、通勤の途中に毎朝撮っている空の写真を、SNSにも友だちにも見せずに置いたままにしてしまうのか</div></div></li>
+          <li><span class="no">22</span><div><div class="from">昔好きだったことをまた始めたいのに、準備の途中で止まってしまう</div><div class="q">なぜ私は、学生のころ弾いていたギターを押し入れから出しても、弦を張り替えるところで止まってしまうのか</div></div></li>
+          <li><span class="no">23</span><div><div class="from">新しいことを習いたいのに、申し込む手前でやめてしまう</div><div class="q">なぜ私は、気になる教室を見つけると、体験レッスンの申込みフォームまで進んで、日付を選ぶところで「仕事が落ち着いたら」と後回しにしてしまうのか</div></div></li>
+          <li><span class="no">24</span><div><div class="from">夢中になっていることを話したいのに、小さく言ってしまう</div><div class="q">なぜ私は、休日に何をしているかを聞かれると、3年続けている陶芸のことを「ただの趣味です」と小さく言ってしまうのか</div></div></li>
+          <li><span class="no">25</span><div><div class="from">時間を忘れて読みたいのに、途中で役に立つかを考えてしまう</div><div class="q">なぜ私は、小説に夢中になっていても、途中で「これは何の役に立つんだろう」と考えて本を閉じてしまうのか</div></div></li>
+        </ol>
+      </div>
+
+      <div class="cat" id="cat-travel">
+        <div class="cat-head"><h3 class="cat-title">旅</h3><span class="cat-count">26–30</span></div>
+        <ol class="qs">
+          <li><span class="no">26</span><div><div class="from">ひとりでも行きたいのに、一緒に行く人を待ってしまう</div><div class="q">なぜ私は、連休の前に泊まってみたい宿を見つけても、一緒に行ける人が見つかるまで、ひとりで予約するのを先に延ばしてしまうのか</div></div></li>
+          <li><span class="no">27</span><div><div class="from">旅先の人と話したいのに、次の行き先を調べてしまう</div><div class="q">なぜ私は、旅先の食堂で隣の席の人に話しかけたいと思っても、スマホで次の行き先を調べて席を立ってしまうのか</div></div></li>
+          <li><span class="no">28</span><div><div class="from">予定を決めずに歩きたいのに、全部決めてしまう</div><div class="q">なぜ私は、3連休の旅でも、出発の前の晩までに入る店を全部決めてしまうのか</div></div></li>
+          <li><span class="no">29</span><div><div class="from">旅で決めたことを続けたいのに、すぐにいつもの暮らしに戻ってしまう</div><div class="q">なぜ私は、旅から帰った夜に「暮らし方を変えたい」と思っても、月曜に出社するころには、いつもの暮らしに戻ってしまうのか</div></div></li>
+          <li><span class="no">30</span><div><div class="from">行ったことのない国に行きたいのに、いつもの行き先を選んでしまう</div><div class="q">なぜ私は、ずっと気になっている国があるのに、まとまった休みが取れると、何度も行った台湾の航空券を取ってしまうのか</div></div></li>
+        </ol>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="cat cat-d alt">
-  <div class="wrap">
-    <div class="cat-head">
-      <span class="cat-mark">D</span>
-      <h2 class="cat-title">お金・暮らし・場所</h2>
-      <div class="cat-sub">6 questions</div>
+<section class="sec" id="check">
+  <div class="shell sec-inner">
+    <div class="sec-spine">
+      <div class="sec-num">03</div>
+      <span class="sec-en">Check</span>
     </div>
-    <div class="theme-grid">
-      <div class="theme-card"><div class="theme-num">No. 19</div><div class="theme-text">値段を見ずに買えるものと、何度も悩むものの間にある、私の基準とは何か？</div></div>
-      <div class="theme-card"><div class="theme-num">No. 20</div><div class="theme-text">部屋を片付けたくなる日と、散らかしておきたい日の境目とは何か？</div></div>
-      <div class="theme-card"><div class="theme-num">No. 21</div><div class="theme-text">「今の暮らしを変えたい」の「変えたい」とは何か？</div></div>
-      <div class="theme-card"><div class="theme-num">No. 22</div><div class="theme-text">給料日に、なぜか少し落ちる気分とは何か？</div></div>
-      <div class="theme-card"><div class="theme-num">No. 23</div><div class="theme-text">夜にひとりでいると、明かりを多めにつけたくなる理由とは何か？</div></div>
-      <div class="theme-card"><div class="theme-num">No. 24</div><div class="theme-text">引っ越したい衝動が来るタイミングに共通するものとは何か？</div></div>
-    </div>
-  </div>
-</section>
-
-<section class="cat cat-e">
-  <div class="wrap">
-    <div class="cat-head">
-      <span class="cat-mark">E</span>
-      <h2 class="cat-title">身体・健康・時間・老い</h2>
-      <div class="cat-sub">6 questions</div>
-    </div>
-    <div class="theme-grid">
-      <div class="theme-card"><div class="theme-num">No. 25</div><div class="theme-text">朝起きた瞬間、体が知らせてくる「今日のサイン」とは何か？</div></div>
-      <div class="theme-card"><div class="theme-num">No. 26</div><div class="theme-text">疲れているのに眠れない夜の、正体とは何か？</div></div>
-      <div class="theme-card"><div class="theme-num">No. 27</div><div class="theme-text">走ると整う私と、走ると壊れる私。その違いとは何か？</div></div>
-      <div class="theme-card"><div class="theme-num">No. 28</div><div class="theme-text">飲んだ翌日にやってくる、自己嫌悪の中身とは何か？</div></div>
-      <div class="theme-card"><div class="theme-num">No. 29</div><div class="theme-text">「忙しい」と口にしているとき、私が隠しているものとは何か？</div></div>
-      <div class="theme-card"><div class="theme-num">No. 30</div><div class="theme-text">年齢を意識する瞬間、私の中で起きていることとは何か？</div></div>
+    <div>
+      <h2 class="sec-title">書いた問いを<br>見直すときの4つ</h2>
+      <p class="sec-lead">Q8を書いたら、対話に入る前にこの4つで読み返します。全部そろっていなくても大丈夫で、足りないところは対話のあとに書き換えれば十分。</p>
+      <ol class="check-list">
+        <li>
+          <div class="check-title">いつ・どこで・誰といたときかが入っている</div>
+          <div class="check-desc">場面がひとつ入ると、聞く人が自分の場面を思い出して話しやすくなります。
+            <span class="eg">例：「人前で話せない」より「週の定例で、自分の案があるとき」</span></div>
+        </li>
+        <li>
+          <div class="check-title">主語が「私」になっている</div>
+          <div class="check-desc">答えが出たら、明日からの自分の何かが変わりそうな問いにします。「最近の若者はなぜ旅をしないのか」は、答えが出ても自分の暮らしは変わりません。
+            <span class="eg">例（旅の仕事をしている人なら）：「なぜ私は、若い人に旅を勧めつづけているのか」</span></div>
+        </li>
+        <li>
+          <div class="check-title">聞いてみたい人が、ひとり浮かぶ</div>
+          <div class="check-desc">この問いを誰に話したら何か返ってきそうかを考えます。浮かばないときは、場面に出てくる人（上司、母、旅先の食堂の人）を問いに入れてみてください。Q11で、話す相手を一人決めます。</div>
+        </li>
+        <li>
+          <div class="check-title">その場面を知らない人にも、半分くらい伝わる</div>
+          <div class="check-desc">職種や趣味がちがう人が読んでも、「それ、私にもある」と返せるくらいの言葉にします。専門用語や社内の言葉は、ふだんの言葉に置き換えます。</div>
+        </li>
+      </ol>
     </div>
   </div>
 </section>
 
-<section class="cat cat-f alt">
-  <div class="wrap">
-    <div class="cat-head">
-      <span class="cat-mark">F</span>
-      <h2 class="cat-title">創造・趣味・学び</h2>
-      <div class="cat-sub">5 questions</div>
-    </div>
-    <div class="theme-grid">
-      <div class="theme-card"><div class="theme-num">No. 31</div><div class="theme-text">私が何時間でも飽きずに見ていられるものとは何か？</div></div>
-      <div class="theme-card"><div class="theme-num">No. 32</div><div class="theme-text">趣味と呼ぶには真剣すぎる、私の活動とは何か？</div></div>
-      <div class="theme-card"><div class="theme-num">No. 33</div><div class="theme-text">続かない習慣と、勝手に続いている習慣。その差とは何か？</div></div>
-      <div class="theme-card"><div class="theme-num">No. 34</div><div class="theme-text">SNSにあげなかった写真の中にある、私だけのものとは何か？</div></div>
-      <div class="theme-card"><div class="theme-num">No. 35</div><div class="theme-text">学びたい気持ちの奥にある欲求とは何か？</div></div>
-    </div>
-  </div>
-</section>
-
-<section class="cat cat-g">
-  <div class="wrap">
-    <div class="cat-head">
-      <span class="cat-mark">G</span>
-      <h2 class="cat-title">旅・地域・自然</h2>
-      <div class="cat-sub">5 questions</div>
-    </div>
-    <div class="theme-grid">
-      <div class="theme-card"><div class="theme-num">No. 36</div><div class="theme-text">同じ街を歩いていても、見える日と見えない日の違いとは何か？</div></div>
-      <div class="theme-card"><div class="theme-num">No. 37</div><div class="theme-text">旅先でなぜか必ず立ち寄ってしまう場所とは何か？</div></div>
-      <div class="theme-card"><div class="theme-num">No. 38</div><div class="theme-text">帰ってきたくないと思う旅と、そうでない旅の違いとは何か？</div></div>
-      <div class="theme-card"><div class="theme-num">No. 39</div><div class="theme-text">ひとり旅で初めて出会う、私の中の何かとは何か？</div></div>
-      <div class="theme-card"><div class="theme-num">No. 40</div><div class="theme-text">自然の中にいると整っていく、その感覚の正体とは何か？</div></div>
-    </div>
-  </div>
-</section>
-
-<section class="cat cat-h alt">
-  <div class="wrap">
-    <div class="cat-head">
-      <span class="cat-mark">H</span>
-      <h2 class="cat-title">アイデンティティ・自分とは</h2>
-      <div class="cat-sub">5 questions</div>
-    </div>
-    <div class="theme-grid">
-      <div class="theme-card"><div class="theme-num">No. 41</div><div class="theme-text">「自分らしい」と感じる瞬間の、「らしさ」とは何か？</div></div>
-      <div class="theme-card"><div class="theme-num">No. 42</div><div class="theme-text">子どもの頃から変わっていない、私の核とは何か？</div></div>
-      <div class="theme-card"><div class="theme-num">No. 43</div><div class="theme-text">嫌いだと思っていた自分の一面が、最近少し愛おしい。この変化とは何か？</div></div>
-      <div class="theme-card"><div class="theme-num">No. 44</div><div class="theme-text">名乗りたい肩書きと、実際の肩書きの間にあるものとは何か？</div></div>
-      <div class="theme-card"><div class="theme-num">No. 45</div><div class="theme-text">私がいちばん長く付き合っている感情とは何か？</div></div>
-    </div>
-  </div>
-</section>
-
-<section class="cat cat-i">
-  <div class="wrap">
-    <div class="cat-head">
-      <span class="cat-mark">I</span>
-      <h2 class="cat-title">違和感の言葉化（カテゴリ横断）</h2>
-      <div class="cat-sub">5 questions</div>
-    </div>
-    <div class="theme-grid">
-      <div class="theme-card"><div class="theme-num">No. 46</div><div class="theme-text">何度も同じ場面で湧き上がる「もやっ」とは何か？</div></div>
-      <div class="theme-card"><div class="theme-num">No. 47</div><div class="theme-text">笑ってその場をやり過ごした後に残る、後味とは何か？</div></div>
-      <div class="theme-card"><div class="theme-num">No. 48</div><div class="theme-text">周りが進んでいるのに、私だけ立ち止まりたい。この立ち止まりとは何か？</div></div>
-      <div class="theme-card"><div class="theme-num">No. 49</div><div class="theme-text">「ちゃんとしなきゃ」の「ちゃんと」とは何か？</div></div>
-      <div class="theme-card"><div class="theme-num">No. 50</div><div class="theme-text">説明できないのに、ずっと気になっている一つとは何か？</div></div>
-    </div>
-  </div>
-</section>
-
-<footer class="closing">
-  <div class="wrap">
-    <div class="closing-quote">
-      ここに並ぶ50問は、正解ではなくサンプルです。<br>
-      あなたの生活のすぐそばにある「〜とは何か？」を、あなた自身の言葉で書き換えてください。<br><br>
-      壮大な答えを探すための問いではなく、あなただけが意味を持つ場面・感情・違和感を、もう一度見つめ直すための一行。<br>
-      今日仮置きしたものが、明日には書き換わっていて構いません。
-    </div>
-    <div class="closing-meta">
-      POOLO 探究テーマ サンプル50（「〜とは何か？」の形）<br>
-      ワークでの一例として共有しています ／ 一字一句を真似する必要はありません
-    </div>
+<footer class="end">
+  <div class="shell end-inner">
+    <p class="end-text">Q9では、Q8で書いた問いのなかからひとつを選んで、次の形で書きます。今日の対話で言葉が変わっていたら、変わったあとの言葉で書いてください。</p>
+    <div class="end-decl">わたしは、＿＿＿＿＿＿を問います。</div>
+    <p class="end-meta">POOLO LIFE 体験会ワークシート Q8のサンプル ／ by TABIPPO・POOLO</p>
   </div>
 </footer>
 
