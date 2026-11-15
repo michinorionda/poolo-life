@@ -428,6 +428,12 @@ tr:target td{background:color-mix(in srgb,var(--accent) 10%,var(--paper))}
 .strip img:nth-child(odd){transform:rotate(-2deg)}
 .strip img:nth-child(even){transform:rotate(2deg) translateY(8px)}
 @media (max-width:720px){.four{grid-template-columns:1fr}.reasons{grid-template-columns:repeat(2,minmax(0,1fr))}.strip{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}}
+.qs{--qb:#189BBC;--qy:#F8E854;list-style:none;margin:8px 0 6px;background:var(--qb);color:#fff;border:3px solid var(--qy);padding:30px clamp(20px,4vw,40px) 26px;display:grid;gap:22px}
+.qs li{display:grid;grid-template-columns:3.2em minmax(0,1fr);gap:4px 12px;align-items:baseline}
+.qs .qn{font-family:var(--num);font-weight:500;letter-spacing:.06em;line-height:1;font-size:22px;color:var(--qy)}
+.qs p{margin:0;text-wrap:balance;font-size:clamp(17px,2.4vw,22px);font-weight:700;line-height:1.65}
+.qs em{font-style:normal;color:var(--qy);font-size:1.25em}
+@media (max-width:720px){.qs li{grid-template-columns:2.6em minmax(0,1fr)}}
 </style>
 </head>
 <body>
@@ -461,9 +467,7 @@ tr:target td{background:color-mix(in srgb,var(--accent) 10%,var(--paper))}
     </header>
 
     <section id="prologue" class="prologue" aria-label="プロローグ">
-      <p class="pq"><span class="ib">最後に、時間を忘れて</span><span class="ib">誰かと話したのはいつですか？</span></p>
-      <p class="pq"><span class="ib">社会人になって、</span><span class="ib">本気で語り合える仲間はいますか？</span></p>
-      <p class="pq"><span class="ib">最後に「これは自分で決めた」と</span><span class="ib">胸を張れる決断をしたのはいつですか？</span></p>
+      <ol class="qs"><li><span class="qn">Q1</span><p>最後に、<em>時間を忘れて</em>誰かと話したのはいつですか？</p></li><li><span class="qn">Q2</span><p>社会人になって、<em>本気で語り合える仲間</em>はいますか？</p></li><li><span class="qn">Q3</span><p>最後に「これは<em>自分で決めた</em>」と胸を張れる決断をしたのはいつですか？</p></li></ol>
       <figure class="vision"><img id="img-prologue" src="images/c-toi.jpg" width="1600" height="1000" alt="ノートを持って笑う人の写真が枠から出ていて、となりにノートに書く旅の女性の水彩の絵がある。左上に英字でTOI。"></figure>
       <p class="pkey">POOLOは、<button type="button" class="term" data-g="g-8">心が動く</button><button type="button" class="term" data-g="g-10">問い</button>を自分で立て、仲間と分かち合いながら、自分で決めて動いていく、あたらしい<button type="button" class="term" data-g="g-4">旅</button>の学校です。</p>
     </section>
@@ -841,9 +845,7 @@ tr:target td{background:color-mix(in srgb,var(--accent) 10%,var(--paper))}
       <p class="prose">最後に、問いを持ちつづけることについて書いておきたい。選べることが増え、AIに聞けば答えっぽいものがすぐ返ってくる今、何を大事に選び、誰と分かち合いたいのかは、自分で問いつづけるしかない。</p>
       <p class="prose">POOLOの8ヶ月で、問いは仲間とのあいだで何度も書き換わる。最初の問いに、卒業までに答えが出るとは限らない。それでも、心が動いた経験から問いを立て、人に話し、一緒に試すことを続けていれば、そのたびに自分で決めて進んでいける。卒業後も問いは続く。</p>
       <p class="prose">冒頭の3つの問いを、もう一度置いておく。</p>
-      <p class="pq"><span class="ib">最後に、時間を忘れて</span><span class="ib">誰かと話したのはいつですか？</span></p>
-      <p class="pq"><span class="ib">社会人になって、</span><span class="ib">本気で語り合える仲間はいますか？</span></p>
-      <p class="pq"><span class="ib">最後に「これは自分で決めた」と</span><span class="ib">胸を張れる決断をしたのはいつですか？</span></p>
+      <ol class="qs"><li><span class="qn">Q1</span><p>最後に、<em>時間を忘れて</em>誰かと話したのはいつですか？</p></li><li><span class="qn">Q2</span><p>社会人になって、<em>本気で語り合える仲間</em>はいますか？</p></li><li><span class="qn">Q3</span><p>最後に「これは<em>自分で決めた</em>」と胸を張れる決断をしたのはいつですか？</p></li></ol>
       <p class="key">POOLOは、正解のない時代に、自分の問いを持ちつづけ、仲間と一緒に豊かさを育てていく場所。</p>
     </section>
 
