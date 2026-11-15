@@ -415,15 +415,26 @@ tr:target td{background:color-mix(in srgb,var(--accent) 10%,var(--paper))}
 .reasons>div{background:var(--proc);padding:12px 14px 14px;min-width:0}
 .reasons span{font-family:var(--num);font-size:26px;font-weight:500;color:var(--accent);display:block;line-height:1.2}
 .reasons b{font-size:14.5px;line-height:1.55;display:block}
-.reasons i{display:block;background:#fff;margin:0 0 10px;aspect-ratio:1/1;padding:8px;box-sizing:border-box;overflow:hidden;border-radius:2px}
+.reasons i{display:block;background:#fff;margin:0 0 10px;height:96px;padding:6px;box-sizing:border-box;overflow:hidden;border-radius:2px}
 .reasons i img{width:100%;height:100%;object-fit:contain;display:block}
 .three.stance>div{display:flex;flex-direction:column}
 .three.stance .sil{background:#fff;height:180px;display:flex;align-items:flex-end;justify-content:center;margin:0 0 12px;overflow:hidden}
 .three.stance .sil img{height:172px;width:auto;max-width:100%;object-fit:contain;object-position:bottom}
 .il{margin:14px auto 22px;max-width:300px;text-align:center}
-.il img{width:auto;max-width:100%;height:auto;max-height:300px;display:block;margin:0 auto}
-.il.side{float:right;width:min(42%,300px);margin:4px 0 12px 22px}
+.il img{width:auto;max-width:100%;height:auto;max-height:200px;display:block;margin:0 auto}
+.il.side{float:right;width:min(40%,260px);margin:4px 0 12px 22px}
+#travel h3,#travel h4{clear:both}
 @media (max-width:640px){.il.side{float:none;width:auto;max-width:280px;margin:10px auto 18px}.three.stance>div{flex-direction:row;gap:14px;align-items:flex-start}.three.stance .sil{flex:0 0 88px;height:116px;margin:0}.three.stance .sil img{height:112px}}
+.four .fimg{height:96px;display:flex;align-items:flex-end;justify-content:center;margin:0 0 10px}
+.four .fimg img{height:92px;width:auto;max-width:100%;object-fit:contain}
+.jouken{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:10px 0 16px;padding:0;list-style:none;counter-reset:jk}
+.jouken li{border:1px solid var(--line);padding:14px 16px 16px;min-width:0}
+.jouken .jimg{height:140px;display:flex;align-items:flex-end;justify-content:center;margin:0 0 10px}
+.jouken .jimg img{height:136px;width:auto;max-width:100%;object-fit:contain}
+.jouken .jn{font-family:var(--num);color:var(--accent);font-size:20px;font-weight:500;line-height:1.2;display:block}
+.jouken b{display:block;font-size:15.5px;line-height:1.5;margin:2px 0 4px}
+.jouken p{font-size:14px;margin:0}
+@media (max-width:640px){.jouken{grid-template-columns:1fr}.jouken li{display:grid;grid-template-columns:96px minmax(0,1fr);gap:0 14px;align-items:start}.jouken .jimg{grid-row:span 3;height:110px;margin:0}.jouken .jimg img{height:106px}.four .fimg{height:88px}.four .fimg img{height:84px}}
 .four{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:8px 0 18px}
 .four>div{border:1px solid var(--line);padding:16px 18px;min-width:0}
 .four .fb{font-size:13px;color:var(--sub);margin:0 0 12px}
@@ -586,6 +597,7 @@ header .sub1{font-size:15px;margin:0 0 18px}
       <p class="prose">イベントに来てくれる人からは、「ひとりで考えていると分からなくなる」という声を一番多く聞く。仕事も生活も回っているのに、このままでいいのかと立ち止まっている人が、たくさんいる。</p>
 
       <h3 id="m-why-tabi">なぜ旅なのか</h3>
+      <figure class="il side"><img src="images/wc-3-naze.jpg" alt="4人が輪になって地図をのぞきこみ、笑いながら話している水彩の絵" loading="lazy"></figure>
       <p class="prose">TABIPPOでは、イベントや旅の企画を通して、旅に出る人や帰ってきた人とたくさん話してきた。そこで、旅をしているとき、人は楽しそうに生きていると何度も感じてきた。</p>
       <p class="prose">日常では迷っていた人が、旅先では自分で決め、知らない人と深く語り、「おっ」と心が動いたことを誰かに話したくなる。帰ってくると、旅のエピソードを面白そうに話してくれる。巡礼路を歩いていた僕もそのひとり。</p>
       <p class="prose">旅先では、理由をうまく説明できないまま「これをやってみたい」「この人にもっと話を聞きたい」と思う瞬間がある。ここでは、この気持ちを衝動と書く。</p>
@@ -594,17 +606,17 @@ header .sub1{font-size:15px;margin:0 0 18px}
 
       <h3>旅先で起きている4つのこと</h3>
       <p class="prose">2章に書いた4つの理由を、日常、旅先、僕が歩いた巡礼路の3つで並べた。</p>
-      <div class="four"><div><p class="fb"><b>日常では</b>選択肢は、情報として知っているだけ</p><p class="fl">旅先では</p><h4>身体で触れる</h4><p class="fd">知らない生き方や暮らしに、身体ごと入る</p><p class="fj"><b>巡礼路では</b>800kmを自分の足で歩いた</p></div><div><p class="fb"><b>日常では</b>外の基準で決めている</p><p class="fl">旅先では</p><h4>自分で決めるしかない</h4><p class="fd">慣れない場所では、周りの評価や「こうすべき」が通じない</p><p class="fj"><b>巡礼路では</b>道に迷い、どうするかをその場で決めた</p></div><div><p class="fb"><b>日常では</b>答えっぽいものに振り回されている</p><p class="fl">旅先では</p><h4>衝動が生まれる</h4><p class="fd">心が動いた経験から「やってみたい」が出てきて、それが自分の問いの元になる</p><p class="fj"><b>巡礼路では</b>「なぜ歩いているの？」に詰まり、日記が1万字になった</p></div><div><p class="fb"><b>日常では</b>ひとりで抱えている</p><p class="fl">旅先では</p><h4>心が動いた経験を分かち合える</h4><p class="fd">旅先で出会った人に心が動いたことを話し、相手の経験も聞ける</p><p class="fj"><b>巡礼路では</b>助けてくれた夫婦、車で送ってくれた人、一緒に歩いた友人</p></div></div>
+      <div class="four"><div><p class="fb"><b>日常では</b>選択肢は、情報として知っているだけ</p><p class="fimg"><img src="images/wc-3-fureru.jpg" alt="市場で、地元の女性から果物を受け取って笑う女性の水彩の絵" loading="lazy"></p><p class="fl">旅先では</p><h4>身体で触れる</h4><p class="fd">知らない生き方や暮らしに、身体ごと入る</p><p class="fj"><b>巡礼路では</b>800kmを自分の足で歩いた</p></div><div><p class="fb"><b>日常では</b>外の基準で決めている</p><p class="fimg"><img src="images/wc-3-kimeru.jpg" alt="リュックの男性が、路線図を指でたどって行き先を決めている水彩の絵" loading="lazy"></p><p class="fl">旅先では</p><h4>自分で決めるしかない</h4><p class="fd">慣れない場所では、周りの評価や「こうすべき」が通じない</p><p class="fj"><b>巡礼路では</b>道に迷い、どうするかをその場で決めた</p></div><div><p class="fb"><b>日常では</b>答えっぽいものに振り回されている</p><p class="fimg"><img src="images/wc-3-shodo.jpg" alt="旅先で何かに気づき、手帳に書きつける女性の水彩の絵" loading="lazy"></p><p class="fl">旅先では</p><h4>衝動が生まれる</h4><p class="fd">心が動いた経験から「やってみたい」が出てきて、それが自分の問いの元になる</p><p class="fj"><b>巡礼路では</b>「なぜ歩いているの？」に詰まり、日記が1万字になった</p></div><div><p class="fb"><b>日常では</b>ひとりで抱えている</p><p class="fimg"><img src="images/wc-3-wakachiau.jpg" alt="ベンチで年上の夫婦とお茶を飲みながら話す男性の水彩の絵" loading="lazy"></p><p class="fl">旅先では</p><h4>心が動いた経験を分かち合える</h4><p class="fd">旅先で出会った人に心が動いたことを話し、相手の経験も聞ける</p><p class="fj"><b>巡礼路では</b>助けてくれた夫婦、車で送ってくれた人、一緒に歩いた友人</p></div></div>
 
       <h3 id="m-tabi-view">POOLOは旅をどう捉えているか</h3>
       
       <h4 class="sub3" id="m-tabi">POOLOでいう旅</h4>
       <p class="prose">POOLOでいう旅は、いつもの暮らしの外に自分で決めて出かけ、いつもの当たり前が通じない場所で、心が動く経験をすること。遠くへ行くかどうか、泊まりがけかどうかは関係ない。</p>
       <p class="prose">POOLOでは、次の3つがそろっていれば旅と考える。</p>
-      <ol class="todo">
-        <li><b>自分で決めて出かける</b>：行き先と時間を、自分で決める</li>
-        <li><b>いつもの当たり前が通じない場面がある</b>：自分が少数派になる場所や、知らない人と話す時間がある</li>
-        <li><b>心が動いたことを残す</b>：うれしかったこと、引っかかったことを、その日のうちに書いておく</li>
+      <ol class="jouken">
+        <li><span class="jimg"><img src="images/wc-3-dekakeru.jpg" alt="行ったことのない小さな店のドアを押して入る女性の水彩の絵" loading="lazy"></span><span class="jn">1</span><b>自分で決めて出かける</b><p>行き先と時間を、自分で決める</p></li>
+        <li><span class="jimg"><img src="images/wc-3-tooranai.jpg" alt="年上の職人に陶芸を教わる男性の水彩の絵" loading="lazy"></span><span class="jn">2</span><b>いつもの当たり前が通じない場面がある</b><p>自分が少数派になる場所や、知らない人と話す時間がある</p></li>
+        <li><span class="jimg"><img src="images/wc-3-nokosu.jpg" alt="机でノートを開き、その日のことを書く女性の水彩の絵" loading="lazy"></span><span class="jn">3</span><b>心が動いたことを残す</b><p>うれしかったこと、引っかかったことを、その日のうちに書いておく</p></li>
       </ol>
       <p class="prose">近所の行ったことのない店に入ることも、誰かの仕事を半日手伝うことも、3つがそろっていれば旅に入る。反対に、遠くへ出かけても、決められた予定をこなすだけなら、3つはそろいにくい。</p>
 
