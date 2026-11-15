@@ -415,6 +415,15 @@ tr:target td{background:color-mix(in srgb,var(--accent) 10%,var(--paper))}
 .reasons>div{background:var(--proc);padding:12px 14px 14px;min-width:0}
 .reasons span{font-family:var(--num);font-size:26px;font-weight:500;color:var(--accent);display:block;line-height:1.2}
 .reasons b{font-size:14.5px;line-height:1.55;display:block}
+.reasons i{display:block;background:#fff;margin:0 0 10px;aspect-ratio:1/1;padding:8px;box-sizing:border-box;overflow:hidden;border-radius:2px}
+.reasons i img{width:100%;height:100%;object-fit:contain;display:block}
+.three.stance>div{display:flex;flex-direction:column}
+.three.stance .sil{background:#fff;height:180px;display:flex;align-items:flex-end;justify-content:center;margin:0 0 12px;overflow:hidden}
+.three.stance .sil img{height:172px;width:auto;max-width:100%;object-fit:contain;object-position:bottom}
+.il{margin:14px auto 22px;max-width:300px;text-align:center}
+.il img{width:auto;max-width:100%;height:auto;max-height:300px;display:block;margin:0 auto}
+.il.side{float:right;width:min(42%,300px);margin:4px 0 12px 22px}
+@media (max-width:640px){.il.side{float:none;width:auto;max-width:280px;margin:10px auto 18px}.three.stance>div{flex-direction:row;gap:14px;align-items:flex-start}.three.stance .sil{flex:0 0 88px;height:116px;margin:0}.three.stance .sil img{height:112px}}
 .four{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:8px 0 18px}
 .four>div{border:1px solid var(--line);padding:16px 18px;min-width:0}
 .four .fb{font-size:13px;color:var(--sub);margin:0 0 12px}
@@ -540,7 +549,7 @@ header .sub1{font-size:15px;margin:0 0 18px}
     <section id="era">
       <h2><span class="n">2</span>なぜ、こうした悩みが溢れているのか</h2>
       <p class="prose">社会が人生の型を用意してくれた時代から、一人ひとりが自分で組み立てる時代に変わってきた。その変わり目にいる今、迷う人が増えている。理由は4つあると考えている。</p>
-      <div class="reasons"><div><span>1</span><b>生きる選択肢が増えた</b></div><div><span>2</span><b>選ばないといけない時代になった</b></div><div><span>3</span><b>答えっぽいものに振り回されている</b></div><div><span>4</span><b>その迷いをひとりで抱えている</b></div></div>
+      <div class="reasons"><div><i><img src="images/wc-fork.jpg" alt="木の道しるべの横で、見上げて考える女性の水彩の絵" loading="lazy"></i><span>1</span><b>生きる選択肢が増えた</b></div><div><i><img src="images/wc-cards.jpg" alt="手に持った3枚のカードを見比べる男性の水彩の絵" loading="lazy"></i><span>2</span><b>選ばないといけない時代になった</b></div><div><i><img src="images/wc-phone.jpg" alt="スマホを見る女性のまわりに、白い吹き出しが浮かんでいる水彩の絵" loading="lazy"></i><span>3</span><b>答えっぽいものに振り回されている</b></div><div><i><img src="images/wc-bench.jpg" alt="木のベンチにひとりで座り、カップを持って考えごとをする男性の水彩の絵" loading="lazy"></i><span>4</span><b>その迷いをひとりで抱えている</b></div></div>
 
 
       <div class="era">
@@ -601,10 +610,10 @@ header .sub1{font-size:15px;margin:0 0 18px}
 
       <h4 class="sub3">旅的スタンス：旅で身につく3つのこと</h4>
       <p class="prose">こうした旅を重ねるうちに、3つのスタンスが身についていく。</p>
-      <div class="three">
-        <div><span class="tn2">1</span><h4>自分ごと化する</h4><p>遠い土地や人、出来事も、身体で触れると、他人事から自分の話になる。旅では、心が動いたことを自分のこととして残す。</p></div>
-        <div><span class="tn2">2</span><h4>自分で決める</h4><p>日常では人や状況に任せていることも、旅では行き先やルート、会う人を自分で決めるしかない。</p></div>
-        <div><span class="tn2">3</span><h4>面白がる</h4><p>計画どおりにいかない、言葉が通じない、知らない価値観に出会う。旅で起きる予定外のことを受け入れて、問いのきっかけとして面白がる。</p></div>
+      <div class="three stance">
+        <div><span class="sil"><img src="images/wc-jibun.jpg" alt="胸に手を当てて、目を閉じて微笑む女性の水彩の絵" loading="lazy"></span><div><span class="tn2">1</span><h4>自分ごと化する</h4><p>遠い土地や人、出来事も、身体で触れると、他人事から自分の話になる。旅では、心が動いたことを自分のこととして残す。</p></div></div>
+        <div><span class="sil"><img src="images/wc-kimeru.jpg" alt="ターコイズのニットの男性が、あごに手を当てて遠くを見ている水彩の絵" loading="lazy"></span><div><span class="tn2">2</span><h4>自分で決める</h4><p>日常では人や状況に任せていることも、旅では行き先やルート、会う人を自分で決めるしかない。</p></div></div>
+        <div><span class="sil"><img src="images/wc-omoshiro.jpg" alt="緑のリュックの女性が、広げた地図を見て笑っている水彩の絵" loading="lazy"></span><div><span class="tn2">3</span><h4>面白がる</h4><p>計画どおりにいかない、言葉が通じない、知らない価値観に出会う。旅で起きる予定外のことを受け入れて、問いのきっかけとして面白がる。</p></div></div>
       </div>
       <p class="note">POOLOでは、この3つを<button type="button" class="term" data-g="g-15">旅的スタンス</button>と呼んでいる。旅でいちばん身につきやすく、自問・対話・共創でも使う。ステップごとの使い方は、付録Aの<a href="#m-kamae">旅的スタンス</a>にまとめた。</p>
 
@@ -615,6 +624,8 @@ header .sub1{font-size:15px;margin:0 0 18px}
     <section id="return">
       <h2><span class="n">4</span>それでも、帰ると元の毎日に戻る</h2>
       <p class="prose">旅をすると、旅先で起きている4つのことが一度に起きる。ただ、旅から帰ると、ほとんどの人が1〜2ヶ月で元の毎日に戻る。講座で決めた新しい習慣も、同じように1〜2ヶ月で途切れやすい。</p>
+
+      <figure class="il"><img src="images/wc-commute.jpg" alt="コーヒーを片手に、旅先の海の写真を見て微笑む女性の水彩の絵" loading="lazy"></figure>
 
       <h3>旅や講座から元の毎日に戻ってしまうわけ</h3>
       <p class="prose">哲学者のジョン・デューイは『Human Nature and Conduct（人間性と行為）』（1922年）で、習慣を呼吸にたとえた。呼吸が肺と空気の両方で成り立つように、習慣も本人だけでは成り立たず、まわりの人、過ごす場所、毎日の流れと一緒に成り立っている、とデューイは考えた。</p>
@@ -873,6 +884,7 @@ header .sub1{font-size:15px;margin:0 0 18px}
     <section id="closing">
       <h2>参加を考えている人へ</h2>
       <p class="h2sub" id="m-faq">体験会や個別相談会で、よく聞かれることに答えます。</p>
+      <figure class="il"><img src="images/wc-talk.jpg" alt="木の丸テーブルで、マグを持って笑いながら話す女性と男性の水彩の絵" loading="lazy"></figure>
       <div class="faq"><div><p class="q">忙しくて、旅に行く時間がありません</p><p class="a">遠くへ行かなくて大丈夫です。行ったことのない場所に半日出かけるところから始められます。</p></div><div><p class="q">人に話すのが苦手です</p><p class="a">話す相手は、仲間から少しずつ広げていきます。問いは仮のままでいいので、うまく話せなくても大丈夫です。</p></div><div><p class="q">やりたいことが、まったく分かりません</p><p class="a">だからこそ来てほしいと思っています。POOLOでは、今、何に心が動くかから始めるので、最初の問いは「なぜか覚えていること」から立てれば大丈夫です。その問いを人に話したり試したりしながら、やりたいことを少しずつ言葉にしていきます。大学生のころの僕も、自分の感想や感情を見失ったところから始まりました。</p></div><div><p class="q">8ヶ月も続けられるか不安です</p><p class="a">1〜2ヶ月で元に戻りそうになるのは、誰にでも起きることです。だから、同じ8ヶ月を走る仲間と、伴走する運営チームがいます。ひとりで続ける前提ではありません。</p></div><div><p class="q">旅慣れていなくても大丈夫ですか</p><p class="a">旅の上手さは関係ありません。大事なのは、いつもの外に出て、心が動いたことを残すこと。旅慣れていない人ほど、心が動く場面に出会いやすいと思っています。</p></div><div><p class="q">キャリアコーチングとは何が違いますか</p><p class="a">コーチングは、答えに向かって一緒に整理する場です。POOLOは、自分の問いを持ち、仲間とのあいだで書き換えていく場。納得だけでなく、つながりも同時に育ちます。</p></div></div>
 
       <h3>提供するもの</h3>
