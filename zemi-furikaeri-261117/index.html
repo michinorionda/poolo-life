@@ -136,6 +136,10 @@ br.pc-br { display: none; }
   letter-spacing: 0.04em;
 }
 .feel-note { font-size: 13px; color: var(--ink-66); }
+.feel-list { list-style: none; padding: 0; font-size: 15px; line-height: 1.85; }
+.feel-list li { position: relative; padding-left: 1.2em; }
+.feel-list li + li { margin-top: 10px; }
+.feel-list li::before { content: ""; position: absolute; left: 0.2em; top: 0.8em; width: 6px; height: 6px; border-radius: 50%; background: var(--brand); }
 
 /* ---- 当日の問い（写真の下から紙がせり上がる） ---- */
 .q { padding-bottom: 64px; }
@@ -321,6 +325,7 @@ br.pc-br { display: none; }
   .feel-text > * + * { margin-top: 36px; }
   .feel-body { font-size: 20px; line-height: 2; letter-spacing: 0.05em; }
   .feel-note { font-size: 14px; }
+  .feel-list { font-size: 16px; }
 
   /* 当日の問い：写真の上に紙を重ねる */
   .q { padding-bottom: 0; }
@@ -713,6 +718,11 @@ br.pc-br { display: none; }
     <div class="feel-text">
       <h2><img class="lt" src="images/lt-feel.svg" alt="こんな気持ちの方へ" width="448" height="56"></h2>
       <p class="feel-body">今年<span class="num">1</span>年、どんなことがありましたか。<br>うれしかったこと、悩んだこと、<br class="sp-br">自分で決めたこと。<br>そのとき、何を大切にしていましたか。</p>
+      <ul class="feel-list">
+        <li>気づけば1年が過ぎていて、何を大切にしてきたのか、はっきりしないまま年末を迎えている</li>
+        <li>振り返りを毎年やろうと思うけれど、一人だとなかなか進まない</li>
+        <li>振り返っても、来年にどうつなげればいいのかわからない</li>
+      </ul>
       <p class="feel-body">自分が大切にする価値観を<br>ていねいにことばにしていきたい。<br>そんな方に、<br class="sp-br">参加してほしいと思っています。</p>
       <p class="feel-note">はっきりした悩みや、来年の目標がなくても参加できます。</p>
     </div>
