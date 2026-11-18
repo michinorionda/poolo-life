@@ -180,6 +180,9 @@ br.pc-br { display: none; }
 .pc-only { display: none; }
 
 /* ---- 開催概要 ---- */
+.reason { padding-bottom: 64px; }
+.reason-body { margin-top: 24px; }
+.reason-body p + p { margin-top: 16px; }
 .overview { padding-block: 64px; }
 .ov { margin-top: 20px; }
 .ov-row { display: grid; grid-template-columns: 70px 1fr; column-gap: 16px; border-top: 1px solid var(--line); padding-block: 14px; }
@@ -328,6 +331,11 @@ br.pc-br { display: none; }
   .about-photo > * + * { margin-top: 16px; }
   .about-award { aspect-ratio: auto; height: 345px; }
 
+  .reason { padding: 0; }
+  .reason .in { display: flex; gap: 112px; padding-bottom: 112px; }
+  .reason .h2s { flex: none; width: 360px; }
+  .reason-body { flex: 1; max-width: 744px; margin-top: 0; }
+  .reason-body p + p { margin-top: 20px; }
   .overview, .faq { padding: 0; }
   .overview .in, .faq .in { display: flex; gap: 112px; padding-block: 112px; }
   .faq .in { padding-top: 96px; }
@@ -371,7 +379,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <span class="fa-main">30代の生き方を問い直す、90分。</span>
       <span class="fa-sub">11/25（水）20:00–21:30・Zoom・無料</span>
     </div>
-    <a class="btn" href="https://liff.line.me/2004689256-jVradzOV/landing?follow=%40801pdwhq&amp;lp=3ZMRpa&amp;liff_id=2004689256-jVradzOV" target="_blank" rel="noopener">公式LINEで申し込む</a>
+    <a class="btn" href="https://liff.line.me/2004689256-jVradzOV/landing?follow=%40801pdwhq&amp;lp=3ZMRpa&amp;liff_id=2004689256-jVradzOV" target="_blank" rel="noopener">LINEで申し込む</a>
   </div>
 </div>
 
@@ -379,7 +387,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="in">
     <a class="hd-logo" href="https://tabippo.net/poolo/" target="_blank" rel="noopener"><img src="images/poolo_logo.png" alt="POOLO あたらしい旅の学校"></a>
     <span class="hd-label">あたらしい旅の学校｜無料体験会</span>
-    <a class="btn hd-cta" href="https://liff.line.me/2004689256-jVradzOV/landing?follow=%40801pdwhq&amp;lp=3ZMRpa&amp;liff_id=2004689256-jVradzOV" target="_blank" rel="noopener">公式LINEで申し込む</a>
+    <a class="btn hd-cta" href="https://liff.line.me/2004689256-jVradzOV/landing?follow=%40801pdwhq&amp;lp=3ZMRpa&amp;liff_id=2004689256-jVradzOV" target="_blank" rel="noopener">LINEで申し込む</a>
   </div>
 </header>
 
@@ -402,7 +410,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="fv-band">
     <div class="date"><div><span class="date-y">2026</span><span class="date-d">11.25</span></div><div><span class="date-w">水曜日</span><span class="date-t">20:00–21:30</span></div></div>
     <p class="cond">参加無料<span class="sep">／</span>Zoom開催<span class="sep">／</span>先着10名</p>
-    <a class="btn" href="https://liff.line.me/2004689256-jVradzOV/landing?follow=%40801pdwhq&amp;lp=3ZMRpa&amp;liff_id=2004689256-jVradzOV" target="_blank" rel="noopener">公式LINEで申し込む</a>
+    <a class="btn" href="https://liff.line.me/2004689256-jVradzOV/landing?follow=%40801pdwhq&amp;lp=3ZMRpa&amp;liff_id=2004689256-jVradzOV" target="_blank" rel="noopener">LINEで申し込む</a>
   </div>
 </section>
 
@@ -479,7 +487,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
     <div class="rules-apply">
       <p class="date-line"><span class="num">11/25</span>（水）<span class="num">20:00–21:30</span><br>Zoom開催・参加無料・先着<span class="num">10</span>名</p>
-      <a class="btn" href="https://liff.line.me/2004689256-jVradzOV/landing?follow=%40801pdwhq&amp;lp=3ZMRpa&amp;liff_id=2004689256-jVradzOV" target="_blank" rel="noopener">公式LINEで申し込む</a>
+      <a class="btn" href="https://liff.line.me/2004689256-jVradzOV/landing?follow=%40801pdwhq&amp;lp=3ZMRpa&amp;liff_id=2004689256-jVradzOV" target="_blank" rel="noopener">LINEで申し込む</a>
       <p class="small">体験会のみの参加もできます。</p>
     </div>
   </div>
@@ -515,8 +523,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="about-text">
       <h2 class="h2">POOLOについて</h2>
       <img class="about-kv sp-only" src="images/poolo_keyvisual.jpg" alt="POOLOのキービジュアル。旅と人生をつなぐ大人の学び" loading="lazy">
-      <p class="body">あたらしい旅の学校POOLO（ポーロ）は、心が動く問いを自分で立て、仲間と分かち合いながら、自分で決めて動いていく学校です。2019年に始まり、これまでに1,200名以上が参加しています。</p>
-      <p class="body">POOLOでは、この進み方を「探究」と呼び、次の4つのステップをくり返します。</p>
+      <p class="body">あたらしい旅の学校POOLO（ポーロ）は、旅を入り口に、自分の生き方や働き方を見つめ直す大人の学び場です。2019年に始まり、これまでに1,200名以上が参加しています。運営は、旅に関する事業を手がけてきた株式会社TABIPPOと株式会社CODOLIです。</p>
+      <p class="body">POOLOでは、<span class="nb">次の4つのステップを</span><span class="nb">くり返しながら学んでいきます。</span></p>
       <ul class="about-steps body">
         <li><b>旅</b>いつもの暮らしの外に自分で決めて出かけ、心が動く経験をする</li>
         <li><b>自問</b>心が動いた経験を自分に問いかけ、自分の問いとしてことばにする</li>
@@ -531,6 +539,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <img class="about-award" src="images/peatix_award.jpg" alt="Peatix Community Award 2025 の表彰式。壇上のPOOLO運営メンバー" loading="lazy">
       <p class="caption">運営：株式会社TABIPPO／株式会社CODOLI<br>Peatix Community Award 2025 受賞</p>
     </figure>
+  </div>
+</section>
+
+<!-- ===== 企画した理由 ===== -->
+<section class="reason off">
+  <div class="in">
+    <h2 class="h2s"><span class="nb">このイベントを</span><span class="nb">企画した理由</span></h2>
+    <div class="reason-body body">
+      <p>POOLOで出会う30代の方から、よく似た話を聞くようになりました。仕事は回せていて、キャリアもそれなりに積み上がっている。それでも、これで合っているんだっけという小さな違和感がある、という話です。</p>
+      <p>そんな方に、自分の経験を誰かと一緒にゆっくり見つめ直す時間を持ってもらいたいと考えて、このイベントを企画しました。まずは1回、気軽に来てもらえたら嬉しいです。</p>
+    </div>
   </div>
 </section>
 
@@ -583,7 +602,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="apply-box">
       <div class="date"><div><span class="date-y">2026</span><span class="date-d">11.25</span></div><div><span class="date-w">水曜日</span><span class="date-t">20:00–21:30</span></div></div>
       <p class="date-line">Zoom開催・参加無料・先着<span class="num">10</span>名</p>
-      <a class="btn" href="https://liff.line.me/2004689256-jVradzOV/landing?follow=%40801pdwhq&amp;lp=3ZMRpa&amp;liff_id=2004689256-jVradzOV" target="_blank" rel="noopener">公式LINEで申し込む</a>
+      <a class="btn" href="https://liff.line.me/2004689256-jVradzOV/landing?follow=%40801pdwhq&amp;lp=3ZMRpa&amp;liff_id=2004689256-jVradzOV" target="_blank" rel="noopener">LINEで申し込む</a>
       <p class="apply-steps">1. POOLO公式LINEを友だち追加<br>2. LINE内の案内から体験会に申し込む</p>
     </div>
   </div>
