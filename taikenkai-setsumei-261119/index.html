@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>POOLO LIFEのご紹介｜POOLO 体験会</title>
+<meta name="robots" content="noindex,nofollow">
+
+<!-- 体験会の最後に、運営が画面共有して話す9枚（261119に組み直し。設問番号は11/16からのワークシートに合わせた）。
+     前の14枚は taikenkai-setsumei-260913 に残している。順序厳守：tokens が先 -->
+<link rel="stylesheet" href="../poolo-ds/tokens.css">
+<link rel="stylesheet" href="../poolo-ds/slides.css">
+<style>
+  /* components.css と同じ改行則。slides.css には入っていないため、このページで当てる */
+  .sl p, .sl h1, .sl h2, .sl h3 { word-break: auto-phrase; text-wrap: pretty; }
+  /* 06：図の下に3列を収めるため、番号を外して本文を1段小さくする */
+  .sl.is-dense .t-num { display: none; }
+  .sl.is-dense .triad-item p { font-size: 16px; line-height: 1.8; }
+
+  /* 探究：なぜ／深まる／行動（260929追加） */
+  .path { display: grid; grid-template-columns: 170px repeat(3, minmax(0,1fr)); gap: 0 30px; align-items: stretch; padding: 12px 20px; }
+  .path + .path { margin-top: 10px; }
+  .path.is-solve { background: var(--bg-off); }
+  .path.is-ask { background: var(--brand-pale); }
+  .path-way { font-family: var(--mincho); font-size: 20px; font-weight: 700; color: #000; align-self: center; line-height: 1.5; }
+  .path.is-solve .path-way { color: #808080; }
+  .path-n { position: relative; background: #fff; padding: 10px 14px; font-size: 15px; line-height: 1.65; color: var(--ink-soft); }
+  .path-n b { display: block; font-size: 12px; color: #808080; font-weight: 700; margin-bottom: 2px; }
+  .path.is-ask .path-n b { color: var(--brand-deep); }
+  .path-n:not(:last-child)::after { content: ""; position: absolute; right: -21px; top: 50%; width: 9px; height: 9px; border-top: 2px solid var(--brand); border-right: 2px solid var(--brand); transform: translate(0,-50%) rotate(45deg); }
+  .path.is-solve .path-n:not(:last-child)::after { border-color: #B0B0B0; }
+  .reply .path-n::after, .path-n.is-solo::after { display: none; }
+  .path-n.is-q { font-family: var(--mincho); font-size: 16px; color: #000; }
+  .why-start { align-self: flex-start; display: inline-block; border: 1px dashed #B0B0B0; padding: 8px 16px; font-family: var(--mincho); font-size: 19px; color: #000; margin: 14px 0 12px; }
+  .why-start span { font-family: var(--sans, 'Noto Sans JP'), sans-serif; font-size: 12px; font-weight: 700; color: #808080; margin-right: 12px; }
+
+  .deep { display: grid; grid-template-columns: repeat(5, minmax(0,1fr)); gap: 0 26px; margin-top: 22px; }
+  .deep-col { display: flex; flex-direction: column; }
+  .deep-v { font-family: 'Jost', sans-serif; font-size: 14px; font-weight: 600; letter-spacing: 1.5px; color: var(--brand); }
+  .deep-q { position: relative; font-family: var(--mincho); font-size: 16.5px; line-height: 1.6; color: #000; border-top: 2px solid var(--brand); padding-top: 10px; margin-top: 4px; min-height: 132px; }
+  .deep-col:first-child .deep-q { border-top-color: #B0B0B0; color: #555; }
+  .deep-col:first-child .deep-v { color: #808080; }
+  .deep-q::after { content: ""; position: absolute; right: -19px; top: -6px; width: 9px; height: 9px; border-top: 2px solid var(--brand); border-right: 2px solid var(--brand); transform: rotate(45deg); }
+  .deep-col:last-child .deep-q::after { display: none; }
+  .deep-by { font-size: 13.5px; line-height: 1.65; color: #555; margin-top: 10px; }
+  .deep-add { align-self: flex-start; margin-top: 10px; font-size: 12.5px; font-weight: 700; color: var(--brand-deep); background: var(--brand-pale); padding: 2px 10px; }
+
+  .lane { display: grid; grid-template-columns: 80px repeat(5, minmax(0,1fr)); gap: 0 14px; align-items: stretch; }
+  .lane + .lane { margin-top: 10px; }
+  .lane-lab { font-family: var(--mincho); font-size: 19px; font-weight: 700; color: #000; align-self: center; }
+  .lane-c { padding: 12px 14px; font-size: 15px; line-height: 1.65; }
+  .lane.is-q .lane-c { background: var(--bg-off); font-family: var(--mincho); font-size: 15.5px; color: #000; }
+  .lane.is-act .lane-c { background: var(--brand-pale); color: #000; }
+  .lane.is-act .lane-c:first-of-type { background: var(--bg-off); color: #555; }
+  .lane-c b { display: block; font-family: 'Jost', sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 1px; color: var(--brand); margin-bottom: 2px; }
+  .lane-ties { display: grid; grid-template-columns: 80px repeat(5, minmax(0,1fr)); gap: 0 14px; height: 10px; }
+  .lane-ties i { display: block; width: 2px; height: 10px; background: var(--brand-mid); margin: 0 auto; }
+  /* 進み方：目標から逆算／関心から探究（261004追加） */
+  .way2 { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 0 40px; margin-top: 14px; }
+  .way2-col { padding: 10px 20px 8px; }
+  .way2-col.is-goal { background: var(--bg-off); }
+  .way2-col.is-ask { background: var(--brand-pale); }
+  .way2-lab { font-family: var(--mincho); font-size: 19px; font-weight: 700; color: #000; margin: 0; }
+  .way2-col.is-goal .way2-lab { color: #808080; }
+  .way2-col svg { width: 100%; height: 168px; display: block; margin: 2px 0 6px; }
+  .way2-row { display: grid; grid-template-columns: 76px minmax(0,1fr); gap: 0 10px; border-top: 1px solid var(--line); padding: 6px 0; font-size: 15px; line-height: 1.6; color: var(--ink-soft); }
+  .way2-row b { font-size: 12px; font-weight: 700; color: #808080; padding-top: 2px; }
+  .way2-col.is-ask .way2-row b { color: var(--brand-deep); }
+  .way2-col.is-ask .way2-row span { color: #000; }
+  /* 261119：Aさんの4列と、今日の流れの対話の印 */
+  .lane.is-4, .lane-ties.is-4 { grid-template-columns: 96px repeat(4, minmax(0,1fr)); }
+  .lane.is-why .lane-c { background: #fff; border: 1px solid var(--line); color: var(--ink-soft); font-size: 14.5px; }
+  .lane.is-4 .lane-lab { font-size: 17px; line-height: 1.4; }
+  .lane.is-4.is-act .lane-c:first-of-type { background: var(--brand-pale); color: #000; }
+</style>
+</head>
+
+<body class="deck">
+<div class="stage">
+
+
+<!-- 01 表紙 -->
+<section class="sl sl--cover on">
+  <div class="sl-top">
+    <span class="sl-num">POOLO</span>
+    <span class="sl-kicker">体験会のあとに</span>
+    <span class="sl-meta">POOLO LIFE 体験会</span>
+  </div>
+
+  <div class="cover-mid">
+    <div class="cover-rule"></div>
+    <h1 class="cover-title">今日の問いを、<br>8ヶ月つづける場所</h1>
+    <p class="cover-sub">POOLO LIFEのご紹介</p>
+  </div>
+
+  <div class="sl-foot">
+    <p class="sl-src">あたらしい旅の学校 POOLO／運営：株式会社TABIPPO・株式会社CODOLI</p>
+    <span class="sl-pg">01 / 09</span>
+  </div>
+</section>
+
+<!-- 02 今日の流れ -->
+<section class="sl sl--figure">
+  <div class="sl-top">
+    <span class="sl-num">02</span>
+    <span class="sl-kicker">今日の90分</span>
+    <span class="sl-meta">POOLO LIFE 体験会</span>
+  </div>
+
+  <div class="sl-body is-top" style="padding-top:var(--sp-item)">
+    <h2>今日、みなさんがやったこと</h2>
+
+    <div class="fig">
+      <svg viewBox="0 0 1090 190" role="img" aria-label="旅で心が動いた瞬間、没頭したこと、いまの違和感、自分への問い、持ち帰る問い、の順に書き、あいだに3回の対話をはさんだ図">
+<text x="90" y="54" text-anchor="middle" font-family="Jost, sans-serif" font-size="14" font-weight="600" letter-spacing="1.5" fill="#189BBC">Q2</text><rect x="0" y="68" width="180" height="96" fill="#F9F9F9" stroke="#E4E4E4"/><text x="90" y="124" text-anchor="middle" font-family="Zen Old Mincho, serif" font-size="22" font-weight="700" fill="#000">心が動いた瞬間</text>
+<text x="315" y="54" text-anchor="middle" font-family="Jost, sans-serif" font-size="14" font-weight="600" letter-spacing="1.5" fill="#189BBC">Q3</text><rect x="225" y="68" width="180" height="96" fill="#F9F9F9" stroke="#E4E4E4"/><text x="315" y="124" text-anchor="middle" font-family="Zen Old Mincho, serif" font-size="22" font-weight="700" fill="#000">没頭したこと</text>
+<text x="540" y="54" text-anchor="middle" font-family="Jost, sans-serif" font-size="14" font-weight="600" letter-spacing="1.5" fill="#189BBC">Q4</text><rect x="450" y="68" width="180" height="96" fill="#F9F9F9" stroke="#E4E4E4"/><text x="540" y="124" text-anchor="middle" font-family="Zen Old Mincho, serif" font-size="22" font-weight="700" fill="#000">いまの違和感</text>
+<text x="765" y="54" text-anchor="middle" font-family="Jost, sans-serif" font-size="14" font-weight="600" letter-spacing="1.5" fill="#189BBC">Q5</text><rect x="675" y="68" width="180" height="96" fill="#DDECF1" stroke="#E4E4E4"/><text x="765" y="124" text-anchor="middle" font-family="Zen Old Mincho, serif" font-size="22" font-weight="700" fill="#000">自分への問い</text>
+<text x="990" y="54" text-anchor="middle" font-family="Jost, sans-serif" font-size="14" font-weight="600" letter-spacing="1.5" fill="#189BBC">Q6</text><rect x="900" y="68" width="180" height="96" fill="#DDECF1" stroke="#E4E4E4"/><text x="990" y="124" text-anchor="middle" font-family="Zen Old Mincho, serif" font-size="22" font-weight="700" fill="#000">持ち帰る問い</text>
+<path d="M186 116 H214" stroke="#189BBC" stroke-width="2" fill="none"/><path d="M219 116 l-9 -5 v10 z" fill="#189BBC"/>
+<path d="M411 116 H439" stroke="#189BBC" stroke-width="2" fill="none"/><path d="M444 116 l-9 -5 v10 z" fill="#189BBC"/>
+<path d="M636 116 H664" stroke="#189BBC" stroke-width="2" fill="none"/><path d="M669 116 l-9 -5 v10 z" fill="#189BBC"/>
+<path d="M861 116 H889" stroke="#189BBC" stroke-width="2" fill="none"/><path d="M894 116 l-9 -5 v10 z" fill="#189BBC"/>
+<rect x="170" y="6" width="64" height="24" fill="#189BBC"/><text x="202" y="23" text-anchor="middle" font-family="Noto Sans JP, sans-serif" font-size="13" font-weight="700" fill="#fff">対話①</text><line x1="202" y1="30" x2="202" y2="104" stroke="#189BBC" stroke-width="1.5" stroke-dasharray="3 3"/>
+<rect x="620" y="6" width="64" height="24" fill="#189BBC"/><text x="652" y="23" text-anchor="middle" font-family="Noto Sans JP, sans-serif" font-size="13" font-weight="700" fill="#fff">対話②</text><line x1="652" y1="30" x2="652" y2="104" stroke="#189BBC" stroke-width="1.5" stroke-dasharray="3 3"/>
+<rect x="845" y="6" width="64" height="24" fill="#189BBC"/><text x="877" y="23" text-anchor="middle" font-family="Noto Sans JP, sans-serif" font-size="13" font-weight="700" fill="#fff">対話③</text><line x1="877" y1="30" x2="877" y2="104" stroke="#189BBC" stroke-width="1.5" stroke-dasharray="3 3"/>
+</svg>
+    </div>
+
+    <p class="fig-cap">Q5で書いた問いと、対話のあとにQ6で選んだ問いを、見比べてみてください。<br>人に話そうとして言葉を探すと、ひとりで書いていたときには出てこなかった言葉が出てきます。</p>
+  </div>
+
+  <div class="sl-foot">
+    <p class="sl-src">あたらしい旅の学校 POOLO</p>
+    <span class="sl-pg">02 / 09</span>
+  </div>
+</section>
+
+<!-- 03 なぜ探究テーマを大事にするのか（261119追加） -->
+<section class="sl">
+  <div class="sl-top">
+    <span class="sl-num">03</span>
+    <span class="sl-kicker">探究テーマ</span>
+    <span class="sl-meta">POOLO LIFE 体験会</span>
+  </div>
+
+  <div class="sl-body is-top">
+    <h2>なぜ、探究テーマを大事にするのか</h2>
+    <p class="sl-text" style="max-width:none;font-size:16px;line-height:1.7;margin-top:6px">今日のQ6で選んだ問いを、POOLOでは「探究テーマ」と呼んでいます。違和感をすぐに解決しようとせず、問いにして持ちつづけます。</p>
+    <div class="why-start" style="margin:10px 0 10px"><span>はじまり</span>人生、このままでいいんだっけ</div>
+
+    <div class="path is-solve">
+      <p class="path-way">解決しようと<br>すると</p>
+      <div class="path-n"><b>答え</b>転職すればいい。<br>資格を取ればいい。</div>
+      <div class="path-n"><b>やってみる</b>求人を眺める。講座に申し込む。</div>
+      <div class="path-n"><b>しばらくして</b>また「このままでいいのかな」。<br>元の場所に戻る。</div>
+    </div>
+    <div class="path is-ask">
+      <p class="path-way">問いに<br>すると</p>
+      <div class="path-n is-q"><b>問い</b>私が「自分で選んでいる」と<br>感じられるのは、どんな時間か</div>
+      <div class="path-n"><b>人に話す</b>仲間や上司から、それぞれの<br>「自分で選べた時間」の話が<br>返ってくる。</div>
+      <div class="path-n"><b>その先</b>問いが書き換わり、会いたい人や、試したいことが増えていく。</div>
+    </div>
+
+    <p class="sl-text" style="margin-top:12px;max-width:none;font-size:16px;line-height:1.75">答えは、会社やSNS、AIからいくらでも届きます。ただ、自分が何に迷っているのかは、誰も教えてくれません。<br>違和感を問いにして人に話すと、自分の行き先が少しずつ見えてきます。</p>
+  </div>
+
+  <div class="sl-foot">
+    <p class="sl-src">例は作例です。</p>
+    <span class="sl-pg">03 / 09</span>
+  </div>
+</section>
+
+<!-- 04 探究テーマを持つと起きること（261119追加） -->
+<section class="sl sl--triad">
+  <div class="sl-top">
+    <span class="sl-num">04</span>
+    <span class="sl-kicker">探究テーマ</span>
+    <span class="sl-meta">POOLO LIFE 体験会</span>
+  </div>
+
+  <div class="sl-body is-top">
+    <h2>探究テーマを持つと、3つのことが起きます</h2>
+
+    <div class="triad-grid" style="margin-top:var(--sp-group)">
+      <div class="triad-item">
+        <p class="t-num">01</p>
+        <h3>自分で決めたと思える</h3>
+        <p>問いは、心が動いた自分の経験から立てます。そこから選んだことは、理由を自分の言葉で話せます。</p>
+      </div>
+      <div class="triad-item">
+        <p class="t-num">02</p>
+        <h3>人と分かち合える</h3>
+        <p>問いの形にすると、人に話せます。相手からもその人の経験が返ってきて、問いが書き換わります。今日の対話で起きたことです。</p>
+      </div>
+      <div class="triad-item">
+        <p class="t-num">03</p>
+        <h3>次に試すことが出てくる</h3>
+        <p>問いがあると、行ってみたい場所、会ってみたい人、始めてみたいことが出てきます。対話③で話したことです。</p>
+      </div>
+    </div>
+
+    <p class="sl-text" style="margin-top:var(--sp-group);max-width:none">POOLOでは、1つ目の実感を「納得」、2つ目の実感を「つながり」と呼んでいます。<br>この2つが同じ問いをめぐって一緒に起きることを、豊かさと考えています。</p>
+  </div>
+
+  <div class="sl-foot">
+    <p class="sl-src">あたらしい旅の学校 POOLO</p>
+    <span class="sl-pg">04 / 09</span>
+  </div>
+</section>
+
+<!-- 05 Aさんの8ヶ月（探究v3.3のサンプルストーリー） -->
+<section class="sl">
+  <div class="sl-top">
+    <span class="sl-num">05</span>
+    <span class="sl-kicker">8ヶ月で起きること</span>
+    <span class="sl-meta">POOLO LIFE 体験会</span>
+  </div>
+
+  <div class="sl-body is-top">
+    <h2>問いが書き換わると、決めることも変わっていく</h2>
+    <p class="sl-text" style="max-width:none;font-size:16px;line-height:1.7;margin-top:6px">Aさんは入社4年目。週末になると「このままでいいのか」と考えて、答えが出ないまま月曜を迎えていました。</p>
+
+    <div style="margin-top:14px">
+      <div class="lane is-4 is-why"><p class="lane-lab">きっかけ</p><div class="lane-c">合宿の夜、仲間と話し込んで、気づいたら日付が変わっていた</div><div class="lane-c">仲間の一言「私は、締め切りのない日だけ本音が出る」</div><div class="lane-c">高知の宿のおかみさんの一言「あんた、あの日だけ時計を見なかったね」</div><div class="lane-c">1周目の仲間の一言「私にとっては、子どもが寝たあとの台所がそれ」</div></div>
+      <div class="lane-ties is-4"><span></span><i></i><i></i><i></i><i></i></div>
+      <div class="lane is-4 is-q"><p class="lane-lab">問い</p><div class="lane-c"><b>1周目　v1.0</b>なぜ私は、合宿の夜のことだけはっきり覚えているのか</div><div class="lane-c"><b>1周目　v1.1</b>なぜ私は、締め切りのない夜だと、時間を忘れて人と話せるのか</div><div class="lane-c"><b>2周目　v2.1</b>なぜ私は、次の予定がなくなると、目の前の人との時間に夢中になれるのか</div><div class="lane-c"><b>3周目　v3.1</b>次の予定を考えない時間を、私は自分の暮らしの中で、人と一緒にどうつくれるのか</div></div>
+      <div class="lane-ties is-4"><span></span><i></i><i></i><i></i><i></i></div>
+      <div class="lane is-4 is-act"><p class="lane-lab">自分で<br>決めたこと</p><div class="lane-c">どの仲間に問いを話すかを決める</div><div class="lane-c">仲間3人で「予定を入れない半日」を試す</div><div class="lane-c">高知へひとりで行き、宿の朝の支度を手伝う</div><div class="lane-c">平日の夜にその時間をつくり、「予定を入れない夜の会」を企画する</div></div>
+    </div>
+
+    <p class="sl-text" style="margin-top:14px;max-width:none;font-size:16px;line-height:1.7">8ヶ月たったAさんは、何を大事に生きるかを自分の言葉で言えるようになり、その時間を平日の夜に自分でつくっています。</p>
+  </div>
+
+  <div class="sl-foot">
+    <p class="sl-src">Aさんは説明のための人物です。旅・自問・対話・共創の4つを順に進むのが1周で、8ヶ月で3周します。</p>
+    <span class="sl-pg">05 / 09</span>
+  </div>
+</section>
+
+<!-- 06 探究と4つのステップ -->
+<section class="sl sl--triad is-dense">
+  <div class="sl-top">
+    <span class="sl-num">06</span>
+    <span class="sl-kicker">4つのステップ</span>
+    <span class="sl-meta">POOLO LIFE 体験会</span>
+  </div>
+
+  <div class="sl-body is-top">
+    <h2>探究は、旅・自問・対話・共創の4つを回します</h2>
+    <p class="sl-text" style="max-width:none;margin-top:var(--sp-near)">探究とは、心が動く問いを自分で立て、仲間と分かち合いながら、自分で決めて動きつづけること。</p>
+    <svg viewBox="0 0 1056 104" role="img" aria-label="旅から自問、対話、共創へ進み、書き換わった問いを持ってまた旅に戻る図" style="width:100%;height:auto;display:block;margin-top:var(--sp-item)">
+  <defs><marker id="a05" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#189BBC"/></marker></defs>
+  <rect x="40" y="6" width="160" height="48" fill="#F9F9F9" stroke="#E4E4E4"/><text x="120" y="38" text-anchor="middle" font-family="Zen Old Mincho, serif" font-size="21" font-weight="700" fill="#000">旅</text><rect x="312" y="6" width="160" height="48" fill="#F9F9F9" stroke="#E4E4E4"/><text x="392" y="38" text-anchor="middle" font-family="Zen Old Mincho, serif" font-size="21" font-weight="700" fill="#000">自問</text><rect x="584" y="6" width="160" height="48" fill="#F9F9F9" stroke="#E4E4E4"/><text x="664" y="38" text-anchor="middle" font-family="Zen Old Mincho, serif" font-size="21" font-weight="700" fill="#000">対話</text><rect x="856" y="6" width="160" height="48" fill="#F9F9F9" stroke="#E4E4E4"/><text x="936" y="38" text-anchor="middle" font-family="Zen Old Mincho, serif" font-size="21" font-weight="700" fill="#000">共創</text>
+  <line x1="204" y1="30" x2="306" y2="30" stroke="#189BBC" stroke-width="2" marker-end="url(#a05)"/>
+  <line x1="476" y1="30" x2="578" y2="30" stroke="#189BBC" stroke-width="2" marker-end="url(#a05)"/>
+  <line x1="748" y1="30" x2="850" y2="30" stroke="#189BBC" stroke-width="2" marker-end="url(#a05)"/>
+  <path d="M936 56 V80 H120 V60" fill="none" stroke="#189BBC" stroke-width="2" marker-end="url(#a05)"/>
+  <rect x="338" y="70" width="380" height="22" fill="#fff"/>
+  <text x="528" y="86" text-anchor="middle" font-family="Noto Sans JP, sans-serif" font-size="14" font-weight="700" fill="#189BBC">書き換わった問いを持って、また旅へ</text>
+</svg>
+
+    <div class="triad-grid" style="grid-template-columns:repeat(4,minmax(0,1fr))">
+      <div class="triad-item">
+        <p class="t-num">01</p>
+        <h3>旅</h3>
+        <p>いつもの暮らしの外に出かけて、心が動いたことを残す。今日のQ2です。</p>
+      </div>
+      <div class="triad-item">
+        <p class="t-num">02</p>
+        <h3>自問</h3>
+        <p>残したことを読み返し、答えを出さないまま、問いの形で言葉にする。今日のQ3〜Q5です。</p>
+      </div>
+      <div class="triad-item">
+        <p class="t-num">03</p>
+        <h3>対話</h3>
+        <p>問いを考えの違う人に話し、相手の経験を聞いて、問いを書き換える。今日の対話の時間です。</p>
+      </div>
+      <div class="triad-item">
+        <p class="t-num">04</p>
+        <h3>共創</h3>
+        <p>書き換えた問いを持って、誰かと一緒に小さく試し、分かったことをその人と分かち合う。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="sl-foot">
+    <p class="sl-src">4つで1周です。POOLO LIFEの8ヶ月で、これを3周します。</p>
+    <span class="sl-pg">06 / 09</span>
+  </div>
+</section>
+
+<!-- 07 8ヶ月でやること -->
+<section class="sl sl--triad is-dense">
+  <div class="sl-top">
+    <span class="sl-num">07</span>
+    <span class="sl-kicker">POOLO LIFE</span>
+    <span class="sl-meta">POOLO LIFE 体験会</span>
+  </div>
+
+  <div class="sl-body is-top">
+    <h2>POOLO LIFEの8ヶ月で、やること</h2>
+    <svg viewBox="0 0 1056 112" role="img" aria-label="3月から10月までの8ヶ月。月2回の講義とワークがつづき、中盤の5月に1泊2日の合宿、最後に卒業制作がある図" style="width:100%;height:auto;display:block;margin-top:var(--sp-item)">
+  <line x1="20" y1="58" x2="1036" y2="58" stroke="#E4E4E4" stroke-width="6" stroke-linecap="round"/>
+  <circle cx="20" cy="58" r="3.5" fill="#189BBC" opacity=".45"/><circle cx="88" cy="58" r="3.5" fill="#189BBC" opacity=".45"/><circle cx="155" cy="58" r="3.5" fill="#189BBC" opacity=".45"/><circle cx="223" cy="58" r="3.5" fill="#189BBC" opacity=".45"/><circle cx="291" cy="58" r="3.5" fill="#189BBC" opacity=".45"/><circle cx="359" cy="58" r="3.5" fill="#189BBC" opacity=".45"/><circle cx="426" cy="58" r="3.5" fill="#189BBC" opacity=".45"/><circle cx="494" cy="58" r="3.5" fill="#189BBC" opacity=".45"/><circle cx="562" cy="58" r="3.5" fill="#189BBC" opacity=".45"/><circle cx="630" cy="58" r="3.5" fill="#189BBC" opacity=".45"/><circle cx="697" cy="58" r="3.5" fill="#189BBC" opacity=".45"/><circle cx="765" cy="58" r="3.5" fill="#189BBC" opacity=".45"/><circle cx="833" cy="58" r="3.5" fill="#189BBC" opacity=".45"/><circle cx="901" cy="58" r="3.5" fill="#189BBC" opacity=".45"/><circle cx="968" cy="58" r="3.5" fill="#189BBC" opacity=".45"/><circle cx="1036" cy="58" r="3.5" fill="#189BBC" opacity=".45"/>
+  <text x="20" y="100" text-anchor="middle" font-family="Noto Sans JP, sans-serif" font-size="14" fill="#808080">3月</text><text x="165" y="100" text-anchor="middle" font-family="Noto Sans JP, sans-serif" font-size="14" fill="#808080">4月</text><text x="310" y="100" text-anchor="middle" font-family="Noto Sans JP, sans-serif" font-size="14" fill="#808080">5月</text><text x="455" y="100" text-anchor="middle" font-family="Noto Sans JP, sans-serif" font-size="14" fill="#808080">6月</text><text x="601" y="100" text-anchor="middle" font-family="Noto Sans JP, sans-serif" font-size="14" fill="#808080">7月</text><text x="746" y="100" text-anchor="middle" font-family="Noto Sans JP, sans-serif" font-size="14" fill="#808080">8月</text><text x="891" y="100" text-anchor="middle" font-family="Noto Sans JP, sans-serif" font-size="14" fill="#808080">9月</text><text x="1036" y="100" text-anchor="middle" font-family="Noto Sans JP, sans-serif" font-size="14" fill="#808080">10月</text>
+  <circle cx="376" cy="58" r="10" fill="#189BBC"/>
+  <text x="376" y="30" text-anchor="middle" font-family="Zen Old Mincho, serif" font-size="18" font-weight="700" fill="#000">1泊2日の合宿</text>
+  <circle cx="1036" cy="58" r="10" fill="#189BBC"/>
+  <text x="1042" y="30" text-anchor="end" font-family="Zen Old Mincho, serif" font-size="18" font-weight="700" fill="#000">卒業制作</text>
+  <text x="20" y="30" font-family="Noto Sans JP, sans-serif" font-size="14" font-weight="700" fill="#189BBC">講義とワーク　月2回</text>
+</svg>
+
+    <div class="triad-grid" style="grid-template-columns:repeat(4,minmax(0,1fr))">
+      <div class="triad-item">
+        <p class="t-num">01</p>
+        <h3>旅</h3>
+        <p>8ヶ月の中盤に、1泊2日の合宿。自然や歴史のある土地を訪れます。全国の仲間を訪ねる旅や、仲間と企画する旅も。</p>
+      </div>
+      <div class="triad-item">
+        <p class="t-num">02</p>
+        <h3>自問</h3>
+        <p>月2回、Zoomで約3時間の講義とワーク。noteや音声配信で、問いを言葉にする人もいます。</p>
+      </div>
+      <div class="triad-item">
+        <p class="t-num">03</p>
+        <h3>対話</h3>
+        <p>チームや1on1で、問いを話して相手の話を聞く。合宿では、仲間と夜まで本音で話します。</p>
+      </div>
+      <div class="triad-item">
+        <p class="t-num">04</p>
+        <h3>共創</h3>
+        <p>問いを持って、仲間と企画を立てたり、書いたり。100を超えるチャンネルが生まれます。最後は卒業制作。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="sl-foot">
+    <p class="sl-src">講義は録画があるので、あとから見ることもできます。</p>
+    <span class="sl-pg">07 / 09</span>
+  </div>
+</section>
+
+<!-- 08 13期 -->
+<section class="sl sl--data">
+  <div class="sl-top">
+    <span class="sl-num">08</span>
+    <span class="sl-kicker">13期</span>
+    <span class="sl-meta">POOLO LIFE 体験会</span>
+  </div>
+
+  <div class="sl-body is-top">
+    <h2>いま、13期の参加者を募集しています</h2>
+
+    <div class="data-grid" style="margin-top:var(--sp-group)">
+      <div class="data-item">
+        <p class="d-cap">期間（2027年3月〜10月）</p>
+        <p class="d-val">8<span class="d-unit">ヶ月</span></p>
+        <p class="d-note">オンライン中心で、合宿だけ現地に集まります。</p>
+      </div>
+      <div class="data-item">
+        <p class="d-cap">1期の人数</p>
+        <p class="d-val">50〜70<span class="d-unit">人</span></p>
+        <p class="d-note">20〜30代の社会人が中心。住む場所も仕事もばらばらです。</p>
+      </div>
+      <div class="data-item">
+        <p class="d-cap">個別相談（オンライン・無料）</p>
+        <p class="d-val">60<span class="d-unit">分</span></p>
+        <p class="d-note">日程や参加費、仕事との両立など、詳しいことはここでお話しします。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="sl-foot">
+    <p class="sl-src">あたらしい旅の学校 POOLO</p>
+    <span class="sl-pg">08 / 09</span>
+  </div>
+</section>
+
+<!-- 09 個別相談 -->
+<section class="sl sl--statement">
+  <div class="sl-top">
+    <span class="sl-num">09</span>
+    <span class="sl-kicker">個別相談</span>
+    <span class="sl-meta">POOLO LIFE 体験会</span>
+  </div>
+
+  <div class="sl-body">
+    <div style="display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:64px;align-items:center">
+      <div>
+        <p class="sl-hero">今日の問いの続きを、<br><em>60分の個別相談</em>で<br>話しませんか</p>
+        <p class="st-note" style="max-width:none">オンライン・無料です。参加するか迷っている段階でも大丈夫です。<br>今日の問いの壁打ちと、POOLO LIFE13期についての質問、どちらでもお話しできます。<br>ワークシートのQ8・Q9に書くか、右のQRコードから希望日時を3つ入力してください。</p>
+      </div>
+      <a href="https://liff.line.me/2004689256-b95cLpru?liff_id=2004689256-b95cLpru&amp;code=LFCPP8IE" target="_blank" rel="noopener" style="display:block;line-height:0"><svg width="300" height="300" role="img" aria-label="日程調整フォームのQRコード" version="1.1" viewBox="0 0 41 41" xmlns="http://www.w3.org/2000/svg"><path d="M2,2H3V3H2zM3,2H4V3H3zM4,2H5V3H4zM5,2H6V3H5zM6,2H7V3H6zM7,2H8V3H7zM8,2H9V3H8zM12,2H13V3H12zM13,2H14V3H13zM16,2H17V3H16zM18,2H19V3H18zM19,2H20V3H19zM20,2H21V3H20zM22,2H23V3H22zM23,2H24V3H23zM24,2H25V3H24zM25,2H26V3H25zM27,2H28V3H27zM28,2H29V3H28zM32,2H33V3H32zM33,2H34V3H33zM34,2H35V3H34zM35,2H36V3H35zM36,2H37V3H36zM37,2H38V3H37zM38,2H39V3H38zM2,3H3V4H2zM8,3H9V4H8zM11,3H12V4H11zM12,3H13V4H12zM15,3H16V4H15zM20,3H21V4H20zM23,3H24V4H23zM24,3H25V4H24zM26,3H27V4H26zM27,3H28V4H27zM28,3H29V4H28zM29,3H30V4H29zM30,3H31V4H30zM32,3H33V4H32zM38,3H39V4H38zM2,4H3V5H2zM4,4H5V5H4zM5,4H6V5H5zM6,4H7V5H6zM8,4H9V5H8zM10,4H11V5H10zM11,4H12V5H11zM12,4H13V5H12zM13,4H14V5H13zM14,4H15V5H14zM16,4H17V5H16zM17,4H18V5H17zM18,4H19V5H18zM21,4H22V5H21zM22,4H23V5H22zM23,4H24V5H23zM25,4H26V5H25zM26,4H27V5H26zM29,4H30V5H29zM30,4H31V5H30zM32,4H33V5H32zM34,4H35V5H34zM35,4H36V5H35zM36,4H37V5H36zM38,4H39V5H38zM2,5H3V6H2zM4,5H5V6H4zM5,5H6V6H5zM6,5H7V6H6zM8,5H9V6H8zM10,5H11V6H10zM11,5H12V6H11zM12,5H13V6H12zM14,5H15V6H14zM17,5H18V6H17zM18,5H19V6H18zM19,5H20V6H19zM20,5H21V6H20zM22,5H23V6H22zM27,5H28V6H27zM28,5H29V6H28zM29,5H30V6H29zM32,5H33V6H32zM34,5H35V6H34zM35,5H36V6H35zM36,5H37V6H36zM38,5H39V6H38zM2,6H3V7H2zM4,6H5V7H4zM5,6H6V7H5zM6,6H7V7H6zM8,6H9V7H8zM10,6H11V7H10zM13,6H14V7H13zM15,6H16V7H15zM16,6H17V7H16zM17,6H18V7H17zM21,6H22V7H21zM23,6H24V7H23zM24,6H25V7H24zM25,6H26V7H25zM26,6H27V7H26zM30,6H31V7H30zM32,6H33V7H32zM34,6H35V7H34zM35,6H36V7H35zM36,6H37V7H36zM38,6H39V7H38zM2,7H3V8H2zM8,7H9V8H8zM10,7H11V8H10zM11,7H12V8H11zM13,7H14V8H13zM14,7H15V8H14zM16,7H17V8H16zM17,7H18V8H17zM19,7H20V8H19zM20,7H21V8H20zM23,7H24V8H23zM24,7H25V8H24zM26,7H27V8H26zM27,7H28V8H27zM28,7H29V8H28zM29,7H30V8H29zM30,7H31V8H30zM32,7H33V8H32zM38,7H39V8H38zM2,8H3V9H2zM3,8H4V9H3zM4,8H5V9H4zM5,8H6V9H5zM6,8H7V9H6zM7,8H8V9H7zM8,8H9V9H8zM10,8H11V9H10zM12,8H13V9H12zM14,8H15V9H14zM16,8H17V9H16zM18,8H19V9H18zM20,8H21V9H20zM22,8H23V9H22zM24,8H25V9H24zM26,8H27V9H26zM28,8H29V9H28zM30,8H31V9H30zM32,8H33V9H32zM33,8H34V9H33zM34,8H35V9H34zM35,8H36V9H35zM36,8H37V9H36zM37,8H38V9H37zM38,8H39V9H38zM10,9H11V10H10zM13,9H14V10H13zM14,9H15V10H14zM15,9H16V10H15zM18,9H19V10H18zM21,9H22V10H21zM23,9H24V10H23zM24,9H25V10H24zM26,9H27V10H26zM29,9H30V10H29zM2,10H3V11H2zM4,10H5V11H4zM5,10H6V11H5zM6,10H7V11H6zM7,10H8V11H7zM8,10H9V11H8zM12,10H13V11H12zM13,10H14V11H13zM14,10H15V11H14zM15,10H16V11H15zM18,10H19V11H18zM27,10H28V11H27zM30,10H31V11H30zM32,10H33V11H32zM33,10H34V11H33zM34,10H35V11H34zM35,10H36V11H35zM36,10H37V11H36zM2,11H3V12H2zM3,11H4V12H3zM4,11H5V12H4zM5,11H6V12H5zM10,11H11V12H10zM11,11H12V12H11zM16,11H17V12H16zM17,11H18V12H17zM22,11H23V12H22zM23,11H24V12H23zM25,11H26V12H25zM31,11H32V12H31zM37,11H38V12H37zM2,12H3V13H2zM3,12H4V13H3zM8,12H9V13H8zM12,12H13V13H12zM13,12H14V13H13zM15,12H16V13H15zM16,12H17V13H16zM17,12H18V13H17zM18,12H19V13H18zM24,12H25V13H24zM26,12H27V13H26zM28,12H29V13H28zM29,12H30V13H29zM31,12H32V13H31zM35,12H36V13H35zM36,12H37V13H36zM37,12H38V13H37zM38,12H39V13H38zM2,13H3V14H2zM3,13H4V14H3zM4,13H5V14H4zM5,13H6V14H5zM6,13H7V14H6zM10,13H11V14H10zM12,13H13V14H12zM13,13H14V14H13zM14,13H15V14H14zM15,13H16V14H15zM17,13H18V14H17zM22,13H23V14H22zM23,13H24V14H23zM26,13H27V14H26zM28,13H29V14H28zM32,13H33V14H32zM38,13H39V14H38zM3,14H4V15H3zM4,14H5V15H4zM6,14H7V15H6zM8,14H9V15H8zM9,14H10V15H9zM10,14H11V15H10zM11,14H12V15H11zM12,14H13V15H12zM14,14H15V15H14zM15,14H16V15H15zM16,14H17V15H16zM17,14H18V15H17zM19,14H20V15H19zM21,14H22V15H21zM27,14H28V15H27zM29,14H30V15H29zM31,14H32V15H31zM32,14H33V15H32zM34,14H35V15H34zM37,14H38V15H37zM38,14H39V15H38zM4,15H5V16H4zM6,15H7V16H6zM7,15H8V16H7zM12,15H13V16H12zM13,15H14V16H13zM15,15H16V16H15zM16,15H17V16H16zM18,15H19V16H18zM20,15H21V16H20zM21,15H22V16H21zM22,15H23V16H22zM23,15H24V16H23zM24,15H25V16H24zM25,15H26V16H25zM26,15H27V16H26zM27,15H28V16H27zM30,15H31V16H30zM33,15H34V16H33zM6,16H7V17H6zM8,16H9V17H8zM12,16H13V17H12zM14,16H15V17H14zM17,16H18V17H17zM18,16H19V17H18zM20,16H21V17H20zM22,16H23V17H22zM24,16H25V17H24zM26,16H27V17H26zM28,16H29V17H28zM29,16H30V17H29zM32,16H33V17H32zM33,16H34V17H33zM34,16H35V17H34zM35,16H36V17H35zM37,16H38V17H37zM38,16H39V17H38zM2,17H3V18H2zM3,17H4V18H3zM4,17H5V18H4zM5,17H6V18H5zM11,17H12V18H11zM12,17H13V18H12zM15,17H16V18H15zM16,17H17V18H16zM18,17H19V18H18zM20,17H21V18H20zM22,17H23V18H22zM23,17H24V18H23zM26,17H27V18H26zM28,17H29V18H28zM29,17H30V18H29zM30,17H31V18H30zM32,17H33V18H32zM33,17H34V18H33zM34,17H35V18H34zM2,18H3V19H2zM6,18H7V19H6zM8,18H9V19H8zM11,18H12V19H11zM14,18H15V19H14zM15,18H16V19H15zM16,18H17V19H16zM21,18H22V19H21zM24,18H25V19H24zM27,18H28V19H27zM28,18H29V19H28zM30,18H31V19H30zM32,18H33V19H32zM33,18H34V19H33zM34,18H35V19H34zM36,18H37V19H36zM37,18H38V19H37zM38,18H39V19H38zM2,19H3V20H2zM7,19H8V20H7zM9,19H10V20H9zM12,19H13V20H12zM13,19H14V20H13zM14,19H15V20H14zM16,19H17V20H16zM17,19H18V20H17zM18,19H19V20H18zM22,19H23V20H22zM25,19H26V20H25zM27,19H28V20H27zM31,19H32V20H31zM36,19H37V20H36zM37,19H38V20H37zM2,20H3V21H2zM3,20H4V21H3zM4,20H5V21H4zM5,20H6V21H5zM6,20H7V21H6zM7,20H8V21H7zM8,20H9V21H8zM9,20H10V21H9zM10,20H11V21H10zM11,20H12V21H11zM12,20H13V21H12zM13,20H14V21H13zM14,20H15V21H14zM15,20H16V21H15zM16,20H17V21H16zM19,20H20V21H19zM20,20H21V21H20zM22,20H23V21H22zM23,20H24V21H23zM26,20H27V21H26zM27,20H28V21H27zM28,20H29V21H28zM29,20H30V21H29zM30,20H31V21H30zM34,20H35V21H34zM36,20H37V21H36zM37,20H38V21H37zM38,20H39V21H38zM4,21H5V22H4zM6,21H7V22H6zM10,21H11V22H10zM11,21H12V22H11zM12,21H13V22H12zM13,21H14V22H13zM14,21H15V22H14zM15,21H16V22H15zM16,21H17V22H16zM18,21H19V22H18zM22,21H23V22H22zM23,21H24V22H23zM29,21H30V22H29zM31,21H32V22H31zM32,21H33V22H32zM38,21H39V22H38zM2,22H3V23H2zM3,22H4V23H3zM4,22H5V23H4zM5,22H6V23H5zM6,22H7V23H6zM7,22H8V23H7zM8,22H9V23H8zM9,22H10V23H9zM10,22H11V23H10zM11,22H12V23H11zM12,22H13V23H12zM13,22H14V23H13zM15,22H16V23H15zM18,22H19V23H18zM21,22H22V23H21zM25,22H26V23H25zM27,22H28V23H27zM28,22H29V23H28zM31,22H32V23H31zM32,22H33V23H32zM34,22H35V23H34zM35,22H36V23H35zM36,22H37V23H36zM2,23H3V24H2zM6,23H7V24H6zM10,23H11V24H10zM16,23H17V24H16zM20,23H21V24H20zM21,23H22V24H21zM23,23H24V24H23zM24,23H25V24H24zM25,23H26V24H25zM26,23H27V24H26zM30,23H31V24H30zM35,23H36V24H35zM2,24H3V25H2zM4,24H5V25H4zM5,24H6V25H5zM6,24H7V25H6zM7,24H8V25H7zM8,24H9V25H8zM10,24H11V25H10zM11,24H12V25H11zM15,24H16V25H15zM17,24H18V25H17zM18,24H19V25H18zM20,24H21V25H20zM26,24H27V25H26zM27,24H28V25H27zM29,24H30V25H29zM31,24H32V25H31zM32,24H33V25H32zM33,24H34V25H33zM34,24H35V25H34zM35,24H36V25H35zM37,24H38V25H37zM38,24H39V25H38zM3,25H4V26H3zM4,25H5V26H4zM7,25H8V26H7zM11,25H12V26H11zM12,25H13V26H12zM14,25H15V26H14zM17,25H18V26H17zM18,25H19V26H18zM20,25H21V26H20zM21,25H22V26H21zM22,25H23V26H22zM23,25H24V26H23zM24,25H25V26H24zM25,25H26V26H25zM26,25H27V26H26zM30,25H31V26H30zM32,25H33V26H32zM33,25H34V26H33zM34,25H35V26H34zM37,25H38V26H37zM38,25H39V26H38zM4,26H5V27H4zM5,26H6V27H5zM7,26H8V27H7zM8,26H9V27H8zM9,26H10V27H9zM11,26H12V27H11zM12,26H13V27H12zM14,26H15V27H14zM16,26H17V27H16zM17,26H18V27H17zM19,26H20V27H19zM20,26H21V27H20zM22,26H23V27H22zM24,26H25V27H24zM26,26H27V27H26zM27,26H28V27H27zM30,26H31V27H30zM32,26H33V27H32zM33,26H34V27H33zM34,26H35V27H34zM36,26H37V27H36zM2,27H3V28H2zM4,27H5V28H4zM6,27H7V28H6zM7,27H8V28H7zM9,27H10V28H9zM15,27H16V28H15zM16,27H17V28H16zM17,27H18V28H17zM19,27H20V28H19zM21,27H22V28H21zM27,27H28V28H27zM28,27H29V28H28zM31,27H32V28H31zM35,27H36V28H35zM36,27H37V28H36zM2,28H3V29H2zM7,28H8V29H7zM8,28H9V29H8zM11,28H12V29H11zM13,28H14V29H13zM14,28H15V29H14zM15,28H16V29H15zM16,28H17V29H16zM17,28H18V29H17zM18,28H19V29H18zM22,28H23V29H22zM23,28H24V29H23zM28,28H29V29H28zM29,28H30V29H29zM31,28H32V29H31zM32,28H33V29H32zM33,28H34V29H33zM37,28H38V29H37zM38,28H39V29H38zM2,29H3V30H2zM4,29H5V30H4zM5,29H6V30H5zM10,29H11V30H10zM12,29H13V30H12zM13,29H14V30H13zM15,29H16V30H15zM17,29H18V30H17zM18,29H19V30H18zM20,29H21V30H20zM22,29H23V30H22zM23,29H24V30H23zM24,29H25V30H24zM25,29H26V30H25zM26,29H27V30H26zM28,29H29V30H28zM29,29H30V30H29zM33,29H34V30H33zM34,29H35V30H34zM2,30H3V31H2zM4,30H5V31H4zM5,30H6V31H5zM8,30H9V31H8zM9,30H10V31H9zM10,30H11V31H10zM11,30H12V31H11zM14,30H15V31H14zM17,30H18V31H17zM18,30H19V31H18zM19,30H20V31H19zM22,30H23V31H22zM27,30H28V31H27zM28,30H29V31H28zM30,30H31V31H30zM31,30H32V31H31zM32,30H33V31H32zM33,30H34V31H33zM34,30H35V31H34zM35,30H36V31H35zM36,30H37V31H36zM38,30H39V31H38zM10,31H11V32H10zM11,31H12V32H11zM12,31H13V32H12zM18,31H19V32H18zM19,31H20V32H19zM21,31H22V32H21zM24,31H25V32H24zM25,31H26V32H25zM26,31H27V32H26zM27,31H28V32H27zM29,31H30V32H29zM30,31H31V32H30zM34,31H35V32H34zM35,31H36V32H35zM2,32H3V33H2zM3,32H4V33H3zM4,32H5V33H4zM5,32H6V33H5zM6,32H7V33H6zM7,32H8V33H7zM8,32H9V33H8zM11,32H12V33H11zM12,32H13V33H12zM14,32H15V33H14zM15,32H16V33H15zM16,32H17V33H16zM17,32H18V33H17zM20,32H21V33H20zM22,32H23V33H22zM24,32H25V33H24zM30,32H31V33H30zM32,32H33V33H32zM34,32H35V33H34zM36,32H37V33H36zM37,32H38V33H37zM38,32H39V33H38zM2,33H3V34H2zM8,33H9V34H8zM10,33H11V34H10zM11,33H12V34H11zM13,33H14V34H13zM15,33H16V34H15zM20,33H21V34H20zM22,33H23V34H22zM23,33H24V34H23zM24,33H25V34H24zM25,33H26V34H25zM28,33H29V34H28zM29,33H30V34H29zM30,33H31V34H30zM34,33H35V34H34zM35,33H36V34H35zM38,33H39V34H38zM2,34H3V35H2zM4,34H5V35H4zM5,34H6V35H5zM6,34H7V35H6zM8,34H9V35H8zM10,34H11V35H10zM12,34H13V35H12zM13,34H14V35H13zM16,34H17V35H16zM17,34H18V35H17zM24,34H25V35H24zM25,34H26V35H25zM26,34H27V35H26zM27,34H28V35H27zM29,34H30V35H29zM30,34H31V35H30zM31,34H32V35H31zM32,34H33V35H32zM33,34H34V35H33zM34,34H35V35H34zM36,34H37V35H36zM37,34H38V35H37zM2,35H3V36H2zM4,35H5V36H4zM5,35H6V36H5zM6,35H7V36H6zM8,35H9V36H8zM10,35H11V36H10zM11,35H12V36H11zM14,35H15V36H14zM15,35H16V36H15zM16,35H17V36H16zM17,35H18V36H17zM18,35H19V36H18zM20,35H21V36H20zM21,35H22V36H21zM22,35H23V36H22zM23,35H24V36H23zM25,35H26V36H25zM28,35H29V36H28zM29,35H30V36H29zM30,35H31V36H30zM31,35H32V36H31zM32,35H33V36H32zM34,35H35V36H34zM37,35H38V36H37zM38,35H39V36H38zM2,36H3V37H2zM4,36H5V37H4zM5,36H6V37H5zM6,36H7V37H6zM8,36H9V37H8zM10,36H11V37H10zM11,36H12V37H11zM12,36H13V37H12zM14,36H15V37H14zM17,36H18V37H17zM18,36H19V37H18zM20,36H21V37H20zM28,36H29V37H28zM35,36H36V37H35zM37,36H38V37H37zM38,36H39V37H38zM2,37H3V38H2zM8,37H9V38H8zM13,37H14V38H13zM14,37H15V38H14zM15,37H16V38H15zM16,37H17V38H16zM17,37H18V38H17zM20,37H21V38H20zM22,37H23V38H22zM23,37H24V38H23zM28,37H29V38H28zM30,37H31V38H30zM31,37H32V38H31zM32,37H33V38H32zM34,37H35V38H34zM35,37H36V38H35zM38,37H39V38H38zM2,38H3V39H2zM3,38H4V39H3zM4,38H5V39H4zM5,38H6V39H5zM6,38H7V39H6zM7,38H8V39H7zM8,38H9V39H8zM10,38H11V39H10zM12,38H13V39H12zM13,38H14V39H13zM14,38H15V39H14zM18,38H19V39H18zM19,38H20V39H19zM22,38H23V39H22zM26,38H27V39H26zM27,38H28V39H27zM29,38H30V39H29zM34,38H35V39H34zM36,38H37V39H36zM37,38H38V39H37zM38,38H39V39H38z" id="qr-path" fill="#000000" fill-opacity="1" fill-rule="nonzero" stroke="none"/></svg></a>
+    </div>
+  </div>
+
+  <div class="sl-foot">
+    <p class="sl-src">あたらしい旅の学校 POOLO</p>
+    <span class="sl-pg">09 / 09</span>
+  </div>
+</section>
+
+
+</div><!-- /.stage -->
+
+
+<nav class="deck-nav" aria-label="スライド操作">
+  <button type="button" data-nav="prev" aria-label="前のスライド">前へ</button>
+  <span id="dots" style="display:flex;gap:4px;padding:0 8px"></span>
+  <button type="button" data-nav="next" aria-label="次のスライド">次へ</button>
+</nav>
+
+
+<script>
+(function () {
+  var slides = Array.prototype.slice.call(document.querySelectorAll('.sl'));
+  var stage  = document.querySelector('.stage');
+  var dots   = document.getElementById('dots');
+  var i = 0;
+
+  slides.forEach(function (_, n) {
+    var b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'dot' + (n === 0 ? ' on' : '');
+    b.setAttribute('aria-label', (n + 1) + '枚目へ');
+    b.addEventListener('click', function () { go(n); });
+    dots.appendChild(b);
+  });
+
+  function go(n) {
+    i = (n + slides.length) % slides.length;
+    slides.forEach(function (s, k) { s.classList.toggle('on', k === i); });
+    Array.prototype.forEach.call(dots.children, function (d, k) {
+      d.classList.toggle('on', k === i);
+    });
+  }
+
+  document.querySelector('[data-nav="prev"]').addEventListener('click', function () { go(i - 1); });
+  document.querySelector('[data-nav="next"]').addEventListener('click', function () { go(i + 1); });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); go(i + 1); }
+    if (e.key === 'ArrowLeft')                   { e.preventDefault(); go(i - 1); }
+  });
+
+  function fit() {
+    var k = Math.min(window.innerWidth / 1280, window.innerHeight / 720) * 0.94;
+    stage.style.transform = 'scale(' + k + ')';
+  }
+  window.addEventListener('resize', fit);
+  fit();
+  var h = parseInt(location.hash.slice(1), 10);
+  if (h >= 1 && h <= slides.length) go(h - 1);
+})();
+</script>
+
+</body>
+</html>
