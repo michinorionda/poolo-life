@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>POOLO LIFEのご紹介｜POOLO 体験会</title>
+<meta name="robots" content="noindex,nofollow">
+<!-- 体験会の最後に、運営が画面共有して話す11枚（261119）。
+     見た目は zemi-manabiba/setsumeikai/slides.html と同じ組み（全面のスライド・青い面・1pxの線のます）。
+     設問番号は11/16からのワークシートに合わせている。前の14枚は taikenkai-setsumei-260913 にある。 -->
+<link rel="stylesheet" href="../poolo-ds/tokens.css">
+<style>
+  * { box-sizing:border-box; }
+  html, body { height:100%; margin:0; overflow:hidden; background:var(--bg); }
+  body { font-family:var(--body); color:var(--ink-soft); }
+
+  .deck { position:relative; width:100vw; height:100vh; }
+
+  .s {
+    position:absolute; inset:0;
+    display:none; flex-direction:column; justify-content:center;
+    padding:clamp(40px,7vw,90px) clamp(40px,9vw,130px);
+    background:var(--bg);
+  }
+  .s.on { display:flex; }
+  .s.blue { background:var(--brand); }
+  .s.pale { background:var(--brand-pale); }
+  .s.off  { background:var(--bg-off); }
+
+  /* --- パーツ --- */
+  .eyebrow {
+    font-family:'Jost', var(--head); font-size:clamp(11px,1.05vw,14px); font-weight:700;
+    letter-spacing:.16em; color:var(--brand);
+    margin-bottom:clamp(16px,2.4vh,28px);
+  }
+  .blue .eyebrow { color:var(--on-brand-75); }
+
+  h1 {
+    font-family:var(--mincho); font-weight:700;
+    font-size:clamp(30px,5.2vw,68px); line-height:1.32; letter-spacing:.02em;
+    color:var(--ink); margin:0;
+    font-feature-settings:"palt";
+  }
+  .blue h1 { color:var(--on-brand); }
+
+  h2 {
+    font-family:var(--mincho); font-weight:700;
+    font-size:clamp(24px,3.5vw,46px); line-height:1.42; letter-spacing:.02em;
+    color:var(--ink); margin:0 0 clamp(18px,3vh,34px);
+    font-feature-settings:"palt";
+  }
+  .blue h2 { color:var(--on-brand); }
+
+  .sub {
+    font-family:var(--body); font-size:clamp(14px,1.5vw,20px); line-height:2.05;
+    letter-spacing:.045em; color:var(--ink-72); margin:clamp(18px,3vh,32px) 0 0;
+    max-width:34em;
+  }
+  .blue .sub { color:var(--on-brand-88); }
+
+  .kicker {
+    font-family:var(--head); font-weight:700;
+    font-size:clamp(13px,1.35vw,17px); letter-spacing:.08em;
+    color:var(--brand-deep); margin:0 0 clamp(14px,2.2vh,24px);
+  }
+  .blue .kicker { color:var(--on-brand-88); }
+
+  .rule { width:clamp(40px,5vw,74px); height:2px; background:var(--brand); margin:clamp(20px,3vh,34px) 0; }
+  .blue .rule { background:var(--on-brand-40); }
+
+  /* 大きな数字の並び */
+  .stats { display:flex; flex-wrap:wrap; gap:clamp(28px,5vw,72px); margin-top:clamp(18px,3vh,32px); }
+  .stat b {
+    display:block; font-family:var(--en); font-weight:600;
+    font-size:clamp(42px,7vw,96px); line-height:1; color:var(--brand); letter-spacing:.01em;
+  }
+  .blue .stat b { color:var(--on-brand); }
+  .stat span {
+    display:block; font-family:var(--head); font-weight:700;
+    font-size:clamp(12px,1.2vw,15px); letter-spacing:.08em; color:var(--ink-50); margin-top:clamp(9px,1.4vh,15px);
+  }
+  .blue .stat span { color:var(--on-brand-75); }
+
+  /* 箇条 */
+  ul.pts { list-style:none; margin:clamp(14px,2.4vh,26px) 0 0; padding:0; max-width:40em; }
+  ul.pts li {
+    font-family:var(--body); font-size:clamp(14px,1.55vw,21px); line-height:1.95;
+    letter-spacing:.04em; color:var(--ink-72);
+    padding:clamp(10px,1.7vh,18px) 0 clamp(10px,1.7vh,18px) clamp(22px,2.2vw,34px);
+    border-bottom:1px solid var(--line); position:relative;
+  }
+  ul.pts li:first-child { border-top:1px solid var(--line); }
+  ul.pts li::before {
+    content:""; position:absolute; left:0; top:calc(clamp(10px,1.7vh,18px) + .82em);
+    width:clamp(10px,1.1vw,16px); height:1px; background:var(--brand);
+  }
+  ul.pts li b { color:var(--brand-deep); font-weight:700; }
+  .blue ul.pts li { color:var(--on-brand-88); border-color:var(--on-brand-40); }
+  .blue ul.pts li::before { background:var(--on-brand); }
+  .blue ul.pts li b { color:var(--on-brand); }
+
+  /* 7つの問いグリッド */
+  .canvas { display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--line); border:1px solid var(--line); margin-top:clamp(16px,2.6vh,30px); }
+  .cvc { background:var(--bg); padding:clamp(14px,2vw,26px) clamp(12px,1.6vw,22px); min-height:clamp(90px,13vh,150px); display:flex; flex-direction:column; }
+  .cvc.hot { background:var(--brand-pale); }
+  .cvc i { font-style:normal; font-family:var(--en); font-size:clamp(10px,.95vw,13px); font-weight:500; letter-spacing:.18em; color:var(--brand); margin-bottom:clamp(8px,1.2vh,14px); }
+  .cvc strong { font-family:var(--mincho); font-weight:700; font-size:clamp(14px,1.5vw,21px); line-height:1.5; color:var(--ink); font-feature-settings:"palt"; }
+  .cvc em { font-style:normal; font-family:var(--body); font-size:clamp(10.5px,.95vw,13px); line-height:1.75; color:var(--ink-50); margin-top:clamp(6px,1vh,11px); letter-spacing:.03em; }
+
+  /* 7動詞レール */
+  .rail { display:grid; grid-template-columns:repeat(7,1fr); margin-top:clamp(20px,3.4vh,40px); position:relative; }
+  .rail::before { content:""; position:absolute; left:0; right:0; top:clamp(13px,1.6vw,20px); height:1px; background:var(--line); }
+  .rl { display:flex; flex-direction:column; align-items:center; position:relative; padding:0 4px; }
+  .rl i {
+    font-style:normal; width:clamp(26px,3.2vw,40px); height:clamp(26px,3.2vw,40px); border-radius:50%;
+    border:1px solid var(--brand); background:var(--bg); color:var(--brand);
+    font-family:var(--en); font-size:clamp(11px,1.1vw,15px); font-weight:500;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .rl.peak i { background:var(--brand); color:var(--on-brand); }
+  .rl strong { font-family:var(--mincho); font-weight:700; font-size:clamp(13px,1.35vw,19px); color:var(--ink); margin-top:clamp(11px,1.7vh,18px); text-align:center; line-height:1.4; font-feature-settings:"palt"; }
+  .rl em { font-style:normal; font-family:var(--body); font-size:clamp(9.5px,.88vw,12px); color:var(--ink-50); margin-top:clamp(5px,.9vh,9px); text-align:center; line-height:1.6; letter-spacing:.02em; }
+
+  /* ゲスト2枠 */
+  .duo { display:grid; grid-template-columns:1fr 1fr; gap:clamp(20px,3.5vw,52px); margin-top:clamp(16px,2.6vh,30px); }
+  .g { border-top:2px solid var(--brand); padding-top:clamp(16px,2.4vh,26px); }
+  .g .rnd { font-family:var(--head); font-weight:700; font-size:clamp(11px,1.05vw,14px); letter-spacing:.08em; color:var(--brand-deep); }
+  .g .nm { font-family:var(--mincho); font-weight:700; font-size:clamp(22px,2.9vw,40px); color:var(--ink); margin:clamp(9px,1.5vh,16px) 0 clamp(7px,1.1vh,12px); line-height:1.3; }
+  .g .rl2 { font-family:var(--head); font-weight:700; font-size:clamp(11.5px,1.1vw,15px); color:var(--brand); letter-spacing:.05em; }
+  .g .bio { font-family:var(--body); font-size:clamp(11.5px,1.1vw,15px); line-height:1.95; color:var(--ink-72); margin:clamp(11px,1.8vh,19px) 0 0; letter-spacing:.035em; }
+
+  /* 料金の分解 */
+  .price { display:flex; align-items:baseline; gap:clamp(12px,1.6vw,22px); flex-wrap:wrap; margin-top:clamp(12px,2vh,24px); }
+  .price b { font-family:var(--en); font-weight:600; font-size:clamp(48px,8.5vw,120px); line-height:1; color:var(--brand); letter-spacing:.005em; }
+  .price span { font-family:var(--head); font-weight:700; font-size:clamp(14px,1.5vw,20px); color:var(--ink-50); letter-spacing:.06em; }
+
+  .calc { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line); border:1px solid var(--line); margin-top:clamp(18px,3vh,34px); }
+  .calc div { background:var(--bg); padding:clamp(16px,2.3vw,28px) clamp(14px,1.8vw,24px); }
+  .calc dt { font-family:var(--head); font-weight:700; font-size:clamp(10.5px,1vw,13px); letter-spacing:.08em; color:var(--ink-50); margin-bottom:clamp(9px,1.4vh,15px); }
+  .calc dd { margin:0; font-family:var(--en); font-weight:600; font-size:clamp(24px,3.4vw,46px); color:var(--brand); line-height:1.1; letter-spacing:.01em; }
+  .calc dd small { display:block; font-family:var(--body); font-weight:400; font-size:clamp(10.5px,.95vw,13px); color:var(--ink-50); margin-top:clamp(7px,1.1vh,12px); line-height:1.7; letter-spacing:.03em; }
+
+  /* 2カラム（向く/向かない） */
+  .two { display:grid; grid-template-columns:1fr 1fr; gap:clamp(24px,4vw,64px); margin-top:clamp(14px,2.4vh,28px); }
+  .two h3 { font-family:var(--head); font-weight:700; font-size:clamp(12px,1.2vw,16px); letter-spacing:.08em; margin:0 0 clamp(10px,1.6vh,18px); padding-bottom:clamp(8px,1.2vh,13px); border-bottom:1px solid var(--brand); color:var(--brand-deep); }
+  .two.neg h3 { color:var(--ink-50); border-bottom-color:var(--line); }
+  .two ul { list-style:none; margin:0; padding:0; }
+  .two li { font-family:var(--body); font-size:clamp(12px,1.2vw,17px); line-height:1.85; color:var(--ink-72); padding:clamp(8px,1.3vh,14px) 0; border-bottom:1px solid var(--line); letter-spacing:.035em; }
+
+  /* 日程表 */
+  .sch { width:100%; border-collapse:collapse; margin-top:clamp(12px,2vh,24px); }
+  .sch td { padding:clamp(8px,1.35vh,15px) clamp(6px,1vw,14px); border-bottom:1px solid var(--line); vertical-align:baseline; }
+  .sch .no { font-family:var(--en); font-weight:600; font-size:clamp(13px,1.35vw,19px); color:var(--brand); white-space:nowrap; width:1%; }
+  .sch .dt { font-family:var(--head); font-weight:700; font-size:clamp(12px,1.2vw,16px); color:var(--ink); white-space:nowrap; width:1%; letter-spacing:.03em; }
+  .sch .tl { font-family:var(--body); font-size:clamp(12px,1.2vw,17px); color:var(--ink-72); line-height:1.7; letter-spacing:.035em; }
+  .sch .tg { font-family:var(--head); font-weight:700; font-size:clamp(9.5px,.9vw,12px); color:var(--brand-deep); background:var(--brand-pale); padding:3px 8px; border-radius:var(--radius); white-space:nowrap; }
+
+  /* ワーク指示 */
+  .task { border:2px solid var(--brand); border-radius:var(--radius); padding:clamp(22px,3.4vw,44px); max-width:48em; margin-top:clamp(14px,2.4vh,28px); }
+  .task p { font-family:var(--mincho); font-weight:700; font-size:clamp(18px,2.4vw,34px); line-height:1.65; color:var(--ink); margin:0; font-feature-settings:"palt"; }
+  .task small { display:block; font-family:var(--body); font-weight:400; font-size:clamp(12px,1.2vw,16px); color:var(--ink-50); margin-top:clamp(12px,2vh,22px); line-height:1.9; letter-spacing:.04em; }
+
+  .big-q { font-family:var(--mincho); font-weight:700; font-size:clamp(26px,4.4vw,60px); line-height:1.45; color:var(--brand-deep); letter-spacing:.02em; font-feature-settings:"palt"; margin:0; }
+
+  /* --- 自己紹介 --- */
+  .me { display:grid; grid-template-columns:clamp(150px,17vw,230px) minmax(0,1fr); gap:clamp(24px,3.6vw,54px); align-items:start; margin-top:clamp(12px,2vh,24px); }
+  .me-photo { margin:0; }
+  .me-photo img { display:block; width:100%; height:auto; aspect-ratio:1/1; object-fit:cover; border-radius:var(--radius); }
+  .me-role { font-family:var(--head); font-weight:700; font-size:clamp(11px,1.1vw,15px); letter-spacing:.06em; color:var(--brand); margin:0 0 clamp(7px,1vh,11px); }
+  .me-name { font-family:var(--mincho); font-weight:700; font-size:clamp(24px,3.2vw,44px); line-height:1.3; color:var(--ink); margin:0 0 clamp(4px,.8vh,9px); font-feature-settings:"palt"; }
+  .me-kana { font-family:var(--en); font-size:clamp(11px,1.05vw,14px); font-weight:500; letter-spacing:.14em; color:var(--ink-50); margin:0 0 clamp(14px,2vh,22px); }
+  .me-bio { font-family:var(--body); font-size:clamp(12px,1.2vw,16px); line-height:2; color:var(--ink-72); margin:0; letter-spacing:.04em; }
+  .me-tags { display:flex; flex-wrap:wrap; gap:clamp(6px,.8vw,10px); margin-top:clamp(14px,2.2vh,22px); }
+  .me-tags span {
+    font-family:var(--head); font-weight:700; font-size:clamp(10.5px,1vw,13px); letter-spacing:.05em;
+    color:var(--brand-deep); background:var(--brand-pale); padding:5px 11px; border-radius:var(--radius);
+  }
+  @media (max-width:720px) {
+    .me { grid-template-columns:1fr; gap:16px; }
+    .me-photo img { max-width:170px; }
+  }
+
+  /* --- アイスブレイクの項目 --- */
+  .ask { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line); border:1px solid var(--line); margin-top:clamp(18px,3vh,32px); }
+  .ask div { background:var(--bg); padding:clamp(20px,2.8vw,34px) clamp(16px,2.2vw,28px); }
+  .blue .ask { background:var(--on-brand-40); border-color:var(--on-brand-40); }
+  .blue .ask div { background:var(--brand); }
+  .ask i { font-style:normal; font-family:var(--en); font-size:clamp(11px,1vw,14px); font-weight:500; letter-spacing:.18em; color:var(--brand); display:block; margin-bottom:clamp(10px,1.5vh,16px); }
+  .blue .ask i { color:var(--on-brand-75); }
+  .ask strong { font-family:var(--mincho); font-weight:700; font-size:clamp(16px,1.9vw,26px); line-height:1.45; color:var(--ink); font-feature-settings:"palt"; }
+  .blue .ask strong { color:var(--on-brand); }
+  .ask em { font-style:normal; display:block; font-family:var(--body); font-size:clamp(11px,1vw,13.5px); line-height:1.8; color:var(--ink-50); margin-top:clamp(8px,1.2vh,13px); letter-spacing:.03em; }
+  .blue .ask em { color:var(--on-brand-75); }
+
+  /* --- ヒアリングの選択肢 ---
+     選択肢は「並べて比べる」もの。1枚あたり1行に収まる幅を確保して、
+     A/B/C の行数が揃うようにしている（行数が不揃いだと比較しづらい）。 */
+  .opts { display:grid; gap:clamp(10px,1.5vh,16px); margin-top:clamp(18px,3vh,30px); max-width:52em; }
+  .opt { display:grid; grid-template-columns:clamp(34px,3.6vw,48px) 1fr; align-items:center; gap:clamp(14px,1.8vw,24px);
+         border:1px solid var(--line); border-radius:var(--radius); padding:clamp(15px,2.1vh,22px) clamp(16px,2vw,26px); }
+  /* 記号（A/B/C）だけ。> を付けないと本文中の <b> まで欧文フォントになる */
+  .opt > b { font-family:var(--en); font-weight:600; font-size:clamp(17px,1.9vw,25px); color:var(--brand); line-height:1; }
+  .opt span { font-family:var(--body); font-size:clamp(13.5px,1.45vw,19px); line-height:1.7; color:var(--ink-72); letter-spacing:.035em; }
+  /* 文中の強調は、大きさを変えず色と太さで。語の途中で改行させない */
+  .opt span b { font-weight:700; color:var(--brand-deep); white-space:nowrap; }
+  .blue .opt { border-color:var(--on-brand-40); }
+  .blue .opt > b { color:var(--on-brand); }
+  .blue .opt span { color:var(--on-brand-88); }
+  .blue .opt span b { color:var(--on-brand); }
+
+  /* --- 9択のヒアリング（アンケートの選択肢と同一） ---
+     選択肢が多いので、カードではなく番号付きのリストで置く。
+     2列に流し、1項目1行に収まる幅を確保している。 */
+  .pick { display:grid; grid-template-columns:1fr 1fr; column-gap:clamp(24px,4vw,64px); margin-top:clamp(14px,2.4vh,28px); }
+  .pick > div { display:grid; grid-template-columns:auto 1fr; gap:clamp(10px,1.3vw,18px); align-items:baseline;
+                padding:clamp(8px,1.4vh,14px) 0; border-bottom:1px solid var(--line); }
+  .pick i { font-style:normal; font-family:var(--en); font-weight:500; font-size:clamp(11.5px,1.1vw,15px); color:var(--brand); letter-spacing:.08em; }
+  .pick span { font-family:var(--body); font-size:clamp(12px,1.28vw,18px); line-height:1.6; color:var(--ink-72); letter-spacing:.03em; }
+  .pick span b { font-weight:700; color:var(--brand-deep); white-space:nowrap; }
+
+  /* --- ビフォーアフター（3ヶ月で、どうなるか） --- */
+  .ba { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line); border:1px solid var(--line); margin-top:clamp(14px,2.4vh,26px); }
+  .ba > div { background:var(--bg); padding:clamp(15px,2.1vw,28px) clamp(13px,1.7vw,23px); display:flex; flex-direction:column; }
+  .ba i { font-style:normal; font-family:var(--en); font-size:clamp(10px,.92vw,13px); font-weight:500; letter-spacing:.18em; color:var(--brand); }
+  .ba .now { font-family:var(--body); font-size:clamp(11px,1.02vw,14px); line-height:1.85; color:var(--ink-50); margin:clamp(8px,1.2vh,13px) 0 0; letter-spacing:.03em; }
+  .ba .arw { font-family:var(--head); font-weight:700; font-size:clamp(9.5px,.9vw,12px); letter-spacing:.12em; color:var(--brand);
+             margin:clamp(11px,1.6vh,17px) 0 clamp(9px,1.3vh,14px); padding-top:clamp(11px,1.6vh,17px); border-top:1px solid var(--brand-mid); }
+  .ba .aft { font-family:var(--mincho); font-weight:700; font-size:clamp(13px,1.38vw,20px); line-height:1.62; color:var(--ink); font-feature-settings:"palt"; margin:0; }
+  /* 3列の細いカラムなので、強調した語が行末で割れないよう短く区切って nowrap */
+  .ba .aft b { color:var(--brand-deep); white-space:nowrap; }
+  /* 列挙した項目を、番号と中身で泣き別れさせないための指定 */
+  .sub b.nb { white-space:nowrap; }
+
+  /* --- 穴埋めのフレーム（仮テーマ1行） --- */
+  .frame { font-family:var(--mincho); font-weight:700; font-size:clamp(21px,3.1vw,46px); line-height:1.8;
+           color:var(--ink); margin:clamp(14px,2.4vh,26px) 0 0; font-feature-settings:"palt"; }
+  .frame u { text-decoration:none; display:inline-block; min-width:clamp(110px,16vw,260px); border-bottom:2px solid var(--brand); }
+
+  /* --- 実例3本 --- */
+  .exs { display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(14px,2.2vw,34px); margin-top:clamp(16px,2.6vh,30px); }
+  .exs > div { border-top:2px solid var(--brand); padding-top:clamp(10px,1.5vh,17px); }
+  .exs b { display:block; font-family:var(--mincho); font-weight:700; font-size:clamp(13px,1.35vw,20px); line-height:1.55; color:var(--ink); font-feature-settings:"palt"; }
+  .exs span { display:block; font-family:var(--head); font-weight:700; font-size:clamp(10px,.9vw,12.5px); letter-spacing:.06em; color:var(--brand); margin-top:clamp(7px,1.1vh,12px); }
+  .exs em { font-style:normal; display:block; font-family:var(--body); font-size:clamp(10.5px,.95vw,13.5px); line-height:1.8; color:var(--ink-50); margin-top:clamp(6px,.9vh,10px); letter-spacing:.03em; }
+
+  @media (max-width:760px) {
+    .ask { grid-template-columns:1fr; }
+    .opt { grid-template-columns:28px 1fr; gap:12px; }
+    .ba, .exs, .pick { grid-template-columns:1fr; }
+  }
+
+  /* --- UI --- */
+  .nav { position:fixed; bottom:16px; right:20px; display:flex; align-items:center; gap:13px; z-index:10; }
+  .nav button {
+    font-family:var(--en); font-size:13px; font-weight:500; letter-spacing:.06em;
+    width:32px; height:32px; border:1px solid var(--line); background:rgba(255,255,255,.9);
+    color:var(--brand); border-radius:var(--radius); cursor:pointer; line-height:1;
+  }
+  .nav button:hover { border-color:var(--brand); }
+  .pg { font-family:var(--en); font-size:12px; letter-spacing:.1em; color:var(--ink-40); min-width:52px; text-align:right; }
+  .blue-ui .nav button { background:rgba(255,255,255,.14); border-color:var(--on-brand-40); color:var(--on-brand); }
+  .blue-ui .pg { color:var(--on-brand-75); }
+
+  .prog { position:fixed; top:0; left:0; height:2px; background:var(--brand); z-index:11; transition:width .2s ease; }
+  .blue-ui .prog { background:var(--on-brand); }
+
+  /* --- ロゴヘッダー（全スライド共通） --- */
+  .hdr {
+    position:fixed; top:clamp(20px,3vh,34px); left:clamp(40px,9vw,130px); right:clamp(40px,9vw,130px);
+    display:flex; align-items:center; justify-content:space-between; gap:20px;
+    z-index:9; pointer-events:none;
+  }
+  .hdr img { display:block; width:auto; }
+  .hdr .lg-poolo   { height:clamp(19px,2.05vw,27px); }
+  .hdr .lg-tabippo { height:clamp(14px,1.5vw,20px); opacity:.62; }
+  /* 青地のスライドでは白抜きにする（ロゴは透過PNG）。
+     TABIPPOは黄色の面が白と同化するため、面を抜いた版に差し替える。 */
+  .hdr .lg-tabippo-ko { display:none; }
+  .blue-ui .hdr img { filter:brightness(0) invert(1); }
+  .blue-ui .hdr .lg-tabippo { display:none; }
+  .blue-ui .hdr .lg-tabippo-ko { display:block; opacity:.78; }
+
+  /* ヘッダーぶん、各スライドの上端を空ける */
+  .s { padding-top:clamp(76px,11vh,132px); }
+
+  @media (max-width:560px) {
+    .hdr { left:22px; right:22px; top:16px; }
+  }
+
+  /* ===== 和文の組版ルール（スライド全体に継承させる） =====
+     auto-phrase … 文節単位で折り返す（助詞と述語が離れない）
+     line-break:strict … 禁則を厳格に。行頭の「、。」「ゃゅょっ」等を防ぐ
+     text-wrap:pretty … 最終行に1文字だけ残る「泣き別れ」を避ける      */
+  .s {
+    word-break:auto-phrase;
+    line-break:strict;
+    text-wrap:pretty;
+    overflow-wrap:normal;
+  }
+  /* 見出しは手動<br>で切っているので、自動の均衡調整は無効にする */
+  .s h1, .s h2, .big-q, .task p { text-wrap:pretty; }
+  .jp { word-break:auto-phrase; text-wrap:pretty; }
+
+  /* ===== 文字を直すモード ===== */
+  .edbar { position:fixed; bottom:16px; left:20px; display:flex; align-items:center; gap:9px; z-index:12; }
+  .edbar button {
+    font-family:var(--head); font-weight:700; font-size:11.5px; letter-spacing:.04em;
+    border:1px solid var(--line); background:rgba(255,255,255,.94); color:var(--brand-deep);
+    padding:8px 14px; border-radius:var(--radius); cursor:pointer; line-height:1;
+  }
+  .edbar button:hover { border-color:var(--brand); }
+  .edbar button.on { background:var(--brand); color:var(--on-brand); border-color:var(--brand); }
+  .edbar .cnt { font-family:var(--en); font-size:11.5px; letter-spacing:.06em; color:var(--ink-40); }
+  .blue-ui .edbar button { background:rgba(255,255,255,.16); border-color:var(--on-brand-40); color:var(--on-brand); }
+  .blue-ui .edbar button.on { background:var(--on-brand); color:var(--brand); }
+  .blue-ui .edbar .cnt { color:var(--on-brand-75); }
+
+  body.editing [data-e] { outline:1px dashed var(--brand-mid); outline-offset:5px; border-radius:2px; cursor:text; }
+  body.editing [data-e]:hover { outline-color:var(--brand); background:rgba(24,155,188,.06); }
+  body.editing [data-e]:focus { outline:2px solid var(--brand); background:rgba(24,155,188,.08); }
+  body.editing .blue [data-e] { outline-color:var(--on-brand-40); }
+  body.editing .blue [data-e]:hover, body.editing .blue [data-e]:focus { outline-color:#fff; background:rgba(255,255,255,.12); }
+  [data-e].changed { box-shadow:inset 0 -2px 0 var(--brand-mid); }
+
+  .edhelp { position:fixed; bottom:60px; left:20px; max-width:320px; background:var(--bg); border:1px solid var(--brand);
+            border-radius:var(--radius); padding:15px 17px; z-index:12; display:none; }
+  body.editing .edhelp { display:block; }
+  .edhelp p { font-family:var(--body); font-size:11.5px; line-height:1.9; color:var(--ink-72); margin:0 0 6px; letter-spacing:.03em; }
+  .edhelp p:last-child { margin-bottom:0; }
+  .edhelp b { color:var(--brand-deep); }
+
+  @media (max-width:820px) {
+    .canvas { grid-template-columns:repeat(2,1fr); }
+    .rail { grid-template-columns:repeat(4,1fr); row-gap:22px; }
+    .rail::before { display:none; }
+    .duo, .two, .calc { grid-template-columns:1fr; gap:18px; }
+    .calc { gap:1px; }
+  }
+
+  /* ===== 体験会の説明スライド用の追加（261119） ===== */
+  .canvas.c5 { grid-template-columns:repeat(5,1fr); }
+  .canvas.c5 .cvc { min-height:clamp(110px,17vh,170px); }
+  .cvc .tk { align-self:flex-start; margin-top:auto; font-family:var(--head); font-weight:700; font-size:clamp(10px,.92vw,12.5px); letter-spacing:.06em; color:var(--brand-deep); background:var(--bg); border:1px solid var(--brand); padding:3px 9px; border-radius:var(--radius); }
+  .cvc.hot .tk { background:var(--brand); color:var(--on-brand); }
+  .cmp, .story { display:grid; gap:1px; background:var(--line); border:1px solid var(--line); margin-top:clamp(14px,2.4vh,26px); }
+  .cmp { grid-template-columns:clamp(110px,12vw,170px) repeat(3,1fr); }
+  .story { grid-template-columns:clamp(84px,9vw,130px) repeat(4,1fr); }
+  .cmp > div, .story > div { background:var(--bg); padding:clamp(12px,1.7vw,22px) clamp(12px,1.5vw,20px); }
+  .cmp .lab, .story .lab { font-family:var(--mincho); font-weight:700; font-size:clamp(13.5px,1.45vw,20px); line-height:1.5; color:var(--ink-50); display:flex; align-items:center; font-feature-settings:"palt"; }
+  .cmp .hot, .story .hot { background:var(--brand-pale); }
+  .cmp .lab.hot, .story .lab.hot { color:var(--ink); }
+  .cmp i, .story i { font-style:normal; display:block; font-family:var(--head); font-weight:700; font-size:clamp(10px,.92vw,12.5px); letter-spacing:.1em; color:var(--ink-50); margin-bottom:clamp(6px,1vh,10px); }
+  .cmp .hot i, .story i { color:var(--brand); }
+  .story i { font-family:var(--en); font-weight:500; letter-spacing:.14em; }
+  .cmp p, .story p { margin:0; font-family:var(--body); font-size:clamp(11.5px,1.15vw,16px); line-height:1.8; color:var(--ink-72); letter-spacing:.03em; }
+  .cmp .q p, .story .q p { font-family:var(--mincho); font-weight:700; font-size:clamp(12.5px,1.3vw,18px); line-height:1.65; color:var(--ink); font-feature-settings:"palt"; }
+  .story .hot p { color:var(--ink); }
+  .story { margin-top:clamp(10px,1.6vh,16px); }
+  .story > div { padding:clamp(8px,1.1vw,14px) clamp(10px,1.2vw,16px); }
+  .story p { line-height:1.65; }
+  .story .q p { line-height:1.55; }
+  .rail.r4 { grid-template-columns:repeat(4,1fr); }
+  .rail.r4 strong { font-size:clamp(17px,2vw,28px); }
+  .rail.r4 em { font-size:clamp(11.5px,1.1vw,15px); line-height:1.8; max-width:16em; color:var(--ink-72); margin-top:clamp(8px,1.3vh,14px); }
+  .stat em { display:block; font-style:normal; font-family:var(--body); font-size:clamp(11.5px,1.1vw,15px); line-height:1.85; color:var(--ink-72); letter-spacing:.03em; margin-top:clamp(8px,1.2vh,13px); max-width:17em; }
+  .stat b small { font-family:var(--head); font-weight:700; font-size:.3em; letter-spacing:.06em; margin-left:.25em; }
+  .cta { display:grid; grid-template-columns:minmax(0,1fr) clamp(170px,21vw,280px); gap:clamp(28px,5vw,80px); align-items:center; }
+  .qr { display:block; background:#fff; padding:clamp(10px,1.2vw,16px); border-radius:var(--radius); line-height:0; }
+  .qr svg { width:100%; height:auto; display:block; }
+  .qr-cap { font-family:var(--head); font-weight:700; font-size:clamp(10.5px,1vw,13px); letter-spacing:.08em; color:var(--on-brand-88); text-align:center; margin:clamp(8px,1.2vh,12px) 0 0; }
+</style>
+</head>
+<body>
+
+<div class="prog" id="prog"></div>
+
+<header class="hdr">
+  <img class="lg-poolo" src="images/poolo_logo.png" alt="POOLO あたらしい旅の学校">
+  <span>
+    <img class="lg-tabippo" src="images/tabippo_logo.png" alt="TABIPPO">
+    <img class="lg-tabippo lg-tabippo-ko" src="images/tabippo_logo_ko.png" alt="TABIPPO">
+  </span>
+</header>
+
+<div class="deck" id="deck">
+
+  <!-- 01 表紙 -->
+  <section class="s blue">
+    <div class="eyebrow">POOLO LIFE 体験会 ／ 体験会のあとに</div>
+    <h1 class="jp">今日の問いを、<br>8ヶ月つづける場所。</h1>
+    <p class="sub jp" style="max-width:44em;">あたらしい旅の学校POOLOの8ヶ月のプログラム、POOLO LIFEのご紹介です。</p>
+  </section>
+
+  <!-- 02 今日やったこと -->
+  <section class="s">
+    <div class="eyebrow">今日の90分</div>
+    <h2 class="jp">今日、みなさんがやったこと。</h2>
+    <div class="canvas c5">
+      <div class="cvc"><i>Q2</i><strong class="jp">心が動いた瞬間</strong><span class="tk">書いたあとに対話①</span></div>
+      <div class="cvc"><i>Q3</i><strong class="jp">没頭したこと</strong></div>
+      <div class="cvc"><i>Q4</i><strong class="jp">いまの違和感</strong><span class="tk">書いたあとに対話②</span></div>
+      <div class="cvc hot"><i>Q5</i><strong class="jp">自分への問い</strong><span class="tk">書いたあとに対話③</span></div>
+      <div class="cvc hot"><i>Q6</i><strong class="jp">持ち帰る問い</strong></div>
+    </div>
+    <p class="sub jp" style="max-width:46em;">Q5で書いた問いと、対話のあとにQ6で選んだ問いを、見比べてみてください。<br>人に話そうとして言葉を探すと、ひとりで書いていたときには出てこなかった言葉が出てきます。</p>
+  </section>
+
+  <!-- 03 なぜ探究テーマを大事にするのか -->
+  <section class="s blue">
+    <div class="eyebrow">探究テーマ</div>
+    <h1 class="jp">なぜ、探究テーマを<br>大事にするのか。</h1>
+    <p class="sub jp" style="max-width:40em;">今日のQ6で選んだ問いを、POOLOでは「探究テーマ」と呼んでいます。<br>違和感をすぐに解決しようとせず、問いにして持ちつづけます。</p>
+  </section>
+
+  <!-- 04 解決しようとすると／問いにすると -->
+  <section class="s">
+    <div class="eyebrow">探究テーマ</div>
+    <h2 class="jp">「このままでいいんだっけ」と思ったとき。</h2>
+    <div class="cmp">
+      <div class="lab jp">すぐに解決<br>しようとすると</div>
+      <div><i>答え</i><p class="jp">転職すればいい。資格を取ればいい。</p></div>
+      <div><i>やってみる</i><p class="jp">求人を眺める。講座に申し込む。</p></div>
+      <div><i>しばらくして</i><p class="jp">また「このままでいいのかな」。元の場所に戻る。</p></div>
+      <div class="lab hot jp">問いに<br>すると</div>
+      <div class="hot q"><i>問い</i><p class="jp">私が「自分で選んでいる」と感じられるのは、どんな時間か</p></div>
+      <div class="hot"><i>人に話す</i><p class="jp">仲間や上司から、それぞれの「自分で選べた時間」の話が返ってくる。</p></div>
+      <div class="hot"><i>その先</i><p class="jp">問いが書き換わり、会いたい人や、試したいことが増えていく。</p></div>
+    </div>
+    <p class="sub jp" style="max-width:48em;">答えは、会社やSNS、AIからいくらでも届きます。ただ、自分が何に迷っているのかは、誰も教えてくれません。<br>違和感を問いにして人に話すと、自分の行き先が少しずつ見えてきます。</p>
+  </section>
+
+  <!-- 05 探究テーマを持つと起きる3つのこと -->
+  <section class="s">
+    <div class="eyebrow">探究テーマ</div>
+    <h2 class="jp">探究テーマを持つと、3つのことが起きます。</h2>
+    <div class="ask">
+      <div><i>01</i><strong class="jp">自分で決めたと思える</strong><em class="jp">問いは、心が動いた自分の経験から立てます。そこから選んだことは、理由を自分の言葉で話せます。</em></div>
+      <div><i>02</i><strong class="jp">人と分かち合える</strong><em class="jp">問いの形にすると、人に話せます。相手からもその人の経験が返ってきて、問いが書き換わります。今日の対話で起きたことです。</em></div>
+      <div><i>03</i><strong class="jp">次に試すことが出てくる</strong><em class="jp">問いがあると、行ってみたい場所、会ってみたい人、始めてみたいことが出てきます。対話③で話したことです。</em></div>
+    </div>
+    <p class="sub jp" style="max-width:48em;">POOLOでは、1つ目の実感を「納得」、2つ目の実感を「つながり」と呼んでいます。<br>この2つが同じ問いをめぐって一緒に起きることを、豊かさと考えています。</p>
+  </section>
+
+  <!-- 06 Aさんの8ヶ月 -->
+  <section class="s">
+    <div class="eyebrow">8ヶ月で起きること ／ Aさんの場合</div>
+    <h2 class="jp" style="font-size:clamp(22px,3vw,40px);margin-bottom:clamp(6px,1vh,10px);">問いが書き換わると、決めることも変わっていく。</h2>
+    <p class="sub jp" style="margin-top:0;max-width:none;font-size:clamp(12.5px,1.25vw,17px);line-height:1.8;">Aさんは入社4年目。週末になると「このままでいいのか」と考えて、答えが出ないまま月曜を迎えていました。</p>
+    <div class="story">
+      <div class="lab">きっかけ</div><div><p class="jp">合宿の夜、仲間と話し込んで、気づいたら日付が変わっていた</p></div><div><p class="jp">仲間の一言「私は、締め切りのない日だけ本音が出る」</p></div><div><p class="jp">高知の宿のおかみさんの一言「あんた、あの日だけ時計を見なかったね」</p></div><div><p class="jp">1周目の仲間の一言「私にとっては、子どもが寝たあとの台所がそれ」</p></div>
+      <div class="lab">問い</div><div class="q"><i>1周目 ／ v1.0</i><p class="jp">なぜ私は、合宿の夜のことだけはっきり覚えているのか</p></div><div class="q"><i>1周目 ／ v1.1</i><p class="jp">なぜ私は、締め切りのない夜だと、時間を忘れて人と話せるのか</p></div><div class="q"><i>2周目 ／ v2.1</i><p class="jp">なぜ私は、次の予定がなくなると、目の前の人との時間に夢中になれるのか</p></div><div class="q"><i>3周目 ／ v3.1</i><p class="jp">次の予定を考えない時間を、私は自分の暮らしの中で、人と一緒にどうつくれるのか</p></div>
+      <div class="lab hot jp">自分で<br>決めたこと</div><div class="hot"><p class="jp">どの仲間に問いを話すかを決める</p></div><div class="hot"><p class="jp">仲間3人で「予定を入れない半日」を試す</p></div><div class="hot"><p class="jp">高知へひとりで行き、宿の朝の支度を手伝う</p></div><div class="hot"><p class="jp">平日の夜にその時間をつくり、「予定を入れない夜の会」を企画する</p></div>
+    </div>
+    <p class="sub jp" style="max-width:none;margin-top:clamp(10px,1.6vh,16px);font-size:clamp(12.5px,1.25vw,17px);line-height:1.8;">8ヶ月たったAさんは、何を大事に生きるかを自分の言葉で言えるようになり、その時間を平日の夜に自分でつくっています。</p>
+  </section>
+
+  <!-- 07 探究の定義 -->
+  <section class="s blue">
+    <div class="eyebrow">探究とは</div>
+    <h1 class="jp" style="font-size:clamp(26px,4.3vw,56px);line-height:1.5;">心が動く問いを自分で立て、<br>仲間と分かち合いながら、<br>自分で決めて動きつづけること。</h1>
+    <p class="sub jp">POOLO LIFEは、この探究を仲間と8ヶ月つづけるプログラムです。</p>
+  </section>
+
+  <!-- 08 4つのステップ -->
+  <section class="s">
+    <div class="eyebrow">4つのステップ</div>
+    <h2 class="jp">探究は、旅・自問・対話・共創の4つを回します。</h2>
+    <div class="rail r4">
+      <div class="rl peak"><i>1</i><strong>旅</strong><em class="jp">いつもの暮らしの外に出かけて、心が動いたことを残す。今日のQ2です。</em></div>
+      <div class="rl peak"><i>2</i><strong>自問</strong><em class="jp">残したことを読み返し、答えを出さないまま、問いの形で言葉にする。今日のQ3〜Q5です。</em></div>
+      <div class="rl peak"><i>3</i><strong>対話</strong><em class="jp">問いを考えの違う人に話し、相手の経験を聞いて、問いを書き換える。今日の対話の時間です。</em></div>
+      <div class="rl"><i>4</i><strong>共創</strong><em class="jp">書き換えた問いを持って、誰かと一緒に小さく試し、分かったことをその人と分かち合う。</em></div>
+    </div>
+    <p class="sub jp" style="max-width:46em;">4つで1周です。書き換わった問いを持って、また旅へ。POOLO LIFEの8ヶ月で、これを3周します。</p>
+  </section>
+
+  <!-- 09 8ヶ月でやること -->
+  <section class="s">
+    <div class="eyebrow">POOLO LIFE ／ 3月〜10月</div>
+    <h2 class="jp">POOLO LIFEの8ヶ月で、やること。</h2>
+    <div class="canvas">
+      <div class="cvc"><i>01</i><strong>旅</strong><em class="jp">8ヶ月の中盤に、1泊2日の合宿。自然や歴史のある土地を訪れます。全国の仲間を訪ねる旅や、仲間と企画する旅も。</em></div>
+      <div class="cvc"><i>02</i><strong>自問</strong><em class="jp">月2回、Zoomで約3時間の講義とワーク。noteや音声配信で、問いを言葉にする人もいます。</em></div>
+      <div class="cvc"><i>03</i><strong>対話</strong><em class="jp">チームや1on1で、問いを話して相手の話を聞く。合宿では、仲間と夜まで本音で話します。</em></div>
+      <div class="cvc"><i>04</i><strong>共創</strong><em class="jp">問いを持って、仲間と企画を立てたり、書いたり。100を超えるチャンネルが生まれます。最後は卒業制作。</em></div>
+    </div>
+    <p class="sub jp">講義は録画があるので、あとから見ることもできます。</p>
+  </section>
+
+  <!-- 10 13期 -->
+  <section class="s">
+    <div class="eyebrow">13期 ／ 2027年3月開講</div>
+    <h2 class="jp">いま、13期の参加者を募集しています。</h2>
+    <div class="stats">
+      <div class="stat"><b>8<small>ヶ月</small></b><span>期間（2027年3月〜10月）</span><em class="jp">オンライン中心で、合宿だけ現地に集まります。</em></div>
+      <div class="stat"><b>50〜70<small>人</small></b><span>1期の人数</span><em class="jp">20〜30代の社会人が中心。住む場所も仕事もばらばらです。</em></div>
+      <div class="stat"><b>60<small>分</small></b><span>個別相談（オンライン・無料）</span><em class="jp">日程や参加費、仕事との両立など、詳しいことはここでお話しします。</em></div>
+    </div>
+  </section>
+
+  <!-- 11 個別相談 -->
+  <section class="s blue">
+    <div class="cta">
+      <div>
+        <div class="eyebrow">個別相談 ／ オンライン・無料</div>
+        <h1 class="jp" style="font-size:clamp(26px,4.1vw,54px);">今日の問いの続きを、<br>60分の個別相談で<br>話しませんか。</h1>
+        <ul class="pts">
+          <li class="jp"><b>話せること</b>　今日の問いの壁打ちと、POOLO LIFE13期についての質問</li>
+          <li class="jp"><b>申し込み</b>　ワークシートのQ8・Q9に書くか、QRコードから希望日時を3つ入力</li>
+        </ul>
+        <p class="sub jp">参加するか迷っている段階でも大丈夫です。</p>
+      </div>
+      <div><span class="qr"><a href="https://liff.line.me/2004689256-b95cLpru?liff_id=2004689256-b95cLpru&amp;code=LFCPP8IE" target="_blank" rel="noopener" style="display:block;line-height:0"><svg role="img" aria-label="日程調整フォームのQRコード" version="1.1" viewBox="0 0 41 41" xmlns="http://www.w3.org/2000/svg"><path d="M2,2H3V3H2zM3,2H4V3H3zM4,2H5V3H4zM5,2H6V3H5zM6,2H7V3H6zM7,2H8V3H7zM8,2H9V3H8zM12,2H13V3H12zM13,2H14V3H13zM16,2H17V3H16zM18,2H19V3H18zM19,2H20V3H19zM20,2H21V3H20zM22,2H23V3H22zM23,2H24V3H23zM24,2H25V3H24zM25,2H26V3H25zM27,2H28V3H27zM28,2H29V3H28zM32,2H33V3H32zM33,2H34V3H33zM34,2H35V3H34zM35,2H36V3H35zM36,2H37V3H36zM37,2H38V3H37zM38,2H39V3H38zM2,3H3V4H2zM8,3H9V4H8zM11,3H12V4H11zM12,3H13V4H12zM15,3H16V4H15zM20,3H21V4H20zM23,3H24V4H23zM24,3H25V4H24zM26,3H27V4H26zM27,3H28V4H27zM28,3H29V4H28zM29,3H30V4H29zM30,3H31V4H30zM32,3H33V4H32zM38,3H39V4H38zM2,4H3V5H2zM4,4H5V5H4zM5,4H6V5H5zM6,4H7V5H6zM8,4H9V5H8zM10,4H11V5H10zM11,4H12V5H11zM12,4H13V5H12zM13,4H14V5H13zM14,4H15V5H14zM16,4H17V5H16zM17,4H18V5H17zM18,4H19V5H18zM21,4H22V5H21zM22,4H23V5H22zM23,4H24V5H23zM25,4H26V5H25zM26,4H27V5H26zM29,4H30V5H29zM30,4H31V5H30zM32,4H33V5H32zM34,4H35V5H34zM35,4H36V5H35zM36,4H37V5H36zM38,4H39V5H38zM2,5H3V6H2zM4,5H5V6H4zM5,5H6V6H5zM6,5H7V6H6zM8,5H9V6H8zM10,5H11V6H10zM11,5H12V6H11zM12,5H13V6H12zM14,5H15V6H14zM17,5H18V6H17zM18,5H19V6H18zM19,5H20V6H19zM20,5H21V6H20zM22,5H23V6H22zM27,5H28V6H27zM28,5H29V6H28zM29,5H30V6H29zM32,5H33V6H32zM34,5H35V6H34zM35,5H36V6H35zM36,5H37V6H36zM38,5H39V6H38zM2,6H3V7H2zM4,6H5V7H4zM5,6H6V7H5zM6,6H7V7H6zM8,6H9V7H8zM10,6H11V7H10zM13,6H14V7H13zM15,6H16V7H15zM16,6H17V7H16zM17,6H18V7H17zM21,6H22V7H21zM23,6H24V7H23zM24,6H25V7H24zM25,6H26V7H25zM26,6H27V7H26zM30,6H31V7H30zM32,6H33V7H32zM34,6H35V7H34zM35,6H36V7H35zM36,6H37V7H36zM38,6H39V7H38zM2,7H3V8H2zM8,7H9V8H8zM10,7H11V8H10zM11,7H12V8H11zM13,7H14V8H13zM14,7H15V8H14zM16,7H17V8H16zM17,7H18V8H17zM19,7H20V8H19zM20,7H21V8H20zM23,7H24V8H23zM24,7H25V8H24zM26,7H27V8H26zM27,7H28V8H27zM28,7H29V8H28zM29,7H30V8H29zM30,7H31V8H30zM32,7H33V8H32zM38,7H39V8H38zM2,8H3V9H2zM3,8H4V9H3zM4,8H5V9H4zM5,8H6V9H5zM6,8H7V9H6zM7,8H8V9H7zM8,8H9V9H8zM10,8H11V9H10zM12,8H13V9H12zM14,8H15V9H14zM16,8H17V9H16zM18,8H19V9H18zM20,8H21V9H20zM22,8H23V9H22zM24,8H25V9H24zM26,8H27V9H26zM28,8H29V9H28zM30,8H31V9H30zM32,8H33V9H32zM33,8H34V9H33zM34,8H35V9H34zM35,8H36V9H35zM36,8H37V9H36zM37,8H38V9H37zM38,8H39V9H38zM10,9H11V10H10zM13,9H14V10H13zM14,9H15V10H14zM15,9H16V10H15zM18,9H19V10H18zM21,9H22V10H21zM23,9H24V10H23zM24,9H25V10H24zM26,9H27V10H26zM29,9H30V10H29zM2,10H3V11H2zM4,10H5V11H4zM5,10H6V11H5zM6,10H7V11H6zM7,10H8V11H7zM8,10H9V11H8zM12,10H13V11H12zM13,10H14V11H13zM14,10H15V11H14zM15,10H16V11H15zM18,10H19V11H18zM27,10H28V11H27zM30,10H31V11H30zM32,10H33V11H32zM33,10H34V11H33zM34,10H35V11H34zM35,10H36V11H35zM36,10H37V11H36zM2,11H3V12H2zM3,11H4V12H3zM4,11H5V12H4zM5,11H6V12H5zM10,11H11V12H10zM11,11H12V12H11zM16,11H17V12H16zM17,11H18V12H17zM22,11H23V12H22zM23,11H24V12H23zM25,11H26V12H25zM31,11H32V12H31zM37,11H38V12H37zM2,12H3V13H2zM3,12H4V13H3zM8,12H9V13H8zM12,12H13V13H12zM13,12H14V13H13zM15,12H16V13H15zM16,12H17V13H16zM17,12H18V13H17zM18,12H19V13H18zM24,12H25V13H24zM26,12H27V13H26zM28,12H29V13H28zM29,12H30V13H29zM31,12H32V13H31zM35,12H36V13H35zM36,12H37V13H36zM37,12H38V13H37zM38,12H39V13H38zM2,13H3V14H2zM3,13H4V14H3zM4,13H5V14H4zM5,13H6V14H5zM6,13H7V14H6zM10,13H11V14H10zM12,13H13V14H12zM13,13H14V14H13zM14,13H15V14H14zM15,13H16V14H15zM17,13H18V14H17zM22,13H23V14H22zM23,13H24V14H23zM26,13H27V14H26zM28,13H29V14H28zM32,13H33V14H32zM38,13H39V14H38zM3,14H4V15H3zM4,14H5V15H4zM6,14H7V15H6zM8,14H9V15H8zM9,14H10V15H9zM10,14H11V15H10zM11,14H12V15H11zM12,14H13V15H12zM14,14H15V15H14zM15,14H16V15H15zM16,14H17V15H16zM17,14H18V15H17zM19,14H20V15H19zM21,14H22V15H21zM27,14H28V15H27zM29,14H30V15H29zM31,14H32V15H31zM32,14H33V15H32zM34,14H35V15H34zM37,14H38V15H37zM38,14H39V15H38zM4,15H5V16H4zM6,15H7V16H6zM7,15H8V16H7zM12,15H13V16H12zM13,15H14V16H13zM15,15H16V16H15zM16,15H17V16H16zM18,15H19V16H18zM20,15H21V16H20zM21,15H22V16H21zM22,15H23V16H22zM23,15H24V16H23zM24,15H25V16H24zM25,15H26V16H25zM26,15H27V16H26zM27,15H28V16H27zM30,15H31V16H30zM33,15H34V16H33zM6,16H7V17H6zM8,16H9V17H8zM12,16H13V17H12zM14,16H15V17H14zM17,16H18V17H17zM18,16H19V17H18zM20,16H21V17H20zM22,16H23V17H22zM24,16H25V17H24zM26,16H27V17H26zM28,16H29V17H28zM29,16H30V17H29zM32,16H33V17H32zM33,16H34V17H33zM34,16H35V17H34zM35,16H36V17H35zM37,16H38V17H37zM38,16H39V17H38zM2,17H3V18H2zM3,17H4V18H3zM4,17H5V18H4zM5,17H6V18H5zM11,17H12V18H11zM12,17H13V18H12zM15,17H16V18H15zM16,17H17V18H16zM18,17H19V18H18zM20,17H21V18H20zM22,17H23V18H22zM23,17H24V18H23zM26,17H27V18H26zM28,17H29V18H28zM29,17H30V18H29zM30,17H31V18H30zM32,17H33V18H32zM33,17H34V18H33zM34,17H35V18H34zM2,18H3V19H2zM6,18H7V19H6zM8,18H9V19H8zM11,18H12V19H11zM14,18H15V19H14zM15,18H16V19H15zM16,18H17V19H16zM21,18H22V19H21zM24,18H25V19H24zM27,18H28V19H27zM28,18H29V19H28zM30,18H31V19H30zM32,18H33V19H32zM33,18H34V19H33zM34,18H35V19H34zM36,18H37V19H36zM37,18H38V19H37zM38,18H39V19H38zM2,19H3V20H2zM7,19H8V20H7zM9,19H10V20H9zM12,19H13V20H12zM13,19H14V20H13zM14,19H15V20H14zM16,19H17V20H16zM17,19H18V20H17zM18,19H19V20H18zM22,19H23V20H22zM25,19H26V20H25zM27,19H28V20H27zM31,19H32V20H31zM36,19H37V20H36zM37,19H38V20H37zM2,20H3V21H2zM3,20H4V21H3zM4,20H5V21H4zM5,20H6V21H5zM6,20H7V21H6zM7,20H8V21H7zM8,20H9V21H8zM9,20H10V21H9zM10,20H11V21H10zM11,20H12V21H11zM12,20H13V21H12zM13,20H14V21H13zM14,20H15V21H14zM15,20H16V21H15zM16,20H17V21H16zM19,20H20V21H19zM20,20H21V21H20zM22,20H23V21H22zM23,20H24V21H23zM26,20H27V21H26zM27,20H28V21H27zM28,20H29V21H28zM29,20H30V21H29zM30,20H31V21H30zM34,20H35V21H34zM36,20H37V21H36zM37,20H38V21H37zM38,20H39V21H38zM4,21H5V22H4zM6,21H7V22H6zM10,21H11V22H10zM11,21H12V22H11zM12,21H13V22H12zM13,21H14V22H13zM14,21H15V22H14zM15,21H16V22H15zM16,21H17V22H16zM18,21H19V22H18zM22,21H23V22H22zM23,21H24V22H23zM29,21H30V22H29zM31,21H32V22H31zM32,21H33V22H32zM38,21H39V22H38zM2,22H3V23H2zM3,22H4V23H3zM4,22H5V23H4zM5,22H6V23H5zM6,22H7V23H6zM7,22H8V23H7zM8,22H9V23H8zM9,22H10V23H9zM10,22H11V23H10zM11,22H12V23H11zM12,22H13V23H12zM13,22H14V23H13zM15,22H16V23H15zM18,22H19V23H18zM21,22H22V23H21zM25,22H26V23H25zM27,22H28V23H27zM28,22H29V23H28zM31,22H32V23H31zM32,22H33V23H32zM34,22H35V23H34zM35,22H36V23H35zM36,22H37V23H36zM2,23H3V24H2zM6,23H7V24H6zM10,23H11V24H10zM16,23H17V24H16zM20,23H21V24H20zM21,23H22V24H21zM23,23H24V24H23zM24,23H25V24H24zM25,23H26V24H25zM26,23H27V24H26zM30,23H31V24H30zM35,23H36V24H35zM2,24H3V25H2zM4,24H5V25H4zM5,24H6V25H5zM6,24H7V25H6zM7,24H8V25H7zM8,24H9V25H8zM10,24H11V25H10zM11,24H12V25H11zM15,24H16V25H15zM17,24H18V25H17zM18,24H19V25H18zM20,24H21V25H20zM26,24H27V25H26zM27,24H28V25H27zM29,24H30V25H29zM31,24H32V25H31zM32,24H33V25H32zM33,24H34V25H33zM34,24H35V25H34zM35,24H36V25H35zM37,24H38V25H37zM38,24H39V25H38zM3,25H4V26H3zM4,25H5V26H4zM7,25H8V26H7zM11,25H12V26H11zM12,25H13V26H12zM14,25H15V26H14zM17,25H18V26H17zM18,25H19V26H18zM20,25H21V26H20zM21,25H22V26H21zM22,25H23V26H22zM23,25H24V26H23zM24,25H25V26H24zM25,25H26V26H25zM26,25H27V26H26zM30,25H31V26H30zM32,25H33V26H32zM33,25H34V26H33zM34,25H35V26H34zM37,25H38V26H37zM38,25H39V26H38zM4,26H5V27H4zM5,26H6V27H5zM7,26H8V27H7zM8,26H9V27H8zM9,26H10V27H9zM11,26H12V27H11zM12,26H13V27H12zM14,26H15V27H14zM16,26H17V27H16zM17,26H18V27H17zM19,26H20V27H19zM20,26H21V27H20zM22,26H23V27H22zM24,26H25V27H24zM26,26H27V27H26zM27,26H28V27H27zM30,26H31V27H30zM32,26H33V27H32zM33,26H34V27H33zM34,26H35V27H34zM36,26H37V27H36zM2,27H3V28H2zM4,27H5V28H4zM6,27H7V28H6zM7,27H8V28H7zM9,27H10V28H9zM15,27H16V28H15zM16,27H17V28H16zM17,27H18V28H17zM19,27H20V28H19zM21,27H22V28H21zM27,27H28V28H27zM28,27H29V28H28zM31,27H32V28H31zM35,27H36V28H35zM36,27H37V28H36zM2,28H3V29H2zM7,28H8V29H7zM8,28H9V29H8zM11,28H12V29H11zM13,28H14V29H13zM14,28H15V29H14zM15,28H16V29H15zM16,28H17V29H16zM17,28H18V29H17zM18,28H19V29H18zM22,28H23V29H22zM23,28H24V29H23zM28,28H29V29H28zM29,28H30V29H29zM31,28H32V29H31zM32,28H33V29H32zM33,28H34V29H33zM37,28H38V29H37zM38,28H39V29H38zM2,29H3V30H2zM4,29H5V30H4zM5,29H6V30H5zM10,29H11V30H10zM12,29H13V30H12zM13,29H14V30H13zM15,29H16V30H15zM17,29H18V30H17zM18,29H19V30H18zM20,29H21V30H20zM22,29H23V30H22zM23,29H24V30H23zM24,29H25V30H24zM25,29H26V30H25zM26,29H27V30H26zM28,29H29V30H28zM29,29H30V30H29zM33,29H34V30H33zM34,29H35V30H34zM2,30H3V31H2zM4,30H5V31H4zM5,30H6V31H5zM8,30H9V31H8zM9,30H10V31H9zM10,30H11V31H10zM11,30H12V31H11zM14,30H15V31H14zM17,30H18V31H17zM18,30H19V31H18zM19,30H20V31H19zM22,30H23V31H22zM27,30H28V31H27zM28,30H29V31H28zM30,30H31V31H30zM31,30H32V31H31zM32,30H33V31H32zM33,30H34V31H33zM34,30H35V31H34zM35,30H36V31H35zM36,30H37V31H36zM38,30H39V31H38zM10,31H11V32H10zM11,31H12V32H11zM12,31H13V32H12zM18,31H19V32H18zM19,31H20V32H19zM21,31H22V32H21zM24,31H25V32H24zM25,31H26V32H25zM26,31H27V32H26zM27,31H28V32H27zM29,31H30V32H29zM30,31H31V32H30zM34,31H35V32H34zM35,31H36V32H35zM2,32H3V33H2zM3,32H4V33H3zM4,32H5V33H4zM5,32H6V33H5zM6,32H7V33H6zM7,32H8V33H7zM8,32H9V33H8zM11,32H12V33H11zM12,32H13V33H12zM14,32H15V33H14zM15,32H16V33H15zM16,32H17V33H16zM17,32H18V33H17zM20,32H21V33H20zM22,32H23V33H22zM24,32H25V33H24zM30,32H31V33H30zM32,32H33V33H32zM34,32H35V33H34zM36,32H37V33H36zM37,32H38V33H37zM38,32H39V33H38zM2,33H3V34H2zM8,33H9V34H8zM10,33H11V34H10zM11,33H12V34H11zM13,33H14V34H13zM15,33H16V34H15zM20,33H21V34H20zM22,33H23V34H22zM23,33H24V34H23zM24,33H25V34H24zM25,33H26V34H25zM28,33H29V34H28zM29,33H30V34H29zM30,33H31V34H30zM34,33H35V34H34zM35,33H36V34H35zM38,33H39V34H38zM2,34H3V35H2zM4,34H5V35H4zM5,34H6V35H5zM6,34H7V35H6zM8,34H9V35H8zM10,34H11V35H10zM12,34H13V35H12zM13,34H14V35H13zM16,34H17V35H16zM17,34H18V35H17zM24,34H25V35H24zM25,34H26V35H25zM26,34H27V35H26zM27,34H28V35H27zM29,34H30V35H29zM30,34H31V35H30zM31,34H32V35H31zM32,34H33V35H32zM33,34H34V35H33zM34,34H35V35H34zM36,34H37V35H36zM37,34H38V35H37zM2,35H3V36H2zM4,35H5V36H4zM5,35H6V36H5zM6,35H7V36H6zM8,35H9V36H8zM10,35H11V36H10zM11,35H12V36H11zM14,35H15V36H14zM15,35H16V36H15zM16,35H17V36H16zM17,35H18V36H17zM18,35H19V36H18zM20,35H21V36H20zM21,35H22V36H21zM22,35H23V36H22zM23,35H24V36H23zM25,35H26V36H25zM28,35H29V36H28zM29,35H30V36H29zM30,35H31V36H30zM31,35H32V36H31zM32,35H33V36H32zM34,35H35V36H34zM37,35H38V36H37zM38,35H39V36H38zM2,36H3V37H2zM4,36H5V37H4zM5,36H6V37H5zM6,36H7V37H6zM8,36H9V37H8zM10,36H11V37H10zM11,36H12V37H11zM12,36H13V37H12zM14,36H15V37H14zM17,36H18V37H17zM18,36H19V37H18zM20,36H21V37H20zM28,36H29V37H28zM35,36H36V37H35zM37,36H38V37H37zM38,36H39V37H38zM2,37H3V38H2zM8,37H9V38H8zM13,37H14V38H13zM14,37H15V38H14zM15,37H16V38H15zM16,37H17V38H16zM17,37H18V38H17zM20,37H21V38H20zM22,37H23V38H22zM23,37H24V38H23zM28,37H29V38H28zM30,37H31V38H30zM31,37H32V38H31zM32,37H33V38H32zM34,37H35V38H34zM35,37H36V38H35zM38,37H39V38H38zM2,38H3V39H2zM3,38H4V39H3zM4,38H5V39H4zM5,38H6V39H5zM6,38H7V39H6zM7,38H8V39H7zM8,38H9V39H8zM10,38H11V39H10zM12,38H13V39H12zM13,38H14V39H13zM14,38H15V39H14zM18,38H19V39H18zM19,38H20V39H19zM22,38H23V39H22zM26,38H27V39H26zM27,38H28V39H27zM29,38H30V39H29zM34,38H35V39H34zM36,38H37V39H36zM37,38H38V39H37zM38,38H39V39H38z" id="qr-path" fill="#000000" fill-opacity="1" fill-rule="nonzero" stroke="none"/></svg></a></span><p class="qr-cap">希望日時の入力はこちら</p></div>
+    </div>
+  </section>
+
+</div>
+
+<div class="nav">
+  <button id="prev" aria-label="前へ">‹</button>
+  <button id="next" aria-label="次へ">›</button>
+  <span class="pg" id="pg">1 / 11</span>
+</div>
+
+<script>
+(function () {
+  var slides = Array.prototype.slice.call(document.querySelectorAll('.s'));
+  var i = 0;
+  var pg = document.getElementById('pg');
+  var prog = document.getElementById('prog');
+
+  function show(n) {
+    i = Math.max(0, Math.min(slides.length - 1, n));
+    slides.forEach(function (s, k) { s.classList.toggle('on', k === i); });
+    pg.textContent = (i + 1) + ' / ' + slides.length;
+    prog.style.width = ((i + 1) / slides.length * 100) + '%';
+    document.body.classList.toggle('blue-ui', slides[i].classList.contains('blue'));
+    try { location.hash = String(i + 1); } catch (e) {}
+  }
+
+  document.addEventListener('keydown', function (e) {
+    // 文字を打っている最中はスライドを送らない
+    if (document.body.classList.contains('editing') || e.target.isContentEditable) return;
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown' || e.key === ' ' || e.key === 'PageDown') { e.preventDefault(); show(i + 1); }
+    if (e.key === 'ArrowLeft'  || e.key === 'ArrowUp'   || e.key === 'PageUp') { e.preventDefault(); show(i - 1); }
+    if (e.key === 'Home') { e.preventDefault(); show(0); }
+    if (e.key === 'End')  { e.preventDefault(); show(slides.length - 1); }
+  });
+
+  document.getElementById('next').addEventListener('click', function (e) { e.stopPropagation(); show(i + 1); });
+  document.getElementById('prev').addEventListener('click', function (e) { e.stopPropagation(); show(i - 1); });
+
+  document.getElementById('deck').addEventListener('click', function (e) {
+    if (document.body.classList.contains('editing')) return;
+    if (e.target.closest('a')) return;
+    show(e.clientX < window.innerWidth * 0.28 ? i - 1 : i + 1);
+  });
+
+  window.__gotoSlide = show;
+
+  var start = parseInt((location.hash || '').replace('#', ''), 10);
+  show(isNaN(start) ? 0 : start - 1);
+})();
+</script>
+
+</body>
+</html>
