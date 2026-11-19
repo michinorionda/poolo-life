@@ -18,7 +18,7 @@
 <meta name="twitter:image" content="https://michinorionda.github.io/poolo-life/poolo-tankyu-v3-3/images/og-kv-tankyu.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500&family=Shippori+Mincho+B1:wght@500;600&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Zen+Old+Mincho:wght@400;700&display=swap">
 <style>*,*::before,*::after{box-sizing:border-box}body{margin:0}img{max-width:100%;height:auto}[hidden]{display:none!important}</style>
 <style>
 :root{
@@ -27,17 +27,20 @@
   --on-deep:#FFFFFF; --tent:#A8640F; --tent-bg:#FBF3E6;
   --ja:"Zen Kaku Gothic New","Noto Sans JP","Hiragino Sans","Yu Gothic",sans-serif;
   --num:"Jost","Zen Kaku Gothic New",sans-serif;
+  --title:"Shippori Mincho B1","Zen Old Mincho","Hiragino Mincho ProN",serif;
+  --mincho:"Zen Old Mincho","Hiragino Mincho ProN","Yu Mincho",serif;
+  --plane:#DDECF1; --figbg:transparent; --figblend:multiply;
 }
 @media (prefers-color-scheme: dark){
 :root:not([data-theme="light"]){
   --bg:#10171A; --paper:#162024; --ink:#E6EEF0; --sub:#9AAEB4; --line:#2A3A3F;
   --accent:#4FC0DA; --deep:#7FD0E3; --proc:#1A2A30; --st1:#1D4A56; --st2:#26606F;
-  --on-deep:#0B2229; --tent:#E3A55A; --tent-bg:#2B2418; color-scheme:dark}
+  --on-deep:#0B2229; --tent:#E3A55A; --tent-bg:#2B2418; --plane:transparent; --figbg:#FFFFFF; --figblend:normal; color-scheme:dark}
 }
 :root[data-theme="dark"]{
   --bg:#10171A; --paper:#162024; --ink:#E6EEF0; --sub:#9AAEB4; --line:#2A3A3F;
   --accent:#4FC0DA; --deep:#7FD0E3; --proc:#1A2A30; --st1:#1D4A56; --st2:#26606F;
-  --on-deep:#0B2229; --tent:#E3A55A; --tent-bg:#2B2418; color-scheme:dark}
+  --on-deep:#0B2229; --tent:#E3A55A; --tent-bg:#2B2418; --plane:transparent; --figbg:#FFFFFF; --figblend:normal; color-scheme:dark}
 *{box-sizing:border-box}
 body{background:var(--bg);color:var(--ink);font-family:var(--ja);font-size:15.5px;line-height:1.9;
   padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:28px 80px}
@@ -70,8 +73,8 @@ nav ol{margin:0;padding-left:1.8em;columns:2;column-gap:32px}
 nav a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line)}
 nav a:hover{border-color:var(--accent)}
 section{padding-top:58px}
-h2{font-size:clamp(20px,5.8vw,24px);line-height:1.45;margin:0 0 6px;font-weight:700;text-wrap:balance}
-h2 .n{font-family:var(--num);color:var(--accent);font-weight:500;margin-right:12px}
+h2{font-family:var(--title);font-size:clamp(23px,6.2vw,31px);line-height:1.5;letter-spacing:.04em;margin:0 0 6px;font-weight:600;text-wrap:balance;word-break:auto-phrase}
+h2 .n{font-family:var(--title);color:var(--accent);font-weight:500;font-size:1.25em;line-height:1;margin-right:12px}
 .h2sub{color:var(--sub);margin:0 0 24px;font-size:14px}
 section>h2{margin-bottom:22px}
 h3{font-size:18px;line-height:1.5;margin:38px 0 10px;font-weight:700;text-wrap:balance}
@@ -487,6 +490,48 @@ nav.toc .toc-ref a{font-size:13px;color:var(--sub);gap:6px}
 @media (max-width:640px){.quick dl{grid-template-columns:1fr}.quick .s4{grid-template-columns:1fr}.quick dt{padding:14px 0 2px;border-bottom:0}.quick dd{padding:0 0 14px;margin:0}}
 header h1{font-size:19px;line-height:1.5;margin:0 0 2px;letter-spacing:.02em}
 header .sub1{font-size:15px;margin:0 0 18px}
+/* 261119 写真と絵の入れ方（体験会v3と同じ作り）：白ふちの写真を傾けて青い面を置く／絵は箱に入れず淡い面の前に立たせる */
+.trow{display:grid;gap:22px;margin:26px 0 8px}
+.trow .tph{margin:0}
+.trow .txt>h3{margin-top:0}
+.trow .txt>p:last-child{margin-bottom:0}
+.tilt2{position:relative;padding:0 8% 8% 0}
+.tilt2::before{content:"";position:absolute;left:8%;top:9%;right:0;bottom:0;background:#189BBC;transform:rotate(2.5deg)}
+.tilt2 img{position:relative;display:block;width:100%;height:auto;aspect-ratio:3/2;object-fit:cover;border:8px solid #fff;transform:rotate(-1.5deg)}
+.tilt2.b{padding:0 0 8% 8%}
+.tilt2.b::before{left:0;right:8%;transform:rotate(-2.5deg)}
+.tilt2.b img{transform:rotate(1.5deg)}
+.tph figcaption{font-size:12px;line-height:1.6;color:var(--sub);margin-top:12px}
+.dq{margin:34px 0 8px;padding:0}
+.dq .who{display:block;font-size:12px;font-weight:700;letter-spacing:.06em;color:var(--deep)}
+.dq p{margin:8px 0 0;font-family:var(--mincho);font-size:18px;line-height:2;letter-spacing:.04em;color:var(--deep);max-width:30em;word-break:auto-phrase;text-wrap:balance}
+.rs{margin:26px 0 8px;border-bottom:1px solid var(--line)}
+.rs-row{display:grid;grid-template-columns:84px minmax(0,1fr);column-gap:18px;row-gap:14px;padding:26px 0;border-top:1px solid var(--line);grid-template-areas:"fig head" "body body" "nums nums"}
+.wfig{grid-area:fig;position:relative;height:104px;align-self:end;background:var(--figbg)}
+.wfig::before{content:"";position:absolute;left:4%;right:4%;bottom:0;height:58%;background:var(--plane);transform:rotate(-3deg)}
+.wfig img{position:relative;display:block;width:100%;height:100%;object-fit:contain;object-position:50% 100%;mix-blend-mode:var(--figblend)}
+.rs-head{grid-area:head;align-self:end}
+.rs-no{font-family:var(--title);font-weight:500;color:var(--accent);line-height:1;font-size:34px;display:block;margin-bottom:6px}
+.rs-head h4{font-family:var(--title);font-weight:600;font-size:19px;line-height:1.5;letter-spacing:.04em;margin:0;word-break:auto-phrase;text-wrap:balance}
+.rs-body{grid-area:body;margin:0;font-size:15px}
+.rs-nums{grid-area:nums;margin:0;display:grid;gap:10px;padding-top:12px;border-top:1px solid var(--line)}
+.rs-nums dt{font-size:12px;line-height:1.5;color:var(--sub)}
+.rs-nums dd{margin:0;font-size:12px;line-height:1.5;color:var(--sub)}
+.rs-nums dd b{font-family:var(--num);font-weight:500;font-size:28px;line-height:1.2;color:var(--deep);letter-spacing:.01em;margin-right:4px;font-variant-numeric:tabular-nums}
+.rs-nums dd b small{font-family:var(--ja);font-size:14px;font-weight:700;margin-left:1px}
+@media (min-width:721px){
+  .trow{grid-template-columns:minmax(0,10fr) minmax(0,9fr);gap:48px;align-items:center;margin:30px 0 12px}
+  .trow.rev{grid-template-columns:minmax(0,9fr) minmax(0,10fr)}
+  .trow.rev .tph{order:2}
+  .dq{margin:44px 0 12px}
+  .dq p{font-size:22px}
+  .rs-row{grid-template-columns:150px minmax(0,1fr) 208px;column-gap:32px;row-gap:10px;padding:34px 0;grid-template-areas:"fig head nums" "fig body nums"}
+  .wfig{height:178px;align-self:start}
+  .rs-head{display:flex;align-items:baseline;gap:14px;align-self:start}
+  .rs-no{font-size:44px;margin:0}
+  .rs-head h4{font-size:23px}
+  .rs-nums{align-self:start;border-top:0;border-left:1px solid var(--line);padding:4px 0 4px 24px;gap:14px}
+}
 </style>
 </head>
 <body>
@@ -521,10 +566,15 @@ header .sub1{font-size:15px;margin:0 0 18px}
     <section id="origin">
       <h2><span class="n">1</span>なぜ、POOLOを始めたのか</h2>
 
-      <h3>「なぜ歩いているの？」</h3>
-      <p class="prose">2013年12月。スペインの巡礼路800キロを歩いていた。途中、セルビア出身の男性に「なぜ歩いているの？」と聞かれて、答えに詰まった。</p>
-      <p class="prose">周りの人はみんな、何かを背負って歩いているように見えた。当時の日記には「自分だけなにも背負っていないお気楽な人間であることが恥ずかしかった。かっこいい意味を探した。」と書いている。</p>
-      <figure class="pho"><img src="images/junrei-1.jpg" width="1600" height="1066" alt="夜明け前の青い空の下、街灯のともる石畳の広場を、大きなリュックを背負って歩く後ろ姿。左に大聖堂が見える。" loading="lazy"></figure>
+      <div class="trow">
+        <figure class="tph"><div class="tilt2"><img src="images/junrei-1.jpg" width="1600" height="1066" alt="夜明け前の青い空の下、街灯のともる石畳の広場を、大きなリュックを背負って歩く後ろ姿。左に大聖堂が見える。"></div><figcaption>2013年12月、スペインの巡礼路で</figcaption></figure>
+        <div class="txt">
+          <h3>「なぜ歩いているの？」</h3>
+          <p>2013年12月。スペインの巡礼路800キロを歩いていた。途中、セルビア出身の男性に「なぜ歩いているの？」と聞かれて、答えに詰まった。</p>
+          <p>周りの人はみんな、何かを背負って歩いているように見えた。</p>
+        </div>
+      </div>
+      <blockquote class="dq"><span class="who">当時の日記から</span><p>自分だけなにも背負っていないお気楽な人間であることが恥ずかしかった。かっこいい意味を探した。</p></blockquote>
       
       <h3>自分の感想や感情を見失った</h3>
       <p class="prose">自分の言葉が出てこないのは、大学のころから。</p>
@@ -532,9 +582,13 @@ header .sub1{font-size:15px;margin:0 0 18px}
       <p class="prose">ただ、活動の仲間に送ったメールには「感想も自分が本当にそう思っているのかも分かりません」とある。大学に入って、試合や受験のような与えられたお題がなくなると、自分が何を感じているのかが分からなくなった。社会人の話を聞いたあとに感想を聞かれても、自分の言葉が出てこない。5ヶ月が過ぎたころには「自分は無の状態であることに気付きました」とまで送っている。つらい、大学時代だった。</p>
       <p class="prose">社会人3年目。同じシェアハウスに、お笑い事務所に通う人や、世界一周中の人がいた。新潟から上京して、浪人して、大学を出て、会社に入った。そんな自分の道が、急に「誰かが通ってきた道」に見えて、ものすごくがっかりした。とあるインタビューで「自分の人生はくそ真面目で、退屈に思えてしまいました」と答えたのもこの年。その年に会社を辞めて、世界一周に出た。</p>
 
-      <h3>歩く日は続く</h3>
-      <p class="prose">「なぜ歩いているの？」に答えられないまま、歩く日は続く。初日は雪山で足が痙攣して動けなくなり、イギリス人の夫婦に助けられた。クリスマスに道に迷った日は、見知らぬ人の車で次の街まで送ってもらう。1ヶ月以上一緒に歩いた韓国人の友人と別れた日は、雨の中を泣きながら歩いた。かっこいい意味は最後まで見つからないまま、日記は1万字を超えていた。</p>
-      <figure class="pho"><img src="images/junrei-2.jpg" width="1600" height="1066" alt="壁じゅうに旅人の書き込みと各国の旗が貼られたバル。カウンターに、ベレー帽の男性がひとり座っている。" loading="lazy"></figure>
+      <div class="trow rev">
+        <figure class="tph"><div class="tilt2 b"><img src="images/junrei-2.jpg" width="1600" height="1066" alt="壁じゅうに旅人の書き込みと各国の旗が貼られたバル。カウンターに、ベレー帽の男性がひとり座っている。" loading="lazy"></div><figcaption>巡礼路の途中のバルで</figcaption></figure>
+        <div class="txt">
+          <h3>歩く日は続く</h3>
+          <p>「なぜ歩いているの？」に答えられないまま、歩く日は続く。初日は雪山で足が痙攣して動けなくなり、イギリス人の夫婦に助けられた。クリスマスに道に迷った日は、見知らぬ人の車で次の街まで送ってもらう。1ヶ月以上一緒に歩いた韓国人の友人と別れた日は、雨の中を泣きながら歩いた。かっこいい意味は最後まで見つからないまま、日記は1万字を超えていた。</p>
+        </div>
+      </div>
       <p class="prose">日記が1万字を超えるほど、心は動いていた。それまでは「自分がどう感じたか」を、自分に問うことがなかったのだと思う。これが、今振り返ると、一番奥にある葛藤だったように思う。</p>
 
       <div class="intro">
@@ -564,16 +618,12 @@ header .sub1{font-size:15px;margin:0 0 18px}
     <section id="era">
       <h2><span class="n">2</span>なぜ、こうした悩みが溢れているのか</h2>
       <p class="prose">社会が人生の型を用意してくれた時代から、一人ひとりが自分で組み立てる時代に変わってきた。その変わり目にいる今、迷う人が増えている。理由は4つあると考えている。</p>
-      <div class="reasons"><div><i><img src="images/wc-fork.jpg" alt="木の道しるべの横で、見上げて考える女性の水彩の絵" loading="lazy"></i><span>1</span><b>生きる選択肢が増えた</b></div><div><i><img src="images/wc-cards.jpg" alt="手に持った3枚のカードを見比べる男性の水彩の絵" loading="lazy"></i><span>2</span><b>選ばないといけない時代になった</b></div><div><i><img src="images/wc-phone.jpg" alt="スマホを見る女性のまわりに、白い吹き出しが浮かんでいる水彩の絵" loading="lazy"></i><span>3</span><b>答えっぽいものに振り回されている</b></div><div><i><img src="images/wc-bench.jpg" alt="木のベンチにひとりで座り、カップを持って考えごとをする男性の水彩の絵" loading="lazy"></i><span>4</span><b>その迷いをひとりで抱えている</b></div></div>
-
-
-      <div class="era">
-        <div class="era-item"><div class="era-no">1</div><div><h4>生きる選択肢が増えた</h4><p>働き方、住む場所、家族の形。どれも前の世代より選べる幅が広がった。一方で、低成長の時代に入り、決まった型をたどれば報われるとは言えなくなっている。</p></div><div class="fact">転職や副業を希望する就業者<span class="v">1,023万人</span>（2025年、2013年以降で最多）</div></div>
-        <div class="era-item"><div class="era-no">2</div><div><h4>選ばないといけない時代になった</h4><p>決める責任は一人ひとりに移った。ところが、受験や就職で使ってきた基準は外から用意されたもので、自分がどう感じたかを聞かれないまま大人になる人が多いと見ている。大学生のころの僕も同じ。</p></div><div class="fact">自分自身に満足している若者は日本<span class="v">57.4%</span>／欧米4か国の平均<span class="v">73.8%</span></div></div>
-        <div class="era-item"><div class="era-no">3</div><div><h4>答えっぽいものに振り回されている</h4><p>「後悔しないキャリアの選び方」や、AIに聞けば返ってくる「向いている仕事」。答えっぽいものはいつでも届く。けれど、自分が何に迷っているのかは、誰も教えてくれない。</p></div><div class="fact">生成AIを使ったことがある人<span class="v">9.1%</span>→<span class="v">26.7%</span>（1年で、20代は<span class="v">44.7%</span>）</div></div>
-        <div class="era-item"><div class="era-no">4</div><div><h4>その迷いをひとりで抱えている</h4><p>地域・親戚・職場のつながりが薄れ、仕事の損得が関係ない人と本音で話せる相手は、自分から会いにいかないとできなくなった。SNSで人と比べるほど、迷いは口に出しにくくなる。</p></div><div class="fact">孤独感がある<span class="v">39.3%</span>／社外で学んでいない<span class="v">52.6%</span>（18か国で最多）</div></div>
+      <div class="rs">
+        <div class="rs-row"><div class="wfig"><img src="images/wc-fork.jpg" alt="木の道しるべの横で、見上げて考える女性の水彩の絵" loading="lazy"></div><div class="rs-head"><span class="rs-no">1</span><h4>生きる選択肢が増えた</h4></div><p class="rs-body">働き方、住む場所、家族の形。どれも前の世代より選べる幅が広がった。一方で、低成長の時代に入り、決まった型をたどれば報われるとは言えなくなっている。</p><dl class="rs-nums"><div><dt>転職や副業を希望する就業者</dt><dd><b>1,023<small>万人</small></b><br>2025年、2013年以降で最多</dd></div></dl></div>
+        <div class="rs-row"><div class="wfig"><img src="images/wc-cards.jpg" alt="手に持った3枚のカードを見比べる男性の水彩の絵" loading="lazy"></div><div class="rs-head"><span class="rs-no">2</span><h4>選ばないといけない時代になった</h4></div><p class="rs-body">決める責任は一人ひとりに移った。ところが、受験や就職で使ってきた基準は外から用意されたもので、自分がどう感じたかを聞かれないまま大人になる人が多いと見ている。大学生のころの僕も同じ。</p><dl class="rs-nums"><div><dt>自分自身に満足している若者</dt><dd><b>57.4<small>%</small></b>日本</dd><dd><b>73.8<small>%</small></b>欧米4か国の平均</dd></div></dl></div>
+        <div class="rs-row"><div class="wfig"><img src="images/wc-phone.jpg" alt="スマホを見る女性のまわりに、白い吹き出しが浮かんでいる水彩の絵" loading="lazy"></div><div class="rs-head"><span class="rs-no">3</span><h4>答えっぽいものに振り回されている</h4></div><p class="rs-body">「後悔しないキャリアの選び方」や、AIに聞けば返ってくる「向いている仕事」。答えっぽいものはいつでも届く。けれど、自分が何に迷っているのかは、誰も教えてくれない。</p><dl class="rs-nums"><div><dt>生成AIを使ったことがある人</dt><dd><b>26.7<small>%</small></b>1年前は9.1%</dd><dd><b>44.7<small>%</small></b>20代</dd></div></dl></div>
+        <div class="rs-row"><div class="wfig"><img src="images/wc-bench.jpg" alt="木のベンチにひとりで座り、カップを持って考えごとをする男性の水彩の絵" loading="lazy"></div><div class="rs-head"><span class="rs-no">4</span><h4>その迷いをひとりで抱えている</h4></div><p class="rs-body">地域・親戚・職場のつながりが薄れ、仕事の損得が関係ない人と本音で話せる相手は、自分から会いにいかないとできなくなった。SNSで人と比べるほど、迷いは口に出しにくくなる。</p><dl class="rs-nums"><div><dt>孤独感がある</dt><dd><b>39.3<small>%</small></b></dd></div><div><dt>社外で学んでいない</dt><dd><b>52.6<small>%</small></b>18か国で最多</dd></div></dl></div>
       </div>
-
 
       <h3>データで見る</h3>
       <p class="prose">4つの理由のうち、理由2と理由4にかかわる調査を2つ載せる。そのほかのデータは資料編にある。</p>
