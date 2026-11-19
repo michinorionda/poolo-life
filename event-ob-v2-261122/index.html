@@ -12,8 +12,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>学生支部の1年と、いまの生き方を、ことばにする90分。｜POOLO 体験会 学生支部OB・OG向け 11月22日（日）</title>
 <meta name="description" content="2026年11月22日（日）19:00〜20:30、Zoom。TABIPPO学生支部のOB・OG向け。あのとき何が自分を動かしていたのか、いまの仕事や生き方で何に本気になれているのかを、支部も代も違うOB・OGと話しながらことばにする90分。参加無料・先着10名。あたらしい旅の学校POOLOの体験会。">
-
-<!-- ===== Open Graph ===== -->
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://michinorionda.github.io/poolo-life/event-ob-v2-261122/">
 <meta property="og:title" content="学生支部の1年と、いまの生き方を、ことばにする90分。｜POOLO 体験会 学生支部OB・OG向け 11月22日（日）">
@@ -25,31 +23,18 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <meta name="twitter:title" content="学生支部の1年と、いまの生き方を、ことばにする90分。｜POOLO 体験会 学生支部OB・OG向け 11月22日（日）">
 <meta name="twitter:description" content="2026年11月22日（日）19:00〜20:30、Zoom。TABIPPO学生支部のOB・OG向け。書いて、話して、また書く90分。参加無料・先着10名。">
 <meta name="twitter:image" content="https://michinorionda.github.io/poolo-life/event-ob-v2-261122/images/og.jpg">
-
-<!-- 色・書体はデザインシステムのトークンを参照する。組みはこのページ固有なので下の <style> に書く -->
 <link rel="stylesheet" href="../poolo-ds/tokens.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@500;600&display=swap">
 <style>
-/* =============================================================
-   30代の生き方 体験会 v2（旅先の会話）
-   Figma「POOLO LP 30代の生き方 スマホ版」最新ページ
-   「提案｜旅先の会話・スマホ 390」「提案｜旅先の会話・PC 1440」が元。
-   通しのモチーフは「紙」。問いは記入する一枚、持ち帰るものは紙片、約束は卓上の札。
-   紙は白＋罫線色の縁、紙のある章の背景だけオフホワイト。
-   見出しの専用レタリングと 01〜05 の数字は images/ の SVG。
-   ============================================================= */
+/* 学生支部OB・OG向け 体験会 v3（2026-11-19）：11/25の30代v3（event-30s-v3-261125）の組みを使う
+   以下は30代v3の元のコメント
+   30代の生き方 体験会 v3（2026-11-18）
+   Figma「POOLO LP 30代の生き方 スマホ版」の「パターン3」（node 575:73）が元。
+   章の通し番号と欧文なし。題は横書きの明朝。写真は白ふち＋傾き＋青い面。
+   冒頭は、写真の枠から頭が出る作り（上の帯だけ切り抜きのPNGを重ねている）。 */
 *, *::before, *::after { box-sizing: border-box; }
 html, body { margin: 0; padding: 0; }
-body {
-  background: var(--bg);
-  color: var(--ink-soft);
-  font-family: var(--body);
-  font-size: 14px;
-  line-height: 1.95;
-  letter-spacing: 0.02em;
-  line-break: strict;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+body { background: var(--bg); color: var(--ink-soft); font-family: var(--body); font-size: 14px; line-height: 1.95; letter-spacing: 0.02em; line-break: strict; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; overflow-x: hidden; }
 h1, h2, h3, p, ul, ol, dl, dd, figure, blockquote { margin: 0; padding: 0; }
 ul, ol { list-style: none; }
 a { color: inherit; text-decoration: none; }
@@ -57,193 +42,148 @@ img { display: block; max-width: 100%; }
 .nb { white-space: nowrap; }
 br.pc-br { display: none; }
 .num { font-family: var(--en); font-weight: 500; }
-/* 文節で改行する（Chrome系）。非対応のブラウザでは通常の改行に戻る */
-.mc, .lead, .body, .feel-body, .q-text, .q-help, .step p, .faq-a, .faq-q, .ov dd, .fa-main, .fa-sub, .take-body {
-  word-break: auto-phrase;
-  text-wrap: pretty;
-}
+:root { --deep: #173A43; --title: 'Shippori Mincho B1', 'Zen Old Mincho', 'Hiragino Mincho ProN', serif; }
+.lead, .body, .q-help, .step p, .faq-a, .faq-q, .ov dd, .fa-main, .fa-sub { word-break: auto-phrase; text-wrap: pretty; }
 
 /* ---- 共通 ---- */
-.in { padding-inline: 24px; }
-/* スマホでは写真を画面の端まで出す章（内側の余白は各章で持つ） */
-.feel .in, .q .in, .rules .in { padding-inline: 0; }
+.in { padding-inline: 28px; }
 .body { font-size: 14px; line-height: 1.95; }
 .small { font-size: 12px; }
 .caption { font-size: 11px; color: var(--ink-72); }
-.label { font-size: 11px; font-weight: 700; letter-spacing: 0.06em; }
-.fv-label { color: var(--brand-deep); }
-/* 文字で組む見出し（参加のきっかけ・開催概要・よくある質問・お申し込み） */
-.h2 {
-  font-family: var(--mincho);
-  font-weight: 700;
-  font-size: 30px;
-  line-height: 1.5;
-  letter-spacing: 0.04em;
-  color: var(--brand-deep);
-}
-/* 専用レタリングの見出し。高さで大きさを決め、幅は成り行き */
-.lt { display: block; height: 40px; width: auto; }
-/* 専用明朝の数字 01〜05 */
-.no { display: block; height: 13px; width: auto; }
-.btn {
-  display: block;
-  background: var(--brand);
-  color: #fff;
-  text-align: center;
-  font-weight: 700;
-  font-size: 15px;
-  letter-spacing: 0.06em;
-  line-height: 1.7;
-  padding: 15px 16px;
-  border-radius: 2px;
-  transition: background 0.2s;
-}
+/* 章の題：横書きの明朝 */
+.h2 { font-family: var(--title); font-weight: 600; font-size: 34px; line-height: 1.3; letter-spacing: 0.06em; color: var(--ink-soft); }
+/* 小さい題（開催概要・よくある質問・お申し込み） */
+.h2s { font-family: var(--title); font-weight: 600; font-size: 28px; line-height: 1.5; letter-spacing: 0.04em; color: var(--ink-soft); }
+.btn { display: block; background: var(--brand); color: #fff; text-align: center; font-weight: 700; font-size: 15px; letter-spacing: 0.06em; line-height: 1.7; padding: 15px 16px; border-radius: 2px; transition: background 0.2s; }
 .btn:hover { background: var(--brand-deep); }
 .off { background: var(--bg-off); }
-/* 紙（白い面＋罫線色の縁） */
 .paper { background: #fff; border: 1px solid var(--line); }
 .date { display: flex; align-items: center; gap: 20px; }
 .date-y { display: block; font-family: var(--en); font-weight: 500; font-size: 12px; line-height: 14px; }
-.date-d { display: block; font-family: var(--en); font-weight: 500; font-size: 52px; line-height: 62px; letter-spacing: 0.02em; color: var(--ink); }
+.date-d { display: block; font-family: var(--en); font-weight: 500; font-size: 52px; line-height: 62px; letter-spacing: 0.02em; }
 .date-w { display: block; font-size: 12px; font-weight: 700; letter-spacing: 0.06em; line-height: 23px; }
-.date-t { display: block; margin-top: 4px; font-family: var(--en); font-weight: 500; font-size: 20px; line-height: 24px; color: var(--ink); }
+.date-t { display: block; margin-top: 4px; font-family: var(--en); font-weight: 500; font-size: 20px; line-height: 24px; }
 .cond { font-size: 12px; font-weight: 700; letter-spacing: 0.06em; }
 .cond .sep { font-weight: 400; margin-inline: 0.6em; }
-.note { font-size: 11px; color: var(--ink-72); }
 .date-line { font-size: 13px; font-weight: 700; letter-spacing: 0.06em; }
 .date-line .num { font-weight: 500; }
+/* 白ふちの写真を少し傾けて、後ろに青い面を置く */
+.tilt { position: relative; padding: 0 9% 9% 0; }
+.tilt::before { content: ""; position: absolute; left: 9%; top: 9%; right: 0; bottom: 0; background: var(--brand); transform: rotate(2.5deg); }
+.tilt img { position: relative; width: 100%; object-fit: cover; border: 8px solid #fff; transform: rotate(-1.5deg); }
+.tilt.b { padding: 0 0 9% 9%; }
+.tilt.b::before { left: 0; right: 9%; transform: rotate(-2.5deg); }
+.tilt.b img { transform: rotate(1.5deg); }
 
 /* ---- ヘッダー ---- */
 .hd { position: sticky; top: 0; z-index: 60; background: #fff; transition: box-shadow 0.2s; }
 .hd.is-stuck { box-shadow: 0 1px 0 var(--line); }
-.hd .in { display: flex; align-items: center; gap: 24px; height: 62px; }
+.hd .in { display: flex; align-items: center; gap: 24px; height: 62px; padding-inline: 24px; }
 .hd-logo img { width: 65px; height: auto; }
 .hd-label { font-size: 11px; flex: 1; }
 .hd-cta { display: none; }
 
-.about-text .body { word-break: normal; line-break: strict; }
-/* ---- ファーストビュー（スマホは文字だけ） ---- */
-.fv-copy { padding: 30px 24px 32px; }
-.fv-copy > * + * { margin-top: 18px; }
-.mc {
-  font-family: var(--mincho);
-  font-weight: 700;
-  font-size: 32px;
-  line-height: 1.5;
-  letter-spacing: 0.04em;
-  color: var(--ink);
-}
+/* ---- 冒頭 ---- */
+.kv-art { position: relative; width: 100%; aspect-ratio: 390 / 280; margin-top: -8%; }
+.kv-plane { position: absolute; left: 2.3%; top: 37.1%; width: 95.6%; height: 61.1%; background: var(--brand); transform: rotate(-3deg); }
+.kv-frame { position: absolute; left: 5.8%; top: 25%; width: 88.4%; height: 64.1%; background: #fff; box-shadow: 0 2px 14px rgba(0,0,0,.14); }
+.kv-ph { position: absolute; left: 7.7%; top: 7.86%; width: 84.6%; aspect-ratio: 1399 / 932; }
+.kv-ph .full { width: 100%; height: 100%; clip-path: inset(25.1% 0 0 0); }
+.kv-ph .top { position: absolute; left: 0; top: 0; width: 100%; height: auto; }
+.kv-sub, .kv-woman { display: none; }
+.fv-copy { position: relative; padding: 40px 28px 56px; }
+.mc { font-family: var(--mincho); font-weight: 700; font-size: 32px; line-height: 1.5; letter-spacing: 0.04em; color: var(--deep); }
 .mc .num { font-weight: 500; line-height: 1; }
-.lead { font-size: 14px; }
-.fv-photo, .fv-bottom { display: none; }
+.lead { margin-top: 28px; font-size: 14px; }
+.fv-woman { position: absolute; right: 6px; bottom: -4px; width: 112px; height: auto; z-index: 1; }
+.fv-band { background: var(--brand); color: #fff; padding: 32px 28px 36px; }
+.fv-band > * + * { margin-top: 18px; }
+.fv-band .btn { background: #fff; color: var(--brand); }
+.fv-band .btn:hover { background: var(--brand-pale); }
 
-/* ---- こんな気持ちの方へ ---- */
-.feel { padding-bottom: 72px; }
-.feel-photo img { width: 100%; height: 300px; object-fit: cover; }
-.feel-text { padding: 40px 28px 0; }
-.feel-text > * + * { margin-top: 28px; }
-.feel-body {
-  font-family: var(--mincho);
-  font-size: 17px;
-  line-height: 2.1;
-  letter-spacing: 0.04em;
-}
-.feel-note { font-size: 13px; color: var(--ink-66); }
+/* ---- 3つの問い ---- */
+.feel { padding: 56px 0 72px; }
+.feel-photo { margin-inline: 0; }
+.feel-photo img { aspect-ratio: 4 / 3; }
+.feel-body { margin-top: 40px; font-family: var(--mincho); font-size: 17px; line-height: 2.1; letter-spacing: 0.04em; }
+.feel-body p + p { margin-top: 24px; }
+.feel-body .feel-note { margin-top: 28px; font-family: var(--body); font-size: 14px; line-height: 1.95; letter-spacing: 0.02em; }
 
-/* ---- 当日の問い（写真の下から紙がせり上がる） ---- */
+/* ---- 当日の問い ---- */
 .q { padding-bottom: 64px; }
 .q-photo img { width: 100%; height: 300px; object-fit: cover; }
 .q-sheet { position: relative; margin: -56px 28px 0; padding: 36px 24px; }
 .q-sheet > * + * { margin-top: 28px; }
-.q .label { letter-spacing: 0.1em; }
-.q-more { border-top: 1px solid var(--line); padding-top: 24px; }
-.q-more-list { list-style: none; margin: 16px 0 0; padding: 0; counter-reset: qm; }
-.q-more-list li { counter-increment: qm; position: relative; padding-left: 2em; font-family: var(--mincho); font-size: 16px; line-height: 1.7; color: var(--brand-deep); word-break: auto-phrase; }
-.q-more-list li + li { margin-top: 14px; }
-.q-more-list li::before { content: counter(qm, decimal-leading-zero); position: absolute; left: 0; top: 0.15em; font-family: var(--en); font-size: 12px; letter-spacing: 0.06em; color: var(--brand); }
-
-.q-text {
-  font-family: var(--mincho);
-  font-size: 24px;
-  line-height: 1.55;
-  letter-spacing: 0.04em;
-  color: var(--brand-deep);
-}
-.q-text-2 { margin-top: 20px; }
-.q-prompt { font-size: 12px; }
-.q-lines { padding-top: 12px; margin-top: 20px; }
+.q-label { font-family: var(--mincho); font-size: 15px; letter-spacing: 0.1em; line-height: 1.6; }
+.q-text { font-family: var(--mincho); font-size: 24px; line-height: 1.75; letter-spacing: 0.06em; color: var(--brand-deep); }
+.q-lines { padding-top: 12px; }
 .q-lines span { display: block; height: 1px; background: var(--line-pale); }
 .q-lines span + span { margin-top: 64px; }
+.q-help { padding-top: 36px; }
 
-/* ---- 90分の流れ ---- */
-.flow { padding: 64px 28px; }
-.route { display: none; }
-.steps { margin-top: 36px; }
+/* ---- 流れ ---- */
+.flow { padding: 64px 0; }
+.flow-head { display: flex; align-items: flex-start; gap: 32px; }
+.flow-lead { padding-top: 6px; font-family: var(--title); font-weight: 500; font-size: 20px; line-height: 1.75; letter-spacing: 0.06em; }
+.flow-photos { margin-top: 40px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.flow-photos img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; }
+.flow-photos figcaption { margin-top: 6px; font-size: 13px; line-height: 1.4; color: #4d4d4d; }
+.steps { margin-top: 40px; }
 .step + .step { margin-top: 36px; }
-.step > * + * { margin-top: 10px; }
-.step h3 {
-  font-family: var(--mincho);
-  font-weight: 700;
-  font-size: 18px;
-  line-height: 1.95;
-  letter-spacing: 0.04em;
-}
+.step-head { display: flex; align-items: center; gap: 14px; }
+.step-no { font-family: var(--title); font-weight: 500; font-size: 32px; line-height: 1; color: var(--brand); }
+.step h3 { font-family: var(--mincho); font-weight: 700; font-size: 18px; line-height: 1.6; letter-spacing: 0.04em; }
+.step p { margin-top: 10px; }
 
-/* ---- 持ち帰るもの（紙片） ---- */
-.take { padding: 48px 28px; }
-.take-slip { margin-top: 24px; padding: 24px; }
+/* ---- わたしの問い ---- */
+.take { padding: 56px 0 64px; }
+.take-slipwrap { position: relative; margin: 32px 4px 0; padding: 0 3% 11% 0; }
+.take-slipwrap::before { content: ""; position: absolute; left: 3%; top: 22%; right: 0; bottom: 0; background: var(--brand); transform: rotate(2.5deg); }
+.take-slip { position: relative; background: #fff; border: 1px solid var(--line); padding: 28px 22px 32px; transform: rotate(-1.5deg); font-family: var(--title); font-weight: 600; font-size: 22px; line-height: 1.6; letter-spacing: 0.04em; }
+.take-slip .blank { color: var(--brand); }
+.take-body { margin-top: 36px; }
 
 /* ---- 写真の帯 ---- */
 .band img { width: 100%; height: 260px; object-fit: cover; object-position: 50% 60%; }
 
-/* ---- 3つの約束（卓上の札） ---- */
-.rules { padding-bottom: 64px; }
-.rules-photo img { width: 100%; height: 240px; object-fit: cover; }
-.rules-inner { padding: 28px 28px 0; }
-.rules-card { padding: 36px 24px; }
-.rules-list { margin-top: 24px; }
-.rules-list li { display: flex; align-items: baseline; gap: 12px; }
-.rules-list li + li { margin-top: 18px; }
-.rules-list .no { height: 11px; position: relative; top: -1px; }
-.rules-list span {
-  font-family: var(--mincho);
-  font-weight: 700;
-  font-size: 17px;
-  line-height: 1.6;
-  letter-spacing: 0.02em;
-  color: var(--ink);
-}
+/* ---- 3つの約束 ---- */
+.rules { padding: 56px 0 64px; }
+.rules-photo { margin: 28px 0 0; }
+.rules-photo img { aspect-ratio: 4 / 3; object-position: 20% 50%; }
+.rules-card { margin-top: 36px; padding: 32px 20px; }
+.rules-list li { display: flex; align-items: center; gap: 12px; }
+.rules-list li + li { margin-top: 14px; }
+.rules-no { font-family: var(--title); font-weight: 500; font-size: 26px; line-height: 1; color: var(--brand); }
+.rules-list span { font-family: var(--title); font-weight: 500; font-size: 16px; line-height: 1.6; letter-spacing: 0.02em; color: var(--ink-soft); white-space: nowrap; }
 .rules-apply { margin-top: 24px; }
 .rules-apply > * + * { margin-top: 14px; }
 
-/* ---- 参加のきっかけ（対談記事の形） ---- */
+/* ---- 参加の動機 ---- */
 .voices { padding-block: 64px; }
-.voices .in > * + * { margin-top: 44px; }
-.voices-head > * + * { margin-top: 16px; }
-.voices-row { display: flex; flex-direction: column; gap: 44px; }
-.voices-photo img { width: 100%; height: 210px; object-fit: cover; }
+.voices-photo { margin-top: 28px; }
+.voices-photo img { aspect-ratio: 4 / 3; }
+.voices-intro { margin-top: 36px; font-family: var(--mincho); font-size: 17px; line-height: 1.9; letter-spacing: 0.04em; }
+.voice-list { margin-top: 44px; }
 .voice + .voice { margin-top: 44px; }
 .voice-who { font-size: 12px; font-weight: 700; letter-spacing: 0.06em; color: var(--brand-deep); }
-.quote {
-  margin-top: 10px;
-  font-family: var(--mincho);
-  font-size: 17px;
-  line-height: 2;
-  letter-spacing: 0.04em;
-  /* 声は1文字ずつ行末まで詰める。文節で折ると行がそろわず、語の途中でも切れる */
-  word-break: normal;
-  text-wrap: wrap;
-}
+.quote { margin-top: 10px; font-family: var(--mincho); font-size: 17px; line-height: 2; letter-spacing: 0.04em; }
+.voices .caption { margin-top: 44px; }
 
 /* ---- POOLOについて ---- */
 .about { padding-block: 64px; }
-.about .in > * + *, .about-text > * + *, .about-photo > * + * { margin-top: 28px; }
+.about-text > * + *, .about-photo > * + * { margin-top: 28px; }
+.about-photo { margin-top: 28px; }
 .about-kv { width: 100%; height: auto; aspect-ratio: 1600 / 813; object-fit: cover; }
 .about-award { width: 100%; height: auto; aspect-ratio: 1600 / 813; object-fit: cover; border: 1px solid var(--line); }
+.about-steps li + li { margin-top: 6px; }
+.about-steps b { color: var(--brand-deep); margin-right: 1em; }
 .about-link { display: inline-block; font-size: 14px; font-weight: 700; letter-spacing: 0.04em; color: var(--brand-deep); text-decoration: underline; text-underline-offset: 0.3em; }
 .pc-only { display: none; }
 
 /* ---- 開催概要 ---- */
+.reason { padding-bottom: 64px; }
+.reason-body { margin-top: 24px; }
+.reason-body p + p { margin-top: 16px; }
 .overview { padding-block: 64px; }
 .ov { margin-top: 20px; }
 .ov-row { display: grid; grid-template-columns: 70px 1fr; column-gap: 16px; border-top: 1px solid var(--line); padding-block: 14px; }
@@ -260,39 +200,27 @@ br.pc-br { display: none; }
 .faq-q { font-weight: 700; }
 .faq-a { margin-top: 12px; }
 
-/* ---- お申し込み（ブランドの青の面） ---- */
-.apply { background: var(--brand); color: #fff; padding: 64px 28px; }
-.apply .in { padding-inline: 0; }
+/* ---- お申し込み ---- */
+.apply { background: var(--brand); color: #fff; padding: 64px 0; }
 .apply .in > * + * { margin-top: 24px; }
 .apply-head > * + * { margin-top: 20px; }
-.apply .h2 { color: #fff; font-size: 28px; }
-.apply .date-y, .apply .date-d, .apply .date-w, .apply .date-t { color: #fff; }
+.apply .h2s { color: #fff; }
+.apply-box > * + * { margin-top: 24px; }
 .apply .btn { background: #fff; color: var(--brand-deep); }
 .apply .btn:hover { background: var(--brand-pale); }
 .apply-steps { font-size: 13px; }
-.apply-note { display: grid; grid-template-columns: 70px 1fr; column-gap: 16px; border-top: 1px solid var(--brand-mid); padding-top: 12px; }
-.apply-note dt { font-size: 11px; font-weight: 700; letter-spacing: 0.06em; }
-.apply-note dd { font-size: 12px; }
 
 /* ---- フッター ---- */
 .ft { padding: 32px 0 36px; }
 .ft .in > * + * { margin-top: 16px; }
 .ft-logos { display: flex; align-items: flex-start; gap: 32px; }
-/* ロゴの文字（POOLO／TABIPPO）の縦の中心をそろえる。POOLOは下にキャッチ、TABIPPOは右上に丸があるため枠の中心ではずれる */
 .ft-logos .poolo { width: 64px; margin-top: 4.5px; }
 .ft-logos .tabippo { width: 96px; }
 .ft p { font-size: 11px; color: var(--ink-72); }
 .ft-texts p + p { margin-top: 16px; }
 
-/* ---- 追従ボタン（画面下に固定） ---- */
-.fa {
-  position: fixed; left: 0; right: 0; bottom: 0; z-index: 50;
-  background: #fff;
-  border-top: 1px solid var(--line);
-  padding: 11px 22px calc(11px + env(safe-area-inset-bottom));
-  transform: translateY(110%);
-  transition: transform 0.3s ease;
-}
+/* ---- 追従ボタン ---- */
+.fa { position: fixed; left: 0; right: 0; bottom: 0; z-index: 50; background: #fff; border-top: 1px solid var(--line); padding: 11px 22px calc(11px + env(safe-area-inset-bottom)); transform: translateY(110%); transition: transform 0.3s ease; }
 .fa.is-visible { transform: translateY(0); }
 .fa-inner { display: flex; align-items: center; gap: 12px; }
 .fa-texts { flex: 1; min-width: 0; }
@@ -301,137 +229,128 @@ br.pc-br { display: none; }
 .fa-sub { font-size: 10px; color: var(--ink-60); letter-spacing: 0.04em; }
 .fa .btn { font-size: 12px; padding: 12px 14px; white-space: nowrap; flex: none; }
 
-/* =============================================================
-   PC（960px以上）：左右112px（1440px幅のとき）、本文の幅は1216px
-   ============================================================= */
+/* ============ PC（960px以上） ============ */
 @media (min-width: 960px) {
   .in { max-width: 1264px; margin-inline: auto; padding-inline: 24px; }
-  .feel .in, .q .in, .rules .in { padding-inline: 24px; }
-  .h2 { font-size: 34px; }
-  .lt { height: 56px; }
+  .h2 { font-size: 56px; }
+  .h2s { font-size: 34px; }
   .body { font-size: 16px; }
   .pc-only { display: block; }
-  .pc-nb { white-space: nowrap; }
+  .sp-only { display: none; }
   br.pc-br { display: inline; }
   br.sp-br { display: none; }
-  .sp-only { display: none; }
+  .tilt img { border-width: 12px; }
 
   .hd .in { height: 75px; }
   .hd-cta { display: inline-block; font-size: 12.5px; padding: 9px 20px; }
 
-  /* 冒頭：左に文、右に写真。下に日付・条件・ボタンの帯 */
-  .fv-top { display: flex; align-items: center; gap: 74px; padding: 40px 64px 56px max(40px, calc((100vw - 1216px) / 2)); }
+  .fv-top { display: flex; flex-direction: row-reverse; align-items: center; gap: 74px; padding: 40px 64px 56px max(40px, calc((100vw - 1216px) / 2)); }
   .fv-copy { flex: none; width: min(510px, 42%); padding: 0; }
-  .fv-copy > * + * { margin-top: 40px; }
-  .mc { font-size: 56px; line-height: 1.4; color: var(--brand-deep); }
-  .lead { font-size: 16px; max-width: 440px; }
-  .fv-copy .date, .fv-copy .cond, .fv-copy .btn, .fv-copy .note { display: none; }
-  .fv-photo { display: block; flex: 1; min-width: 0; height: 620px; }
-  .fv-photo img { width: 100%; height: 100%; object-fit: cover; }
-  .fv-bottom { display: flex; align-items: center; gap: 75px; padding-block: 40px; }
-  .fv-how > * + * { margin-top: 8px; }
-  .fv-bottom .btn { width: 368px; margin-left: auto; }
+  .mc { font-size: 60px; line-height: 1.45; }
+  .lead { margin-top: 40px; font-size: 16px; max-width: 440px; }
+  .fv-woman { display: none; }
+  .kv-art { flex: 1; min-width: 0; max-width: 700px; aspect-ratio: 680 / 520; margin-top: 0; }
+  .kv-plane { left: 4.4%; top: 36.5%; width: 89.7%; height: 53.8%; }
+  .kv-frame { left: 7.65%; top: 25.85%; width: 82.9%; height: 56.5%; }
+  .kv-ph { left: 9.41%; top: 10.77%; width: 79.41%; }
+  .kv-sub { display: block; position: absolute; left: 0; top: 66.5%; width: 22.9%; aspect-ratio: 156 / 108; object-fit: cover; border: 6px solid #fff; box-shadow: 0 2px 12px rgba(0,0,0,.16); transform: rotate(-5deg); }
+  .kv-woman { display: block; position: absolute; left: 63.4%; top: 42.3%; width: 36.6%; height: auto; }
+  .fv-band { background: #fff; color: var(--deep); padding: 28px 24px 44px; max-width: 1264px; margin-inline: auto; display: flex; align-items: center; gap: 75px; }
+  .fv-band > * + * { margin-top: 0; }
+  .fv-band .date-d { font-size: 48px; line-height: 56px; }
+  .fv-band .btn { background: var(--brand); color: #fff; width: 368px; margin-left: auto; }
+  .fv-band .btn:hover { background: var(--brand-deep); }
 
-  /* こんな気持ちの方へ：左に写真、右に見出しと本文 */
-  .feel { padding-bottom: 0; }
-  .feel .in { display: flex; align-items: center; gap: 112px; padding-block: 112px; }
-  .feel-photo { flex: none; width: 520px; }
-  .feel-photo img { height: 390px; }
-  .feel-text { flex: 1; max-width: 584px; padding: 0; }
-  .feel-text > * + * { margin-top: 36px; }
-  .feel-body { font-size: 20px; line-height: 2; letter-spacing: 0.05em; }
-  .feel-note { font-size: 14px; }
+  .feel { padding: 0; }
+  .feel .in { display: flex; align-items: center; gap: 64px; padding-block: 112px; }
+  .feel-photo { flex: none; width: 440px; margin: 0; }
+  .feel-photo img { aspect-ratio: 396 / 522; }
+  .feel-body { flex: 1; margin-top: 0; padding: 0; font-size: 24px; line-height: 2; letter-spacing: 0.05em; }
+  .feel-body .feel-note { margin-top: 36px; font-size: 16px; }
 
-  /* 当日の問い：写真の上に紙を重ねる */
   .q { padding-bottom: 0; }
   .q .in { display: flex; align-items: center; justify-content: center; padding-block: 96px; }
   .q-photo { flex: none; width: 560px; }
-  .q-photo img { height: 760px; object-position: 0% 50%; }
+  .q-photo img { height: 760px; }
   .q-sheet { flex: none; width: 640px; margin: 0 0 0 -88px; padding: 56px; }
   .q-sheet > * + * { margin-top: 32px; }
-  .q-text { font-size: 38px; }
+  .q-label { font-size: 17px; }
+  .q-text { font-size: 38px; line-height: 1.6; }
   .q-lines span + span { margin-top: 74px; }
-  .q-help { font-size: 15px; }
+  .q-help { font-size: 15px; padding-top: 44px; }
 
-  /* 90分の流れ：案内板に5つの停留所、下に説明を2列 */
-  .flow { padding: 0; }
-  .flow .in { padding-block: 96px; }
-  .route {
-    display: flex; justify-content: space-between; align-items: center;
-    margin-top: 48px; padding: 28px 8px;
-    border-block: 1px solid var(--line);
-  }
-  .route li { display: flex; align-items: center; gap: 12px; }
-  .route .no { height: 18px; }
-  .route span { font-family: var(--mincho); font-weight: 700; font-size: 17px; letter-spacing: 0.04em; color: var(--ink); white-space: nowrap; }
-  .steps { margin-top: 48px; display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: repeat(3, auto); grid-auto-flow: column; column-gap: 64px; row-gap: 36px; align-items: start; }
+  .flow { padding: 96px 0; }
+  .flow-head { gap: 72px; }
+  .flow-lead { font-size: 26px; padding-top: 10px; }
+  .flow-photos { margin-top: 48px; gap: 32px; }
+  .flow-photos img { aspect-ratio: 3 / 2; }
+  .steps { margin-top: 56px; display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: repeat(3, auto); grid-auto-flow: column; column-gap: 64px; row-gap: 36px; align-items: start; }
   .step + .step { margin-top: 0; }
-  .step h3 { border-top: 1px solid var(--line); padding-top: 10px; font-size: 19px; }
+  .step-head { gap: 18px; padding-bottom: 10px; border-bottom: 1px solid var(--line); }
+  .step-no { font-size: 44px; }
+  .step h3 { font-size: 19px; }
   .step p { font-size: 15px; }
 
-  /* 持ち帰るもの：左に見出し、右に紙片 */
   .take { padding: 0; }
-  .take .in { display: flex; align-items: center; gap: 112px; padding-block: 64px; }
-  .take-head { flex: none; width: 360px; }
-  .take-slip { flex: 1; margin-top: 0; padding: 32px 40px; }
+  .take .in { display: grid; grid-template-columns: 520px 1fr; column-gap: 80px; align-items: center; padding-block: 96px; }
+  .take .h2 { grid-column: 1; grid-row: 1; }
+  .take-body { grid-column: 1; grid-row: 2; margin-top: 28px; align-self: start; }
+  .take-slipwrap { grid-column: 2; grid-row: 1 / 3; margin: 0; padding: 0 4% 9% 0; }
+  .take-slip { padding: 44px 40px 48px; font-size: 30px; }
 
   .band img { height: 560px; object-position: 50% 65%; }
 
-  /* 3つの約束：左に写真、右に札と申込 */
-  .rules { padding-bottom: 0; }
-  .rules .in { display: flex; align-items: center; justify-content: center; gap: 96px; padding-block: 96px; }
-  .rules-photo { flex: none; width: 600px; }
-  .rules-photo img { height: 400px; }
-  .rules-inner { flex: none; width: 464px; padding: 0; }
-  .rules-card { padding: 44px 40px; }
-  .rules-list { margin-top: 28px; }
-  .rules-list li { gap: 16px; }
-  .rules-list li + li { margin-top: 22px; }
-  .rules-list .no { height: 12px; }
-  .rules-list span { font-size: 22px; letter-spacing: 0.05em; }
-  .rules-apply { margin-top: 32px; padding: 8px 40px 0; }
+  .rules { padding: 0; }
+  .rules .in { display: grid; grid-template-columns: 440px 464px; column-gap: 96px; justify-content: center; align-items: center; padding-block: 96px; }
+  .rules-photo { grid-column: 1; grid-row: 1 / 4; margin: 0; }
+  .rules-photo img { aspect-ratio: 396 / 504; object-position: 18% 50%; }
+  .rules .h2 { grid-column: 2; }
+  .rules-card { grid-column: 2; margin-top: 28px; padding: 40px; }
+  .rules-apply { grid-column: 2; margin-top: 8px; padding: 24px 40px 0; }
+  .rules-list li { gap: 18px; }
+  .rules-list li + li { margin-top: 18px; }
+  .rules-no { font-size: 34px; }
+  .rules-list span { font-size: 22px; letter-spacing: 0.06em; }
   .rules-apply > * + * { margin-top: 16px; }
 
-  /* 参加のきっかけ：左に3人の声、右に縦長の写真 */
   .voices { padding: 0; }
-  .voices .in { padding-block: 112px; }
-  .voices .in > * + * { margin-top: 40px; }
-  .voices-row { flex-direction: row; align-items: stretch; gap: 96px; }
-  .voices-photo { order: 2; }
-  .voice-list { flex: none; width: 640px; }
-  .voices-photo { flex: 1; min-width: 0; }
-  .voices-photo img { height: 100%; }
+  .voices .in { display: grid; grid-template-columns: 640px 1fr; column-gap: 96px; padding-block: 112px; }
+  .voices .h2 { grid-column: 1 / 3; }
+  .voices-intro { grid-column: 1; margin-top: 28px; font-size: 18px; }
+  .voice-list { grid-column: 1; margin-top: 40px; }
+  .voices-photo { grid-column: 2; grid-row: 2 / 5; margin-top: 28px; align-self: start; max-width: 480px; }
+  .voices-photo img { aspect-ratio: 436 / 484; object-position: 62% 50%; }
+  .voices .caption { grid-column: 1; margin-top: 40px; }
   .voice + .voice { margin-top: 52px; }
   .quote { font-size: 18px; }
 
-  /* POOLOについて：左に文、右に写真2枚 */
   .about { padding: 0; }
   .about .in { display: flex; gap: 112px; padding-block: 112px; }
-  .about .in > * + * { margin-top: 0; }
   .about-text { flex: none; width: 584px; }
   .about-text > * + * { margin-top: 32px; }
-  .about-photo { flex: none; width: 520px; }
+  .about-photo { flex: none; width: 520px; margin-top: 0; }
   .about-photo > * + * { margin-top: 16px; }
   .about-award { aspect-ratio: auto; height: 345px; }
 
-  /* 開催概要・よくある質問：左に見出し、右に内容 */
+  .reason { padding: 0; }
+  .reason .in { display: flex; gap: 112px; padding-bottom: 112px; }
+  .reason .h2s { flex: none; width: 360px; }
+  .reason-body { flex: 1; max-width: 744px; margin-top: 0; }
+  .reason-body p + p { margin-top: 20px; }
   .overview, .faq { padding: 0; }
   .overview .in, .faq .in { display: flex; gap: 112px; padding-block: 112px; }
   .faq .in { padding-top: 96px; }
-  .overview .h2, .faq .h2 { flex: none; width: 360px; }
+  .overview .h2s, .faq .h2s { flex: none; width: 360px; }
   .ov-wrap, .faq-list { flex: 1; max-width: 744px; margin-top: 0; }
   .ov { margin-top: 0; }
   .faq-q, .faq-a { font-size: 15px; }
 
-  /* お申し込み：左に見出しと文、右に日付とボタン */
   .apply { padding: 0; }
   .apply .in { display: flex; gap: 112px; padding: 104px 24px; }
   .apply .in > * + * { margin-top: 0; }
   .apply-head { flex: none; width: 584px; }
-  .apply .h2 { font-size: 34px; }
   .apply-msg { font-size: 15px; }
   .apply-box { flex: none; width: 520px; }
-  .apply-box > * + * { margin-top: 24px; }
 
   .ft { padding: 48px 0 56px; }
   .ft .in { display: flex; justify-content: space-between; align-items: center; }
@@ -446,6 +365,43 @@ br.pc-br { display: none; }
   .fa-sub { font-size: 12px; }
   .fa .btn { font-size: 14px; padding: 15px 28px; }
 }
+
+/* ==== 学生支部OB・OG向け（event-ob-v3-261122）だけの足し分 ====
+   11/25の30代v3の組みをそのまま使い、写真はすべて別のものに替えた。
+   文章は v2（event-ob-v2-261122）から移した。 */
+.fv-label { font-size: 12px; font-weight: 700; letter-spacing: 0.08em; color: var(--brand-deep); margin-bottom: 14px; }
+.mc { font-size: 30px; }
+.feel-body p + p { margin-top: 28px; }
+.q-text-2 { font-size: 20px; }
+.q-sheet > .q-text-2 { margin-top: 18px; }
+.q-more { border-top: 1px solid var(--line); padding-top: 24px; }
+.q-more-label { font-family: var(--mincho); font-size: 14px; letter-spacing: 0.08em; }
+.q-more-list { margin-top: 16px; counter-reset: qm; }
+.q-more-list li { counter-increment: qm; position: relative; padding-left: 1.8em; font-family: var(--mincho); font-size: 16px; line-height: 1.75; color: var(--brand-deep); word-break: auto-phrase; }
+.q-more-list li + li { margin-top: 14px; }
+.q-more-list li::before { content: counter(qm); position: absolute; left: 0; top: 0; font-family: var(--title); font-weight: 500; font-size: 18px; line-height: 1.5; color: var(--brand); }
+.feel-photo img { object-position: 42% 50%; }
+.q-photo img { object-position: 42% 40%; }
+.band img { object-position: 50% 40%; }
+.rules-photo img { object-position: 45% 50%; }
+.voices-photo img { object-position: 50% 30%; }
+.voice-list .quote + .quote { margin-top: 20px; }
+.voices .caption a { color: var(--brand-deep); border-bottom: 1px solid var(--brand); }
+@media (min-width: 960px) {
+  .fv-label { font-size: 13px; margin-bottom: 20px; }
+  .mc { font-size: 50px; line-height: 1.5; }
+  /* 水彩の女性が右端の人に重なりすぎないよう、少し右下へ小さく */
+  .kv-woman { left: 70%; top: 50%; width: 31%; }
+  .feel-body { font-size: 20px; }
+  .feel-body p + p { margin-top: 32px; }
+  .feel-photo img { object-position: 40% 50%; }
+  .q-text-2 { font-size: 28px; }
+  .q-more-list li { font-size: 18px; }
+  .q-photo img { object-position: 36% 50%; }
+  .band img { object-position: 50% 38%; }
+  .rules-photo img { object-position: 45% 50%; }
+  .voices-photo img { object-position: 50% 30%; }
+}
 </style>
 </head>
 <body>
@@ -454,71 +410,75 @@ br.pc-br { display: none; }
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 
-<!-- 申込リンク：11/22回のLINE流入経路（lp=EuKI48、10/23に嵐田さんがSlackで共有）。6箇所 -->
-<!-- ===== 追従ボタン ===== -->
+<!-- 申込リンク：11/22回のLINE流入経路（lp=EuKI48、v2と同じ） -->
 <div class="fa" id="floatApply">
   <div class="fa-inner">
     <div class="fa-texts">
       <span class="fa-main">学生支部の1年と、いまの生き方を、ことばにする90分。</span>
       <span class="fa-sub">学生支部OB・OG向け・11/22（日）19:00–20:30・Zoom・無料</span>
     </div>
-    <a class="btn" href="https://liff.line.me/2004689256-jVradzOV/landing?follow=%40801pdwhq&amp;lp=EuKI48&amp;liff_id=2004689256-jVradzOV" target="_blank" rel="noopener">公式LINEで申し込む</a>
+    <a class="btn" href="https://liff.line.me/2004689256-jVradzOV/landing?follow=%40801pdwhq&amp;lp=EuKI48&amp;liff_id=2004689256-jVradzOV" target="_blank" rel="noopener">LINEで申し込む</a>
   </div>
 </div>
 
-<!-- ===== ヘッダー ===== -->
 <header class="hd">
   <div class="in">
     <a class="hd-logo" href="https://tabippo.net/poolo/" target="_blank" rel="noopener"><img src="images/poolo_logo.png" alt="POOLO あたらしい旅の学校"></a>
     <span class="hd-label">あたらしい旅の学校｜無料体験会（学生支部OB・OG向け）</span>
-    <a class="btn hd-cta" href="https://liff.line.me/2004689256-jVradzOV/landing?follow=%40801pdwhq&amp;lp=EuKI48&amp;liff_id=2004689256-jVradzOV" target="_blank" rel="noopener">公式LINEで申し込む</a>
+    <a class="btn hd-cta" href="https://liff.line.me/2004689256-jVradzOV/landing?follow=%40801pdwhq&amp;lp=EuKI48&amp;liff_id=2004689256-jVradzOV" target="_blank" rel="noopener">LINEで申し込む</a>
   </div>
 </header>
 
-<!-- ===== ファーストビュー ===== -->
+<!-- ===== 冒頭 ===== -->
 <section class="fv">
   <div class="fv-top">
+    <!-- KV：BackpackFESTA 2024の舞台で輪になって座るスタッフ（Drive「その他素材」bpf2024-287）。人物が下に小さく座っているため、枠から頭を出す切り抜きは使わない -->
+    <div class="kv-art" role="img" aria-label="ホールの舞台の上で輪になって座る学生支部のスタッフ">
+      <div class="kv-plane"></div>
+      <div class="kv-frame"></div>
+      <div class="kv-ph"><img class="full" src="images/kv_bpf_circle.jpg" alt=""></div>
+      <img class="kv-sub" src="images/flow_write.jpg" alt="">
+      <img class="kv-woman" src="images/kv_woman.png" alt="">
+    </div>
     <div class="fv-copy">
-      <p class="label fv-label">TABIPPO学生支部のOB・OGのための体験会</p>
-      <h1 class="mc"><span class="nb">学生支部の<span class="num">1</span>年と、</span><br class="pc-br"><span class="nb">いまの生き方を、</span><br class="pc-br"><span class="nb">ことばにする<span class="num">90</span>分。</span></h1>
-      <p class="lead"><span class="nb">息を吸うように集客をした日々。</span><br><span class="nb">毎日、深夜まで続いたミーティング。</span><br><span class="nb">辛いこともたくさんあったけれど、</span><span class="nb">駆け抜けた学生支部の1年。</span><br><br><span class="nb">社会人になってしばらく経った、いま。</span><br><span class="nb">あのときほど必死に</span><span class="nb">なれていない気がする。</span><br><span class="nb">周りと比べて、</span><span class="nb">焦ってしまう日がある。</span><br><br><span class="nb">あの1年、何が自分を</span><span class="nb">あそこまで動かしていたのか。</span><br><span class="nb">いまの仕事や生き方で、</span><span class="nb">何に本気になれていて、</span><span class="nb">何に本気になれていないのか。</span><br><br><span class="nb">TABIPPO学生支部の卒業生に向けた、</span><span class="nb">自分の生き方を</span><span class="nb">ことばにしていく90分です。</span></p>
-      <div class="date">
-        <div><span class="date-y">2026</span><span class="date-d">11.22</span></div>
-        <div><span class="date-w">日曜日</span><span class="date-t">19:00–20:30</span></div>
-      </div>
-      <p class="cond">参加無料<span class="sep">／</span>Zoom開催<span class="sep">／</span>先着10名</p>
-      <a class="btn" href="https://liff.line.me/2004689256-jVradzOV/landing?follow=%40801pdwhq&amp;lp=EuKI48&amp;liff_id=2004689256-jVradzOV" target="_blank" rel="noopener">公式LINEで申し込む</a>
-      <p class="note">PC・顔出し・音声出しでご参加ください。</p>
+      <p class="fv-label">TABIPPO学生支部のOB・OGのための体験会</p>
+      <h1 class="mc"><span class="nb">学生支部の<span class="num">1</span>年と、</span><br><span class="nb">いまの生き方を、</span><br><span class="nb">ことばにする<span class="num">90</span>分。</span></h1>
+      <p class="lead">あの<span class="nb">1年といまの毎日を並べて、</span><br><span class="nb">支部も代も違うOB・OGと話しながら、</span><br><span class="nb">自分の生き方をことばにしていく</span><br><span class="nb">90分です。</span></p>
+      <img class="fv-woman" src="images/kv_woman.png" alt="">
     </div>
-    <figure class="fv-photo"><img src="images/hero_terrace_talk.jpg" alt="海辺のテラスで向かい合って笑う2人"></figure>
   </div>
-  <div class="fv-bottom in">
-    <div class="date">
-      <div><span class="date-y">2026</span><span class="date-d">11.22</span></div>
-      <div><span class="date-w">日曜日</span><span class="date-t">19:00–20:30</span></div>
+  <div class="fv-band">
+    <div class="date"><div><span class="date-y">2026</span><span class="date-d">11.22</span></div><div><span class="date-w">日曜日</span><span class="date-t">19:00–20:30</span></div></div>
+    <p class="cond">参加無料<span class="sep">／</span>Zoom開催<span class="sep">／</span>先着10名</p>
+    <a class="btn" href="https://liff.line.me/2004689256-jVradzOV/landing?follow=%40801pdwhq&amp;lp=EuKI48&amp;liff_id=2004689256-jVradzOV" target="_blank" rel="noopener">LINEで申し込む</a>
+  </div>
+</section>
+
+<!-- ===== あの1年と、いま（v2の冒頭の文章） ===== -->
+<section class="feel">
+  <div class="in">
+    <figure class="feel-photo tilt"><img src="images/feel_team_laugh.jpg" alt="テーブルを囲んで笑っている" loading="lazy"></figure>
+    <div class="feel-body">
+      <p><span class="nb">息を吸うように集客をした日々。</span><br><span class="nb">毎日、深夜まで続いたミーティング。</span><br><span class="nb">辛いこともたくさんあったけれど、</span><br><span class="nb">駆け抜けた学生支部の1年。</span></p>
+      <p><span class="nb">社会人になってしばらく経った、いま。</span><br><span class="nb">あのときほど必死に</span><span class="nb">なれていない気がする。</span><br><span class="nb">周りと比べて、</span><span class="nb">焦ってしまう日がある。</span></p>
+      <p><span class="nb">あの1年、何が自分を</span><span class="nb">あそこまで動かしていたのか。</span><br><span class="nb">いまの仕事や生き方で、</span><span class="nb">何に本気になれていて、</span><span class="nb">何に本気になれていないのか。</span></p>
     </div>
-    <div class="fv-how">
-      <p class="cond">参加無料<span class="sep">／</span>Zoom開催<span class="sep">／</span>先着10名</p>
-      <p class="note">PC・顔出し・音声出しでご参加ください。</p>
-    </div>
-    <a class="btn" href="https://liff.line.me/2004689256-jVradzOV/landing?follow=%40801pdwhq&amp;lp=EuKI48&amp;liff_id=2004689256-jVradzOV" target="_blank" rel="noopener">公式LINEで申し込む</a>
   </div>
 </section>
 
 <!-- ===== 当日の問い ===== -->
 <section class="q off">
-  <div class="in">
-    <figure class="q-photo"><img src="images/question_table.jpg" alt="紙を前に頬杖をついて考えている" loading="lazy"></figure>
+  <div class="in" style="padding-inline:0">
+    <!-- 写真：BackpackFESTA 2024の本番前、客席でパソコンを開いて準備するスタッフ（Drive「その他素材」DSC03154） -->
+    <figure class="q-photo"><img src="images/question_staff_night.jpg" alt="暗い客席でパソコンを開いて準備しているスタッフ" loading="lazy"></figure>
     <div class="q-sheet paper">
-      <p class="label">当日のワークシートから</p>
+      <p class="q-label">当日は、この問いと向き合います</p>
       <p class="q-text"><span class="nb">学生支部で、いちばん</span><br><span class="nb">本気になったのは、</span><br><span class="nb">どんなときでしたか？</span></p>
       <p class="q-text q-text-2"><span class="nb">そのとき、</span><span class="nb">なぜそこまで</span><span class="nb">本気になれたのだと</span><span class="nb">思いますか？</span></p>
-      <div class="q-write">
-        <div class="q-lines" aria-hidden="true"><span></span><span></span></div>
-      </div>
+      <div class="q-lines" aria-hidden="true"><span></span><span></span></div>
       <p class="q-help body"><span class="nb">返事が来なかったLINE、</span><span class="nb">言い合いになったミーティング、</span><span class="nb">BPFが終わった次の日。</span><span class="nb">うまくいった場面で</span><span class="nb">なくても大丈夫です。</span></p>
       <div class="q-more">
-        <p class="label">このあと、こんな問いも書いていきます</p>
+        <p class="q-more-label">このあと、こんな問いも書いていきます</p>
         <ol class="q-more-list">
           <li><span class="nb">社会人になってから、</span><span class="nb">あのころと同じくらい</span><span class="nb">本気になれた場面は</span><span class="nb">ありますか？</span></li>
           <li><span class="nb">いまの仕事や生き方で、</span><span class="nb">物足りないと感じるのは、</span><span class="nb">どんなときですか？</span></li>
@@ -530,85 +490,73 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </section>
 
-<!-- ===== 90分の流れ ===== -->
+<!-- ===== 流れ ===== -->
 <section class="flow">
   <div class="in">
-    <h2><img class="lt" src="images/lt-flow.svg" alt="90分の流れ" width="327" height="64"></h2>
-    <ul class="route" aria-hidden="true">
-      <li><img class="no" src="images/num-01.svg" alt=""><span>はじめに</span></li>
-      <li><img class="no" src="images/num-02.svg" alt=""><span>書く</span></li>
-      <li><img class="no" src="images/num-03.svg" alt=""><span>話す</span></li>
-      <li><img class="no" src="images/num-04.svg" alt=""><span>問いにする</span></li>
-      <li><img class="no" src="images/num-05.svg" alt=""><span>また話して、書く</span></li>
-    </ul>
+    <div class="flow-head">
+      <h2 class="h2">流れ</h2>
+      <p class="flow-lead">書いて、<br>話して、<br>また書く。</p>
+    </div>
+    <div class="flow-photos">
+      <figure><img src="images/flow_write.jpg" alt="ノートを手に書いている" loading="lazy" style="object-position:30% 40%"><figcaption>書く</figcaption></figure>
+      <figure><img src="images/flow_talk.jpg" alt="ソファで並んで話している2人" loading="lazy"><figcaption>話す</figcaption></figure>
+      <figure><img src="images/flow_question.jpg" alt="ペンを手に考えている" loading="lazy" style="object-position:45% 40%"><figcaption>問いにする</figcaption></figure>
+    </div>
     <ol class="steps">
-      <li class="step"><img class="no" src="images/num-01.svg" alt="01"><h3>はじめに</h3><p class="body">支部と代、当時いたチームを、ひとことずつ。<span class="nb">いまの会社や</span><span class="nb">肩書きの紹介は</span>なしにしています。</p></li>
-      <li class="step"><img class="no" src="images/num-02.svg" alt="02"><h3>書く</h3><p class="body">学生支部でいちばん本気になったときのことと、なぜそこまで本気になれたのかを書き出します。集客がうまくいかなかったことや、<span class="nb">仲間とぶつかったことも</span>そのまま書いて大丈夫です。</p></li>
-      <li class="step"><img class="no" src="images/num-03.svg" alt="03"><h3>話す</h3><p class="body">支部も代も違う3〜4人で、書いたことを話します。うまくまとめなくて大丈夫です。</p></li>
-      <li class="step"><img class="no" src="images/num-04.svg" alt="04"><h3>問いにする</h3><p class="body">学生支部の1年といまの毎日を並べて、<span class="nb">「なぜ私は〜なのか？」</span>のような問いの形にします。POOLOでは、こうして立てた問いを<span class="nb">「探究テーマ」と</span>呼んでいます。</p></li>
-      <li class="step"><img class="no" src="images/num-05.svg" alt="05"><h3>また話して、書く</h3><p class="body">問いをもう一度、<span class="nb">3〜4人で話します。</span>話す前と比べて、問いのことばが<span class="nb">どう変わったかも</span>書きとめます。</p></li>
+      <li class="step"><div class="step-head"><span class="step-no">1</span><h3>はじめに</h3></div><p class="body">支部と代、当時いたチームを、ひとことずつ。<span class="nb">いまの会社や</span><span class="nb">肩書きの紹介は</span>なしにしています。</p></li>
+      <li class="step"><div class="step-head"><span class="step-no">2</span><h3>書く</h3></div><p class="body">学生支部でいちばん本気になったときのことと、なぜそこまで本気になれたのかを書き出します。集客がうまくいかなかったことや、<span class="nb">仲間とぶつかったことも</span>そのまま書いて大丈夫です。</p></li>
+      <li class="step"><div class="step-head"><span class="step-no">3</span><h3>話す</h3></div><p class="body">支部も代も違う3〜4人で、書いたことを話します。うまくまとめなくて大丈夫です。</p></li>
+      <li class="step"><div class="step-head"><span class="step-no">4</span><h3>問いにする</h3></div><p class="body">学生支部の1年といまの毎日を並べて、<span class="nb">「なぜ私は〜なのか？」</span>のような問いの形にします。</p></li>
+      <li class="step"><div class="step-head"><span class="step-no">5</span><h3>また話して、書く</h3></div><p class="body">問いをもう一度、<span class="nb">3〜4人で話します。</span>話す前と比べて、問いのことばが<span class="nb">どう変わったかも</span>書きとめます。</p></li>
     </ol>
   </div>
 </section>
 
-<!-- ===== 持ち帰るもの ===== -->
-<section class="take off">
+<!-- ===== わたしの問い ===== -->
+<section class="take">
   <div class="in">
-    <h2 class="take-head"><img class="lt" src="images/lt-take.svg" alt="持ち帰るもの" width="285" height="56"></h2>
-    <div class="take-slip paper">
-      <p class="take-body body">最後に、これから大切に、ゆっくり考えていきたい問いを<span class="nb">ひとつ書きます。</span>今週その問いを誰に話してみるかも決めて、<span class="nb">90分を終えます。</span></p>
-    </div>
+    <h2 class="h2">わたしの問い</h2>
+    <div class="take-slipwrap"><p class="take-slip">なぜ私は、<br class="sp-br"><span class="blank">＿＿＿＿＿＿</span>のか。</p></div>
+    <p class="take-body body">最後に、これから大切に、<br class="pc-br">ゆっくり考えていきたい問いをひとつ書きます。<br class="pc-br">今週その問いを誰に話してみるかも決めて、<br class="pc-br">90分を終えます。</p>
   </div>
 </section>
 
-<!-- ===== 3つの約束と申込 ===== -->
+<figure class="band"><img src="images/band_team_table.jpg" alt="テーブルを囲んで笑っている仲間たち" loading="lazy"></figure>
+
+<!-- ===== 3つの約束 ===== -->
 <section class="rules off">
   <div class="in">
-    <figure class="rules-photo"><img src="images/promise_listen.jpg" alt="机を囲んで話を聞いている" loading="lazy"></figure>
-    <div class="rules-inner">
-      <div class="rules-card paper">
-        <h2><img class="lt" src="images/lt-rules.svg" alt="3つの約束" width="280" height="64"></h2>
-        <ol class="rules-list">
-          <li><img class="no" src="images/num-01.svg" alt="01"><span>上手な言葉にしなくてもいい</span></li>
-          <li><img class="no" src="images/num-02.svg" alt="02"><span>斜に構えない、かっこつけない</span></li>
-          <li><img class="no" src="images/num-03.svg" alt="03"><span>沈黙を焦らない</span></li>
-        </ol>
-      </div>
-      <div class="rules-apply">
-        <p class="date-line"><span class="num">11/22</span>（日）<span class="num">19:00–20:30</span><br>Zoom開催・参加無料・先着<span class="num">10</span>名</p>
-        <a class="btn" href="https://liff.line.me/2004689256-jVradzOV/landing?follow=%40801pdwhq&amp;lp=EuKI48&amp;liff_id=2004689256-jVradzOV" target="_blank" rel="noopener">公式LINEで申し込む</a>
-        <p class="small">体験会のみの参加もできます。</p>
-      </div>
+    <h2 class="h2">3つの約束</h2>
+    <figure class="rules-photo tilt b"><img src="images/rules_listen.jpg" alt="ソファで向かい合って話を聞いている" loading="lazy"></figure>
+    <div class="rules-card paper">
+      <ol class="rules-list">
+        <li><b class="rules-no">1</b><span>上手なことばにしなくてもいい</span></li>
+        <li><b class="rules-no">2</b><span>斜に構えない、かっこつけない</span></li>
+        <li><b class="rules-no">3</b><span>沈黙を焦らない</span></li>
+      </ol>
+    </div>
+    <div class="rules-apply">
+      <p class="date-line"><span class="num">11/22</span>（日）<span class="num">19:00–20:30</span><br>Zoom開催・参加無料・先着<span class="num">10</span>名</p>
+      <a class="btn" href="https://liff.line.me/2004689256-jVradzOV/landing?follow=%40801pdwhq&amp;lp=EuKI48&amp;liff_id=2004689256-jVradzOV" target="_blank" rel="noopener">LINEで申し込む</a>
+      <p class="small">体験会のみの参加もできます。</p>
     </div>
   </div>
 </section>
 
-<!-- ===== 初代の運営統括から（参加のきっかけの組みを流用） ===== -->
-<!-- [要確認] 本文はみっちーのnote（2026-02-10「TABIPPO学生支部2015年〜2023年のOBへの問い。」）の内容をもとに書いた。本人の確認が必要 -->
+<!-- ===== 初代の運営統括から（30代v3の「参加の動機」の組み） ===== -->
+<!-- [要確認] 本文はみっちーのnote（2026-02-10「TABIPPO学生支部2015年〜2023年のOBへの問い。」）の内容をもとに書いた（v2から移したまま） -->
 <section class="voices">
   <div class="in">
-    <div class="voices-head">
-      <h2 class="h2">初代の運営統括から</h2>
+    <h2 class="h2">初代の運営統括から</h2>
+    <figure class="voices-photo tilt b"><img src="images/organizer_michi.jpg" alt="海辺の草地で椅子に座って笑う恩田倫孝" loading="lazy"></figure>
+    <div class="voice-list">
+      <p class="voice-who">恩田倫孝（みっちー）／POOLO学長<br>TABIPPO学生支部の初代運営統括（2011年）</p>
+      <p class="quote">学生支部の初年度。1000人のイベントなんてもちろんやったこともない。ミーティングとかアジェンダみたいな言葉も知らないし、議事録を作るみたいなこともよく分からなかった。過去のデータもないから、0からTABIPPOの学生支部は始まった。</p>
+      <p class="quote">ただがむしゃらにやり続けて、イベントが終わったあと、すごく嬉しかった気持ちと安心した気持ちが湧き起こったのを、今でもよく覚えている。そして、これが今の僕の原体験になっている。</p>
+      <p class="quote">社会人になると、感情をむき出しにしてぶつかる場面は減って、毎日は安定していく。うまく回っている毎日に、物足りなさを感じることもある。学生支部での1年は、あとになってから問いになって返ってくるものだと思う。自分の「好き」はどこから生まれるのか。覚悟が生まれるのは、どんなときか。仲間になっていくのは、どういうときか。</p>
+      <p class="quote">この90分は、その問いを、同じように学生支部で1年を過ごしたOB・OGと一緒に考える時間として企画しました。</p>
     </div>
-    <div class="voices-row">
-      <figure class="voices-photo"><img src="images/organizer_michi.jpg" alt="海辺の草地で椅子に座って笑う恩田倫孝" loading="lazy" style="object-position: 50% 30%;"></figure>
-      <ul class="voice-list">
-        <li class="voice">
-          <p class="voice-who">恩田倫孝（みっちー）／POOLO学長<br>TABIPPO学生支部の初代運営統括（2011年）</p>
-          <p class="quote">学生支部の初年度。1000人のイベントなんてもちろんやったこともない。ミーティングとかアジェンダみたいな言葉も知らないし、議事録を作るみたいなこともよく分からなかった。過去のデータもないから、0からTABIPPOの学生支部は始まった。</p>
-        </li>
-        <li class="voice">
-          <p class="quote">ただがむしゃらにやり続けて、イベントが終わったあと、すごく嬉しかった気持ちと安心した気持ちが湧き起こったのを、今でもよく覚えている。そして、これが今の僕の原体験になっている。</p>
-        </li>
-        <li class="voice">
-          <p class="quote">社会人になると、感情をむき出しにしてぶつかる場面は減って、毎日は安定していく。うまく回っている毎日に、物足りなさを感じることもある。学生支部での1年は、あとになってから問いになって返ってくるものだと思う。自分の「好き」はどこから生まれるのか。覚悟が生まれるのは、どんなときか。仲間になっていくのは、どういうときか。</p>
-        </li>
-        <li class="voice">
-          <p class="quote">この90分は、その問いを、同じように学生支部で1年を過ごしたOB・OGと一緒に考える時間として企画しました。</p>
-        </li>
-      </ul>
-    </div>
-    <p class="caption">2026年2月に書いた<a href="https://note.com/michinorionda/n/n298879bf619a" target="_blank" rel="noopener" style="color:var(--brand-deep);border-bottom:1px solid var(--brand);">note</a>をもとにしています。</p>
+    <p class="caption">2026年2月に書いた<a href="https://note.com/michinorionda/n/n298879bf619a" target="_blank" rel="noopener">note</a>をもとにしています。</p>
   </div>
 </section>
 
@@ -616,7 +564,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <section class="about off">
   <div class="in">
     <div class="about-text">
-      <h2><img class="lt" src="images/lt-about.svg" alt="POOLOについて" width="420" height="56"></h2>
+      <h2 class="h2">POOLOについて</h2>
       <img class="about-kv sp-only" src="images/poolo_keyvisual.jpg" alt="POOLOのキービジュアル。旅と人生をつなぐ大人の学び" loading="lazy">
       <p class="body">POOLO（ポーロ）は、旅を入り口に、自分の生き方・働き方を問い直す大人の学び場です。2019年に開校し、これまでに1,200名以上が参加しています。運営は学生支部と同じTABIPPOで、これまでの期にも学生支部のOB・OGが参加しています。</p>
       <p class="body">学生支部には、BackpackFESTAという大きな目標と本番の日があって、そこに向けて全員で集客や準備を進めました。集客の数字が伸びたときや、当日をやりきったときの高揚は、学生支部ならではのものだと思います。</p>
@@ -635,7 +583,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- ===== 開催概要 ===== -->
 <section class="overview">
   <div class="in">
-    <h2 class="h2">開催概要</h2>
+    <h2 class="h2s">開催概要</h2>
     <div class="ov-wrap">
       <dl class="ov">
         <div class="ov-row"><dt>日時</dt><dd>2026年11月22日（日）<br>19:00–20:30</dd></div>
@@ -657,14 +605,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- ===== よくある質問 ===== -->
 <section class="faq">
   <div class="in">
-    <h2 class="h2">よくある質問</h2>
+    <h2 class="h2s">よくある質問</h2>
     <dl class="faq-list">
-      <div class="faq-item"><dt class="faq-q">当時の仲間がいなくても参加できますか？</dt><dd class="faq-a">はい。ひとりでの参加を歓迎しています。<span class="pc-nb">話す組は、</span>支部や代が重ならないように分けます。</dd></div>
-      <div class="faq-item"><dt class="faq-q">途中で学生支部を離れていても大丈夫ですか？</dt><dd class="faq-a">大丈夫です。活動していた期間の長さや、<span class="nb">当時の役職は</span>問いません。</dd></div>
-      <div class="faq-item"><dt class="faq-q">うまく話せるか不安です。</dt><dd class="faq-a">まとまっていないことばも大切にします。<span class="pc-nb">自分のペースで</span>話してみてください。</dd></div>
-      <div class="faq-item"><dt class="faq-q">終わったあとに、相談はできますか？</dt><dd class="faq-a">希望する方には、当日立てた問いの壁打ちもしています。<span class="pc-nb">最後に希望を</span>お聞きします。</dd></div>
-      <div class="faq-item"><dt class="faq-q">POOLO LIFEへの入会は必要ですか？</dt><dd class="faq-a">体験会のみの参加もできます。後半に8分ほど<span class="nb">POOLO LIFEの</span>紹介がありますが、その場で決めていただくものではありません。</dd></div>
-      <div class="faq-item"><dt class="faq-q">途中から参加できますか？</dt><dd class="faq-a">3〜4人での対話があるため、最初から最後まで<span class="nb">参加できる日に</span>お申し込みください。</dd></div>
+      <div class="faq-item"><dt class="faq-q">当時の仲間がいなくても参加できますか？</dt><dd class="faq-a">はい。ひとりでの参加を歓迎しています。話す組は、支部や代が重ならないように分けます。</dd></div>
+      <div class="faq-item"><dt class="faq-q">途中で学生支部を離れていても大丈夫ですか？</dt><dd class="faq-a">大丈夫です。活動していた期間の長さや、当時の役職は問いません。</dd></div>
+      <div class="faq-item"><dt class="faq-q">うまく話せるか不安です。</dt><dd class="faq-a">まとまっていないことばも大切にします。自分のペースで話してみてください。</dd></div>
+      <div class="faq-item"><dt class="faq-q">終わったあとに、相談はできますか？</dt><dd class="faq-a">希望する方には、当日立てた問いの壁打ちもしています。最後に希望をお聞きします。</dd></div>
+      <div class="faq-item"><dt class="faq-q">POOLO LIFEへの入会は必要ですか？</dt><dd class="faq-a">体験会のみの参加もできます。後半に8分ほどPOOLO LIFEの紹介がありますが、その場で決めていただくものではありません。</dd></div>
+      <div class="faq-item"><dt class="faq-q">途中から参加できますか？</dt><dd class="faq-a">3〜4人での対話があるため、最初から最後まで参加できる日にお申し込みください。</dd></div>
     </dl>
   </div>
 </section>
@@ -673,23 +621,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <section class="apply" id="apply">
   <div class="in">
     <div class="apply-head">
-      <h2 class="h2">体験会のお申し込み</h2>
+      <h2 class="h2s">体験会のお申し込み</h2>
       <p class="apply-msg body">気になった方は、<span class="nb">POOLO公式LINEから</span>お申し込みください。</p>
     </div>
     <div class="apply-box">
-      <div class="date">
-        <div><span class="date-y">2026</span><span class="date-d">11.22</span></div>
-        <div><span class="date-w">日曜日</span><span class="date-t">19:00–20:30</span></div>
-      </div>
+      <div class="date"><div><span class="date-y">2026</span><span class="date-d">11.22</span></div><div><span class="date-w">日曜日</span><span class="date-t">19:00–20:30</span></div></div>
       <p class="date-line">Zoom開催・参加無料・先着<span class="num">10</span>名</p>
-      <a class="btn" href="https://liff.line.me/2004689256-jVradzOV/landing?follow=%40801pdwhq&amp;lp=EuKI48&amp;liff_id=2004689256-jVradzOV" target="_blank" rel="noopener">公式LINEで申し込む</a>
+      <a class="btn" href="https://liff.line.me/2004689256-jVradzOV/landing?follow=%40801pdwhq&amp;lp=EuKI48&amp;liff_id=2004689256-jVradzOV" target="_blank" rel="noopener">LINEで申し込む</a>
       <p class="apply-steps">1. POOLO公式LINEを友だち追加<br>2. LINE内の案内から体験会に申し込む</p>
-      <dl class="apply-note"><dt>申込手続き</dt><dd>友だち追加後、LINE内の案内に沿って<span class="nb">お申し込みください。</span></dd></dl>
     </div>
   </div>
 </section>
 
-<!-- ===== フッター ===== -->
 <footer class="ft">
   <div class="in">
     <div class="ft-logos">
