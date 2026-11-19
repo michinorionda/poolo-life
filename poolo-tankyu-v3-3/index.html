@@ -505,6 +505,27 @@ header .sub1{font-size:15px;margin:0 0 18px}
 .dq{margin:34px 0 8px;padding:0}
 .dq .who{display:block;font-size:12px;font-weight:700;letter-spacing:.06em;color:var(--deep)}
 .dq p{margin:8px 0 0;font-family:var(--mincho);font-size:18px;line-height:2;letter-spacing:.04em;color:var(--deep);max-width:30em;word-break:auto-phrase;text-wrap:balance}
+.c4{margin:22px 0 18px;border-bottom:1px solid var(--line)}
+.c4-hd{display:none}
+.c4-row{display:grid;grid-template-columns:84px minmax(0,1fr);column-gap:18px;row-gap:14px;padding:26px 0;border-top:1px solid var(--line);grid-template-areas:"fig trip" "day day" "me me"}
+.c4-trip{grid-area:trip;align-self:end}
+.c4-day{grid-area:day}
+.c4-me{grid-area:me}
+.c4 .lb{display:block;font-size:12px;font-weight:700;letter-spacing:.06em;color:var(--sub);line-height:1.6;margin-bottom:2px}
+.c4-trip .lb{color:var(--deep)}
+.c4-trip h4{font-family:var(--title);font-weight:600;font-size:19px;line-height:1.5;letter-spacing:.04em;margin:0;color:var(--deep);word-break:auto-phrase;text-wrap:balance}
+.c4 p{margin:0;font-size:14px;line-height:1.8}
+.c4-trip p{margin-top:6px}
+.c4-day p{color:var(--sub)}
+@media (min-width:721px){
+  .c4-hd{display:grid;grid-template-columns:minmax(0,10fr) 120px minmax(0,14fr) minmax(0,11fr);column-gap:28px;font-size:12px;font-weight:700;letter-spacing:.06em;color:var(--sub);padding-bottom:10px}
+  .c4-hd .on{color:var(--deep)}
+  .c4-row{grid-template-columns:minmax(0,10fr) 120px minmax(0,14fr) minmax(0,11fr);column-gap:28px;padding:30px 0;align-items:center;grid-template-areas:"day fig trip me"}
+  .c4 .wfig{height:140px;align-self:center}
+  .c4-trip{align-self:center}
+  .c4 .lb{display:none}
+  .c4-trip h4{font-size:21px}
+}
 .rs{margin:26px 0 8px;border-bottom:1px solid var(--line)}
 .rs-row{display:grid;grid-template-columns:84px minmax(0,1fr);column-gap:18px;row-gap:14px;padding:26px 0;border-top:1px solid var(--line);grid-template-areas:"fig head" "body body" "nums nums"}
 .wfig{grid-area:fig;position:relative;height:104px;align-self:end;background:var(--figbg)}
@@ -660,7 +681,13 @@ header .sub1{font-size:15px;margin:0 0 18px}
 
       <h3>旅先で起きている4つのこと</h3>
       <p class="prose">2章に書いた4つの理由を、日常、旅先、僕が歩いた巡礼路の3つで並べた。</p>
-      <div class="four"><div><p class="fb"><b>日常では</b>選択肢は、情報として知っているだけ</p><p class="fimg"><img src="images/wc-3-fureru.jpg" alt="市場で、地元の女性から果物を受け取って笑う女性の水彩の絵" loading="lazy"></p><p class="fl">旅先では</p><h4>身体で触れる</h4><p class="fd">知らない生き方や暮らしに、身体ごと入る</p><p class="fj"><b>巡礼路では</b>800kmを自分の足で歩いた</p></div><div><p class="fb"><b>日常では</b>外の基準で決めている</p><p class="fimg"><img src="images/wc-3-kimeru.jpg" alt="リュックの男性が、路線図を指でたどって行き先を決めている水彩の絵" loading="lazy"></p><p class="fl">旅先では</p><h4>自分で決めるしかない</h4><p class="fd">慣れない場所では、周りの評価や「こうすべき」が通じない</p><p class="fj"><b>巡礼路では</b>道に迷い、どうするかをその場で決めた</p></div><div><p class="fb"><b>日常では</b>答えっぽいものに振り回されている</p><p class="fimg"><img src="images/wc-3-shodo.jpg" alt="旅先で何かに気づき、手帳に書きつける女性の水彩の絵" loading="lazy"></p><p class="fl">旅先では</p><h4>衝動が生まれる</h4><p class="fd">心が動いた経験から「やってみたい」が出てきて、それが自分の問いの元になる</p><p class="fj"><b>巡礼路では</b>「なぜ歩いているの？」に詰まり、日記が1万字になった</p></div><div><p class="fb"><b>日常では</b>ひとりで抱えている</p><p class="fimg"><img src="images/wc-3-wakachiau.jpg" alt="ベンチで年上の夫婦とお茶を飲みながら話す男性の水彩の絵" loading="lazy"></p><p class="fl">旅先では</p><h4>心が動いた経験を分かち合える</h4><p class="fd">旅先で出会った人に心が動いたことを話し、相手の経験も聞ける</p><p class="fj"><b>巡礼路では</b>助けてくれた夫婦、車で送ってくれた人、一緒に歩いた友人</p></div></div>
+      <div class="c4">
+        <div class="c4-hd"><span>日常では</span><span></span><span class="on">旅先では</span><span>巡礼路では</span></div>
+        <div class="c4-row"><div class="c4-day"><span class="lb">日常では</span><p>選択肢は、情報として知っているだけ</p></div><div class="wfig"><img src="images/wc-3-fureru.jpg" alt="市場で、地元の女性から果物を受け取って笑う女性の水彩の絵" loading="lazy"></div><div class="c4-trip"><span class="lb">旅先では</span><h4>身体で触れる</h4><p>知らない生き方や暮らしに、身体ごと入る</p></div><div class="c4-me"><span class="lb">巡礼路では</span><p>800kmを自分の足で歩いた</p></div></div>
+        <div class="c4-row"><div class="c4-day"><span class="lb">日常では</span><p>外の基準で決めている</p></div><div class="wfig"><img src="images/wc-3-kimeru.jpg" alt="リュックの男性が、路線図を指でたどって行き先を決めている水彩の絵" loading="lazy"></div><div class="c4-trip"><span class="lb">旅先では</span><h4>自分で決めるしかない</h4><p>慣れない場所では、周りの評価や「こうすべき」が通じない</p></div><div class="c4-me"><span class="lb">巡礼路では</span><p>道に迷い、どうするかをその場で決めた</p></div></div>
+        <div class="c4-row"><div class="c4-day"><span class="lb">日常では</span><p>答えっぽいものに振り回されている</p></div><div class="wfig"><img src="images/wc-3-shodo.jpg" alt="旅先で何かに気づき、手帳に書きつける女性の水彩の絵" loading="lazy"></div><div class="c4-trip"><span class="lb">旅先では</span><h4>衝動が生まれる</h4><p>心が動いた経験から「やってみたい」が出てきて、それが自分の問いの元になる</p></div><div class="c4-me"><span class="lb">巡礼路では</span><p>「なぜ歩いているの？」に詰まり、日記が1万字になった</p></div></div>
+        <div class="c4-row"><div class="c4-day"><span class="lb">日常では</span><p>ひとりで抱えている</p></div><div class="wfig"><img src="images/wc-3-wakachiau.jpg" alt="ベンチで年上の夫婦とお茶を飲みながら話す男性の水彩の絵" loading="lazy"></div><div class="c4-trip"><span class="lb">旅先では</span><h4>心が動いた経験を分かち合える</h4><p>旅先で出会った人に心が動いたことを話し、相手の経験も聞ける</p></div><div class="c4-me"><span class="lb">巡礼路では</span><p>助けてくれた夫婦、車で送ってくれた人、一緒に歩いた友人</p></div></div>
+      </div>
 
       <h3 id="m-tabi-view">POOLOは旅をどう捉えているか</h3>
       
