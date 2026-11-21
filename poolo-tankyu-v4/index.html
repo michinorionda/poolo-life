@@ -472,6 +472,11 @@ tr:target td{background:color-mix(in srgb,var(--accent) 10%,var(--paper))}
 .qs p{margin:0;text-wrap:balance;font-size:clamp(17px,2.4vw,22px);font-weight:700;line-height:1.75;letter-spacing:.06em}
 .qs em{font-style:normal;color:var(--qy);font-size:1.16em;letter-spacing:.03em;margin:0 .22em;white-space:nowrap}
 @media (max-width:720px){.qs li{grid-template-columns:2.6em minmax(0,1fr)}}
+.essay{--qb:#189BBC;--qy:#F8E854;margin:8px 0 6px;background:var(--qb);color:#fff;border:3px solid var(--qy);padding:40px clamp(22px,5vw,56px) 38px}
+.essay p{margin:0 0 26px;font-size:clamp(16px,2.2vw,19px);font-weight:700;line-height:2;letter-spacing:.06em}
+.essay p:last-child{margin-bottom:0}
+.essay .l{display:inline-block}
+.essay .hl{color:var(--qy)}
 nav.toc{margin-top:26px;border:1px solid var(--line);background:var(--paper);padding:20px clamp(16px,3vw,26px) 18px;font-size:14px}
 nav.toc .toc-h{margin:0 0 12px;font-size:12.5px;font-weight:700;letter-spacing:.14em;color:var(--sub)}
 nav.toc a{border-bottom:0;color:var(--ink);text-decoration:none;display:flex;gap:12px;align-items:baseline;line-height:1.6}
@@ -581,7 +586,7 @@ header .sub1{font-size:15px;margin:0 0 18px}
       <p class="lead">それでは、始めます！</p>
       <nav class="toc" aria-label="目次">
         <p class="toc-h">目次</p>
-        <a class="toc-pro" href="#prologue"><span class="toc-n">00</span>プロローグ：3つの問い</a>
+        <a class="toc-pro" href="#prologue"><span class="toc-n">00</span>プロローグ</a>
         <ol class="toc-main"><li><a href="#origin"><span class="toc-n">01</span>POOLOの始まり</a></li><li><a href="#era"><span class="toc-n">02</span>なぜ、こうした悩みが溢れているのか</a></li><li><a href="#travel"><span class="toc-n">03</span>旅をしているとき、人は楽しそうに生きている</a></li><li><a href="#return"><span class="toc-n">04</span>帰ってから、旅の続きはどこで起きる？</a></li><li><a href="#method"><span class="toc-n">05</span>旅を、自問・対話・共創へつなげる</a></li><li><a href="#happen"><span class="toc-n">06</span>8ヶ月で起きること</a></li><li><a href="#together"><span class="toc-n">07</span>ひとりではたどり着けない</a></li><li><a href="#aim"><span class="toc-n">08</span>POOLOが目指すこと</a></li></ol>
         <div class="toc-end"><a href="#axis">おわりに：答えの出ない問いを持ちつづける</a><a href="#closing">参加を考えている人へ：よくある不安</a></div>
         <div class="toc-ref"><p class="toc-lb">資料編</p><a href="#howto">POOLOの探究サマリー</a><a href="#detail">4つのステップの定義と理由</a><a href="#ref">言葉・モデル・理論の一覧</a><a href="#appendix">付録A・B（型の詳細・ほかのメソッドとの違い）</a></div>
@@ -589,7 +594,13 @@ header .sub1{font-size:15px;margin:0 0 18px}
     </header>
 
     <section id="prologue" class="prologue" aria-label="プロローグ">
-      <ol class="qs"><li><span class="qn">Q1</span><p>最後に、<em>時間を忘れて</em>誰かと話したのはいつですか？</p></li><li><span class="qn">Q2</span><p>社会人になって、<em>本気で語り合える仲間</em>はいますか？</p></li><li><span class="qn">Q3</span><p>最後に「これは<em>自分で決めた</em>」と胸を張れる決断をしたのはいつですか？</p></li></ol>
+      <div class="essay">
+        <p><span class="l"><span class="l">「完璧な人生」なんて、</span><span class="l">存在しないだろうし</span></span><br><span class="l">大切なことほど、答えがない。</span></p>
+        <p><span class="l"><span class="l">日常の中で、</span><span class="l">遠ざかっていたものがある。</span></span><br><span class="l hl">時間を忘れるほどの、本音の対話</span><br><span class="l hl">肩書きを脱ぎ、向き合える仲間</span><br><span class="l hl">「自分で決めた」と言える選択</span></p>
+        <p><span class="l">だから僕らは、旅に出る。</span></p>
+        <p><span class="l">「正解」という幻想を手放し、</span><br><span class="l"><span class="l">自らの意思で選び、</span><span class="l">問い続けることこそが、</span></span><br><span class="l">人生を、自分のものにする。</span></p>
+        <p><span class="l"><span class="l">あなたの好奇心と、</span><span class="l">今を揺さぶる勇気を問う。</span></span><br><span class="l"><span class="l">旅の学校が、</span><span class="l">あなたの可能性をひらく。</span></span></p>
+      </div>
       <figure class="vision"><img id="img-prologue" src="images/c-toi.jpg" width="1600" height="1000" alt="ノートを持って笑う人の写真が枠から出ていて、となりにノートに書く旅の女性の水彩の絵がある。左上に英字でTOI。"></figure>
     </section>
 
