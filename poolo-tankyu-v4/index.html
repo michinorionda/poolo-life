@@ -90,6 +90,11 @@ th, td{text-align:left;vertical-align:top;padding:10px 12px;border-bottom:1px so
 thead th{font-weight:700;color:var(--sub);font-size:12.5px;border-bottom:1px solid var(--ink)}
 td small{display:block;color:var(--sub);font-size:12.5px;margin-top:2px}
 .note{color:var(--sub);font-size:13px;max-width:44em}
+.column{background:var(--proc);border-top:2px solid var(--accent);padding:24px clamp(18px,4vw,32px) 22px;margin:30px 0 28px}
+.column .lbl{font-size:12px;font-weight:700;color:var(--accent);letter-spacing:.08em;margin:0 0 6px}
+.column h4{font-size:18px;line-height:1.6;margin:0 0 12px;text-wrap:balance}
+.column p{max-width:42em;margin:0 0 12px}
+.column p:last-child{margin-bottom:0}
 .key{margin:30px 0 10px;padding:22px 0;border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);font-size:clamp(19px,2.6vw,24px);font-weight:700;line-height:1.7;text-wrap:balance}
 .key::before{content:"一言で言うと";display:block;font-size:12.5px;font-weight:700;color:var(--accent);letter-spacing:.08em;margin:0 0 6px}
 .key small{display:block;font-size:13px;font-weight:400;color:var(--sub);margin-top:6px}
@@ -714,6 +719,15 @@ header .sub1{font-size:15px;margin:0 0 18px}
         <div><span class="sil"><img src="images/wc-omoshiro.jpg" alt="緑のリュックの女性が、広げた地図を見て笑っている水彩の絵" loading="lazy"></span><div><span class="tn2">3</span><h4>面白がる</h4><p><span class="when2">旅では</span>計画どおりにいかない、言葉が通じない、知らない価値観に出会う。そうした予定外のことを受け入れて、問いのきっかけにする。</p><p><span class="when2 on">POOLOの8ヶ月では</span>うまく言えないものをそのまま残す。予想と違う返事を、問いの書き換えに使う。</p><p><span class="when2 off">できていないときは</span>一歩引いて、斜に構えて眺めている。傷つかずにすむけれど、何も起きない。よく分からないことほど、まず乗ってみる。</p></div></div>
       </div>
       <p class="note">ステップごとの使い方は、付録Aの<a href="#m-kamae">旅的スタンス</a>にまとめた。</p>
+
+      <aside class="column" id="m-column-jibun" aria-labelledby="m-column-jibun-h">
+        <p class="lbl">コラム</p>
+        <h4 id="m-column-jibun-h"><span style="display:inline-block">「本当の自分」は、</span><span style="display:inline-block">探さなくていい</span></h4>
+        <p>旅に出る理由に、「本当の自分を見つけたい」を挙げる人は多い。その気持ちがあるから、いつもの暮らしの外へ出かけられる。</p>
+        <p>ただ、どこかに決まった「本当の自分」があると考えると、苦しくなることがある。見つからないあいだは、今の自分を仮のもののように感じる。見つけたと思うと、それに合わないことを避けるようになる。</p>
+        <p>POOLOでは、決まった「本当の自分」があるとは考えていない。自分は、誰と会い、何をするかで変わっていく。旅先で誰かの暮らしに触れたとき、相手のことと一緒に、自分のことも初めて知る。</p>
+        <p>内田樹さんと近内悠太さんは、対談『自由より自在に生きる』のなかで、こだわりを手放してその場に応じて動けることを「自在」と呼んでいる。3つのスタンスは、どれもここに向かっている。自分は悪くないという正しさ、失敗したくない気持ち、傷つきたくない気持ち。こうしたこだわりから離れると、相手や場面に応じて動けるようになる。</p>
+      </aside>
 
       <figure class="vision"><img id="img-kobo" src="images/c-tabi.jpg" width="1600" height="1000" alt="カメラを構える人の写真が枠から出ていて、となりに地図を見る旅の女性の水彩の絵がある。左上に英字でTABI。" loading="lazy"></figure>
     </section>
