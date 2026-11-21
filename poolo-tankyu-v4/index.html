@@ -504,6 +504,14 @@ nav.ftoc{margin-top:0}
  body{padding-bottom:52px}
 }
 @media print{.ftoc{display:none}}
+.readers{margin:18px 0 16px;padding:16px 20px;border-left:3px solid var(--accent);background:var(--proc);font-size:14.5px;max-width:44em}
+.readers .rh{margin:0 0 6px;font-weight:700;font-size:13px;letter-spacing:.08em;color:var(--accent)}
+.readers ul{margin:0 0 10px;padding-left:1.1em}
+.readers li{margin:0 0 4px}
+.readers .rd::before{content:"："}
+.readers .ib{display:inline-block}
+@media (max-width:640px){.readers li b{display:block}.readers .rd::before{content:none}}
+.readers .rt{margin:0;color:var(--sub);font-size:13.5px}
 nav.toc{margin-top:26px;border:1px solid var(--line);background:var(--paper);padding:20px clamp(16px,3vw,26px) 18px;font-size:14px}
 nav.toc .toc-h{margin:0 0 12px;font-size:12.5px;font-weight:700;letter-spacing:.14em;color:var(--sub)}
 nav.toc a{border-bottom:0;color:var(--ink);text-decoration:none;display:flex;gap:12px;align-items:baseline;line-height:1.6}
@@ -610,6 +618,15 @@ header .sub1{font-size:15px;margin:0 0 18px}
       <p class="sub1"><span class="ib">すぐには答えの出ない問いとともに、</span><span class="ib">人生を旅するように面白がる</span></p>
       <p class="lead">こんにちは！みっちーです。POOLOの考え方を、本のように頭から読めるようにまとめました。POOLOが目指すこと、始めた理由、旅をどう捉えているか、8ヶ月で何をして、何が起きるのかを、できる限りていねいに書いています。</p>
       <p class="lead">今の時点で、80点くらいのできかなと思っています。読んでくれたみんなと一緒に、作っていきたいと思っています。感想や「ここが分からない（どういうこと？）」みたいな連絡、ウェルカムです！</p>
+      <div class="readers">
+        <p class="rh">読んでほしい人</p>
+        <ul>
+          <li><b>POOLOの卒業生</b><span class="rd"><span class="ib">自分の8ヶ月を</span><span class="ib">ふり返るときに</span></span></li>
+          <li><b>運営チームやゲストのみなさん</b><span class="rd"><span class="ib">POOLOが大切にしていることを</span><span class="ib">知ってもらうために</span></span></li>
+          <li><b>参加を考えている人</b><span class="rd"><span class="ib">自分に合いそうかを</span><span class="ib">確かめるために</span></span></li>
+        </ul>
+        <p class="rt"><span class="ib">本編は、じっくり読むと30分ほどです。</span><span class="ib">資料編は必要なときに読んでください。</span></p>
+      </div>
       <p class="lead">それでは、始めます！</p>
       <nav class="toc" aria-label="目次">
         <p class="toc-h">目次</p>
