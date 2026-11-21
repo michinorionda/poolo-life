@@ -504,14 +504,15 @@ nav.ftoc{margin-top:0}
  body{padding-bottom:52px}
 }
 @media print{.ftoc{display:none}}
-.readers{margin:18px 0 16px;padding:16px 20px;border-left:3px solid var(--accent);background:var(--proc);font-size:14.5px;max-width:44em}
-.readers .rh{margin:0 0 6px;font-weight:700;font-size:13px;letter-spacing:.08em;color:var(--accent)}
-.readers ul{margin:0 0 10px;padding-left:1.1em}
-.readers li{margin:0 0 4px}
+.readers{margin:0 0 14px;max-width:42em}
+.readers .rh{margin:0}
+.readers ul{list-style:none;margin:0 0 14px;padding:0}
+.readers li{margin:0;padding-left:1em;text-indent:-1em}
+.readers li::before{content:"・"}
+.readers li b{font-weight:inherit}
 .readers .rd::before{content:"："}
-.readers .ib{display:inline-block}
-@media (max-width:640px){.readers li b{display:block}.readers .rd::before{content:none}}
-.readers .rt{margin:0;color:var(--sub);font-size:13.5px}
+.readers .ib{display:inline-block;text-indent:0}
+.readers .rt{margin:0}
 nav.toc{margin-top:26px;border:1px solid var(--line);background:var(--paper);padding:20px clamp(16px,3vw,26px) 18px;font-size:14px}
 nav.toc .toc-h{margin:0 0 12px;font-size:12.5px;font-weight:700;letter-spacing:.14em;color:var(--sub)}
 nav.toc a{border-bottom:0;color:var(--ink);text-decoration:none;display:flex;gap:12px;align-items:baseline;line-height:1.6}
