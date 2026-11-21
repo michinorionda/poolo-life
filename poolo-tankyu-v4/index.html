@@ -477,6 +477,33 @@ tr:target td{background:color-mix(in srgb,var(--accent) 10%,var(--paper))}
 .essay p:last-child{margin-bottom:0}
 .essay .l{display:inline-block}
 .essay .hl{color:var(--deep)}
+/* 画面に残る目次：広い画面は左に一覧、それ以外は下に今の章名 */
+.ftoc{position:fixed;z-index:40;font-size:13px;line-height:1.5;opacity:0;visibility:hidden;transition:opacity .2s}
+.ftoc.on{opacity:1;visibility:visible}
+.ftoc a{color:var(--sub);text-decoration:none;display:flex;gap:8px;padding:5px 0}
+.ftoc a:hover{color:var(--accent)}
+.ftoc a.cur{color:var(--ink);font-weight:700}
+.ftoc a.cur .fn{color:var(--accent)}
+.ftoc .fn{font-family:var(--num);color:var(--sub);flex:none;width:1.7em;letter-spacing:.04em}
+.ftoc .fl{margin:0;padding:0;list-style:none;columns:auto}
+nav.ftoc{margin-top:0}
+.ftoc a,.ftoc a:hover{border-bottom:0}
+.ftoc .fbar{display:none}
+@media (min-width:1360px){
+ .ftoc{left:calc(50% - 460px - 230px);top:96px;width:200px}
+ .ftoc .fl li.sep{margin-top:8px;padding-top:8px;border-top:1px solid var(--line)}
+}
+@media (max-width:1359px){
+ .ftoc{left:0;right:0;bottom:0;background:var(--paper);border-top:1px solid var(--line);box-shadow:0 -4px 16px rgba(0,0,0,.06);padding-bottom:env(safe-area-inset-bottom,0px)}
+ .ftoc .fbar{display:flex;align-items:center;gap:10px;width:100%;max-width:920px;margin:0 auto;padding:10px max(16px,env(safe-area-inset-left,0px));background:none;border:0;color:var(--ink);font:inherit;font-size:13.5px;text-align:left;cursor:pointer}
+ .ftoc .fbar .fcur{flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-weight:700}
+ .ftoc .fbar .fcur .fn{color:var(--accent);margin-right:6px}
+ .ftoc .fbar .fbtn{flex:none;color:var(--accent);font-weight:700;font-size:12.5px}
+ .ftoc .fl{display:none;max-width:920px;margin:0 auto;padding:4px 16px 12px;max-height:60vh;overflow-y:auto;border-top:1px solid var(--line)}
+ .ftoc.open .fl{display:block}
+ body{padding-bottom:52px}
+}
+@media print{.ftoc{display:none}}
 nav.toc{margin-top:26px;border:1px solid var(--line);background:var(--paper);padding:20px clamp(16px,3vw,26px) 18px;font-size:14px}
 nav.toc .toc-h{margin:0 0 12px;font-size:12.5px;font-weight:700;letter-spacing:.14em;color:var(--sub)}
 nav.toc a{border-bottom:0;color:var(--ink);text-decoration:none;display:flex;gap:12px;align-items:baseline;line-height:1.6}
@@ -1484,6 +1511,29 @@ header .sub1{font-size:15px;margin:0 0 18px}
     if(!e.target.closest('.gpop'))close();
   });
   document.addEventListener('keydown',function(e){if(e.key==='Escape')close();});
+})();
+</script>
+<nav class="ftoc" id="ftoc" aria-label="章の一覧">
+  <button type="button" class="fbar" aria-expanded="false" aria-controls="ftoc-list"><span class="fcur"></span><span class="fbtn">目次</span></button>
+  <ol class="fl" id="ftoc-list"><li><a href="#origin"><span class="fn">01</span><span>POOLOの始まり</span></a></li><li><a href="#era"><span class="fn">02</span><span>なぜ、こうした悩みが溢れているのか</span></a></li><li><a href="#travel"><span class="fn">03</span><span>旅をしているとき、人は楽しそうに生きている</span></a></li><li><a href="#return"><span class="fn">04</span><span>帰ってから、旅の続きはどこで起きる？</span></a></li><li><a href="#method"><span class="fn">05</span><span>旅を、自問・対話・共創へつなげる</span></a></li><li><a href="#happen"><span class="fn">06</span><span>8ヶ月で起きること</span></a></li><li><a href="#together"><span class="fn">07</span><span>ひとりではたどり着けない</span></a></li><li><a href="#aim"><span class="fn">08</span><span>POOLOが目指すこと</span></a></li><li class="sep"><a href="#axis"><span class="fn"></span><span>おわりに</span></a></li><li><a href="#closing"><span class="fn"></span><span>参加を考えている人へ</span></a></li><li><a href="#howto"><span class="fn"></span><span>資料編</span></a></li></ol>
+</nav>
+<script>
+(function(){
+  var nav=document.getElementById('ftoc'),bar=nav.querySelector('.fbar'),cur=nav.querySelector('.fcur');
+  var links=[].slice.call(nav.querySelectorAll('.fl a'));
+  var secs=links.map(function(a){return document.getElementById(a.getAttribute('href').slice(1))});
+  var start=document.getElementById('prologue');
+  function upd(){
+    var y=window.innerHeight*0.3,k=-1;
+    secs.forEach(function(s,i){if(s.getBoundingClientRect().top<y)k=i});
+    nav.classList.toggle('on',start.getBoundingClientRect().top<0);
+    links.forEach(function(a,i){a.classList.toggle('cur',i===k);if(i===k)a.setAttribute('aria-current','true');else a.removeAttribute('aria-current')});
+    cur.innerHTML=k<0?'<span>プロローグ</span>':links[k].innerHTML;
+  }
+  bar.addEventListener('click',function(){var o=nav.classList.toggle('open');bar.setAttribute('aria-expanded',o)});
+  links.forEach(function(a){a.addEventListener('click',function(){nav.classList.remove('open');bar.setAttribute('aria-expanded','false')})});
+  var t=0;window.addEventListener('scroll',function(){if(!t){t=requestAnimationFrame(function(){t=0;upd()})}},{passive:true});
+  window.addEventListener('resize',upd);upd();
 })();
 </script>
 </body>
