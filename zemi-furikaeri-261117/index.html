@@ -131,7 +131,8 @@ br.pc-br { display: none; }
 .feel-text > * + * { margin-top: 28px; }
 .feel-body {
   font-family: var(--mincho);
-  font-size: 17px;
+  /* スマホで「そんな方に、参加してほしいと思います。」（19字）が1行に入る大きさ */
+  font-size: min(17px, calc((100vw - 56px) / 19.9));
   line-height: 2.1;
   letter-spacing: 0.04em;
 }
@@ -710,21 +711,21 @@ br.pc-br { display: none; }
   </div>
 </section>
 
-<!-- ===== こんな気持ちの方へ ===== -->
+<!-- ===== はじめに ===== -->
 <section class="feel">
   <div class="in">
     <figure class="feel-photo">
       <img src="images/feel_table_three.jpg" alt="明るい部屋の机を囲んで、話を聞きながら笑っている3人" loading="lazy">
     </figure>
     <div class="feel-text">
-      <h2><img class="lt" src="images/lt-feel.svg" alt="こんな気持ちの方へ" width="448" height="56"></h2>
+      <h2><img class="lt" src="images/lt-hajimeni.svg" alt="はじめに" width="216" height="56"></h2>
       <p class="feel-body">今年<span class="num">1</span>年、どんなことがありましたか。<br>うれしかったこと、悩んだこと、<br class="sp-br">自分で決めたこと。<br>そのとき、何を大切にしていましたか。</p>
       <ul class="feel-list">
         <li><span class="nb">気づけば1年が過ぎていて、</span><span class="nb">何を大切にしてきたのか、</span><span class="nb">はっきりしないまま</span><span class="nb">年末を迎えている</span></li>
         <li><span class="nb">振り返りを毎年やろうと思うけれど、</span><span class="nb">一人だとなかなか進まない</span></li>
         <li><span class="nb">振り返っても、</span><span class="nb">来年にどうつなげればいいのか</span><span class="nb">わからない</span></li>
       </ul>
-      <p class="feel-body">自分が大切にする価値観を<br>丁寧にことばにしていきたい。<br>そんな方に、<br class="sp-br">参加してほしいと思っています。</p>
+      <p class="feel-body">自分が大切にする価値観を<br>丁寧にことばにしていきたい。<br><span class="nb">そんな方に、参加してほしいと思います。</span></p>
     </div>
   </div>
 </section>
