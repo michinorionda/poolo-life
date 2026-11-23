@@ -620,6 +620,27 @@ h2+h3,.h2sub+h3{margin-top:28px}
  section:has(>h2 .n){padding-top:96px}
  h3{font-size:19px;margin-top:52px}
 }
+
+/* 261123 章の絵を題の下に、Aさんの2周目・3周目を開閉式に */
+section>h2+.vision{margin:0 0 40px}
+.journey details.jrd{margin:0;padding:0;border-top:1px solid var(--line)}
+.journey details.jrd>summary{list-style:none;display:grid;grid-template-columns:8em minmax(0,1fr) auto;gap:2px 18px;align-items:baseline;padding:16px 18px;color:var(--ink);font-size:16px}
+.journey details.jrd>summary::-webkit-details-marker{display:none}
+.jrd .sl{font-family:var(--num);font-size:13.5px;color:var(--accent);grid-row:1/3}
+.jrd .sn{font-weight:700}
+.jrd .sw{grid-column:2;font-size:14px;color:var(--sub)}
+.journey details.jrd>summary::after{content:"開く ＋";grid-column:3;grid-row:1/3;align-self:center;font-size:13.5px;color:var(--accent);white-space:nowrap}
+.journey details.jrd[open]>summary::after{content:"閉じる －"}
+.journey details.jrd[open]>summary{border-bottom:0;padding-bottom:4px}
+.journey details.jrd[open] .jr{border-top:0}
+.journey details.jrd[open] .jr .lap{visibility:hidden}
+@media (max-width:720px){
+ .journey details.jrd>summary{grid-template-columns:minmax(0,1fr) auto}
+ .jrd .sl{grid-row:auto}
+ .jrd .sw{grid-column:1}
+ .journey details.jrd>summary::after{grid-column:2;grid-row:1/4}
+ .journey details.jrd[open] .jr .lap{display:none}
+}
 </style>
 </head>
 <body>
@@ -724,7 +745,7 @@ h2+h3,.h2sub+h3{margin-top:28px}
       <h2><span class="n">2</span>なぜ、こうした悩みが溢れているのか</h2>
       <p class="prose">社会が人生の型を用意してくれた時代から、一人ひとりが自分で組み立てる時代に変わってきた。その変わり目にいる今、迷う人が増えている。理由は4つあると考えている。</p>
       <div class="rs">
-        <div class="rs-row"><div class="wfig"><img src="images/wc-fork.jpg" alt="木の道しるべの横で、見上げて考える女性の水彩の絵" loading="lazy"></div><div class="rs-head"><span class="rs-no">1</span><h4>生きる選択肢が増えた</h4></div><p class="rs-body">働き方、住む場所、家族の形。どれも前の世代より選べる幅が広がった。一方で、低成長の時代に入り、決まった型をたどれば報われるとは言えなくなっている。</p><dl class="rs-nums"><div><dt>転職や副業を希望する就業者</dt><dd><b>1,023<small>万人</small></b><br>2025年、2013年以降で最多</dd></div></dl></div>
+        <div class="rs-row"><div class="wfig"><img src="images/wc-fork.jpg" alt="木の道しるべの横で、見上げて考える女性の水彩の絵" loading="lazy"></div><div class="rs-head"><span class="rs-no">1</span><h4>生きる選択肢が増えた</h4></div><p class="rs-body">働き方、住む場所、家族の形。どれも前の世代より選べる幅が広がった。一方で、決まった型をたどれば報われるとは言えなくなっている。</p><dl class="rs-nums"><div><dt>転職や副業を希望する就業者</dt><dd><b>1,023<small>万人</small></b><br>2025年、2013年以降で最多</dd></div></dl></div>
         <div class="rs-row"><div class="wfig"><img src="images/wc-cards.jpg" alt="手に持った3枚のカードを見比べる男性の水彩の絵" loading="lazy"></div><div class="rs-head"><span class="rs-no">2</span><h4>選ばないといけない時代になった</h4></div><p class="rs-body">決める責任は一人ひとりに移った。ところが、受験や就職で使ってきた基準は外から用意されたもので、自分がどう感じたかを聞かれないまま大人になる人が多いと見ている。大学生のころの僕も同じ。</p><dl class="rs-nums"><div><dt>自分自身に満足している若者</dt><dd><b>57.4<small>%</small></b>日本</dd><dd><b>73.8<small>%</small></b>欧米4か国の平均</dd></div></dl></div>
         <div class="rs-row"><div class="wfig"><img src="images/wc-phone.jpg" alt="スマホを見る女性のまわりに、白い吹き出しが浮かんでいる水彩の絵" loading="lazy"></div><div class="rs-head"><span class="rs-no">3</span><h4>答えっぽいものに振り回されている</h4></div><p class="rs-body">「後悔しないキャリアの選び方」や、AIに聞けば返ってくる「向いている仕事」。答えっぽいものはいつでも届く。けれど、自分が何に迷っているのかは、誰も教えてくれない。</p><dl class="rs-nums"><div><dt>生成AIを使ったことがある人</dt><dd><b>26.7<small>%</small></b>1年前は9.1%</dd><dd><b>44.7<small>%</small></b>20代</dd></div></dl></div>
         <div class="rs-row"><div class="wfig"><img src="images/wc-bench.jpg" alt="木のベンチにひとりで座り、カップを持って考えごとをする男性の水彩の絵" loading="lazy"></div><div class="rs-head"><span class="rs-no">4</span><h4>その迷いをひとりで抱えている</h4></div><p class="rs-body">地域・親戚・職場のつながりが薄れ、仕事の損得が関係ない人と本音で話せる相手は、自分から会いにいかないとできなくなった。SNSで人と比べるほど、迷いは口に出しにくくなる。</p><dl class="rs-nums"><div><dt>孤独感がある</dt><dd><b>39.3<small>%</small></b></dd></div><div><dt>社外で学んでいない</dt><dd><b>52.6<small>%</small></b>18か国で最多</dd></div></dl></div>
@@ -744,6 +765,7 @@ h2+h3,.h2sub+h3{margin-top:28px}
     <!-- 3 -->
     <section id="travel">
       <h2><span class="n">3</span>旅をしているとき、人は楽しそうに生きている</h2>
+      <figure class="vision"><img id="img-kobo" src="images/c-tabi.jpg" width="1600" height="1000" alt="カメラを構える人の写真が枠から出ていて、となりに地図を見る旅の女性の水彩の絵がある。左上に英字でTABI。" loading="lazy"></figure>
       <h3>TABIPPOとして見てきたこと</h3>
       <p class="prose">帰国後、僕は「旅で世界を、もっと素敵に。」を掲げるTABIPPOの創業に加わる。TABIPPOは、年間200回以上のイベントや、日本最大級の旅イベントBackpackFESTA（年間約4,500人）を通して、旅を広めてきた。</p>
       <div class="numgrid" aria-label="TABIPPOとPOOLOの数字">
@@ -804,8 +826,6 @@ h2+h3,.h2sub+h3{margin-top:28px}
         <p>内田樹さんと近内悠太さんは、対談『自由より自在に生きる』のなかで、こだわりを手放してその場に応じて動けるあり方を「自在」と呼んでいる。この「自在さ」こそが、旅や対話のなかで自分が変わっていくための鍵になる。</p>
         <p>ここまで挙げてきた3つのスタンスも、すべてはここに向かっている。「自分は悪くない」という正しさ、「失敗したくない」という気持ち、「傷つきたくない」という恐れ。こうした「今の自分を守ろうとするこだわり」から少し離れてみる。すると、相手や場面に応じて自然と動けるようになり、結果として、まだ知らなかった自分に出会っていく。</p>
       </aside>
-
-      <figure class="vision"><img id="img-kobo" src="images/c-tabi.jpg" width="1600" height="1000" alt="カメラを構える人の写真が枠から出ていて、となりに地図を見る旅の女性の水彩の絵がある。左上に英字でTABI。" loading="lazy"></figure>
     </section>
 
     <!-- 4 -->
@@ -841,6 +861,7 @@ h2+h3,.h2sub+h3{margin-top:28px}
     <!-- 5 -->
     <section id="method">
       <h2><span class="n">5</span>旅を、自問・対話・共創へつなげる</h2>
+      <figure class="vision"><img id="img-taiwa" src="images/c-taiwa.jpg" width="1600" height="1000" alt="食べながら話す2人の写真が枠から出ていて、となりにノートに書く旅の女性の水彩の絵がある。左上に英字でTAIWA。" loading="lazy"></figure>
       <p class="key"><button type="button" class="term" data-g="g-2">探究</button>とは、心が動く問いを自分で立て、仲間と分かち合いながら、<br>自分で決めて動きつづけること。</p>
 
       <p class="prose">説明のための人物、Aさんは入社4年目。週末になると「このままでいいのか」と考えて、答えが出ないまま月曜を迎えていた。</p>
@@ -865,8 +886,6 @@ h2+h3,.h2sub+h3{margin-top:28px}
         </div>
       </div>
       <p class="prose">Aさんが順にしたこの4つを、POOLOでは旅・自問・対話・共創と呼び、4つのステップとして8ヶ月のあいだくり返す。</p>
-
-      <figure class="vision"><img id="img-taiwa" src="images/c-taiwa.jpg" width="1600" height="1000" alt="食べながら話す2人の写真が枠から出ていて、となりにノートに書く旅の女性の水彩の絵がある。左上に英字でTAIWA。" loading="lazy"></figure>
 
       <h3>各ステップで何をして、何が得られるか</h3>
       <div class="steps">
@@ -921,6 +940,7 @@ h2+h3,.h2sub+h3{margin-top:28px}
     <!-- 6 -->
     <section id="happen">
       <h2><span class="n">6</span>8ヶ月で起きること</h2>
+      <figure class="vision"><img id="img-tamesu" src="images/c-tamesu.jpg" width="1600" height="1000" alt="身ぶりをまじえて話す人の写真が枠から出ていて、となりにカメラを持つ旅の女性の水彩の絵がある。左上に英字でTAMESU。" loading="lazy"></figure>
 
       <h3 id="m-story">サンプルストーリー：Aさんの8ヶ月</h3>
       <p class="prose">5章で最初の3ヶ月を見たAさんは、そのあと2周して、8ヶ月のあいだに問いをv1.0からv3.1まで書き換えた。図の下に、入学する前のAさんと、いまのAさんを並べた。</p>
@@ -946,6 +966,8 @@ h2+h3,.h2sub+h3{margin-top:28px}
       </div>
       <p class="prose" style="margin-top:18px">1周目（1〜3ヶ月目）は<a href="#m-story1">5章</a>に書いた。ここでは、2周目からを追う。文の終わりの印は、5章と同じく旅的スタンスが出ている場面。</p>
       <div class="journey">
+        <details class="jrd">
+          <summary><span class="sl">4〜6ヶ月目</span><span class="sn">2周目　外にひらく</span><span class="sw">高知へひとりで行った3ヶ月</span></summary>
         <div class="jr">
           <div class="lap"><span>4〜6ヶ月目</span>2周目<small>外にひらく</small></div>
           <div>
@@ -959,6 +981,9 @@ h2+h3,.h2sub+h3{margin-top:28px}
             <p class="nx">次の旅で確かめたいこと：旅先でなくても、平日の暮らしの中で同じ時間はつくれるのか</p>
           </div>
         </div>
+        </details>
+        <details class="jrd">
+          <summary><span class="sl">7〜8ヶ月目</span><span class="sn">3周目　手渡す</span><span class="sw">平日の夜に会をつくった2ヶ月</span></summary>
         <div class="jr">
           <div class="lap"><span>7〜8ヶ月目</span>3周目<small>手渡す</small></div>
           <div>
@@ -972,8 +997,8 @@ h2+h3,.h2sub+h3{margin-top:28px}
             <div class="q"><span class="vn">最終発表</span>v1.0からv3.1まで。誰のどの一言で問いが変わり、誘った相手や誘ってくれた相手が何を面白がり、8ヶ月のあいだに自分で何を決めたか</div>
           </div>
         </div>
+        </details>
       </div>
-      <figure class="vision"><img id="img-tamesu" src="images/c-tamesu.jpg" width="1600" height="1000" alt="身ぶりをまじえて話す人の写真が枠から出ていて、となりにカメラを持つ旅の女性の水彩の絵がある。左上に英字でTAMESU。" loading="lazy"></figure>
       <h3>実際の卒業生に起きたこと</h3>
       <p class="prose">Aさんは説明のための人物。でも、これまでの卒業生には、実際にこんな変化が起きている。移住や独立のような大きな決断は、8ヶ月のあいだに小さく決めることを重ねたあと、卒業してからする人が多い。</p>
       <div class="grads">
@@ -1052,6 +1077,7 @@ h2+h3,.h2sub+h3{margin-top:28px}
     <!-- 8 -->
     <section id="aim">
       <h2><span class="n">8</span>POOLOが目指すこと</h2>
+      <figure class="vision"><img id="img-henka" src="images/c-henka.jpg" width="1600" height="1000" alt="海辺の岩場に座って話す4人の写真が枠から出ていて、となりに地図を見る旅の女性の水彩の絵がある。左上に英字でHENKA。" loading="lazy"></figure>
 
       <h3 id="m-yutaka">行き着く先：豊かさ（ウェルビーイング）＝納得×つながり</h3>
       <p class="prose">Aさんは8ヶ月のあいだに、3つのことを自分で決めた。仲間3人で「予定を入れない半日」をやってみること。高知へひとりで行き、宿の朝の支度を手伝わせてもらうこと。平日の夜に、次の予定を考えない時間をつくり、その時間を人とも過ごすこと。</p>
@@ -1072,8 +1098,6 @@ h2+h3,.h2sub+h3{margin-top:28px}
         <div class="ba-row" role="row"><div class="dim" role="cell">行動</div><div class="bf" role="cell">準備や下調べで止まっている</div><div class="ar" aria-hidden="true">→</div><div class="af" role="cell">怖いままでも、すぐできる大きさで試し、人と分かち合っている</div></div>
         <div class="ba-row" role="row"><div class="dim" role="cell">続け方</div><div class="bf" role="cell">誰かに場を用意されないと、考えが進まない</div><div class="ar" aria-hidden="true">→</div><div class="af" role="cell">卒業後も、自分で問い、話し、試すことを続けられる</div></div>
       </div>
-
-      <figure class="vision"><img id="img-henka" src="images/c-henka.jpg" width="1600" height="1000" alt="海辺の岩場に座って話す4人の写真が枠から出ていて、となりに地図を見る旅の女性の水彩の絵がある。左上に英字でHENKA。" loading="lazy"></figure>
 
       <h3>目指す世界</h3>
       <p class="prose">POOLOが目指すのは、「<button type="button" class="term" data-g="g-1">ご機嫌</button>な世の中」。</p>
