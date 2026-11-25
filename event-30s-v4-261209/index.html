@@ -185,6 +185,8 @@ br.pc-br { display: none; }
 .reason { padding-bottom: 64px; }
 .reason-body { margin-top: 24px; }
 .reason-body p + p { margin-top: 16px; }
+.reason-photo { width: 62%; max-width: 260px; margin: 28px 0 0; }
+.reason-photo img { aspect-ratio: 4 / 5; }
 .overview { padding-block: 64px; }
 .ov { margin-top: 20px; }
 .ov-row { display: grid; grid-template-columns: 70px 1fr; column-gap: 16px; border-top: 1px solid var(--line); padding-block: 14px; }
@@ -336,7 +338,8 @@ br.pc-br { display: none; }
 
   .reason { padding: 0; }
   .reason .in { display: flex; gap: 112px; padding-bottom: 112px; }
-  .reason .h2s { flex: none; width: 360px; }
+  .reason-side { flex: none; width: 360px; }
+  .reason-photo { width: 280px; max-width: none; margin-top: 36px; }
   .reason-body { flex: 1; max-width: 744px; margin-top: 0; }
   .reason-body p + p { margin-top: 20px; }
   .overview, .faq { padding: 0; }
@@ -496,7 +499,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <li><span class="nb">なぜ私は、</span><span class="nb">変化を怖いと感じながらも、</span><span class="nb">今の場所から</span><span class="nb">動きたいと思っているのか。</span></li>
       </ul>
       <div class="q-lines" aria-hidden="true"><span></span><span></span></div>
-      <p class="q-help body"><b>ぼんやりした不安が、<span class="nb">ひとつの問いとして</span><span class="nb">ことばになります。</span></b></p>
+      <p class="q-help body"><b>ぼんやりした不安が、<span class="nb">ひとつの問いとして</span><span class="nb">ことばになる。</span><br>それだけで、<span class="nb">自分のこれからを</span><span class="nb">少しだけ面白がれる</span><span class="nb">ようになります。</span></b></p>
     </div>
   </div>
 </section>
@@ -551,21 +554,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <figure class="voices-photo tilt b"><img src="images/voices_table_talk.jpg" alt="テーブルで手を広げて話している" loading="lazy"></figure>
     <ul class="voice-list">
       <li class="voice">
-        <p class="voice-who">30代前半・体験会参加者</p>
+        <p class="voice-who">30代・体験会参加者</p>
         <span class="vp">参加前</span>
         <p class="quote">「仕事は楽しくやれているが、結婚なども考えた方がいいのか迷う。でも今ある自由な時間を副業とか経験に使いたい気持ちもある。このままでもいいけど、このままでは不安です。」</p>
         <span class="vp">参加後</span>
         <p class="quote">「自分の憧れる生活や経験をしている人も悩んでいる。なかなか友人には話しづらいこともあるけど、この場だから話せることがあるなと思いました。」</p>
       </li>
       <li class="voice">
-        <p class="voice-who">30代前半・体験会参加者</p>
+        <p class="voice-who">30代・体験会参加者</p>
         <span class="vp">参加前</span>
         <p class="quote">「次を決めずに退職をし休んでいるところ、いつまで休むのか次どうするのか、休むって何するのか、などのぐるぐるしている。」</p>
         <span class="vp">参加後</span>
         <p class="quote">「参加の直前に転職活動の軸の整理を考えてたので、軸というのを頭に置きながら参加したのですが、（中略）今この瞬間の自分に素直になりたかったんだなというのを再度思い出しました。近い世代の人と話せたのも良かったです！」</p>
       </li>
       <li class="voice">
-        <p class="voice-who">30代前半・体験会参加者</p>
+        <p class="voice-who">30代・体験会参加者</p>
         <span class="vp">参加前</span>
         <p class="quote">「同じ温度感で話せる人や本質的な部分の理解は得られても、話を丸々受け取ってもらえるってことは少ないのか。共感して一緒に動いてくれる仲間に出会いたいと思っています。」</p>
         <span class="vp">参加後</span>
@@ -597,9 +600,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- ===== 企画者から ===== -->
 <section class="reason off">
   <div class="in">
-    <h2 class="h2s">企画者から</h2>
+    <div class="reason-side">
+      <h2 class="h2s">企画者から</h2>
+      <figure class="reason-photo tilt"><img src="images/planner_michi.jpg" alt="海辺の椅子に座って笑っている恩田倫孝（みっちー）" loading="lazy"></figure>
+    </div>
     <div class="reason-body body">
-      <p>「仕事は回せているけれど、これで合っているんだっけ」という声を、POOLOで出会う30代の方からたくさん聞いてきました。同じ世代と安心して立ち止まれる時間をつくりたくて、この体験会を企画しました。</p>
+      <p>「仕事は回せているけれど、これで合っているんだっけ」という声を、POOLOで出会う30代の方からたくさん聞いてきました。周りの期待に応えて、真面目にやってきた人ほど、自分の気持ちを後回しにしがちだと感じています。</p>
+      <p>答えを急がずに、自分の問いを少し面白がれるようになるきっかけをつくりたくて、この体験会を企画しました。</p>
       <p>オンラインで初対面の人と話すのが初めての方も、運営が進行をサポートします。肩の力を抜いて来てもらえると嬉しいです。</p>
       <p class="sign">あたらしい旅の学校POOLO 代表　恩田倫孝（みっちー）</p>
     </div>
