@@ -377,6 +377,8 @@ br.pc-br { display: none; }
 .feel-list li { position: relative; padding-left: 1em; }
 .feel-list li + li { margin-top: 8px; }
 .feel-list li::before { content: "・"; position: absolute; left: 0; }
+.feel-voice .quote { margin-top: 0; word-break: normal; text-wrap: wrap; }
+.feel-voice .voice-who { margin-top: 8px; }
 .feel-last { font-weight: 700; }
 .q-h { font-family: var(--title); font-weight: 600; font-size: 22px; line-height: 1.7; letter-spacing: 0.04em; color: var(--ink-soft); }
 .q-intro > * + * { margin-top: 12px; }
@@ -451,9 +453,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="date"><div><span class="date-y">2026</span><span class="date-d">12.9</span></div><div><span class="date-w">水曜日</span><span class="date-t">20:00–21:30</span></div></div>
     <p class="cond">参加無料<span class="sep">／</span>Zoom開催（PC推奨）<span class="sep">／</span>先着10名</p>
     <a class="btn" href="https://liff.line.me/2004689256-jVradzOV/landing?follow=%40801pdwhq&amp;lp=HHaFAJ&amp;liff_id=2004689256-jVradzOV" target="_blank" rel="noopener">LINEで席を確保する（1分で完了）</a>
-    <p class="fv-note sp-only">体験会のみの参加もできます。無理な勧誘はありません。<br>公式LINEでZoomのURLとリマインドをお送りします。<br>12/9の都合が合わない方は、<a href="https://liff.line.me/2004689256-jVradzOV/landing?follow=%40801pdwhq&amp;liff_id=2004689256-jVradzOV" target="_blank" rel="noopener">次回開催のお知らせを受け取る</a></p>
+    <p class="fv-note sp-only">体験会のみの参加もできます。<br>公式LINEでZoomのURLとリマインドをお送りします。<br>12/9の都合が合わない方は、<a href="https://liff.line.me/2004689256-jVradzOV/landing?follow=%40801pdwhq&amp;liff_id=2004689256-jVradzOV" target="_blank" rel="noopener">次回開催のお知らせを受け取る</a></p>
   </div>
-  <p class="fv-note pc-only">体験会のみの参加もできます。無理な勧誘はありません。公式LINEでZoomのURLとリマインドをお送りします。<br>12/9の都合が合わない方は、<a href="https://liff.line.me/2004689256-jVradzOV/landing?follow=%40801pdwhq&amp;liff_id=2004689256-jVradzOV" target="_blank" rel="noopener">次回開催のお知らせを受け取る</a></p>
+  <p class="fv-note pc-only">体験会のみの参加もできます。公式LINEでZoomのURLとリマインドをお送りします。<br>12/9の都合が合わない方は、<a href="https://liff.line.me/2004689256-jVradzOV/landing?follow=%40801pdwhq&amp;liff_id=2004689256-jVradzOV" target="_blank" rel="noopener">次回開催のお知らせを受け取る</a></p>
 </section>
 
 <!-- ===== 贅沢な悩み ===== -->
@@ -463,13 +465,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div>
       <h2 class="feel-h"><span class="nb">「贅沢な悩みかも」と思って、</span><br><span class="nb">ずっと飲み込んできた</span><span class="nb">本音はありませんか。</span></h2>
       <div class="feel-text body">
-        <p>社会人になって10年近く。仕事の進め方も、人との距離感も、ひと通りわかってきた。ありがたいことに、今の環境はそこまで悪くない。<br>なのに、日曜の夜や、SNSを閉じたあとに、ことばにならない焦りがふっと湧いてくる。</p>
-        <ul class="feel-list">
-          <li>昔みたいに、仕事に熱中できなくなってきたのは年のせい？</li>
-          <li>同期が転職したり、結婚したり。今のままでも幸せなはずなのに、なぜか焦る</li>
-          <li>キャリアの相談をしたいわけじゃない。ただ、これからどう生きたいのかが分からない</li>
-        </ul>
-        <p>同僚には話しづらい。家族やパートナーに話すと、心配させてしまう。かといって、転職エージェントやコーチングに行くほど、答えを急いでいるわけでもない。だから結局、いつもの日常に戻っていく。</p>
+        <p>社会人になって10年近く。仕事の進め方も、人との距離感も、ひと通りわかってきた。<br>なのに、日曜の夜や、SNSを閉じたあとに、ことばにならない焦りがふっと湧いてくる。</p>
+        <div class="feel-voice">
+          <p class="quote">「これ誰にも言えてなかったんですけど、仕事というものに熱中できなくなってきてしまっている気がしてて、一通り経験して面倒になった？飽きた？昔の方がパフォーマンスもよかった気がする・・年のせい・・？」</p>
+          <p class="voice-who">メーカー・企画開発職／30代・体験会参加者</p>
+        </div>
         <p class="feel-last">この90分は、答えを急がない30代が、一度だけ立ち止まるための時間です。</p>
       </div>
     </div>
@@ -536,7 +536,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="rules-apply">
       <p class="date-line"><span class="num">12/9</span>（水）<span class="num">20:00–21:30</span><br>Zoom開催・参加無料・先着<span class="num">10</span>名</p>
       <a class="btn" href="https://liff.line.me/2004689256-jVradzOV/landing?follow=%40801pdwhq&amp;lp=HHaFAJ&amp;liff_id=2004689256-jVradzOV" target="_blank" rel="noopener">LINEで席を確保する（1分で完了）</a>
-      <p class="small">体験会のみの参加もできます。無理な勧誘はありません。</p>
+      <p class="small">体験会のみの参加もできます。</p>
     </div>
   </div>
 </section>
@@ -646,7 +646,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <section class="apply" id="apply">
   <div class="in">
     <div class="apply-head">
-      <h2 class="h2s"><span class="nb">「いつか考えよう」は、</span><br><span class="nb">きっと来年も、同じまま。</span></h2>
+      <h2 class="h2s"><span class="nb">完璧な条件は</span><br><span class="nb">いつまでも揃わない。</span></h2>
       <div class="apply-msg body"><p>忙しい毎日のなかで、自分の生き方について90分だけ立ち止まる時間は、意識して予定に入れない限り、なかなかやってきません。</p><p style="margin-top:14px">答えは出なくていい。うまく話せなくていい。<br>まずは12月9日、水曜の夜の90分を予定に入れてみませんか。</p></div>
     </div>
     <div class="apply-box">
